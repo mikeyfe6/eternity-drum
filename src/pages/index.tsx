@@ -140,7 +140,7 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>
-        Congratulations
+        Congratulations en nu weer dit dan!
         <br />
         <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
       </h1>
