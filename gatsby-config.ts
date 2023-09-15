@@ -8,6 +8,9 @@ const config: GatsbyConfig = {
 	siteMetadata: {
 		title: `Eternity Percussion`,
 		siteUrl: `https://www.yourdomain.tld`,
+		description: `Eternity Percussion is a competitive indoor percussion ensemble based in the Dallas-Fort Worth area.`,
+		twitterUsername: `@eternityperc`,
+		image: `/images/eternity-logo.png`,
 	},
 	// More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
 	// If you use VSCode you can also use the GraphQL plugin

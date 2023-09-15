@@ -1,0 +1,16 @@
+@import '../configs/globals';
+
+.footer {
+	&-container {
+		background-color: $secondaryColor;
+		width: 100%;
+	}
+
+	&-wrapper {
+		display: flex;
+		flex-direction: column;
+		max-width: 1800px;
+		padding: 1em 2em;
+		margin: 0 auto;
+	}
+}

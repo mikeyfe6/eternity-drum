@@ -1,0 +1,34 @@
+@import '../configs/globals';
+
+.header {
+	&-container {
+		background-color: $primaryColor;
+		color: #fff;
+		width: 100%;
+
+		.menu-container {
+			display: flex;
+			ul {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 20px;
+			}
+		}
+	}
+
+	&-wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		max-width: 1800px;
+		padding: 1em 2em;
+		margin: 0 auto;
+	}
+
+	&-logo {
+		object-fit: cover;
+		height: auto;
+		width: 250px;
+	}
+}
