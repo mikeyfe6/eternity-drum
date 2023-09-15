@@ -49,9 +49,17 @@ export const SEO: React.FC<SEOProps> = ({
 				rel='icon'
 				href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="0.9em" font-size="90">✨</text></svg>'
 			/>
+
+			{/* FONTS */}
 			<link
 				href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap'
 				rel='stylesheet'
+			/>
+
+			{/* ICONS */}
+			<link
+				rel='stylesheet'
+				href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'
 			/>
 
 			{children}

@@ -5,10 +5,14 @@ import { SEO } from '../components/seo';
 
 import Layout from '../components/layout';
 
+import Hero from '../components/hero';
+import Sidebar from '../components/sidebar';
+
 const IndexPage: React.FC<PageProps> = () => {
 	return (
 		<Layout>
 			<>
+				<Hero />
 				<h1>Home Page</h1>
 				<p>Welcome to your new Gatsby site.</p>
 				<br />
@@ -67,6 +71,7 @@ const IndexPage: React.FC<PageProps> = () => {
 					non-characteristic words etc.
 				</p>
 			</>
+			<Sidebar />
 		</Layout>
 	);
 };

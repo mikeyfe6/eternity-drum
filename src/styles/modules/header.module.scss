@@ -2,33 +2,72 @@
 
 .header {
 	&-container {
-		background-color: $primaryColor;
-		color: #fff;
+		color: $tertiaryColor;
 		width: 100%;
+	}
 
-		.menu-container {
+	&-top-banner {
+		width: 100%;
+		background-color: $tertiaryColor;
+
+		&-wrapper {
 			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0.75em 2em;
+			max-width: 1800px;
+			margin: 0 auto;
+
+			p {
+				color: #fff;
+				font-family: $bebasNeue;
+				font-size: 1.3rem;
+				letter-spacing: 2px;
+			}
+
 			ul {
 				display: flex;
-				justify-content: center;
-				align-items: center;
-				gap: 20px;
+				gap: 10px;
 			}
 		}
 	}
 
 	&-wrapper {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		max-width: 1800px;
-		padding: 1em 2em;
-		margin: 0 auto;
-	}
+		.header-menu {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 125px;
+		}
 
-	&-logo {
-		object-fit: cover;
-		height: auto;
-		width: 250px;
+		.menu-items {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0;
+			margin: 0;
+			gap: 25px;
+
+			li {
+				a {
+					font-size: 1.3rem;
+					font-family: $bebasNeue;
+					letter-spacing: 1px;
+					padding: 0.5em 0.5em 0.35em;
+					display: flex;
+
+					&:hover:not(.ep-logo) {
+						color: white;
+						background: $tertiaryColor;
+					}
+				}
+			}
+		}
+
+		.ep-logo {
+			text-align: center;
+			height: auto;
+			width: 250px;
+		}
 	}
 }
