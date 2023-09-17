@@ -1,0 +1,14 @@
+@import '../configs/globals';
+
+.cta-container {
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	display: flex;
+	gap: 15px;
+
+	button {
+		@include buttonStyle;
+	}
+}

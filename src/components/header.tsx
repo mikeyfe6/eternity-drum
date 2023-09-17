@@ -5,7 +5,6 @@ import { StaticImage } from 'gatsby-plugin-image';
 import * as styles from '../styles/modules/header.module.scss';
 
 const Header: React.FC = () => {
-	// Define the GraphQL query to retrieve author data
 	const data = useStaticQuery(graphql`
 		query {
 			contentfulAuthor {
@@ -40,13 +39,23 @@ const Header: React.FC = () => {
 				<nav className={styles.headerMenu}>
 					<ul className={styles.menuItems}>
 						<li>
-							<Link to='/'>Home</Link>
+							<Link to='/' activeClassName={styles.activeMenuItem}>
+								Home
+							</Link>
 						</li>
 						<li>
-							<Link to='/boeken/'>Boeken</Link>
+							<Link to='/boeken/' activeClassName={styles.activeMenuItem}>
+								Boeken
+							</Link>
 						</li>
 						<li>
-							<Link to='/drumworkshops/'>Drumworkshops</Link>
+							<Link
+								to='/drumworkshops/'
+								activeClassName={styles.activeMenuItem}
+								partiallyActive={true}
+							>
+								Drumworkshops
+							</Link>
 						</li>
 						<li>
 							<a href='#'>Cultuureducatie</a>

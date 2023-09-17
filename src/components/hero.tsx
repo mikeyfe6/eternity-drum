@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
 	};
 
 	return (
-		<div className='swiper-container'>
+		<section className='swiper-container'>
 			<Swiper
 				// install Swiper modules
 				modules={[Navigation, Pagination, Scrollbar, A11y, Parallax, Autoplay]}
@@ -84,10 +84,10 @@ const Hero: React.FC = () => {
 					<svg viewBox='0 0 48 48' ref={progressCircle}>
 						<circle cx='24' cy='24' r='20'></circle>
 					</svg>
-					<span ref={progressContent}></span>
+					<span ref={progressContent} hidden></span>
 				</div>
 			</Swiper>
-		</div>
+		</section>
 	);
 };
 

@@ -38,6 +38,22 @@
 			justify-content: center;
 			align-items: center;
 			height: 125px;
+
+			&::before {
+				content: '·';
+				margin-right: 25px;
+				margin-bottom: 5px;
+				color: $secondaryColor;
+				font-size: 5em;
+			}
+
+			&::after {
+				content: '·';
+				margin-left: 25px;
+				margin-bottom: 5px;
+				color: $secondaryColor;
+				font-size: 5em;
+			}
 		}
 
 		.menu-items {
@@ -55,11 +71,17 @@
 					letter-spacing: 1px;
 					padding: 0.5em 0.5em 0.35em;
 					display: flex;
+					border: transparent solid 2px;
 
-					&:hover:not(.ep-logo) {
+					&:hover:not(.ep-logo, .activeMenuItem) {
 						color: white;
 						background: $tertiaryColor;
 					}
+				}
+
+				.activeMenuItem {
+					color: tertiaryColor;
+					background: $secondaryColor;
 				}
 			}
 		}

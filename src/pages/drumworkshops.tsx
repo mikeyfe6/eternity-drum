@@ -11,11 +11,10 @@ import Sidebar from '../components/sidebar';
 const DrumworkshopsPage: React.FC<PageProps> = () => {
 	return (
 		<Layout>
-			<>
-				<Hero />
-				<h1>Drumworkshops</h1>
-				<p>Welcome to your new Gatsby site.</p>
-			</>
+			<Hero />
+			<h1>Drumworkshops</h1>
+			<p>Welcome to your new Gatsby site.</p>
+
 			<Sidebar />
 		</Layout>
 	);
