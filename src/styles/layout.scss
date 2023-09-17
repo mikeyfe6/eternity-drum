@@ -1,4 +1,13 @@
 @import 'configs/resets';
+@import 'configs/globals';
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root {
+	--swiper-theme-color: #f6ce0e !important;
+	--swiper-scrollbar-drag-bg-color: #f6ce0e !important;
+	--swiper-pagination-color: #181a37 !important;
+}
 
 html,
 body,
@@ -22,17 +31,25 @@ body {
 	display: flex;
 	flex: 1;
 	max-width: 1800px;
-	padding: 2em;
+	padding: 0 2em 2em;
+	width: 100%;
 	margin: 0 auto;
-	gap: 20px;
 
 	main {
 		flex: 7; /* 70% of the available space */
 		/* Add any other styles for the main content */
+		width: 100%;
 	}
 
 	aside {
 		flex: 3; /* 30% of the available space */
 		/* Add any other styles for the sidebar */
+		width: 100%;
 	}
+}
+
+h1 {
+	font-family: $bebasNeue;
+	font-size: 5rem;
+	margin-bottom: 0.25em;
 }

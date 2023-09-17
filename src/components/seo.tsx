@@ -15,7 +15,7 @@ export const SEO: React.FC<SEOProps> = ({
 	children,
 }: SEOProps) => {
 	const {
-		title: defaultTitle,
+		title: siteTitle,
 		description: defaultDescription,
 		image,
 		siteUrl,
@@ -23,7 +23,7 @@ export const SEO: React.FC<SEOProps> = ({
 	} = useSiteMetadata();
 
 	const seo = {
-		title: title ?? defaultTitle,
+		title: title ? `${title} · ${siteTitle}` : siteTitle,
 		description: description ?? defaultDescription,
 		image: `${siteUrl}${image}`,
 		url: `${siteUrl}${pathname ?? ''}`,
@@ -59,8 +59,10 @@ export const SEO: React.FC<SEOProps> = ({
 			{/* ICONS */}
 			<link
 				rel='stylesheet'
-				href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'
+				href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css'
 			/>
+
+			{/* SCRIPTS */}
 
 			{children}
 		</>

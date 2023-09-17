@@ -1,26 +1,92 @@
-import * as React from 'react';
-// import { graphql, useStaticQuery } from 'gatsby';
-// import { StaticImage } from 'gatsby-plugin-image';
+import React, { useRef } from 'react';
 
-import * as styles from '../styles/modules/hero.module.scss';
+// import Swiper core and required modules
+import {
+	Navigation,
+	Pagination,
+	Scrollbar,
+	A11y,
+	Parallax,
+	Autoplay,
+} from 'swiper/modules';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import '../styles/swiper.scss';
+
+// Import Swiper styles
+import 'swiper/scss';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
+import 'swiper/scss/scrollbar';
+import 'swiper/scss/parallax';
+import 'swiper/scss/autoplay';
 
 const Hero: React.FC = () => {
-	// Define the GraphQL query to retrieve author data
-	// const data = useStaticQuery(graphql`
-	// 	query {
-	// 		contentfulAuthor {
-	// 			naam
-	// 		}
-	// 	}
-	// `);
+	const progressCircle = useRef<SVGSVGElement | null>(null);
+	const progressContent = useRef<HTMLSpanElement | null>(null);
 
-	// const author = data.contentfulAuthor;
+	const onAutoplayTimeLeft = (s: any, time: any, progress: any) => {
+		progressCircle.current?.style.setProperty(
+			'--progress',
+			String(1 - progress)
+		);
 
-	// console.log(author);
+		if (progressContent.current) {
+			progressContent.current.textContent = `${Math.ceil(time / 1000)}`;
+		}
+	};
 
 	return (
-		<div>
-			<img src='https://dummyimage.com/1920x1080/808080/fff' alt='' />
+		<div className='swiper-container'>
+			<Swiper
+				// install Swiper modules
+				modules={[Navigation, Pagination, Scrollbar, A11y, Parallax, Autoplay]}
+				spaceBetween={0}
+				slidesPerView={1}
+				centeredSlides={true}
+				navigation
+				pagination={{
+					clickable: true,
+				}}
+				scrollbar={{
+					draggable: true,
+				}}
+				parallax={true}
+				autoplay={{
+					delay: 5000,
+					disableOnInteraction: false,
+				}}
+				onAutoplayTimeLeft={onAutoplayTimeLeft}
+				// onSwiper={(swiper) => console.log(swiper)}
+				// onSlideChange={() => console.log('slide change')}
+			>
+				<SwiperSlide>
+					<img
+						src='https://eternitydrum.com/wp-content/uploads/2016/05/fttt.jpg'
+						alt=''
+					/>
+				</SwiperSlide>
+				<SwiperSlide>
+					<img src='https://dummyimage.com/1920x1080/808080/fff' alt='' />
+				</SwiperSlide>
+				<SwiperSlide>
+					<img
+						src='https://eternitydrum.com/wp-content/uploads/2016/05/fttt.jpg'
+						alt=''
+					/>
+				</SwiperSlide>
+				<SwiperSlide>
+					<img src='https://dummyimage.com/1920x1080/808080/fff' alt='' />
+				</SwiperSlide>
+
+				<div className='autoplay-progress' slot='container-end'>
+					<svg viewBox='0 0 48 48' ref={progressCircle}>
+						<circle cx='24' cy='24' r='20'></circle>
+					</svg>
+					<span ref={progressContent}></span>
+				</div>
+			</Swiper>
 		</div>
 	);
 };

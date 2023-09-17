@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import * as styles from '../styles/modules/header.module.scss';
@@ -40,13 +40,13 @@ const Header: React.FC = () => {
 				<nav className={styles.headerMenu}>
 					<ul className={styles.menuItems}>
 						<li>
-							<a href='#'>Home</a>
+							<Link to='/'>Home</Link>
 						</li>
 						<li>
-							<a href='#'>Boeken</a>
+							<Link to='/boeken/'>Boeken</Link>
 						</li>
 						<li>
-							<a href='#'>Drumworkshops</a>
+							<Link to='/drumworkshops/'>Drumworkshops</Link>
 						</li>
 						<li>
 							<a href='#'>Cultuureducatie</a>

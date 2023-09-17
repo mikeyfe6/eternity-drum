@@ -22,7 +22,7 @@ const config: GatsbyConfig = {
 			options: {
 				accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 				spaceId: process.env.CONTENTFUL_SPACE_ID,
-				host: `preview.contentful.com`,
+				host: process.env.CONTENTFUL_HOST,
 			},
 		},
 		'gatsby-plugin-image',
