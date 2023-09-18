@@ -1,3 +1,90 @@
+@import '../configs/globals';
+
 .actual-container {
 	margin: 2em 0;
+
+	> h2 {
+		text-align: center;
+	}
+
+	> ul {
+		display: flex;
+		justify-content: center;
+		gap: 2.5em;
+
+		li {
+			border: solid 2px rgba(128, 128, 128, 0.5);
+			border-radius: 15px;
+			overflow: hidden;
+			max-width: 375px;
+			box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+				rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+			transition: all 0.1s ease-in-out;
+			position: relative;
+
+			&:hover {
+				border: solid 2px $tertiaryColor;
+			}
+
+			img {
+				width: 100%;
+				border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+				height: 300px;
+				object-fit: contain;
+			}
+
+			div {
+				padding: 1em;
+
+				span {
+					position: absolute;
+					top: 15px;
+					right: 15px;
+					background-color: $primaryColor;
+					color: white;
+					padding: 0.25em 0.5em;
+					border-radius: 5px;
+				}
+
+				> a {
+					color: $tertiaryColor;
+
+					h3 {
+						display: inline;
+						display: -webkit-box;
+						// max-width: 95%;
+						-webkit-line-clamp: 2;
+						-webkit-box-orient: vertical;
+						overflow: hidden;
+						min-height: 3em;
+						// margin: 1em 0 2em;
+						// font-size: 1.05rem;
+					}
+				}
+
+				p {
+					display: -webkit-box;
+					max-width: 95%;
+					-webkit-line-clamp: 3;
+					-webkit-box-orient: vertical;
+					overflow: hidden;
+					margin: 0 0 2em;
+					font-size: 1.05rem;
+				}
+
+				hr {
+					height: 3px;
+					border-width: 0;
+					color: rgba(128, 128, 128, 0.25);
+					background-color: rgba(128, 128, 128, 0.25);
+					margin: 1em 0;
+				}
+
+				time {
+					float: right;
+					font-size: 0.9rem;
+				}
+			}
+		}
+	}
 }

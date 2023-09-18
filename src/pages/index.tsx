@@ -10,6 +10,7 @@ import CtaButtons from '../components/cta';
 import Sidebar from '../components/sidebar';
 import Actualiteiten from '../components/actual';
 import Partners from '../components/partners';
+import WhiteSpace from '../components/whitespace';
 
 import * as styles from '../styles/modules/index.module.scss';
 
@@ -32,8 +33,11 @@ const IndexPage: React.FC<PageProps> = () => {
 					bekwamen.
 				</p>
 			</section>
+			<WhiteSpace />
 			<Sidebar />
+			<WhiteSpace />
 			<Actualiteiten />
+			<WhiteSpace />
 			<Partners />
 		</Layout>
 	);

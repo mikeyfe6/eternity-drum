@@ -19,6 +19,7 @@ body,
 
 body {
 	font-family: 'Open Sans', sans-serif;
+	color: $blackColor;
 }
 
 .eternity-container {
@@ -48,8 +49,29 @@ body {
 	}
 }
 
+.space-divider {
+	height: 50px;
+	width: 100%;
+}
+
 h1 {
 	font-family: $bebasNeue;
 	font-size: 5rem;
 	margin-bottom: 0.25em;
+}
+
+h2 {
+	font-family: $bebasNeue;
+	font-size: 3rem;
+	margin-bottom: 0.5em;
+}
+
+h3 {
+	font-family: $bebasNeue;
+	font-size: 1.5rem;
+	margin-bottom: 0.25em;
+}
+
+p {
+	font-size: 1.1rem;
 }

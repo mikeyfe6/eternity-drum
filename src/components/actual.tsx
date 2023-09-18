@@ -1,13 +1,27 @@
 import * as React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
+
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import * as styles from '../styles/modules/actual.module.scss';
 
 interface Post {
-	contentful_id: string;
 	title: string;
+	slug: string;
+	contentful_id: string;
 	postType: boolean;
 	publishedDate: string;
+	featuredImage: {
+		description: string;
+		url: string;
+		title: string;
+	};
+	content: {
+		raw: any;
+	};
+	excerpt: {
+		excerpt: string;
+	};
 }
 
 const Actualiteiten: React.FC = () => {
@@ -28,7 +42,11 @@ const Actualiteiten: React.FC = () => {
 					publishedDate
 					title
 					tags
+					excerpt {
+						excerpt
+					}
 					contentful_id
+					slug
 				}
 			}
 		}
@@ -40,18 +58,37 @@ const Actualiteiten: React.FC = () => {
 
 	return (
 		<section className={styles.actualContainer}>
+			<h2>Actualiteiten</h2>
 			<ul>
-				{posts.map(({ title, contentful_id, postType, publishedDate }) => (
-					<li key={contentful_id}>
-						<h2>{title}</h2>
-						{postType ? (
-							<p>This is a special NEWS type.</p>
-						) : (
-							<p>This is a regular BLOG type.</p>
-						)}
-						<time>{publishedDate}</time>
-					</li>
-				))}
+				{posts.map(
+					({
+						title,
+						contentful_id,
+						postType,
+						publishedDate,
+						content,
+						featuredImage,
+						excerpt,
+						slug,
+					}) => (
+						<li key={contentful_id}>
+							<Link to={`${slug}`}>
+								<img src={featuredImage.url} alt={featuredImage.title} />
+							</Link>
+							<div>
+								<Link to={`${slug}`}>
+									<h3>{title}</h3>
+								</Link>
+								{postType ? <span>NEWS</span> : <span>BLOG</span>}
+								<p>{excerpt.excerpt}</p>
+								<hr />
+								<time>{publishedDate}</time>
+								<a href={slug}>Lees meer...</a>
+								{/* <div>{documentToReactComponents(JSON.parse(content.raw))}</div> */}
+							</div>
+						</li>
+					)
+				)}
 			</ul>
 		</section>
 	);

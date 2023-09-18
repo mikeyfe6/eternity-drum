@@ -2,13 +2,14 @@
 
 .header {
 	&-container {
-		color: $tertiaryColor;
+		color: $primaryColor;
 		width: 100%;
 	}
 
 	&-top-banner {
 		width: 100%;
-		background-color: $tertiaryColor;
+		background-color: $primaryColor;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
 
 		&-wrapper {
 			display: flex;
@@ -75,7 +76,7 @@
 
 					&:hover:not(.ep-logo, .activeMenuItem) {
 						color: white;
-						background: $tertiaryColor;
+						background: $primaryColor;
 					}
 				}
 

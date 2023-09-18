@@ -1,3 +1,9 @@
 .homepage-container {
 	position: relative;
+
+	> p {
+		width: 75ch;
+		font-size: 1.3rem;
+		line-height: 2rem;
+	}
 }

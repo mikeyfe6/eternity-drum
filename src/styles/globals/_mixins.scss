@@ -1,5 +1,5 @@
 @mixin buttonStyle {
-	background-color: $tertiaryColor;
+	background-color: $primaryColor;
 	border: none;
 	color: white;
 	cursor: pointer;
@@ -17,12 +17,12 @@
 	}
 
 	&.specialButton {
-		background-color: $secondaryColor;
-		color: $tertiaryColor;
+		background-color: $tertiaryColor;
+		color: white;
 
 		&:hover {
-			color: white;
-			background-color: $primaryColor;
+			color: $secondaryColor;
+			background-color: $tertiaryColor;
 		}
 	}
 }
