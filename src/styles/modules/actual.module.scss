@@ -10,7 +10,7 @@
 	> ul {
 		display: flex;
 		justify-content: center;
-		gap: 2.5em;
+		gap: 3em;
 
 		li {
 			border: solid 1px rgba(128, 128, 128, 0.5);
@@ -30,7 +30,7 @@
 				width: 100%;
 				border-bottom: 1px solid rgba(128, 128, 128, 0.25);
 				height: 300px;
-				object-fit: contain;
+				object-fit: cover;
 			}
 
 			div {
@@ -52,13 +52,10 @@
 					h3 {
 						display: inline;
 						display: -webkit-box;
-						// max-width: 95%;
 						-webkit-line-clamp: 2;
 						-webkit-box-orient: vertical;
 						overflow: hidden;
 						min-height: 3em;
-						// margin: 1em 0 2em;
-						// font-size: 1.05rem;
 					}
 				}
 

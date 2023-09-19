@@ -152,15 +152,15 @@ const Footer = () => {
 						</div>
 						<br />
 						<br />
-						<div className={styles.footerLogoSocials}>
+						<div className={styles.footerLogoSocial}>
 							<img
 								src='https://eternitydrum.com/wp-content/uploads/brizy/imgs/LOGO-EP-1-256x222x0x16x256x190x1540867957.png'
 								alt=''
 								className={styles.footerLogo}
 							/>
-							<div className={styles.footerSocials}>
+							<div>
 								<h4> Volg onze socials..</h4>
-								<ul className={styles.footerSocialsIcons}>
+								<ul className={styles.footerSocialIcons}>
 									<li>
 										<a href='https://www.facebook.com/eternitypercussion'>
 											<i className='fab fa-facebook fa-inverse' />

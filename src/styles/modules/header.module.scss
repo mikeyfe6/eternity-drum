@@ -87,7 +87,7 @@
 					padding: 0.5em 0.5em 0.35em;
 					display: flex;
 
-					&:hover:not(.ep-logo, .activeMenuItem) {
+					&:hover:not(.ep-logo, .active-menu-item) {
 						color: white;
 						background: $primaryColor;
 					}
@@ -97,7 +97,7 @@
 					display: block;
 				}
 
-				.activeMenuItem {
+				.active-menu-item {
 					color: tertiaryColor;
 					background: $secondaryColor;
 				}
@@ -112,6 +112,10 @@
 							font-size: 0.75rem;
 							vertical-align: middle;
 							color: $secondaryColor;
+						}
+
+						&.active-menu-item::after {
+							color: $primaryColor;
 						}
 					}
 				}

@@ -80,20 +80,18 @@
 		}
 	}
 
-	&-logo-socials {
+	&-logo-social {
 		display: flex;
 		gap: 20px;
 	}
 
-	&-socials {
-		&-icons {
-			display: flex;
+	&-social-icons {
+		display: flex;
 
-			li {
-				a {
-					i {
-						font-size: 1.5rem;
-					}
+		li {
+			a {
+				i {
+					font-size: 1.5rem;
 				}
 			}
 		}
