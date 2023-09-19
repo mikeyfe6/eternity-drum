@@ -1,22 +1,44 @@
 import * as React from 'react';
 
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import * as styles from '../styles/modules/header.module.scss';
 
 const Header: React.FC = () => {
-	const data = useStaticQuery(graphql`
-		query {
-			contentfulAuthor {
-				naam
+	const [isHeaderFixed, setIsHeaderFixed] = React.useState(false);
+
+	// const data = useStaticQuery(graphql`
+	// 	query {
+	// 		contentfulAuthor {
+	// 			naam
+	// 		}
+	// 	}
+	// `);
+
+	// const author = data.contentfulAuthor;
+
+	React.useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY > 46) {
+				setIsHeaderFixed(true);
+			} else {
+				setIsHeaderFixed(false);
 			}
-		}
-	`);
+		};
 
-	const author = data.contentfulAuthor;
+		const debouncedHandleScroll = debounce(handleScroll, 10);
 
-	console.log(author);
+		window.addEventListener('scroll', debouncedHandleScroll);
+
+		return () => {
+			window.removeEventListener('scroll', debouncedHandleScroll);
+		};
+	}, []);
+
+	const menuSwitchClass = isHeaderFixed
+		? `${styles.headerMenu} ${styles.fixedMenu}`
+		: styles.headerMenu;
 
 	return (
 		<header className={styles.headerContainer}>
@@ -37,7 +59,8 @@ const Header: React.FC = () => {
 						</ul>
 					</div>
 				</div>
-				<nav className={styles.headerMenu}>
+				{isHeaderFixed && <div style={{ height: '125px' }} />}
+				<nav className={menuSwitchClass}>
 					<ul className={styles.menuItems}>
 						<li>
 							<Link to='/' activeClassName={styles.activeMenuItem}>
@@ -88,3 +111,11 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
+const debounce = (func: Function, wait: number) => {
+	let timeout: number;
+	return function (...args: any[]) {
+		clearTimeout(timeout);
+		timeout = window.setTimeout(() => func(...args), wait);
+	};
+};
