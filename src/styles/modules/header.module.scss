@@ -78,14 +78,14 @@
 			margin: 0;
 			gap: 25px;
 
-			li {
-				a {
+			> li {
+				position: relative;
+				> a {
 					font-size: 1.3rem;
 					font-family: $bebasNeue;
 					letter-spacing: 1px;
 					padding: 0.5em 0.5em 0.35em;
 					display: flex;
-					border: transparent solid 2px;
 
 					&:hover:not(.ep-logo, .activeMenuItem) {
 						color: white;
@@ -93,9 +93,56 @@
 					}
 				}
 
+				&:hover > ul {
+					display: block;
+				}
+
 				.activeMenuItem {
 					color: tertiaryColor;
 					background: $secondaryColor;
+				}
+
+				&:has(ul) {
+					> a {
+						display: block;
+
+						&::after {
+							content: '▼';
+							margin-left: 5px;
+							font-size: 0.75rem;
+							vertical-align: middle;
+							color: $secondaryColor;
+						}
+					}
+				}
+
+				> ul {
+					display: none;
+					position: absolute;
+					z-index: 2;
+					left: 50%;
+					transform: translateX(-50%);
+					padding-top: 23px;
+
+					> li {
+						background: white;
+
+						> a {
+							font-size: 1.2rem;
+							font-family: $bebasNeue;
+							letter-spacing: 1px;
+							padding: 0.75em 0.75em 0.675em;
+							display: flex;
+							justify-content: center;
+							text-align: center;
+							min-width: max-content;
+
+							&:hover {
+								color: white;
+								background: $primaryColor;
+							}
+						}
+					}
 				}
 			}
 		}

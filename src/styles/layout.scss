@@ -17,6 +17,10 @@ body,
 	margin: 0;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	font-family: 'Open Sans', sans-serif;
 	color: $blackColor;
@@ -72,6 +76,16 @@ h3 {
 	margin-bottom: 0.25em;
 }
 
+h4 {
+	font-size: 1.25rem;
+	margin-bottom: 0.25em;
+	font-weight: 600;
+}
+
 p {
 	font-size: 1.1rem;
+}
+
+strong {
+	font-weight: 600;
 }

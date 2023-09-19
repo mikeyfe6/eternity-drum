@@ -1,17 +1,192 @@
 // src/components/Footer.js
-import React from 'react';
+import * as React from 'react';
+import { Link } from 'gatsby';
+
+import axios from 'axios';
 
 import * as styles from '../styles/modules/footer.module.scss';
 
 const Footer = () => {
+	// Define a single state object to manage all form fields
+	const [formData, setFormData] = React.useState({
+		name: '',
+		email: '',
+	});
+
+	// Handle changes in the form fields
+	const handleInputChange = (event: { target: { name: any; value: any } }) => {
+		const { name, value } = event.target;
+		setFormData({
+			...formData,
+			[name]: value,
+		});
+	};
+
+	// Handle form submission
+	const handleSubmit = (event: { preventDefault: () => void }) => {
+		event.preventDefault();
+
+		// Check if name and email are not empty
+		if (formData.name.trim() === '' || formData.email.trim() === '') {
+			alert('Please fill in both name and email fields.');
+			return;
+		}
+
+		// Send a POST request to your server or Netlify function
+		axios
+			.post('/.netlify/functions/sendmail', formData)
+			.then((response) => {
+				// Handle successful form submission (e.g., show a success message)
+				console.log('Form submitted successfully:', response.data);
+			})
+			.catch((error) => {
+				// Handle form submission errors (e.g., show an error message)
+				console.error('Form submission error:', error);
+			});
+
+		// Clear the form fields after submission
+		setFormData({
+			name: '',
+			email: '',
+		});
+	};
+
 	return (
 		<footer className={styles.footerContainer}>
 			<div className={styles.footerWrapper}>
-				<img
-					src='https://eternitydrum.com/wp-content/uploads/brizy/imgs/LOGO-EP-1-256x222x0x16x256x190x1540867957.png'
-					alt=''
-					className={styles.footerLogo}
-				/>
+				<div className={styles.footerUpperBanner}>
+					<div>
+						<h4>Contactgegevens</h4>
+						<ul>
+							<li>
+								<strong>Stichting Eternity Percussion</strong>
+							</li>
+							<li>Anton de Komplein 240</li>
+							<li>1104 DR Amsterdam</li>
+							<br />
+							<li>
+								<i className='fas fa-phone' />
+								<a href='tel:0612345678'>
+									{' '}
+									<strong>0612345678</strong>
+								</a>
+							</li>
+							<li>
+								<i className='fas fa-envelope' />
+								<a href='mailto:info@eternitydrum.com'>
+									{' '}
+									<strong>info@eternitydrum.com</strong>
+								</a>
+							</li>
+							<br />
+							<li>
+								<strong>KvK:</strong> 34284743
+							</li>
+							<li>
+								<strong>BTW:</strong> NL818556286B01
+							</li>
+						</ul>
+					</div>
+					<div>
+						<h4>Recente Posts</h4>
+						<ul>
+							<li>
+								<Link to='/drumworkshops/'>Sankofa Academy</Link>
+							</li>
+							<li>
+								<Link to='/drumworkshops/'>Summerschool 2022</Link>
+							</li>
+							<li>
+								<Link to='/drumworkshops/'>Summerschool 2023</Link>
+							</li>
+						</ul>
+						<br /> <br />
+						<h4>Aankomende Evenementen</h4>
+						<ul>
+							<li>
+								<Link to='/drumworkshops/'>
+									Optreden 1 @ Bijlmer Parktheater
+								</Link>
+							</li>
+							<li>
+								<Link to='/drumworkshops/'>Optreden 2 @ Almere</Link>
+							</li>
+							<li>
+								<Link to='/drumworkshops/'>Optreden 3 @ Amsterdam</Link>
+							</li>
+							<li>
+								<Link to='/drumworkshops/'>Concert 1 @ Nijmegen</Link>
+							</li>
+							<li>
+								<Link to='/drumworkshops/'>Uitwisseling 1 @ Breda</Link>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<div className={styles.footerNewsletter}>
+							<form onSubmit={handleSubmit}>
+								<fieldset>
+									<legend>Schrijf je in voor onze nieuwsbrief</legend>
+									<br />
+									<label>
+										Naam:
+										<input
+											type='text'
+											name='name'
+											value={formData.name}
+											onChange={handleInputChange}
+										/>
+									</label>
+									<label>
+										E-mail:
+										<input
+											type='email'
+											name='email'
+											value={formData.email}
+											onChange={handleInputChange}
+										/>
+									</label>
+								</fieldset>
+								<button type='submit'>Schrijf in</button>
+							</form>
+						</div>
+						<br />
+						<br />
+						<div className={styles.footerLogoSocials}>
+							<img
+								src='https://eternitydrum.com/wp-content/uploads/brizy/imgs/LOGO-EP-1-256x222x0x16x256x190x1540867957.png'
+								alt=''
+								className={styles.footerLogo}
+							/>
+							<div className={styles.footerSocials}>
+								<h4> Volg onze socials..</h4>
+								<ul className={styles.footerSocialsIcons}>
+									<li>
+										<a href='https://www.facebook.com/eternitypercussion'>
+											<i className='fab fa-facebook fa-inverse' />
+										</a>
+									</li>
+									<li>
+										<a href='https://www.facebook.com/eternitypercussion'>
+											<i className='fab fa-instagram fa-inverse' />
+										</a>
+									</li>
+									<li>
+										<a href='https://www.facebook.com/eternitypercussion'>
+											<i className='fab fa-youtube fa-inverse' />
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className={styles.footerBottomBanner}>
+					<span>
+						© 2002 – 2021 Eternity Percussion | Powered by
+						<strong>Menefex</strong>
+					</span>
+				</div>
 			</div>
 		</footer>
 	);

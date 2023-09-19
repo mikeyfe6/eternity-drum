@@ -48,13 +48,13 @@ const Header: React.FC = () => {
 						<p>The Leaders of Tomorrow</p>
 						<ul>
 							<li>
-								<i className='fab fa-facebook fa-inverse'></i>
+								<i className='fab fa-facebook fa-inverse' />
 							</li>
 							<li>
-								<i className='fab fa-instagram fa-inverse'></i>
+								<i className='fab fa-instagram fa-inverse' />
 							</li>
 							<li>
-								<i className='fab fa-youtube fa-inverse'></i>
+								<i className='fab fa-youtube fa-inverse' />
 							</li>
 						</ul>
 					</div>
@@ -80,6 +80,35 @@ const Header: React.FC = () => {
 							>
 								Drumworkshops
 							</Link>
+							<ul>
+								<li>
+									<Link
+										to='/sankofa-academy/'
+										activeClassName={styles.activeMenuItem}
+										partiallyActive={true}
+									>
+										Sankofa Academy
+									</Link>
+								</li>
+								<li>
+									<Link
+										to='/summerschool-2022/'
+										activeClassName={styles.activeMenuItem}
+										partiallyActive={true}
+									>
+										Eternity Summerschool 2022
+									</Link>
+								</li>
+								<li>
+									<Link
+										to='/summerschool-2023/'
+										activeClassName={styles.activeMenuItem}
+										partiallyActive={true}
+									>
+										Eternity Summerschool 2023
+									</Link>
+								</li>
+							</ul>
 						</li>
 						<li>
 							<a href='#'>Cultuureducatie</a>
