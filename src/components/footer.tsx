@@ -183,7 +183,7 @@ const Footer = () => {
 				</div>
 				<div className={styles.footerBottomBanner}>
 					<span>
-						© 2002 – 2021 Eternity Percussion | Powered by
+						© 2002 – 2021 Eternity Percussion | Powered by{' '}
 						<strong>Menefex</strong>
 					</span>
 				</div>
