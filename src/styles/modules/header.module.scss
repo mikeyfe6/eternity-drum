@@ -89,6 +89,7 @@
 
 			> li {
 				position: relative;
+
 				> a {
 					font-size: 1.3rem;
 					font-family: $bebasNeue;
@@ -135,7 +136,7 @@
 					z-index: 2;
 					left: 50%;
 					transform: translateX(-50%);
-					padding-top: 23px;
+					padding-top: 12.5px;
 
 					> li {
 						background: white;

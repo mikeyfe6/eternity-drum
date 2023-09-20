@@ -142,13 +142,16 @@ const Header: React.FC = () => {
 							<Link
 								to='/drumworkshops/'
 								activeClassName={styles.activeMenuItem}
-								partiallyActive={true}
 							>
-								Drumworkshops
+								Media
 							</Link>
 						</li>
 						<li>
-							<Link to='/over-ons/' activeClassName={styles.activeMenuItem}>
+							<Link
+								to='/over-ons/'
+								activeClassName={styles.activeMenuItem}
+								partiallyActive={true}
+							>
 								Over ons
 							</Link>
 							<ul>
