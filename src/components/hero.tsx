@@ -40,11 +40,12 @@ const Hero: React.FC = () => {
 	return (
 		<section className='swiper-container'>
 			<Swiper
-				// install Swiper modules
 				modules={[Navigation, Pagination, Scrollbar, A11y, Parallax, Autoplay]}
 				spaceBetween={0}
 				slidesPerView={1}
 				centeredSlides={true}
+				loop={true}
+				parallax={true}
 				navigation
 				pagination={{
 					clickable: true,
@@ -52,14 +53,11 @@ const Hero: React.FC = () => {
 				scrollbar={{
 					draggable: true,
 				}}
-				parallax={true}
 				autoplay={{
 					delay: 5000,
 					disableOnInteraction: false,
 				}}
 				onAutoplayTimeLeft={onAutoplayTimeLeft}
-				// onSwiper={(swiper) => console.log(swiper)}
-				// onSlideChange={() => console.log('slide change')}
 			>
 				<SwiperSlide>
 					<img

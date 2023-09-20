@@ -9,11 +9,8 @@ import Breadcrumb from '../components/breadcrumbs';
 import Hero from '../components/hero';
 import Sidebar from '../components/sidebar';
 
-const Drumworkshops: React.FC<PageProps> = () => {
-	const breadcrumbs = [
-		{ label: 'Home', link: '/' },
-		{ label: 'Drumworkshops' },
-	];
+const OverOns: React.FC<PageProps> = () => {
+	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'Over Ons' }];
 
 	return (
 		<Layout>
@@ -21,7 +18,7 @@ const Drumworkshops: React.FC<PageProps> = () => {
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
 
-				<h1>Drumworkshops</h1>
+				<h1>Over Ons</h1>
 				<p>Welcome to your new Gatsby site.</p>
 			</section>
 
@@ -30,6 +27,6 @@ const Drumworkshops: React.FC<PageProps> = () => {
 	);
 };
 
-export default Drumworkshops;
+export default OverOns;
 
-export const Head: HeadFC = () => <SEO title='Drumworkshops' />;
+export const Head: HeadFC = () => <SEO title='Over Ons' />;

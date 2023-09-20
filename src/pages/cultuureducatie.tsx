@@ -9,10 +9,10 @@ import Breadcrumb from '../components/breadcrumbs';
 import Hero from '../components/hero';
 import Sidebar from '../components/sidebar';
 
-const Drumworkshops: React.FC<PageProps> = () => {
+const CultuurEducatie: React.FC<PageProps> = () => {
 	const breadcrumbs = [
 		{ label: 'Home', link: '/' },
-		{ label: 'Drumworkshops' },
+		{ label: 'Cultuur Educatie' },
 	];
 
 	return (
@@ -21,7 +21,7 @@ const Drumworkshops: React.FC<PageProps> = () => {
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
 
-				<h1>Drumworkshops</h1>
+				<h1>Cultuur Educatie</h1>
 				<p>Welcome to your new Gatsby site.</p>
 			</section>
 
@@ -30,6 +30,6 @@ const Drumworkshops: React.FC<PageProps> = () => {
 	);
 };
 
-export default Drumworkshops;
+export default CultuurEducatie;
 
-export const Head: HeadFC = () => <SEO title='Drumworkshops' />;
+export const Head: HeadFC = () => <SEO title='Cultuur Educatie' />;

@@ -150,6 +150,7 @@ const Footer = () => {
 											name='name'
 											value={formData.name}
 											onChange={handleInputChange}
+											autoComplete='name'
 										/>
 									</label>
 									<label>
@@ -159,6 +160,7 @@ const Footer = () => {
 											name='email'
 											value={formData.email}
 											onChange={handleInputChange}
+											autoComplete='email'
 										/>
 									</label>
 								</fieldset>

@@ -15,7 +15,7 @@ import WhiteSpace from '../components/whitespace';
 
 import * as styles from '../styles/modules/index.module.scss';
 
-const IndexPage: React.FC<PageProps> = () => {
+const Index: React.FC<PageProps> = () => {
 	const { title } = useSiteMetadata();
 
 	return (
@@ -46,6 +46,6 @@ const IndexPage: React.FC<PageProps> = () => {
 	);
 };
 
-export default IndexPage;
+export default Index;
 
 export const Head: HeadFC = () => <SEO />;

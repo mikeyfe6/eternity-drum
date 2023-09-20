@@ -89,7 +89,7 @@ const Header: React.FC = () => {
 							<ul>
 								<li>
 									<Link
-										to='/sankofa-academy/'
+										to='/drumworkshops/sankofa-academy/'
 										activeClassName={styles.activeMenuItem}
 									>
 										Sankofa Academy
@@ -97,7 +97,7 @@ const Header: React.FC = () => {
 								</li>
 								<li>
 									<Link
-										to='/summerschool-2022/'
+										to='/drumworkshops/summerschool-2022/'
 										activeClassName={styles.activeMenuItem}
 									>
 										Eternity Summerschool 2022
@@ -105,7 +105,7 @@ const Header: React.FC = () => {
 								</li>
 								<li>
 									<Link
-										to='/summerschool-2023/'
+										to='/drumworkshops/summerschool-2023/'
 										activeClassName={styles.activeMenuItem}
 									>
 										Eternity Summerschool 2023
@@ -141,10 +141,7 @@ const Header: React.FC = () => {
 							</Link>
 						</li>
 						<li>
-							<Link
-								to='/drumworkshops/'
-								activeClassName={styles.activeMenuItem}
-							>
+							<Link to='/media/' activeClassName={styles.activeMenuItem}>
 								Media
 							</Link>
 						</li>
@@ -158,12 +155,18 @@ const Header: React.FC = () => {
 							</Link>
 							<ul>
 								<li>
-									<Link to='/contact/' activeClassName={styles.activeMenuItem}>
+									<Link
+										to='/over-ons/contact/'
+										activeClassName={styles.activeMenuItem}
+									>
 										Contact
 									</Link>
 								</li>
 								<li>
-									<Link to='/anbi/' activeClassName={styles.activeMenuItem}>
+									<Link
+										to='/over-ons/anbi/'
+										activeClassName={styles.activeMenuItem}
+									>
 										ANBI
 									</Link>
 								</li>
