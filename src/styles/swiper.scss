@@ -10,13 +10,15 @@
 	}
 
 	&-slide {
+		border-radius: 15px;
+		overflow: hidden;
+
 		img {
 			opacity: 0.5;
 			width: 100%;
 			max-width: 100%; /* Set the image width to 100% to make it responsive */
 			height: 600px; /* Allow the image height to adjust proportionally */
 			object-fit: cover;
-			border-radius: 15px;
 		}
 	}
 

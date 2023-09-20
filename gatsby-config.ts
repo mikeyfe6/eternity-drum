@@ -31,6 +31,7 @@ const config: GatsbyConfig = {
 		'gatsby-transformer-sharp',
 		'gatsby-plugin-sass',
 		// 'gatsby-plugin-google-gtag',
+		'gatsby-plugin-catch-links',
 		'gatsby-plugin-sitemap',
 		{
 			resolve: 'gatsby-plugin-manifest',

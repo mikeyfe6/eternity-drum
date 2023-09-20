@@ -23,6 +23,8 @@
 			height: 200px;
 			padding: 1em;
 
+			@include boxShadow;
+
 			display: flex;
 			align-items: center;
 			justify-content: center;

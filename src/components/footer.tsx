@@ -68,7 +68,7 @@ const Footer = () => {
 								<i className='fas fa-phone' />
 								<a href='tel:0612345678'>
 									{' '}
-									<strong>0612345678</strong>
+									<strong>+31 (0)20 311 39 33</strong>
 								</a>
 							</li>
 							<li>
@@ -153,27 +153,34 @@ const Footer = () => {
 						<br />
 						<br />
 						<div className={styles.footerLogoSocial}>
-							<img
-								src='https://eternitydrum.com/wp-content/uploads/brizy/imgs/LOGO-EP-1-256x222x0x16x256x190x1540867957.png'
-								alt=''
-								className={styles.footerLogo}
-							/>
+							<Link to='/'>
+								<img
+									src='https://eternitydrum.com/wp-content/uploads/brizy/imgs/LOGO-EP-1-256x222x0x16x256x190x1540867957.png'
+									alt=''
+									className={styles.footerLogo}
+								/>
+							</Link>
 							<div>
 								<h4> Volg onze socials..</h4>
 								<ul className={styles.footerSocialIcons}>
 									<li>
 										<a href='https://www.facebook.com/eternitypercussion'>
-											<i className='fab fa-facebook fa-inverse' />
+											<i className='fab fa-facebook' />
 										</a>
 									</li>
 									<li>
-										<a href='https://www.facebook.com/eternitypercussion'>
-											<i className='fab fa-instagram fa-inverse' />
+										<a href='https://www.instagram.com/eternitypercussion'>
+											<i className='fab fa-instagram' />
 										</a>
 									</li>
 									<li>
-										<a href='https://www.facebook.com/eternitypercussion'>
-											<i className='fab fa-youtube fa-inverse' />
+										<a href='https://www.linkedin.com/eternitypercussion'>
+											<i className='fab fa-linkedin' />
+										</a>
+									</li>
+									<li>
+										<a href='https://www.youtube.com/eternitypercussion'>
+											<i className='fab fa-youtube' />
 										</a>
 									</li>
 								</ul>

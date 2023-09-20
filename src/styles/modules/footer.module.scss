@@ -8,27 +8,33 @@
 
 	&-wrapper {
 		max-width: 1800px;
-		padding: 1em 2em;
+		padding: 1em 2em 1.25em;
 		margin: 0 auto;
 	}
 
 	&-upper-banner {
 		display: flex;
 		justify-content: space-around;
-		padding: 2em 0;
+		padding: 1.5em 0 2em;
 
-		ul {
-			margin-top: 1em;
+		> div {
+			> ul {
+				margin-top: 1em;
 
-			li {
-				padding: 0.25em 0;
-				display: block;
+				> li {
+					padding: 0.25em 0;
+					display: block;
 
-				i {
-					color: $primaryColor;
-					font-size: 1.25rem;
-					vertical-align: middle;
-					padding-right: 0.5em;
+					> a:hover {
+						color: $tertiaryColor;
+					}
+
+					> i {
+						color: $primaryColor;
+						font-size: 1.25rem;
+						vertical-align: middle;
+						padding-right: 0.5em;
+					}
 				}
 			}
 		}
@@ -67,12 +73,7 @@
 			}
 
 			button {
-				@include buttonStyle(
-					white,
-					$primaryColor,
-					$secondaryColor,
-					$primaryColor
-				);
+				@include buttonStyle(white, $primaryColor, white, $tertiaryColor);
 
 				margin-top: 1em;
 				align-self: end;
@@ -82,16 +83,24 @@
 
 	&-logo-social {
 		display: flex;
-		gap: 20px;
+		gap: 30px;
 	}
 
 	&-social-icons {
+		margin-top: 1em;
 		display: flex;
+		gap: 15px;
 
-		li {
-			a {
-				i {
-					font-size: 1.5rem;
+		> li {
+			> a {
+				> i {
+					color: $primaryColor;
+					font-size: 1.6rem;
+					vertical-align: middle;
+
+					&:hover {
+						color: $tertiaryColor;
+					}
 				}
 			}
 		}

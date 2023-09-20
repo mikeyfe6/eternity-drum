@@ -48,13 +48,24 @@ const Header: React.FC = () => {
 						<p>The Leaders of Tomorrow</p>
 						<ul>
 							<li>
-								<i className='fab fa-facebook fa-inverse' />
+								<a href='https://www.facebook.com/eternitypercussion'>
+									<i className='fab fa-facebook' />
+								</a>
 							</li>
 							<li>
-								<i className='fab fa-instagram fa-inverse' />
+								<a href='https://www.instagram.com/eternitypercussion'>
+									<i className='fab fa-instagram' />
+								</a>
 							</li>
 							<li>
-								<i className='fab fa-youtube fa-inverse' />
+								<a href='https://www.linkedin.com/eternitypercussion'>
+									<i className='fab fa-linkedin' />
+								</a>
+							</li>
+							<li>
+								<a href='https://www.youtube.com/eternitypercussion'>
+									<i className='fab fa-youtube' />
+								</a>
 							</li>
 						</ul>
 					</div>
@@ -85,7 +96,6 @@ const Header: React.FC = () => {
 									<Link
 										to='/sankofa-academy/'
 										activeClassName={styles.activeMenuItem}
-										partiallyActive={true}
 									>
 										Sankofa Academy
 									</Link>
@@ -94,7 +104,6 @@ const Header: React.FC = () => {
 									<Link
 										to='/summerschool-2022/'
 										activeClassName={styles.activeMenuItem}
-										partiallyActive={true}
 									>
 										Eternity Summerschool 2022
 									</Link>
@@ -103,7 +112,6 @@ const Header: React.FC = () => {
 									<Link
 										to='/summerschool-2023/'
 										activeClassName={styles.activeMenuItem}
-										partiallyActive={true}
 									>
 										Eternity Summerschool 2023
 									</Link>
@@ -121,16 +129,40 @@ const Header: React.FC = () => {
 							/>
 						</li>
 						<li>
-							<a href='#'>Projecten</a>
+							<Link to='/projecten/' activeClassName={styles.activeMenuItem}>
+								Projecten
+							</Link>
 						</li>
 						<li>
-							<a href='#'>Vacatures</a>
+							<Link to='/vacatures/' activeClassName={styles.activeMenuItem}>
+								Vacatures
+							</Link>
 						</li>
 						<li>
-							<a href='#'>Media</a>
+							<Link
+								to='/drumworkshops/'
+								activeClassName={styles.activeMenuItem}
+								partiallyActive={true}
+							>
+								Drumworkshops
+							</Link>
 						</li>
 						<li>
-							<a href='#'>Over ons</a>
+							<Link to='/over-ons/' activeClassName={styles.activeMenuItem}>
+								Over ons
+							</Link>
+							<ul>
+								<li>
+									<Link to='/contact/' activeClassName={styles.activeMenuItem}>
+										Contact
+									</Link>
+								</li>
+								<li>
+									<Link to='/anbi/' activeClassName={styles.activeMenuItem}>
+										ANBI
+									</Link>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</nav>
