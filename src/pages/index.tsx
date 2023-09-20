@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { HeadFC, PageProps } from 'gatsby';
 
+import { useSiteMetadata } from '../hooks/use-site-metadata';
 import { SEO } from '../components/seo';
 
 import Layout from '../components/layout';
@@ -15,12 +16,14 @@ import WhiteSpace from '../components/whitespace';
 import * as styles from '../styles/modules/index.module.scss';
 
 const IndexPage: React.FC<PageProps> = () => {
+	const { title } = useSiteMetadata();
+
 	return (
 		<Layout>
 			<Hero />
-			<section className={styles.homepageContainer}>
+			<section className={styles.homepage} data-main-section>
 				<CtaButtons />
-				<h1>Eternity Percussion</h1>
+				<h1>{title}</h1>
 				<p>
 					Eternity wilt als culturele instelling een bijdrage leveren aan
 					talentontwikkeling, cultuurparticipatie en visieverbreding van

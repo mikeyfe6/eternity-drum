@@ -1,0 +1,43 @@
+@import '../configs/globals';
+
+section {
+	> nav {
+		position: absolute;
+		right: 0;
+		top: 0;
+
+		> .breadcrumb-list {
+			display: flex;
+			gap: 15px;
+			margin-top: 10px;
+			background: $primaryColor;
+
+			padding: 0.5em 1em;
+			border-radius: 5px;
+
+			> li {
+				&:not(:last-child)::after {
+					content: '\f0da';
+					font-family: 'FontAwesome', sans-serif;
+					font-size: 1rem;
+					margin-left: 1em;
+					color: white;
+				}
+
+				> span {
+					font-weight: 600;
+					color: white;
+					color: $secondaryColor;
+				}
+
+				> a {
+					color: white;
+
+					&:hover {
+						color: $secondaryColor;
+					}
+				}
+			}
+		}
+	}
+}

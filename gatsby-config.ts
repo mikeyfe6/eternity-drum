@@ -8,10 +8,28 @@ require('dotenv').config({
 const config: GatsbyConfig = {
 	siteMetadata: {
 		title: `Eternity Percussion`,
-		siteUrl: `https://www.yourdomain.tld`,
+		slogan: `The Leaders of Tomorrow`,
 		description: `Eternity Percussion is a competitive indoor percussion ensemble based in the Dallas-Fort Worth area.`,
-		twitterUsername: `@eternityperc`,
+
+		siteUrl: `https://www.yourdomain.tld`,
 		image: `/images/eternity-logo.png`,
+
+		twitterUsername: `@eternityperc`,
+		facebookUrl: `https://www.facebook.com/eternityperc`,
+		instagramUrl: `https://www.instagram.com/eternityperc`,
+		linkedinUrl: `https://www.linkedin.com/eternityperc`,
+		youtubeUrl: `https://www.facebook.com/eternityperc`,
+
+		telephone: `+31 (0)20 311 39 33`,
+		phoneRaw: `+31203113933`,
+		email: `info@eternitydrum.com`,
+		address: `Anton de Komplein 240`,
+		postalCode: `1104 DR`,
+		city: `Amsterdam`,
+
+		companyName: `Stichting Eternity Percussion`,
+		kvk: `34284743`,
+		btw: `NL818556286B01`,
 	},
 	// More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
 	// If you use VSCode you can also use the GraphQL plugin

@@ -3,20 +3,15 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
+import { useSiteMetadata } from '../hooks/use-site-metadata';
+
 import * as styles from '../styles/modules/header.module.scss';
 
 const Header: React.FC = () => {
 	const [isHeaderFixed, setIsHeaderFixed] = React.useState(false);
 
-	// const data = useStaticQuery(graphql`
-	// 	query {
-	// 		contentfulAuthor {
-	// 			naam
-	// 		}
-	// 	}
-	// `);
-
-	// const author = data.contentfulAuthor;
+	const { title, facebookUrl, instagramUrl, linkedinUrl, youtubeUrl } =
+		useSiteMetadata();
 
 	React.useEffect(() => {
 		const handleScroll = () => {
@@ -48,22 +43,22 @@ const Header: React.FC = () => {
 						<p>The Leaders of Tomorrow</p>
 						<ul>
 							<li>
-								<a href='https://www.facebook.com/eternitypercussion'>
+								<a href={facebookUrl}>
 									<i className='fab fa-facebook' />
 								</a>
 							</li>
 							<li>
-								<a href='https://www.instagram.com/eternitypercussion'>
+								<a href={instagramUrl}>
 									<i className='fab fa-instagram' />
 								</a>
 							</li>
 							<li>
-								<a href='https://www.linkedin.com/eternitypercussion'>
+								<a href={linkedinUrl}>
 									<i className='fab fa-linkedin' />
 								</a>
 							</li>
 							<li>
-								<a href='https://www.youtube.com/eternitypercussion'>
+								<a href={youtubeUrl}>
 									<i className='fab fa-youtube' />
 								</a>
 							</li>
@@ -119,14 +114,21 @@ const Header: React.FC = () => {
 							</ul>
 						</li>
 						<li>
-							<a href='#'>Cultuureducatie</a>
+							<Link
+								to='/cultuureducatie/'
+								activeClassName={styles.activeMenuItem}
+							>
+								Cultuureducatie
+							</Link>
 						</li>
-						<li className={styles.epLogo}>
-							<StaticImage
-								src='../images/logo/ep-logo.png'
-								alt='Logo'
-								placeholder='dominantColor'
-							/>
+						<li>
+							<Link to='/' className={styles.epLogo}>
+								<StaticImage
+									src='../images/logo/ep-logo.png'
+									alt={`${title} Logo`}
+									placeholder='dominantColor'
+								/>
+							</Link>
 						</li>
 						<li>
 							<Link to='/projecten/' activeClassName={styles.activeMenuItem}>

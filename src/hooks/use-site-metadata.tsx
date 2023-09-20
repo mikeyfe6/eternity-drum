@@ -3,9 +3,27 @@ import { graphql, useStaticQuery } from 'gatsby';
 interface SiteMetadata {
 	title: string;
 	description: string;
-	twitterUsername: string;
-	image: string;
+	slogan: string;
+
 	siteUrl: string;
+	image: string;
+
+	twitterUsername: string;
+	facebookUrl: string;
+	instagramUrl: string;
+	linkedinUrl: string;
+	youtubeUrl: string;
+
+	telephone: string;
+	phoneRaw: string;
+	email: string;
+	address: string;
+	postalCode: string;
+	city: string;
+
+	companyName: string;
+	kvk: string;
+	btw: string;
 }
 
 export const useSiteMetadata = (): SiteMetadata => {
@@ -15,9 +33,27 @@ export const useSiteMetadata = (): SiteMetadata => {
 				siteMetadata {
 					title
 					description
-					twitterUsername
-					image
+					slogan
+
 					siteUrl
+					image
+
+					twitterUsername
+					facebookUrl
+					instagramUrl
+					linkedinUrl
+					youtubeUrl
+
+					telephone
+					phoneRaw
+					email
+					address
+					postalCode
+					city
+
+					companyName
+					kvk
+					btw
 				}
 			}
 		}

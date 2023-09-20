@@ -10,42 +10,52 @@ const Partners: React.FC = () => {
 			<h2>Partners</h2>
 			<ul>
 				<li>
-					<StaticImage
-						src='../images/logo/ep-logo.png'
-						alt='Logo'
-						placeholder='dominantColor'
-						objectFit='contain'
-						imgClassName={styles.partnersLogo}
-					/>
+					<a href='#!'>
+						<StaticImage
+							src='../images/logo/ep-logo.png'
+							alt='Logo'
+							placeholder='dominantColor'
+							objectFit='contain'
+							imgClassName={styles.partnersLogo}
+						/>
+					</a>
 				</li>
 				<li>
-					<StaticImage
-						src='../images/partners/blackharmony.png'
-						alt='Logo'
-						placeholder='dominantColor'
-						objectFit='contain'
-						imgClassName={styles.partnersLogo}
-					/>
+					<a href='#!'>
+						<StaticImage
+							src='../images/partners/blackharmony.png'
+							alt='Logo'
+							placeholder='dominantColor'
+							objectFit='contain'
+							imgClassName={styles.partnersLogo}
+						/>
+					</a>
 				</li>
 				<li>
-					<StaticImage
-						src='../images/partners/menefex.png'
-						alt='Logo'
-						placeholder='dominantColor'
-						objectFit='contain'
-						imgClassName={styles.partnersLogo}
-					/>
+					<a href='#!'>
+						<StaticImage
+							src='../images/partners/menefex.png'
+							alt='Logo'
+							placeholder='dominantColor'
+							objectFit='contain'
+							imgClassName={styles.partnersLogo}
+						/>{' '}
+					</a>
 				</li>
 				<li>
-					<StaticImage
-						src='../images/partners/untold.jpg'
-						alt='Logo'
-						placeholder='dominantColor'
-						objectFit='contain'
-						imgClassName={styles.partnersLogo}
-					/>
+					<a href='#!'>
+						<StaticImage
+							src='../images/partners/untold.jpg'
+							alt='Logo'
+							placeholder='dominantColor'
+							objectFit='contain'
+							imgClassName={styles.partnersLogo}
+						/>
+					</a>
 				</li>
-				<li>Partner 5</li>
+				<li>
+					<a href='#!'>Partner 5</a>
+				</li>
 			</ul>
 		</section>
 	);

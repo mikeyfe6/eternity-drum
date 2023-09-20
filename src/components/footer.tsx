@@ -1,7 +1,8 @@
 // src/components/Footer.js
 import * as React from 'react';
-import { Link } from 'gatsby';
 
+import { useSiteMetadata } from '../hooks/use-site-metadata';
+import { Link } from 'gatsby';
 import axios from 'axios';
 
 import * as styles from '../styles/modules/footer.module.scss';
@@ -12,6 +13,22 @@ const Footer = () => {
 		name: '',
 		email: '',
 	});
+
+	const {
+		companyName,
+		address,
+		postalCode,
+		city,
+		phoneRaw,
+		telephone,
+		email,
+		kvk,
+		btw,
+		facebookUrl,
+		instagramUrl,
+		linkedinUrl,
+		youtubeUrl,
+	} = useSiteMetadata();
 
 	// Handle changes in the form fields
 	const handleInputChange = (event: { target: { name: any; value: any } }) => {
@@ -59,31 +76,29 @@ const Footer = () => {
 						<h4>Contactgegevens</h4>
 						<ul>
 							<li>
-								<strong>Stichting Eternity Percussion</strong>
+								<strong>{companyName}</strong>
 							</li>
-							<li>Anton de Komplein 240</li>
-							<li>1104 DR Amsterdam</li>
+							<li>{address}</li>
+							<li>{`${postalCode} ${city}`}</li>
 							<br />
 							<li>
 								<i className='fas fa-phone' />
-								<a href='tel:0612345678'>
-									{' '}
-									<strong>+31 (0)20 311 39 33</strong>
+								<a href={`tel:${phoneRaw}`}>
+									<strong>{telephone}</strong>
 								</a>
 							</li>
 							<li>
 								<i className='fas fa-envelope' />
-								<a href='mailto:info@eternitydrum.com'>
-									{' '}
-									<strong>info@eternitydrum.com</strong>
+								<a href={`mailto:${email}`}>
+									<strong>{email}</strong>
 								</a>
 							</li>
 							<br />
 							<li>
-								<strong>KvK:</strong> 34284743
+								<strong>KvK:</strong> {kvk}
 							</li>
 							<li>
-								<strong>BTW:</strong> NL818556286B01
+								<strong>BTW:</strong> {btw}
 							</li>
 						</ul>
 					</div>
@@ -164,22 +179,22 @@ const Footer = () => {
 								<h4> Volg onze socials..</h4>
 								<ul className={styles.footerSocialIcons}>
 									<li>
-										<a href='https://www.facebook.com/eternitypercussion'>
+										<a href={facebookUrl}>
 											<i className='fab fa-facebook' />
 										</a>
 									</li>
 									<li>
-										<a href='https://www.instagram.com/eternitypercussion'>
+										<a href={instagramUrl}>
 											<i className='fab fa-instagram' />
 										</a>
 									</li>
 									<li>
-										<a href='https://www.linkedin.com/eternitypercussion'>
+										<a href={linkedinUrl}>
 											<i className='fab fa-linkedin' />
 										</a>
 									</li>
 									<li>
-										<a href='https://www.youtube.com/eternitypercussion'>
+										<a href={youtubeUrl}>
 											<i className='fab fa-youtube' />
 										</a>
 									</li>
@@ -190,8 +205,11 @@ const Footer = () => {
 				</div>
 				<div className={styles.footerBottomBanner}>
 					<span>
-						© 2002 – 2021 Eternity Percussion | Powered by{' '}
-						<strong>Menefex</strong>
+						© 2002 – {new Date().getFullYear()} · <strong>{companyName}</strong>{' '}
+						· Powered by{' '}
+						<strong>
+							<a href='https://menefex.nl'>Menefex</a>
+						</strong>
 					</span>
 				</div>
 			</div>

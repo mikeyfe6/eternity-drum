@@ -54,7 +54,12 @@ const Actualiteiten: React.FC = () => {
 
 	const posts: Post[] = data.allContentfulPost.nodes;
 
-	console.log(posts);
+	const options: Intl.DateTimeFormatOptions = {
+		weekday: 'long',
+		day: 'numeric',
+		month: 'short',
+		year: 'numeric',
+	};
 
 	return (
 		<section className={styles.actualContainer}>
@@ -66,28 +71,43 @@ const Actualiteiten: React.FC = () => {
 						contentful_id,
 						postType,
 						publishedDate,
-						content,
+						// content,
 						featuredImage,
 						excerpt,
 						slug,
-					}) => (
-						<li key={contentful_id}>
-							<Link to={`${slug}`}>
-								<img src={featuredImage.url} alt={featuredImage.title} />
-							</Link>
-							<div>
+					}) => {
+						const formattedDate = new Date(publishedDate);
+
+						const formattedDateString = formattedDate.toLocaleDateString(
+							'nl-NL',
+							options
+						);
+						const timeString = formattedDate.toLocaleTimeString('nl-NL', {
+							hour: 'numeric',
+							minute: 'numeric',
+						});
+
+						return (
+							<li key={contentful_id}>
 								<Link to={`${slug}`}>
-									<h3>{title}</h3>
+									<img src={featuredImage.url} alt={featuredImage.title} />
 								</Link>
-								{postType ? <span>NEWS</span> : <span>BLOG</span>}
-								<p>{excerpt.excerpt}</p>
-								<hr />
-								<time>{publishedDate}</time>
-								<a href={slug}>Lees meer...</a>
-								{/* <div>{documentToReactComponents(JSON.parse(content.raw))}</div> */}
-							</div>
-						</li>
-					)
+								<div>
+									<Link to={`${slug}`}>
+										<h3>{title}</h3>
+									</Link>
+									{postType ? <span>NIEUWS</span> : <span>BLOG</span>}
+									<p>{excerpt.excerpt}</p>
+									<hr />
+									<time dateTime={formattedDate.toISOString()}>
+										{formattedDateString} · {timeString}
+									</time>
+									<a href={slug}>Lees meer...</a>
+									{/* <div>{documentToReactComponents(JSON.parse(content.raw))}</div> */}
+								</div>
+							</li>
+						);
+					}
 				)}
 			</ul>
 		</section>

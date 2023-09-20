@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 interface SEOProps {
@@ -63,6 +64,7 @@ export const SEO: React.FC<SEOProps> = ({
 			/>
 
 			{/* SCRIPTS */}
+			{/* NICE! no incoming scripts! */}
 
 			{children}
 		</>
