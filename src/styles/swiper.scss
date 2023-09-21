@@ -5,6 +5,10 @@
 	&-container {
 		width: 100%;
 		margin-bottom: 1.5em;
+
+		@media screen and ($small) {
+			margin-bottom: 1em;
+		}
 	}
 
 	&-wrapper {
