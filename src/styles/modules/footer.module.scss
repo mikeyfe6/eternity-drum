@@ -2,7 +2,12 @@
 
 .footer {
 	&-container {
-		background-color: $secondaryColor;
+		background: $secondaryColor;
+		background: linear-gradient(
+			45deg,
+			$secondaryColor,
+			scale-color($secondaryColor, $lightness: 25%)
+		);
 		width: 100%;
 	}
 

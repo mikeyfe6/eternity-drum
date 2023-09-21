@@ -9,6 +9,11 @@
 	&-top-banner {
 		width: 100%;
 		background-color: $primaryColor;
+		background: linear-gradient(
+			45deg,
+			$primaryColor,
+			scale-color($primaryColor, $lightness: 10%)
+		);
 		display: inline-block;
 
 		@include boxBottomShadow;
