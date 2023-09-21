@@ -175,7 +175,6 @@ const Footer = () => {
 								<img
 									src='https://eternitydrum.com/wp-content/uploads/brizy/imgs/LOGO-EP-1-256x222x0x16x256x190x1540867957.png'
 									alt=''
-									className={styles.footerLogo}
 								/>
 							</Link>
 							<div>

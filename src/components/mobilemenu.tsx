@@ -34,7 +34,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 				<div className={styles.crossLine}></div>
 				<div className={styles.crossLine}></div>
 			</div>
-			<ul className={styles.menuItems}>
+			<ul>
 				<li>
 					<Link
 						to='/'

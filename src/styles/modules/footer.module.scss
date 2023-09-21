@@ -160,7 +160,7 @@
 				flex-direction: row;
 			}
 
-			&-logo {
+			.footer-logo {
 				width: 100%;
 				height: auto;
 				object-fit: contain;
@@ -195,6 +195,10 @@
 
 		span {
 			text-align: center;
+
+			@media screen and ($small) {
+				font-size: 0.875rem;
+			}
 		}
 	}
 }
