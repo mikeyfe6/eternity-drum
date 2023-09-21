@@ -8,6 +8,8 @@
 
 		@media screen and ($small) {
 			margin-bottom: 1em;
+
+			@include fullWidth;
 		}
 	}
 
@@ -19,6 +21,10 @@
 	&-slide {
 		border-radius: 15px;
 		overflow: hidden;
+
+		@media screen and ($small) {
+			border-radius: 0px;
+		}
 
 		img {
 			opacity: 0.5;
@@ -49,6 +55,10 @@
 	&-button-next {
 		color: var(--swiper-theme-color);
 		transform: scale(0.75);
+
+		@media screen and ($small) {
+			transform: scale(0.5);
+		}
 	}
 
 	&-scrollbar-drag {
@@ -73,6 +83,10 @@
 	font-weight: bold;
 	color: var(--swiper-theme-color-text);
 	transform: scale(0.875);
+
+	@media screen and ($small) {
+		transform: scale(0.5);
+	}
 }
 
 .autoplay-progress svg {
