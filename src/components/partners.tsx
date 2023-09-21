@@ -21,7 +21,11 @@ const Partners: React.FC = () => {
 					</a>
 				</li>
 				<li>
-					<a href='#!'>
+					<a
+						href='https://blackharmony.nl'
+						rel='noopener noreferrer'
+						target='_blank'
+					>
 						<StaticImage
 							src='../images/partners/blackharmony.png'
 							alt='Logo'
@@ -32,7 +36,11 @@ const Partners: React.FC = () => {
 					</a>
 				</li>
 				<li>
-					<a href='#!'>
+					<a
+						href='https://menefex.nl'
+						rel='noopener noreferrer'
+						target='_blank'
+					>
 						<StaticImage
 							src='../images/partners/menefex.png'
 							alt='Logo'
@@ -43,7 +51,7 @@ const Partners: React.FC = () => {
 					</a>
 				</li>
 				<li>
-					<a href='#!'>
+					<a href='https://untold.nl' rel='noopener noreferrer' target='_blank'>
 						<StaticImage
 							src='../images/partners/untold.jpg'
 							alt='Logo'

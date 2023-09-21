@@ -47,22 +47,26 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 						<p>The Leaders of Tomorrow</p>
 						<ul>
 							<li>
-								<a href={facebookUrl}>
+								<a href={facebookUrl} rel='noopener noreferrer' target='_blank'>
 									<i className='fab fa-facebook' />
 								</a>
 							</li>
 							<li>
-								<a href={instagramUrl}>
+								<a
+									href={instagramUrl}
+									rel='noopener noreferrer'
+									target='_blank'
+								>
 									<i className='fab fa-instagram' />
 								</a>
 							</li>
 							<li>
-								<a href={linkedinUrl}>
+								<a href={linkedinUrl} rel='noopener noreferrer' target='_blank'>
 									<i className='fab fa-linkedin' />
 								</a>
 							</li>
 							<li>
-								<a href={youtubeUrl}>
+								<a href={youtubeUrl} rel='noopener noreferrer' target='_blank'>
 									<i className='fab fa-youtube' />
 								</a>
 							</li>

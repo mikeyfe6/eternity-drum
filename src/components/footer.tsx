@@ -83,13 +83,21 @@ const Footer = () => {
 							<br />
 							<li>
 								<i className='fas fa-phone' />
-								<a href={`tel:${phoneRaw}`}>
+								<a
+									href={`tel:${phoneRaw}`}
+									rel='noopener noreferrer'
+									target='_blank'
+								>
 									<strong>{telephone}</strong>
 								</a>
 							</li>
 							<li>
 								<i className='fas fa-envelope' />
-								<a href={`mailto:${email}`}>
+								<a
+									href={`mailto:${email}`}
+									rel='noopener noreferrer'
+									target='_blank'
+								>
 									<strong>{email}</strong>
 								</a>
 							</li>
@@ -181,22 +189,38 @@ const Footer = () => {
 								<h4> Volg onze socials..</h4>
 								<ul className={styles.footerSocialIcons}>
 									<li>
-										<a href={facebookUrl}>
+										<a
+											href={facebookUrl}
+											rel='noopener noreferrer'
+											target='_blank'
+										>
 											<i className='fab fa-facebook' />
 										</a>
 									</li>
 									<li>
-										<a href={instagramUrl}>
+										<a
+											href={instagramUrl}
+											rel='noopener noreferrer'
+											target='_blank'
+										>
 											<i className='fab fa-instagram' />
 										</a>
 									</li>
 									<li>
-										<a href={linkedinUrl}>
+										<a
+											href={linkedinUrl}
+											rel='noopener noreferrer'
+											target='_blank'
+										>
 											<i className='fab fa-linkedin' />
 										</a>
 									</li>
 									<li>
-										<a href={youtubeUrl}>
+										<a
+											href={youtubeUrl}
+											rel='noopener noreferrer'
+											target='_blank'
+										>
 											<i className='fab fa-youtube' />
 										</a>
 									</li>
@@ -208,9 +232,15 @@ const Footer = () => {
 				<div className={styles.footerBottomBanner}>
 					<span>
 						© 2002 – {new Date().getFullYear()} · <strong>{companyName}</strong>{' '}
-						| <a href='#!'>Sitemap</a> | Powered by{' '}
+						| <Link to='/sitemap-index.xml'>Sitemap</Link> | Powered by{' '}
 						<strong>
-							<a href='https://menefex.nl'>Menefex</a>
+							<a
+								href='https://menefex.nl'
+								rel='noopener noreferrer'
+								target='_blank'
+							>
+								Menefex
+							</a>
 						</strong>{' '}
 					</span>
 				</div>
