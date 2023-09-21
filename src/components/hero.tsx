@@ -22,6 +22,11 @@ import 'swiper/scss/scrollbar';
 import 'swiper/scss/parallax';
 import 'swiper/scss/autoplay';
 
+import beats from '../images/hero/beats.jpg';
+import mandhood from '../images/hero/manhood-ac.jpg';
+import umuntu from '../images/hero/umuntu.jpg';
+import youngep from '../images/hero/young-ep.jpg';
+
 const Hero: React.FC = () => {
 	const progressCircle = useRef<SVGSVGElement | null>(null);
 	const progressContent = useRef<HTMLSpanElement | null>(null);
@@ -60,22 +65,16 @@ const Hero: React.FC = () => {
 				onAutoplayTimeLeft={onAutoplayTimeLeft}
 			>
 				<SwiperSlide>
-					<img
-						src='https://eternitydrum.com/wp-content/uploads/2016/05/fttt.jpg'
-						alt=''
-					/>
+					<img src={beats} alt='' />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src='https://dummyimage.com/1920x1080/808080/fff' alt='' />
+					<img src={mandhood} alt='' />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img
-						src='https://eternitydrum.com/wp-content/uploads/2016/05/fttt.jpg'
-						alt=''
-					/>
+					<img src={umuntu} alt='' />
 				</SwiperSlide>
 				<SwiperSlide>
-					<img src='https://dummyimage.com/1920x1080/808080/fff' alt='' />
+					<img src={youngep} alt='' />
 				</SwiperSlide>
 
 				<div className='autoplay-progress' slot='container-end'>
