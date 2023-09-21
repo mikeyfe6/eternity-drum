@@ -87,13 +87,15 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 						</button>
 
 						<div className={styles.mobileLogo}>
-							<StaticImage
-								src='../images/logo/ep-logo.png'
-								alt={`${title} Logo`}
-								placeholder='dominantColor'
-								objectFit='contain'
-								imgClassName={styles.mobileLogo}
-							/>
+							<Link to='/'>
+								<StaticImage
+									src='../images/logo/ep-logo.png'
+									alt={`${title} Logo`}
+									placeholder='dominantColor'
+									objectFit='contain'
+									imgClassName={styles.mobileLogo}
+								/>
+							</Link>
 						</div>
 					</div>
 
