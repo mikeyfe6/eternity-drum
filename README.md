@@ -1,49 +1,52 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+
+<!-- &nbsp;&nbsp; -->
+
+<!-- <p align="center">
+  <a href="https://afrodiasphere.netlify.app/" rel="noopener noreferrer"
+              target="_blank">
+    <img alt="Afrodiasphere" src="https://i.postimg.cc/Yq04rydW/Afrodiasphere-screen.png" width="500" />
   </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal TypeScript Starter
-</h1>
+</p> -->
 
-## 🚀 Quick start
+<!-- &nbsp;&nbsp; -->
 
-1.  **Create a Gatsby site.**
+<br>
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+# Eternity Percussion
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+<br>
 
-2.  **Start developing.**
+Deze webapp is gebouwd door [Michael Fransman](https://www.linkedin.com/in/michaelfransman/) voor Stichting Eternity Percussion uit Amsterdam.
 
-    Navigate into your new site’s directory and start it up.
+Eternity is een culturele instelling die zich bezighoudt met activiteiten, projecten en evenementen op het gebied van muzikale vorming en performance.
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+- _Meer weten? Bekijk de webapp / check the webapp: [Eternity Percussion](https://eternity-drum.netlify.app/)_
 
-3.  **Open the code and start customizing!**
+<br>
 
-    Your site is now running at http://localhost:8000!
+---
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+<br>
 
-4.  **Learn more**
+**Deze webapp is gebouwd met GatsbyJS, ReactJS, Contentful, GraphQl & Netlify.**
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+Powered by [Menefex](https://menefex.nl/) ✨
 
-## 🚀 Quick start (Netlify)
+<br>
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+## Licence ✒️
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+0BSD, all rights reserved, Eternity Drum 2023 ©
+
+<br>
+
+---
+
+<br>
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b5bbff72-c463-4ab9-a570-af6c13e2f08d/deploy-status)](https://app.netlify.com/sites/eternitydrum/deploys)
+👨🏾‍💻 <ins>...this project</ins> <br> [![Wakatime TR](https://wakatime.com/badge/github/mikeyfe6/eternity-drum.svg)](https://wakatime.com/badge/github/mikeyfe6/eternity-drum) <br><br>
+👨🏾‍💻 <ins>...all projects</ins> <br> [![wakatime](https://wakatime.com/badge/user/172a37f5-1ff4-4cf8-9d08-5ccbe681726b.svg)](https://wakatime.com/@172a37f5-1ff4-4cf8-9d08-5ccbe681726b)
+
+<!-- AUTO-GENERATED-CONTENT:END -->
