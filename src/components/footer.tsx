@@ -137,38 +137,38 @@ const Footer = () => {
 							</li>
 						</ul>
 					</div>
-					<div>
-						<div className={styles.footerNewsletter}>
+					<div className={styles.footerNewsletterContainer}>
+						<div className={styles.footerNewsletterWrapper}>
 							<form onSubmit={handleSubmit}>
 								<fieldset>
 									<legend>Schrijf je in voor onze nieuwsbrief</legend>
-									<br />
+
 									<label>
-										Naam:
 										<input
 											type='text'
 											name='name'
 											value={formData.name}
 											onChange={handleInputChange}
+											placeholder='Naam'
 											autoComplete='name'
 										/>
 									</label>
 									<label>
-										E-mail:
 										<input
 											type='email'
 											name='email'
 											value={formData.email}
+											placeholder='E-mailadres'
 											onChange={handleInputChange}
 											autoComplete='email'
 										/>
 									</label>
 								</fieldset>
+
 								<button type='submit'>Schrijf in</button>
 							</form>
 						</div>
-						<br />
-						<br />
+
 						<div className={styles.footerLogoSocial}>
 							<Link to='/'>
 								<img

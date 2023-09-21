@@ -16,6 +16,12 @@
 		display: flex;
 		justify-content: space-around;
 		padding: 1.5em 0 2em;
+		flex-wrap: wrap;
+		gap: 20px;
+
+		@media screen and ($small) {
+			justify-content: flex-start;
+		}
 
 		> div {
 			> ul {
@@ -41,51 +47,96 @@
 	}
 
 	&-newsletter {
-		form {
-			background: $primaryColor;
-			color: white;
-			padding: 1.5em 2em;
-			border-radius: 10px;
+		&-container {
 			display: flex;
 			flex-direction: column;
+			gap: 35px;
 
-			@include boxShadow;
+			@media screen and ($large) {
+				display: flex;
+				align-items: center;
+				flex-direction: row;
+				justify-content: space-evenly;
+				width: 100%;
+				padding: 2em 0 0;
+			}
 
-			fieldset {
+			@media screen and ($small) {
+				flex-direction: column;
+			}
+		}
+
+		&-wrapper {
+			form {
+				background: $primaryColor;
+				color: white;
+				padding: 1.5em 2em;
+				border-radius: 10px;
 				display: flex;
 				flex-direction: column;
 
-				legend {
-					font-weight: 600;
-					font-size: 1.25rem;
-				}
+				@include boxShadow;
 
-				label {
-					padding: 0.5em 0;
+				fieldset {
+					display: flex;
+					flex-direction: column;
 
-					input {
-						margin-left: 1em;
-						background: white;
-						border-radius: 5px;
-						padding: 0.5em 0.5em;
-						color: $primaryColor;
-						min-width: 275px;
+					legend {
+						font-weight: 600;
+						font-size: 1.125rem;
+						margin-bottom: 0.75em;
+					}
+
+					label {
+						padding: 0.5em 0;
+
+						input {
+							background: white;
+							border-radius: 5px;
+							padding: 0.5em 0.75em;
+							color: $primaryColor;
+							width: 100%;
+
+							@media (max-width: 768px) {
+								min-width: auto;
+								width: 100%;
+							}
+						}
 					}
 				}
-			}
 
-			button {
-				@include buttonStyle(white, $primaryColor, white, $tertiaryColor);
+				button {
+					@include buttonStyle(white, $primaryColor, white, $tertiaryColor);
 
-				margin-top: 1em;
-				align-self: end;
+					margin-top: 1em;
+					align-self: end;
+				}
 			}
 		}
 	}
 
 	&-logo-social {
 		display: flex;
-		gap: 30px;
+		gap: 35px;
+
+		@media screen and ($large) {
+			flex-direction: column;
+		}
+
+		@media screen and ($small) {
+			flex-direction: row;
+		}
+
+		a {
+			width: 100%;
+			max-width: 100px;
+
+			&-logo {
+				width: 100%;
+				height: auto;
+				object-fit: contain;
+			}
+		}
 	}
 
 	&-social-icons {
@@ -113,12 +164,8 @@
 		display: flex;
 		justify-content: center;
 
-		
-	}
-
-	&-logo {
-		width: 100%;
-		max-width: 100px;
-		object-fit: contain;
+		span {
+			text-align: center;
+		}
 	}
 }

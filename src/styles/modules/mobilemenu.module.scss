@@ -1,0 +1,48 @@
+.mobile-menu {
+	width: 350px;
+	position: fixed;
+	top: 0;
+	left: -350px;
+	height: 100%;
+	background: red;
+	overflow-x: hidden;
+	z-index: 6;
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		li {
+			padding: 10px;
+			text-align: center;
+
+			a {
+				text-decoration: none;
+				color: white;
+				font-size: 18px;
+			}
+		}
+	}
+
+	button {
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		background: transparent;
+		border: none;
+		color: white;
+		font-size: 20px;
+		cursor: pointer;
+	}
+
+	&.open {
+		left: 0;
+		transition: left 0.5s ease;
+	}
+
+	&.close {
+		left: -350px;
+		transition: left 0.5s ease;
+	}
+}

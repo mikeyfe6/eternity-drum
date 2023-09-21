@@ -7,7 +7,11 @@ import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 import * as styles from '../styles/modules/header.module.scss';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+	openMobileMenu: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 	const [isHeaderFixed, setIsHeaderFixed] = React.useState(false);
 
 	const { title, facebookUrl, instagramUrl, linkedinUrl, youtubeUrl } =
@@ -65,8 +69,30 @@ const Header: React.FC = () => {
 						</ul>
 					</div>
 				</div>
+
 				{isHeaderFixed && <div style={{ height: '125px' }} />}
+
 				<nav className={menuSwitchClass}>
+					<div className={styles.mobileMenuContainer}>
+						<button onClick={openMobileMenu} className={styles.hamburgerButton}>
+							<div className={styles.hamburgerIcon}>
+								<div className={styles.bar} />
+								<div className={styles.bar} />
+								<div className={styles.bar} />
+							</div>
+						</button>
+
+						<div className={styles.mobileLogo}>
+							<StaticImage
+								src='../images/logo/ep-logo.png'
+								alt={`${title} Logo`}
+								placeholder='dominantColor'
+								objectFit='contain'
+								imgClassName={styles.mobileLogo}
+							/>
+						</div>
+					</div>
+
 					<ul className={styles.menuItems}>
 						<li>
 							<Link to='/' activeClassName={styles.activeMenuItem}>
@@ -122,11 +148,12 @@ const Header: React.FC = () => {
 							</Link>
 						</li>
 						<li>
-							<Link to='/' className={styles.epLogo}>
+							<Link to='/' className={styles.logoWrapper}>
 								<StaticImage
 									src='../images/logo/ep-logo.png'
 									alt={`${title} Logo`}
 									placeholder='dominantColor'
+									style={{ width: '100%', minWidth: '250px' }} // Adjust maxWidth as needed
 								/>
 							</Link>
 						</li>

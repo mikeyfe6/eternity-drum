@@ -6,8 +6,15 @@ section {
 		right: 0;
 		top: 0;
 
+		@media screen and ($extraLarge) {
+			position: static !important;
+			width: fit-content !important;
+			margin-bottom: 1em;
+		}
+
 		> .breadcrumb-list {
 			display: flex;
+			align-items: center;
 			gap: 15px;
 			margin-top: 10px;
 			background: $primaryColor;
@@ -16,6 +23,10 @@ section {
 			border-radius: 5px;
 
 			> li {
+				@media screen and ($small) {
+					font-size: 10px; // moet veranderen!
+				}
+
 				&:not(:last-child)::after {
 					content: '\f0da';
 					font-family: 'FontAwesome', sans-serif;
