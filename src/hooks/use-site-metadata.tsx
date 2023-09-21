@@ -24,6 +24,9 @@ interface SiteMetadata {
 	companyName: string;
 	kvk: string;
 	btw: string;
+
+	bgWebColor: string;
+	bgThemeColor: string;
 }
 
 export const useSiteMetadata = (): SiteMetadata => {
@@ -54,6 +57,9 @@ export const useSiteMetadata = (): SiteMetadata => {
 					companyName
 					kvk
 					btw
+
+					bgWebColor
+					bgThemeColor
 				}
 			}
 		}

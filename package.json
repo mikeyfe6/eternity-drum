@@ -21,12 +21,16 @@
     "dotenv": "^16.3.1",
     "gatsby": "^5.12.4",
     "gatsby-adapter-netlify": "^1.0.0",
+    "gatsby-plugin-canonical-urls": "^5.12.0",
     "gatsby-plugin-catch-links": "^5.12.0",
     "gatsby-plugin-google-gtag": "^5.12.0",
     "gatsby-plugin-image": "^3.12.0",
     "gatsby-plugin-manifest": "^5.12.0",
     "gatsby-plugin-mdx": "^5.12.0",
     "gatsby-plugin-netlify": "^5.1.0",
+    "gatsby-plugin-nprogress": "^5.12.0",
+    "gatsby-plugin-offline": "^6.12.0",
+    "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sass": "^6.12.0",
     "gatsby-plugin-sharp": "^5.12.0",
     "gatsby-plugin-sitemap": "^6.12.0",
@@ -35,11 +39,11 @@
     "gatsby-transformer-sharp": "^5.12.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.67.0",
-    "swiper": "^10.2.0"
+    "sass": "^1.68.0",
+    "swiper": "^10.3.0"
   },
   "devDependencies": {
-    "@types/node": "^20.6.2",
+    "@types/node": "^20.6.3",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
     "typescript": "^5.2.2"
