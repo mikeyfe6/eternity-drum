@@ -26,17 +26,29 @@
 				font-family: $bebasNeue;
 				font-size: 1.3rem;
 				letter-spacing: 2px;
+
+				@media screen and ($small) {
+					font-size: 1.2rem;
+				}
 			}
 
 			> ul {
 				display: flex;
 				gap: 15px;
 
+				@media screen and ($small) {
+					gap: 10px;
+				}
+
 				> li {
 					> a {
 						> i {
 							color: #fff;
 							font-size: 1.25rem;
+
+							@media screen and ($small) {
+								font-size: 1.125rem;
+							}
 
 							&:hover {
 								color: $secondaryColor;
