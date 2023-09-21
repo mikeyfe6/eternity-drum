@@ -25,6 +25,7 @@ section {
 			@media screen and ($small) {
 				padding: 0.125em 1em 0.375em;
 				margin-bottom: 25px;
+				gap: 10px;
 			}
 
 			> li {
@@ -40,6 +41,7 @@ section {
 
 					@media screen and ($small) {
 						vertical-align: -2px;
+						margin-left: 0.5em;
 					}
 				}
 
