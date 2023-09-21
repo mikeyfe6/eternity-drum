@@ -36,7 +36,11 @@ section {
 					font-size: 1rem;
 					margin-left: 1em;
 					color: white;
-					vertical-align: middle;
+					vertical-align: initial;
+
+					@media screen and ($small) {
+						vertical-align: -2;
+					}
 				}
 
 				> span {

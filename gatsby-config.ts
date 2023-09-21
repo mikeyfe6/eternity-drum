@@ -104,9 +104,9 @@ const config: GatsbyConfig = {
 				short_name: title,
 				description: 'Ervaar onze Eternity Percussion webapplicatie geintegregreerd op uw toestel',
 				start_url: '/',
-				background_color: bgWebColor,
+				background_color: bgThemeColor,
 				lang: 'nl',
-				theme_color: bgThemeColor,
+				theme_color: bgWebColor,
 				display: 'standalone',
 				icon: 'src/images/logo/ep-logo-small.png',
 				// icon_options: {
