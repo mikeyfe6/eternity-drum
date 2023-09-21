@@ -1,26 +1,93 @@
+@import '../configs/globals';
+
 .mobile-menu {
 	width: 350px;
 	position: fixed;
 	top: 0;
 	left: -350px;
 	height: 100%;
-	background: red;
+	background: $primaryColor;
 	overflow-x: hidden;
 	z-index: 6;
 
-	ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.close-cross {
+		position: absolute;
+		top: 25px;
+		right: 35px;
+		cursor: pointer;
+	}
+
+	.cross-line {
+		width: 2px;
+		height: 25px;
+		background-color: white;
+		position: absolute;
+		transform: rotate(45deg);
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.cross-line:first-child {
+		transform: rotate(-45deg);
+	}
+
+	> ul {
 		list-style: none;
 		padding: 0;
 		margin: 0;
+		width: 100%;
 
-		li {
-			padding: 10px;
-			text-align: center;
+		> li {
+			padding: 1em;
+			font-family: $bebasNeue;
+			display: block;
 
-			a {
+			> a {
 				text-decoration: none;
 				color: white;
-				font-size: 18px;
+				font-size: 1.5rem;
+				letter-spacing: 1px;
+			}
+
+			> i {
+				margin-left: 10px;
+				color: white;
+				font-size: 1.25rem;
+				vertical-align: 3px;
+				float: right;
+			}
+
+			.active-menu-item {
+				color: $secondaryColor;
+			}
+
+			&:has(ul) {
+				position: relative;
+
+				> ul {
+					width: 100%;
+					margin-top: 1em;
+					background: $primaryColor;
+					transition: all 0.3s ease-in-out;
+
+					> li {
+						padding: 1em 1em 1em 1.5em;
+
+						> i {
+							color: $secondaryColor;
+						}
+
+						> a {
+							text-decoration: none;
+							color: white;
+							font-size: 1.3rem;
+							letter-spacing: 0.5px;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -38,6 +105,7 @@
 
 	&.open {
 		left: 0;
+		padding: 2em;
 		transition: left 0.5s ease;
 	}
 

@@ -1,5 +1,4 @@
-// MobileMenu.tsx
-import React from 'react';
+import * as React from 'react';
 import { Link } from 'gatsby';
 
 import * as styles from '../styles/modules/mobilemenu.module.scss';
@@ -10,21 +9,47 @@ interface MobileMenuProps {
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
+	const [isSubMenu1Open, setIsSubMenu1Open] = React.useState(false);
+	const [isSubMenu2Open, setIsSubMenu2Open] = React.useState(false);
+
 	const menuClass = isOpen
 		? `${styles.mobileMenu} ${styles.open}`
 		: `${styles.mobileMenu} ${styles.close}`;
 
+	const handleMenuItemClick = () => {
+		closeMenu();
+	};
+
+	const toggleSubMenu1 = () => {
+		setIsSubMenu1Open(!isSubMenu1Open);
+	};
+
+	const toggleSubMenu2 = () => {
+		setIsSubMenu2Open(!isSubMenu2Open);
+	};
+
 	return (
 		<nav className={menuClass}>
-			<button onClick={closeMenu}>Close</button>
+			<div className={styles.closeCross} onClick={closeMenu}>
+				<div className={styles.crossLine}></div>
+				<div className={styles.crossLine}></div>
+			</div>
 			<ul className={styles.menuItems}>
 				<li>
-					<Link to='/' activeClassName={styles.activeMenuItem}>
+					<Link
+						to='/'
+						activeClassName={styles.activeMenuItem}
+						onClick={handleMenuItemClick}
+					>
 						Home
 					</Link>
 				</li>
 				<li>
-					<Link to='/boeken/' activeClassName={styles.activeMenuItem}>
+					<Link
+						to='/boeken/'
+						activeClassName={styles.activeMenuItem}
+						onClick={handleMenuItemClick}
+					>
 						Boeken
 					</Link>
 				</li>
@@ -33,53 +58,79 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 						to='/drumworkshops/'
 						activeClassName={styles.activeMenuItem}
 						partiallyActive={true}
+						onClick={handleMenuItemClick}
 					>
 						Drumworkshops
 					</Link>
-					<ul>
-						<li>
-							<Link
-								to='/drumworkshops/sankofa-academy/'
-								activeClassName={styles.activeMenuItem}
-							>
-								Sankofa Academy
-							</Link>
-						</li>
-						<li>
-							<Link
-								to='/drumworkshops/summerschool-2022/'
-								activeClassName={styles.activeMenuItem}
-							>
-								Eternity Summerschool 2022
-							</Link>
-						</li>
-						<li>
-							<Link
-								to='/drumworkshops/summerschool-2023/'
-								activeClassName={styles.activeMenuItem}
-							>
-								Eternity Summerschool 2023
-							</Link>
-						</li>
-					</ul>
+					<i
+						className={`fa-solid fa-caret-${isSubMenu1Open ? 'up' : 'down'}`}
+						onClick={toggleSubMenu1}
+					/>
+					{isSubMenu1Open && (
+						<ul>
+							<li>
+								<Link
+									to='/drumworkshops/sankofa-academy/'
+									activeClassName={styles.activeMenuItem}
+									onClick={handleMenuItemClick}
+								>
+									Sankofa Academy
+								</Link>
+							</li>
+							<li>
+								<Link
+									to='/drumworkshops/summerschool-2022/'
+									activeClassName={styles.activeMenuItem}
+									onClick={handleMenuItemClick}
+								>
+									Eternity Summerschool 2022
+								</Link>
+							</li>
+							<li>
+								<Link
+									to='/drumworkshops/summerschool-2023/'
+									activeClassName={styles.activeMenuItem}
+									onClick={handleMenuItemClick}
+								>
+									Eternity Summerschool 2023
+								</Link>
+							</li>
+						</ul>
+					)}
 				</li>
 				<li>
-					<Link to='/cultuureducatie/' activeClassName={styles.activeMenuItem}>
+					<Link
+						to='/cultuureducatie/'
+						activeClassName={styles.activeMenuItem}
+						onClick={handleMenuItemClick}
+					>
 						Cultuureducatie
 					</Link>
 				</li>
 				<li>
-					<Link to='/projecten/' activeClassName={styles.activeMenuItem}>
+					<Link
+						to='/projecten/'
+						activeClassName={styles.activeMenuItem}
+						onClick={handleMenuItemClick}
+					>
 						Projecten
 					</Link>
 				</li>
 				<li>
-					<Link to='/vacatures/' activeClassName={styles.activeMenuItem}>
+					<Link
+						to='/vacatures/'
+						activeClassName={styles.activeMenuItem}
+						onClick={handleMenuItemClick}
+					>
 						Vacatures
 					</Link>
 				</li>
 				<li>
-					<Link to='/media/' activeClassName={styles.activeMenuItem}>
+					<Link
+						to='/media/'
+						activeClassName={styles.activeMenuItem}
+						onClick={handleMenuItemClick}
+					>
 						Media
 					</Link>
 				</li>
@@ -88,27 +139,36 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 						to='/over-ons/'
 						activeClassName={styles.activeMenuItem}
 						partiallyActive={true}
+						onClick={handleMenuItemClick}
 					>
 						Over ons
 					</Link>
-					<ul>
-						<li>
-							<Link
-								to='/over-ons/contact/'
-								activeClassName={styles.activeMenuItem}
-							>
-								Contact
-							</Link>
-						</li>
-						<li>
-							<Link
-								to='/over-ons/anbi/'
-								activeClassName={styles.activeMenuItem}
-							>
-								ANBI
-							</Link>
-						</li>
-					</ul>
+					<i
+						className={`fa-solid fa-caret-${isSubMenu2Open ? 'up' : 'down'}`}
+						onClick={toggleSubMenu2}
+					/>
+					{isSubMenu2Open && (
+						<ul>
+							<li>
+								<Link
+									to='/over-ons/contact/'
+									activeClassName={styles.activeMenuItem}
+									onClick={handleMenuItemClick}
+								>
+									Contact
+								</Link>
+							</li>
+							<li>
+								<Link
+									to='/over-ons/anbi/'
+									activeClassName={styles.activeMenuItem}
+									onClick={handleMenuItemClick}
+								>
+									ANBI
+								</Link>
+							</li>
+						</ul>
+					)}
 				</li>
 			</ul>
 		</nav>

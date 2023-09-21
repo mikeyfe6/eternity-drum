@@ -10,17 +10,30 @@
 		max-width: 1800px;
 		padding: 1em 2em 1.25em;
 		margin: 0 auto;
+
+		@media screen and ($medium) {
+			padding: 0 2em 2em;
+		}
+
+		@media screen and ($small) {
+			padding: 0 1.5em 2em;
+		}
+
+		@media screen and ($extraSmall) {
+			padding: 0 1em 2em;
+		}
 	}
 
 	&-upper-banner {
 		display: flex;
-		justify-content: space-around;
+		justify-content: space-evenly;
 		padding: 1.5em 0 2em;
 		flex-wrap: wrap;
-		gap: 20px;
+		gap: 30px;
 
 		@media screen and ($small) {
 			justify-content: flex-start;
+			padding: 3em 0 2em;
 		}
 
 		> div {
@@ -58,7 +71,7 @@
 				flex-direction: row;
 				justify-content: space-evenly;
 				width: 100%;
-				padding: 2em 0 0;
+				padding: 1em 0 0;
 			}
 
 			@media screen and ($small) {
@@ -67,6 +80,11 @@
 		}
 
 		&-wrapper {
+			@media screen and ($small) {
+				display: block;
+				width: 100%;
+			}
+
 			form {
 				background: $primaryColor;
 				color: white;
@@ -97,7 +115,7 @@
 							color: $primaryColor;
 							width: 100%;
 
-							@media (max-width: 768px) {
+							@media ($medium) {
 								min-width: auto;
 								width: 100%;
 							}
@@ -125,11 +143,22 @@
 
 		@media screen and ($small) {
 			flex-direction: row;
+			justify-content: space-around;
+			width: 100%;
 		}
 
 		a {
 			width: 100%;
 			max-width: 100px;
+
+			@media screen and ($large) {
+				width: 100%;
+				max-width: 125px;
+			}
+
+			@media screen and ($small) {
+				flex-direction: row;
+			}
 
 			&-logo {
 				width: 100%;

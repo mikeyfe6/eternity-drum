@@ -1,7 +1,17 @@
+@import '../configs/globals';
+
 .homepage {
 	> p {
-		width: 75ch;
+		max-width: 75ch;
 		font-size: 1.3rem;
 		line-height: 2rem;
+
+		@media screen and ($superSized) {
+			font-size: 1.2rem;
+		}
+
+		@media screen and ($medium) {
+			font-size: 1.125rem;
+		}
 	}
 }

@@ -48,6 +48,15 @@
 		}
 	}
 
+	&-space {
+		height: 125px;
+		width: 100%;
+
+		@media screen and ($small) {
+			height: 90px;
+		}
+	}
+
 	&-wrapper {
 		.header-menu {
 			display: flex;
@@ -55,6 +64,10 @@
 			align-items: center;
 			height: 125px;
 			background-color: #fff;
+
+			@media screen and ($small) {
+				height: 90px;
+			}
 
 			@include baseTransition(all);
 
@@ -111,6 +124,10 @@
 
 				@media screen and ($small) {
 					width: 200px;
+				}
+
+				@media screen and ($extraSmall) {
+					width: 175px;
 				}
 			}
 

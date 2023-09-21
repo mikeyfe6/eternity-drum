@@ -9,7 +9,21 @@
 	gap: 15px;
 	margin-top: 10px;
 
+	@media screen and ($superSized) {
+		position: static;
+		width: fit-content;
+		margin-bottom: 2em;
+	}
+
+	@media screen and ($small) {
+		flex-direction: column;
+	}
+
 	button {
 		@include buttonStyle($primaryColor, white, $primaryColor, $secondaryColor);
+
+		@media screen and ($small) {
+			width: fit-content;
+		}
 	}
 }

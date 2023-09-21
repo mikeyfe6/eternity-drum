@@ -23,9 +23,7 @@ section {
 			border-radius: 5px;
 
 			> li {
-				@media screen and ($small) {
-					font-size: 10px; // moet veranderen!
-				}
+				display: block;
 
 				&:not(:last-child)::after {
 					content: '\f0da';
@@ -33,16 +31,25 @@ section {
 					font-size: 1rem;
 					margin-left: 1em;
 					color: white;
+					vertical-align: middle;
 				}
 
 				> span {
 					font-weight: 600;
 					color: white;
 					color: $secondaryColor;
+
+					@media screen and ($small) {
+						font-size: 0.75rem;
+					}
 				}
 
 				> a {
 					color: white;
+
+					@media screen and ($small) {
+						font-size: 0.75rem;
+					}
 
 					&:hover {
 						color: $secondaryColor;

@@ -24,6 +24,10 @@ html {
 body {
 	font-family: 'Open Sans', sans-serif;
 	color: $blackColor;
+
+	@media screen and ($superSmall) {
+		display: none;
+	}
 }
 
 .eternity-container {
@@ -39,6 +43,14 @@ body {
 	padding: 0 2em 2em;
 	width: 100%;
 	margin: 0 auto;
+
+	@media screen and ($medium) {
+		padding: 0 1.5em 2em;
+	}
+
+	@media screen and ($small) {
+		padding: 0 1em 2em;
+	}
 
 	main {
 		flex: 7; /* 70% of the available space */
@@ -62,6 +74,14 @@ h1 {
 	font-family: $bebasNeue;
 	font-size: 5rem;
 	margin-bottom: 0.25em;
+
+	@media screen and ($medium) {
+		font-size: 4rem;
+	}
+
+	@media screen and ($small) {
+		font-size: 3rem;
+	}
 }
 
 h2 {

@@ -2,25 +2,36 @@
 
 .partners-container {
 	margin: 2em 0;
-	max-width: 50%;
 	float: right;
 
 	> h2 {
 		text-align: right;
-		padding-right: 1em;
 	}
 
 	> ul {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 30px;
-		padding: 0 3em;
+
 		direction: rtl;
+
+		@media screen and ($medium) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media screen and ($superSmall) {
+			grid-template-columns: repeat(1, 1fr);
+		}
 
 		li {
 			border: 1px transparent solid;
 			width: 200px;
 			height: 200px;
+
+			@media screen and ($small) {
+				width: 150px;
+				height: 150px;
+			}
 
 			@include baseTransition(all);
 			@include boxShadow;

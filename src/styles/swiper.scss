@@ -1,3 +1,6 @@
+@import 'configs/resets';
+@import 'configs/globals';
+
 .swiper {
 	&-container {
 		width: 100%;
@@ -19,6 +22,22 @@
 			max-width: 100%; /* Set the image width to 100% to make it responsive */
 			height: 600px; /* Allow the image height to adjust proportionally */
 			object-fit: cover;
+
+			@media screen and ($large) {
+				height: 400px;
+			}
+
+			@media screen and ($small) {
+				height: 300px;
+			}
+
+			@media screen and ($extraSmall) {
+				height: 225px;
+			}
+
+			@media screen and ($superSmall) {
+				height: 175px;
+			}
 		}
 	}
 

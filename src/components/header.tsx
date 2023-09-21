@@ -70,7 +70,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 					</div>
 				</div>
 
-				{isHeaderFixed && <div style={{ height: '125px' }} />}
+				{isHeaderFixed && <div className={styles.headerSpace} />}
 
 				<nav className={menuSwitchClass}>
 					<div className={styles.mobileMenuContainer}>

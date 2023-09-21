@@ -115,7 +115,8 @@ const Footer = () => {
 								<Link to='/drumworkshops/'>Summerschool 2023</Link>
 							</li>
 						</ul>
-						<br /> <br />
+					</div>
+					<div>
 						<h4>Aankomende Evenementen</h4>
 						<ul>
 							<li>
@@ -208,10 +209,10 @@ const Footer = () => {
 				<div className={styles.footerBottomBanner}>
 					<span>
 						© 2002 – {new Date().getFullYear()} · <strong>{companyName}</strong>{' '}
-						· Powered by{' '}
+						| <a href='#!'>Sitemap</a> | Powered by{' '}
 						<strong>
 							<a href='https://menefex.nl'>Menefex</a>
-						</strong>
+						</strong>{' '}
 					</span>
 				</div>
 			</div>
