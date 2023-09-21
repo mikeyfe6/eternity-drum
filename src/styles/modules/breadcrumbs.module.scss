@@ -19,7 +19,7 @@ section {
 			margin-top: 10px;
 			background: $primaryColor;
 
-			padding: 0.5em 1em;
+			padding: 0.5em 1em 0.6em;
 			border-radius: 5px;
 
 			@media screen and ($small) {
@@ -37,7 +37,6 @@ section {
 					font-size: 1rem;
 					margin-left: 1em;
 					color: white;
-					vertical-align: initial;
 
 					@media screen and ($small) {
 						vertical-align: -2px;
@@ -49,6 +48,7 @@ section {
 					font-weight: 600;
 					color: white;
 					color: $secondaryColor;
+					vertical-align: baseline;
 
 					@media screen and ($small) {
 						font-size: 0.75rem;
@@ -57,6 +57,7 @@ section {
 
 				> a {
 					color: white;
+					vertical-align: baseline;
 
 					@media screen and ($small) {
 						font-size: 0.75rem;
