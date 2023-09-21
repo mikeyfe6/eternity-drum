@@ -159,6 +159,10 @@
 					align-items: center;
 				}
 
+				@media screen and ($small) {
+					padding: 0 0.75em;
+				}
+
 				.hamburger-button {
 					background: transparent;
 					border: none;
