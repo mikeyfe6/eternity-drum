@@ -23,7 +23,7 @@ html {
 
 body {
 	font-family: 'Open Sans', sans-serif;
-	color: $blackColor;
+	color: $primaryColor;
 
 	@media screen and ($superSmall) {
 		display: none;
