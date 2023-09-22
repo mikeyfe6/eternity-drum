@@ -108,7 +108,7 @@ const config: GatsbyConfig = {
 				lang: 'nl',
 				theme_color: bgWebColor,
 				display: 'standalone',
-				icon: 'src/images/logo/ep-logo-small.png',
+				icon: 'src/images/logo/ep-logo-yellow.png',
 				icon_options: {
 					purpose: 'any maskable',
 				},
