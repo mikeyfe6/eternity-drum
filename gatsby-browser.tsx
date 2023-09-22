@@ -2,8 +2,7 @@
 
 export const onServiceWorkerUpdateReady = () => {
 	const answer = window.confirm(
-		`De webapp heeft updates! ` +
-			`Klik op OK om de nieuwe versie te laden ` +
+		`De webapp heeft updates! ` + `Herladen om de nieuwste versie te zien?`
 	);
 
 	if (answer === true) {
