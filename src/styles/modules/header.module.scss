@@ -112,7 +112,7 @@
 			&::before {
 				content: '·';
 				margin-right: 25px;
-				margin-bottom: 5px;
+				margin-bottom: 10px;
 				color: $secondaryColor;
 				font-size: 5em;
 
@@ -124,7 +124,7 @@
 			&::after {
 				content: '·';
 				margin-left: 25px;
-				margin-bottom: 5px;
+				margin-bottom: 10px;
 				color: $secondaryColor;
 				font-size: 5em;
 
