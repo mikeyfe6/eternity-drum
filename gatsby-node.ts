@@ -89,7 +89,6 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                 slug: node.slug,
                 title: node.title,
                 tags: node.tags,
-                id: node.id,
                 content: node.content,
                 writer: node.writer,
                 featuredImage: node.featuredImage,

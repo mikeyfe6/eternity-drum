@@ -11,7 +11,6 @@ import { SEO } from '../components/seo';
 
 import Layout from '../components/layout';
 
-// CONTENTFUL topics genereren
 interface PostProps {
 	pageContext: {
 		slug: string;
@@ -20,13 +19,11 @@ interface PostProps {
 		content: {
 			raw: string;
 		};
-		id: string;
-		writer: [
-			{
-				name: string;
-				email: string;
-			}
-		];
+		writer: {
+			name: string;
+			email: string;
+		};
+
 		featuredImage: {
 			url: string;
 			title: string;
@@ -35,18 +32,55 @@ interface PostProps {
 }
 
 const Post = ({
-	pageContext: { slug, tags, title, content, id, writer, featuredImage },
+	pageContext: { slug, tags, title, content, writer, featuredImage },
 }: PostProps) => {
 	console.log('tags', tags);
-	console.log('tags', writer);
+	console.log('writer', writer);
 
 	return (
 		<Layout>
 			<h1>PAGE in de making !</h1>
-			<div>{slug}</div>
-			<div>{title}</div>
-			<div>{documentToReactComponents(JSON.parse(content.raw))}</div>
-			<div>{id}</div>
+
+			<div>
+				<strong>slug/url:</strong> {slug}
+			</div>
+
+			<br />
+
+			<div>
+				<strong>title:</strong> {title}
+			</div>
+
+			<br />
+
+			<div>
+				<strong>content:</strong>
+				{documentToReactComponents(JSON.parse(content.raw))}
+			</div>
+
+			<br />
+
+			<ul>
+				<strong>tags:</strong>
+				{tags.map((tag, index) => (
+					<li key={index}>{tag}</li>
+				))}
+			</ul>
+
+			<br />
+
+			<div>
+				<strong>author email:</strong> {writer.email}
+			</div>
+			<div>
+				<strong>author name: </strong>
+				{writer.name}
+			</div>
+
+			<br />
+
+			<strong>img:</strong>
+			<br />
 			<img src={featuredImage.url} alt={featuredImage.title} />
 		</Layout>
 	);

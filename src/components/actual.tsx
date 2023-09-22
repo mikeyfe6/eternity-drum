@@ -90,8 +90,6 @@ const Actualiteiten: React.FC = () => {
 							minute: 'numeric',
 						});
 
-						const postTypeName = postType[0].name;
-
 						return (
 							<li key={contentful_id}>
 								<Link to={`${slug}`}>
@@ -101,7 +99,7 @@ const Actualiteiten: React.FC = () => {
 									<Link to={`${slug}`}>
 										<h3>{title}</h3>
 									</Link>
-									<span>{postTypeName}</span>
+									<span>{postType.map((cato) => cato.name)}</span>
 									<p>{excerpt.excerptText}</p>
 									<hr />
 									<time dateTime={formattedDate.toISOString()}>
