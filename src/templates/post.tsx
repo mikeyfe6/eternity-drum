@@ -70,12 +70,7 @@ const Post = ({
 				{writer && (
 					<>
 						<strong>Author email:</strong> {writer.email}
-					</>
-				)}
-			</div>
-			<div>
-				{writer && (
-					<>
+						<br />
 						<strong>Author name:</strong> {writer.name}
 					</>
 				)}
