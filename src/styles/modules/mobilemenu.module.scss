@@ -22,16 +22,21 @@
 	.close {
 		&-wrapper {
 			position: absolute;
-			width: 25px;
-			height: 25px;
-			top: 30px;
-			right: 35px;
+			width: 35px;
+			height: 35px;
+			top: 25px;
+			right: 25px;
+			padding: 1em;
 			cursor: pointer;
+			background: $tertiaryColor;
+			border-radius: 1px;
+			z-index: 7;
 		}
 
 		&-cross {
 			.cross-line {
-				right: 11px;
+				top: 5px;
+				right: 16px;
 				width: 3px;
 				height: 25px;
 				position: absolute;
