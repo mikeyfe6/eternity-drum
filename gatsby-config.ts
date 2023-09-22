@@ -109,9 +109,9 @@ const config: GatsbyConfig = {
 				theme_color: bgWebColor,
 				display: 'standalone',
 				icon: 'src/images/logo/ep-logo-small.png',
-				// icon_options: {
-				//   purpose: 'any maskable',
-				// },
+				icon_options: {
+					purpose: 'any maskable',
+				},
 				crossOrigin: 'use-credentials',
 			},
 		},
