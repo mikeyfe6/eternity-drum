@@ -46,9 +46,9 @@ section {
 
 				> span {
 					font-weight: 600;
-					color: white;
 					color: $secondaryColor;
-					vertical-align: baseline;
+					padding-bottom: 1px;
+					display: block;
 
 					@media screen and ($small) {
 						font-size: 0.75rem;
