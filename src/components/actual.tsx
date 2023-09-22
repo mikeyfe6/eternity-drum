@@ -7,7 +7,11 @@ interface Post {
 	title: string;
 	slug: string;
 	contentful_id: string;
-	postType: boolean;
+	postType: [
+		{
+			name: string;
+		}
+	];
 	publishedDate: string;
 	featuredImage: {
 		description: string;
@@ -18,7 +22,7 @@ interface Post {
 		raw: any;
 	};
 	excerpt: {
-		excerpt: string;
+		excerptText: string;
 	};
 }
 
@@ -36,12 +40,14 @@ const Actualiteiten: React.FC = () => {
 						url
 						title
 					}
-					postType
+					postType {
+						name
+					}
 					publishedDate
 					title
 					tags
 					excerpt {
-						excerpt
+						excerptText: excerpt
 					}
 					contentful_id
 					slug
@@ -84,6 +90,8 @@ const Actualiteiten: React.FC = () => {
 							minute: 'numeric',
 						});
 
+						const postTypeName = postType[0].name;
+
 						return (
 							<li key={contentful_id}>
 								<Link to={`${slug}`}>
@@ -93,8 +101,8 @@ const Actualiteiten: React.FC = () => {
 									<Link to={`${slug}`}>
 										<h3>{title}</h3>
 									</Link>
-									{postType ? <span>NIEUWS</span> : <span>BLOG</span>}
-									<p>{excerpt.excerpt}</p>
+									<span>{postTypeName}</span>
+									<p>{excerpt.excerptText}</p>
 									<hr />
 									<time dateTime={formattedDate.toISOString()}>
 										{formattedDateString} · {timeString}
