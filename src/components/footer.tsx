@@ -114,13 +114,19 @@ const Footer = () => {
 						<h4>Recente Posts</h4>
 						<ul>
 							<li>
-								<Link to='/drumworkshops/'>Sankofa Academy</Link>
+								<Link to='/drumworkshops/sankofa-academy/'>
+									Sankofa Academy
+								</Link>
 							</li>
 							<li>
-								<Link to='/drumworkshops/'>Summerschool 2022</Link>
+								<Link to='/drumworkshops/summerschool-2022/'>
+									Summerschool 2022
+								</Link>
 							</li>
 							<li>
-								<Link to='/drumworkshops/'>Summerschool 2023</Link>
+								<Link to='/drumworkshops/summerschool-2023/'>
+									Summerschool 2023
+								</Link>
 							</li>
 						</ul>
 					</div>
@@ -128,21 +134,19 @@ const Footer = () => {
 						<h4>Aankomende Evenementen</h4>
 						<ul>
 							<li>
-								<Link to='/drumworkshops/'>
-									Optreden 1 @ Bijlmer Parktheater
-								</Link>
+								<Link to='/#!'>Optreden 1 @ Bijlmer Parktheater</Link>
 							</li>
 							<li>
-								<Link to='/drumworkshops/'>Optreden 2 @ Almere</Link>
+								<Link to='/#!'>Optreden 2 @ Almere</Link>
 							</li>
 							<li>
-								<Link to='/drumworkshops/'>Optreden 3 @ Amsterdam</Link>
+								<Link to='/#!'>Optreden 3 @ Amsterdam</Link>
 							</li>
 							<li>
-								<Link to='/drumworkshops/'>Concert 1 @ Nijmegen</Link>
+								<Link to='/#!'>Concert 1 @ Nijmegen</Link>
 							</li>
 							<li>
-								<Link to='/drumworkshops/'>Uitwisseling 1 @ Breda</Link>
+								<Link to='/#!'>Uitwisseling 1 @ Breda</Link>
 							</li>
 						</ul>
 					</div>
