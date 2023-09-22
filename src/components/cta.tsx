@@ -20,7 +20,14 @@ const CtaButtons: React.FC = () => {
 			>
 				Aanmelden Drumworkshops
 			</button>
-			<button className={styles.specialButton}>Eternity Summerschool</button>
+			<button
+				className={styles.specialButton}
+				onClick={() => {
+					navigate('/drumworkshops/summerschool-2023/');
+				}}
+			>
+				Eternity Summerschool
+			</button>
 		</section>
 	);
 };
