@@ -26,7 +26,7 @@ const CtaButtons: React.FC = () => {
 					navigate('/drumworkshops/summerschool-2023/');
 				}}
 			>
-				Eternity Summerschool
+				Eternity Summerschool 2023
 			</button>
 		</section>
 	);

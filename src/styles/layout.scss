@@ -75,6 +75,10 @@ h1 {
 	font-size: 5rem;
 	margin-bottom: 0.25em;
 
+	@media screen and ($massive) {
+		font-size: 4.5rem;
+	}
+
 	@media screen and ($medium) {
 		font-size: 4rem;
 	}
