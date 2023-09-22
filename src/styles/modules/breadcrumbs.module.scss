@@ -37,9 +37,9 @@ section {
 					font-size: 1rem;
 					margin-left: 1em;
 					color: white;
+					vertical-align: -2px;
 
 					@media screen and ($small) {
-						vertical-align: -2px;
 						margin-left: 0.5em;
 					}
 				}
@@ -47,7 +47,6 @@ section {
 				> span {
 					font-weight: 600;
 					color: $secondaryColor;
-					display: block;
 
 					@media screen and ($small) {
 						font-size: 0.75rem;
