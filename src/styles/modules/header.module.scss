@@ -142,6 +142,7 @@
 			&-logo {
 				width: 250px;
 				height: auto;
+				margin-right: 10px;
 
 				@media screen and ($small) {
 					width: 200px;
@@ -154,7 +155,7 @@
 
 			&-menu-container {
 				display: none;
-				padding: 0 2em;
+				padding: 0 1.5em;
 
 				@media screen and ($superSized) {
 					display: flex;
