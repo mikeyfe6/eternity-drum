@@ -67,11 +67,18 @@ const Post = ({
 			<br />
 
 			<div>
-				<strong>author email:</strong> {writer.email}
+				{writer && (
+					<>
+						<strong>Author email:</strong> {writer.email}
+					</>
+				)}
 			</div>
 			<div>
-				<strong>author name: </strong>
-				{writer.name}
+				{writer && (
+					<>
+						<strong>Author name:</strong> {writer.name}
+					</>
+				)}
 			</div>
 
 			<br />
