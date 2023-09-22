@@ -9,7 +9,7 @@
 	&-top-banner {
 		width: 100%;
 		background-color: $primaryColor;
-		background: linear-gradient(
+		background-color: linear-gradient(
 			45deg,
 			$primaryColor,
 			scale-color($primaryColor, $lightness: 10%)
