@@ -34,12 +34,9 @@ interface PostProps {
 const Post = ({
 	pageContext: { slug, tags, title, content, writer, featuredImage },
 }: PostProps) => {
-	console.log('tags', tags);
-	console.log('writer', writer);
-
 	return (
 		<Layout>
-			<h1>PAGE in de making !</h1>
+			<h1>SINGLE PAGE in de making !</h1>
 
 			<div>
 				<strong>slug/url:</strong> {slug}
