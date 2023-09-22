@@ -80,7 +80,7 @@
 
 			> i {
 				margin-left: 10px;
-				color: white;
+				color: $secondaryColor;
 				font-size: 1.25rem;
 				vertical-align: 5px;
 				float: right;
@@ -110,6 +110,10 @@
 					> li {
 						padding: 0.5em 0.5em;
 
+						&::marker {
+							color: $tertiaryColor;
+						}
+
 						@media screen and ($small) {
 							padding: 1em 0 0.25em;
 						}
@@ -132,17 +136,6 @@
 				}
 			}
 		}
-	}
-
-	button {
-		position: absolute;
-		top: 20px;
-		left: 20px;
-		background: transparent;
-		border: none;
-		color: white;
-		font-size: 20px;
-		cursor: pointer;
 	}
 
 	&.open {
