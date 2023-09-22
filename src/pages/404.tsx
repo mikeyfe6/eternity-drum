@@ -7,9 +7,10 @@ const NotFoundPage: React.FC<PageProps> = () => {
 	return (
 		<Layout>
 			<section data-main-section>
-				<h1>Page not found</h1>
+				<h1> Ojee.. Pagina niet gevonden</h1>
 				<p>
-					Sorry 😔, we couldn’t find what you were looking for.
+					We hebben ons best gedaan, maar het lijkt erop dat deze pagina niet
+					(meer) bestaat of misschien verhuisd is.
 					<br />
 					{process.env.NODE_ENV === 'development' ? (
 						<>
@@ -19,7 +20,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
 						</>
 					) : null}
 					<br />
-					<Link to='/'>Go home</Link>.
+					<Link to='/'>Ga terug naar de homepagina..</Link>.
 				</p>
 			</section>
 		</Layout>
