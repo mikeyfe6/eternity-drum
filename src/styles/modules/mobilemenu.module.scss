@@ -28,7 +28,7 @@
 			right: 25px;
 			padding: 1em;
 			background: $tertiaryColor;
-			border-radius: 1px;
+			border-radius: 3px;
 			z-index: 7;
 			cursor: pointer;
 		}
@@ -60,7 +60,6 @@
 		> li {
 			padding: 1em;
 			font-family: $bebasNeue;
-			display: block;
 
 			@media screen and ($small) {
 				padding: 0.75em;
@@ -79,12 +78,19 @@
 			}
 
 			> i {
-				margin-left: 10px;
-				color: $secondaryColor;
 				font-size: 1.25rem;
-				vertical-align: 5px;
-				float: right;
+				background: $tertiaryColor;
+				color: white;
+				width: 20px;
+				height: 20px;
+				padding-bottom: 1px;
+				text-align: center;
+				border-radius: 2px;
+
+				display: block;
+
 				cursor: pointer;
+				float: right;
 			}
 
 			.active-menu-item {
