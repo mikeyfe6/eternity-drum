@@ -54,3 +54,17 @@
 	margin-left: -50vw;
 	margin-right: -50vw;
 }
+
+@mixin respImage($width, $maxWidth, $height, $objectFit) {
+	width: $width;
+	max-width: $maxWidth;
+	height: $height;
+	object-fit: $objectFit;
+	object-position: center 25%;
+}
+
+@mixin epWrapper {
+	max-width: 1800px;
+	margin: 0 auto;
+	width: 100%;
+}

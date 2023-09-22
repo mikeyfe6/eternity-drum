@@ -39,10 +39,10 @@ body {
 .eternity-wrapper {
 	display: flex;
 	flex: 1;
-	max-width: 1800px;
 	padding: 0 2em 2em;
 	width: 100%;
-	margin: 0 auto;
+
+	@include epWrapper;
 
 	@media screen and ($medium) {
 		padding: 0 1.5em 2em;

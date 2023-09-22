@@ -1,4 +1,3 @@
-@import 'configs/resets';
 @import 'configs/globals';
 
 .swiper {
@@ -14,8 +13,7 @@
 	}
 
 	&-wrapper {
-		max-width: 1800px;
-		margin: 0 auto;
+		@include epWrapper;
 	}
 
 	&-slide {
@@ -28,11 +26,8 @@
 
 		img {
 			opacity: 0.75;
-			width: 100%;
-			max-width: 100%; /* Set the image width to 100% to make it responsive */
-			height: 600px; /* Allow the image height to adjust proportionally */
-			object-fit: cover;
-			object-position: center 25%;
+
+			@include respImage(100%, 100%, 600px, cover);
 
 			@media screen and ($large) {
 				height: 400px;

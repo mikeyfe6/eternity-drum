@@ -8,13 +8,12 @@
 			$secondaryColor,
 			scale-color($secondaryColor, $lightness: 25%)
 		);
-		width: 100%;
 	}
 
 	&-wrapper {
-		max-width: 1800px;
 		padding: 1em 2em 1.25em;
-		margin: 0 auto;
+
+		@include epWrapper;
 
 		@media screen and ($medium) {
 			padding: 0 2em 2em;
@@ -153,7 +152,7 @@
 			width: 100%;
 		}
 
-		a {
+		> a {
 			width: 100%;
 			max-width: 100px;
 
@@ -166,7 +165,7 @@
 				flex-direction: row;
 			}
 
-			.footer-logo {
+			> .footer-logo {
 				width: 100%;
 				height: auto;
 				object-fit: contain;

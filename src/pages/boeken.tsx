@@ -6,7 +6,7 @@ import { SEO } from '../components/seo';
 import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
 
-import Hero from '../components/hero';
+import Hero from '../components/heroslider';
 import Sidebar from '../components/sidebar';
 
 const BoekenPage: React.FC<PageProps> = () => {
@@ -17,6 +17,7 @@ const BoekenPage: React.FC<PageProps> = () => {
 			<Hero />
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
+
 				<h1>Boeken</h1>
 				<p>Welcome to your new Gatsby site.</p>
 				<br />

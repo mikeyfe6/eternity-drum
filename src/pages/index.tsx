@@ -6,7 +6,7 @@ import { SEO } from '../components/seo';
 
 import Layout from '../components/layout';
 
-import Hero from '../components/hero';
+import Hero from '../components/heroslider';
 import CtaButtons from '../components/cta';
 import Sidebar from '../components/sidebar';
 import Actualiteiten from '../components/actual';

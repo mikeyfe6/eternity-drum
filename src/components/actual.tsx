@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-
 import * as styles from '../styles/modules/actual.module.scss';
 
 interface Post {
@@ -71,7 +69,6 @@ const Actualiteiten: React.FC = () => {
 						contentful_id,
 						postType,
 						publishedDate,
-						// content,
 						featuredImage,
 						excerpt,
 						slug,
@@ -103,7 +100,6 @@ const Actualiteiten: React.FC = () => {
 										{formattedDateString} · {timeString}
 									</time>
 									<a href={slug}>Lees meer...</a>
-									{/* <div>{documentToReactComponents(JSON.parse(content.raw))}</div> */}
 								</div>
 							</li>
 						);

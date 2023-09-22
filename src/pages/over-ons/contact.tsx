@@ -6,7 +6,7 @@ import { SEO } from '../../components/seo';
 import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumbs';
 
-import Hero from '../../components/hero';
+import Hero from '../../components/heroslider';
 import Sidebar from '../../components/sidebar';
 
 const Contact: React.FC<PageProps> = () => {
