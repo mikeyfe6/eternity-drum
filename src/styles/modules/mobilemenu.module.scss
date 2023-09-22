@@ -19,24 +19,31 @@
 		left: -300px;
 	}
 
-	.close-cross {
-		position: absolute;
-		top: 25px;
-		right: 35px;
-		cursor: pointer;
-	}
+	.close {
+		&-wrapper {
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			top: 30px;
+			right: 35px;
+			cursor: pointer;
+		}
 
-	.cross-line {
-		width: 2px;
-		height: 25px;
-		background-color: white;
-		position: absolute;
-		transform: rotate(45deg);
-		transition: transform 0.3s ease-in-out;
-	}
+		&-cross {
+			.cross-line {
+				right: 11px;
+				width: 3px;
+				height: 25px;
+				position: absolute;
+				background-color: white;
+				transform: rotate(45deg);
+				transition: transform 0.3s ease-in-out;
+			}
 
-	.cross-line:first-child {
-		transform: rotate(-45deg);
+			.cross-line:first-child {
+				transform: rotate(-45deg);
+			}
+		}
 	}
 
 	> ul {
@@ -72,6 +79,7 @@
 				font-size: 1.25rem;
 				vertical-align: 5px;
 				float: right;
+				cursor: pointer;
 			}
 
 			.active-menu-item {

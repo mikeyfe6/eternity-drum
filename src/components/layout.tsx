@@ -24,6 +24,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 		document.body.style.overflow = 'auto';
 	};
 
+	const handleOverlayClick = () => {
+		if (isMobileMenuOpen) {
+			closeMobileMenu();
+		}
+	};
+
 	return (
 		<div className='eternity-container'>
 			<Header openMobileMenu={openMobileMenu} />
@@ -31,8 +37,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 				<main>{children}</main>
 			</div>
 			<Footer />
+
+			{isMobileMenuOpen && (
+				<div className='overlay' onClick={handleOverlayClick} />
+			)}
+
 			<MobileMenu isOpen={isMobileMenuOpen} closeMenu={closeMobileMenu} />
-			{isMobileMenuOpen && <div className='overlay' />}
 		</div>
 	);
 };

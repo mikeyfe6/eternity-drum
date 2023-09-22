@@ -30,9 +30,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 
 	return (
 		<nav className={menuClass}>
-			<div className={styles.closeCross} onClick={closeMenu}>
-				<div className={styles.crossLine}></div>
-				<div className={styles.crossLine}></div>
+			<div className={styles.closeWrapper}>
+				<div className={styles.closeCross} onClick={closeMenu}>
+					<div className={styles.crossLine}></div>
+					<div className={styles.crossLine}></div>
+				</div>
 			</div>
 			<ul>
 				<li>
