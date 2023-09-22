@@ -14,7 +14,7 @@
 		gap: 3em;
 
 		li {
-			border: solid 2px transparent;
+			border: 2px solid rgba(128, 128, 128, 0.5);
 			border-radius: 15px;
 			overflow: hidden;
 			max-width: 375px;
@@ -77,8 +77,8 @@
 				hr {
 					height: 3px;
 					border-width: 0;
-					color: rgba(128, 128, 128, 0.25);
-					background-color: rgba(128, 128, 128, 0.25);
+					color: rgba(128, 128, 128, 0.1);
+					background-color: rgba(128, 128, 128, 0.1);
 					margin: 1em 0;
 				}
 
