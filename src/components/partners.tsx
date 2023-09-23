@@ -1,69 +1,89 @@
 import * as React from 'react';
-
-import { StaticImage } from 'gatsby-plugin-image';
+import { useStaticQuery, graphql } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import * as styles from '../styles/modules/partners.module.scss';
 
 const Partners: React.FC = () => {
+	const data = useStaticQuery(graphql`
+		query {
+			allFile(filter: { relativeDirectory: { eq: "partners" } }) {
+				nodes {
+					relativePath
+					childImageSharp {
+						gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
+					}
+				}
+			}
+		}
+	`);
+
+	const partnerImages = data.allFile.nodes;
+
+	const partners = [
+		{
+			url: 'https://www.going-social.nl',
+			img: 'goingsocial.png',
+			name: 'Going Social',
+		},
+		{
+			url: 'http://www.ebony-steelband-trust.co.uk',
+			img: 'ebony.png',
+			name: 'Ebony Steelband',
+		},
+		{
+			url: 'https://untold.nl',
+			img: 'untold.jpg',
+			name: 'Theatergezelschap Untold',
+		},
+		{
+			url: 'https://www.kalentura.com',
+			img: 'kalentura.jpeg',
+			name: 'KalentuRa Drums',
+		},
+		{
+			url: 'https://acedanceandmusic.com',
+			img: 'ace.png',
+			name: 'ACE Dance and Music (UK)',
+		},
+		{
+			url: 'https://blackharmony.nl',
+			img: 'blackharmony.png',
+			name: 'Black Harmony',
+		},
+		// Add your other partners here
+	];
+
 	return (
 		<section className={styles.partnersContainer}>
 			<h2>Partners</h2>
+
 			<ul>
-				<li>
-					<a href='#!'>
-						<StaticImage
-							src='../images/logo/ep-logo.png'
-							alt='Logo'
-							placeholder='dominantColor'
-							objectFit='contain'
-							imgClassName={styles.partnersLogo}
-						/>
-					</a>
-				</li>
-				<li>
-					<a
-						href='https://blackharmony.nl'
-						rel='noopener noreferrer'
-						target='_blank'
-					>
-						<StaticImage
-							src='../images/partners/blackharmony.png'
-							alt='Logo'
-							placeholder='dominantColor'
-							objectFit='contain'
-							imgClassName={styles.partnersLogo}
-						/>
-					</a>
-				</li>
-				<li>
-					<a
-						href='https://menefex.nl'
-						rel='noopener noreferrer'
-						target='_blank'
-					>
-						<StaticImage
-							src='../images/partners/menefex.png'
-							alt='Logo'
-							placeholder='dominantColor'
-							objectFit='contain'
-							imgClassName={styles.partnersLogo}
-						/>{' '}
-					</a>
-				</li>
-				<li>
-					<a href='https://untold.nl' rel='noopener noreferrer' target='_blank'>
-						<StaticImage
-							src='../images/partners/untold.jpg'
-							alt='Logo'
-							placeholder='dominantColor'
-							objectFit='contain'
-							imgClassName={styles.partnersLogo}
-						/>
-					</a>
-				</li>
-				<li>
-					<a href='#!'>Partner 5</a>
-				</li>
+				{partners.map((partner, index) => {
+					const partnerImage = partnerImages.find(
+						(image: { relativePath: string }) =>
+							image.relativePath === `partners/${partner.img}`
+					);
+					const image = partnerImage?.childImageSharp?.gatsbyImageData;
+
+					if (!image) {
+						// Handle the case when the image is undefined (optional)
+						return null;
+					}
+
+					return (
+						<li key={index}>
+							<a href={partner.url} rel='noopener noreferrer' target='_blank'>
+								<GatsbyImage
+									image={image}
+									alt={partner.name}
+									objectFit='contain'
+									className={styles.partnersLogo}
+								/>
+							</a>
+						</li>
+					);
+				})}
 			</ul>
 		</section>
 	);

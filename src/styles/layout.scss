@@ -92,6 +92,14 @@ h2 {
 	font-family: $bebasNeue;
 	font-size: 3rem;
 	margin-bottom: 0.5em;
+
+	@media screen and ($medium) {
+		font-size: 2.75rem;
+	}
+
+	@media screen and ($small) {
+		font-size: 2.5rem;
+	}
 }
 
 h3 {
