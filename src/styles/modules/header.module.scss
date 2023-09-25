@@ -262,34 +262,34 @@
 							color: $primaryColor;
 						}
 					}
-				}
 
-				> ul {
-					display: none;
-					position: absolute;
-					z-index: 2;
-					left: 50%;
-					transform: translateX(-50%);
-					padding-top: 24px;
-					background: white;
-					box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+					> ul {
+						display: none;
+						position: absolute;
+						z-index: 2;
+						left: 50%;
+						transform: translateX(-50%);
+						padding-top: 24px;
+						background: white;
+						box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
 
-					min-width: 100%;
-					white-space: nowrap;
+						min-width: 100%;
+						white-space: nowrap;
 
-					> li {
-						> a {
-							font-size: 1.2rem;
-							font-family: $bebasNeue;
-							letter-spacing: 1px;
-							padding: 0.75em 0.75em 0.675em;
-							display: flex;
-							justify-content: center;
-							text-align: center;
+						> li {
+							> a {
+								font-size: 1.2rem;
+								font-family: $bebasNeue;
+								letter-spacing: 1px;
+								padding: 0.75em 0.75em 0.675em;
+								display: flex;
+								justify-content: center;
+								text-align: center;
 
-							&:hover {
-								color: white;
-								background: $primaryColor;
+								&:hover {
+									color: white;
+									background: $primaryColor;
+								}
 							}
 						}
 					}
