@@ -159,7 +159,11 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 									src='../images/logo/ep-logo.png'
 									alt={`${title} Logo`}
 									placeholder='dominantColor'
-									style={{ width: '100%', minWidth: '250px' }} // Adjust maxWidth as needed
+									style={{
+										width: '100%',
+										minWidth: '250px',
+										maxWidth: '250px',
+									}}
 								/>
 							</Link>
 						</li>

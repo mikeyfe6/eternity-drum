@@ -222,8 +222,6 @@
 			}
 
 			> li {
-				max-width: 250px;
-
 				> a {
 					font-size: 1.3rem;
 					font-family: $bebasNeue;
@@ -276,6 +274,9 @@
 					background: white;
 					box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
 
+					min-width: 100%;
+					white-space: nowrap;
+
 					> li {
 						> a {
 							font-size: 1.2rem;
@@ -285,7 +286,6 @@
 							display: flex;
 							justify-content: center;
 							text-align: center;
-							min-width: max-content;
 
 							&:hover {
 								color: white;
