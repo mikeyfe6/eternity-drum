@@ -1,16 +1,20 @@
 import * as React from 'react';
 import type { HeadFC, PageProps } from 'gatsby';
 
-import { SEO } from '../components/seo';
+import { SEO } from '../../components/seo';
 
-import Layout from '../components/layout';
-import Breadcrumb from '../components/breadcrumbs';
+import Layout from '../../components/layout';
+import Breadcrumb from '../../components/breadcrumbs';
 
-import Hero from '../components/heroslider';
-import Sidebar from '../components/sidebar';
+import Hero from '../../components/heroslider';
+import Sidebar from '../../components/sidebar';
 
 const Vacatures: React.FC<PageProps> = () => {
-	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'Vacatures' }];
+	const breadcrumbs = [
+		{ label: 'Home', link: '/' },
+		{ label: 'Over Ons', link: '/over-ons/' },
+		{ label: 'Vacatures' },
+	];
 
 	return (
 		<Layout>
@@ -21,7 +25,6 @@ const Vacatures: React.FC<PageProps> = () => {
 				<h1>Vacatures</h1>
 				<p>Welcome to your new Gatsby site.</p>
 			</section>
-
 			<Sidebar />
 		</Layout>
 	);

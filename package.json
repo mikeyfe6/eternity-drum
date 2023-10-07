@@ -16,10 +16,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^15.17.2",
+    "@contentful/rich-text-react-renderer": "^15.18.0",
     "@mdx-js/react": "^2.3.0",
     "dotenv": "^16.3.1",
-    "gatsby": "^5.12.4",
+    "gatsby": "^5.12.5",
     "gatsby-adapter-netlify": "^1.0.1",
     "gatsby-plugin-canonical-urls": "^5.12.0",
     "gatsby-plugin-catch-links": "^5.12.0",
@@ -27,25 +27,25 @@
     "gatsby-plugin-image": "^3.12.0",
     "gatsby-plugin-manifest": "^5.12.0",
     "gatsby-plugin-mdx": "^5.12.0",
-    "gatsby-plugin-netlify": "^5.1.0",
+    "gatsby-plugin-netlify": "^5.1.1",
     "gatsby-plugin-nprogress": "^5.12.0",
     "gatsby-plugin-offline": "^6.12.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sass": "^6.12.0",
     "gatsby-plugin-sharp": "^5.12.0",
     "gatsby-plugin-sitemap": "^6.12.0",
-    "gatsby-source-contentful": "^8.12.0",
+    "gatsby-source-contentful": "^8.12.1",
     "gatsby-source-filesystem": "^5.12.0",
     "gatsby-transformer-sharp": "^5.12.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.68.0",
-    "swiper": "^10.3.0"
+    "sass": "^1.69.0",
+    "swiper": "^10.3.1"
   },
   "devDependencies": {
-    "@types/node": "^20.6.3",
-    "@types/react": "^18.2.22",
-    "@types/react-dom": "^18.2.7",
+    "@types/node": "^20.8.3",
+    "@types/react": "^18.2.25",
+    "@types/react-dom": "^18.2.11",
     "typescript": "^5.2.2"
   }
 }

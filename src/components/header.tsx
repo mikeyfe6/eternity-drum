@@ -173,8 +173,12 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							</Link>
 						</li>
 						<li>
-							<Link to='/vacatures/' activeClassName={styles.activeMenuItem}>
-								Vacatures
+							<Link
+								to='/seda/'
+								className={styles.special}
+								activeClassName={styles.activeMenuItem}
+							>
+								Seda
 							</Link>
 						</li>
 						<li>
@@ -197,6 +201,14 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 										activeClassName={styles.activeMenuItem}
 									>
 										Contact
+									</Link>
+								</li>
+								<li>
+									<Link
+										to='/over-ons/vacatures/'
+										activeClassName={styles.activeMenuItem}
+									>
+										Vacatures
 									</Link>
 								</li>
 								<li>

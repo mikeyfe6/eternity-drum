@@ -120,11 +120,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 				</li>
 				<li>
 					<Link
-						to='/vacatures/'
+						to='/seda/'
 						activeClassName={styles.activeMenuItem}
 						onClick={handleMenuItemClick}
 					>
-						Vacatures
+						SEDA
 					</Link>
 				</li>
 				<li>
@@ -158,6 +158,15 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 									onClick={handleMenuItemClick}
 								>
 									Contact
+								</Link>
+							</li>
+							<li>
+								<Link
+									to='/over-ons/vacatures/'
+									activeClassName={styles.activeMenuItem}
+									onClick={handleMenuItemClick}
+								>
+									Vacatures
 								</Link>
 							</li>
 							<li>

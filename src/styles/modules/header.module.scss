@@ -110,6 +110,10 @@
 					}
 				}
 
+				ul > li > ul {
+					padding-top: 24px;
+				}
+
 				@include boxBottomShadow;
 			}
 
@@ -233,15 +237,20 @@
 						color: white;
 						background: $primaryColor;
 					}
+
+					&.special {
+						color: white;
+						background: $tertiaryColor;
+					}
+				}
+
+				.active-menu-item {
+					background: $secondaryColor;
+					color: $primaryColor;
 				}
 
 				&:hover > ul {
 					display: block;
-				}
-
-				.active-menu-item {
-					color: tertiaryColor;
-					background: $secondaryColor;
 				}
 
 				&:has(ul) {
@@ -269,7 +278,7 @@
 						z-index: 2;
 						left: 50%;
 						transform: translateX(-50%);
-						padding-top: 24px;
+						padding-top: 42px;
 						background: white;
 						box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
 
