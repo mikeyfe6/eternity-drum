@@ -51,9 +51,9 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 					setIsHeaderFixed(false);
 				}
 
-				if (currentScrollY > headerTopBannerHeight + headerMenuHeight) {
+				if (currentScrollY > headerTopBannerHeight + 25) {
 					if (headerMenuWrapper) {
-						headerMenuWrapper.style.height = '80px';
+						headerMenuWrapper.style.height = '90px';
 					}
 				} else {
 					if (headerMenuWrapper && window.innerWidth > 576) {
