@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 
 				if (currentScrollY > headerTopBannerHeight) {
 					if (mainContent) {
-						mainContent.style.marginTop = `${headerMenuHeight}` + 'px';
+						mainContent.style.marginTop = '130px';
 					}
 					setIsHeaderFixed(true);
 				} else {
