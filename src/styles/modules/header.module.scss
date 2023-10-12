@@ -69,15 +69,6 @@
 		}
 	}
 
-	&-space {
-		height: 125px;
-		width: 100%;
-
-		@media screen and ($small) {
-			height: 90px;
-		}
-	}
-
 	&-wrapper {
 		.header-menu {
 			display: flex;
@@ -87,7 +78,7 @@
 			background-color: #fff;
 
 			@media screen and ($small) {
-				height: 90px;
+				height: 80px;
 			}
 
 			@include baseTransition(all);
@@ -98,7 +89,6 @@
 				left: 0;
 				width: 100%;
 				z-index: 5;
-				height: 90px;
 				transform: translateZ(0);
 
 				ul > li > ul > li {
@@ -119,8 +109,9 @@
 
 			&::before {
 				content: '·';
+				display: block;
 				margin-right: 25px;
-				margin-bottom: 10px;
+				padding-bottom: 5px;
 				color: $secondaryColor;
 				font-size: 5em;
 
@@ -131,8 +122,9 @@
 
 			&::after {
 				content: '·';
+				display: block;
 				margin-left: 25px;
-				margin-bottom: 10px;
+				padding-bottom: 7px;
 				color: $secondaryColor;
 				font-size: 5em;
 

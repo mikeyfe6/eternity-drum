@@ -13,16 +13,53 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 	const [isHeaderFixed, setIsHeaderFixed] = React.useState(false);
+	const [scrollY, setScrollY] = React.useState(0);
 
 	const { title, facebookUrl, instagramUrl, linkedinUrl, youtubeUrl } =
 		useSiteMetadata();
 
 	React.useEffect(() => {
 		const handleScroll = () => {
-			if (window.scrollY > 46) {
-				setIsHeaderFixed(true);
-			} else {
-				setIsHeaderFixed(false);
+			const currentScrollY = window.scrollY;
+			const headerTopBannerWrapper = document.querySelector(
+				`.${styles.headerTopBannerWrapper}`
+			);
+			const headerMenuWrapper = document.querySelector(
+				`.${styles.headerMenu}`
+			) as HTMLElement | null;
+			const mainContent = document.querySelector(
+				`.eternity-wrapper`
+			) as HTMLElement | null;
+
+			setScrollY(currentScrollY);
+
+			if (headerTopBannerWrapper) {
+				const headerTopBannerHeight = (headerTopBannerWrapper as HTMLElement)
+					.offsetHeight;
+				const headerMenuHeight = (headerMenuWrapper as HTMLElement)
+					.offsetHeight;
+
+				if (currentScrollY > headerTopBannerHeight) {
+					if (mainContent) {
+						mainContent.style.marginTop = `${headerMenuHeight}` + 'px';
+					}
+					setIsHeaderFixed(true);
+				} else {
+					if (mainContent) {
+						mainContent.style.marginTop = '0';
+					}
+					setIsHeaderFixed(false);
+				}
+
+				if (currentScrollY > headerTopBannerHeight + headerMenuHeight) {
+					if (headerMenuWrapper) {
+						headerMenuWrapper.style.height = '80px';
+					}
+				} else {
+					if (headerMenuWrapper && window.innerWidth > 576) {
+						headerMenuWrapper.style.height = '125px';
+					}
+				}
 			}
 		};
 
@@ -73,8 +110,6 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 						</ul>
 					</div>
 				</div>
-
-				{isHeaderFixed && <div className={styles.headerSpace} />}
 
 				<nav className={menuSwitchClass}>
 					<div className={styles.mobileMenuContainer}>

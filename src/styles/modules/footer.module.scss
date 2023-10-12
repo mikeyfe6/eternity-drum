@@ -11,33 +11,37 @@
 	}
 
 	&-wrapper {
-		padding: 1em 2em 1.25em;
+		padding: 3em 2em 1em;
 
 		@include epWrapper;
 
 		@media screen and ($medium) {
-			padding: 0 2em 2em;
+			padding: 3em 2em 1em;
 		}
 
 		@media screen and ($small) {
-			padding: 0 1.5em 2em;
+			padding: 2.5em 1.5em 1em;
 		}
 
 		@media screen and ($extraSmall) {
-			padding: 0 1em 2em;
+			padding: 2.5em 1em 1em;
 		}
 	}
 
 	&-upper-banner {
 		display: flex;
 		justify-content: space-evenly;
-		padding: 1.5em 0 2em;
 		flex-wrap: wrap;
 		gap: 30px;
+		row-gap: 75px;
 
-		@media screen and ($small) {
+		@media screen and ($large) {
+			row-gap: 50px;
+		}
+
+		@media screen and ($medium) {
 			justify-content: flex-start;
-			padding: 3em 0 2em;
+			column-gap: 100px;
 		}
 
 		> div {
@@ -69,18 +73,20 @@
 			flex-direction: column;
 			gap: 35px;
 
-			@media screen and ($large) {
-				display: flex;
-				align-items: center;
+			@media screen and ($extraLarge) {
 				flex-direction: row;
+				align-items: center;
 				justify-content: space-evenly;
 				width: 100%;
+			}
+
+			@media screen and ($large) {
 				padding: 1em 0 0;
+				gap: 50px;
 			}
 
 			@media screen and ($small) {
 				flex-direction: column;
-				gap: 50px;
 			}
 		}
 
@@ -120,6 +126,10 @@
 							color: $primaryColor;
 							width: 100%;
 
+							&::placeholder {
+								color: grey;
+							}
+
 							@media ($medium) {
 								min-width: auto;
 								width: 100%;
@@ -157,7 +167,6 @@
 			max-width: 100px;
 
 			@media screen and ($large) {
-				width: 100%;
 				max-width: 125px;
 			}
 
@@ -194,7 +203,7 @@
 	}
 
 	&-bottom-banner {
-		padding-top: 2em;
+		padding-top: 3em;
 		display: flex;
 		justify-content: center;
 

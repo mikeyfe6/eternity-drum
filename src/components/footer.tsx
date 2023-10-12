@@ -1,14 +1,14 @@
 // src/components/Footer.js
 import * as React from 'react';
 
-import { useSiteMetadata } from '../hooks/use-site-metadata';
 import { Link } from 'gatsby';
 import axios from 'axios';
+
+import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 import * as styles from '../styles/modules/footer.module.scss';
 
 const Footer = () => {
-	// Define a single state object to manage all form fields
 	const [formData, setFormData] = React.useState({
 		name: '',
 		email: '',
@@ -30,7 +30,6 @@ const Footer = () => {
 		youtubeUrl,
 	} = useSiteMetadata();
 
-	// Handle changes in the form fields
 	const handleInputChange = (event: { target: { name: any; value: any } }) => {
 		const { name, value } = event.target;
 		setFormData({
@@ -39,29 +38,23 @@ const Footer = () => {
 		});
 	};
 
-	// Handle form submission
 	const handleSubmit = (event: { preventDefault: () => void }) => {
 		event.preventDefault();
 
-		// Check if name and email are not empty
 		if (formData.name.trim() === '' || formData.email.trim() === '') {
 			alert('Please fill in both name and email fields.');
 			return;
 		}
 
-		// Send a POST request to your server or Netlify function
 		axios
 			.post('/.netlify/functions/sendmail', formData)
 			.then((response) => {
-				// Handle successful form submission (e.g., show a success message)
 				console.log('Form submitted successfully:', response.data);
 			})
 			.catch((error) => {
-				// Handle form submission errors (e.g., show an error message)
 				console.error('Form submission error:', error);
 			});
 
-		// Clear the form fields after submission
 		setFormData({
 			name: '',
 			email: '',

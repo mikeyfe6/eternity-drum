@@ -17,7 +17,7 @@
 	}
 
 	&-slide {
-		border-radius: 15px;
+		border-radius: 10px;
 		overflow: hidden;
 
 		@media screen and ($small) {
@@ -26,6 +26,7 @@
 
 		img {
 			opacity: 0.75;
+			border-radius: 10px;
 
 			@include respImage(100%, 100%, 600px, cover);
 
@@ -35,6 +36,7 @@
 
 			@media screen and ($small) {
 				height: 300px;
+				border-radius: 0px;
 			}
 
 			@media screen and ($extraSmall) {

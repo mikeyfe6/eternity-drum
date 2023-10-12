@@ -1,0 +1,175 @@
+@import '../configs/globals';
+
+.bookingsform {
+	&-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 100px;
+		padding: 50px 0;
+
+		> * {
+			flex: 1;
+		}
+
+		:nth-child(1) {
+			max-width: 500px;
+		}
+
+		:nth-child(2) {
+			max-width: 650px;
+		}
+
+		@media screen and ($superSized) {
+			gap: 37.5px;
+		}
+
+		@media screen and ($large) {
+			align-items: start;
+			flex-direction: row;
+			justify-content: space-evenly;
+			width: 100%;
+			padding: 1em 0 0;
+			gap: 25px;
+
+			:nth-child(1) {
+				flex: 55%;
+			}
+
+			:nth-child(2) {
+				flex: 45%;
+			}
+		}
+
+		@media screen and ($medium) {
+			align-items: center;
+			flex-direction: column;
+			gap: 50px;
+			flex-direction: column-reverse;
+
+			:nth-child(1) {
+				max-width: 600px;
+			}
+		}
+	}
+
+	&-wrapper {
+		@media screen and ($small) {
+			display: block;
+			width: 100%;
+		}
+
+		form {
+			background: $primaryColor;
+			color: white;
+			padding: 1.5em 2em;
+			border-radius: 10px;
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 2em;
+
+			@include boxShadow;
+
+			fieldset {
+				display: flex;
+				flex-direction: column;
+
+				legend {
+					font-weight: 600;
+					font-size: 1.125rem;
+					margin-bottom: 0.75em;
+				}
+
+				label {
+					display: none;
+				}
+
+				input,
+				textarea,
+				select {
+					margin: 0.5em 0;
+				}
+
+				input {
+					background: white;
+					border-radius: 5px;
+					padding: 0.5em 0.75em;
+					color: $primaryColor;
+					width: 100%;
+
+					&::placeholder {
+						color: grey;
+					}
+
+					@media ($medium) {
+						min-width: auto;
+						width: 100%;
+					}
+				}
+
+				textarea {
+					background: white;
+					border-radius: 5px;
+					padding: 0.5em 0.75em;
+					color: $primaryColor;
+					width: 100%;
+					min-height: 7.5em;
+
+					&::placeholder {
+						color: grey;
+					}
+
+					@media ($medium) {
+						min-width: auto;
+						width: 100%;
+					}
+				}
+			}
+
+			button {
+				@include buttonStyle(white, $primaryColor, white, $tertiaryColor);
+
+				margin-top: 1em;
+				align-self: end;
+			}
+		}
+	}
+
+	&-select {
+		position: relative;
+		width: 100%;
+
+		select {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			background-color: #fff;
+			color: #333;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+
+			&::placeholder {
+				color: grey;
+			}
+		}
+
+		.arrow {
+			position: absolute;
+			top: 50%;
+			right: 10px;
+			transform: translateY(-50%);
+			width: 0;
+			height: 0;
+			border-left: 7.5px solid transparent;
+			border-right: 7.5px solid transparent;
+			border-top: 7.5px solid #333; /* Customize the arrow color here */
+		}
+	}
+
+	&-info {
+		background: #80808010;
+		padding: 1em;
+	}
+}
