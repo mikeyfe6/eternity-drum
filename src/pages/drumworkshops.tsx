@@ -7,7 +7,7 @@ import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
-import Sidebar from '../components/sidebar';
+import RegisterForm from '../components/registerform';
 
 const Drumworkshops: React.FC<PageProps> = () => {
 	const breadcrumbs = [
@@ -22,10 +22,8 @@ const Drumworkshops: React.FC<PageProps> = () => {
 				<Breadcrumb crumbs={breadcrumbs} />
 
 				<h1>Drumworkshops</h1>
-				<p>Welcome to your new Gatsby site.</p>
+				<RegisterForm />
 			</section>
-
-			<Sidebar />
 		</Layout>
 	);
 };

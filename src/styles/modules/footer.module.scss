@@ -53,7 +53,7 @@
 					display: block;
 
 					> a:hover {
-						color: $tertiaryColor;
+						color: darken($tertiaryColor, 10);
 					}
 
 					> i {

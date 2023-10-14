@@ -142,3 +142,35 @@ nav[data-breadcrumbs] {
 	background: rgba(0, 0, 0, 0.5);
 	z-index: 5;
 }
+
+u {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	text-decoration-thickness: 2px;
+}
+
+.error {
+	outline-width: 3px;
+	outline-style: solid;
+	outline-color: $redColor;
+}
+
+.approved {
+	outline-width: 3px;
+	outline-style: solid;
+	outline-color: $greenColor;
+}
+
+input,
+textarea,
+select {
+	&:focus {
+		outline-width: 3px;
+		outline-style: solid;
+		outline-color: #007bff;
+
+		&::placeholder {
+			color: grey;
+		}
+	}
+}

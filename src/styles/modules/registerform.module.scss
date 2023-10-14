@@ -1,0 +1,297 @@
+@import '../configs/globals';
+
+.registerform {
+	&-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 87.5px;
+		padding: 50px 0;
+
+		> * {
+			flex: 1;
+		}
+
+		> :nth-child(1) {
+			max-width: 600px;
+		}
+
+		> :nth-child(2) {
+			max-width: 600px;
+		}
+
+		@media screen and ($superSized) {
+			gap: 37.5px;
+		}
+
+		@media screen and ($large) {
+			align-items: start;
+			flex-direction: row;
+			justify-content: space-evenly;
+			width: 100%;
+			padding: 1em 0 0;
+			gap: 25px;
+
+			> :nth-child(1) {
+				flex: 55%;
+			}
+
+			> :nth-child(2) {
+				flex: 45%;
+			}
+		}
+
+		@media screen and ($medium) {
+			align-items: center;
+			flex-direction: column;
+			gap: 50px;
+			flex-direction: column-reverse;
+
+			:nth-child(1) {
+				max-width: 600px;
+			}
+		}
+	}
+
+	&-conditions {
+		ul {
+			list-style-type: disc;
+			margin-left: 1.5em;
+
+			li:not(:last-child) {
+				padding-bottom: 0.5em;
+			}
+		}
+
+		> * {
+			font-size: 0.95rem;
+			padding-bottom: 1em;
+		}
+
+		> p:not(:first-child) {
+			padding-top: 1em;
+		}
+
+		> p:last-child {
+			font-size: 0.9rem;
+			text-align: center;
+		}
+	}
+
+	&-wrapper {
+		background: $primaryColor;
+		color: white;
+		padding: 1.5em 2em;
+		border-radius: 10px;
+
+		@include boxShadow;
+
+		@media screen and ($small) {
+			display: block;
+			width: 100%;
+		}
+
+		> h2 {
+			font-size: 2.5rem;
+			text-decoration: underline;
+			text-decoration-color: $tertiaryColor;
+			text-underline-offset: 4px;
+		}
+
+		> span {
+			font-size: 1.125rem;
+			font-weight: 600;
+			margin-bottom: 1.5em;
+			display: block;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 1em;
+
+			> span {
+				font-size: 1.125rem;
+				font-weight: 600;
+				margin-top: 1.5em;
+			}
+
+			> fieldset {
+				display: flex;
+				flex-direction: column;
+
+				&:nth-of-type(2) {
+					margin-top: 2em;
+				}
+
+				> div {
+					display: flex;
+					gap: 10px;
+
+					// first column
+					input[name='firstName'] {
+					}
+					input[name='lastName'] {
+						// nada
+					}
+
+					// second column
+					input[name='streetName'] {
+						flex: 60%;
+					}
+					input[name='houseNumber'] {
+						flex: 20%;
+					}
+					input[name='zipCode'] {
+						flex: 20%;
+					}
+
+					// third column
+					input[name='city'] {
+						flex: 50%;
+					}
+					input[name='province'] {
+						flex: 50%;
+					}
+
+					// fourth column
+					input[name='email'] {
+						// nada
+					}
+
+					// fifth column
+					input[name='phone'] {
+						flex: 50%;
+					}
+					input[name='dateOfBirth'] {
+						flex: 25%;
+					}
+					input[name='gender'] {
+						flex: 25%;
+					}
+
+					// sixth column
+
+					input[name='firstNameParent'] {
+					}
+					input[name='lastNameParent'] {
+					}
+
+					// eight column
+
+					input[name='emailParent'] {
+						flex: 60%;
+					}
+					input[name='phoneParent'] {
+						flex: 40%;
+					}
+
+					> div {
+						flex: 25%;
+					}
+
+					// seventh column
+					input[name='comments'] {
+						// nada
+					}
+				}
+
+				> legend {
+					text-align: right;
+					margin: 0 0 0.5em;
+				}
+
+				label {
+					display: none;
+				}
+
+				input,
+				textarea,
+				select {
+					margin: 0.5em 0;
+				}
+
+				input {
+					background: white;
+					border-radius: 5px;
+					padding: 0.5em 0.75em;
+					color: $primaryColor;
+					width: 100%;
+
+					@include baseTransition(outline-color);
+
+					&::placeholder {
+						color: grey;
+					}
+				}
+
+				textarea {
+					background: white;
+					border-radius: 5px;
+					padding: 0.5em 0.75em;
+					color: $primaryColor;
+					width: 100%;
+					min-height: 7.5em;
+
+					&::placeholder {
+						color: grey;
+					}
+
+					@media ($medium) {
+						min-width: auto;
+						width: 100%;
+					}
+				}
+			}
+
+			> button {
+				@include buttonStyle(white, $primaryColor, white, $tertiaryColor);
+
+				margin-top: 1em;
+				align-self: end;
+			}
+		}
+	}
+
+	&-select {
+		position: relative;
+		width: 100%;
+
+		> select {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			background-color: #fff;
+			color: #333;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+
+			&::placeholder {
+				color: grey;
+			}
+		}
+
+		> .arrow {
+			position: absolute;
+			top: 50%;
+			right: 10px;
+			transform: translateY(-50%);
+			width: 0;
+			height: 0;
+			border-left: 7.5px solid transparent;
+			border-right: 7.5px solid transparent;
+			border-top: 7.5px solid #333;
+		}
+	}
+
+	&-info {
+		background: #80808010;
+		padding: 1em;
+
+		a {
+			@include pageLink;
+		}
+	}
+}

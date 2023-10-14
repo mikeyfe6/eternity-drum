@@ -62,7 +62,7 @@ section {
 					}
 
 					&:hover {
-						color: $secondaryColor;
+						color: lighten($tertiaryColor, 15);
 					}
 				}
 			}

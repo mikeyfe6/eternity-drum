@@ -70,3 +70,14 @@
 	margin: 0 auto;
 	width: 100%;
 }
+
+@mixin pageLink {
+	color: $tertiaryColor;
+	text-decoration: none;
+	font-weight: 600;
+	transition: color 0.1s ease-in-out;
+
+	&:hover {
+		color: darken($tertiaryColor, 10);
+	}
+}
