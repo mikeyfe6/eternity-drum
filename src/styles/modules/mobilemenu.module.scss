@@ -40,7 +40,7 @@
 				width: 3px;
 				height: 25px;
 				position: absolute;
-				background-color: white;
+				background-color: $whiteColor;
 				transform: rotate(45deg);
 				transition: transform 0.3s ease-in-out;
 			}
@@ -68,7 +68,7 @@
 
 			> a {
 				text-decoration: none;
-				color: white;
+				color: $whiteColor;
 				font-size: 1.5rem;
 				letter-spacing: 1px;
 
@@ -81,7 +81,7 @@
 			> i {
 				font-size: 1.25rem;
 				background: $tertiaryColor;
-				color: white;
+				color: $whiteColor;
 				width: 20px;
 				height: 20px;
 				padding-bottom: 1px;
@@ -113,7 +113,7 @@
 					transition: all 0.3s ease-in-out;
 					list-style-type: square;
 					list-style-position: inside;
-					color: white;
+					color: $whiteColor;
 
 					@media screen and ($small) {
 						margin-top: 0.25em;
@@ -136,7 +136,7 @@
 
 						> a {
 							text-decoration: none;
-							color: white;
+							color: $whiteColor;
 							font-size: 1.3rem;
 							letter-spacing: 0.5px;
 

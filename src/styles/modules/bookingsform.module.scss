@@ -61,7 +61,7 @@
 
 		form {
 			background: $primaryColor;
-			color: white;
+			color: $whiteColor;
 			padding: 1.5em 2em;
 			border-radius: 10px;
 			display: flex;
@@ -91,14 +91,14 @@
 				}
 
 				input {
-					background: white;
+					background: $whiteColor;
 					border-radius: 5px;
 					padding: 0.5em 0.75em;
 					color: $primaryColor;
 					width: 100%;
 
 					&::placeholder {
-						color: grey;
+						color: $greyColor;
 					}
 
 					@media ($medium) {
@@ -108,7 +108,7 @@
 				}
 
 				textarea {
-					background: white;
+					background: $whiteColor;
 					border-radius: 5px;
 					padding: 0.5em 0.75em;
 					color: $primaryColor;
@@ -116,7 +116,7 @@
 					min-height: 7.5em;
 
 					&::placeholder {
-						color: grey;
+						color: $greyColor;
 					}
 
 					@media ($medium) {
@@ -127,7 +127,12 @@
 			}
 
 			button {
-				@include buttonStyle(white, $primaryColor, white, $tertiaryColor);
+				@include buttonStyle(
+					$whiteColor,
+					$primaryColor,
+					$whiteColor,
+					$tertiaryColor
+				);
 
 				margin-top: 1em;
 				align-self: end;
@@ -151,7 +156,7 @@
 			appearance: none;
 
 			&::placeholder {
-				color: grey;
+				color: $greyColor;
 			}
 		}
 

@@ -25,7 +25,7 @@
 
 	&.specialButton {
 		background-color: $tertiaryColor;
-		color: white;
+		color: $whiteColor;
 
 		&:hover {
 			background-color: $tertiaryColor;
@@ -79,5 +79,17 @@
 
 	&:hover {
 		color: darken($tertiaryColor, 10);
+	}
+}
+
+@mixin specialLabels {
+	label {
+		visibility: hidden;
+		transition: all 0s;
+
+		&.visited {
+			visibility: visible;
+			transition: all 0.2s;
+		}
 	}
 }

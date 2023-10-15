@@ -8,6 +8,7 @@ import * as styles from '../styles/modules/registerform.module.scss';
 
 const RegisterForm: React.FC = () => {
 	const [emptyFields, setEmptyFields] = React.useState<string[]>([]);
+	const [focusedInput, setFocusedInput] = React.useState<string | null>(null);
 
 	const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -75,6 +76,10 @@ const RegisterForm: React.FC = () => {
 		}
 	};
 
+	const handleInputFocus = (name: string) => {
+		setFocusedInput(name);
+	};
+
 	const handleInputChange = (
 		event: React.ChangeEvent<
 			HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -99,12 +104,8 @@ const RegisterForm: React.FC = () => {
 		}
 	};
 
-	const handleFieldBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-		const { name, value, required } = event.target;
-
-		if (required && value.trim() === '' && !emptyFields.includes(name)) {
-			setEmptyFields((prevEmptyFields) => [...prevEmptyFields, name]);
-		}
+	const handleInputBlur = () => {
+		setFocusedInput(null);
 	};
 
 	const handleSubmit = (event: React.FormEvent) => {
@@ -190,194 +191,357 @@ const RegisterForm: React.FC = () => {
 					</span>
 					<form onSubmit={handleSubmit}>
 						<fieldset>
-							<legend>Gegevens cursist</legend>
+							<legend>Gegevens cursist:</legend>
 
-							<div>
-								<label htmlFor='firstName'>Voornaam:</label>
-								<input
-									type='text'
-									id='firstName'
-									name='firstName'
-									value={formData.firstName}
-									placeholder='Voornaam'
-									onChange={handleInputChange}
-									ref={inputRef}
-									onBlur={handleFieldBlur}
-									className={emptyFields.includes('firstName') ? 'error' : ''}
-								/>
-
-								<label htmlFor='lastName'>Achternaam:</label>
-								<input
-									type='text'
-									id='lastName'
-									name='lastName'
-									value={formData.lastName}
-									placeholder='Achternaam'
-									onChange={handleInputChange}
-									className={emptyFields.includes('lastName') ? 'error' : ''}
-								/>
-							</div>
-
-							<div>
-								<label htmlFor='streetName'>Straatnaam:</label>
-								<input
-									type='text'
-									id='streetName'
-									name='streetName'
-									value={formData.streetName}
-									placeholder='Straatnaam'
-									onChange={handleInputChange}
-									className={emptyFields.includes('streetName') ? 'error' : ''}
-								/>
-
-								<label htmlFor='houseNumber'>Huisnr:</label>
-								<input
-									type='text'
-									id='houseNumber'
-									name='houseNumber'
-									value={formData.houseNumber}
-									placeholder='Huisnr.'
-									onChange={handleInputChange}
-									className={emptyFields.includes('houseNumber') ? 'error' : ''}
-								/>
-
-								<label htmlFor='zipCode'>Postcode:</label>
-								<input
-									type='text'
-									id='zipCode'
-									name='zipCode'
-									value={formData.zipCode}
-									placeholder='Postcode'
-									onChange={handleInputChange}
-									className={emptyFields.includes('zipCode') ? 'error' : ''}
-								/>
-							</div>
-
-							<div>
-								<label htmlFor='city'>Woonplaats:</label>
-								<input
-									type='text'
-									id='city'
-									name='city'
-									value={formData.city}
-									placeholder='Woonplaats'
-									onChange={handleInputChange}
-									className={emptyFields.includes('city') ? 'error' : ''}
-								/>
-
-								<label htmlFor='province'>Provincie:</label>
-								<input
-									type='text'
-									id='province'
-									name='province'
-									value={formData.province}
-									placeholder='Provincie'
-									onChange={handleInputChange}
-									className={emptyFields.includes('province') ? 'error' : ''}
-								/>
-							</div>
-
-							<div>
-								<label htmlFor='email'>E-mailadres</label>
-								<input
-									type='email'
-									id='email'
-									name='email'
-									value={formData.email}
-									placeholder='E-mailadres'
-									onChange={handleInputChange}
-									autoComplete='email'
-									className={emptyFields.includes('email') ? 'error' : ''}
-								/>
-							</div>
-
-							<div>
-								<label htmlFor='phone'>Telefoonnummer:</label>
-								<input
-									type='tel'
-									id='phone'
-									name='phone'
-									value={formData.phone}
-									placeholder='Telefoonnummer'
-									onChange={handleInputChange}
-									autoComplete='tel'
-									className={emptyFields.includes('phone') ? 'error' : ''}
-								/>
-
-								<div className={styles.registerformSelect}>
-									<label htmlFor='gender'>Geslacht</label>
-									<select
-										id='gender'
-										name='gender'
-										value={formData.gender}
-										onChange={handleInputChange}
+							<div className='form-column'>
+								<div className='form-group firstName'>
+									<label
+										htmlFor='firstName'
+										className={
+											focusedInput === 'firstName' || formData.firstName
+												? 'visited'
+												: ''
+										}
 									>
-										<option value='' disabled>
-											Geslacht
-										</option>
-										<option value='male'>Man</option>
-										<option value='female'>Vrouw</option>
-										<option value='other'>Anders</option>
-									</select>
-									<div className={styles.arrow}></div>
+										Voornaam
+									</label>
+									<input
+										type='text'
+										id='firstName'
+										name='firstName'
+										value={formData.firstName}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('firstName')}
+										className={emptyFields.includes('firstName') ? 'error' : ''}
+										ref={inputRef}
+									/>
 								</div>
 
-								<label htmlFor='dob'>Geboortedatum:</label>
-								<input
-									type='date'
-									id='dob'
-									name='dateOfBirth'
-									value={formData.dateOfBirth}
-									placeholder='Geboortedatum'
-									onChange={handleInputChange}
-									autoComplete='bday'
-									className={emptyFields.includes('dateOfBirth') ? 'error' : ''}
-								/>
+								<div className='form-group lastName'>
+									<label
+										htmlFor='lastName'
+										className={
+											focusedInput === 'lastName' || formData.lastName
+												? 'visited'
+												: ''
+										}
+									>
+										Achternaam
+									</label>
+									<input
+										type='text'
+										id='lastName'
+										name='lastName'
+										value={formData.lastName}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('lastName')}
+										className={emptyFields.includes('lastName') ? 'error' : ''}
+									/>
+								</div>
 							</div>
 
-							<div className={styles.registerformSelect}>
-								<label htmlFor='discover'>
-									Hoe ben je bij ons terecht gekomen?
-								</label>
-								<select
-									id='discover'
-									name='discover'
-									value={formData.discover}
-									onChange={handleInputChange}
-								>
-									<option value='' disabled>
-										Hoe ben je bij ons terecht gekomen?
-									</option>
-									<option value='Via Social Media (Facebook, Instagram, Etc)'>
-										Via Social Media (Facebook, Instagram, Etc)
-									</option>
-									<option value='Via Google, Bing of een andere zoekmachine'>
-										Via Google, Bing of een andere zoekmachine
-									</option>
-									<option value='Via een vriend(in), kennis, collega of familielid'>
-										Via een vriend(in), kennis, collega of familielid
-									</option>
-									<option value='Via eerdere workshops (bijv. de Eternity Summerschool)'>
-										Via eerdere workshops (bijv. de Eternity Summerschool)
-									</option>
-									<option value='U heeft ons eerder zien/horen spelen/optreden'>
-										Je hebt ons eerder zien/horen spelen/optreden
-									</option>
-									<option value='Overig'>
-										Op een andere manier, namelijk:
-									</option>
-								</select>
-								<div className={styles.arrow}></div>
+							<div className='form-column'>
+								<div className='form-group streetName'>
+									<label
+										htmlFor='streetName'
+										className={
+											focusedInput === 'streetName' || formData.streetName
+												? 'visited'
+												: ''
+										}
+									>
+										Straatnaam
+									</label>
+									<input
+										type='text'
+										id='streetName'
+										name='streetName'
+										value={formData.streetName}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('streetName')}
+										className={
+											emptyFields.includes('streetName') ? 'error' : ''
+										}
+									/>
+								</div>
+
+								<div className='form-group houseNumber'>
+									<label
+										htmlFor='houseNumber'
+										className={
+											focusedInput === 'houseNumber' || formData.houseNumber
+												? 'visited'
+												: ''
+										}
+									>
+										Huisnr
+									</label>
+									<input
+										type='text'
+										id='houseNumber'
+										name='houseNumber'
+										value={formData.houseNumber}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('houseNumber')}
+										className={
+											emptyFields.includes('houseNumber') ? 'error' : ''
+										}
+									/>
+								</div>
+								<div className='form-group zipCode'>
+									<label
+										htmlFor='zipCode'
+										className={
+											focusedInput === 'zipCode' || formData.zipCode
+												? 'visited'
+												: ''
+										}
+									>
+										Postcode
+									</label>
+									<input
+										type='text'
+										id='zipCode'
+										name='zipCode'
+										value={formData.zipCode}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('zipCode')}
+										className={emptyFields.includes('zipCode') ? 'error' : ''}
+									/>
+								</div>
 							</div>
 
-							<label htmlFor='comments'>Heb je nog opmerkingen?</label>
-							<textarea
-								id='comments'
-								name='comments'
-								value={formData.comments}
-								onChange={handleInputChange}
-								placeholder='Heb je nog opmerkingen?'
-							></textarea>
+							<div className='form-column'>
+								<div className='form-group city'>
+									<label
+										htmlFor='city'
+										className={
+											focusedInput === 'city' || formData.city ? 'visited' : ''
+										}
+									>
+										Woonplaats
+									</label>
+									<input
+										type='text'
+										id='city'
+										name='city'
+										value={formData.city}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('city')}
+										className={emptyFields.includes('city') ? 'error' : ''}
+									/>
+								</div>
+
+								<div className='form-group province'>
+									<label
+										htmlFor='province'
+										className={
+											focusedInput === 'province' || formData.province
+												? 'visited'
+												: ''
+										}
+									>
+										Provincie
+									</label>
+									<input
+										type='text'
+										id='province'
+										name='province'
+										value={formData.province}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('province')}
+										className={emptyFields.includes('province') ? 'error' : ''}
+									/>
+								</div>
+							</div>
+
+							<div className='form-column'>
+								<div className='form-group email'>
+									<label
+										htmlFor='email'
+										className={
+											focusedInput === 'email' || formData.email
+												? 'visited'
+												: ''
+										}
+									>
+										E-mailadres
+									</label>
+									<input
+										type='email'
+										id='email'
+										name='email'
+										autoComplete='email'
+										value={formData.email}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('email')}
+										className={emptyFields.includes('email') ? 'error' : ''}
+									/>
+								</div>
+							</div>
+
+							<div className='form-column'>
+								<div className='form-group phone'>
+									<label
+										htmlFor='phone'
+										className={
+											focusedInput === 'phone' || formData.phone
+												? 'visited'
+												: ''
+										}
+									>
+										Telefoonnummer
+									</label>
+									<input
+										type='tel'
+										id='phone'
+										name='phone'
+										autoComplete='tel'
+										value={formData.phone}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('phone')}
+										className={emptyFields.includes('phone') ? 'error' : ''}
+									/>
+								</div>
+
+								<div className='form-group gender'>
+									<div className={styles.registerformSelect}>
+										<label
+											htmlFor='gender'
+											className={
+												focusedInput === 'gender' || formData.gender
+													? 'visited'
+													: ''
+											}
+										>
+											Geslacht
+										</label>
+										<select
+											id='gender'
+											name='gender'
+											value={formData.gender}
+											onChange={handleInputChange}
+											onBlur={handleInputBlur}
+											onFocus={() => handleInputFocus('gender')}
+											className={emptyFields.includes('gender') ? 'error' : ''}
+										>
+											<option value='' disabled>
+												Geslacht
+											</option>
+											<option value='male'>Man</option>
+											<option value='female'>Vrouw</option>
+											<option value='other'>Anders</option>
+										</select>
+										<div className={styles.arrow}></div>
+									</div>
+								</div>
+
+								<div className='form-group dateOfBirth'>
+									<label
+										htmlFor='dateOfBirth'
+										className={
+											focusedInput === 'dateOfBirth' || formData.dateOfBirth
+												? 'visited'
+												: ''
+										}
+									>
+										Geboortedatum
+									</label>
+									<input
+										type='date'
+										id='dateOfBirth'
+										name='dateOfBirth'
+										autoComplete='bday'
+										value={formData.dateOfBirth}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('dateOfBirth')}
+										className={
+											emptyFields.includes('dateOfBirth') ? 'error' : ''
+										}
+									/>
+								</div>
+							</div>
+
+							<div className='form-column'>
+								<div className='form-group discover'>
+									<div className={styles.registerformSelect}>
+										<label
+											htmlFor='discover'
+											className={
+												focusedInput === 'discover' || formData.discover
+													? 'visited'
+													: ''
+											}
+										>
+											Hoe ben je bij ons terecht gekomen?
+										</label>
+										<select
+											id='discover'
+											name='discover'
+											value={formData.discover}
+											onChange={handleInputChange}
+											onBlur={handleInputBlur}
+											onFocus={() => handleInputFocus('discover')}
+										>
+											<option value='' disabled>
+												Hoe ben je bij ons terecht gekomen?
+											</option>
+											<option value='Via Social Media (Facebook, Instagram, Etc)'>
+												Via Social Media (Facebook, Instagram, Etc)
+											</option>
+											<option value='Via Google, Bing of een andere zoekmachine'>
+												Via Google, Bing of een andere zoekmachine
+											</option>
+											<option value='Via een vriend(in), kennis, collega of familielid'>
+												Via een vriend(in), kennis, collega of familielid
+											</option>
+											<option value='Via eerdere workshops (bijv. de Eternity Summerschool)'>
+												Via eerdere workshops (bijv. de Eternity Summerschool)
+											</option>
+											<option value='U heeft ons eerder zien/horen spelen/optreden'>
+												Je hebt ons eerder zien/horen spelen/optreden
+											</option>
+											<option value='Overig'>
+												Op een andere manier, namelijk:
+											</option>
+										</select>
+										<div className={styles.arrow}></div>
+									</div>
+								</div>
+							</div>
+
+							<div className='form-column'>
+								<div className='form-group comments'>
+									<label
+										htmlFor='comments'
+										className={
+											focusedInput === 'comments' || formData.comments
+												? 'visited'
+												: ''
+										}
+									>
+										Heb je nog opmerkingen?
+									</label>
+									<textarea
+										id='comments'
+										name='comments'
+										value={formData.comments}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('comments')}
+									></textarea>
+								</div>
+							</div>
 						</fieldset>
 
 						{!isOlderThan18 && (
@@ -389,65 +553,112 @@ const RegisterForm: React.FC = () => {
 
 						{!isOlderThan18 && (
 							<fieldset>
-								<legend>Gegevens ouders/voogd</legend>
+								<legend>Gegevens ouders/voogd:</legend>
 
-								<div>
-									<label htmlFor='firstNameParent'>
-										Voornaam: (ouders/voogd)
-									</label>
-									<input
-										type='text'
-										id='firstNameParent'
-										name='firstNameParent'
-										value={formData.firstNameParent}
-										placeholder='Voornaam'
-										onChange={handleInputChange}
-										className={
-											emptyFields.includes('firstNameParent') ? 'error' : ''
-										}
-									/>
+								<div className='form-column'>
+									<div className='form-group firstNameParent'>
+										<label
+											htmlFor='firstNameParent'
+											className={
+												focusedInput === 'firstNameParent' ||
+												formData.firstNameParent
+													? 'visited'
+													: ''
+											}
+										>
+											Voornaam (ouders/voogd)
+										</label>
+										<input
+											type='text'
+											id='firstNameParent'
+											name='firstNameParent'
+											value={formData.firstNameParent}
+											onChange={handleInputChange}
+											onBlur={handleInputBlur}
+											onFocus={() => handleInputFocus('firstNameParent')}
+											className={
+												emptyFields.includes('firstNameParent') ? 'error' : ''
+											}
+										/>
+									</div>
 
-									<label htmlFor='lastNameParent'>Naam:</label>
-									<input
-										type='text'
-										id='lastNameParent'
-										name='lastNameParent'
-										value={formData.lastNameParent}
-										placeholder='Achternaam'
-										onChange={handleInputChange}
-										className={
-											emptyFields.includes('lastNameParent') ? 'error' : ''
-										}
-									/>
+									<div className='form-group lastNameParent'>
+										<label
+											htmlFor='lastNameParent'
+											className={
+												focusedInput === 'lastNameParent' ||
+												formData.lastNameParent
+													? 'visited'
+													: ''
+											}
+										>
+											Achternaam (ouders/voogd)
+										</label>
+										<input
+											type='text'
+											id='lastNameParent'
+											name='lastNameParent'
+											value={formData.lastNameParent}
+											onChange={handleInputChange}
+											onBlur={handleInputBlur}
+											onFocus={() => handleInputFocus('lastNameParent')}
+											className={
+												emptyFields.includes('lastNameParent') ? 'error' : ''
+											}
+										/>
+									</div>
 								</div>
 
-								<div>
-									<label htmlFor='emailParent'>
-										E-mailadres (ouders/voogd)
-									</label>
-									<input
-										type='email'
-										name='emailParent'
-										value={formData.emailParent}
-										placeholder='E-mailadres'
-										onChange={handleInputChange}
-										className={
-											emptyFields.includes('emailParent') ? 'error' : ''
-										}
-									/>
+								<div className='form-column'>
+									<div className='form-group emailParent'>
+										<label
+											htmlFor='emailParent'
+											className={
+												focusedInput === 'emailParent' || formData.emailParent
+													? 'visited'
+													: ''
+											}
+										>
+											E-mailadres (ouders/voogd)
+										</label>
+										<input
+											id='emailParent'
+											type='email'
+											name='emailParent'
+											value={formData.emailParent}
+											onChange={handleInputChange}
+											onBlur={handleInputBlur}
+											onFocus={() => handleInputFocus('emailParent')}
+											className={
+												emptyFields.includes('emailParent') ? 'error' : ''
+											}
+										/>
+									</div>
 
-									<label htmlFor='phoneParent'>Telefoonnummer:</label>
-									<input
-										type='tel'
-										id='phoneParent'
-										name='phoneParent'
-										value={formData.phoneParent}
-										placeholder='Telefoonnummer'
-										onChange={handleInputChange}
-										className={
-											emptyFields.includes('phoneParent') ? 'error' : ''
-										}
-									/>
+									<div className='form-group phoneParent'>
+										<label
+											htmlFor='phoneParent'
+											className={
+												focusedInput === 'phoneParent' || formData.phoneParent
+													? 'visited'
+													: ''
+											}
+										>
+											Telefoonnummer (ouders/voogd)
+										</label>
+										<input
+											type='tel'
+											id='phoneParent'
+											name='phoneParent'
+											value={formData.phoneParent}
+											onChange={handleInputChange}
+											onBlur={handleInputBlur}
+											onFocus={() => handleInputFocus('phoneParent')}
+											className={
+												emptyFields.includes('phoneParent') ? 'error' : ''
+											}
+										/>
+									</div>
 								</div>
 							</fieldset>
 						)}

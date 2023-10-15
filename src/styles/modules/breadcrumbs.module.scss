@@ -36,7 +36,7 @@ section {
 					font-family: 'FontAwesome', sans-serif;
 					font-size: 1rem;
 					margin-left: 1em;
-					color: white;
+					color: $whiteColor;
 					vertical-align: -2px;
 
 					@media screen and ($small) {
@@ -54,7 +54,7 @@ section {
 				}
 
 				> a {
-					color: white;
+					color: $whiteColor;
 					vertical-align: baseline;
 
 					@media screen and ($small) {

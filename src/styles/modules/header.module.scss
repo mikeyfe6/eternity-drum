@@ -226,12 +226,12 @@
 					display: flex;
 
 					&:hover:not(.logo-wrapper, .active-menu-item) {
-						color: white;
+						color: $whiteColor;
 						background: $primaryColor;
 					}
 
 					&.special {
-						color: white;
+						color: $whiteColor;
 						background: $tertiaryColor;
 					}
 				}
@@ -271,7 +271,7 @@
 						left: 50%;
 						transform: translateX(-50%);
 						padding-top: 42px;
-						background: white;
+						background: $whiteColor;
 						box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
 
 						min-width: 100%;
@@ -288,7 +288,7 @@
 								text-align: center;
 
 								&:hover {
-									color: white;
+									color: $whiteColor;
 									background: $primaryColor;
 								}
 							}

@@ -1,0 +1,152 @@
+@import 'configs/globals';
+
+.error {
+	outline-width: 3px;
+	outline-style: solid;
+	outline-color: $redColor;
+}
+
+.approved {
+	outline-width: 3px;
+	outline-style: solid;
+	outline-color: $greenColor;
+}
+
+input,
+textarea,
+select {
+	&:focus {
+		outline-width: 2px;
+		outline-style: solid;
+		outline-color: #007bff;
+
+		&::placeholder {
+			color: $greyColor;
+		}
+	}
+}
+
+textarea:empty {
+	outline-color: transparent;
+}
+
+.form {
+	&-column {
+		display: flex;
+		gap: 15px;
+
+		&:not(:last-child) {
+			margin-bottom: 2.25em;
+		}
+	}
+
+	&-group {
+		position: relative;
+
+		label {
+			z-index: 0;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 10px;
+			transition: all 0.2s;
+			font-size: 0.9rem;
+			color: $greyColor;
+
+			display: inline;
+			display: -webkit-box;
+			-webkit-line-clamp: 1;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			min-height: 1.5em;
+
+			&.visited {
+				position: absolute;
+				top: -15px;
+				left: 0;
+				transition: all 0.2s;
+				font-size: 0.875rem;
+				color: lighten($tertiaryColor, 10);
+			}
+		}
+
+		// -------------------------- column 1
+		&.firstName {
+			flex: 50%;
+		}
+		&.lastName {
+			flex: 50%;
+		}
+
+		// -------------------------- column 2
+		&.streetName {
+			flex: 50%;
+		}
+		&.houseNumber {
+			flex: 25%;
+		}
+		&.zipCode {
+			flex: 25%;
+		}
+
+		// -------------------------- column 3
+		&.city {
+			flex: 50%;
+		}
+		&.province {
+			flex: 50%;
+		}
+
+		// -------------------------- column 4
+		&.email {
+			flex: 100%;
+		}
+
+		// -------------------------- column 5
+		&.phone {
+			flex: 50%;
+		}
+		&.gender {
+			flex: 25%;
+			@include specialLabels;
+		}
+		&.dateOfBirth {
+			flex: 25%;
+			@include specialLabels;
+		}
+
+		// -------------------------- column 6
+		&.discover {
+			flex: 100%;
+			@include specialLabels;
+		}
+
+		// -------------------------- column 7
+		&.comments {
+			flex: 100%;
+			label {
+				top: 17.5px;
+				&.visited {
+					top: -15px;
+				}
+			}
+		}
+
+		// -------------------------- column 8
+		&.firstNameParent {
+			flex: 50%;
+		}
+		&.lastNameParent {
+			flex: 50%;
+		}
+
+		// -------------------------- column 9
+
+		&.emailParent {
+			flex: 50%;
+		}
+		&.phoneParent {
+			flex: 50%;
+		}
+	}
+}

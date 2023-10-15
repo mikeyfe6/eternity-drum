@@ -20,7 +20,12 @@
 	}
 
 	button {
-		@include buttonStyle($primaryColor, white, $primaryColor, $secondaryColor);
+		@include buttonStyle(
+			$primaryColor,
+			$whiteColor,
+			$primaryColor,
+			$secondaryColor
+		);
 
 		@media screen and ($small) {
 			width: fit-content;

@@ -13,6 +13,7 @@ import {
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import '../styles/swiper.scss';
+import '../styles/forms.scss';
 
 // Import Swiper styles
 import 'swiper/scss';

@@ -54,7 +54,7 @@
 
 	&-wrapper {
 		background: $primaryColor;
-		color: white;
+		color: $whiteColor;
 		padding: 1.5em 2em;
 		border-radius: 10px;
 
@@ -99,172 +99,35 @@
 					margin-top: 2em;
 				}
 
-				> div {
-					display: flex;
-					gap: 10px;
-					// flex-wrap: wrap;
-
-					// first column no styling
-
-					// second column
-					input[name='streetName'] {
-						flex: 60%;
-					}
-					input[name='houseNumber'] {
-						flex: 20%;
-					}
-					input[name='zipCode'] {
-						flex: 20%;
-					}
-
-					// third column
-					input[name='city'] {
-						flex: 50%;
-					}
-					input[name='province'] {
-						flex: 50%;
-					}
-
-					// fourth column no styling
-
-					// fifth column
-					input[name='phone'] {
-						flex: 35%;
-					}
-					// input[name='gender'] {
-					// 	flex: 50%;
-					// }
-					input[name='dateOfBirth'] {
-						flex: 30%;
-					}
-
-					// sixth column no styling
-
-					// seventh column no styling
-
-					// eight column no styling
-
-					// nineth column no styling
-
-					input[name='emailParent'] {
-						flex: 60%;
-					}
-					input[name='phoneParent'] {
-						flex: 40%;
-					}
-
-					> div {
-						flex: 35%;
-					}
-
-					@media screen and ($small) {
-						input[name='firstName'] {
-						}
-						input[name='lastName'] {
-							// nada
-						}
-
-						// second column
-						input[name='streetName'] {
-							width: 50%;
-						}
-						input[name='houseNumber'] {
-							width: 50%;
-						}
-						input[name='zipCode'] {
-							width: 100%;
-						}
-
-						// third column
-						input[name='city'] {
-							flex: 50%;
-						}
-						input[name='province'] {
-							flex: 50%;
-						}
-
-						// fourth column
-						input[name='email'] {
-							// nada
-						}
-
-						// fifth column
-						input[name='phone'] {
-							flex: 30%;
-						}
-						input[name='dateOfBirth'] {
-							flex: 75%;
-						}
-						input[name='gender'] {
-							flex: 45%;
-						}
-
-						// sixth column
-
-						input[name='firstNameParent'] {
-						}
-						input[name='lastNameParent'] {
-						}
-
-						// eight column
-
-						input[name='emailParent'] {
-							flex: 60%;
-						}
-						input[name='phoneParent'] {
-							flex: 40%;
-						}
-
-						> div {
-							flex: 25%;
-						}
-
-						// seventh column
-						input[name='comments'] {
-							// nada
-						}
-					}
-				}
-
 				> legend {
-					text-align: right;
-					margin: 0 0 0.5em;
-				}
-
-				label {
-					display: none;
-				}
-
-				input,
-				textarea,
-				select {
-					margin: 0.5em 0;
+					margin: 0 0 1.75em;
+					font-weight: 600;
 				}
 
 				input {
-					background: white;
+					background: $whiteColor;
 					border-radius: 5px;
-					padding: 0.5em 0.75em;
+					padding: 0.5em 0.75em 0.6em;
 					color: $primaryColor;
 					width: 100%;
 
 					@include baseTransition(outline-color);
 
 					&::placeholder {
-						color: grey;
+						color: $greyColor;
 					}
 				}
 
 				textarea {
-					background: white;
+					background: $whiteColor;
 					border-radius: 5px;
-					padding: 0.5em 0.75em;
+					padding: 0.5em 0.75em 0.6em;
 					color: $primaryColor;
 					width: 100%;
 					min-height: 7.5em;
 
 					&::placeholder {
-						color: grey;
+						color: $greyColor;
 					}
 
 					@media ($medium) {
@@ -275,9 +138,14 @@
 			}
 
 			> button {
-				@include buttonStyle(white, $primaryColor, white, $tertiaryColor);
+				@include buttonStyle(
+					$whiteColor,
+					$primaryColor,
+					$whiteColor,
+					$tertiaryColor
+				);
 
-				margin-top: 1em;
+				margin-top: 2em;
 				align-self: end;
 			}
 		}
@@ -289,18 +157,14 @@
 
 		> select {
 			width: 100%;
-			padding: 10px;
+			padding: 0.5em 0.75em 0.6em;
 			border: 1px solid #ccc;
 			border-radius: 5px;
-			background-color: #fff;
-			color: #333;
+			background-color: $whiteColor;
+			color: $primaryColor;
 			-webkit-appearance: none;
 			-moz-appearance: none;
 			appearance: none;
-
-			&::placeholder {
-				color: grey;
-			}
 		}
 
 		> .arrow {
@@ -312,7 +176,7 @@
 			height: 0;
 			border-left: 7.5px solid transparent;
 			border-right: 7.5px solid transparent;
-			border-top: 7.5px solid #333;
+			border-top: 7.5px solid $primaryColor;
 		}
 	}
 

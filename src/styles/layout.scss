@@ -149,28 +149,4 @@ u {
 	text-decoration-thickness: 2px;
 }
 
-.error {
-	outline-width: 3px;
-	outline-style: solid;
-	outline-color: $redColor;
-}
 
-.approved {
-	outline-width: 3px;
-	outline-style: solid;
-	outline-color: $greenColor;
-}
-
-input,
-textarea,
-select {
-	&:focus {
-		outline-width: 3px;
-		outline-style: solid;
-		outline-color: #007bff;
-
-		&::placeholder {
-			color: grey;
-		}
-	}
-}

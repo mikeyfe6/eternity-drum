@@ -5,13 +5,3 @@
   NPM_VERSION = "10.2.0" # - latest NPM
   # NPM_VERSION = "8.13.2" # - stable NPM
   YARN_VERSION = "1.22.19" # - latest YARN
-
-
-
-[[headers]]
-  for = "/*"
-
-  [headers.values]
-    X-Frame-Options = "SAMEORIGIN"
-  
-    Content-Security-Policy = "script-src 'self' 'unsafe-inline' frame-ancestors app.contentful.com"
