@@ -1,0 +1,9 @@
+node_modules/
+public/
+.cache/
+
+gatsby-*.js
+gatsby-*.ts
+gatsby-*.tsx
+
+.eslintrc.js

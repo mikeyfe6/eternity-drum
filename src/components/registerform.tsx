@@ -1,6 +1,8 @@
 import * as React from 'react';
 
 import axios from 'axios';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 import * as styles from '../styles/modules/registerform.module.scss';
 
@@ -279,10 +281,12 @@ const RegisterForm: React.FC = () => {
 								<label htmlFor='email'>E-mailadres</label>
 								<input
 									type='email'
+									id='email'
 									name='email'
 									value={formData.email}
 									placeholder='E-mailadres'
 									onChange={handleInputChange}
+									autoComplete='email'
 									className={emptyFields.includes('email') ? 'error' : ''}
 								/>
 							</div>
@@ -296,6 +300,7 @@ const RegisterForm: React.FC = () => {
 									value={formData.phone}
 									placeholder='Telefoonnummer'
 									onChange={handleInputChange}
+									autoComplete='tel'
 									className={emptyFields.includes('phone') ? 'error' : ''}
 								/>
 
@@ -320,10 +325,12 @@ const RegisterForm: React.FC = () => {
 								<label htmlFor='dob'>Geboortedatum:</label>
 								<input
 									type='date'
+									id='dob'
 									name='dateOfBirth'
 									value={formData.dateOfBirth}
 									placeholder='Geboortedatum'
 									onChange={handleInputChange}
+									autoComplete='bday'
 									className={emptyFields.includes('dateOfBirth') ? 'error' : ''}
 								/>
 							</div>

@@ -41,40 +41,14 @@
 			}
 		}
 
-		@media screen and ($medium) {
+		@media screen and ($large) {
 			align-items: center;
-			flex-direction: column;
 			gap: 50px;
 			flex-direction: column-reverse;
 
 			:nth-child(1) {
 				max-width: 600px;
 			}
-		}
-	}
-
-	&-conditions {
-		ul {
-			list-style-type: disc;
-			margin-left: 1.5em;
-
-			li:not(:last-child) {
-				padding-bottom: 0.5em;
-			}
-		}
-
-		> * {
-			font-size: 0.95rem;
-			padding-bottom: 1em;
-		}
-
-		> p:not(:first-child) {
-			padding-top: 1em;
-		}
-
-		> p:last-child {
-			font-size: 0.9rem;
-			text-align: center;
 		}
 	}
 
@@ -89,6 +63,7 @@
 		@media screen and ($small) {
 			display: block;
 			width: 100%;
+			padding: 1.5em 1.25em;
 		}
 
 		> h2 {
@@ -127,13 +102,9 @@
 				> div {
 					display: flex;
 					gap: 10px;
+					// flex-wrap: wrap;
 
-					// first column
-					input[name='firstName'] {
-					}
-					input[name='lastName'] {
-						// nada
-					}
+					// first column no styling
 
 					// second column
 					input[name='streetName'] {
@@ -154,30 +125,26 @@
 						flex: 50%;
 					}
 
-					// fourth column
-					input[name='email'] {
-						// nada
-					}
+					// fourth column no styling
 
 					// fifth column
 					input[name='phone'] {
-						flex: 50%;
+						flex: 35%;
 					}
+					// input[name='gender'] {
+					// 	flex: 50%;
+					// }
 					input[name='dateOfBirth'] {
-						flex: 25%;
-					}
-					input[name='gender'] {
-						flex: 25%;
+						flex: 30%;
 					}
 
-					// sixth column
+					// sixth column no styling
 
-					input[name='firstNameParent'] {
-					}
-					input[name='lastNameParent'] {
-					}
+					// seventh column no styling
 
-					// eight column
+					// eight column no styling
+
+					// nineth column no styling
 
 					input[name='emailParent'] {
 						flex: 60%;
@@ -187,12 +154,75 @@
 					}
 
 					> div {
-						flex: 25%;
+						flex: 35%;
 					}
 
-					// seventh column
-					input[name='comments'] {
-						// nada
+					@media screen and ($small) {
+						input[name='firstName'] {
+						}
+						input[name='lastName'] {
+							// nada
+						}
+
+						// second column
+						input[name='streetName'] {
+							width: 50%;
+						}
+						input[name='houseNumber'] {
+							width: 50%;
+						}
+						input[name='zipCode'] {
+							width: 100%;
+						}
+
+						// third column
+						input[name='city'] {
+							flex: 50%;
+						}
+						input[name='province'] {
+							flex: 50%;
+						}
+
+						// fourth column
+						input[name='email'] {
+							// nada
+						}
+
+						// fifth column
+						input[name='phone'] {
+							flex: 30%;
+						}
+						input[name='dateOfBirth'] {
+							flex: 75%;
+						}
+						input[name='gender'] {
+							flex: 45%;
+						}
+
+						// sixth column
+
+						input[name='firstNameParent'] {
+						}
+						input[name='lastNameParent'] {
+						}
+
+						// eight column
+
+						input[name='emailParent'] {
+							flex: 60%;
+						}
+						input[name='phoneParent'] {
+							flex: 40%;
+						}
+
+						> div {
+							flex: 25%;
+						}
+
+						// seventh column
+						input[name='comments'] {
+							// nada
+						}
 					}
 				}
 
@@ -292,6 +322,31 @@
 
 		a {
 			@include pageLink;
+		}
+	}
+
+	&-conditions {
+		ul {
+			list-style-type: disc;
+			margin-left: 1.5em;
+
+			li:not(:last-child) {
+				padding-bottom: 0.5em;
+			}
+		}
+
+		> * {
+			font-size: 0.95rem;
+			padding-bottom: 1em;
+		}
+
+		> p:not(:first-child) {
+			padding-top: 1em;
+		}
+
+		> p:last-child {
+			font-size: 0.9rem;
+			text-align: center;
 		}
 	}
 }

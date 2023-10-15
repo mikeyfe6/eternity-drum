@@ -9,7 +9,9 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "restart": "gatsby clean && yarn cache clean && gatsby develop",
+    "reinstall": "rm -rf node_modules package-lock.json yarn.lock && yarn",
+    "locally": "gatsby develop -H 0.0.0.0 --open",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
@@ -38,14 +40,22 @@
     "gatsby-source-filesystem": "^5.12.0",
     "gatsby-transformer-sharp": "^5.12.1",
     "react": "^18.2.0",
+    "react-datepicker": "^4.20.0",
     "react-dom": "^18.2.0",
     "sass": "^1.69.3",
     "swiper": "^10.3.1"
   },
   "devDependencies": {
-    "@types/node": "^20.8.4",
+    "@types/node": "^20.8.6",
     "@types/react": "^18.2.28",
+    "@types/react-datepicker": "^4.19.0",
     "@types/react-dom": "^18.2.13",
+    "@typescript-eslint/eslint-plugin": "^6.7.5",
+    "@typescript-eslint/parser": "^6.7.5",
+    "eslint": "^8.51.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "typescript": "^5.2.2"
   }
 }
