@@ -8,7 +8,7 @@ import Layout from '../components/layout';
 
 import Hero from '../components/heroslider';
 import CtaButtons from '../components/cta';
-import Sidebar from '../components/sidebar';
+// import Sidebar from '../components/sidebar';
 import Actualiteiten from '../components/actual';
 import Partners from '../components/partners';
 import WhiteSpace from '../components/whitespace';
@@ -36,8 +36,8 @@ const Index: React.FC<PageProps> = () => {
 					bekwamen.
 				</p>
 			</section>
-			<WhiteSpace />
-			<Sidebar />
+			{/* <WhiteSpace /> */}
+			{/* <Sidebar /> */}
 			<WhiteSpace />
 			<Actualiteiten />
 			<WhiteSpace />

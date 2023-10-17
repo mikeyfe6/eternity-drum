@@ -134,7 +134,7 @@
 								color: $greyColor;
 							}
 
-							@media ($medium) {
+							@media screen and ($medium) {
 								min-width: auto;
 								width: 100%;
 							}

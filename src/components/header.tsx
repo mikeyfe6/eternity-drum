@@ -154,14 +154,6 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							<ul>
 								<li>
 									<Link
-										to='/drumworkshops/sankofa-academy/'
-										activeClassName={styles.activeMenuItem}
-									>
-										Sankofa Academy
-									</Link>
-								</li>
-								<li>
-									<Link
 										to='/drumworkshops/summerschool-2022/'
 										activeClassName={styles.activeMenuItem}
 									>
@@ -204,6 +196,16 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							<Link to='/projecten/' activeClassName={styles.activeMenuItem}>
 								Projecten
 							</Link>
+							<ul>
+								<li>
+									<Link
+										to='/drumworkshops/sankofa-academy/'
+										activeClassName={styles.activeMenuItem}
+									>
+										Sankofa Academy
+									</Link>
+								</li>
+							</ul>
 						</li>
 						<li>
 							<Link

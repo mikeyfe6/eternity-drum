@@ -31,7 +31,7 @@
 			}
 
 			> p {
-				color: #fff;
+				color: $whiteColor;
 				font-family: $bebasNeue;
 				font-size: 1.3rem;
 				letter-spacing: 2px;
@@ -52,7 +52,7 @@
 				> li {
 					> a {
 						> i {
-							color: #fff;
+							color: $whiteColor;
 							font-size: 1.25rem;
 
 							@media screen and ($small) {
@@ -75,7 +75,7 @@
 			justify-content: center;
 			align-items: center;
 			height: 125px;
-			background-color: #fff;
+			background-color: $whiteColor;
 
 			@media screen and ($small) {
 				height: 80px;

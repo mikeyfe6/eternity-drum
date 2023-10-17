@@ -15,7 +15,7 @@
 		direction: rtl;
 
 		li {
-			border: 1px transparent solid;
+			outline: 1px transparent solid;
 			width: 175px;
 			height: 175px;
 
@@ -28,7 +28,7 @@
 			@include boxShadow;
 
 			&:hover {
-				border-color: $tertiaryColor;
+				outline-color: $tertiaryColor;
 			}
 
 			> a {

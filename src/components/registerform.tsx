@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import axios from 'axios';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import * as styles from '../styles/modules/registerform.module.scss';
@@ -27,7 +26,10 @@ const RegisterForm: React.FC = () => {
 
 		email: '',
 
-		dateOfBirth: '',
+		dayOfBirth: '',
+		monthOfBirth: '',
+		yearOfBirth: '',
+
 		gender: '',
 		phone: '',
 		discover: '',
@@ -51,6 +53,10 @@ const RegisterForm: React.FC = () => {
 		'province',
 
 		'email',
+
+		'dayOfBirth',
+		'monthOfBirth',
+		'yearOfBirth',
 
 		'dateOfBirth',
 		'phone',
@@ -76,8 +82,23 @@ const RegisterForm: React.FC = () => {
 		}
 	};
 
+	const handleDateChange = (name: string, value: string) => {
+		setFormData({
+			...formData,
+			[name]: value,
+		});
+	};
+
 	const handleInputFocus = (name: string) => {
-		setFocusedInput(name);
+		if (
+			name === 'dayOfBirth' ||
+			name === 'monthOfBirth' ||
+			name === 'yearOfBirth'
+		) {
+			setFocusedInput('dateOfBirth');
+		} else {
+			setFocusedInput(name);
+		}
 	};
 
 	const handleInputChange = (
@@ -85,7 +106,7 @@ const RegisterForm: React.FC = () => {
 			HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
 		>
 	) => {
-		const { name, value } = event.target;
+		const { name, value } = event.target as HTMLInputElement;
 		setFormData({
 			...formData,
 			[name]: value,
@@ -99,8 +120,6 @@ const RegisterForm: React.FC = () => {
 			setEmptyFields(emptyFields.filter((field) => field !== name));
 
 			event.target.classList.add('approved');
-
-			// console.log(`Field '${name}' has 'approved' class added.`);
 		}
 	};
 
@@ -140,7 +159,9 @@ const RegisterForm: React.FC = () => {
 			city: '',
 			province: '',
 			email: '',
-			dateOfBirth: '',
+			dayOfBirth: '',
+			monthOfBirth: '',
+			yearOfBirth: '',
 			gender: '',
 			phone: '',
 			firstNameParent: '',
@@ -155,12 +176,10 @@ const RegisterForm: React.FC = () => {
 	};
 
 	React.useEffect(() => {
-		const dobParts = formData.dateOfBirth.split('-');
-
-		if (dobParts.length === 3) {
-			const dobYear = parseInt(dobParts[0], 10);
-			const dobMonth = parseInt(dobParts[1], 10) - 1;
-			const dobDay = parseInt(dobParts[2], 10);
+		if (formData.dayOfBirth && formData.monthOfBirth && formData.yearOfBirth) {
+			const dobYear = parseInt(formData.yearOfBirth, 10);
+			const dobMonth = parseInt(formData.monthOfBirth, 10) - 1; // Month is 0-based.
+			const dobDay = parseInt(formData.dayOfBirth, 10);
 
 			const dob = new Date(dobYear, dobMonth, dobDay);
 			const today = new Date();
@@ -178,7 +197,7 @@ const RegisterForm: React.FC = () => {
 		} else {
 			setIsOlderThan18(true);
 		}
-	}, [formData.dateOfBirth]);
+	}, [formData.dayOfBirth, formData.monthOfBirth, formData.yearOfBirth]);
 
 	return (
 		<section>
@@ -209,12 +228,17 @@ const RegisterForm: React.FC = () => {
 										type='text'
 										id='firstName'
 										name='firstName'
+										placeholder='Voornaam'
+										ref={inputRef}
 										value={formData.firstName}
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('firstName')}
-										className={emptyFields.includes('firstName') ? 'error' : ''}
-										ref={inputRef}
+										className={
+											emptyFields.includes('firstName') && !formData.firstName
+												? 'error'
+												: ''
+										}
 									/>
 								</div>
 
@@ -233,6 +257,7 @@ const RegisterForm: React.FC = () => {
 										type='text'
 										id='lastName'
 										name='lastName'
+										placeholder='Achternaam'
 										value={formData.lastName}
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
@@ -258,6 +283,7 @@ const RegisterForm: React.FC = () => {
 										type='text'
 										id='streetName'
 										name='streetName'
+										placeholder='Straatnaam'
 										value={formData.streetName}
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
@@ -277,12 +303,13 @@ const RegisterForm: React.FC = () => {
 												: ''
 										}
 									>
-										Huisnr
+										Huisnr.
 									</label>
 									<input
 										type='text'
 										id='houseNumber'
 										name='houseNumber'
+										placeholder='Huisnr.'
 										value={formData.houseNumber}
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
@@ -307,6 +334,7 @@ const RegisterForm: React.FC = () => {
 										type='text'
 										id='zipCode'
 										name='zipCode'
+										placeholder='Postcode'
 										value={formData.zipCode}
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
@@ -330,6 +358,7 @@ const RegisterForm: React.FC = () => {
 										type='text'
 										id='city'
 										name='city'
+										placeholder='Woonplaats'
 										value={formData.city}
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
@@ -353,6 +382,7 @@ const RegisterForm: React.FC = () => {
 										type='text'
 										id='province'
 										name='province'
+										placeholder='Provincie'
 										value={formData.province}
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
@@ -379,37 +409,12 @@ const RegisterForm: React.FC = () => {
 										id='email'
 										name='email'
 										autoComplete='email'
+										placeholder='E-mailadres'
 										value={formData.email}
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('email')}
 										className={emptyFields.includes('email') ? 'error' : ''}
-									/>
-								</div>
-							</div>
-
-							<div className='form-column'>
-								<div className='form-group phone'>
-									<label
-										htmlFor='phone'
-										className={
-											focusedInput === 'phone' || formData.phone
-												? 'visited'
-												: ''
-										}
-									>
-										Telefoonnummer
-									</label>
-									<input
-										type='tel'
-										id='phone'
-										name='phone'
-										autoComplete='tel'
-										value={formData.phone}
-										onChange={handleInputChange}
-										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('phone')}
-										className={emptyFields.includes('phone') ? 'error' : ''}
 									/>
 								</div>
 
@@ -444,31 +449,132 @@ const RegisterForm: React.FC = () => {
 										<div className={styles.arrow}></div>
 									</div>
 								</div>
+							</div>
+
+							<div className='form-column'>
+								<div className='form-group phone'>
+									<label
+										htmlFor='phone'
+										className={
+											focusedInput === 'phone' || formData.phone
+												? 'visited'
+												: ''
+										}
+									>
+										Telefoon
+									</label>
+									<input
+										type='tel'
+										id='phone'
+										name='phone'
+										autoComplete='tel'
+										placeholder='Telefoon'
+										value={formData.phone}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('phone')}
+										className={emptyFields.includes('phone') ? 'error' : ''}
+									/>
+								</div>
 
 								<div className='form-group dateOfBirth'>
 									<label
 										htmlFor='dateOfBirth'
 										className={
-											focusedInput === 'dateOfBirth' || formData.dateOfBirth
+											focusedInput === 'dateOfBirth' ||
+											formData.dayOfBirth ||
+											formData.monthOfBirth ||
+											formData.yearOfBirth
 												? 'visited'
 												: ''
 										}
 									>
 										Geboortedatum
 									</label>
-									<input
-										type='date'
-										id='dateOfBirth'
-										name='dateOfBirth'
-										autoComplete='bday'
-										value={formData.dateOfBirth}
-										onChange={handleInputChange}
-										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('dateOfBirth')}
-										className={
-											emptyFields.includes('dateOfBirth') ? 'error' : ''
-										}
-									/>
+									<div className='date-inputs'>
+										<select
+											id='dayOfBirth'
+											name='dayOfBirth'
+											value={formData.dayOfBirth}
+											onChange={(event) =>
+												handleDateChange('dayOfBirth', event.target.value)
+											}
+											onBlur={handleInputBlur}
+											onFocus={() => handleInputFocus('dayOfBirth')}
+											className={
+												emptyFields.includes('dayOfBirth') &&
+												!formData.dayOfBirth
+													? 'error'
+													: ''
+											}
+										>
+											<option value='' disabled>
+												Dag
+											</option>
+											{Array.from({ length: 31 }, (_, i) => (
+												<option key={i} value={i + 1}>
+													{i + 1}
+												</option>
+											))}
+										</select>
+										<select
+											id='monthOfBirth'
+											name='monthOfBirth'
+											value={formData.monthOfBirth}
+											onChange={(event) =>
+												handleDateChange('monthOfBirth', event.target.value)
+											}
+											onBlur={handleInputBlur}
+											onFocus={() => handleInputFocus('monthOfBirth')}
+											className={
+												emptyFields.includes('monthOfBirth') ? 'error' : ''
+											}
+										>
+											<option value='' disabled>
+												Maand
+											</option>
+											{[
+												'Januari',
+												'Februari',
+												'Maart',
+												'April',
+												'Mei',
+												'Juni',
+												'Juli',
+												'Augustus',
+												'September',
+												'Oktober',
+												'November',
+												'December',
+											].map((month, index) => (
+												<option key={index} value={index + 1}>
+													{month}
+												</option>
+											))}
+										</select>
+										<select
+											id='yearOfBirth'
+											name='yearOfBirth'
+											value={formData.yearOfBirth}
+											onChange={(event) =>
+												handleDateChange('yearOfBirth', event.target.value)
+											}
+											onBlur={handleInputBlur}
+											onFocus={() => handleInputFocus('yearOfBirth')}
+											className={
+												emptyFields.includes('yearOfBirth') ? 'error' : ''
+											}
+										>
+											<option value='' disabled>
+												Jaar
+											</option>
+											{Array.from({ length: 100 }, (_, i) => (
+												<option key={i} value={new Date().getFullYear() - i}>
+													{new Date().getFullYear() - i}
+												</option>
+											))}
+										</select>
+									</div>
 								</div>
 							</div>
 
@@ -535,6 +641,7 @@ const RegisterForm: React.FC = () => {
 									<textarea
 										id='comments'
 										name='comments'
+										placeholder='Heb je nog opmerkingen?'
 										value={formData.comments}
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
@@ -546,8 +653,8 @@ const RegisterForm: React.FC = () => {
 
 						{!isOlderThan18 && (
 							<span>
-								Je bent jonger dan 18 jaar. Vul hieronder de gegevens van jouw
-								ouders/voogd in.
+								Jonger dan 18? Vul hieronder de gegevens van jouw ouders/voogd
+								in.
 							</span>
 						)}
 
@@ -572,6 +679,7 @@ const RegisterForm: React.FC = () => {
 											type='text'
 											id='firstNameParent'
 											name='firstNameParent'
+											placeholder='Voornaam (ouders/voogd)'
 											value={formData.firstNameParent}
 											onChange={handleInputChange}
 											onBlur={handleInputBlur}
@@ -598,6 +706,7 @@ const RegisterForm: React.FC = () => {
 											type='text'
 											id='lastNameParent'
 											name='lastNameParent'
+											placeholder='Achternaam (ouders/voogd)'
 											value={formData.lastNameParent}
 											onChange={handleInputChange}
 											onBlur={handleInputBlur}
@@ -625,6 +734,7 @@ const RegisterForm: React.FC = () => {
 											id='emailParent'
 											type='email'
 											name='emailParent'
+											placeholder='E-mailadres (ouders/voogd)'
 											value={formData.emailParent}
 											onChange={handleInputChange}
 											onBlur={handleInputBlur}
@@ -650,6 +760,7 @@ const RegisterForm: React.FC = () => {
 											type='tel'
 											id='phoneParent'
 											name='phoneParent'
+											placeholder='Telefoonnummer (ouders/voogd)'
 											value={formData.phoneParent}
 											onChange={handleInputChange}
 											onBlur={handleInputBlur}

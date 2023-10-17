@@ -112,7 +112,9 @@ const BookingsForm: React.FC = () => {
 							></textarea>
 						</fieldset>
 
-						<button type='submit'>Nu boeken</button>
+						<button type='submit'>
+							{formData.subject === 'boeking' ? 'Boek nu' : 'Verstuur'}
+						</button>
 					</form>
 				</div>
 				<div className={styles.bookingsformInfo}>

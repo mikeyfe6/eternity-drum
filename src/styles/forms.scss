@@ -15,24 +15,29 @@
 input,
 textarea,
 select {
+	outline-width: 2px;
+	outline-style: solid;
+	outline-color: $lightgreyColor;
+
 	&:focus {
 		outline-width: 2px;
 		outline-style: solid;
 		outline-color: #007bff;
 
 		&::placeholder {
-			color: $greyColor;
+			opacity: 0;
 		}
 	}
-}
 
-textarea:empty {
-	outline-color: transparent;
+	&:-webkit-autofill {
+		outline-color: $greenColor;
+	}
 }
 
 .form {
 	&-column {
 		display: flex;
+		justify-content: space-between;
 		gap: 15px;
 
 		&:not(:last-child) {
@@ -43,30 +48,53 @@ textarea:empty {
 	&-group {
 		position: relative;
 
+		.date-inputs {
+			display: flex;
+			gap: 10px;
+
+			#dayOfBirth,
+			#monthOfBirth,
+			#yearOfBirth {
+				padding: 0.525em 1em 0.6125em;
+				background: $whiteColor;
+				color: $primaryColor;
+				border-radius: 5px;
+				min-width: 60px;
+				text-align: center;
+			}
+		}
+
 		label {
-			z-index: 0;
+			opacity: 0;
 			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			left: 10px;
-			transition: all 0.2s;
-			font-size: 0.9rem;
+			top: 10px;
+			left: 0;
+			font-size: 0.8rem;
+			font-weight: 400;
+			letter-spacing: 0.5px;
+			transition: all 0.1s;
 			color: $greyColor;
 
-			display: inline;
-			display: -webkit-box;
-			-webkit-line-clamp: 1;
-			-webkit-box-orient: vertical;
+			white-space: nowrap;
 			overflow: hidden;
-			min-height: 1.5em;
+			text-overflow: ellipsis;
+			max-width: 90%;
+
+			@media screen and ($small) {
+				font-size: 0.75rem;
+				left: 7.5px;
+			}
 
 			&.visited {
-				position: absolute;
-				top: -15px;
+				opacity: 1;
+				top: -25px;
 				left: 0;
-				transition: all 0.2s;
-				font-size: 0.875rem;
+				transition: all 0.1s;
 				color: lighten($tertiaryColor, 10);
+
+				@media screen and ($small) {
+					font-size: 0.75rem;
+				}
 			}
 		}
 
@@ -99,40 +127,54 @@ textarea:empty {
 
 		// -------------------------- column 4
 		&.email {
-			flex: 100%;
+			flex: 70%;
+		}
+
+		&.gender {
+			flex: 30%;
+			// @include specialLabels;
+
+			@media screen and ($small) {
+				flex: 27.5%;
+			}
 		}
 
 		// -------------------------- column 5
 		&.phone {
-			flex: 50%;
-		}
-		&.gender {
-			flex: 25%;
-			@include specialLabels;
+			width: 50%;
+
+			@media screen and ($small) {
+				flex: 37.5%;
+			}
 		}
 		&.dateOfBirth {
-			flex: 25%;
+			flex: 50%;
 			@include specialLabels;
+
+			@media screen and ($small) {
+				flex: 35%;
+			}
 		}
 
 		// -------------------------- column 6
-		&.discover {
-			flex: 100%;
-			@include specialLabels;
-		}
 
 		// -------------------------- column 7
+		&.discover {
+			flex: 100%;
+		}
+
+		// -------------------------- column 8
 		&.comments {
 			flex: 100%;
 			label {
 				top: 17.5px;
 				&.visited {
-					top: -15px;
+					top: -25px;
 				}
 			}
 		}
 
-		// -------------------------- column 8
+		// -------------------------- column 9
 		&.firstNameParent {
 			flex: 50%;
 		}
@@ -140,7 +182,7 @@ textarea:empty {
 			flex: 50%;
 		}
 
-		// -------------------------- column 9
+		// -------------------------- column 10
 
 		&.emailParent {
 			flex: 50%;
