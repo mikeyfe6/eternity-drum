@@ -12,12 +12,33 @@
 	outline-color: $greenColor;
 }
 
+.reset {
+	outline-width: 3px;
+	outline-style: solid;
+	outline-color: lightgreyColor;
+}
+
 input,
 textarea,
 select {
+	height: 44px;
+	opacity: 0.99;
+	line-height: 1.5;
+
 	outline-width: 2px;
 	outline-style: solid;
 	outline-color: $lightgreyColor;
+
+	&::placeholder {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 100%;
+
+		@media screen and ($small) {
+			font-size: 0.9rem;
+		}
+	}
 
 	&:focus {
 		outline-width: 2px;
@@ -43,6 +64,26 @@ select {
 		&:not(:last-child) {
 			margin-bottom: 2.25em;
 		}
+
+		&.mobileOne {
+			@media screen and ($small) {
+				flex-direction: column;
+				gap: 35px;
+
+				.date-inputs {
+					justify-content: start;
+					gap: 15px;
+				}
+			}
+		}
+
+		&.mobileTwo {
+			@media screen and ($small) {
+				flex-wrap: wrap;
+				row-gap: 35px;
+				justify-content: flex-start;
+			}
+		}
 	}
 
 	&-group {
@@ -50,17 +91,25 @@ select {
 
 		.date-inputs {
 			display: flex;
+			justify-content: space-between;
 			gap: 10px;
 
 			#dayOfBirth,
 			#monthOfBirth,
 			#yearOfBirth {
-				padding: 0.525em 1em 0.6125em;
+				padding: 0.625em 0.75em;
 				background: $whiteColor;
 				color: $primaryColor;
 				border-radius: 5px;
 				min-width: 60px;
 				text-align: center;
+
+				@media screen and ($small) {
+					padding: 0.75em;
+					border-radius: 3px;
+					font-size: 0.9rem;
+					min-width: 70px;
+				}
 			}
 		}
 
@@ -82,7 +131,6 @@ select {
 
 			@media screen and ($small) {
 				font-size: 0.75rem;
-				left: 7.5px;
 			}
 
 			&.visited {
@@ -108,13 +156,21 @@ select {
 
 		// -------------------------- column 2
 		&.streetName {
-			flex: 50%;
+			flex: 55%;
+
+			@media screen and ($small) {
+				flex: 100%;
+			}
 		}
 		&.houseNumber {
-			flex: 25%;
+			@media screen and ($small) {
+				width: 30%;
+			}
 		}
 		&.zipCode {
-			flex: 25%;
+			@media screen and ($small) {
+				width: 30%;
+			}
 		}
 
 		// -------------------------- column 3
@@ -128,6 +184,10 @@ select {
 		// -------------------------- column 4
 		&.email {
 			flex: 70%;
+
+			@media screen and ($small) {
+				flex: 65%;
+			}
 		}
 
 		&.gender {
@@ -135,16 +195,16 @@ select {
 			// @include specialLabels;
 
 			@media screen and ($small) {
-				flex: 27.5%;
+				flex: 35%;
 			}
 		}
 
 		// -------------------------- column 5
 		&.phone {
-			width: 50%;
+			flex: 50%;
 
 			@media screen and ($small) {
-				flex: 37.5%;
+				flex: 100%;
 			}
 		}
 		&.dateOfBirth {
@@ -153,6 +213,7 @@ select {
 
 			@media screen and ($small) {
 				flex: 35%;
+				gap: 15px;
 			}
 		}
 
@@ -161,6 +222,12 @@ select {
 		// -------------------------- column 7
 		&.discover {
 			flex: 100%;
+		}
+
+		// -------------------------- column 7 (optional)
+		&.answer {
+			flex: 100%;
+			margin-top: -17.5px;
 		}
 
 		// -------------------------- column 8

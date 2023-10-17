@@ -34,6 +34,7 @@ const RegisterForm: React.FC = () => {
 		phone: '',
 		discover: '',
 		comments: '',
+		answer: '',
 
 		firstNameParent: '',
 		lastNameParent: '',
@@ -87,6 +88,11 @@ const RegisterForm: React.FC = () => {
 			...formData,
 			[name]: value,
 		});
+
+		if (value.trim() !== '') {
+			const inputElement = document.getElementById(name) as HTMLSelectElement;
+			inputElement.classList.add('approved');
+		}
 	};
 
 	const handleInputFocus = (name: string) => {
@@ -170,6 +176,7 @@ const RegisterForm: React.FC = () => {
 			phoneParent: '',
 			discover: '',
 			comments: '',
+			answer: '',
 		});
 
 		setEmptyFields([]);
@@ -267,7 +274,7 @@ const RegisterForm: React.FC = () => {
 								</div>
 							</div>
 
-							<div className='form-column'>
+							<div className='form-column mobileTwo'>
 								<div className='form-group streetName'>
 									<label
 										htmlFor='streetName'
@@ -451,7 +458,7 @@ const RegisterForm: React.FC = () => {
 								</div>
 							</div>
 
-							<div className='form-column'>
+							<div className='form-column mobileOne'>
 								<div className='form-group phone'>
 									<label
 										htmlFor='phone'
@@ -625,6 +632,25 @@ const RegisterForm: React.FC = () => {
 									</div>
 								</div>
 							</div>
+
+							{formData.discover === 'Overig' && (
+								<div className='form-column'>
+									<div className='form-group answer'>
+										<label htmlFor='answer'>Meer info..</label>
+										<input
+											type='text'
+											id='answer'
+											name='answer'
+											placeholder='...'
+											value={formData.answer}
+											onChange={handleInputChange}
+											onBlur={handleInputBlur}
+											onFocus={() => handleInputFocus('answer')}
+											className={emptyFields.includes('answer') ? 'reset' : ''}
+										/>
+									</div>
+								</div>
+							)}
 
 							<div className='form-column'>
 								<div className='form-group comments'>
