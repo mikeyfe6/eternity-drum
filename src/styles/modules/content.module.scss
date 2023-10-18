@@ -6,9 +6,20 @@
 		margin: 3em auto;
 		background: #80808010;
 		padding: 1em;
-	}
 
-	a {
-		@include pageLink;
+		a {
+			@include pageLink;
+		}
+
+		ul {
+			list-style: square;
+			margin: initial;
+			padding: initial;
+			padding-left: 14px;
+		}
+
+		i {
+			font-style: italic;
+		}
 	}
 }

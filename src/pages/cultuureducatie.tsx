@@ -22,7 +22,7 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
 
-				<h1>Drumworkshops</h1>
+				<h1>Cultuureducatie</h1>
 				<div className={styles.pageContentCenter}>
 					<p>
 						<strong>Eternity</strong> heeft de ambitie de komende jaren te

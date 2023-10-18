@@ -7,7 +7,6 @@ import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumbs';
 
 import Hero from '../../components/heroslider';
-import Sidebar from '../../components/sidebar';
 
 const Vacatures: React.FC<PageProps> = () => {
 	const breadcrumbs = [
@@ -25,7 +24,6 @@ const Vacatures: React.FC<PageProps> = () => {
 				<h1>Vacatures</h1>
 				<p>Welcome to your new Gatsby site.</p>
 			</section>
-			<Sidebar />
 		</Layout>
 	);
 };
