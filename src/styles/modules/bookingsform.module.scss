@@ -43,7 +43,6 @@
 
 		@media screen and ($medium) {
 			align-items: center;
-			flex-direction: column;
 			gap: 50px;
 			flex-direction: column-reverse;
 
@@ -158,5 +157,19 @@
 	&-info {
 		background: #80808010;
 		padding: 1em;
+
+		@media screen and ($small) {
+			h2 {
+				font-size: 1.75rem;
+			}
+
+			h4 {
+				font-size: 1.1rem;
+			}
+
+			p {
+				font-size: 1rem;
+			}
+		}
 	}
 }

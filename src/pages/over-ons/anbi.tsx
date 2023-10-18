@@ -74,7 +74,7 @@ const Anbi: React.FC<PageProps> = () => {
 						<br />
 						<strong>RSIN:</strong> 8185.56.286
 						<br />
-						<strong>Email:</strong> info@eternitydrum.com
+						<strong>E-mail:</strong> info@eternitydrum.com
 						<br />
 					</p>
 

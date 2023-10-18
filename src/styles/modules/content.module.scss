@@ -21,5 +21,19 @@
 		i {
 			font-style: italic;
 		}
+
+		@media screen and ($small) {
+			h2 {
+				font-size: 1.75rem;
+			}
+
+			h4 {
+				font-size: 1.1rem;
+			}
+
+			p {
+				font-size: 1rem;
+			}
+		}
 	}
 }

@@ -11,6 +11,7 @@ interface MobileMenuProps {
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 	const [isSubMenu1Open, setIsSubMenu1Open] = React.useState(false);
 	const [isSubMenu2Open, setIsSubMenu2Open] = React.useState(false);
+	const [isSubMenu3Open, setIsSubMenu3Open] = React.useState(false);
 
 	const menuClass = isOpen
 		? `${styles.mobileMenu} ${styles.open}`
@@ -26,6 +27,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 
 	const toggleSubMenu2 = () => {
 		setIsSubMenu2Open(!isSubMenu2Open);
+	};
+
+	const toggleSubMenu3 = () => {
+		setIsSubMenu3Open(!isSubMenu3Open);
 	};
 
 	return (
@@ -72,15 +77,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 						<ul>
 							<li>
 								<Link
-									to='/drumworkshops/sankofa-academy/'
-									activeClassName={styles.activeMenuItem}
-									onClick={handleMenuItemClick}
-								>
-									Sankofa Academy
-								</Link>
-							</li>
-							<li>
-								<Link
 									to='/drumworkshops/summerschool-2022/'
 									activeClassName={styles.activeMenuItem}
 									onClick={handleMenuItemClick}
@@ -117,6 +113,23 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 					>
 						Projecten
 					</Link>
+					<i
+						className={`fa-solid fa-caret-${isSubMenu2Open ? 'up' : 'down'}`}
+						onClick={toggleSubMenu2}
+					/>
+					{isSubMenu2Open && (
+						<ul>
+							<li>
+								<Link
+									to='/drumworkshops/sankofa-academy/'
+									activeClassName={styles.activeMenuItem}
+									onClick={handleMenuItemClick}
+								>
+									Sankofa Academy
+								</Link>
+							</li>
+						</ul>
+					)}
 				</li>
 				<li>
 					<Link
@@ -146,10 +159,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 						Over ons
 					</Link>
 					<i
-						className={`fa-solid fa-caret-${isSubMenu2Open ? 'up' : 'down'}`}
-						onClick={toggleSubMenu2}
+						className={`fa-solid fa-caret-${isSubMenu3Open ? 'up' : 'down'}`}
+						onClick={toggleSubMenu3}
 					/>
-					{isSubMenu2Open && (
+					{isSubMenu3Open && (
 						<ul>
 							<li>
 								<Link
