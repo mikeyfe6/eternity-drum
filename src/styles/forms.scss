@@ -1,21 +1,15 @@
 @import 'configs/globals';
 
 .error {
-	outline-width: 2px;
-	outline-style: solid;
-	outline-color: $redColor;
+	outline: 2px solid $redColor;
 }
 
 .approved {
-	outline-width: 2px;
-	outline-style: solid;
-	outline-color: $greenColor;
+	outline: 2px solid $greenColor;
 }
 
 .reset {
-	outline-width: 2px;
-	outline-style: solid;
-	outline-color: lightgreyColor;
+	outline: 2px solid $lightgreyColor;
 }
 
 input,
@@ -26,6 +20,8 @@ select {
 	line-height: 1.5;
 
 	background: linear-gradient(45deg, #eaecf7, #ffffff);
+
+	outline: 2px solid $lightgreyColor;
 
 	&:not(select) {
 		color: $primaryColor;
@@ -38,10 +34,6 @@ select {
 			color: $primaryColor;
 		}
 	}
-
-	outline-width: 2px;
-	outline-style: solid;
-	outline-color: $lightgreyColor;
 
 	&::placeholder {
 		white-space: nowrap;
@@ -56,9 +48,7 @@ select {
 	}
 
 	&:focus {
-		outline-width: 2px;
-		outline-style: solid;
-		outline-color: #007bff;
+		outline-color: $tertiaryColor;
 
 		&::placeholder {
 			opacity: 0;
@@ -81,6 +71,10 @@ select {
 			-webkit-appearance: none;
 			-moz-appearance: none;
 			appearance: none;
+
+			option:disabled {
+				outline-color: $lightgreyColor;
+			}
 
 			option {
 				line-height: 1.5;

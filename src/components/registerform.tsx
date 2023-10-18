@@ -4,6 +4,7 @@ import axios from 'axios';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import { validateForm } from './validation';
+import { navigate } from 'gatsby';
 
 import * as styles from '../styles/modules/registerform.module.scss';
 
@@ -203,6 +204,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 				.catch((error) => {
 					console.error('Form submission error:', error);
 				});
+			navigate('/success');
 		}
 
 		if (validationErrors.length === 0) {
@@ -230,6 +232,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 			});
 
 			setEmptyFields([]);
+			removeApprovedClasses();
 		}
 	};
 
@@ -278,6 +281,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 			}
 		}
 	}, [formData]);
+
+	const removeApprovedClasses = () => {
+		const elements = document.querySelectorAll('.approved');
+		elements.forEach((element) => {
+			element.classList.remove('approved');
+		});
+	};
 
 	return (
 		<section>

@@ -1,0 +1,10 @@
+@import '../configs/globals';
+
+.succesButton {
+	@include buttonStyle(
+		$primaryColor,
+		$whiteColor,
+		$primaryColor,
+		$secondaryColor
+	);
+}
