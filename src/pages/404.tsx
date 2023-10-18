@@ -1,13 +1,15 @@
 import * as React from 'react';
 import { Link, HeadFC, PageProps } from 'gatsby';
 
+import { SEO } from '../components/seo';
+
 import Layout from '../components/layout';
 
 const NotFoundPage: React.FC<PageProps> = () => {
 	return (
 		<Layout>
 			<section data-main-section>
-				<h1> Ojee.. Pagina niet gevonden</h1>
+				<h1>Ojee.. Pagina niet gevonden</h1>
 				<p>
 					We hebben ons best gedaan, maar het lijkt erop dat deze pagina niet
 					(meer) bestaat of misschien verhuisd is.
@@ -29,4 +31,4 @@ const NotFoundPage: React.FC<PageProps> = () => {
 
 export default NotFoundPage;
 
-export const Head: HeadFC = () => <title>Not found</title>;
+export const Head: HeadFC = () => <SEO title='Pagina niet gevonden!' />;

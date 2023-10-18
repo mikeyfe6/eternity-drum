@@ -94,6 +94,11 @@
 		justify-content: space-between;
 		margin: 2em 0;
 
+		@media screen and ($extraSmall) {
+			flex-direction: column-reverse;
+			gap: 20px;
+		}
+
 		> ul {
 			display: flex;
 			flex-direction: column;

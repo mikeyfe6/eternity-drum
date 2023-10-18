@@ -239,7 +239,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 	React.useEffect(() => {
 		if (formData.dayOfBirth && formData.monthOfBirth && formData.yearOfBirth) {
 			const dobYear = parseInt(formData.yearOfBirth, 10);
-			const dobMonth = parseInt(formData.monthOfBirth, 10) - 1; // Month is 0-based.
+			const dobMonth = parseInt(formData.monthOfBirth, 10) - 1;
 			const dobDay = parseInt(formData.dayOfBirth, 10);
 
 			const dob = new Date(dobYear, dobMonth, dobDay);
@@ -254,11 +254,23 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 				age--;
 			}
 
+			setErrors([]);
+
 			setIsOlderThan18(age >= 18);
+
+			if (submitted) {
+				const newValidationErrors = validateForm(formData, age >= 18);
+				setErrors(newValidationErrors);
+			}
 		} else {
 			setIsOlderThan18(true);
 		}
-	}, [formData.dayOfBirth, formData.monthOfBirth, formData.yearOfBirth]);
+	}, [
+		formData.dayOfBirth,
+		formData.monthOfBirth,
+		formData.yearOfBirth,
+		submitted,
+	]);
 
 	React.useEffect(() => {
 		const addApprovedClassForField = (name: string) => {
