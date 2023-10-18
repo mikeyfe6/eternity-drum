@@ -13,7 +13,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 	const [isHeaderFixed, setIsHeaderFixed] = React.useState(false);
-	const [scrollY, setScrollY] = React.useState(0);
+	const [, setScrollY] = React.useState(0);
 
 	const { title, facebookUrl, instagramUrl, linkedinUrl, youtubeUrl } =
 		useSiteMetadata();
@@ -39,7 +39,8 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 
 				if (currentScrollY > headerTopBannerHeight) {
 					if (mainContent) {
-						mainContent.style.marginTop = '125px';
+						mainContent.style.marginTop =
+							window.innerWidth > 576 ? '125px' : '90px';
 					}
 					setIsHeaderFixed(true);
 				} else {

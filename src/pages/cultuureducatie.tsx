@@ -7,7 +7,8 @@ import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
-import Sidebar from '../components/sidebar';
+
+import * as styles from '../styles/modules/content.module.scss';
 
 const CultuurEducatie: React.FC<PageProps> = () => {
 	const breadcrumbs = [
@@ -21,11 +22,31 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
 
-				<h1>Cultuur Educatie</h1>
-				<p>Welcome to your new Gatsby site.</p>
+				<h1>Drumworkshops</h1>
+				<div className={styles.pageContentCenter}>
+					<p>
+						<strong>Eternity</strong> heeft de ambitie de komende jaren te
+						groeien en een instituut te worden voor Caribische drumbands.
+						Eternity wil met haar aanbod cultuureducatie zoveel mogelijk
+						kinderen en jongeren bereiken, zowel met een onderwijs- als een
+						naschoolsprogramma.
+					</p>
+					<br />
+					<p>
+						<strong>Eternity</strong> verzorgt vooral in Amsterdam drumworkshops
+						aan verschillende instellingen en organisaties. Jongeren doorlopen
+						binnen Eternity een educatief traject, waarbij ze worden
+						klaargestoomd tot artiest om uiteindelijk met de professionele
+						drumband optredens te verzorgen. Hierbij vindt selectie plaats op
+						basis van talent, houding en samenwerking binnen de band.
+					</p>
+					<br />
+					<p>
+						Momenteel verzorgen wij diverse drumworkshops en lessen o.a. op het
+						Bindelmeer College en Bredeschool in Amsterdam Zuidoost.
+					</p>
+				</div>
 			</section>
-
-			<Sidebar />
 		</Layout>
 	);
 };

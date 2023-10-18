@@ -1,0 +1,14 @@
+@import '../configs/globals';
+
+.page-content {
+	&-center {
+		max-width: 1250px;
+		margin: 3em auto;
+		background: #80808010;
+		padding: 1em;
+	}
+
+	a {
+		@include pageLink;
+	}
+}

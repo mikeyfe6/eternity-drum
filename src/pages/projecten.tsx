@@ -7,7 +7,6 @@ import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
-import Sidebar from '../components/sidebar';
 
 const Projecten: React.FC<PageProps> = () => {
 	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'Projecten' }];
@@ -21,8 +20,6 @@ const Projecten: React.FC<PageProps> = () => {
 				<h1>Projecten</h1>
 				<p>Welcome to your new Gatsby site.</p>
 			</section>
-
-			<Sidebar />
 		</Layout>
 	);
 };
