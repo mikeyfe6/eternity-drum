@@ -3,13 +3,36 @@ import * as React from 'react';
 import axios from 'axios';
 import 'react-datepicker/dist/react-datepicker.css';
 
+import { validateForm } from './validation';
+
 import * as styles from '../styles/modules/registerform.module.scss';
 
-const RegisterForm: React.FC = () => {
+interface RegisterFormProps {
+	inputRef: React.RefObject<HTMLInputElement>;
+}
+
+export const handleClick = (
+	inputRef: React.RefObject<HTMLInputElement>,
+	event: React.MouseEvent<HTMLAnchorElement>
+) => {
+	event.preventDefault();
+	if (inputRef.current) {
+		if (window.innerWidth > 992) {
+			inputRef.current.scrollIntoView({
+				behavior: 'smooth',
+				block: 'center',
+			});
+		}
+		inputRef.current.focus();
+	}
+};
+
+const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
+	const [errors, setErrors] = React.useState<string[]>([]);
 	const [emptyFields, setEmptyFields] = React.useState<string[]>([]);
 	const [focusedInput, setFocusedInput] = React.useState<string | null>(null);
 
-	const inputRef = React.useRef<HTMLInputElement>(null);
+	const [submitted, setSubmitted] = React.useState(false);
 
 	const [isOlderThan18, setIsOlderThan18] = React.useState(true);
 
@@ -34,7 +57,7 @@ const RegisterForm: React.FC = () => {
 		phone: '',
 		discover: '',
 		comments: '',
-		answer: '',
+		other: '',
 
 		firstNameParent: '',
 		lastNameParent: '',
@@ -55,12 +78,11 @@ const RegisterForm: React.FC = () => {
 
 		'email',
 
+		'phone',
+
 		'dayOfBirth',
 		'monthOfBirth',
 		'yearOfBirth',
-
-		'dateOfBirth',
-		'phone',
 	];
 
 	if (!isOlderThan18) {
@@ -71,29 +93,6 @@ const RegisterForm: React.FC = () => {
 			'phoneParent'
 		);
 	}
-
-	const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-		event.preventDefault();
-		if (inputRef.current) {
-			inputRef.current.scrollIntoView({
-				behavior: 'smooth',
-				block: 'center',
-			});
-			inputRef.current.focus();
-		}
-	};
-
-	const handleDateChange = (name: string, value: string) => {
-		setFormData({
-			...formData,
-			[name]: value,
-		});
-
-		if (value.trim() !== '') {
-			const inputElement = document.getElementById(name) as HTMLSelectElement;
-			inputElement.classList.add('approved');
-		}
-	};
 
 	const handleInputFocus = (name: string) => {
 		if (
@@ -107,12 +106,53 @@ const RegisterForm: React.FC = () => {
 		}
 	};
 
+	const handleDateChange = (name: string, value: string) => {
+		setFormData({
+			...formData,
+			[name]: value,
+		});
+
+		if (submitted) {
+			const newValidationErrors = validateForm(
+				{
+					...formData,
+					[name]: value,
+				},
+				isOlderThan18
+			);
+
+			setErrors(newValidationErrors);
+		}
+
+		if (value.trim() !== '') {
+			const inputElement = document.getElementById(name);
+			if (inputElement) {
+				inputElement.classList.add('approved');
+			}
+		}
+	};
+
 	const handleInputChange = (
 		event: React.ChangeEvent<
 			HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
 		>
 	) => {
-		const { name, value } = event.target as HTMLInputElement;
+		const { name, value } = event.target;
+
+		const updatedEmptyFields = emptyFields.filter((field) => field !== name);
+
+		if (submitted) {
+			const newValidationErrors = validateForm(
+				{
+					...formData,
+					[name]: value,
+				},
+				isOlderThan18
+			);
+
+			setErrors(newValidationErrors);
+		}
+
 		setFormData({
 			...formData,
 			[name]: value,
@@ -120,13 +160,17 @@ const RegisterForm: React.FC = () => {
 
 		if (value.trim() === '') {
 			if (!emptyFields.includes(name)) {
-				setEmptyFields([...emptyFields, name]);
+				updatedEmptyFields.push(name);
 			}
-		} else {
-			setEmptyFields(emptyFields.filter((field) => field !== name));
 
+			event.target.classList.remove('approved');
+			event.target.classList.add('error');
+		} else {
+			event.target.classList.remove('error');
 			event.target.classList.add('approved');
 		}
+
+		setEmptyFields(updatedEmptyFields);
 	};
 
 	const handleInputBlur = () => {
@@ -136,50 +180,57 @@ const RegisterForm: React.FC = () => {
 	const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault();
 
-		const missingFields = requiredFields.filter(
-			(field) => formData[field as keyof typeof formData].trim() === ''
-		);
+		setSubmitted(true);
+
+		const validationErrors = validateForm(formData, isOlderThan18);
+
+		const missingFields = requiredFields.filter((field) => {
+			const value = formData[field as keyof typeof formData];
+			return value === undefined || value.trim() === '';
+		});
 
 		setEmptyFields(missingFields);
 
-		if (missingFields.length > 0) {
-			// console.log('Form not submitted, missing fields:', missingFields);
-			return;
+		if (validationErrors.length > 0 || missingFields.length > 0) {
+			setErrors(validationErrors);
+		} else {
+			setErrors([]);
+			axios
+				.post('/.netlify/functions/sendmail', formData)
+				.then((response) => {
+					console.log('Form submitted successfully:', response.data);
+				})
+				.catch((error) => {
+					console.error('Form submission error:', error);
+				});
 		}
 
-		axios
-			.post('/.netlify/functions/sendmail', formData)
-			.then((response) => {
-				console.log('Form submitted successfully:', response.data);
-			})
-			.catch((error) => {
-				console.error('Form submission error:', error);
+		if (validationErrors.length === 0) {
+			setFormData({
+				firstName: '',
+				lastName: '',
+				streetName: '',
+				houseNumber: '',
+				zipCode: '',
+				city: '',
+				province: '',
+				email: '',
+				dayOfBirth: '',
+				monthOfBirth: '',
+				yearOfBirth: '',
+				gender: '',
+				phone: '',
+				firstNameParent: '',
+				lastNameParent: '',
+				emailParent: '',
+				phoneParent: '',
+				discover: '',
+				comments: '',
+				other: '',
 			});
 
-		setFormData({
-			firstName: '',
-			lastName: '',
-			streetName: '',
-			houseNumber: '',
-			zipCode: '',
-			city: '',
-			province: '',
-			email: '',
-			dayOfBirth: '',
-			monthOfBirth: '',
-			yearOfBirth: '',
-			gender: '',
-			phone: '',
-			firstNameParent: '',
-			lastNameParent: '',
-			emailParent: '',
-			phoneParent: '',
-			discover: '',
-			comments: '',
-			answer: '',
-		});
-
-		setEmptyFields([]);
+			setEmptyFields([]);
+		}
 	};
 
 	React.useEffect(() => {
@@ -206,16 +257,38 @@ const RegisterForm: React.FC = () => {
 		}
 	}, [formData.dayOfBirth, formData.monthOfBirth, formData.yearOfBirth]);
 
+	React.useEffect(() => {
+		const addApprovedClassForField = (name: string) => {
+			const inputElement = document.getElementById(name) as HTMLInputElement;
+			if (inputElement && inputElement.value.trim() !== '') {
+				inputElement.classList.add('approved');
+			}
+		};
+
+		for (const field of requiredFields) {
+			addApprovedClassForField(field);
+		}
+	}, [formData, requiredFields]);
+
+	React.useEffect(() => {
+		if (formData.discover === 'Overig') {
+			const inputElement = document.getElementById('other') as HTMLInputElement;
+			if (inputElement && inputElement.value.trim() !== '') {
+				inputElement.classList.add('approved');
+			}
+		}
+	}, [formData]);
+
 	return (
 		<section>
-			<div className={styles.registerformContainer}>
+			<>
 				<div className={styles.registerformWrapper}>
 					<h2>Online inschrijfformulier</h2>
 					<span>
 						Vul hieronder jouw gegevens in en wij nemen zo spoedig mogelijk
 						contact met je op.
 					</span>
-					<form onSubmit={handleSubmit}>
+					<form onSubmit={handleSubmit} noValidate>
 						<fieldset>
 							<legend>Gegevens cursist:</legend>
 
@@ -274,7 +347,7 @@ const RegisterForm: React.FC = () => {
 								</div>
 							</div>
 
-							<div className='form-column mobileTwo'>
+							<div className='form-column collapseOne'>
 								<div className='form-group streetName'>
 									<label
 										htmlFor='streetName'
@@ -399,7 +472,7 @@ const RegisterForm: React.FC = () => {
 								</div>
 							</div>
 
-							<div className='form-column'>
+							<div className='form-column collapseTwo'>
 								<div className='form-group email'>
 									<label
 										htmlFor='email'
@@ -426,7 +499,7 @@ const RegisterForm: React.FC = () => {
 								</div>
 
 								<div className='form-group gender'>
-									<div className={styles.registerformSelect}>
+									<div className='form-select'>
 										<label
 											htmlFor='gender'
 											className={
@@ -453,12 +526,12 @@ const RegisterForm: React.FC = () => {
 											<option value='female'>Vrouw</option>
 											<option value='other'>Anders</option>
 										</select>
-										<div className={styles.arrow}></div>
+										<div className='arrow' />
 									</div>
 								</div>
 							</div>
 
-							<div className='form-column mobileOne'>
+							<div className='form-column collapseThree'>
 								<div className='form-group phone'>
 									<label
 										htmlFor='phone'
@@ -587,7 +660,7 @@ const RegisterForm: React.FC = () => {
 
 							<div className='form-column'>
 								<div className='form-group discover'>
-									<div className={styles.registerformSelect}>
+									<div className='form-select'>
 										<label
 											htmlFor='discover'
 											className={
@@ -622,31 +695,31 @@ const RegisterForm: React.FC = () => {
 												Via eerdere workshops (bijv. de Eternity Summerschool)
 											</option>
 											<option value='U heeft ons eerder zien/horen spelen/optreden'>
-												Je hebt ons eerder zien/horen spelen/optreden
+												Ik heb jullie eerder zien/horen spelen/optreden
 											</option>
 											<option value='Overig'>
 												Op een andere manier, namelijk:
 											</option>
 										</select>
-										<div className={styles.arrow}></div>
+										<div className='arrow' />
 									</div>
 								</div>
 							</div>
 
 							{formData.discover === 'Overig' && (
 								<div className='form-column'>
-									<div className='form-group answer'>
-										<label htmlFor='answer'>Meer info..</label>
+									<div className='form-group other'>
+										<label htmlFor='other'>Meer info..</label>
 										<input
 											type='text'
-											id='answer'
-											name='answer'
+											id='other'
+											name='other'
 											placeholder='...'
-											value={formData.answer}
+											value={formData.other}
 											onChange={handleInputChange}
 											onBlur={handleInputBlur}
-											onFocus={() => handleInputFocus('answer')}
-											className={emptyFields.includes('answer') ? 'reset' : ''}
+											onFocus={() => handleInputFocus('other')}
+											className={emptyFields.includes('other') ? 'reset' : ''}
 										/>
 									</div>
 								</div>
@@ -800,7 +873,18 @@ const RegisterForm: React.FC = () => {
 							</fieldset>
 						)}
 
-						<button type='submit'>Nu inschrijven</button>
+						<div className={styles.registerformSubs}>
+							{errors.length > 0 && (
+								<ul>
+									{errors.map((error, index) => (
+										<li key={index}>{error}</li>
+									))}
+								</ul>
+							)}
+							<button type='submit' disabled={errors.length > 0}>
+								Nu inschrijven
+							</button>
+						</div>
 					</form>
 
 					<div className={styles.registerformConditions}>
@@ -838,78 +922,7 @@ const RegisterForm: React.FC = () => {
 						</p>
 					</div>
 				</div>
-				<div className={styles.registerformInfo}>
-					<p>
-						<strong>
-							Muziekeducatie vormt een goede basis voor de ontwikkeling van een
-							kind.{' '}
-						</strong>
-						Momenteel verzorgen wij drumlessen op het Bindelmeer College en de
-						Bredeschool Zuidoost als vast onderdeel van het onderwijspakket.
-						Speciaal voor kinderen en jongeren verzorgen wij ook drumworkshops
-						na schooltijd in Amsterdam Zuidoost.
-					</p>
-					<br />
-					<p>
-						<strong>
-							Voor slechts 45,- euro per maand kan je 1x in de week bij ons
-							drumlessen volgen.{' '}
-						</strong>
-						Je leert bij ons niet alleen het spelen van Afrikaanse,
-						Afro-Caribische en Afro-Surinaamse ritmes, maar ook het lezen van
-						muzieknoten voor percussie instrumenten. Per drumles zijn er 2
-						docenten aanwezig die ervoor zorgen dat ieder kind voldoende
-						aandacht krijgt. Alles wat de leerlingen hebben geleerd zullen zij
-						laten zien tijdens een presentatie op één van de publieksevenementen
-						in Amsterdam Zuidoost.
-					</p>
-					<br />
-					<p>
-						<u>Voor wie</u>
-						<br />
-						Jongens en meisjes
-					</p>
-					<br />
-					<p>
-						<u>Leeftijd</u>
-						<br />6 t/m 12 of 13 t/m 18
-					</p>
-					<br />
-					<p>
-						<u>Beginners</u>
-						<br />
-						Dinsdagavond
-					</p>
-					<br />
-					<p>
-						<u>Gevorderden</u>
-						<br />
-						Woensdagavond
-					</p>
-					<br />
-					<p>
-						Meld uw kind nu direct aan via het{' '}
-						<a href='#' onClick={handleClick}>
-							online formulier
-						</a>
-						, via de mail <a href='#!'>info@eternitydrum.com</a> of telefonisch
-						via <a href='#!'>06 24 25 53 91</a>.
-					</p>
-					<br />
-					<p>
-						Ben je niet ouder dan 18 jaar? Vraag dan even toestemming aan jouw
-						ouders.
-					</p>
-					<br />
-					<p>
-						Voor de ouders die graag hun kinderen aan deze activiteit willen
-						laten deelnemen, maar niet in staat zijn om de bijdrage te betalen
-						kunnen wij een regeling treffen via het{' '}
-						<a href='#!'>Jongerencultuurfonds</a>. Voor vragen omtrent deze
-						regeling kunt u telefonisch contact met ons opnemen.
-					</p>
-				</div>
-			</div>
+			</>
 		</section>
 	);
 };

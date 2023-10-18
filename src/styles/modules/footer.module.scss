@@ -124,15 +124,9 @@
 						padding: 0.5em 0;
 
 						input {
-							background: $whiteColor;
 							border-radius: 5px;
 							padding: 0.5em 0.75em;
-							color: $primaryColor;
 							width: 100%;
-
-							&::placeholder {
-								color: $greyColor;
-							}
 
 							@media screen and ($medium) {
 								min-width: auto;

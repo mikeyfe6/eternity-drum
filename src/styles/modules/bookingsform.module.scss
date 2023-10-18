@@ -91,15 +91,9 @@
 				}
 
 				input {
-					background: $whiteColor;
 					border-radius: 5px;
 					padding: 0.5em 0.75em;
-					color: $primaryColor;
 					width: 100%;
-
-					&::placeholder {
-						color: $greyColor;
-					}
 
 					@media screen and ($medium) {
 						min-width: auto;
@@ -108,16 +102,10 @@
 				}
 
 				textarea {
-					background: $whiteColor;
 					border-radius: 5px;
 					padding: 0.5em 0.75em;
-					color: $primaryColor;
 					width: 100%;
 					min-height: 7.5em;
-
-					&::placeholder {
-						color: $greyColor;
-					}
 
 					@media screen and ($medium) {
 						min-width: auto;
@@ -148,15 +136,10 @@
 			width: 100%;
 			padding: 10px;
 			border-radius: 5px;
-			background-color: $whiteColor;
-			color: $primaryColor;
+
 			-webkit-appearance: none;
 			-moz-appearance: none;
 			appearance: none;
-
-			&::placeholder {
-				color: $greyColor;
-			}
 		}
 
 		.arrow {

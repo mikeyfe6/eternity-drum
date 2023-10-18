@@ -1,64 +1,18 @@
 @import '../configs/globals';
 
 .registerform {
-	&-container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 87.5px;
-		padding: 50px 0;
-
-		> * {
-			flex: 1;
-		}
-
-		> :nth-child(1) {
-			max-width: 600px;
-		}
-
-		> :nth-child(2) {
-			max-width: 600px;
-		}
-
-		@media screen and ($superSized) {
-			gap: 37.5px;
-		}
-
-		@media screen and ($large) {
-			align-items: start;
-			flex-direction: row;
-			justify-content: space-evenly;
-			width: 100%;
-			padding: 1em 0 0;
-			gap: 25px;
-
-			> :nth-child(1) {
-				flex: 55%;
-			}
-
-			> :nth-child(2) {
-				flex: 45%;
-			}
-		}
-
-		@media screen and ($large) {
-			align-items: center;
-			gap: 50px;
-			flex-direction: column-reverse;
-
-			> :nth-child(1) {
-				max-width: 600px;
-			}
-		}
-	}
-
 	&-wrapper {
 		background: $primaryColor;
 		color: $whiteColor;
 		padding: 1.5em 2em;
 		border-radius: 10px;
+		max-width: 600px;
 
 		@include boxShadow;
+
+		@media screen and ($large) {
+			flex: 55%;
+		}
 
 		@media screen and ($small) {
 			display: block;
@@ -105,10 +59,8 @@
 				}
 
 				input {
-					background: $whiteColor;
 					border-radius: 5px;
-					padding: 0.5em 0.75em 0.6em;
-					color: $primaryColor;
+					padding: 0.5em 0.5em 0.6em 0.6em;
 					width: 100%;
 
 					@media screen and ($small) {
@@ -116,23 +68,13 @@
 					}
 
 					@include baseTransition(outline-color);
-
-					&::placeholder {
-						color: $greyColor;
-					}
 				}
 
 				textarea {
-					background: $whiteColor;
 					border-radius: 5px;
 					padding: 0.5em 0.75em 0.6em;
-					color: $primaryColor;
 					width: 100%;
 					min-height: 7.5em;
-
-					&::placeholder {
-						color: $greyColor;
-					}
 
 					@media screen and ($medium) {
 						min-width: auto;
@@ -144,73 +86,43 @@
 					}
 				}
 			}
-
-			> button {
-				@include buttonStyle(
-					$whiteColor,
-					$primaryColor,
-					$whiteColor,
-					$tertiaryColor
-				);
-
-				margin-top: 2em;
-				align-self: end;
-			}
 		}
 	}
 
-	&-select {
-		position: relative;
+	&-subs {
+		display: flex;
+		justify-content: space-between;
+		margin: 2em 0;
 
-		> select {
-			width: 100%;
-			padding: 0.625em 1.8em 0.625em 0.75em;
-			border-radius: 5px;
-			background-color: $whiteColor;
-			color: $primaryColor;
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
+		> ul {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
 
-			line-height: 1.5;
-
-			option {
-				line-height: 1.5;
-				border: none;
-			}
-
-			@media screen and ($small) {
-				padding: 0.75em;
+			li {
+				background: $redColor;
 				border-radius: 3px;
+				padding: 0.25em 0.5em;
 				font-size: 0.9rem;
+				width: fit-content;
 			}
 		}
 
-		> .arrow {
-			position: absolute;
-			top: 50%;
-			right: 10px;
-			transform: translateY(-50%);
-			width: 0;
-			height: 0;
-			border-left: 7.5px solid transparent;
-			border-right: 7.5px solid transparent;
-			border-top: 7.5px solid $tertiaryColor;
+		button {
+			@include buttonStyle(
+				$whiteColor,
+				$primaryColor,
+				$whiteColor,
+				$tertiaryColor
+			);
 
-			@media screen and ($small) {
-				border-left: 5px solid transparent;
-				border-right: 5px solid transparent;
-				border-top: 5px solid $tertiaryColor;
+			align-self: flex-end;
+			margin-left: auto;
+			margin-bottom: auto;
+
+			&:disabled {
+				opacity: 0.5;
 			}
-		}
-	}
-
-	&-info {
-		background: #80808010;
-		padding: 1em;
-
-		a {
-			@include pageLink;
 		}
 	}
 

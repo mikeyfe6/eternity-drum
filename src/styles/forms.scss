@@ -1,19 +1,19 @@
 @import 'configs/globals';
 
 .error {
-	outline-width: 3px;
+	outline-width: 2px;
 	outline-style: solid;
 	outline-color: $redColor;
 }
 
 .approved {
-	outline-width: 3px;
+	outline-width: 2px;
 	outline-style: solid;
 	outline-color: $greenColor;
 }
 
 .reset {
-	outline-width: 3px;
+	outline-width: 2px;
 	outline-style: solid;
 	outline-color: lightgreyColor;
 }
@@ -25,6 +25,20 @@ select {
 	opacity: 0.99;
 	line-height: 1.5;
 
+	background: linear-gradient(45deg, #eaecf7, #ffffff);
+
+	&:not(select) {
+		color: $primaryColor;
+	}
+
+	&:not(input, textarea) {
+		color: $greyColor;
+
+		&.approved {
+			color: $primaryColor;
+		}
+	}
+
 	outline-width: 2px;
 	outline-style: solid;
 	outline-color: $lightgreyColor;
@@ -34,6 +48,7 @@ select {
 		overflow: hidden;
 		text-overflow: ellipsis;
 		max-width: 100%;
+		color: $greyColor;
 
 		@media screen and ($small) {
 			font-size: 0.9rem;
@@ -56,6 +71,45 @@ select {
 }
 
 .form {
+	&-select {
+		position: relative;
+
+		> select {
+			width: 100%;
+			padding: 0.65em 2em 0.75em 0.75em;
+			border-radius: 5px;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+
+			option {
+				line-height: 1.5;
+				border: none;
+			}
+
+			@media screen and ($small) {
+				border-radius: 3px;
+			}
+		}
+
+		> .arrow {
+			position: absolute;
+			top: 50%;
+			right: 10px;
+			transform: translateY(-50%);
+			width: 0;
+			height: 0;
+			border-left: 7.5px solid transparent;
+			border-right: 7.5px solid transparent;
+			border-top: 7.5px solid $tertiaryColor;
+
+			@media screen and ($small) {
+				border-left: 6px solid transparent;
+				border-right: 6px solid transparent;
+				border-top: 6px solid $tertiaryColor;
+			}
+		}
+	}
 	&-column {
 		display: flex;
 		justify-content: space-between;
@@ -65,8 +119,48 @@ select {
 			margin-bottom: 2.25em;
 		}
 
-		&.mobileOne {
+		&.collapseOne {
+			@media screen and ($extraLarge) {
+				flex-wrap: wrap;
+				row-gap: 35px;
+				justify-content: flex-start;
+			}
+
+			@media screen and ($large) {
+				flex-wrap: nowrap;
+			}
+
 			@media screen and ($small) {
+				flex-wrap: nowrap;
+			}
+
+			@media screen and ($extraSmall) {
+				flex-wrap: wrap;
+				row-gap: 35px;
+				justify-content: flex-start;
+			}
+		}
+
+		&.collapseTwo {
+			@media screen and ($extraLarge) {
+				flex-wrap: wrap;
+				row-gap: 35px;
+				justify-content: flex-start;
+			}
+
+			@media screen and ($small) {
+				flex-wrap: nowrap;
+			}
+
+			@media screen and ($extraSmall) {
+				flex-wrap: wrap;
+				row-gap: 35px;
+				justify-content: flex-start;
+			}
+		}
+
+		&.collapseThree {
+			@media screen and ($extraSmall) {
 				flex-direction: column;
 				gap: 35px;
 
@@ -74,14 +168,6 @@ select {
 					justify-content: start;
 					gap: 15px;
 				}
-			}
-		}
-
-		&.mobileTwo {
-			@media screen and ($small) {
-				flex-wrap: wrap;
-				row-gap: 35px;
-				justify-content: flex-start;
 			}
 		}
 	}
@@ -97,18 +183,17 @@ select {
 			#dayOfBirth,
 			#monthOfBirth,
 			#yearOfBirth {
-				padding: 0.625em 0.75em;
-				background: $whiteColor;
-				color: $primaryColor;
+				padding: 0.625em 0.5em;
 				border-radius: 5px;
-				min-width: 60px;
+
 				text-align: center;
+				text-align-last: center;
+				-moz-text-align-last: center;
 
 				@media screen and ($small) {
 					padding: 0.75em;
 					border-radius: 3px;
 					font-size: 0.9rem;
-					min-width: 70px;
 				}
 			}
 		}
@@ -156,20 +241,62 @@ select {
 
 		// -------------------------- column 2
 		&.streetName {
-			flex: 55%;
+			flex: 67.5%;
+
+			@media screen and ($superSized) {
+				flex: 60%;
+			}
+
+			@media screen and ($extraLarge) {
+				flex: 100%;
+			}
 
 			@media screen and ($small) {
 				flex: 100%;
 			}
 		}
 		&.houseNumber {
+			flex: 15%;
+
+			@media screen and ($superSized) {
+				flex: 20%;
+			}
+
+			@media screen and ($extraLarge) {
+				width: 25%;
+				flex: initial;
+			}
+
+			@media screen and ($large) {
+				width: 20%;
+				flex: initial;
+			}
+
 			@media screen and ($small) {
-				width: 30%;
+				width: 25%;
+				flex: initial;
 			}
 		}
 		&.zipCode {
+			flex: 17.5%;
+
+			@media screen and ($superSized) {
+				flex: 20%;
+			}
+
+			@media screen and ($extraLarge) {
+				width: 25%;
+				flex: initial;
+			}
+
+			@media screen and ($large) {
+				width: 20%;
+				flex: initial;
+			}
+
 			@media screen and ($small) {
-				width: 30%;
+				width: 25%;
+				flex: initial;
 			}
 		}
 
@@ -183,32 +310,46 @@ select {
 
 		// -------------------------- column 4
 		&.email {
-			flex: 70%;
+			flex: 75%;
+
+			@media screen and ($extraLarge) {
+				flex: 65%;
+			}
 
 			@media screen and ($small) {
-				flex: 65%;
+				flex: 70%;
 			}
 		}
 
 		&.gender {
-			flex: 30%;
-			// @include specialLabels;
+			flex: 25%;
 
 			@media screen and ($small) {
-				flex: 35%;
+				flex: 30%;
+			}
+
+			@media screen and ($extraSmall) {
+				width: 35%;
+				flex: initial;
 			}
 		}
 
 		// -------------------------- column 5
 		&.phone {
-			flex: 50%;
+			flex: 60%;
 
 			@media screen and ($small) {
-				flex: 100%;
+				width: 75%;
+				flex: initial;
+			}
+
+			@media screen and ($extraSmall) {
+				width: 55%;
+				flex: initial;
 			}
 		}
 		&.dateOfBirth {
-			flex: 50%;
+			flex: 40%;
 			@include specialLabels;
 
 			@media screen and ($small) {
@@ -218,19 +359,17 @@ select {
 		}
 
 		// -------------------------- column 6
-
-		// -------------------------- column 7
 		&.discover {
 			flex: 100%;
 		}
 
 		// -------------------------- column 7 (optional)
-		&.answer {
+		&.other {
 			flex: 100%;
 			margin-top: -17.5px;
 		}
 
-		// -------------------------- column 8
+		// -------------------------- column 7
 		&.comments {
 			flex: 100%;
 			label {
@@ -240,6 +379,8 @@ select {
 				}
 			}
 		}
+
+		// -------------------------- column 8
 
 		// -------------------------- column 9
 		&.firstNameParent {

@@ -1,0 +1,54 @@
+@import '../configs/globals';
+
+.workshop {
+	&-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 87.5px;
+		padding: 50px 0;
+		> * {
+			flex: 1;
+		}
+		> :nth-child(1) {
+			max-width: 600px;
+		}
+		> :nth-child(2) {
+			max-width: 600px;
+		}
+		@media screen and ($superSized) {
+			gap: 37.5px;
+		}
+		@media screen and ($large) {
+			align-items: start;
+			flex-direction: row;
+			justify-content: space-evenly;
+			width: 100%;
+			padding: 1em 0 0;
+			gap: 25px;
+			> :nth-child(1) {
+				flex: 55%;
+			}
+			> :nth-child(2) {
+				flex: 45%;
+			}
+		}
+		@media screen and ($large) {
+			align-items: center;
+			gap: 50px;
+			flex-direction: column-reverse;
+			> :nth-child(1) {
+				max-width: 600px;
+			}
+		}
+	}
+
+	&-info {
+		background: #80808010;
+		padding: 1em;
+
+		a {
+			@include pageLink;
+		}
+	}
+}
