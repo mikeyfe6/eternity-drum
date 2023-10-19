@@ -92,20 +92,21 @@ const Actualiteiten: React.FC = () => {
 
 						return (
 							<li key={contentful_id}>
-								<Link to={`${slug}`}>
+								<Link to={`${slug}/`}>
 									<img src={featuredImage.url} alt={featuredImage.title} />
 								</Link>
 								<div>
-									<Link to={`${slug}`}>
-										<h3>{title}</h3>
-									</Link>
+									<h3>
+										<Link to={`${slug}/`}>{title} </Link>
+									</h3>
+
 									<span>{postType.map((cato) => cato.name)}</span>
 									<p>{excerpt.excerptText}</p>
 									<hr />
 									<time dateTime={formattedDate.toISOString()}>
 										{formattedDateString} · {timeString}
 									</time>
-									<a href={slug}>Lees meer...</a>
+									<a href={`${slug}/`}>Lees meer...</a>
 								</div>
 							</li>
 						);
