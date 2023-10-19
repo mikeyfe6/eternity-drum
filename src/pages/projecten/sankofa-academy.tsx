@@ -11,7 +11,7 @@ import Hero from '../../components/heroslider';
 const Sankofa: React.FC<PageProps> = () => {
 	const breadcrumbs = [
 		{ label: 'Home', link: '/' },
-		{ label: 'Drumworkshops', link: '/drumworkshops/' },
+		{ label: 'Projecten', link: '/projecten/' },
 		{ label: 'Sankofa Academy' },
 	];
 
@@ -21,7 +21,7 @@ const Sankofa: React.FC<PageProps> = () => {
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
 
-				<h1>Drumworkshops</h1>
+				<h1>Sankofa Academy</h1>
 				<p>Welcome to your new Gatsby site.</p>
 			</section>
 		</Layout>

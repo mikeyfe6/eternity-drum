@@ -121,7 +121,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 						<ul>
 							<li>
 								<Link
-									to='/drumworkshops/sankofa-academy/'
+									to='/projecten/sankofa-academy/'
 									activeClassName={styles.activeMenuItem}
 									onClick={handleMenuItemClick}
 								>

@@ -200,7 +200,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							<ul>
 								<li>
 									<Link
-										to='/drumworkshops/sankofa-academy/'
+										to='/projecten/sankofa-academy/'
 										activeClassName={styles.activeMenuItem}
 									>
 										Sankofa Academy

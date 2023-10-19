@@ -19,6 +19,8 @@ section {
 			margin-top: 10px;
 			background: $primaryColor;
 
+			@include boxShadow;
+
 			padding: 0.5em 1em 0.6em;
 			border-radius: 5px;
 
@@ -34,13 +36,14 @@ section {
 				&:not(:last-child)::after {
 					content: '\f0da';
 					font-family: 'FontAwesome', sans-serif;
-					font-size: 1rem;
+					font-size: 0.75rem;
 					margin-left: 1em;
 					color: $whiteColor;
-					vertical-align: -2px;
+					vertical-align: 1px;
 
 					@media screen and ($small) {
-						margin-left: 0.5em;
+						margin-left: 1em;
+						font-size: 0.5rem;
 					}
 				}
 

@@ -5,7 +5,9 @@
 		max-width: 1250px;
 		margin: 3em auto;
 		background: #80808010;
-		padding: 1em;
+		padding: 1.25em;
+
+		@include boxShadow;
 
 		a {
 			@include pageLink;

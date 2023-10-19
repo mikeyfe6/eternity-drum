@@ -4,7 +4,6 @@
 	&-container {
 		display: flex;
 		justify-content: center;
-		align-items: center;
 		gap: 87.5px;
 		padding: 50px 0;
 		> * {
@@ -45,7 +44,10 @@
 
 	&-info {
 		background: #80808010;
-		padding: 1em;
+		padding: 1.25em;
+		height: fit-content;
+
+		@include boxShadow;
 
 		a {
 			@include pageLink;

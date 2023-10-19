@@ -81,7 +81,7 @@ const Anbi: React.FC<PageProps> = () => {
 					<br />
 
 					<p>
-						<strong>Adres:</strong> Anton De Komplein 240
+						<strong>Bezoekadres:</strong> Anton De Komplein 240
 						<br />
 						<strong>Postcode:</strong> 1102 DR
 						<br />

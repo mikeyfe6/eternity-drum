@@ -67,13 +67,19 @@ const Footer = () => {
 				<div className={styles.footerUpperBanner}>
 					<div>
 						<h4>Contactgegevens</h4>
+
+						<h5>
+							<u>Bezoekadres & Postadres</u>
+						</h5>
 						<ul>
 							<li>
 								<strong>{companyName}</strong>
 							</li>
 							<li>{address}</li>
 							<li>{`${postalCode} ${city}`}</li>
-							<br />
+						</ul>
+
+						<ul>
 							<li>
 								<i className='fas fa-phone' />
 								<a
@@ -93,8 +99,9 @@ const Footer = () => {
 								>
 									<strong>{email}</strong>
 								</a>
+								<br /> <br />
 							</li>
-							<br />
+
 							<li>
 								<strong>KvK:</strong> {kvk}
 							</li>
@@ -107,9 +114,7 @@ const Footer = () => {
 						<h4>Recente Posts</h4>
 						<ul>
 							<li>
-								<Link to='/drumworkshops/sankofa-academy/'>
-									Sankofa Academy
-								</Link>
+								<Link to='/projecten/sankofa-academy/'>Sankofa Academy</Link>
 							</li>
 							<li>
 								<Link to='/drumworkshops/summerschool-2022/'>
@@ -238,7 +243,7 @@ const Footer = () => {
 							>
 								Menefex
 							</a>
-						</strong>{' '}
+						</strong>
 					</span>
 				</div>
 			</div>
