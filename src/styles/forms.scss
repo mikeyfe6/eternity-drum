@@ -29,6 +29,7 @@ select {
 
 	&:not(input, textarea) {
 		color: $greyColor;
+		overflow: hidden;
 
 		&.approved {
 			color: $primaryColor;
@@ -74,11 +75,6 @@ select {
 
 			option:disabled {
 				outline-color: $lightgreyColor;
-			}
-
-			option {
-				line-height: 1.5;
-				border: none;
 			}
 
 			@media screen and ($small) {
@@ -245,8 +241,12 @@ select {
 				flex: 100%;
 			}
 
+			@media screen and ($large) {
+				flex: 65%;
+			}
+
 			@media screen and ($small) {
-				flex: 100%;
+				flex: 72.5%;
 			}
 		}
 		&.houseNumber {
@@ -307,7 +307,7 @@ select {
 			flex: 75%;
 
 			@media screen and ($extraLarge) {
-				flex: 65%;
+				flex: 60%;
 			}
 
 			@media screen and ($small) {
@@ -360,7 +360,6 @@ select {
 		// -------------------------- column 7 (optional)
 		&.other {
 			flex: 100%;
-			margin-top: -17.5px;
 		}
 
 		// -------------------------- column 7

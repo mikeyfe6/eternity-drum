@@ -310,6 +310,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		return allFieldsFilled && areErrorsValid;
 	};
 
+	console.log(isFormValid());
+
 	return (
 		<section>
 			<>
@@ -689,7 +691,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 								</div>
 							</div>
 
-							<div className='form-column'>
+							<div
+								className='form-column'
+								style={{
+									marginBottom:
+										formData.discover === 'Overig' ? '1em' : 'revert-layer;',
+								}}
+							>
 								<div className='form-group discover'>
 									<div className='form-select'>
 										<label
@@ -725,8 +733,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 											<option value='Via eerdere workshops (bijv. de Eternity Summerschool)'>
 												Via eerdere workshops (bijv. de Eternity Summerschool)
 											</option>
-											<option value='U heeft ons eerder zien/horen spelen/optreden'>
-												Ik heb jullie eerder zien/horen spelen/optreden
+											<option value='U heeft ons eerder zien/horen spelen'>
+												Ik heb jullie eerder zien/horen spelen
 											</option>
 											<option value='Overig'>
 												Op een andere manier, namelijk:
@@ -907,17 +915,12 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 						<div className={styles.registerformSubmit}>
 							<div>
 								{isFormValid() ? (
-									<>
-										<hr />
-										<span className={styles.registerformSubmitApproved}>
-											Het formulier is juist & volledig ingevuld.
-										</span>
-										<hr />
-									</>
+									<span className={styles.registerformSubmitApproved}>
+										Het formulier is juist & volledig ingevuld.
+									</span>
 								) : null}
 								{errors.length > 0 && (
 									<>
-										<hr />
 										<span className={styles.registerformSubmitError}>
 											Het formulier is nog niet juist of volledig ingevuld:
 										</span>
@@ -926,7 +929,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 												<li key={index}>{error}</li>
 											))}
 										</ul>
-										<hr />
 									</>
 								)}
 							</div>

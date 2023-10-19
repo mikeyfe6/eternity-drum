@@ -51,7 +51,6 @@ const Partners: React.FC = () => {
 			img: 'blackharmony.png',
 			name: 'Black Harmony',
 		},
-		// Add your other partners here
 	];
 
 	return (
@@ -67,7 +66,6 @@ const Partners: React.FC = () => {
 					const image = partnerImage?.childImageSharp?.gatsbyImageData;
 
 					if (!image) {
-						// Handle the case when the image is undefined (optional)
 						return null;
 					}
 
