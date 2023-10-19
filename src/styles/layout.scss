@@ -149,9 +149,9 @@ nav[data-breadcrumbs] {
 	margin-left: auto;
 
 	@media screen and ($extraLarge) {
-		position: static !important;
-		width: fit-content !important;
-		margin-bottom: 1em;
+		position: static;
+		width: fit-content;
+		margin-bottom: 1.5em;
 	}
 }
 
