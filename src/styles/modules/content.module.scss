@@ -5,7 +5,7 @@
 		max-width: 1250px;
 		margin: 3em auto;
 		background: #80808010;
-		padding: 1.25em;
+		padding: 2.5em 2em;
 
 		@include boxShadow;
 
@@ -16,7 +16,6 @@
 		ul {
 			list-style: square;
 			margin: initial;
-			padding: initial;
 			padding-left: 14px;
 		}
 
@@ -26,6 +25,7 @@
 
 		@media screen and ($small) {
 			padding: 1em;
+			margin: 1em auto 3em;
 
 			h2 {
 				font-size: 1.75rem;

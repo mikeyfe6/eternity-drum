@@ -24,6 +24,7 @@ html {
 body {
 	font-family: 'Open Sans', sans-serif;
 	color: $primaryColor;
+	line-height: 1.5;
 
 	@media screen and ($ultraSmall) {
 		display: none;
@@ -68,6 +69,14 @@ body {
 .space-divider {
 	height: 50px;
 	width: 100%;
+}
+
+hr {
+	height: 3px;
+	border-width: 0;
+	color: rgba(128, 128, 128, 0.1);
+	background-color: rgba(128, 128, 128, 0.1);
+	margin: 1em 0;
 }
 
 h1 {
@@ -122,7 +131,6 @@ h5 {
 
 p {
 	font-size: 1.1rem;
-	padding-top: 2px;
 }
 
 strong {
@@ -137,6 +145,14 @@ nav[data-breadcrumbs] {
 	position: absolute;
 	right: 0;
 	top: 0;
+
+	margin-left: auto;
+
+	@media screen and ($extraLarge) {
+		position: static !important;
+		width: fit-content !important;
+		margin-bottom: 1em;
+	}
 }
 
 .overlay {

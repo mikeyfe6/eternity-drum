@@ -53,11 +53,11 @@ export function validateForm(
 	}
 
 	if (formData.city.trim() === '') {
-		errors.push('Invullen van jouw huidige woonstad is verplicht.');
+		errors.push('Jouw huidige woonstad is verplicht.');
 	}
 
 	if (formData.province.trim() === '') {
-		errors.push('Invullen van jouw huidige provincie is verplicht.');
+		errors.push('Jouw huidige provincie is verplicht.');
 	}
 
 	if (formData.email.trim() === '') {
@@ -67,7 +67,7 @@ export function validateForm(
 	}
 
 	if (formData.phone.trim() === '') {
-		errors.push('Invullen van jouw telefoonnummer is verplicht.');
+		errors.push('Jouw telefoonnummer is verplicht.');
 	}
 
 	if (formData.dayOfBirth.trim() === '') {

@@ -2,16 +2,6 @@
 
 section {
 	> nav {
-		position: absolute;
-		right: 0;
-		top: 0;
-
-		@media screen and ($extraLarge) {
-			position: static !important;
-			width: fit-content !important;
-			margin-bottom: 1em;
-		}
-
 		> .breadcrumb-list {
 			display: flex;
 			align-items: center;
@@ -26,7 +16,7 @@ section {
 
 			@media screen and ($small) {
 				padding: 0.125em 1em 0.375em;
-				margin-bottom: 25px;
+				margin-bottom: 17.5px;
 				gap: 10px;
 			}
 

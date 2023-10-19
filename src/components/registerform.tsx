@@ -301,6 +301,15 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		});
 	};
 
+	const isFormValid = () => {
+		const allFieldsFilled = requiredFields.every(
+			(field) => formData[field as keyof typeof formData]
+		);
+		const areErrorsValid = errors.length <= 0;
+
+		return allFieldsFilled && areErrorsValid;
+	};
+
 	return (
 		<section>
 			<>
@@ -895,14 +904,32 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 							</fieldset>
 						)}
 
-						<div className={styles.registerformSubs}>
-							{errors.length > 0 && (
-								<ul>
-									{errors.map((error, index) => (
-										<li key={index}>{error}</li>
-									))}
-								</ul>
-							)}
+						<div className={styles.registerformSubmit}>
+							<div>
+								{isFormValid() ? (
+									<>
+										<hr />
+										<span className={styles.registerformSubmitApproved}>
+											Het formulier is juist & volledig ingevuld.
+										</span>
+										<hr />
+									</>
+								) : null}
+								{errors.length > 0 && (
+									<>
+										<hr />
+										<span className={styles.registerformSubmitError}>
+											Het formulier is nog niet juist of volledig ingevuld:
+										</span>
+										<ul>
+											{errors.map((error, index) => (
+												<li key={index}>{error}</li>
+											))}
+										</ul>
+										<hr />
+									</>
+								)}
+							</div>
 							<button type='submit' disabled={errors.length > 0}>
 								Nu inschrijven
 							</button>

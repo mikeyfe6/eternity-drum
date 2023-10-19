@@ -108,13 +108,6 @@ section {
 body {
 	background: white;
 	color: black;
-	line-height: 1;
-	margin: 0;
-}
-
-ol,
-ul {
-	list-style: none;
 }
 
 blockquote,
@@ -152,12 +145,6 @@ table {
 a,
 button {
 	cursor: revert;
-}
-
-ol,
-ul,
-menu {
-	list-style: none;
 }
 
 img {
@@ -315,17 +302,11 @@ sup {
 
 /* Normalize.css */
 html {
-	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 }
 
 main {
 	display: block;
-}
-
-h1 {
-	font-size: 2em;
-	margin: 0.67em 0;
 }
 
 hr {
@@ -407,10 +388,6 @@ button:-moz-focusring,
 [type='reset']:-moz-focusring,
 [type='submit']:-moz-focusring {
 	outline: 1px dotted ButtonText;
-}
-
-fieldset {
-	padding: 0.35em 0.75em 0.625em;
 }
 
 legend {

@@ -165,7 +165,9 @@ const Anbi: React.FC<PageProps> = () => {
 						<u>Financiële verantwoording</u>
 					</h4>
 
-					<p>Op te vragen via: Your Accountants & Adviseurs B.V. </p>
+					<p>
+						Op te vragen via: <i>Your Accountants & Adviseurs B.V.</i>
+					</p>
 				</div>
 			</section>
 		</Layout>

@@ -101,7 +101,7 @@
 				}
 
 				ul > li > ul {
-					padding-top: 24px;
+					padding-top: 20px;
 				}
 
 				@include boxBottomShadow;
@@ -113,7 +113,7 @@
 				margin-right: 25px;
 				padding-bottom: 5px;
 				color: $secondaryColor;
-				font-size: 5em;
+				font-size: 5rem;
 
 				@media screen and ($superSized) {
 					display: none;
@@ -126,7 +126,7 @@
 				margin-left: 25px;
 				padding-bottom: 7px;
 				color: $secondaryColor;
-				font-size: 5em;
+				font-size: 5rem;
 
 				@media screen and ($superSized) {
 					display: none;
@@ -270,7 +270,7 @@
 						z-index: 2;
 						left: 50%;
 						transform: translateX(-50%);
-						padding-top: 42px;
+						padding-top: 38px;
 						background: $whiteColor;
 						box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
 
@@ -282,7 +282,7 @@
 								font-size: 1.2rem;
 								font-family: $bebasNeue;
 								letter-spacing: 1px;
-								padding: 0.75em 0.75em 0.675em;
+								padding: 0.5em 0.75em 0.35em;
 								display: flex;
 								justify-content: center;
 								text-align: center;

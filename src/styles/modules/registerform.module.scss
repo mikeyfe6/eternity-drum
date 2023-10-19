@@ -89,32 +89,60 @@
 		}
 	}
 
-	&-subs {
+	&-submit {
 		display: flex;
 		justify-content: space-between;
-		margin: 2em 0;
+		margin: 2em 0 2em 0.5em;
 
 		@media screen and ($extraSmall) {
 			flex-direction: column-reverse;
 			gap: 20px;
 		}
 
-		> ul {
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
+		> div {
+			> hr:nth-of-type(2) {
+				margin-top: 1.75em;
+				margin-bottom: 0;
+			}
+			> span {
+				font-size: 0.875rem;
+				text-underline-offset: 4px;
+				text-decoration-thickness: 2px;
+				margin-top: -0.25em;
 
-			li {
-				background: $redColor;
-				border-radius: 3px;
-				padding: 0.25em 0.5em;
-				font-size: 0.8rem;
-				width: fit-content;
-				outline: 1px $whiteColor solid;
+				@media screen and ($small) {
+					// font-size: 0.rem;
+				}
+			}
+
+			> ul {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				margin-top: 1em;
+
+				> li {
+					background: $redColor;
+					border-radius: 3px;
+					padding: 0.25em 0.75em;
+					font-size: 0.8rem;
+					width: fit-content;
+					outline: 1px rgba(255, 255, 255, 0.75) solid;
+				}
 			}
 		}
 
-		button {
+		&-error {
+			text-decoration: underline;
+			text-decoration-color: $redColor;
+		}
+
+		&-approved {
+			text-decoration: underline;
+			text-decoration-color: $greenColor;
+		}
+
+		> button {
 			@include buttonStyle(
 				$whiteColor,
 				$primaryColor,

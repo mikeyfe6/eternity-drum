@@ -68,9 +68,7 @@ const Footer = () => {
 					<div>
 						<h4>Contactgegevens</h4>
 
-						<h5>
-							<u>Bezoekadres & Postadres</u>
-						</h5>
+						<h5>Bezoekadres & Postadres:</h5>
 						<ul>
 							<li>
 								<strong>{companyName}</strong>
@@ -234,7 +232,7 @@ const Footer = () => {
 				<div className={styles.footerBottomBanner}>
 					<span>
 						© 2002 – {new Date().getFullYear()} · <strong>{companyName}</strong>{' '}
-						| <Link to='/sitemap-index.xml'>Sitemap</Link> | Powered by{' '}
+						{/* | <Link to='/sitemap-index.xml'>Sitemap</Link>  */}| Powered by{' '}
 						<strong>
 							<a
 								href='https://menefex.nl'
