@@ -109,10 +109,25 @@
 
 		> div {
 			&:not(:empty) {
-				border-top: solid 2px rgba(128, 128, 128, 0.1);
-				border-bottom: solid 2px rgba(128, 128, 128, 0.1);
-				padding: 1em 0.5em 1.75em;
-				margin-top: 1em;
+				@media screen and ($extraLarge) {
+					border-top: solid 2px rgba(128, 128, 128, 0.1);
+					border-bottom: solid 2px rgba(128, 128, 128, 0.1);
+					padding: 1em 0.5em 1.75em;
+					margin-top: 1em;
+				}
+
+				@media screen and ($large) {
+					border: none;
+					padding: 0 0.5em 1.75em;
+					margin-top: 0em;
+				}
+
+				@media screen and ($small) {
+					border-top: solid 2px rgba(128, 128, 128, 0.1);
+					border-bottom: solid 2px rgba(128, 128, 128, 0.1);
+					padding: 1em 0.5em 1.75em;
+					margin-top: 1em;
+				}
 			}
 
 			> span {
