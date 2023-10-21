@@ -77,20 +77,20 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 						<ul>
 							<li>
 								<Link
-									to='/drumworkshops/summerschool-2022/'
+									to='/drumworkshops/summerschool-2020/'
 									activeClassName={styles.activeMenuItem}
 									onClick={handleMenuItemClick}
 								>
-									Eternity Summerschool 2022
+									Eternity Summerschool 2020
 								</Link>
 							</li>
 							<li>
 								<Link
-									to='/drumworkshops/summerschool-2023/'
+									to='/drumworkshops/summerschool-2021/'
 									activeClassName={styles.activeMenuItem}
 									onClick={handleMenuItemClick}
 								>
-									Eternity Summerschool 2023
+									Eternity Summerschool 2021
 								</Link>
 							</li>
 						</ul>

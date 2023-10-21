@@ -56,7 +56,7 @@ const BookingsForm: React.FC = () => {
 	return (
 		<section>
 			<div className={styles.bookingsformContainer}>
-				<div className={styles.bookingsformWrapper}>
+				<section className={styles.bookingsformWrapper}>
 					<form onSubmit={handleSubmit}>
 						<fieldset>
 							<legend>
@@ -116,8 +116,8 @@ const BookingsForm: React.FC = () => {
 							{formData.subject === 'boeking' ? 'Boek nu' : 'Verstuur'}
 						</button>
 					</form>
-				</div>
-				<div className={styles.bookingsformInfo}>
+				</section>
+				<section data-main-content className={styles.bookingsformInfo}>
 					<p>
 						<strong>
 							Drumband Eternity Percussion treedt op in zowel binnen- als
@@ -127,21 +127,22 @@ const BookingsForm: React.FC = () => {
 							Engeland (Londen en Birmingham), Atlanta (USA) en Brazilië .
 						</strong>
 					</p>
-					<br />
+
 					<p>
 						In juli 2006 heeft Eternity de prijs gewonnen van Beste Brassband
 						Ortel Zomercarnaval 2006. Een vakkundige jury heeft Eternity
 						beoordeelt op de hoge kwaliteit van ritme, muziek, juiste harmonie
 						en gevarieerde show.
 					</p>
-					<br />
+
 					<p>
-						U kunt ons inhuren voor; bedrijfsevenementen, begrafenissen,
-						bruiloften, jubilea, openingen, parades. theatervoorstellingen en
-						verjaardagen. Het repertoire wordt afgestemd op het publiek en de
-						gelegenheid.
+						U kunt ons inhuren voor; <u>bedrijfsevenementen</u>,{' '}
+						<u>begrafenissen</u>, <u>bruiloften</u>, <u>jubilea</u>,{' '}
+						<u>openingen</u>, <u>parades</u>, <u>theatervoorstellingen</u> en{' '}
+						<u>verjaardagen</u>. Het repertoire wordt afgestemd op het publiek
+						en de gelegenheid.
 					</p>
-					<br />
+
 					<p>
 						Wij leveren formaties van{' '}
 						<strong>
@@ -150,12 +151,13 @@ const BookingsForm: React.FC = () => {
 						voor setjes van 10 tot maximaal 30 min (U kunt ook meerdere setjes
 						boeken).
 					</p>
-					<br />
+
 					<p>
-						Voor meer informatie kunt u telefonisch contact opnemen via: 06 242
-						55 391 of een offerte opvragen via info@eternitydrum.com.{' '}
+						Voor meer informatie kunt u telefonisch contact opnemen via:{' '}
+						<a href='#!'>06 242 55 391</a> of een offerte opvragen via{' '}
+						<a href='#!'>info@eternitydrum.com</a>.{' '}
 					</p>
-				</div>
+				</section>
 			</div>
 		</section>
 	);

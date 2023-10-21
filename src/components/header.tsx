@@ -26,10 +26,10 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 			);
 			const headerMenuWrapper = document.querySelector(
 				`.${styles.headerMenu}`
-			) as HTMLElement | null;
+			) as HTMLElement;
 			const mainContent = document.querySelector(
 				`.eternity-wrapper`
-			) as HTMLElement | null;
+			) as HTMLElement;
 
 			setScrollY(currentScrollY);
 
@@ -155,18 +155,18 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							<ul>
 								<li>
 									<Link
-										to='/drumworkshops/summerschool-2022/'
+										to='/drumworkshops/summerschool-2020/'
 										activeClassName={styles.activeMenuItem}
 									>
-										Eternity Summerschool 2022
+										Eternity Summerschool 2020
 									</Link>
 								</li>
 								<li>
 									<Link
-										to='/drumworkshops/summerschool-2023/'
+										to='/drumworkshops/summerschool-2021/'
 										activeClassName={styles.activeMenuItem}
 									>
-										Eternity Summerschool 2023
+										Eternity Summerschool 2021
 									</Link>
 								</li>
 							</ul>

@@ -8,6 +8,8 @@ import { navigate } from 'gatsby';
 
 import * as styles from '../styles/modules/registerform.module.scss';
 
+import { useLocation } from '@reach/router';
+
 interface RegisterFormProps {
 	inputRef: React.RefObject<HTMLInputElement>;
 }
@@ -310,7 +312,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		return allFieldsFilled && areErrorsValid;
 	};
 
-	console.log(isFormValid());
+	const { pathname } = useLocation();
 
 	return (
 		<section>
@@ -695,7 +697,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 								className='form-column'
 								style={{
 									marginBottom:
-										formData.discover === 'Overig' ? '1em' : 'revert-layer;',
+										formData.discover === 'Overig' ? '1em' : 'revert-layer',
 								}}
 							>
 								<div className='form-group discover'>
@@ -913,25 +915,28 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 						)}
 
 						<div className={styles.registerformSubmit}>
-							<div>
-								{isFormValid() ? (
-									<span className={styles.registerformSubmitApproved}>
-										Het formulier is juist & volledig ingevuld.
-									</span>
-								) : null}
-								{errors.length > 0 && (
-									<>
-										<span className={styles.registerformSubmitError}>
-											Het formulier is nog niet juist of volledig ingevuld:
-										</span>
-										<ul>
-											{errors.map((error, index) => (
-												<li key={index}>{error}</li>
-											))}
-										</ul>
-									</>
-								)}
-							</div>
+							{isFormValid() ||
+								(errors.length > 0 && (
+									<div>
+										{isFormValid() && (
+											<span className={styles.registerformSubmitApproved}>
+												Het formulier is juist & volledig ingevuld.
+											</span>
+										)}
+										{errors.length > 0 && (
+											<>
+												<span className={styles.registerformSubmitError}>
+													Het formulier is nog niet juist of volledig ingevuld:
+												</span>
+												<ul>
+													{errors.map((error, index) => (
+														<li key={index}>{error}</li>
+													))}
+												</ul>
+											</>
+										)}
+									</div>
+								))}
 							<button type='submit' disabled={errors.length > 0}>
 								Nu inschrijven
 							</button>
@@ -948,14 +953,18 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 								enig lichamelijk letsel, schade of vermissing van eigendom
 								tijdens de lessen en/of repetities
 							</li>
-							<li>
-								Het lesgeld dient aan het begin van elke maand op de rekening
-								van Eternity Percussion worden over gemaakt
-							</li>
-							<li>
-								De opzegtermijn bedraagt minimaal een maand en dient via email
-								info@eternitydrum.com te worden doorgegeven
-							</li>
+							{pathname.includes('drumworkshops') ? (
+								<>
+									<li>
+										Het lesgeld dient aan het begin van elke maand op de
+										rekening van Eternity Percussion worden over gemaakt
+									</li>
+									<li>
+										De opzegtermijn bedraagt minimaal een maand en dient via
+										email info@eternitydrum.com te worden doorgegeven
+									</li>
+								</>
+							) : null}
 						</ul>
 						<p>
 							<strong>Let op !</strong>

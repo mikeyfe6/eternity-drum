@@ -49,9 +49,9 @@
 	transition: $element 0.1s ease-in-out;
 }
 
-@mixin fullWidth {
+@mixin fullWidth($position: relative) {
 	width: 100vw;
-	position: relative;
+	position: $position;
 	left: 50%;
 	right: 50%;
 	margin-left: -50vw;

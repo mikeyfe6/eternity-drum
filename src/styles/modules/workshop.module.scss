@@ -1,6 +1,33 @@
 @import '../configs/globals';
 
 .workshop {
+	&-bg-image {
+		background-image: url('../../images/sankofa-bg.jpeg');
+		background-size: 80%;
+		background-position: center;
+		background-repeat: no-repeat;
+		opacity: 0.0525;
+		z-index: -1;
+		height: 100%;
+
+		@include fullWidth(absolute);
+
+		@media screen and ($superSized) {
+			background-size: cover;
+		}
+	}
+
+	&-images {
+		display: flex;
+		justify-content: center;
+		gap: 15px;
+
+		> * {
+			border-radius: 5px;
+			max-width: 300px;
+		}
+	}
+
 	&-container {
 		display: flex;
 		justify-content: center;
@@ -48,10 +75,6 @@
 		height: fit-content;
 
 		@include boxShadow;
-
-		a {
-			@include pageLink;
-		}
 
 		@media screen and ($small) {
 			padding: 1em;

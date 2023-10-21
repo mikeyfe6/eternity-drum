@@ -24,7 +24,7 @@ const Anbi: React.FC<PageProps> = () => {
 				<Breadcrumb crumbs={breadcrumbs} />
 
 				<h1>ANBI</h1>
-				<div className={styles.pageContentCenter}>
+				<section data-main-content className={styles.pageContentCenter}>
 					<h2>Doelstelling: Eternity Percussion</h2>
 
 					<p>
@@ -33,13 +33,9 @@ const Anbi: React.FC<PageProps> = () => {
 						van muzikale vorming en performance.
 					</p>
 
-					<br />
-
 					<p>
 						<strong>De organisatie heeft als doel:</strong>
 					</p>
-
-					<br />
 
 					<ul>
 						<li>
@@ -60,8 +56,6 @@ const Anbi: React.FC<PageProps> = () => {
 						</li>
 					</ul>
 
-					<br />
-
 					<h4>
 						<u>Algemene gegevens</u>
 					</h4>
@@ -78,8 +72,6 @@ const Anbi: React.FC<PageProps> = () => {
 						<br />
 					</p>
 
-					<br />
-
 					<p>
 						<strong>Bezoekadres:</strong> Anton De Komplein 240
 						<br />
@@ -87,8 +79,6 @@ const Anbi: React.FC<PageProps> = () => {
 						<br />
 						<strong>Plaats:</strong> Amsterdam
 					</p>
-
-					<br />
 
 					<p>
 						<i>
@@ -99,8 +89,6 @@ const Anbi: React.FC<PageProps> = () => {
 							<strong>Plaats:</strong> Amsterdam
 						</i>
 					</p>
-
-					<br />
 
 					<h4>
 						<u>Bestuur</u>
@@ -113,16 +101,12 @@ const Anbi: React.FC<PageProps> = () => {
 						<strong>Penningmeester:</strong> Ulrich Entingh
 					</p>
 
-					<br />
-
 					<h4>
 						<u>Beleidsplan</u>
 					</h4>
 					<p>
 						<a href='#!'>Klik hier voor een overzicht van ons beleidsplan</a>
 					</p>
-
-					<br />
 
 					<h4>
 						<u>De balans en staat van baten en lasten</u>
@@ -133,8 +117,6 @@ const Anbi: React.FC<PageProps> = () => {
 							lasten{' '}
 						</a>
 					</p>
-
-					<br />
 
 					<h4>
 						<u>Beloningsbeleid</u>
@@ -147,8 +129,6 @@ const Anbi: React.FC<PageProps> = () => {
 						beloningsbeleid
 					</p>
 
-					<br />
-
 					<h4>
 						<u>Activiteiten</u>
 					</h4>
@@ -159,8 +139,6 @@ const Anbi: React.FC<PageProps> = () => {
 						<li>Drumworkshops </li>
 					</ul>
 
-					<br />
-
 					<h4>
 						<u>Financiële verantwoording</u>
 					</h4>
@@ -168,7 +146,7 @@ const Anbi: React.FC<PageProps> = () => {
 					<p>
 						Op te vragen via: <i>Your Accountants & Adviseurs B.V.</i>
 					</p>
-				</div>
+				</section>
 			</section>
 		</Layout>
 	);

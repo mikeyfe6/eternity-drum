@@ -96,7 +96,6 @@ const Footer = () => {
 								>
 									<strong>{email}</strong>
 								</a>
-								<br /> <br />
 							</li>
 
 							<li>
@@ -114,13 +113,13 @@ const Footer = () => {
 								<Link to='/projecten/sankofa-academy/'>Sankofa Academy</Link>
 							</li>
 							<li>
-								<Link to='/drumworkshops/summerschool-2022/'>
-									Summerschool 2022
+								<Link to='/drumworkshops/summerschool-2020/'>
+									Summerschool 2020
 								</Link>
 							</li>
 							<li>
-								<Link to='/drumworkshops/summerschool-2023/'>
-									Summerschool 2023
+								<Link to='/drumworkshops/summerschool-2020/'>
+									Summerschool 2020
 								</Link>
 							</li>
 						</ul>

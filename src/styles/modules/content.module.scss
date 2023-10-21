@@ -7,22 +7,6 @@
 		background: #80808010;
 		padding: 2.5em 2em;
 
-		@include boxShadow;
-
-		a {
-			@include pageLink;
-		}
-
-		ul {
-			list-style: square;
-			margin: initial;
-			padding-left: 14px;
-		}
-
-		i {
-			font-style: italic;
-		}
-
 		@media screen and ($small) {
 			padding: 1em;
 			margin: 1em auto 3em;

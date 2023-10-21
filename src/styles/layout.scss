@@ -29,6 +29,10 @@ body {
 	@media screen and ($ultraSmall) {
 		display: none;
 	}
+
+	&.modal-open {
+		overflow: hidden;
+	}
 }
 
 .eternity-container {
@@ -69,6 +73,57 @@ body {
 .space-divider {
 	height: 50px;
 	width: 100%;
+}
+
+section[data-main-section] {
+	position: relative;
+
+	> h1 {
+		max-width: 70%;
+	}
+}
+
+section[data-main-content] {
+	p:not(:last-child) {
+		margin-bottom: 1em;
+	}
+
+	ul {
+		margin-bottom: 1em;
+		list-style: square;
+		padding-left: 14px;
+	}
+
+	a {
+		@include pageLink;
+	}
+
+	i {
+		font-style: italic;
+	}
+
+	hr {
+		color: #181a37;
+		background-color: #181a37;
+		opacity: 0.25;
+		border-radius: 50%;
+	}
+
+	@include boxShadow;
+}
+
+nav[data-breadcrumbs] {
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	margin-left: auto;
+
+	@media screen and ($extraLarge) {
+		position: static;
+		width: fit-content;
+		margin-bottom: 1.5em;
+	}
 }
 
 hr {
@@ -137,22 +192,10 @@ strong {
 	font-weight: 600;
 }
 
-section[data-main-section] {
-	position: relative;
-}
-
-nav[data-breadcrumbs] {
-	position: absolute;
-	right: 0;
-	top: 0;
-
-	margin-left: auto;
-
-	@media screen and ($extraLarge) {
-		position: static;
-		width: fit-content;
-		margin-bottom: 1.5em;
-	}
+u {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	text-decoration-thickness: 2px;
 }
 
 .overlay {
@@ -165,8 +208,45 @@ nav[data-breadcrumbs] {
 	z-index: 5;
 }
 
-u {
-	text-decoration: underline;
-	text-underline-offset: 3px;
-	text-decoration-thickness: 2px;
+.modal {
+	display: flex;
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.9);
+	align-items: center;
+	justify-content: center;
+}
+
+.modal-content {
+	text-align: center;
+	position: relative;
+	max-width: 40em;
+	max-height: 100vh;
+
+	@media screen and ($small) {
+		max-width: 90%;
+		max-height: 100vh;
+	}
+
+	overflow: auto;
+}
+
+.close {
+	position: fixed;
+	top: 15px;
+	right: 15px;
+	font-size: 30px;
+	cursor: pointer;
+	color: white;
+}
+
+.modal-content img {
+	object-fit: cover;
+	max-width: 100%;
+	max-height: 100%;
 }

@@ -23,7 +23,7 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 				<Breadcrumb crumbs={breadcrumbs} />
 
 				<h1>Cultuureducatie</h1>
-				<div className={styles.pageContentCenter}>
+				<section data-main-content className={styles.pageContentCenter}>
 					<p>
 						<strong>Eternity</strong> heeft de ambitie de komende jaren te
 						groeien en een instituut te worden voor Caribische drumbands.
@@ -31,7 +31,7 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 						kinderen en jongeren bereiken, zowel met een onderwijs- als een
 						naschoolsprogramma.
 					</p>
-					<br />
+
 					<p>
 						<strong>Eternity</strong> verzorgt vooral in Amsterdam drumworkshops
 						aan verschillende instellingen en organisaties. Jongeren doorlopen
@@ -40,12 +40,12 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 						drumband optredens te verzorgen. Hierbij vindt selectie plaats op
 						basis van talent, houding en samenwerking binnen de band.
 					</p>
-					<br />
+
 					<p>
 						Momenteel verzorgen wij diverse drumworkshops en lessen o.a. op het
 						Bindelmeer College en Bredeschool in Amsterdam Zuidoost.
 					</p>
-				</div>
+				</section>
 			</section>
 		</Layout>
 	);
