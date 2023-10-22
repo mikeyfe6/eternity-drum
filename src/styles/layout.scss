@@ -79,7 +79,15 @@ section[data-main-section] {
 	position: relative;
 
 	> h1 {
-		max-width: 70%;
+		max-width: 20ch;
+
+		@media screen and ($massive) {
+			max-width: 23ch;
+		}
+
+		@media screen and ($superSized) {
+			max-width: 20ch;
+		}
 	}
 }
 

@@ -8,15 +8,19 @@
 	display: flex;
 	gap: 15px;
 	margin-top: 10px;
+	flex-wrap: wrap;
 
 	@media screen and ($superSized) {
 		position: static;
-		width: fit-content;
+		width: 100%;
+		justify-content: end;
 		margin-bottom: 2em;
 	}
 
 	@media screen and ($small) {
 		flex-direction: column;
+		align-items: end;
+		margin-left: initial;
 	}
 
 	button {

@@ -23,10 +23,10 @@ const CtaButtons: React.FC = () => {
 			<button
 				className={styles.specialButton}
 				onClick={() => {
-					navigate('/drumworkshops/summerschool-2021/');
+					navigate('/seda/');
 				}}
 			>
-				Eternity Summerschool 2021
+				SEDA
 			</button>
 		</section>
 	);
