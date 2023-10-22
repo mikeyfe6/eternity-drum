@@ -21,7 +21,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
 	const closeMobileMenu = () => {
 		setIsMobileMenuOpen(false);
-		document.body.style.overflow = 'auto';
+		document.body.style.overflow = 'visible';
 	};
 
 	const handleOverlayClick = () => {

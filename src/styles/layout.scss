@@ -29,10 +29,6 @@ body {
 	@media screen and ($ultraSmall) {
 		display: none;
 	}
-
-	&.modal-open {
-		overflow: hidden;
-	}
 }
 
 .eternity-container {

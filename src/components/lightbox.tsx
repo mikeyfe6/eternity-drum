@@ -14,11 +14,11 @@ const LightBox = ({
 
 	const openModal = () => {
 		setIsModalOpen(true);
-		document.body.classList.add('modal-open');
+		document.body.style.overflow = 'hidden';
 	};
 	const closeModal = () => {
 		setIsModalOpen(false);
-		document.body.classList.remove('modal-open');
+		document.body.style.overflow = 'visible';
 	};
 
 	const imageData = image ? getImage(image) : null;
