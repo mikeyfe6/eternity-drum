@@ -18,13 +18,13 @@
 		position: relative;
 		max-width: 40em;
 		max-height: 100vh;
+		border-radius: 3px;
+		overflow: auto;
 
 		@media screen and ($small) {
 			max-width: 90%;
 			max-height: 100vh;
 		}
-
-		overflow: auto;
 	}
 
 	&-close {

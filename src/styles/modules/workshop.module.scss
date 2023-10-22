@@ -22,9 +22,8 @@
 		justify-content: center;
 		gap: 15px;
 
-		> * {
-			border-radius: 5px;
-			max-width: 300px;
+		img {
+			border-radius: 3px;
 		}
 	}
 
@@ -36,10 +35,6 @@
 		> div:not([data-main-modal]) {
 			max-width: 450px;
 			margin: 0 auto;
-
-			img {
-				border-radius: 3px;
-			}
 		}
 	}
 
