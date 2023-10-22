@@ -1,7 +1,6 @@
 import * as React from 'react';
 import type { HeadFC, PageProps } from 'gatsby';
 import { graphql, useStaticQuery } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
 
 import { SEO } from '../../components/seo';
 
@@ -16,14 +15,14 @@ import LightBox from '../../components/lightbox';
 import * as styles from '../../styles/modules/workshop.module.scss';
 
 const Sankofa: React.FC<PageProps> = () => {
-	const { image1, image2 } = useStaticQuery(graphql`
+	const { sankofaB, sankofaF } = useStaticQuery(graphql`
 		query {
-			image1: file(relativePath: { eq: "sankofa-1.jpg" }) {
+			sankofaB: file(relativePath: { eq: "sankofa-2.jpg" }) {
 				childImageSharp {
 					gatsbyImageData
 				}
 			}
-			image2: file(relativePath: { eq: "sankofa-2.jpg" }) {
+			sankofaF: file(relativePath: { eq: "sankofa-1.jpg" }) {
 				childImageSharp {
 					gatsbyImageData
 				}
@@ -39,8 +38,8 @@ const Sankofa: React.FC<PageProps> = () => {
 
 	const inputRef = React.useRef<HTMLInputElement>(null);
 
-	const image1Data = image1.childImageSharp.gatsbyImageData;
-	const image2Data = image2.childImageSharp.gatsbyImageData;
+	const sankofaBack = sankofaB.childImageSharp.gatsbyImageData;
+	const sankofaFront = sankofaF.childImageSharp.gatsbyImageData;
 
 	return (
 		<Layout>
@@ -66,8 +65,8 @@ const Sankofa: React.FC<PageProps> = () => {
 
 						<hr />
 						<div className={styles.workshopImages}>
-							<LightBox image={image1Data} alt='Image 1 Alt Text' />
-							<LightBox image={image2Data} alt='Image 2 Alt Text' />
+							<LightBox image={sankofaBack} alt='Sankofa Flyer Achterkant' />
+							<LightBox image={sankofaFront} alt='Sankofa Flyer Voorkant' />
 						</div>
 						<hr />
 

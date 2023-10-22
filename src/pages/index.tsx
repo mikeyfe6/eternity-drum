@@ -29,8 +29,10 @@ const Index: React.FC<PageProps> = () => {
 					talentontwikkeling, cultuurparticipatie en visieverbreding van
 					jongeren. Door inzet van jongeren in de eigen organisatie op vitale
 					posities, biedt Eternity jongeren de gelegenheid om cultureel te
-					ondernemen en participeren binnen de Nederlandse samenleving. Hét
-					middel om dit te bereiken is muziekeducatie. De organisatie biedt
+					ondernemen en participeren binnen de Nederlandse samenleving.
+				</p>
+				<p>
+					Hét middel om dit te bereiken is muziekeducatie. De organisatie biedt
 					muzikaal vormende programma’s aan waarin jongeren kennismaken met de
 					Caribische drumstijl, hun talenten ontwikkelen en zich als artiest
 					bekwamen.

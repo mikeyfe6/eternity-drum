@@ -14,7 +14,7 @@ interface BreadcrumbProps {
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ crumbs }) => {
 	return (
-		<nav data-breadcrumbs>
+		<nav data-main-breadcrumbs>
 			<ul className={styles.breadcrumbList}>
 				{crumbs.map((crumb, index) => (
 					<li key={index}>

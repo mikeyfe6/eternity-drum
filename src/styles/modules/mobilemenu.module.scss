@@ -7,12 +7,15 @@
 	left: -350px;
 	height: 100%;
 	background: $primaryColor;
+	border-right: 3px solid rgba($tertiaryColor, 0.3);
 	overflow-x: hidden;
 	z-index: 6;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	@include boxShadow;
 
 	@media screen and ($small) {
 		width: 300px;

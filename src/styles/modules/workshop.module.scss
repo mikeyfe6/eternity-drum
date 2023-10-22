@@ -3,7 +3,7 @@
 .workshop {
 	&-bg-image {
 		background-image: url('../../images/sankofa-bg.jpeg');
-		background-size: 80%;
+		background-size: contain;
 		background-position: center;
 		background-repeat: no-repeat;
 		opacity: 0.0525;
@@ -25,6 +25,21 @@
 		> * {
 			border-radius: 5px;
 			max-width: 300px;
+		}
+	}
+
+	&-visuals {
+		display: flex;
+		flex-direction: column;
+		gap: 75px;
+
+		> div:not([data-main-modal]) {
+			max-width: 450px;
+			margin: 0 auto;
+
+			img {
+				border-radius: 3px;
+			}
 		}
 	}
 

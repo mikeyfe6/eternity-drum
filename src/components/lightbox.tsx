@@ -24,7 +24,7 @@ const LightBox = ({
 	const imageData = image ? getImage(image) : null;
 
 	return (
-		<div>
+		<>
 			{imageData && (
 				<div onClick={openModal} style={{ cursor: 'pointer' }}>
 					<GatsbyImage image={imageData} alt={alt} />
@@ -32,20 +32,20 @@ const LightBox = ({
 			)}
 
 			{isModalOpen && imageData && (
-				<div className={styles.modal}>
+				<div className={styles.modal} data-main-modal>
 					<div className={styles.modalContent}>
 						<span className={styles.modalClose} onClick={closeModal}>
 							&times;
 						</span>
 						{imageData && (
-							<div onClick={openModal} style={{ cursor: 'pointer' }}>
-								<GatsbyImage image={imageData} alt={alt} onClick={closeModal} />
+							<div onClick={openModal}>
+								<GatsbyImage image={imageData} alt={alt} />
 							</div>
 						)}
 					</div>
 				</div>
 			)}
-		</div>
+		</>
 	);
 };
 
