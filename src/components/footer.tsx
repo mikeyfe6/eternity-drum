@@ -97,7 +97,8 @@ const Footer = () => {
 									<strong>{email}</strong>
 								</a>
 							</li>
-
+						</ul>
+						<ul>
 							<li>
 								<strong>KvK:</strong> {kvk}
 							</li>
