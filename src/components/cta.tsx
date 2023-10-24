@@ -7,6 +7,7 @@ const CtaButtons: React.FC = () => {
 	return (
 		<section className={styles.ctaContainer}>
 			<button
+				type='button'
 				onClick={() => {
 					navigate('/boeken/');
 				}}
@@ -14,6 +15,7 @@ const CtaButtons: React.FC = () => {
 				Direct Boeken
 			</button>
 			<button
+				type='button'
 				onClick={() => {
 					navigate('/drumworkshops/');
 				}}
@@ -21,6 +23,7 @@ const CtaButtons: React.FC = () => {
 				Aanmelden Drumworkshops
 			</button>
 			<button
+				type='button'
 				className={styles.specialButton}
 				onClick={() => {
 					navigate('/seda/');

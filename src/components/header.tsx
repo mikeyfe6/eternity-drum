@@ -112,7 +112,11 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 
 				<nav className={menuSwitchClass}>
 					<div className={styles.mobileMenuContainer}>
-						<button onClick={openMobileMenu} className={styles.hamburgerButton}>
+						<button
+							type='button'
+							onClick={openMobileMenu}
+							className={styles.hamburgerButton}
+						>
 							<div className={styles.hamburgerIcon}>
 								<div className={styles.bar} />
 								<div className={styles.bar} />
