@@ -95,8 +95,8 @@ const OverOns: React.FC<PageProps> = () => {
 							placeholder='dominantColor'
 							style={{
 								width: '100%',
-								minWidth: '250px',
-								maxWidth: '500px',
+								objectPosition: 'center',
+								objectFit: 'cover',
 							}}
 						/>
 					</div>
