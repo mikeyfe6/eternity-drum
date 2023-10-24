@@ -133,20 +133,20 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 				</li>
 				<li>
 					<Link
-						to='/seda/'
-						activeClassName={styles.activeMenuItem}
-						onClick={handleMenuItemClick}
-					>
-						SEDA
-					</Link>
-				</li>
-				<li>
-					<Link
 						to='/media/'
 						activeClassName={styles.activeMenuItem}
 						onClick={handleMenuItemClick}
 					>
 						Media
+					</Link>
+				</li>
+				<li>
+					<Link
+						to='/seda/'
+						activeClassName={styles.activeMenuItem}
+						onClick={handleMenuItemClick}
+					>
+						SEDA
 					</Link>
 				</li>
 				<li>

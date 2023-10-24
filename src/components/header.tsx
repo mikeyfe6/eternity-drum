@@ -209,17 +209,17 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							</ul>
 						</li>
 						<li>
+							<Link to='/media/' activeClassName={styles.activeMenuItem}>
+								Media
+							</Link>
+						</li>
+						<li>
 							<Link
 								to='/seda/'
 								className={styles.special}
 								activeClassName={styles.activeMenuItem}
 							>
 								Seda
-							</Link>
-						</li>
-						<li>
-							<Link to='/media/' activeClassName={styles.activeMenuItem}>
-								Media
 							</Link>
 						</li>
 						<li>

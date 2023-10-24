@@ -29,8 +29,8 @@ export function validateForm(
 ): string[] {
 	const errors: string[] = [];
 
-	console.log('formData', formData);
-	console.log('isOlderThan18', isOlderThan18);
+	// console.log('formData', formData);
+	// console.log('isOlderThan18', isOlderThan18);
 
 	if (formData.firstName.trim() === '') {
 		errors.push('Je voornaam is verplicht.');

@@ -8,6 +8,8 @@ import Breadcrumb from '../../components/breadcrumbs';
 
 import Hero from '../../components/heroslider';
 
+import { Link } from 'gatsby';
+
 const Vacatures: React.FC<PageProps> = () => {
 	const breadcrumbs = [
 		{ label: 'Home', link: '/' },
@@ -23,6 +25,9 @@ const Vacatures: React.FC<PageProps> = () => {
 
 				<h1>Vacatures</h1>
 				<p>Welcome to your new Gatsby site.</p>
+				<Link to='/vacatures/meewerkend-coordinator-productie'>
+					Vacature Meewerkend Coordinator Productie
+				</Link>
 			</section>
 		</Layout>
 	);

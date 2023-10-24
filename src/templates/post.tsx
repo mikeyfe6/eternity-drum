@@ -36,17 +36,13 @@ const Post = ({
 }: PostProps) => {
 	return (
 		<Layout>
-			<h1>SINGLE PAGE in de making !</h1>
+			<h1>{title}</h1>
 
 			<div>
 				<strong>slug/url:</strong> {slug}
 			</div>
 
 			<br />
-
-			<div>
-				<strong>title:</strong> {title}
-			</div>
 
 			<br />
 

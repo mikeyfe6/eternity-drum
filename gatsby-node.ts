@@ -1,7 +1,7 @@
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 
-interface Node {
+interface Post {
     slug: string;
     title: string;
     tags: string[];
@@ -13,7 +13,7 @@ interface Node {
             name: string;
             email: string;
         }
-    ]
+    ];
     featuredImage: {
         url: string;
         title: string;
@@ -21,28 +21,52 @@ interface Node {
     id: string;
 }
 
+interface Vanancy {
+    id: string;
+    slug: string;
+    jobTitle: string;
+    department: string;
+    jobImage: {
+        url: string;
+        title: string;
+    };
+    jobDescription: {
+        raw: string;
+    };
+    organisationDetails: {
+        raw: string;
+    };
+    requirements: {
+        raw: string;
+    };
+    responsibilities: {
+        raw: string;
+    };
+    availability: {
+        raw: string;
+    };
+    apply: {
+        raw: string;
+    };
+    location: {
+        lat: number;
+        lon: number;
+    }
+    applicationDeadline: string;
+    contactEmail: string;
+    contactPhone: string;
+
+}
+
 interface QueryResult {
     allContentfulPost: {
         edges: {
-            node: {
-                slug: string;
-                title: string;
-                tags: string[];
-                content: {
-                    raw: string;
-                };
-                writer: [
-                    {
-                        name: string;
-                        email: string;
-                    }
-                ]
-                featuredImage: {
-                    url: string;
-                    title: string;
-                };
-                id: string;
-            }
+            node: Post;
+        }[];
+    };
+    allContentfulVacancy: {
+        edges: {
+            node: Vanancy
         }[];
     };
 }
@@ -50,42 +74,43 @@ interface QueryResult {
 export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql }) => {
     const { createPage } = actions;
     const postTemplate = path.resolve('./src/templates/post.tsx');
-    const res = await graphql<QueryResult>(`
-        query {
-            allContentfulPost {
-                edges {
-                    node {
-                        slug
-                        tags
-                        title
-                        content {
-                             raw
-                        }
-                        id
-                        writer {
-                            name
-                            email
-                        }
-                        featuredImage {
-                            url
-                            title
-                        }
-                    }
-                }
-            }
-        }
-    `);
+    const vacancyTemplate = path.resolve('./src/templates/vacancy.tsx');
 
-    if (res.errors) {
-        throw new Error(res.errors.join(', '));
+    const postQueryResult = await graphql<QueryResult>(`
+    query {
+      allContentfulPost {
+        edges {
+          node {
+            id
+            slug
+            tags
+            title
+            content {
+              raw
+            }
+            writer {
+              name
+              email
+            }
+            featuredImage {
+              url
+              title
+            }
+          }
+        }
+      }
+    }
+  `);
+
+    if (postQueryResult.errors) {
+        throw new Error(postQueryResult.errors.join(', '));
     }
 
-    res.data?.allContentfulPost.edges.forEach(({ node }: { node: Node }) => {
+    postQueryResult.data?.allContentfulPost.edges.forEach(({ node }) => {
         createPage({
             component: postTemplate,
             ownerNodeId: node.id,
             path: node.slug,
-            // path: `/blog/${node.slug}`,
             context: {
                 slug: node.slug,
                 title: node.title,
@@ -93,6 +118,81 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                 content: node.content,
                 writer: node.writer,
                 featuredImage: node.featuredImage,
+            },
+        });
+    });
+
+    const vacancyQueryResult = await graphql<QueryResult>(`
+    query {
+        allContentfulVacancy {
+            edges {
+              node {
+                id
+                slug
+                jobTitle
+                jobImage {
+                    url
+                    title
+                    description
+                }
+                department
+                jobDescription {
+                    raw
+                }
+                organisationDetails {
+                  raw
+                }
+                department
+                
+                requirements {
+                    raw
+                }
+                responsibilities {
+                    raw
+                }
+                availability {
+                    raw
+                }
+                apply {
+                    raw
+                }
+                location {
+                    lat
+                    lon
+                }
+                applicationDeadline(formatString: "")
+                contactEmail
+                contactPhone
+              }
+            }
+        }
+    }
+  `);
+
+    if (vacancyQueryResult.errors) {
+        throw new Error(vacancyQueryResult.errors.join(', '));
+    }
+
+    vacancyQueryResult.data?.allContentfulVacancy.edges.forEach(({ node }) => {
+        createPage({
+            component: vacancyTemplate,
+            ownerNodeId: node.id,
+            path: `/vacatures/${node.slug}/`,
+            context: {
+                slug: node.slug,
+                jobTitle: node.jobTitle,
+                jobImage: node.jobImage,
+                department: node.department,
+                jobDescription: node.jobDescription,
+                organisationDetails: node.organisationDetails,
+                responsibilities: node.responsibilities,
+                requirements: node.requirements,
+                availablity: node.availability,
+                apply: node.apply,
+                location: node.location,
+                applicationDeadline: node.applicationDeadline,
+                contactEmail: node.contactEmail,
+                contactPhone: node.contactPhone,
             },
         });
     });
