@@ -8,8 +8,6 @@ import Breadcrumb from '../../components/breadcrumbs';
 
 import Hero from '../../components/heroslider';
 
-import * as styles from '../../styles/modules/content.module.scss';
-
 const Anbi: React.FC<PageProps> = () => {
 	const breadcrumbs = [
 		{ label: 'Home', link: '/' },
@@ -24,7 +22,7 @@ const Anbi: React.FC<PageProps> = () => {
 				<Breadcrumb crumbs={breadcrumbs} />
 
 				<h1>ANBI</h1>
-				<section data-main-content className={styles.pageContentCenter}>
+				<section data-main-content className='page-content-center'>
 					<h2>Doelstelling: Eternity Percussion</h2>
 
 					<p>

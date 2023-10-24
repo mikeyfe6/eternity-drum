@@ -1,0 +1,81 @@
+@import '../configs/globals';
+
+@mixin DRY {
+	display: flex;
+	justify-content: center;
+	gap: 50px;
+
+	a {
+		@include pageLink;
+
+		i {
+			margin-left: 0.5em;
+			font-size: 0.75rem;
+			vertical-align: super;
+		}
+	}
+
+	> * {
+		background: #80808010;
+		padding: 1.5em;
+
+		@include boxShadow;
+	}
+}
+
+.mediaContOne {
+	margin-bottom: 50px;
+
+	audio {
+		margin: 0 auto;
+	}
+
+	.music {
+		flex: 25%;
+		max-width: 450px;
+
+		@media screen and ($large) {
+			flex: 100%;
+			max-width: 100%;
+		}
+
+		p {
+			text-align: center;
+			margin-bottom: 0.5em;
+		}
+	}
+
+	.news {
+		flex: 30%;
+		max-width: 600px;
+		height: fit-content;
+
+		iframe {
+			width: 100%;
+
+			@media screen and ($small) {
+				height: 225px;
+			}
+		}
+	}
+
+	@media screen and ($large) {
+		flex-direction: column;
+	}
+
+	@include DRY;
+}
+
+.mediaContTwo {
+	.videos {
+		flex: 45%;
+		max-width: 400px;
+	}
+
+	.photos {
+		flex: 25%;
+		max-width: 400px;
+	}
+
+	@include DRY;
+}

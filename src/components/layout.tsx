@@ -6,6 +6,9 @@ import Footer from '../components/footer';
 import MobileMenu from '../components/mobilemenu';
 
 import '../styles/layout.scss';
+import '../styles/forms.scss';
+import '../styles/content.scss';
+import '../styles/audio.scss';
 
 interface LayoutProps {
 	children: ReactNode;

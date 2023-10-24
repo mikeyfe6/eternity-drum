@@ -99,7 +99,7 @@ section[data-main-content] {
 	ul {
 		margin-bottom: 1em;
 		list-style: square;
-		padding-left: 14px;
+		padding-left: 18px;
 	}
 
 	a {
@@ -117,8 +117,6 @@ section[data-main-content] {
 		border-radius: 50%;
 		margin: 2em 0;
 	}
-
-	@include boxShadow;
 }
 
 nav[data-main-breadcrumbs] {
@@ -205,6 +203,11 @@ u {
 	text-decoration: underline;
 	text-underline-offset: 3px;
 	text-decoration-thickness: 2px;
+}
+
+iframe {
+	border-radius: 5px;
+	outline: rgba($tertiaryColor, 0.5) solid 2px;
 }
 
 .overlay {

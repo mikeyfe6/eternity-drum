@@ -1,0 +1,15 @@
+@import './configs/globals';
+
+audio {
+	width: 100%;
+	max-width: 100%;
+	border-radius: 25px;
+
+	@media screen and ($small) {
+		background-color: rgba($tertiaryColor, 0.35);
+	}
+}
+
+audio::-webkit-media-controls-panel {
+	background: linear-gradient(45deg, #cccccc10, $whiteColor);
+}

@@ -24,9 +24,9 @@ const Vacatures: React.FC<PageProps> = () => {
 				<Breadcrumb crumbs={breadcrumbs} />
 
 				<h1>Vacatures</h1>
-				<p>Welcome to your new Gatsby site.</p>
+
 				<Link to='/vacatures/meewerkend-coordinator-productie'>
-					Vacature Meewerkend Coordinator Productie
+					Vacature: Meewerkend Coordinator Productie
 				</Link>
 			</section>
 		</Layout>
