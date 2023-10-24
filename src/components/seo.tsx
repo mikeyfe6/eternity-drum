@@ -33,6 +33,7 @@ export const SEO: React.FC<SEOProps> = ({
 
 	return (
 		<>
+			<html lang='nl' />
 			<title>{seo.title}</title>
 
 			{/* METATAGS */}
