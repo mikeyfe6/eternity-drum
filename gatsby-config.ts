@@ -52,6 +52,7 @@ const config: GatsbyConfig = {
 				host: process.env.CONTENTFUL_HOST,
 			},
 		},
+		'gatsby-plugin-preload-fonts',
 		'gatsby-plugin-mdx',
 		{
 			resolve: 'gatsby-source-filesystem',
