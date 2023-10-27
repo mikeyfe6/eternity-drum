@@ -35,6 +35,8 @@ const MusicPlayer: React.FC = () => {
 	const [currTime, setCurrTime] = useState({ min: 0, sec: 0 });
 
 	const [sound, setSound] = useState<Howl | null>(null);
+	const soundRef = React.useRef<Howl | null>(null);
+	const prevSoundRef = React.useRef<Howl | null>(null); // Add reference for previous sound
 
 	useEffect(() => {
 		if (sound) {
@@ -49,11 +51,12 @@ const MusicPlayer: React.FC = () => {
 			},
 		});
 		setSound(newSound);
+		soundRef.current = newSound;
 	}, [currentSong]);
 
 	const updateCurrentTime = () => {
-		if (sound) {
-			const currentTime = sound.seek() || 0;
+		if (soundRef.current) {
+			const currentTime = soundRef.current.seek() || 0;
 			setSeconds(currentTime);
 
 			const min = Math.floor(currentTime / 60);
@@ -73,30 +76,81 @@ const MusicPlayer: React.FC = () => {
 	}, [sound]);
 
 	const playingButton = () => {
-		if (sound) {
-			if (isPlaying) {
-				sound.pause();
-				setIsPlaying(false);
+		if (soundRef.current) {
+			if (soundRef.current.playing()) {
+				soundRef.current.pause();
 			} else {
-				sound.play();
-				setIsPlaying(true);
+				soundRef.current.play();
 			}
+			setIsPlaying(soundRef.current.playing()); // Update isPlaying state based on whether the sound is playing
 		}
 	};
 
 	const nextSong = () => {
 		setCurrTime({ min: 0, sec: 0 });
 		setCurrentSong((prevSong) => (prevSong + 1) % songs.length);
-		if (sound) {
-			sound.stop();
+
+		if (soundRef.current) {
+			soundRef.current.stop();
+			if (isPlaying) {
+				// Only play the next song automatically if the current song was playing.
+				const newSound = new Howl({
+					src: [songs[(currentSong + 1) % songs.length].src],
+					onend: () => {
+						setIsPlaying(false);
+						setCurrTime({ min: 0, sec: 0 });
+						setSeconds(0);
+					},
+					onload: () => {
+						if (soundRef.current) {
+							soundRef.current.stop();
+						}
+						newSound.play();
+						setIsPlaying(true);
+						setSeconds(0);
+						setCurrTime({ min: 0, sec: 0 });
+					},
+				});
+				setSound(newSound);
+				soundRef.current = newSound;
+				prevSoundRef.current = newSound;
+			} else {
+				setIsPlaying(false); // Update isPlaying state
+			}
 		}
 	};
 
 	const prevSong = () => {
 		setCurrTime({ min: 0, sec: 0 });
 		setCurrentSong((prevSong) => (prevSong - 1 + songs.length) % songs.length);
-		if (sound) {
-			sound.stop();
+
+		if (soundRef.current) {
+			soundRef.current.stop();
+			if (isPlaying) {
+				// Only play the previous song automatically if the current song was playing.
+				const newSound = new Howl({
+					src: [songs[(currentSong - 1 + songs.length) % songs.length].src],
+					onend: () => {
+						setIsPlaying(false);
+						setCurrTime({ min: 0, sec: 0 });
+						setSeconds(0);
+					},
+					onload: () => {
+						if (soundRef.current) {
+							soundRef.current.stop();
+						}
+						newSound.play();
+						setIsPlaying(true);
+						setSeconds(0);
+						setCurrTime({ min: 0, sec: 0 });
+					},
+				});
+				setSound(newSound);
+				soundRef.current = newSound;
+				prevSoundRef.current = newSound;
+			} else {
+				setIsPlaying(false); // Update isPlaying state
+			}
 		}
 	};
 
@@ -132,8 +186,10 @@ const MusicPlayer: React.FC = () => {
 				</p>
 				{sound && seconds !== null && (
 					<p>
-						{Math.floor(seconds / 60)}:
-						{seconds % 60 < 10 ? '0' + (seconds % 60) : seconds % 60}
+						{Math.floor((sound.duration() - seconds) / 60)}:
+						{(Math.floor(sound.duration() - seconds) % 60)
+							.toString()
+							.padStart(2, '0')}
 					</p>
 				)}
 			</div>
