@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 
-// import Swiper core and required modules
 import {
 	Navigation,
 	Pagination,
@@ -12,10 +11,8 @@ import {
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import '../styles/swiper.scss';
+import * as styles from '../styles/modules/heroslider.module.scss';
 
-
-// Import Swiper styles
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
@@ -44,7 +41,7 @@ const Hero: React.FC = () => {
 	};
 
 	return (
-		<section className='swiper-container'>
+		<section className={styles.swiperContainer}>
 			<Swiper
 				modules={[Navigation, Pagination, Scrollbar, A11y, Parallax, Autoplay]}
 				spaceBetween={0}
@@ -64,21 +61,22 @@ const Hero: React.FC = () => {
 					disableOnInteraction: false,
 				}}
 				onAutoplayTimeLeft={onAutoplayTimeLeft}
+				className={styles.swiperWrapper}
 			>
-				<SwiperSlide>
+				<SwiperSlide className={styles.swiperSlide}>
 					<img src={beats} alt='' />
 				</SwiperSlide>
-				<SwiperSlide>
+				<SwiperSlide className={styles.swiperSlide}>
 					<img src={mandhood} alt='' />
 				</SwiperSlide>
-				<SwiperSlide>
+				<SwiperSlide className={styles.swiperSlide}>
 					<img src={umuntu} alt='' />
 				</SwiperSlide>
-				<SwiperSlide>
+				<SwiperSlide className={styles.swiperSlide}>
 					<img src={youngep} alt='' />
 				</SwiperSlide>
 
-				<div className='autoplay-progress' slot='container-end'>
+				<div className={styles.autoplayProgress} slot='container-end'>
 					<svg viewBox='0 0 48 48' ref={progressCircle}>
 						<circle cx='24' cy='24' r='20'></circle>
 					</svg>

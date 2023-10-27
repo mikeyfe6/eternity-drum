@@ -106,7 +106,7 @@ const Actualiteiten: React.FC = () => {
 									<time dateTime={formattedDate.toISOString()}>
 										{formattedDateString} · {timeString}
 									</time>
-									<a href={`${slug}/`}>Lees meer...</a>
+									<Link to={`${slug}/`}>Lees meer...</Link>
 								</div>
 							</li>
 						);

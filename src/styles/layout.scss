@@ -6,7 +6,11 @@
 :root {
 	--swiper-theme-color: #f6ce0e !important;
 	--swiper-scrollbar-drag-bg-color: #f6ce0e !important;
-	--swiper-pagination-color: #181a37 !important;
+	--swiper-pagination-color: #f6ce0e !important;
+	--swiper-pagination-bottom: 15px !important;
+	--swiper-scrollbar-bg-color: #181a3730 !important;
+	--swiper-pagination-bullet-inactive-color: #181a37 !important;
+	--swiper-pagination-bullet-inactive-opacity: 0.3 !important;
 }
 
 html,
@@ -137,7 +141,7 @@ hr {
 	height: 3px;
 	border-width: 0;
 	color: rgba(128, 128, 128, 0.1);
-	background-color: rgba(128, 128, 128, 0.1);
+	background-color: rgba(54, 30, 30, 0.1);
 	margin: 1em 0;
 }
 

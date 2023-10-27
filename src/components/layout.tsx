@@ -9,6 +9,7 @@ import '../styles/layout.scss';
 import '../styles/forms.scss';
 import '../styles/content.scss';
 import '../styles/audio.scss';
+import '../styles/swiper.scss';
 
 interface LayoutProps {
 	children: ReactNode;

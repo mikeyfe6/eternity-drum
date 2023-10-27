@@ -25,6 +25,7 @@
 
 .mediaContOne {
 	margin-bottom: 50px;
+	align-items: center;
 
 	audio {
 		margin: 0 auto;
@@ -66,16 +67,26 @@
 	@include DRY;
 }
 
-.mediaContTwo {
-	.videos {
-		flex: 45%;
-		max-width: 400px;
+.videos {
+	width: 100%;
+	// max-width: 400px;
+
+	background: #80808010;
+	padding: 1.5em;
+
+	@include boxShadow;
+}
+
+.photos {
+	width: 100%;
+	max-width: 1000px;
+	margin: 50px auto;
+	background: #80808010;
+	padding: 2em;
+
+	@media screen and ($small) {
+		padding: 1em;
 	}
 
-	.photos {
-		flex: 25%;
-		max-width: 400px;
-	}
-
-	@include DRY;
+	@include boxShadow;
 }

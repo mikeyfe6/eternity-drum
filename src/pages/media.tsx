@@ -7,6 +7,8 @@ import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
+import Gallery from '../components/gallery';
+import MusicPlayer from '../components/music';
 
 import * as styles from '../styles/modules/media.module.scss';
 
@@ -33,60 +35,7 @@ const Media: React.FC<PageProps> = () => {
 				<div className={styles.mediaContOne}>
 					<section className={styles.music}>
 						<h2>Muziek</h2>
-
-						<p>Eternity Percussion - Samba</p>
-						<audio controls title='Eternity Percussion - Samba'>
-							<source src={samba} type='audio/mpeg' />
-							Your browser does not support the audio element.
-						</audio>
-						<hr />
-						<p>Eternity Percussion - Afro-Samba</p>
-						<audio controls title='Eternity Percussion - Afro-Samba'>
-							<source src={afrosamba} type='audio/mpeg' />
-							Your browser does not support the audio element.
-						</audio>
-						<hr />
-						<p>Eternity Percussion - Change-Beat</p>
-						<audio controls title='Eternity Percussion - Change-Beat'>
-							<source src={changebeat} type='audio/mpeg' />
-							Your browser does not support the audio element.
-						</audio>
-						<hr />
-						<p>Eternity Percussion - African-Style 1</p>
-						<audio controls title='Eternity Percussion - African-Style 1'>
-							<source src={africanstyle1} type='audio/mpeg' />
-							Your browser does not support the audio element.
-						</audio>
-						<hr />
-						<p>Eternity Percussion - African-Style 2</p>
-						<audio controls title='Eternity Percussion - African-Style 2'>
-							<source src={africanstyle2} type='audio/mpeg' />
-							Your browser does not support the audio element.
-						</audio>
-						<hr />
-						<p>Eternity Percussion - Aleke</p>
-						<audio controls title='Eternity Percussion - Aleke'>
-							<source src={aleke} type='audio/mpeg' />
-							Your browser does not support the audio element.
-						</audio>
-						<hr />
-						<p>Eternity Percussion - Samba-Reggae 1</p>
-						<audio controls title='Eternity Percussion - Samba-Reggae 1'>
-							<source src={sambareggae1} type='audio/mpeg' />
-							Your browser does not support the audio element.
-						</audio>
-						<hr />
-						<p>Eternity Percussion - Samba-Reggae 2</p>
-						<audio controls title='Eternity Percussion - Samba-Reggae 2'>
-							<source src={sambareggae2} type='audio/mpeg' />
-							Your browser does not support the audio element.
-						</audio>
-						<hr />
-						<p>Eternity Percussion - Brass</p>
-						<audio controls title='Eternity Percussion - Brass'>
-							<source src={brass} type='audio/mpeg' />
-							Your browser does not support the audio element.
-						</audio>
+						<MusicPlayer />
 					</section>
 
 					<section className={styles.news}>
@@ -159,15 +108,16 @@ const Media: React.FC<PageProps> = () => {
 						></iframe>
 					</section>
 				</div>
-				{/* <div className={styles.mediaContTwo}>
-					<section className={styles.videos}>
-						<h2>Video's</h2>
-					</section>
+				{/* <section className={styles.videos}>
+					<h2>Video's</h2>
+				</section> */}
 
-					<section className={styles.photos}>
-						<h2>Foto's</h2>
-					</section>
-				</div> */}
+				<section className={styles.photos}>
+					<h2>Foto's</h2>
+
+					<h3>Swazoom Live 2023</h3>
+					<Gallery />
+				</section>
 			</section>
 		</Layout>
 	);
