@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Howl } from 'howler';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import * as styles from '../styles/modules/music.module.scss';
 
 import samba from '../music/01-Samba.mp3';
 import afrosamba from '../music/02-Afro-Samba.mp3';
 
-type Howl = typeof Howl;
+type HowlType = typeof Howl;
 
 interface Song {
 	title: string;
@@ -25,7 +26,6 @@ const songs: Song[] = [
 		artist: 'Eternity Percussion',
 		src: afrosamba,
 	},
-	// Add more songs to the list
 ];
 
 const MusicPlayer: React.FC = () => {
@@ -33,35 +33,54 @@ const MusicPlayer: React.FC = () => {
 	const [currentSong, setCurrentSong] = useState(0);
 	const [seconds, setSeconds] = useState<number | null>(null);
 	const [currTime, setCurrTime] = useState({ min: 0, sec: 0 });
-
 	const [playingSong, setPlayingSong] = useState<number | null>(null);
 
-	const [sound, setSound] = useState<Howl | null>(null);
-	const soundRef = React.useRef<Howl | null>(null);
+	const [sound, setSound] = useState<HowlType | null>(null);
+	const soundRef = React.useRef<HowlType | null>(null);
 
 	useEffect(() => {
 		if (sound) {
-			sound.stop();
+			if (isPlaying) {
+				sound.play();
+			} else {
+				sound.pause();
+			}
+		} else {
+			const newSound = new Howl({
+				src: [songs[currentSong].src],
+				onend: () => {
+					setIsPlaying(false);
+				},
+				onload: () => {
+					if (isPlaying) {
+						newSound.play();
+					}
+					updateCurrentTime();
+					setPlayingSong(currentSong);
+				},
+			});
+			setSound(newSound);
+			soundRef.current = newSound;
 		}
-		const newSound = new Howl({
-			src: [songs[currentSong].src],
-			onend: () => {
-				setIsPlaying(false);
-				setCurrTime({ min: 0, sec: 0 });
-				setSeconds(0);
-				setPlayingSong(null); // Clear playingSong when the song ends
-			},
-		});
-		setSound(newSound);
-		soundRef.current = newSound;
 
-		setSeconds(0);
-		const duration = newSound.duration();
-		setCurrTime({
-			min: Math.floor(duration / 60),
-			sec: Math.floor(duration % 60),
-		});
-	}, [currentSong]);
+		return () => {
+			if (sound) {
+				sound.stop();
+			}
+		};
+	}, [isPlaying, currentSong]);
+
+	useEffect(() => {
+		if (isPlaying) {
+			const interval = setInterval(updateCurrentTime, 100);
+
+			return () => {
+				if (interval) {
+					clearInterval(interval);
+				}
+			};
+		}
+	}, [sound, isPlaying]);
 
 	const updateCurrentTime = () => {
 		if (soundRef.current) {
@@ -78,125 +97,64 @@ const MusicPlayer: React.FC = () => {
 		}
 	};
 
-	useEffect(() => {
-		let interval: NodeJS.Timeout | null = null;
-
-		if (sound && isPlaying && playingSong !== null) {
-			interval = setInterval(updateCurrentTime, 1000);
+	const prevSong = () => {
+		if (isPlaying) {
+			soundRef.current?.stop();
+			setIsPlaying(false);
+		} else {
+			setPlayingSong(null);
 		}
 
-		return () => {
-			if (interval) {
-				clearInterval(interval);
-			}
-		};
-	}, [sound, isPlaying, playingSong]);
-
-	const playingButton = () => {
-		if (soundRef.current) {
-			if (playingSong === currentSong) {
-				if (soundRef.current.playing()) {
-					soundRef.current.pause();
-					setPlayingSong(null); // Pause the song and set playingSong to null
-				} else {
-					soundRef.current.play();
-				}
-			} else {
-				soundRef.current.stop();
-				const newSound = new Howl({
-					src: [songs[currentSong].src],
-					onend: () => {
-						setIsPlaying(false);
-						setCurrTime({ min: 0, sec: 0 });
-						setSeconds(0);
-						setPlayingSong(null); // Clear playingSong when the song ends
-					},
-					onload: () => {
-						newSound.play();
-						setIsPlaying(true);
-						setSeconds(0);
-						setCurrTime({ min: 0, sec: 0 });
-						setPlayingSong(currentSong);
-					},
-				});
-				setSound(newSound);
-				soundRef.current = newSound;
-			}
-		}
+		const prevSongIndex = (currentSong - 1 + songs.length) % songs.length;
+		const newSound = new Howl({
+			src: [songs[prevSongIndex].src],
+			onend: () => {
+				setIsPlaying(false);
+			},
+		});
+		setSound(newSound);
+		soundRef.current = newSound;
+		setCurrentSong(prevSongIndex);
 	};
 
 	const nextSong = () => {
-		setCurrTime({ min: 0, sec: 0 });
-		setCurrentSong((prevSong) => (prevSong + 1) % songs.length);
-		setPlayingSong(null); // Clear playingSong when changing songs
+		if (isPlaying) {
+			soundRef.current?.stop();
+			setIsPlaying(false);
+		} else {
+			setPlayingSong(null);
+		}
 
-		if (soundRef.current) {
-			soundRef.current.stop();
-			if (isPlaying) {
-				const newSound = new Howl({
-					src: [songs[(currentSong + 1) % songs.length].src],
-					onend: () => {
-						setIsPlaying(false);
-						setCurrTime({ min: 0, sec: 0 });
-						setSeconds(0);
-					},
-					onload: () => {
-						if (soundRef.current) {
-							soundRef.current.stop();
-						}
-						newSound.play();
-						setIsPlaying(true);
-						setSeconds(0);
-						setCurrTime({ min: 0, sec: 0 });
-						setPlayingSong(currentSong);
-					},
-				});
-				setSound(newSound);
-				soundRef.current = newSound;
-			} else {
+		const nextSongIndex = (currentSong + 1) % songs.length;
+		const newSound = new Howl({
+			src: [songs[nextSongIndex].src],
+			onend: () => {
 				setIsPlaying(false);
+			},
+		});
+		setSound(newSound);
+		soundRef.current = newSound;
+		setCurrentSong(nextSongIndex);
+	};
+
+	const playingButton = () => {
+		if (soundRef.current) {
+			if (soundRef.current.playing()) {
+				soundRef.current.pause();
+				setIsPlaying(false);
+			} else if (playingSong !== currentSong) {
+				soundRef.current.stop();
+				soundRef.current.play();
+				setIsPlaying(true);
+				setPlayingSong(currentSong);
 			}
 		}
 	};
 
-	const prevSong = () => {
-		setCurrTime({ min: 0, sec: 0 });
-		setCurrentSong((prevSong) => (prevSong - 1 + songs.length) % songs.length);
-		setPlayingSong(null); // Clear playingSong when changing songs
-
-		if (soundRef.current) {
-			soundRef.current.stop();
-			if (isPlaying) {
-				const newSound = Howl({
-					src: [songs[(currentSong - 1 + songs.length) % songs.length].src],
-					onend: () => {
-						setIsPlaying(false);
-						setCurrTime({ min: 0, sec: 0 });
-						setSeconds(0);
-					},
-					onload: () => {
-						if (soundRef.current) {
-							soundRef.current.stop();
-						}
-						newSound.play();
-						setIsPlaying(true);
-						setSeconds(0);
-						setCurrTime({ min: 0, sec: 0 });
-						setPlayingSong(currentSong);
-					},
-				});
-				setSound(newSound);
-				soundRef.current = newSound;
-			} else {
-				setIsPlaying(false);
-			}
-		}
-	};
-
+	console.log('currTime', currTime, 'seconds', seconds);
 	console.log('isPlaying', isPlaying);
 	console.log('currentSong', currentSong);
 	console.log('sound', sound);
-	console.log('soundRef', soundRef);
 	console.log('playingSong', playingSong);
 
 	return (
@@ -243,7 +201,7 @@ const MusicPlayer: React.FC = () => {
 					type='range'
 					min={0}
 					max={sound?.duration() || 0}
-					value={seconds || 0}
+					value={seconds ?? 0}
 					onChange={(e) => {
 						if (sound) {
 							const newTime = Number(e.target.value);
