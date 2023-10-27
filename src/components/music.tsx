@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import useSound from 'use-sound';
+import { Howl } from 'howler';
 
 import * as styles from '../styles/modules/music.module.scss';
 
 import samba from '../music/01-Samba.mp3';
 import afrosamba from '../music/02-Afro-Samba.mp3';
+
+type Howl = typeof Howl;
 
 interface Song {
 	title: string;
@@ -29,14 +31,29 @@ const songs: Song[] = [
 const MusicPlayer: React.FC = () => {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [currentSong, setCurrentSong] = useState(0);
-	const [seconds, setSeconds] = useState(0);
+	const [seconds, setSeconds] = useState<number | null>(null);
 	const [currTime, setCurrTime] = useState({ min: 0, sec: 0 });
 
-	const [play, { pause, sound, duration }] = useSound(songs[currentSong].src);
+	const [sound, setSound] = useState<Howl | null>(null);
 
-	const updateCurrentTime = (sound: HTMLAudioElement) => {
+	useEffect(() => {
 		if (sound) {
-			const currentTime = sound.currentTime; // Get the current time in seconds
+			sound.stop();
+		}
+		const newSound = new Howl({
+			src: [songs[currentSong].src],
+			onend: () => {
+				setIsPlaying(false);
+				setCurrTime({ min: 0, sec: 0 });
+				setSeconds(0);
+			},
+		});
+		setSound(newSound);
+	}, [currentSong]);
+
+	const updateCurrentTime = () => {
+		if (sound) {
+			const currentTime = sound.seek() || 0;
 			setSeconds(currentTime);
 
 			const min = Math.floor(currentTime / 60);
@@ -50,42 +67,41 @@ const MusicPlayer: React.FC = () => {
 	};
 
 	useEffect(() => {
-		const interval = setInterval(() => {
-			updateCurrentTime(sound);
-		}, 1000);
+		const interval = setInterval(updateCurrentTime, 1000);
 
 		return () => clearInterval(interval);
 	}, [sound]);
 
 	const playingButton = () => {
-		if (isPlaying) {
-			pause();
-			setIsPlaying(false);
-		} else {
-			play();
-			setIsPlaying(true);
+		if (sound) {
+			if (isPlaying) {
+				sound.pause();
+				setIsPlaying(false);
+			} else {
+				sound.play();
+				setIsPlaying(true);
+			}
 		}
 	};
 
 	const nextSong = () => {
-		setCurrTime({ min: 0, sec: 0 }); // Reset the time display when switching songs
+		setCurrTime({ min: 0, sec: 0 });
 		setCurrentSong((prevSong) => (prevSong + 1) % songs.length);
 		if (sound) {
-			sound.pause();
+			sound.stop();
 		}
 	};
 
 	const prevSong = () => {
-		setCurrTime({ min: 0, sec: 0 }); // Reset the time display when switching songs
+		setCurrTime({ min: 0, sec: 0 });
 		setCurrentSong((prevSong) => (prevSong - 1 + songs.length) % songs.length);
 		if (sound) {
-			sound.pause();
+			sound.stop();
 		}
 	};
 
 	return (
 		<div className={styles.component}>
-			{/* <h3>Playing Now</h3> */}
 			<img
 				className={styles.albumCover}
 				src='https://picsum.photos/200/200'
@@ -114,10 +130,10 @@ const MusicPlayer: React.FC = () => {
 				<p>
 					{currTime.min}:{currTime.sec < 10 ? '0' + currTime.sec : currTime.sec}
 				</p>
-				{duration !== null && (
+				{sound && seconds !== null && (
 					<p>
-						{Math.floor(duration / 60)}:
-						{duration % 60 < 10 ? '0' + (duration % 60) : duration % 60}
+						{Math.floor(seconds / 60)}:
+						{seconds % 60 < 10 ? '0' + (seconds % 60) : seconds % 60}
 					</p>
 				)}
 			</div>
@@ -125,13 +141,13 @@ const MusicPlayer: React.FC = () => {
 				<input
 					type='range'
 					min={0}
-					max={duration ?? 0}
-					value={seconds}
+					max={sound?.duration() || 0}
+					value={seconds || 0}
 					onChange={(e) => {
 						if (sound) {
 							const newTime = Number(e.target.value);
-							sound.currentTime = newTime; // Set the audio's current time directly
-							setSeconds(newTime); // Update the local state as well
+							sound.seek(newTime);
+							setSeconds(newTime);
 						}
 					}}
 				/>
