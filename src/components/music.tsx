@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import useSound from 'use-sound';
 
+import * as styles from '../styles/modules/music.module.scss';
+
 import samba from '../music/01-Samba.mp3';
 import afrosamba from '../music/02-Afro-Samba.mp3';
 
@@ -82,40 +84,33 @@ const MusicPlayer: React.FC = () => {
 	};
 
 	return (
-		<div className='component'>
-			<h2>Playing Now</h2>
+		<div className={styles.component}>
+			{/* <h3>Playing Now</h3> */}
 			<img
-				className='musicCover'
+				className={styles.albumCover}
 				src='https://picsum.photos/200/200'
 				alt='Album Cover'
 			/>
 			<div>
-				<h3 className='title'>{songs[currentSong].title}</h3>
-				<p className='subTitle'>{songs[currentSong].artist}</p>
+				<h3 className={styles.title}>{songs[currentSong].title}</h3>
+				<p className={styles.subTitle}>{songs[currentSong].artist}</p>
 			</div>
-			<div className='controls'>
-				<button className='controlButton' onClick={prevSong}>
-					<i
-						className='fas fa-step-backward'
-						style={{ fontSize: '3em', color: '#27AE60' }}
-					></i>
+			<div className={styles.controls}>
+				<button className={styles.controlButton} onClick={prevSong}>
+					<i className='fas fa-step-backward'></i>
 				</button>
-				<button className='controlButton' onClick={playingButton}>
+				<button className={styles.controlButton} onClick={playingButton}>
 					<i
 						className={`fas ${
 							isPlaying ? 'fa-pause-circle' : 'fa-play-circle'
 						}`}
-						style={{ fontSize: '3em', color: '#27AE60' }}
 					></i>
 				</button>
-				<button className='controlButton' onClick={nextSong}>
-					<i
-						className='fas fa-step-forward'
-						style={{ fontSize: '3em', color: '#27AE60' }}
-					></i>
+				<button className={styles.controlButton} onClick={nextSong}>
+					<i className='fas fa-step-forward'></i>
 				</button>
 			</div>
-			<div className='time'>
+			<div className={styles.time}>
 				<p>
 					{currTime.min}:{currTime.sec < 10 ? '0' + currTime.sec : currTime.sec}
 				</p>
@@ -126,19 +121,21 @@ const MusicPlayer: React.FC = () => {
 					</p>
 				)}
 			</div>
-			<input
-				type='range'
-				min='0'
-				max={duration || 0}
-				defaultValue='0'
-				value={seconds}
-				className='timeline'
-				onChange={(e) => {
-					if (sound) {
-						sound.currentTime = Number(e.target.value); // Set the audio's current time
-					}
-				}}
-			/>
+			<div className={styles.timeline}>
+				<input
+					type='range'
+					min={0}
+					max={duration ?? 0}
+					value={seconds}
+					onChange={(e) => {
+						if (sound) {
+							const newTime = Number(e.target.value);
+							sound.currentTime = newTime; // Set the audio's current time directly
+							setSeconds(newTime); // Update the local state as well
+						}
+					}}
+				/>
+			</div>
 		</div>
 	);
 };

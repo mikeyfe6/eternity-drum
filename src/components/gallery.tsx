@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 import {
 	Navigation,
@@ -15,6 +15,7 @@ import {
 } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { SwiperOptions } from 'swiper/types';
 
 import * as styles from '../styles/modules/gallery.module.scss';
 
@@ -27,10 +28,28 @@ import 'swiper/scss/scrollbar';
 import 'swiper/scss/parallax';
 import 'swiper/scss/autoplay';
 
+type ImageType = {
+	Key: string;
+	localFile: {
+		childImageSharp: {
+			gatsbyImageData: IGatsbyImageData | undefined;
+		};
+	};
+};
+
+type ThumbsSwiperType = {
+	params: SwiperOptions;
+	originalParams: SwiperOptions;
+	el: HTMLElement | null;
+	wrapperEl: HTMLElement | null;
+};
+
 const Gallery: React.FC = () => {
-	const [thumbsSwiper, setThumbsSwiper] = React.useState<
-		Swiper | null | undefined
-	>(null);
+	const [thumbsSwiper, setThumbsSwiper] =
+		React.useState<ThumbsSwiperType | null>(null);
+
+	const progressCircle = React.useRef<SVGSVGElement | null>(null);
+	const progressContent = React.useRef<HTMLSpanElement | null>(null);
 
 	const data = useStaticQuery(graphql`
 		query AllImagesInDirectory {
@@ -58,9 +77,6 @@ const Gallery: React.FC = () => {
 	if (images.length === 0) {
 		return <div>No images found in the specified directory.</div>;
 	}
-
-	const progressCircle = React.useRef<SVGSVGElement | null>(null);
-	const progressContent = React.useRef<HTMLSpanElement | null>(null);
 
 	const onAutoplayTimeLeft = (s: any, time: any, progress: any) => {
 		progressCircle.current?.style.setProperty(
@@ -92,7 +108,7 @@ const Gallery: React.FC = () => {
 				loop={true}
 				parallax={true}
 				navigation
-				thumbs={{ swiper: thumbsSwiper }}
+				thumbs={{ swiper: thumbsSwiper as any }}
 				pagination={{
 					clickable: true,
 				}}
@@ -106,11 +122,15 @@ const Gallery: React.FC = () => {
 				onAutoplayTimeLeft={onAutoplayTimeLeft}
 				className={styles.swiperWrapper}
 			>
-				{images.map((image, index) => (
+				{images.map((image: ImageType, index: number) => (
 					<SwiperSlide key={index} className={styles.swiperSlideTop}>
 						{image.localFile?.childImageSharp?.gatsbyImageData && (
 							<GatsbyImage
-								image={getImage(image.localFile.childImageSharp)}
+								image={
+									getImage(
+										image.localFile.childImageSharp.gatsbyImageData
+									) as IGatsbyImageData
+								}
 								alt='Your Image Alt Text'
 							/>
 						)}
@@ -125,8 +145,12 @@ const Gallery: React.FC = () => {
 				</div>
 			</Swiper>
 			<Swiper
-				onSwiper={setThumbsSwiper}
-				loop={true}
+				onSwiper={(swiper) => {
+					if (swiper) {
+						setThumbsSwiper(swiper as any);
+					}
+				}}
+				loop
 				spaceBetween={10}
 				slidesPerView={3}
 				breakpoints={{
@@ -144,11 +168,15 @@ const Gallery: React.FC = () => {
 				watchSlidesProgress={true}
 				modules={[FreeMode, Navigation, Thumbs]}
 			>
-				{images.map((image, index) => (
-					<SwiperSlide key={index} className={styles.swiperSlideBottom}>
+				{images.map((image: ImageType, index: number) => (
+					<SwiperSlide key={index} className={styles.swiperSlideTop}>
 						{image.localFile?.childImageSharp?.gatsbyImageData && (
 							<GatsbyImage
-								image={getImage(image.localFile.childImageSharp)}
+								image={
+									getImage(
+										image.localFile.childImageSharp.gatsbyImageData
+									) as IGatsbyImageData
+								}
 								alt='Your Image Alt Text'
 							/>
 						)}

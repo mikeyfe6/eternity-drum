@@ -12,16 +12,6 @@ import MusicPlayer from '../components/music';
 
 import * as styles from '../styles/modules/media.module.scss';
 
-import samba from '../music/01-Samba.mp3';
-import afrosamba from '../music/02-Afro-Samba.mp3';
-import changebeat from '../music/03-Change-Beat.mp3';
-import africanstyle1 from '../music/04-African-Style-1.mp3';
-import africanstyle2 from '../music/05-African-Style-2.mp3';
-import aleke from '../music/06-Aleke.mp3';
-import sambareggae1 from '../music/07-Samba-Reggae-1.mp3';
-import sambareggae2 from '../music/08-Samba-Reggae-2.mp3';
-import brass from '../music/09-Brass.mp3';
-
 const Media: React.FC<PageProps> = () => {
 	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'Media' }];
 
