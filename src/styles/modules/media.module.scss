@@ -27,17 +27,17 @@
 	margin-bottom: 50px;
 	align-items: center;
 
-	audio {
-		margin: 0 auto;
-	}
-
 	.music {
+		background: $primaryColor;
+		color: white;
 		flex: 25%;
 		max-width: 450px;
+		border-radius: 5px;
 
 		@media screen and ($large) {
-			flex: 100%;
+			width: 450px;
 			max-width: 100%;
+			flex: 100%;
 		}
 	}
 
@@ -56,7 +56,7 @@
 	}
 
 	@media screen and ($large) {
-		flex-direction: column;
+		flex-direction: column-reverse;
 	}
 
 	@include DRY;

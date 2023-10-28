@@ -17,7 +17,7 @@ const Media: React.FC<PageProps> = () => {
 
 	return (
 		<Layout>
-			{/* <Hero /> */}
+			<Hero />
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
 				<h1>Media</h1>
