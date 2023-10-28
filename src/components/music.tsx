@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+
 import * as styles from '../styles/modules/music.module.scss';
+
 import samba from '../music/01-Samba.mp3';
 import afrosamba from '../music/02-Afro-Samba.mp3';
 
@@ -23,6 +26,21 @@ const MusicPlayer: React.FC = () => {
 	const [currentTime, setCurrentTime] = useState(0);
 	const [isLoaded, setIsLoaded] = useState(false);
 
+	const data = useStaticQuery(graphql`
+		query AllImagesInDirectory {
+			allS3Object(filter: { Key: { regex: "/^music/[^/]+$/" } }) {
+				nodes {
+					Key
+					localFile {
+						publicURL
+					}
+				}
+			}
+		}
+	`);
+
+	console.log(data);
+
 	const play = () => {
 		audioElement.play().then(() => {
 			setIsPlaying(true);
@@ -43,10 +61,6 @@ const MusicPlayer: React.FC = () => {
 		setCurrentSong(nextSongIndex);
 		audioElement.src = songs[nextSongIndex].src;
 		setIsLoaded(false);
-
-		if (isPlaying) {
-			play(); // Continue playing if it was playing before
-		}
 	};
 
 	const prevSong = () => {
@@ -58,10 +72,6 @@ const MusicPlayer: React.FC = () => {
 		setCurrentSong(prevSongIndex);
 		audioElement.src = songs[prevSongIndex].src;
 		setIsLoaded(false);
-
-		if (isPlaying) {
-			play(); // Continue playing if it was playing before
-		}
 	};
 
 	const formatTime = (time: number) => {
@@ -85,7 +95,18 @@ const MusicPlayer: React.FC = () => {
 		});
 
 		audioElement.addEventListener('ended', () => {
-			nextSong();
+			setIsPlaying(false);
+
+			const nextSongIndex = (currentSong + 1) % songs.length;
+			setCurrentSong(nextSongIndex);
+			audioElement.src = songs[nextSongIndex].src;
+			setIsLoaded(false);
+
+			audioElement.load();
+			if (isPlaying) {
+				audioElement.play();
+				setIsPlaying(true);
+			}
 		});
 
 		return () => {
@@ -93,12 +114,7 @@ const MusicPlayer: React.FC = () => {
 			audioElement.removeEventListener('timeupdate', () => {});
 			audioElement.removeEventListener('ended', () => {});
 		};
-	}, [audioElement, isLoaded]);
-
-	console.log('isPlaying', isPlaying);
-	console.log('currentSong', currentSong);
-	console.log('audioElement', audioElement);
-	console.log('currentTime', currentTime);
+	}, [audioElement, isLoaded, isPlaying]);
 
 	return (
 		<div className={styles.component}>
@@ -115,15 +131,16 @@ const MusicPlayer: React.FC = () => {
 				<button className={styles.controlButton} onClick={prevSong}>
 					<i className='fas fa-step-backward'></i>
 				</button>
-				{isPlaying ? (
-					<button className={styles.controlButton} onClick={pause}>
-						<i className='fas fa-pause-circle'></i>
-					</button>
-				) : (
-					<button className={styles.controlButton} onClick={play}>
-						<i className='fas fa-play-circle'></i>
-					</button>
-				)}
+				<button
+					className={styles.controlButton}
+					onClick={isPlaying ? pause : play}
+				>
+					<i
+						className={`fas ${
+							isPlaying ? 'fa-pause-circle' : 'fa-play-circle'
+						}`}
+					></i>
+				</button>
 				<button className={styles.controlButton} onClick={nextSong}>
 					<i className='fas fa-step-forward'></i>
 				</button>
