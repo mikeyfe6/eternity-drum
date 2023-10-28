@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-// import { useStaticQuery, graphql } from 'gatsby';
-
 import * as styles from '../styles/modules/music.module.scss';
 
 import samba from '../music/01-Samba.mp3';
@@ -24,51 +22,36 @@ const MusicPlayer: React.FC = () => {
 	const [currentSong, setCurrentSong] = useState(0);
 	const [currentTime, setCurrentTime] = useState(0);
 	const [isLoaded, setIsLoaded] = useState(false);
-	const audioElementRef = useRef<HTMLAudioElement | null>(null);
+	const [duration, setDuration] = useState(0);
 
-	// const data = useStaticQuery(graphql`
-	// 	query AllImagesInDirectory {
-	// 		allS3Object(filter: { Key: { regex: "/^music/[^/]+$/" } }) {
-	// 			nodes {
-	// 				Key
-	// 				localFile {
-	// 					publicURL
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// `);
-	// console.log(data);
+	const audioElementRef = useRef<HTMLAudioElement | null>(null);
 
 	useEffect(() => {
 		const audioElement = audioElementRef.current;
 
-		if (audioElement) {
-			audioElement.pause();
-			audioElement.currentTime = 0;
-			audioElement.src = songs[currentSong].src;
-		} else {
+		if (!audioElement) {
 			const newAudioElement = new Audio(songs[currentSong].src);
 			newAudioElement.addEventListener('ended', switchToNextSong);
-			newAudioElement.addEventListener('loadedmetadata', () => {
+			newAudioElement.addEventListener('canplay', () => {
 				setIsLoaded(true);
-				setCurrentTime(newAudioElement.currentTime);
+				setDuration(newAudioElement.duration);
 			});
 			audioElementRef.current = newAudioElement;
+		} else if (audioElement.src !== songs[currentSong].src) {
+			audioElement.src = songs[currentSong].src;
+			audioElement.load();
 		}
 
 		if (isPlaying) {
-			audioElementRef.current?.play().then(() => setIsPlaying(true));
+			audioElement?.play().then(() => setIsPlaying(true));
 		}
 
-		const timer = setInterval(() => {
-			if (isPlaying) {
-				setCurrentTime(audioElementRef.current?.currentTime || 0);
-			}
-		}, 100);
+		audioElement?.addEventListener('timeupdate', () => {
+			setCurrentTime(audioElement.currentTime);
+		});
 
 		return () => {
-			clearInterval(timer);
+			audioElement?.pause();
 		};
 	}, [currentSong, isPlaying]);
 
@@ -79,10 +62,14 @@ const MusicPlayer: React.FC = () => {
 
 	const play = () => {
 		setIsPlaying(true);
+		audioElementRef.current?.play().then(() => {
+			setIsPlaying(true);
+		});
 	};
 
 	const pause = () => {
 		setIsPlaying(false);
+		audioElementRef.current?.pause();
 	};
 
 	const formatTime = (time: number) => {
@@ -134,11 +121,10 @@ const MusicPlayer: React.FC = () => {
 			<div className={styles.time}>
 				{isLoaded ? (
 					<p>
-						{formatTime(currentTime)} /{' '}
-						{formatTime(audioElementRef.current?.duration ?? 0)}
+						{formatTime(currentTime)} / {formatTime(duration)}
 					</p>
 				) : (
-					<p>0:00 / 0:00</p>
+					<p>Loading...</p>
 				)}
 			</div>
 
@@ -146,7 +132,7 @@ const MusicPlayer: React.FC = () => {
 				<input
 					type='range'
 					min={0}
-					max={audioElementRef.current?.duration ?? 0}
+					max={duration}
 					value={currentTime}
 					onChange={(e) => {
 						if (audioElementRef.current) {
