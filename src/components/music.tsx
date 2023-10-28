@@ -21,10 +21,12 @@ const MusicPlayer: React.FC = () => {
 	const [currentSong, setCurrentSong] = useState(0);
 	const [audioElement] = useState(new Audio(songs[currentSong].src));
 	const [currentTime, setCurrentTime] = useState(0);
+	const [isLoaded, setIsLoaded] = useState(false);
 
 	const play = () => {
-		audioElement.play();
-		setIsPlaying(true);
+		audioElement.play().then(() => {
+			setIsPlaying(true);
+		});
 	};
 
 	const pause = () => {
@@ -40,8 +42,11 @@ const MusicPlayer: React.FC = () => {
 		const nextSongIndex = (currentSong + 1) % songs.length;
 		setCurrentSong(nextSongIndex);
 		audioElement.src = songs[nextSongIndex].src;
+		setIsLoaded(false);
 
-		play();
+		if (isPlaying) {
+			play(); // Continue playing if it was playing before
+		}
 	};
 
 	const prevSong = () => {
@@ -52,8 +57,11 @@ const MusicPlayer: React.FC = () => {
 		const prevSongIndex = (currentSong - 1 + songs.length) % songs.length;
 		setCurrentSong(prevSongIndex);
 		audioElement.src = songs[prevSongIndex].src;
+		setIsLoaded(false);
 
-		play();
+		if (isPlaying) {
+			play(); // Continue playing if it was playing before
+		}
 	};
 
 	const formatTime = (time: number) => {
@@ -63,8 +71,17 @@ const MusicPlayer: React.FC = () => {
 	};
 
 	useEffect(() => {
+		audioElement.addEventListener('canplay', () => {
+			if (!isLoaded) {
+				setIsLoaded(true);
+				setCurrentTime(audioElement.currentTime);
+			}
+		});
+
 		audioElement.addEventListener('timeupdate', () => {
-			setCurrentTime(audioElement.currentTime);
+			if (isLoaded) {
+				setCurrentTime(audioElement.currentTime);
+			}
 		});
 
 		audioElement.addEventListener('ended', () => {
@@ -72,10 +89,16 @@ const MusicPlayer: React.FC = () => {
 		});
 
 		return () => {
+			audioElement.removeEventListener('canplay', () => {});
 			audioElement.removeEventListener('timeupdate', () => {});
 			audioElement.removeEventListener('ended', () => {});
 		};
-	}, [audioElement]);
+	}, [audioElement, isLoaded]);
+
+	console.log('isPlaying', isPlaying);
+	console.log('currentSong', currentSong);
+	console.log('audioElement', audioElement);
+	console.log('currentTime', currentTime);
 
 	return (
 		<div className={styles.component}>
@@ -105,12 +128,17 @@ const MusicPlayer: React.FC = () => {
 					<i className='fas fa-step-forward'></i>
 				</button>
 			</div>
+
 			<div className={styles.time}>
-				<p>
-					{formatTime(currentTime)}
-					<span> / {formatTime(audioElement.duration)}</span>
-				</p>
+				{isLoaded ? (
+					<p>
+						{formatTime(currentTime)} / {formatTime(audioElement.duration || 0)}
+					</p>
+				) : (
+					<p>0:00 / 0:00</p>
+				)}
 			</div>
+
 			<div className={styles.timeline}>
 				<input
 					type='range'
