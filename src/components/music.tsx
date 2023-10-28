@@ -24,34 +24,35 @@ const MusicPlayer: React.FC = () => {
 	const [isLoaded, setIsLoaded] = useState(false);
 	const [duration, setDuration] = useState(0);
 
-	const audioElementRef = useRef<HTMLAudioElement | null>(null);
+	const audioElementRefs = useRef<HTMLAudioElement[]>([]);
 
 	useEffect(() => {
-		const audioElement = audioElementRef.current;
+		const audioElement = audioElementRefs.current[currentSong];
 
 		if (!audioElement) {
-			const newAudioElement = new Audio(songs[currentSong].src);
-			newAudioElement.addEventListener('ended', switchToNextSong);
-			newAudioElement.addEventListener('canplay', () => {
+			audioElementRefs.current[currentSong] = new Audio(songs[currentSong].src);
+			audioElementRefs.current[currentSong].addEventListener(
+				'ended',
+				switchToNextSong
+			);
+			audioElementRefs.current[currentSong].addEventListener('canplay', () => {
 				setIsLoaded(true);
-				setDuration(newAudioElement.duration);
+				setDuration(audioElementRefs.current[currentSong].duration);
 			});
-			audioElementRef.current = newAudioElement;
-		} else if (audioElement.src !== songs[currentSong].src) {
-			audioElement.src = songs[currentSong].src;
-			audioElement.load();
 		}
 
 		if (isPlaying) {
-			audioElement?.play().then(() => setIsPlaying(true));
+			audioElementRefs.current[currentSong]
+				?.play()
+				.then(() => setIsPlaying(true));
 		}
 
-		audioElement?.addEventListener('timeupdate', () => {
-			setCurrentTime(audioElement.currentTime);
+		audioElementRefs.current[currentSong].addEventListener('timeupdate', () => {
+			setCurrentTime(audioElementRefs.current[currentSong].currentTime);
 		});
 
 		return () => {
-			audioElement?.pause();
+			audioElementRefs.current[currentSong].pause();
 		};
 	}, [currentSong, isPlaying]);
 
@@ -62,14 +63,14 @@ const MusicPlayer: React.FC = () => {
 
 	const play = () => {
 		setIsPlaying(true);
-		audioElementRef.current?.play().then(() => {
+		audioElementRefs.current[currentSong].play().then(() => {
 			setIsPlaying(true);
 		});
 	};
 
 	const pause = () => {
 		setIsPlaying(false);
-		audioElementRef.current?.pause();
+		audioElementRefs.current[currentSong].pause();
 	};
 
 	const formatTime = (time: number) => {
@@ -135,8 +136,10 @@ const MusicPlayer: React.FC = () => {
 					max={duration}
 					value={currentTime}
 					onChange={(e) => {
-						if (audioElementRef.current) {
-							audioElementRef.current.currentTime = Number(e.target.value);
+						if (audioElementRefs.current[currentSong]) {
+							audioElementRefs.current[currentSong].currentTime = Number(
+								e.target.value
+							);
 						}
 					}}
 				/>
