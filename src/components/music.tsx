@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+// import { useStaticQuery, graphql } from 'gatsby';
 
 import * as styles from '../styles/modules/music.module.scss';
 
@@ -22,33 +22,41 @@ const songs = [
 const MusicPlayer: React.FC = () => {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [currentSong, setCurrentSong] = useState(0);
-	const [audioElement] = useState(new Audio(songs[currentSong].src));
+	const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(
+		null
+	);
 	const [currentTime, setCurrentTime] = useState(0);
 	const [isLoaded, setIsLoaded] = useState(false);
 
-	const data = useStaticQuery(graphql`
-		query AllImagesInDirectory {
-			allS3Object(filter: { Key: { regex: "/^music/[^/]+$/" } }) {
-				nodes {
-					Key
-					localFile {
-						publicURL
-					}
-				}
-			}
-		}
-	`);
+	// const data = useStaticQuery(graphql`
+	// 	query AllImagesInDirectory {
+	// 		allS3Object(filter: { Key: { regex: "/^music/[^/]+$/" } }) {
+	// 			nodes {
+	// 				Key
+	// 				localFile {
+	// 					publicURL
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// `);
 
-	console.log(data);
+	// console.log(data);
+
+	useEffect(() => {
+		setAudioElement(new Audio(songs[currentSong].src));
+	}, [currentSong]);
 
 	const play = () => {
-		audioElement.play().then(() => {
+		const audio = audioElement;
+		audio?.play().then(() => {
 			setIsPlaying(true);
 		});
 	};
 
 	const pause = () => {
-		audioElement.pause();
+		const audio = audioElement;
+		audio?.pause();
 		setIsPlaying(false);
 	};
 
@@ -59,7 +67,6 @@ const MusicPlayer: React.FC = () => {
 
 		const nextSongIndex = (currentSong + 1) % songs.length;
 		setCurrentSong(nextSongIndex);
-		audioElement.src = songs[nextSongIndex].src;
 		setIsLoaded(false);
 	};
 
@@ -70,7 +77,6 @@ const MusicPlayer: React.FC = () => {
 
 		const prevSongIndex = (currentSong - 1 + songs.length) % songs.length;
 		setCurrentSong(prevSongIndex);
-		audioElement.src = songs[prevSongIndex].src;
 		setIsLoaded(false);
 	};
 
@@ -81,38 +87,39 @@ const MusicPlayer: React.FC = () => {
 	};
 
 	useEffect(() => {
-		audioElement.addEventListener('canplay', () => {
+		const audio = audioElement;
+		audio?.addEventListener('canplay', () => {
 			if (!isLoaded) {
 				setIsLoaded(true);
-				setCurrentTime(audioElement.currentTime);
+				setCurrentTime(audio.currentTime);
 			}
 		});
 
-		audioElement.addEventListener('timeupdate', () => {
+		audio?.addEventListener('timeupdate', () => {
 			if (isLoaded) {
-				setCurrentTime(audioElement.currentTime);
+				setCurrentTime(audio.currentTime);
 			}
 		});
 
-		audioElement.addEventListener('ended', () => {
+		audio?.addEventListener('ended', () => {
 			setIsPlaying(false);
 
 			const nextSongIndex = (currentSong + 1) % songs.length;
 			setCurrentSong(nextSongIndex);
-			audioElement.src = songs[nextSongIndex].src;
+			audio?.setAttribute('src', songs[nextSongIndex].src);
 			setIsLoaded(false);
 
-			audioElement.load();
+			audio?.load();
 			if (isPlaying) {
-				audioElement.play();
+				audio?.play();
 				setIsPlaying(true);
 			}
 		});
 
 		return () => {
-			audioElement.removeEventListener('canplay', () => {});
-			audioElement.removeEventListener('timeupdate', () => {});
-			audioElement.removeEventListener('ended', () => {});
+			audio?.removeEventListener('canplay', () => {});
+			audio?.removeEventListener('timeupdate', () => {});
+			audio?.removeEventListener('ended', () => {});
 		};
 	}, [audioElement, isLoaded, isPlaying]);
 
@@ -149,7 +156,8 @@ const MusicPlayer: React.FC = () => {
 			<div className={styles.time}>
 				{isLoaded ? (
 					<p>
-						{formatTime(currentTime)} / {formatTime(audioElement.duration || 0)}
+						{formatTime(currentTime)} /{' '}
+						{formatTime(audioElement?.duration ?? 0)}
 					</p>
 				) : (
 					<p>0:00 / 0:00</p>
@@ -160,10 +168,12 @@ const MusicPlayer: React.FC = () => {
 				<input
 					type='range'
 					min={0}
-					max={isNaN(audioElement.duration) ? 0 : audioElement.duration}
+					max={audioElement?.duration ?? 0}
 					value={currentTime}
 					onChange={(e) => {
-						audioElement.currentTime = Number(e.target.value);
+						if (audioElement) {
+							audioElement.currentTime = Number(e.target.value);
+						}
 					}}
 				/>
 			</div>
