@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 // import { useStaticQuery, graphql } from 'gatsby';
 
 import * as styles from '../styles/modules/music.module.scss';
@@ -22,11 +22,9 @@ const songs = [
 const MusicPlayer: React.FC = () => {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [currentSong, setCurrentSong] = useState(0);
-	const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(
-		null
-	);
 	const [currentTime, setCurrentTime] = useState(0);
 	const [isLoaded, setIsLoaded] = useState(false);
+	const audioElementRef = useRef<HTMLAudioElement | null>(null);
 
 	// const data = useStaticQuery(graphql`
 	// 	query AllImagesInDirectory {
@@ -40,44 +38,51 @@ const MusicPlayer: React.FC = () => {
 	// 		}
 	// 	}
 	// `);
-
 	// console.log(data);
 
 	useEffect(() => {
-		setAudioElement(new Audio(songs[currentSong].src));
-	}, [currentSong]);
+		const audioElement = audioElementRef.current;
+
+		if (audioElement) {
+			audioElement.pause();
+			audioElement.currentTime = 0;
+			audioElement.src = songs[currentSong].src;
+		} else {
+			const newAudioElement = new Audio(songs[currentSong].src);
+			newAudioElement.addEventListener('ended', switchToNextSong);
+			newAudioElement.addEventListener('loadedmetadata', () => {
+				setIsLoaded(true);
+				setCurrentTime(newAudioElement.currentTime);
+			});
+			audioElementRef.current = newAudioElement;
+		}
+
+		if (isPlaying) {
+			audioElementRef.current?.play().then(() => setIsPlaying(true));
+		}
+
+		const timer = setInterval(() => {
+			if (isPlaying) {
+				setCurrentTime(audioElementRef.current?.currentTime || 0);
+			}
+		}, 100);
+
+		return () => {
+			clearInterval(timer);
+		};
+	}, [currentSong, isPlaying]);
+
+	const switchToNextSong = () => {
+		const nextSongIndex = (currentSong + 1) % songs.length;
+		setCurrentSong(nextSongIndex);
+	};
 
 	const play = () => {
-		const audio = audioElement;
-		audio?.play().then(() => {
-			setIsPlaying(true);
-		});
+		setIsPlaying(true);
 	};
 
 	const pause = () => {
-		const audio = audioElement;
-		audio?.pause();
 		setIsPlaying(false);
-	};
-
-	const nextSong = () => {
-		if (isPlaying) {
-			pause();
-		}
-
-		const nextSongIndex = (currentSong + 1) % songs.length;
-		setCurrentSong(nextSongIndex);
-		setIsLoaded(false);
-	};
-
-	const prevSong = () => {
-		if (isPlaying) {
-			pause();
-		}
-
-		const prevSongIndex = (currentSong - 1 + songs.length) % songs.length;
-		setCurrentSong(prevSongIndex);
-		setIsLoaded(false);
 	};
 
 	const formatTime = (time: number) => {
@@ -85,43 +90,6 @@ const MusicPlayer: React.FC = () => {
 		const seconds = Math.floor(time % 60);
 		return `${minutes}:${String(seconds).padStart(2, '0')}`;
 	};
-
-	useEffect(() => {
-		const audio = audioElement;
-		audio?.addEventListener('canplay', () => {
-			if (!isLoaded) {
-				setIsLoaded(true);
-				setCurrentTime(audio.currentTime);
-			}
-		});
-
-		audio?.addEventListener('timeupdate', () => {
-			if (isLoaded) {
-				setCurrentTime(audio.currentTime);
-			}
-		});
-
-		audio?.addEventListener('ended', () => {
-			setIsPlaying(false);
-
-			const nextSongIndex = (currentSong + 1) % songs.length;
-			setCurrentSong(nextSongIndex);
-			audio?.setAttribute('src', songs[nextSongIndex].src);
-			setIsLoaded(false);
-
-			audio?.load();
-			if (isPlaying) {
-				audio?.play();
-				setIsPlaying(true);
-			}
-		});
-
-		return () => {
-			audio?.removeEventListener('canplay', () => {});
-			audio?.removeEventListener('timeupdate', () => {});
-			audio?.removeEventListener('ended', () => {});
-		};
-	}, [audioElement, isLoaded, isPlaying]);
 
 	return (
 		<div className={styles.component}>
@@ -135,7 +103,14 @@ const MusicPlayer: React.FC = () => {
 				<p className={styles.subTitle}>{songs[currentSong].artist}</p>
 			</div>
 			<div className={styles.controls}>
-				<button className={styles.controlButton} onClick={prevSong}>
+				<button
+					className={styles.controlButton}
+					onClick={() =>
+						setCurrentSong(
+							currentSong === 0 ? songs.length - 1 : currentSong - 1
+						)
+					}
+				>
 					<i className='fas fa-step-backward'></i>
 				</button>
 				<button
@@ -148,7 +123,10 @@ const MusicPlayer: React.FC = () => {
 						}`}
 					></i>
 				</button>
-				<button className={styles.controlButton} onClick={nextSong}>
+				<button
+					className={styles.controlButton}
+					onClick={() => setCurrentSong((currentSong + 1) % songs.length)}
+				>
 					<i className='fas fa-step-forward'></i>
 				</button>
 			</div>
@@ -157,7 +135,7 @@ const MusicPlayer: React.FC = () => {
 				{isLoaded ? (
 					<p>
 						{formatTime(currentTime)} /{' '}
-						{formatTime(audioElement?.duration ?? 0)}
+						{formatTime(audioElementRef.current?.duration ?? 0)}
 					</p>
 				) : (
 					<p>0:00 / 0:00</p>
@@ -168,11 +146,11 @@ const MusicPlayer: React.FC = () => {
 				<input
 					type='range'
 					min={0}
-					max={audioElement?.duration ?? 0}
+					max={audioElementRef.current?.duration ?? 0}
 					value={currentTime}
 					onChange={(e) => {
-						if (audioElement) {
-							audioElement.currentTime = Number(e.target.value);
+						if (audioElementRef.current) {
+							audioElementRef.current.currentTime = Number(e.target.value);
 						}
 					}}
 				/>
