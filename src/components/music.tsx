@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Howl } from 'howler';
-import { useStaticQuery, graphql } from 'gatsby';
 
 import * as styles from '../styles/modules/music.module.scss';
 
@@ -9,13 +8,7 @@ import afrosamba from '../music/02-Afro-Samba.mp3';
 
 type HowlType = typeof Howl;
 
-interface Song {
-	title: string;
-	artist: string;
-	src: string;
-}
-
-const songs: Song[] = [
+const songs = [
 	{
 		title: 'Samba',
 		artist: 'Eternity Percussion',
@@ -31,17 +24,21 @@ const songs: Song[] = [
 const MusicPlayer: React.FC = () => {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [currentSong, setCurrentSong] = useState(0);
-	const [seconds, setSeconds] = useState<number | null>(null);
-	const [currTime, setCurrTime] = useState({ min: 0, sec: 0 });
-	const [playingSong, setPlayingSong] = useState<number | null>(null);
+	const [seconds, setSeconds] = useState<number | null>(0);
+	const [duration, setDuration] = useState<number | null>(0);
 
-	const [sound, setSound] = useState<HowlType | null>(null);
 	const soundRef = React.useRef<HowlType | null>(null);
 
 	useEffect(() => {
+		const sound = soundRef.current;
+
 		if (sound) {
 			if (isPlaying) {
-				sound.play();
+				if (sound.seek() === 0) {
+					sound.play();
+				} else {
+					sound.play();
+				}
 			} else {
 				sound.pause();
 			}
@@ -50,16 +47,15 @@ const MusicPlayer: React.FC = () => {
 				src: [songs[currentSong].src],
 				onend: () => {
 					setIsPlaying(false);
+					setSeconds(0); // Reset seconds to 0 when the song ends
 				},
 				onload: () => {
 					if (isPlaying) {
 						newSound.play();
 					}
-					updateCurrentTime();
-					setPlayingSong(currentSong);
+					setDuration(newSound.duration());
 				},
 			});
-			setSound(newSound);
 			soundRef.current = newSound;
 		}
 
@@ -71,91 +67,76 @@ const MusicPlayer: React.FC = () => {
 	}, [isPlaying, currentSong]);
 
 	useEffect(() => {
-		if (isPlaying) {
-			const interval = setInterval(updateCurrentTime, 100);
-
-			return () => {
-				if (interval) {
-					clearInterval(interval);
-				}
-			};
+		// Update the time as the song plays
+		const sound = soundRef.current;
+		if (sound && isPlaying) {
+			const updateInterval = setInterval(() => {
+				const currentTime = sound.seek() || 0;
+				setSeconds(currentTime);
+			}, 1000); // Update every 1 second
+			return () => clearInterval(updateInterval);
 		}
-	}, [sound, isPlaying]);
-
-	const updateCurrentTime = () => {
-		if (soundRef.current) {
-			const currentTime = soundRef.current.seek() || 0;
-			setSeconds(currentTime);
-
-			const min = Math.floor(currentTime / 60);
-			const sec = Math.floor(currentTime % 60);
-
-			setCurrTime({
-				min,
-				sec,
-			});
-		}
-	};
+	}, [isPlaying]);
 
 	const prevSong = () => {
-		if (isPlaying) {
-			soundRef.current?.stop();
-			setIsPlaying(false);
-		} else {
-			setPlayingSong(null);
+		const sound = soundRef.current;
+		if (sound) {
+			sound.stop();
+			updateCurrentTime(sound);
+			setSeconds(0);
 		}
-
 		const prevSongIndex = (currentSong - 1 + songs.length) % songs.length;
-		const newSound = new Howl({
-			src: [songs[prevSongIndex].src],
-			onend: () => {
-				setIsPlaying(false);
-			},
-		});
-		setSound(newSound);
-		soundRef.current = newSound;
 		setCurrentSong(prevSongIndex);
+
+		// Update the duration for the new song
+		setDuration(soundRef.current ? soundRef.current.duration() : null);
 	};
 
 	const nextSong = () => {
-		if (isPlaying) {
-			soundRef.current?.stop();
-			setIsPlaying(false);
-		} else {
-			setPlayingSong(null);
+		const sound = soundRef.current;
+		if (sound) {
+			sound.stop();
+			updateCurrentTime(sound);
+			setSeconds(0);
 		}
-
 		const nextSongIndex = (currentSong + 1) % songs.length;
-		const newSound = new Howl({
-			src: [songs[nextSongIndex].src],
-			onend: () => {
-				setIsPlaying(false);
-			},
-		});
-		setSound(newSound);
-		soundRef.current = newSound;
 		setCurrentSong(nextSongIndex);
+
+		// Update the duration for the new song
+		setDuration(soundRef.current ? soundRef.current.duration() : null);
 	};
 
 	const playingButton = () => {
-		if (soundRef.current) {
-			if (soundRef.current.playing()) {
-				soundRef.current.pause();
-				setIsPlaying(false);
-			} else if (playingSong !== currentSong) {
-				soundRef.current.stop();
-				soundRef.current.play();
-				setIsPlaying(true);
-				setPlayingSong(currentSong);
+		const sound = soundRef.current;
+		if (sound) {
+			if (sound.playing()) {
+				sound.pause();
+			} else {
+				if (sound.seek() === 0) {
+					sound.play();
+				} else {
+					sound.play();
+				}
 			}
+			setIsPlaying(!isPlaying);
 		}
 	};
 
-	console.log('currTime', currTime, 'seconds', seconds);
-	console.log('isPlaying', isPlaying);
-	console.log('currentSong', currentSong);
-	console.log('sound', sound);
-	console.log('playingSong', playingSong);
+	const formatTime = (time: number | null) => {
+		if (time === null) {
+			return '0:00';
+		}
+		const minutes = Math.floor(time / 60);
+		const seconds = Math.floor(time % 60);
+		return `${minutes}:${String(seconds).padStart(2, '0')}`;
+	};
+
+	const updateCurrentTime = (sound: HowlType | null) => {
+		if (sound) {
+			const currentTime = sound.seek() || 0;
+			setSeconds(currentTime);
+		}
+	};
 
 	return (
 		<div className={styles.component}>
@@ -185,27 +166,20 @@ const MusicPlayer: React.FC = () => {
 			</div>
 			<div className={styles.time}>
 				<p>
-					{currTime.min}:{currTime.sec < 10 ? '0' + currTime.sec : currTime.sec}
+					{formatTime(seconds)}
+					{duration !== null && <span> / {formatTime(duration)}</span>}
 				</p>
-				{sound && seconds !== null && (
-					<p>
-						{Math.floor((sound.duration() - seconds) / 60)}:
-						{(Math.floor(sound.duration() - seconds) % 60)
-							.toString()
-							.padStart(2, '0')}
-					</p>
-				)}
 			</div>
 			<div className={styles.timeline}>
 				<input
 					type='range'
 					min={0}
-					max={sound?.duration() || 0}
-					value={seconds ?? 0}
+					max={duration || 0}
+					value={seconds || 0}
 					onChange={(e) => {
-						if (sound) {
+						if (soundRef.current) {
 							const newTime = Number(e.target.value);
-							sound.seek(newTime);
+							soundRef.current.seek(newTime);
 							setSeconds(newTime);
 						}
 					}}
