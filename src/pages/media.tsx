@@ -7,9 +7,11 @@ import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
-import Gallery from '../components/gallery';
 import MusicPlayer from '../components/musicplayer';
 import Relevance from '../components/relevance';
+
+import Gallery from '../components/galleries/galleryOne';
+import GalleryTwo from '../components/galleries/galleryTwo';
 
 import * as styles from '../styles/modules/media.module.scss';
 
@@ -40,9 +42,11 @@ const Media: React.FC<PageProps> = () => {
 
 				<section className={styles.photos}>
 					<h2>Foto's</h2>
-
-					<h3>Swazoom Live 2023</h3>
 					<Gallery />
+					<br />
+					<hr />
+					<br />
+					<GalleryTwo />
 				</section>
 			</section>
 		</Layout>

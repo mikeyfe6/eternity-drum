@@ -71,6 +71,39 @@ const MusicPlayer: React.FC = () => {
 			}
 		);
 
+		if ('mediaSession' in navigator && songs[currentSong]) {
+			navigator.mediaSession.metadata = new MediaMetadata({
+				title: songs[currentSong].title,
+				artist: songs[currentSong].artist,
+				album: 'Eternity Percussion',
+				artwork: [
+					{
+						src: albumCover,
+						sizes: '48x48',
+						type: 'image/png',
+					},
+				],
+			});
+
+			navigator.mediaSession.setActionHandler('play', function () {
+				play();
+			});
+
+			navigator.mediaSession.setActionHandler('pause', function () {
+				pause();
+			});
+
+			navigator.mediaSession.setActionHandler('previoustrack', function () {
+				setCurrentTime(0);
+				setCurrentSong(currentSong === 0 ? songs.length - 1 : currentSong - 1);
+			});
+
+			navigator.mediaSession.setActionHandler('nexttrack', function () {
+				setCurrentTime(0);
+				setCurrentSong((currentSong + 1) % songs.length);
+			});
+		}
+
 		return () => {
 			if (audioElementRefs.current[currentSong]) {
 				audioElementRefs.current[currentSong]?.pause();
@@ -121,7 +154,7 @@ const MusicPlayer: React.FC = () => {
 						<img src={albumCover} alt='Album Cover' />
 					</div>
 
-					<div>
+					<div className={styles.artistInfo}>
 						<h3 className={styles.title}>{songs[currentSong].title}</h3>
 						<p className={styles.subTitle}>{songs[currentSong].artist}</p>
 					</div>

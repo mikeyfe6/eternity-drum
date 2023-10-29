@@ -17,7 +17,7 @@ import {
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperOptions } from 'swiper/types';
 
-import * as styles from '../styles/modules/gallery.module.scss';
+import * as styles from '../../styles/modules/gallery.module.scss';
 
 import 'swiper/scss';
 import 'swiper/scss/thumbs';
@@ -53,7 +53,7 @@ const Gallery: React.FC = () => {
 	const progressContent = React.useRef<HTMLSpanElement | null>(null);
 
 	const data = useStaticQuery(graphql`
-		query AllImagesInDirectory {
+		query AllGalleryOneImages {
 			allS3Object(
 				filter: { Key: { regex: "/^photos/swazoomlive-080723/[^/]+$/" } }
 			) {
@@ -93,6 +93,7 @@ const Gallery: React.FC = () => {
 
 	return (
 		<section className={styles.swiperContainer}>
+			<h3>Swazoom Live - 8 Juli 2023</h3>
 			<Swiper
 				modules={[
 					Navigation,

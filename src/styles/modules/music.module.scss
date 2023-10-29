@@ -7,8 +7,8 @@
 		@include buttonStyle(
 			$tertiaryColor,
 			$whiteColor,
-			$secondaryColor,
-			$whiteColor
+			$tertiaryColor,
+			$secondaryColor
 		);
 	}
 
@@ -21,11 +21,19 @@
 			flex-direction: row;
 			justify-content: space-evenly;
 			gap: 2em;
+			margin-bottom: 2em;
 		}
 
 		.album-cover {
 			margin-bottom: 1.5em;
-			text-align: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			@media screen and ($large) {
+				margin-bottom: 0;
+			}
 
 			img {
 				width: 100%;
@@ -35,6 +43,7 @@
 				object-position: center;
 				border-radius: 5px;
 				padding: 1em 0;
+				outline: #101334 1px solid;
 
 				@include boxBottomShadow;
 
@@ -44,9 +53,17 @@
 			}
 		}
 
+		.artist-info {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
 		.title {
 			text-align: center;
 			font-size: 2rem;
+			margin-bottom: 0;
 		}
 
 		.sub-title {
@@ -75,11 +92,11 @@
 		@include baseTransition(all);
 
 		&:hover {
-			color: lighten($tertiaryColor, 15%);
+			color: lighten($tertiaryColor, 10%);
 		}
 
 		&:active {
-			color: lighten($tertiaryColor, 5%);
+			color: lighten($tertiaryColor, 2.5%);
 		}
 	}
 
@@ -103,7 +120,12 @@
 
 		&line {
 			max-width: 100%;
-			padding: 0 0.5em 2em;
+			padding: 0 0.5em;
+			margin-bottom: 1.5em;
+
+			@media screen and ($large) {
+				margin-bottom: 1em;
+			}
 
 			> input {
 				width: 100%;

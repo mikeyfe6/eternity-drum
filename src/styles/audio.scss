@@ -19,7 +19,7 @@ input[type='range'] {
 		z-index: 2;
 
 		&:hover {
-			background: lighten($tertiaryColor, 20%);
+			background: lighten($tertiaryColor, 15%);
 		}
 
 		&:active {
