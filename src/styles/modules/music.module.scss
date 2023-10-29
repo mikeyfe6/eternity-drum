@@ -1,31 +1,47 @@
 @import '../configs/globals';
 
 .component {
-	.album-cover {
-		margin-bottom: 1.5em;
-		text-align: center;
+	.music-info {
+		display: flex;
+		flex-direction: column;
 
-		img {
-			width: 100%;
-			max-width: 250px;
-			height: auto;
-			object-fit: cover;
-			object-position: center;
-			border-radius: 5px;
-			padding: 1em 0;
-
-			@include boxBottomShadow;
+		@media screen and ($large) {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			gap: 2em;
 		}
-	}
 
-	.title {
-		text-align: center;
-		font-size: 2rem;
-	}
+		.album-cover {
+			margin-bottom: 1.5em;
+			text-align: center;
 
-	.sub-title {
-		text-align: center;
-		font-size: 1.25rem;
+			img {
+				width: 100%;
+				max-width: 250px;
+				height: auto;
+				object-fit: cover;
+				object-position: center;
+				border-radius: 5px;
+				padding: 1em 0;
+
+				@include boxBottomShadow;
+
+				@media screen and ($large) {
+					max-width: 100px;
+				}
+			}
+		}
+
+		.title {
+			text-align: center;
+			font-size: 2rem;
+		}
+
+		.sub-title {
+			text-align: center;
+			font-size: 1.25rem;
+		}
 	}
 
 	.controls {
@@ -34,6 +50,10 @@
 		align-items: center;
 		gap: 2em;
 		margin: 2em 0 0;
+
+		@media screen and ($large) {
+			margin: 0.5em 0 0;
+		}
 	}
 
 	.control-button {

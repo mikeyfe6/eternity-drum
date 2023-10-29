@@ -11,6 +11,7 @@ const MusicPlayer: React.FC = () => {
 	const [currentTime, setCurrentTime] = useState(0);
 	const [isLoaded, setIsLoaded] = useState(false);
 	const [duration, setDuration] = useState(0);
+	const [songs, setSongs] = useState<Array<any>>([]);
 
 	const audioElementRefs = useRef<Array<HTMLAudioElement | null>>([]);
 
@@ -24,44 +25,41 @@ const MusicPlayer: React.FC = () => {
 		}
 	`);
 
-	const songs = data.allS3Object.nodes.map((node: any) => {
-		const fullTitle = node.Key.split('/').pop();
-		const title = fullTitle.substring(3, fullTitle.length - 4);
-		const formattedTitle = title.replace(/-/g, ' ');
-		return {
-			title: formattedTitle,
-			artist: 'Eternity Percussion',
-			src: process.env.GATSBY_AWS_URL + node.Key,
-		};
-	});
+	useEffect(() => {
+		const newSongs = data.allS3Object.nodes.map((node: any) => {
+			const fullTitle = node.Key.split('/').pop();
+			const title = fullTitle.substring(3, fullTitle.length - 4);
+			const formattedTitle = title.replace(/-/g, ' ');
+			return {
+				title: formattedTitle,
+				artist: 'Eternity Percussion',
+				src: process.env.GATSBY_AWS_URL + node.Key,
+			};
+		});
+
+		setSongs(newSongs);
+	}, [data]);
 
 	useEffect(() => {
 		const audioElement = audioElementRefs.current[currentSong];
 
-		if (!audioElement) {
+		if (!audioElement && songs[currentSong]) {
 			audioElementRefs.current[currentSong] = new Audio(songs[currentSong].src);
 			audioElementRefs.current[currentSong]?.addEventListener(
 				'ended',
 				switchToNextSong
 			);
-			if (audioElementRefs.current[currentSong]) {
-				audioElementRefs.current[currentSong]?.addEventListener(
-					'canplay',
-					() => {
-						setIsLoaded(true);
-						setDuration(audioElementRefs.current[currentSong]!.duration);
-						if (isMobileDevice()) {
-							audioElementRefs.current[currentSong]?.play();
-						}
-					}
-				);
-			}
+			audioElementRefs.current[currentSong]?.addEventListener('canplay', () => {
+				setIsLoaded(true);
+				setDuration(audioElementRefs.current[currentSong]!.duration);
+			});
 		}
 
 		if (isPlaying) {
 			audioElementRefs.current[currentSong]
 				?.play()
-				.then(() => setIsPlaying(true));
+				.then(() => setIsPlaying(true))
+				.catch((error) => console.error(error));
 		}
 
 		audioElementRefs.current[currentSong]?.addEventListener(
@@ -74,31 +72,22 @@ const MusicPlayer: React.FC = () => {
 		);
 
 		return () => {
-			audioElementRefs.current[currentSong]?.pause();
+			if (audioElementRefs.current[currentSong]) {
+				audioElementRefs.current[currentSong]?.pause();
+			}
 		};
-	}, [currentSong, isPlaying]);
-
-	const isMobileDevice = () => {
-		return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-			navigator.userAgent
-		);
-	};
+	}, [currentSong, isPlaying, songs]);
 
 	const switchToNextSong = () => {
 		const nextSongIndex = (currentSong + 1) % songs.length;
 		setCurrentSong(nextSongIndex);
 	};
 
-	const play = () => {
+	const startPlayback = () => {
 		setIsPlaying(true);
 		audioElementRefs.current[currentSong]?.play().then(() => {
 			setIsPlaying(true);
 		});
-	};
-
-	const pause = () => {
-		setIsPlaying(false);
-		audioElementRefs.current[currentSong]?.pause();
 	};
 
 	const formatTime = (time: number) => {
@@ -107,78 +96,97 @@ const MusicPlayer: React.FC = () => {
 		return `${minutes}:${String(seconds).padStart(2, '0')}`;
 	};
 
+	const pause = () => {
+		setIsPlaying(false);
+		audioElementRefs.current[currentSong]?.pause();
+	};
+
+	const play = () => {
+		setIsPlaying(true);
+		audioElementRefs.current[currentSong]
+			?.play()
+			.catch((error) => console.error(error));
+	};
+
 	return (
 		<div className={styles.component}>
-			<div className={styles.albumCover}>
-				<img src={albumCover} alt='Album Cover' />
-			</div>
+			{isLoaded && (
+				<div className={styles.musicInfo}>
+					<div className={styles.albumCover}>
+						<img src={albumCover} alt='Album Cover' />
+					</div>
 
-			<h3 className={styles.title}>{songs[currentSong].title}</h3>
-			<p className={styles.subTitle}>{songs[currentSong].artist}</p>
+					<div>
+						<h3 className={styles.title}>{songs[currentSong].title}</h3>
+						<p className={styles.subTitle}>{songs[currentSong].artist}</p>
+					</div>
+				</div>
+			)}
 
-			<div className={styles.controls}>
-				<button
-					className={styles.controlButton}
-					onClick={() => {
-						setCurrentTime(0);
-						setCurrentSong(
-							currentSong === 0 ? songs.length - 1 : currentSong - 1
-						);
-					}}
-				>
-					<i className='fas fa-step-backward'></i>
-				</button>
-				<button
-					className={styles.controlButton}
-					onClick={isPlaying ? pause : play}
-				>
-					<i
-						className={`fas ${
-							isPlaying ? 'fa-pause-circle' : 'fa-play-circle'
-						}`}
-					></i>
-				</button>
-				<button
-					className={styles.controlButton}
-					onClick={() => {
-						setCurrentTime(0);
-						setCurrentSong((currentSong + 1) % songs.length);
-					}}
-				>
-					<i className='fas fa-step-forward'></i>
-				</button>
-			</div>
+			{isLoaded && (
+				<div className={styles.controls}>
+					<button
+						className={styles.controlButton}
+						onClick={() => {
+							setCurrentTime(0);
+							setCurrentSong(
+								currentSong === 0 ? songs.length - 1 : currentSong - 1
+							);
+						}}
+					>
+						<i className='fas fa-step-backward'></i>
+					</button>
+					<button
+						className={styles.controlButton}
+						onClick={isPlaying ? pause : play}
+					>
+						<i
+							className={`fas ${
+								isPlaying ? 'fa-pause-circle' : 'fa-play-circle'
+							}`}
+						></i>
+					</button>
+					<button
+						className={styles.controlButton}
+						onClick={() => {
+							setCurrentTime(0);
+							setCurrentSong((currentSong + 1) % songs.length);
+						}}
+					>
+						<i className='fas fa-step-forward'></i>
+					</button>
+				</div>
+			)}
 
-			<div className={styles.time}>
-				{isLoaded ? (
-					<>
+			{isLoaded && (
+				<>
+					<div className={styles.time}>
 						<span>{formatTime(currentTime)}</span>
 						<span> {formatTime(duration)}</span>
-					</>
-				) : (
-					<>
-						<span>0:00</span>
-						<span>0:00</span>
-					</>
-				)}
-			</div>
+					</div>
 
-			<div className={styles.timeline}>
-				<input
-					type='range'
-					min={0}
-					max={duration}
-					value={currentTime}
-					onChange={(e) => {
-						if (audioElementRefs.current[currentSong]) {
-							const audioElement = audioElementRefs.current[currentSong];
-							if (audioElement) {
-								audioElement.currentTime = Number(e.target.value);
-							}
-						}
-					}}
-				/>
-			</div>
+					<div className={styles.timeline}>
+						<input
+							type='range'
+							min={0}
+							max={duration}
+							value={currentTime}
+							onChange={(e) => {
+								if (audioElementRefs.current[currentSong]) {
+									const audioElement = audioElementRefs.current[currentSong];
+									if (audioElement) {
+										audioElement.currentTime = Number(e.target.value);
+									}
+								}
+							}}
+						/>
+					</div>
+				</>
+			)}
+
+			{!isPlaying && !isLoaded && (
+				<p>Je browser ondersteund onze muziekspeler niet</p>
+			)}
 		</div>
 	);
 };
