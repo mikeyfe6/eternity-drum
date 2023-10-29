@@ -29,6 +29,7 @@
 
 	.music {
 		background: $primaryColor;
+		outline: 3px solid lighten($primaryColor, 10%);
 		color: white;
 		flex: 25%;
 		max-width: 450px;

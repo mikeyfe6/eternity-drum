@@ -50,6 +50,9 @@ const MusicPlayer: React.FC = () => {
 					() => {
 						setIsLoaded(true);
 						setDuration(audioElementRefs.current[currentSong]!.duration);
+						if (isMobileDevice()) {
+							audioElementRefs.current[currentSong]?.play();
+						}
 					}
 				);
 			}
@@ -74,6 +77,12 @@ const MusicPlayer: React.FC = () => {
 			audioElementRefs.current[currentSong]?.pause();
 		};
 	}, [currentSong, isPlaying]);
+
+	const isMobileDevice = () => {
+		return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+			navigator.userAgent
+		);
+	};
 
 	const switchToNextSong = () => {
 		const nextSongIndex = (currentSong + 1) % songs.length;
@@ -147,7 +156,10 @@ const MusicPlayer: React.FC = () => {
 						<span> {formatTime(duration)}</span>
 					</>
 				) : (
-					<p>Aan het laden... (muziekspeler niet ondersteund)</p>
+					<>
+						<span>0:00</span>
+						<span>0:00</span>
+					</>
 				)}
 			</div>
 

@@ -13,13 +13,13 @@ input[type='range'] {
 		-webkit-appearance: none;
 		width: 25px;
 		height: 25px;
-		background: $whiteColor;
+		background: darken($whiteColor, 5%);
 		outline: 1px solid rgba($lightgreyColor, 0.2);
 		border-radius: 50%;
 		z-index: 2;
 
 		&:hover {
-			background: lighten($tertiaryColor, 15%);
+			background: lighten($tertiaryColor, 20%);
 		}
 
 		&:active {
