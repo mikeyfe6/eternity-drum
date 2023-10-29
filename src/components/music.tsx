@@ -83,13 +83,6 @@ const MusicPlayer: React.FC = () => {
 		setCurrentSong(nextSongIndex);
 	};
 
-	const startPlayback = () => {
-		setIsPlaying(true);
-		audioElementRefs.current[currentSong]?.play().then(() => {
-			setIsPlaying(true);
-		});
-	};
-
 	const formatTime = (time: number) => {
 		const minutes = Math.floor(time / 60);
 		const seconds = Math.floor(time % 60);
