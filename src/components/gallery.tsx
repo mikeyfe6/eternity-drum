@@ -31,6 +31,7 @@ import 'swiper/scss/autoplay';
 type ImageType = {
 	Key: string;
 	localFile: {
+		name: string;
 		childImageSharp: {
 			gatsbyImageData: IGatsbyImageData | undefined;
 		};
@@ -59,6 +60,7 @@ const Gallery: React.FC = () => {
 				nodes {
 					Key
 					localFile {
+						name
 						childImageSharp {
 							gatsbyImageData(
 								layout: FULL_WIDTH
@@ -131,7 +133,7 @@ const Gallery: React.FC = () => {
 										image.localFile.childImageSharp.gatsbyImageData
 									) as IGatsbyImageData
 								}
-								alt='Your Image Alt Text'
+								alt={image.localFile.name}
 							/>
 						)}
 					</SwiperSlide>
@@ -169,7 +171,7 @@ const Gallery: React.FC = () => {
 				modules={[FreeMode, Navigation, Thumbs]}
 			>
 				{images.map((image: ImageType, index: number) => (
-					<SwiperSlide key={index} className={styles.swiperSlideTop}>
+					<SwiperSlide key={index} className={styles.swiperSlideBottom}>
 						{image.localFile?.childImageSharp?.gatsbyImageData && (
 							<GatsbyImage
 								image={
@@ -177,7 +179,7 @@ const Gallery: React.FC = () => {
 										image.localFile.childImageSharp.gatsbyImageData
 									) as IGatsbyImageData
 								}
-								alt='Your Image Alt Text'
+								alt={image.localFile.name}
 							/>
 						)}
 					</SwiperSlide>

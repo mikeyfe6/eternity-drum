@@ -29,7 +29,7 @@
 
 	.music {
 		background: $primaryColor;
-		outline: 3px solid lighten($primaryColor, 10%);
+		outline: 1px solid lighten($primaryColor, 10%);
 		color: white;
 		flex: 25%;
 		max-width: 450px;
@@ -77,7 +77,8 @@
 	width: 100%;
 	max-width: 1000px;
 	margin: 50px auto;
-	background: #80808010;
+	background: $lightgreyColor;
+	// color: white;
 	padding: 2em;
 
 	@media screen and ($small) {

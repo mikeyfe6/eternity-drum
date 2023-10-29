@@ -21,7 +21,7 @@ interface Post {
     id: string;
 }
 
-interface Vanancy {
+interface Vacancy {
     id: string;
     slug: string;
     jobTitle: string;
@@ -66,7 +66,7 @@ interface QueryResult {
     };
     allContentfulVacancy: {
         edges: {
-            node: Vanancy
+            node: Vacancy
         }[];
     };
 }
@@ -77,7 +77,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
     const vacancyTemplate = path.resolve('./src/templates/vacancy.tsx');
 
     const postQueryResult = await graphql<QueryResult>(`
-    query {
+    query postQuery {
       allContentfulPost {
         edges {
           node {
@@ -123,7 +123,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
     });
 
     const vacancyQueryResult = await graphql<QueryResult>(`
-    query {
+    query VacancyQuery {
         allContentfulVacancy {
             edges {
               node {

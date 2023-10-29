@@ -1,10 +1,10 @@
 @import '../configs/globals';
 
 .mobile-menu {
-	width: 350px;
+	width: 400px;
 	position: fixed;
 	top: 0;
-	left: -350px;
+	left: -400px;
 	height: 100%;
 	background: $primaryColor;
 	border-right: 3px solid rgba($tertiaryColor, 0.3);
@@ -18,8 +18,8 @@
 	@include boxShadow;
 
 	@media screen and ($small) {
-		width: 300px;
-		left: -300px;
+		width: 325px;
+		left: -325px;
 	}
 
 	.close {
@@ -179,10 +179,10 @@
 	}
 
 	&.close {
-		left: -350px;
+		left: -400px;
 
 		@media screen and ($small) {
-			left: -300px;
+			left: -325px;
 		}
 
 		> ul > li > i {

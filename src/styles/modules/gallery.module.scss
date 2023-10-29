@@ -49,50 +49,31 @@
 
 	&-wrapper {
 		@include epWrapper;
+		margin-bottom: 1em;
 	}
 
 	&-slide {
 		&-top {
-			border-radius: 7.5px;
 			overflow: hidden;
-
-			@media screen and ($small) {
-				border-radius: 0px;
-			}
 
 			img {
 				opacity: 0.75;
-				border-radius: 10px;
-				border: 1px solid rgba(255, 255, 255, 0.25);
+				border-radius: 5px;
+				border: 2px solid $primaryColor;
 
 				@include respImage(100%, 100%, 99.25%, cover);
-
-				// @media screen and ($large) {
-				// 	height: 400px;
-				// }
-
-				// @media screen and ($small) {
-				// 	height: 300px;
-				// 	border-radius: 0px;
-				// }
-
-				// @media screen and ($extraSmall) {
-				// 	height: 275px;
-				// }
-
-				// @media screen and ($ultraSmall) {
-				// 	height: 225px;
-				// }
 			}
 		}
 
 		&-bottom {
 			opacity: 0.75;
-			margin-top: 15px;
-			border-radius: 7.5px;
+			border-radius: 5px;
 			overflow: hidden;
-			border: 1px solid rgba(255, 255, 255, 0.25);
-			cursor: pointer;
+
+			img {
+				cursor: pointer;
+				border: 2px solid $primaryColor;
+			}
 
 			&:hover {
 				opacity: 1;
