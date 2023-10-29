@@ -1,6 +1,17 @@
 @import '../configs/globals';
 
 .component {
+	.loadingBtn {
+		margin-left: auto;
+
+		@include buttonStyle(
+			$tertiaryColor,
+			$whiteColor,
+			$secondaryColor,
+			$whiteColor
+		);
+	}
+
 	.music-info {
 		display: flex;
 		flex-direction: column;

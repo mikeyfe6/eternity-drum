@@ -86,6 +86,7 @@ const MusicPlayer: React.FC = () => {
 	const formatTime = (time: number) => {
 		const minutes = Math.floor(time / 60);
 		const seconds = Math.floor(time % 60);
+
 		return `${minutes}:${String(seconds).padStart(2, '0')}`;
 	};
 
@@ -101,8 +102,19 @@ const MusicPlayer: React.FC = () => {
 			.catch((error) => console.error(error));
 	};
 
+	const loadMusic = () => {
+		setIsLoaded(true);
+		setCurrentSong(0);
+	};
+
 	return (
 		<div className={styles.component}>
+			{!isLoaded && (
+				<button onClick={loadMusic} className={styles.loadingBtn}>
+					Open muziekspeler
+				</button>
+			)}
+
 			{isLoaded && (
 				<div className={styles.musicInfo}>
 					<div className={styles.albumCover}>
@@ -155,7 +167,7 @@ const MusicPlayer: React.FC = () => {
 				<>
 					<div className={styles.time}>
 						<span>{formatTime(currentTime)}</span>
-						<span> {formatTime(duration)}</span>
+						<span>-{formatTime(duration - currentTime)}</span>
 					</div>
 
 					<div className={styles.timeline}>
@@ -175,10 +187,6 @@ const MusicPlayer: React.FC = () => {
 						/>
 					</div>
 				</>
-			)}
-
-			{!isPlaying && !isLoaded && (
-				<p>Je browser ondersteund onze muziekspeler niet</p>
 			)}
 		</div>
 	);
