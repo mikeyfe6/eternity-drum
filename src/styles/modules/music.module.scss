@@ -44,7 +44,11 @@
 		@include baseTransition(all);
 
 		&:hover {
-			color: lighten($secondaryColor, 30%);
+			color: lighten($tertiaryColor, 15%);
+		}
+
+		&:active {
+			color: lighten($tertiaryColor, 5%);
 		}
 	}
 

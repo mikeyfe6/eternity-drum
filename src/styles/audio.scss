@@ -19,7 +19,11 @@ input[type='range'] {
 		z-index: 2;
 
 		&:hover {
-			background: lighten($secondaryColor, 30%);
+			background: lighten($tertiaryColor, 15%);
+		}
+
+		&:active {
+			background: lighten($tertiaryColor, 5%);
 		}
 	}
 }
