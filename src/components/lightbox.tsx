@@ -39,7 +39,11 @@ const LightBox = ({
 						</span>
 						{imageData && (
 							<div onClick={openModal}>
-								<GatsbyImage image={imageData} alt={alt} />
+								<GatsbyImage
+									image={imageData}
+									alt={alt}
+									className={styles.modalImage}
+								/>
 							</div>
 						)}
 					</div>

@@ -13,6 +13,9 @@ import Relevance from '../components/relevance';
 import GalleryOne from '../components/galleries/galleryOne';
 import GalleryTwo from '../components/galleries/galleryTwo';
 import GalleryThree from '../components/galleries/galleryThree';
+import GalleryFour from '../components/galleries/galleryFour';
+import GalleryFive from '../components/galleries/galleryFive';
+import GallerySix from '../components/galleries/gallerySix';
 
 import * as styles from '../styles/modules/media.module.scss';
 
@@ -45,9 +48,15 @@ const Media: React.FC<PageProps> = () => {
 					<h2>Foto's</h2>
 					<GalleryOne />
 					<hr />
-					<GalleryTwo />
+					<GalleryFour />
 					<hr />
 					<GalleryThree />
+					<hr />
+					<GalleryTwo />
+					<hr />
+					<GallerySix />
+					<hr />
+					<GalleryFive />
 				</section>
 			</section>
 		</Layout>

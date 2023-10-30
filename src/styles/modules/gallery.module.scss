@@ -7,6 +7,10 @@
 
 		@media screen and ($small) {
 			margin-bottom: 1em;
+
+			h3 {
+				font-size: 1.25rem;
+			}
 		}
 
 		.autoplay-progress {
@@ -62,10 +66,6 @@
 				border: 2px solid $blackColor;
 
 				@include respImage(100%, 100%, 99.25%, cover);
-
-				@media screen and ($small) {
-					border: 1px solid $blackColor;
-				}
 			}
 		}
 
@@ -73,18 +73,15 @@
 			opacity: 0.75;
 			border-radius: 5px;
 			overflow: hidden;
+			border: 2px solid $blackColor;
 
 			img {
 				cursor: pointer;
-				border: 2px solid $blackColor;
-
-				@media screen and ($small) {
-					border: 1px solid $blackColor;
-				}
 			}
 
 			&:hover {
 				opacity: 1;
+				border-color: $linkColor;
 			}
 		}
 	}
@@ -127,5 +124,5 @@
 	object-fit: cover;
 	display: block;
 	width: 90em;
-	outline: 2px solid $blackColor;
+	outline: 1px solid rgba($whiteColor, 33%);
 }
