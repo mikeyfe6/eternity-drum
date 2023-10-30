@@ -24,6 +24,11 @@
 
 		img {
 			border-radius: 3px;
+			border: 2px solid $blackColor;
+
+			@media screen and ($small) {
+				border: 1px solid $blackColor;
+			}
 		}
 	}
 
@@ -34,6 +39,11 @@
 
 		img {
 			border-radius: 3px;
+			border: 2px solid $blackColor;
+
+			@media screen and ($small) {
+				border: 1px solid $blackColor;
+			}
 		}
 
 		> div:not([data-main-modal]) {

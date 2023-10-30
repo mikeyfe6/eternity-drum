@@ -46,10 +46,7 @@ const SummerschoolFirst: React.FC<PageProps> = () => {
 				<h1>Summerschool 2020</h1>
 				<div className={styles.workshopContainer}>
 					<div className={styles.workshopVisuals}>
-						<LightBox
-							image={summerSchoolFlyer}
-							alt='Sankofa Flyer Achterkant'
-						/>
+						<LightBox image={summerSchoolFlyer} alt='Summerschool 2020 Flyer' />
 						<LightBox image={midzomerLogo} alt='Sankofa Flyer Voorkant' />
 					</div>
 					<section data-main-content className={styles.workshopInfo}>

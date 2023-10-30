@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
@@ -48,6 +48,9 @@ type ThumbsSwiperType = {
 const GalleryOne: React.FC = () => {
 	const [thumbsSwiper, setThumbsSwiper] =
 		React.useState<ThumbsSwiperType | null>(null);
+	const [lightboxImage, setLightboxImage] = useState<IGatsbyImageData | null>(
+		null
+	);
 
 	const progressCircle = React.useRef<SVGSVGElement | null>(null);
 	const progressContent = React.useRef<HTMLSpanElement | null>(null);
@@ -85,10 +88,19 @@ const GalleryOne: React.FC = () => {
 			'--progress',
 			String(1 - progress)
 		);
-
 		if (progressContent.current) {
 			progressContent.current.textContent = `${Math.ceil(time / 1000)}`;
 		}
+	};
+
+	const openLightbox = (image: IGatsbyImageData) => {
+		setLightboxImage(image);
+		document.body.style.overflow = 'hidden';
+	};
+
+	const closeLightbox = () => {
+		setLightboxImage(null);
+		document.body.style.overflow = 'visible';
 	};
 
 	return (
@@ -118,24 +130,32 @@ const GalleryOne: React.FC = () => {
 				scrollbar={{
 					draggable: true,
 				}}
-				autoplay={{
-					delay: 6000,
-					disableOnInteraction: false,
-				}}
+				// autoplay={{
+				// 	delay: 6000,
+				// 	disableOnInteraction: false,
+				// }}
 				onAutoplayTimeLeft={onAutoplayTimeLeft}
 				className={styles.swiperWrapper}
 			>
 				{images.map((image: ImageType, index: number) => (
 					<SwiperSlide key={index} className={styles.swiperSlideTop}>
 						{image.localFile?.childImageSharp?.gatsbyImageData && (
-							<GatsbyImage
-								image={
-									getImage(
-										image.localFile.childImageSharp.gatsbyImageData
-									) as IGatsbyImageData
+							<div
+								onClick={() =>
+									image.localFile?.childImageSharp?.gatsbyImageData &&
+									openLightbox(image.localFile.childImageSharp.gatsbyImageData)
 								}
-								alt={image.localFile.name}
-							/>
+								style={{ cursor: 'pointer' }}
+							>
+								<GatsbyImage
+									image={
+										getImage(
+											image.localFile.childImageSharp.gatsbyImageData
+										) as IGatsbyImageData
+									}
+									alt={image.localFile.name}
+								/>
+							</div>
 						)}
 					</SwiperSlide>
 				))}
@@ -186,6 +206,21 @@ const GalleryOne: React.FC = () => {
 					</SwiperSlide>
 				))}
 			</Swiper>
+
+			{lightboxImage && (
+				<div className={styles.lightboxContainer}>
+					<div className={styles.lightboxContent}>
+						<GatsbyImage
+							image={lightboxImage}
+							alt='Swazoom Live - 8 Juli 2023'
+							className={styles.lightboxImage}
+						/>
+					</div>
+					<button className={styles.lightboxClose} onClick={closeLightbox}>
+						&times;
+					</button>
+				</div>
+			)}
 		</section>
 	);
 };

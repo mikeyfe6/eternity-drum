@@ -59,9 +59,13 @@
 			img {
 				opacity: 0.75;
 				border-radius: 5px;
-				border: 2px solid $primaryColor;
+				border: 2px solid $blackColor;
 
 				@include respImage(100%, 100%, 99.25%, cover);
+
+				@media screen and ($small) {
+					border: 1px solid $blackColor;
+				}
 			}
 		}
 
@@ -72,13 +76,56 @@
 
 			img {
 				cursor: pointer;
-				border: 2px solid $primaryColor;
+				border: 2px solid $blackColor;
+
+				@media screen and ($small) {
+					border: 1px solid $blackColor;
+				}
 			}
 
 			&:hover {
 				opacity: 1;
-				border: 2px solid $secondaryColor;
 			}
 		}
 	}
+}
+
+.lightboxContainer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.875);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 9;
+}
+
+.lightboxContent {
+	max-width: 90%;
+	max-height: 90%;
+	position: relative;
+	text-align: center;
+}
+
+.lightboxClose {
+	position: fixed;
+	top: 15px;
+	right: 30px;
+	border: none;
+	cursor: pointer;
+	z-index: 10;
+	font-size: 45px;
+	color: $whiteColor;
+}
+
+.lightboxImage {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+	display: block;
+	width: 90em;
+	outline: 2px solid $blackColor;
 }

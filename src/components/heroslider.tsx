@@ -24,6 +24,7 @@ import beats from '../images/hero/beats.jpg';
 import mandhood from '../images/hero/manhood-ac.jpg';
 import umuntu from '../images/hero/umuntu.jpg';
 import youngep from '../images/hero/young-ep.jpg';
+import thecrew from '../images/hero/thecrew.jpg';
 
 const Hero: React.FC = () => {
 	const progressCircle = useRef<SVGSVGElement | null>(null);
@@ -74,6 +75,9 @@ const Hero: React.FC = () => {
 				</SwiperSlide>
 				<SwiperSlide className={styles.swiperSlide}>
 					<img src={youngep} alt='' />
+				</SwiperSlide>
+				<SwiperSlide className={styles.swiperSlide}>
+					<img src={thecrew} alt='' />
 				</SwiperSlide>
 
 				<div className={styles.autoplayProgress} slot='container-end'>
