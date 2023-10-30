@@ -114,8 +114,8 @@ section[data-main-content] {
 	}
 
 	hr {
-		color: #181a37;
-		background-color: #181a37;
+		color: $primaryColor;
+		background-color: $primaryColor;
 		opacity: 0.25;
 		border-radius: 50%;
 		margin: 2em 0;
@@ -210,10 +210,10 @@ u {
 
 iframe {
 	border-radius: 3px;
-	outline: 2px solid $blackColor;
+	outline: 2px solid $whiteColor;
 
 	@media screen and ($small) {
-		outline: 1px solid $blackColor;
+		outline: 1px solid $whiteColor;
 	}
 }
 

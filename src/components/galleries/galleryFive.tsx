@@ -103,7 +103,9 @@ const GalleryFive: React.FC = () => {
 
 	return (
 		<section className={styles.swiperContainer} data-main-gallery>
-			<h3>African Diaspora Performing Arts Festival - 10 november 2019</h3>
+			<h3>
+				African Diaspora Performing Arts Festival <span>10 november 2019</span>
+			</h3>
 			<Swiper
 				modules={[
 					Navigation,

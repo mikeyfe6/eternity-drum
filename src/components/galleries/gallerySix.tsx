@@ -103,7 +103,9 @@ const GallerySix: React.FC = () => {
 
 	return (
 		<section className={styles.swiperContainer} data-main-gallery>
-			<h3>African Diaspora Performing Arts Festival - 14 november 2021</h3>
+			<h3>
+				African Diaspora Performing Arts Festival <span>14 november 2021</span>
+			</h3>
 			<Swiper
 				modules={[
 					Navigation,

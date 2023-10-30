@@ -5,11 +5,25 @@
 		width: 100%;
 		margin-bottom: 1.5em;
 
+		h3 {
+			> span {
+				font-size: 1.125rem;
+				margin-left: 0.125em;
+				opacity: 0.75;
+			}
+		}
+
 		@media screen and ($small) {
 			margin-bottom: 1em;
 
 			h3 {
 				font-size: 1.25rem;
+
+				> span {
+					font-size: 1rem;
+					margin-left: 0em;
+					display: block;
+				}
 			}
 		}
 
@@ -54,7 +68,7 @@
 
 	&-wrapper {
 		@include epWrapper;
-		margin-bottom: 1em;
+		margin-bottom: 0.5em;
 	}
 
 	&-slide {

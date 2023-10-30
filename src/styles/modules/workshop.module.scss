@@ -24,7 +24,7 @@
 
 		img {
 			border-radius: 3px;
-			border: 1px solid $blackColor;
+			border: 1px solid $whiteColor;
 		}
 	}
 
@@ -34,11 +34,11 @@
 		gap: 75px;
 
 		img {
-			border-radius: 3px;
-			border: 2px solid $blackColor;
+			border-radius: 5px;
+			outline: 2px solid $whiteColor;
 
 			@media screen and ($small) {
-				border: 1px solid $blackColor;
+				border: 1px solid $whiteColor;
 			}
 		}
 

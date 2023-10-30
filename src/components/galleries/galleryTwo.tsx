@@ -105,7 +105,9 @@ const GalleryTwo: React.FC = () => {
 
 	return (
 		<section className={styles.swiperContainer} data-main-gallery>
-			<h3>Swazoom Live - 3 December 2022</h3>
+			<h3>
+				Swazoom Live <span>3 December 2022</span>
+			</h3>
 			<Swiper
 				modules={[
 					Navigation,
