@@ -177,7 +177,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
         createPage({
             component: vacancyTemplate,
             ownerNodeId: node.id,
-            path: `/vacatures/${node.slug}/`,
+            path: `/over-ons/vacatures/${node.slug}/`,
             context: {
                 slug: node.slug,
                 jobTitle: node.jobTitle,

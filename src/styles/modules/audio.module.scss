@@ -84,19 +84,85 @@
 		}
 	}
 
-	.control-button {
-		font-size: 3.25em;
-		color: $whiteColor;
-		cursor: pointer;
+	.control {
+		&-button {
+			font-size: 3.25em;
+			color: $whiteColor;
+			cursor: pointer;
 
-		@include baseTransition(all);
+			@include baseTransition(all);
 
-		&:hover {
-			color: lighten($tertiaryColor, 10%);
+			&:hover {
+				color: lighten($tertiaryColor, 10%);
+			}
+
+			&:active {
+				color: lighten($tertiaryColor, 2.5%);
+			}
 		}
 
-		&:active {
-			color: lighten($tertiaryColor, 2.5%);
+		&-volume {
+			position: absolute;
+			right: 0;
+			bottom: 13.75em;
+			height: 0px;
+
+			@media screen and ($large) {
+				display: none;
+			}
+
+			&:hover {
+				> span {
+					opacity: 1;
+				}
+
+				input[type='range'] {
+					opacity: 1;
+				}
+			}
+
+			> i {
+				text-align: center;
+				margin: 0 auto;
+				font-size: 1.5em;
+				position: absolute;
+				right: 2em;
+				bottom: -3.75em;
+				padding-top: 1em;
+				width: 30px;
+				cursor: pointer;
+			}
+
+			> span {
+				position: absolute;
+				right: 3.1em;
+				bottom: 4.75em;
+				width: 30px;
+				text-align: center;
+				opacity: 0;
+			}
+
+			input[type='range'] {
+				transform: rotate(270deg);
+				position: relative;
+				bottom: 30px;
+				outline: none;
+				opacity: 0;
+
+				@include baseTransition(all);
+
+				&::-webkit-slider-runnable-track {
+					position: relative;
+					border-radius: 2px;
+					cursor: pointer;
+					background: $whiteColor;
+					height: 5px;
+				}
+
+				&::-webkit-slider-thumb {
+					margin-top: -10px;
+				}
+			}
 		}
 	}
 

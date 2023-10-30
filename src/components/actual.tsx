@@ -6,7 +6,7 @@ import * as styles from '../styles/modules/actual.module.scss';
 interface Post {
 	title: string;
 	slug: string;
-	contentful_id: string;
+	id: string;
 	postType: [
 		{
 			name: string;
@@ -49,7 +49,7 @@ const Actualiteiten: React.FC = () => {
 					excerpt {
 						excerptText: excerpt
 					}
-					contentful_id
+					id
 					slug
 				}
 			}
@@ -72,7 +72,7 @@ const Actualiteiten: React.FC = () => {
 				{posts.map(
 					({
 						title,
-						contentful_id,
+						id,
 						postType,
 						publishedDate,
 						featuredImage,
@@ -91,7 +91,7 @@ const Actualiteiten: React.FC = () => {
 						});
 
 						return (
-							<li key={contentful_id}>
+							<li key={id}>
 								<Link to={`${slug}/`}>
 									<img src={featuredImage.url} alt={featuredImage.title} />
 								</Link>

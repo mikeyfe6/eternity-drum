@@ -34,6 +34,7 @@
 		flex: 25%;
 		max-width: 450px;
 		border-radius: 5px;
+		position: relative;
 
 		@media screen and ($large) {
 			width: 450px;

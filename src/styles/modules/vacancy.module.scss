@@ -1,0 +1,19 @@
+@import '../configs/globals';
+
+.vacancies {
+	li {
+		background: #80808010;
+		width: fit-content;
+
+		@include boxShadow;
+
+		a {
+			display: block;
+			padding: 1em;
+
+			&:hover {
+				outline: 2px solid $linkColor;
+			}
+		}
+	}
+}

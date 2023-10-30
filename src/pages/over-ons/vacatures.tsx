@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type { HeadFC, PageProps } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 
 import { SEO } from '../../components/seo';
 
@@ -8,9 +9,46 @@ import Breadcrumb from '../../components/breadcrumbs';
 
 import Hero from '../../components/heroslider';
 
-import { Link } from 'gatsby';
+import * as styles from '../../styles/modules/vacancy.module.scss';
+
+interface Vacancy {
+	id: string;
+	slug: string;
+	jobTitle: string;
+	department: string;
+	jobImage: {
+		url: string;
+		title: string;
+		description: string;
+	};
+	jobDescription: {
+		raw: string;
+	};
+	organisationDetails: {
+		raw: string;
+	};
+	location: {
+		lat: number;
+		lon: number;
+	};
+	applicationDeadline: string;
+}
 
 const Vacatures: React.FC<PageProps> = () => {
+	const data = useStaticQuery(graphql`
+		query {
+			allContentfulVacancy {
+				nodes {
+					id
+					slug
+					jobTitle
+				}
+			}
+		}
+	`);
+
+	const vacancies: Vacancy[] = data.allContentfulVacancy.nodes;
+
 	const breadcrumbs = [
 		{ label: 'Home', link: '/' },
 		{ label: 'Over Ons', link: '/over-ons/' },
@@ -25,9 +63,17 @@ const Vacatures: React.FC<PageProps> = () => {
 
 				<h1>Vacatures</h1>
 
-				<Link to='/vacatures/meewerkend-coordinator-productie'>
-					Vacature: Meewerkend Coordinator Productie
-				</Link>
+				<ul className={styles.vacancies}>
+					{vacancies.map(({ slug, jobTitle, id }) => {
+						return (
+							<li key={id}>
+								<Link to={`${slug}/`}>
+									<p>Vacature: {jobTitle}</p>
+								</Link>
+							</li>
+						);
+					})}
+				</ul>
 			</section>
 		</Layout>
 	);

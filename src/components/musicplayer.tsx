@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import * as styles from '../styles/modules/music.module.scss';
+import * as styles from '../styles/modules/audio.module.scss';
 
 import albumCover from '../images/logo/ep-logo-small.png';
 
@@ -11,6 +11,7 @@ const MusicPlayer: React.FC = () => {
 	const [currentTime, setCurrentTime] = useState(0);
 	const [isLoaded, setIsLoaded] = useState(false);
 	const [duration, setDuration] = useState(0);
+	const [volume, setVolume] = useState(100);
 	const [songs, setSongs] = useState<Array<any>>([]);
 
 	const audioElementRefs = useRef<Array<HTMLAudioElement | null>>([]);
@@ -62,6 +63,13 @@ const MusicPlayer: React.FC = () => {
 				.catch((error) => console.error(error));
 		}
 
+		if (audioElementRefs.current[currentSong]) {
+			const audioElement = audioElementRefs.current[currentSong];
+			if (audioElement) {
+				audioElement.volume = volume / 100;
+			}
+		}
+
 		audioElementRefs.current[currentSong]?.addEventListener(
 			'timeupdate',
 			() => {
@@ -109,7 +117,7 @@ const MusicPlayer: React.FC = () => {
 				audioElementRefs.current[currentSong]?.pause();
 			}
 		};
-	}, [currentSong, isPlaying, songs]);
+	}, [currentSong, isPlaying, songs, volume]);
 
 	const switchToNextSong = () => {
 		const nextSongIndex = (currentSong + 1) % songs.length;
@@ -193,6 +201,35 @@ const MusicPlayer: React.FC = () => {
 					>
 						<i className='fas fa-step-forward'></i>
 					</button>
+
+					<div className={styles.controlVolume}>
+						{volume === 0 && (
+							<i
+								className='fa-solid fa-volume-mute'
+								onClick={() => setVolume(100)}
+							/>
+						)}
+						{volume > 1 && volume < 49 && (
+							<i
+								className='fa-solid fa-volume-low'
+								onClick={() => setVolume(100)}
+							/>
+						)}
+						{volume > 50 && volume <= 100 && (
+							<i
+								className='fa-solid fa-volume-high'
+								onClick={() => setVolume(0)}
+							/>
+						)}
+						<span>{volume}</span>
+						<input
+							type='range'
+							min={0}
+							max={100}
+							value={volume}
+							onChange={(event) => setVolume(parseInt(event.target.value, 10))}
+						/>
+					</div>
 				</div>
 			)}
 
