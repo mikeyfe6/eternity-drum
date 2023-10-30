@@ -45,7 +45,7 @@ type ThumbsSwiperType = {
 	wrapperEl: HTMLElement | null;
 };
 
-const Gallery: React.FC = () => {
+const GalleryOne: React.FC = () => {
 	const [thumbsSwiper, setThumbsSwiper] =
 		React.useState<ThumbsSwiperType | null>(null);
 
@@ -190,4 +190,4 @@ const Gallery: React.FC = () => {
 	);
 };
 
-export default Gallery;
+export default GalleryOne;

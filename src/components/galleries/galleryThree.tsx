@@ -45,7 +45,7 @@ type ThumbsSwiperType = {
 	wrapperEl: HTMLElement | null;
 };
 
-const GalleryTwo: React.FC = () => {
+const GalleryThree: React.FC = () => {
 	const [thumbsSwiper, setThumbsSwiper] =
 		React.useState<ThumbsSwiperType | null>(null);
 
@@ -53,9 +53,9 @@ const GalleryTwo: React.FC = () => {
 	const progressContent = React.useRef<HTMLSpanElement | null>(null);
 
 	const data = useStaticQuery(graphql`
-		query AllGalleryTwoImages {
+		query AllGalleryThreeImages {
 			allS3Object(
-				filter: { Key: { regex: "/^photos/swazoomlive-031222/[^/]+$/" } }
+				filter: { Key: { regex: "/^photos/bijlmeronstage-181222/[^/]+$/" } }
 			) {
 				nodes {
 					Key
@@ -93,7 +93,7 @@ const GalleryTwo: React.FC = () => {
 
 	return (
 		<section className={styles.swiperContainer}>
-			<h3>Swazoom Live - 3 December 2022</h3>
+			<h3>Bijlmer on Stage - 18 December 2022</h3>
 			<Swiper
 				modules={[
 					Navigation,
@@ -190,4 +190,4 @@ const GalleryTwo: React.FC = () => {
 	);
 };
 
-export default GalleryTwo;
+export default GalleryThree;

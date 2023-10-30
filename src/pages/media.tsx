@@ -10,8 +10,9 @@ import Hero from '../components/heroslider';
 import MusicPlayer from '../components/musicplayer';
 import Relevance from '../components/relevance';
 
-import Gallery from '../components/galleries/galleryOne';
+import GalleryOne from '../components/galleries/galleryOne';
 import GalleryTwo from '../components/galleries/galleryTwo';
+import GalleryThree from '../components/galleries/galleryThree';
 
 import * as styles from '../styles/modules/media.module.scss';
 
@@ -42,11 +43,11 @@ const Media: React.FC<PageProps> = () => {
 
 				<section className={styles.photos}>
 					<h2>Foto's</h2>
-					<Gallery />
-					<br />
+					<GalleryOne />
 					<hr />
-					<br />
 					<GalleryTwo />
+					<hr />
+					<GalleryThree />
 				</section>
 			</section>
 		</Layout>

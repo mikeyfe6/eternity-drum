@@ -7,6 +7,10 @@ input[type='range'] {
 
 	&::-webkit-slider-runnable-track {
 		z-index: 1;
+
+		&:hover {
+			outline: lighten($tertiaryColor, 0%);
+		}
 	}
 
 	&::-webkit-slider-thumb {

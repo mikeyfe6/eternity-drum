@@ -75,14 +75,19 @@
 
 .photos {
 	width: 100%;
-	max-width: 1000px;
+	max-width: 1200px;
 	margin: 50px auto;
-	background: $lightgreyColor;
+	background: lighten($lightgreyColor, 10%);
 	// color: white;
-	padding: 2em;
+	padding: 1.5em 1.5em 0.25em;
 
 	@media screen and ($small) {
-		padding: 1em;
+		padding: 0.75em;
+	}
+
+	hr {
+		margin: 3em 0 2em;
+		background-color: $whiteColor;
 	}
 
 	@include boxShadow;
