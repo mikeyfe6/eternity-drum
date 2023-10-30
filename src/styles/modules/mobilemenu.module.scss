@@ -79,6 +79,19 @@
 				font-size: 1.5rem;
 				letter-spacing: 1px;
 
+				&.special {
+					color: $whiteColor;
+					background: $tertiaryColor;
+
+					padding: 0.375em 0.5em;
+					margin-left: -0.125em;
+
+					&.active-menu-item {
+						color: $secondaryColor;
+						background: $tertiaryColor;
+					}
+				}
+
 				@media screen and ($landscape) and ($large) {
 					font-size: 1.125rem;
 				}

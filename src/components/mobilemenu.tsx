@@ -144,6 +144,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 					<Link
 						to='/seda/'
 						activeClassName={styles.activeMenuItem}
+						className={styles.special}
 						onClick={handleMenuItemClick}
 					>
 						SEDA

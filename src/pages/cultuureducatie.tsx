@@ -40,8 +40,9 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 					</p>
 
 					<p>
-						Momenteel verzorgen wij diverse drumworkshops en lessen o.a. op het
-						Bindelmeer College en Bredeschool in Amsterdam Zuidoost.
+						Momenteel verzorgen wij diverse drumworkshops en lessen o.a. op het{' '}
+						<a href='#!'>Bindelmeer College</a> en <a href='#!'>Bredeschool</a>{' '}
+						in Amsterdam Zuidoost.
 					</p>
 				</section>
 			</section>

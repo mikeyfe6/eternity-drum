@@ -87,7 +87,7 @@ const Sankofa: React.FC<PageProps> = () => {
 							project is in het kader van de afschaffing van de
 							Trans-Atlantische slavernij door Nederland in Suriname en de
 							voormalige Nederlandse Antillen. Dit project is in samenwerking
-							met Untold Empowerment.
+							met <a href='#!'>Untold Empowerment</a>.
 						</p>
 
 						<p>

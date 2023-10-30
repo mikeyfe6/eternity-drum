@@ -233,6 +233,11 @@
 					&.special {
 						color: $whiteColor;
 						background: $tertiaryColor;
+
+						&.active-menu-item {
+							background: $secondaryColor;
+							color: $primaryColor;
+						}
 					}
 				}
 
