@@ -102,7 +102,7 @@ const GallerySix: React.FC = () => {
 	};
 
 	return (
-		<section className={styles.swiperContainer}>
+		<section className={styles.swiperContainer} data-main-gallery>
 			<h3>African Diaspora Performing Arts Festival - 14 november 2021</h3>
 			<Swiper
 				modules={[
@@ -115,7 +115,7 @@ const GallerySix: React.FC = () => {
 					FreeMode,
 					Thumbs,
 				]}
-				spaceBetween={10}
+				spaceBetween={5}
 				slidesPerView={1}
 				centeredSlides={true}
 				loop={true}
@@ -124,6 +124,8 @@ const GallerySix: React.FC = () => {
 				thumbs={{ swiper: thumbsSwiper as any }}
 				pagination={{
 					clickable: true,
+					dynamicBullets: true,
+					dynamicMainBullets: 7,
 				}}
 				scrollbar={{
 					draggable: true,

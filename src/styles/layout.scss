@@ -5,12 +5,13 @@
 
 :root {
 	--swiper-theme-color: #f6ce0e !important;
+	--swiper-theme-color-hover: #4169e1 !important;
 	--swiper-scrollbar-drag-bg-color: #f6ce0e !important;
 	--swiper-pagination-color: #f6ce0e !important;
-	--swiper-pagination-bottom: 15px !important;
 	--swiper-scrollbar-bg-color: #181a3730 !important;
 	--swiper-pagination-bullet-inactive-color: #fff !important;
-	--swiper-pagination-bullet-inactive-opacity: 0.3 !important;
+	--swiper-pagination-bullet-inactive-color-hover: #f6ce0e !important;
+	--swiper-pagination-bullet-inactive-opacity: 0.125 !important;
 }
 
 html,
@@ -58,14 +59,12 @@ body {
 	}
 
 	main {
-		flex: 7; /* 70% of the available space */
-		/* Add any other styles for the main content */
+		flex: 7;
 		width: 100%;
 	}
 
 	aside {
-		flex: 3; /* 30% of the available space */
-		/* Add any other styles for the sidebar */
+		flex: 3;
 		width: 100%;
 	}
 }

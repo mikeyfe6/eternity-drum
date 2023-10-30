@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
 	};
 
 	return (
-		<section className={styles.swiperContainer}>
+		<section className={styles.swiperContainer} data-main-hero>
 			<Swiper
 				modules={[Navigation, Pagination, Scrollbar, A11y, Parallax, Autoplay]}
 				spaceBetween={0}

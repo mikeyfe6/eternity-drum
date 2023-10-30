@@ -102,7 +102,7 @@ const GalleryFour: React.FC = () => {
 	};
 
 	return (
-		<section className={styles.swiperContainer}>
+		<section className={styles.swiperContainer} data-main-gallery>
 			<h3>Eternity in UK 2023 (collab. w/ ACE Dance & Music</h3>
 			<Swiper
 				modules={[
@@ -115,7 +115,7 @@ const GalleryFour: React.FC = () => {
 					FreeMode,
 					Thumbs,
 				]}
-				spaceBetween={10}
+				spaceBetween={5}
 				slidesPerView={1}
 				centeredSlides={true}
 				loop={true}
@@ -124,6 +124,8 @@ const GalleryFour: React.FC = () => {
 				thumbs={{ swiper: thumbsSwiper as any }}
 				pagination={{
 					clickable: true,
+					dynamicBullets: true,
+					dynamicMainBullets: 7,
 				}}
 				scrollbar={{
 					draggable: true,
