@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useState, useEffect } from 'react';
 
 import Header from '../components/header';
 import Footer from '../components/footer';
@@ -33,6 +33,20 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 			closeMobileMenu();
 		}
 	};
+
+	useEffect(() => {
+		const handleResize = () => {
+			if (window.innerWidth > 1400 && isMobileMenuOpen) {
+				closeMobileMenu();
+			}
+		};
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, [isMobileMenuOpen]);
 
 	return (
 		<div className='eternity-container'>
