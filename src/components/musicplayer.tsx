@@ -209,13 +209,13 @@ const MusicPlayer: React.FC = () => {
 								onClick={() => setVolume(100)}
 							/>
 						)}
-						{volume > 1 && volume < 49 && (
+						{volume >= 1 && volume <= 49 && (
 							<i
 								className='fa-solid fa-volume-low'
 								onClick={() => setVolume(100)}
 							/>
 						)}
-						{volume > 50 && volume <= 100 && (
+						{volume >= 50 && volume <= 100 && (
 							<i
 								className='fa-solid fa-volume-high'
 								onClick={() => setVolume(0)}
