@@ -35,9 +35,10 @@
 				font-family: $bebasNeue;
 				font-size: 1.3rem;
 				letter-spacing: 2px;
+				padding-top: 0.125em;
 
 				@media screen and ($small) {
-					font-size: 1.2rem;
+					font-size: 1.1rem;
 				}
 			}
 
