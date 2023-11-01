@@ -20,7 +20,9 @@ const siteMetadata = {
 	youtubeUrl: `https://www.youtube.com/@eternitydrum`,
 
 	telephone: `+31 (0)20 311 39 33`,
-	phoneRaw: `+31203113933`,
+	phoneRaw: `31203113933`,
+	mobile: `31624255391`,
+
 	email: `info@eternitydrum.com`,
 	address: `Anton de Komplein 240`,
 	postalCode: `1104 DR`,

@@ -136,15 +136,14 @@
 
 		.mobile {
 			&-logo {
+				margin-left: 0.5em;
 				width: 250px;
-				height: auto;
-				margin-right: 10px;
 
 				@media screen and ($small) {
 					width: 200px;
 				}
 
-				@media screen and ($extraSmall) {
+				@media screen and ($ultraSmall) {
 					width: 175px;
 				}
 			}
@@ -179,29 +178,22 @@
 					display: flex;
 					flex-direction: column;
 					justify-content: space-between;
-					width: 30px;
-					height: 20px;
+					width: 40px;
+					height: 30px;
+
+					@media screen and ($small) {
+						width: 32.5px;
+						height: 27.5px;
+					}
 				}
 
 				.bar {
 					width: 100%;
-					height: 3px;
+					height: 5px;
+					border-radius: 25px;
 					background: $primaryColor;
 					transition: 0.4s;
 				}
-
-				/* Add animation for the bars when the menu opens */
-				// .hamburger-button.open .bar:nth-child(1) {
-				// 	transform: rotate(-45deg) translate(-5px, 6px);
-				// }
-
-				// .hamburger-button.open .bar:nth-child(2) {
-				// 	opacity: 0;
-				// }
-
-				// .hamburger-button.open .bar:nth-child(3) {
-				// 	transform: rotate(45deg) translate(-5px, -6px);
-				// }
 			}
 		}
 
@@ -211,19 +203,57 @@
 			justify-content: center;
 			padding: 0;
 			margin: 0;
-			gap: 25px;
+			gap: 20px;
 
 			@media screen and ($superSized) {
 				display: none;
 			}
 
 			> li {
+				&.logo {
+					position: relative;
+
+					&::after {
+						content: '';
+						height: 50%;
+						width: 1px;
+
+						position: absolute;
+						right: 0;
+						top: 50%;
+						transform: translateY(-50%);
+
+						background-color: rgba(128, 128, 128, 0.25);
+					}
+
+					&::before {
+						content: '';
+						height: 50%;
+						width: 1px;
+
+						position: absolute;
+						left: 0;
+						top: 50%;
+						transform: translateY(-50%);
+
+						background-color: rgba(128, 128, 128, 0.25);
+					}
+				}
 				> a {
 					font-size: 1.3rem;
 					font-family: $bebasNeue;
 					letter-spacing: 1px;
 					padding: 0.5em 0.5em 0.35em;
 					display: flex;
+
+					&.logo-wrapper {
+						margin: 0 1.5em;
+						width: 275px;
+
+						img {
+							padding-bottom: 0.375em;
+						}
+					}
 
 					&:hover:not(.logo-wrapper, .active-menu-item) {
 						color: $whiteColor;

@@ -15,7 +15,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 	const [isHeaderFixed, setIsHeaderFixed] = React.useState(false);
 	const [, setScrollY] = React.useState(0);
 
-	const { title, facebookUrl, instagramUrl, linkedinUrl, youtubeUrl } =
+	const { title, facebookUrl, instagramUrl, linkedinUrl, youtubeUrl, mobile } =
 		useSiteMetadata();
 
 	React.useEffect(() => {
@@ -106,12 +106,31 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 									<i className='fab fa-youtube' />
 								</a>
 							</li>
+							<li>
+								<a
+									href={`https://wa.me/${mobile}`}
+									rel='noopener noreferrer'
+									target='_blank'
+								>
+									<i className='fab fa-whatsapp' />
+								</a>
+							</li>
 						</ul>
 					</div>
 				</div>
 
 				<nav className={menuSwitchClass}>
 					<div className={styles.mobileMenuContainer}>
+						<div className={styles.mobileLogo}>
+							<Link to='/'>
+								<StaticImage
+									src='../images/logo/ep-logo.png'
+									alt={`${title} Logo`}
+									placeholder='blurred'
+								/>
+							</Link>
+						</div>
+
 						<button
 							type='button'
 							onClick={openMobileMenu}
@@ -123,18 +142,6 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 								<div className={styles.bar} />
 							</div>
 						</button>
-
-						<div className={styles.mobileLogo}>
-							<Link to='/'>
-								<StaticImage
-									src='../images/logo/ep-logo.png'
-									alt={`${title} Logo`}
-									placeholder='dominantColor'
-									objectFit='contain'
-									imgClassName={styles.mobileLogo}
-								/>
-							</Link>
-						</div>
 					</div>
 
 					<ul className={styles.menuItems}>
@@ -183,17 +190,12 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 								Cultuureducatie
 							</Link>
 						</li>
-						<li>
+						<li className={styles.logo}>
 							<Link to='/' className={styles.logoWrapper}>
 								<StaticImage
 									src='../images/logo/ep-logo.png'
 									alt={`${title} Logo`}
-									placeholder='dominantColor'
-									style={{
-										width: '100%',
-										minWidth: '250px',
-										maxWidth: '250px',
-									}}
+									placeholder='blurred'
 								/>
 							</Link>
 						</li>

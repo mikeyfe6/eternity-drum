@@ -11,7 +11,7 @@ const Partners: React.FC = () => {
 				nodes {
 					relativePath
 					childImageSharp {
-						gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
+						gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
 					}
 				}
 			}

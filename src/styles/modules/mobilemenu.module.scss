@@ -6,7 +6,7 @@
 	top: 0;
 	left: -400px;
 	height: 100%;
-	background: $primaryColor;
+	background: rgba($primaryColor, 75%);
 	border-right: 3px solid rgba($tertiaryColor, 0.3);
 	overflow-x: hidden;
 	z-index: 6;
@@ -27,13 +27,17 @@
 			position: absolute;
 			width: 35px;
 			height: 35px;
-			top: 25px;
-			right: 25px;
+			top: 20px;
+			right: 20px;
 			padding: 1em;
-			background: $tertiaryColor;
+			background-color: $whiteColor;
 			border-radius: 3px;
 			z-index: 7;
 			cursor: pointer;
+
+			@media screen and ($small) {
+				transform: scale(0.875);
+			}
 		}
 
 		&-cross {
@@ -43,7 +47,8 @@
 				width: 3px;
 				height: 25px;
 				position: absolute;
-				background-color: $whiteColor;
+				background: $primaryColor;
+				border-radius: 25px;
 				transform: rotate(45deg);
 				transition: transform 0.3s ease-in-out;
 			}
@@ -104,12 +109,13 @@
 
 			> i {
 				font-size: 1.25rem;
-				background: $tertiaryColor;
-				color: $whiteColor;
-				width: 20px;
-				height: 20px;
+				background: $whiteColor;
+				color: $tertiaryColor;
+				width: 25px;
+				height: 25px;
+				padding: 0.1em;
 				text-align: center;
-				border-radius: 3px;
+				border-radius: 50%;
 
 				position: absolute;
 				top: 21px;
@@ -121,6 +127,9 @@
 
 				@media screen and ($small) {
 					top: 15px;
+					width: 20px;
+					height: 20px;
+					padding: 0em;
 				}
 
 				cursor: pointer;
@@ -136,11 +145,9 @@
 				> ul {
 					width: 100%;
 					margin-top: 0.5em;
-					background: $primaryColor;
 					transition: all 0.3s ease-in-out;
 					list-style-type: square;
 					list-style-position: inside;
-					color: $whiteColor;
 
 					@media screen and ($small) {
 						margin-top: 0.25em;
@@ -159,10 +166,6 @@
 
 						@media screen and ($small) {
 							padding: 1em 0 0.25em;
-						}
-
-						> i {
-							color: $secondaryColor;
 						}
 
 						> a {

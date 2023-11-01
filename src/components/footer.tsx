@@ -80,7 +80,7 @@ const Footer = () => {
 							<li>
 								<i className='fas fa-phone' />
 								<a
-									href={`tel:${phoneRaw}`}
+									href={`tel:+${phoneRaw}`}
 									rel='noopener noreferrer'
 									target='_blank'
 								>
@@ -221,6 +221,15 @@ const Footer = () => {
 											target='_blank'
 										>
 											<i className='fab fa-youtube' />
+										</a>
+									</li>
+									<li>
+										<a
+											href={`https://wa.me/${phoneRaw}`}
+											rel='noopener noreferrer'
+											target='_blank'
+										>
+											<i className='fab fa-whatsapp' />
 										</a>
 									</li>
 								</ul>
