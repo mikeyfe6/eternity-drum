@@ -4,7 +4,7 @@
 	&-container {
 		display: flex;
 		justify-content: center;
-		align-items: center;
+
 		gap: 100px;
 		margin: 50px 0;
 
@@ -13,7 +13,7 @@
 		}
 
 		> :nth-child(1) {
-			max-width: 500px;
+			max-width: 600px;
 		}
 
 		> :nth-child(2) {
@@ -25,23 +25,6 @@
 		}
 
 		@media screen and ($large) {
-			align-items: start;
-			flex-direction: row;
-			justify-content: space-evenly;
-			width: 100%;
-			margin: 0;
-			gap: 25px;
-
-			> :nth-child(1) {
-				flex: 55%;
-			}
-
-			> :nth-child(2) {
-				flex: 45%;
-			}
-		}
-
-		@media screen and ($medium) {
 			align-items: center;
 			gap: 50px;
 			flex-direction: column-reverse;
@@ -49,59 +32,71 @@
 			> :nth-child(1) {
 				max-width: 600px;
 			}
+
+			> :nth-child(2) {
+				max-width: 600px;
+			}
 		}
 	}
 
 	&-wrapper {
+		background: $primaryColor;
+		color: $whiteColor;
+		padding: 1.5em 2em;
+		border-radius: 10px;
+
 		@media screen and ($small) {
 			display: block;
 			width: 100%;
+			padding: 1.5em 1.25em;
+		}
+
+		> h2 {
+			font-size: 2.5rem;
+			text-decoration: underline;
+			text-decoration-color: $tertiaryColor;
+			text-underline-offset: 4px;
 		}
 
 		form {
-			background: $primaryColor;
-			color: $whiteColor;
-			padding: 1.5em 2em;
-			border-radius: 10px;
 			display: flex;
 			flex-direction: column;
 
-			@include boxShadow;
+			> span {
+				font-size: 1.125rem;
+				font-weight: 600;
+				margin-top: 1.5em;
+			}
 
-			fieldset {
+			> fieldset {
 				display: flex;
 				flex-direction: column;
 
-				legend {
-					font-weight: 600;
+				&:nth-of-type(2) {
+					margin-top: 2em;
+				}
+
+				> legend {
 					font-size: 1.125rem;
-					margin-bottom: 0.75em;
-				}
-
-				label {
-					display: none;
-				}
-
-				input,
-				textarea,
-				select {
-					margin: 0.5em 0;
+					font-weight: 600;
+					margin-bottom: 2em;
 				}
 
 				input {
 					border-radius: 5px;
-					padding: 0.5em 0.75em;
+					padding: 0.5em 0.5em 0.6em 0.6em;
 					width: 100%;
 
-					@media screen and ($medium) {
-						min-width: auto;
-						width: 100%;
+					@media screen and ($small) {
+						border-radius: 3px;
 					}
+
+					@include baseTransition(outline-color);
 				}
 
 				textarea {
 					border-radius: 5px;
-					padding: 0.5em 0.75em;
+					padding: 0.5em 0.75em 0.6em;
 					width: 100%;
 					min-height: 7.5em;
 
@@ -109,47 +104,104 @@
 						min-width: auto;
 						width: 100%;
 					}
+
+					@media screen and ($small) {
+						border-radius: 3px;
+					}
 				}
-			}
-
-			button {
-				@include buttonStyle(
-					$whiteColor,
-					$primaryColor,
-					$whiteColor,
-					$tertiaryColor
-				);
-
-				margin-top: 1em;
-				align-self: end;
 			}
 		}
 	}
 
-	&-select {
-		position: relative;
-		width: 100%;
+	&-submit {
+		display: flex;
+		justify-content: space-between;
+		margin: 2em 0;
 
-		select {
-			width: 100%;
-			padding: 10px;
-			border-radius: 5px;
-
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
+		@media screen and ($extraLarge) {
+			flex-direction: column-reverse;
+			gap: 20px;
 		}
 
-		.arrow {
-			position: absolute;
-			top: 50%;
-			right: 10px;
-			transform: translateY(-50%);
-			width: 0;
-			height: 0;
-			border-left: 7.5px solid transparent;
-			border-right: 7.5px solid transparent;
-			border-top: 7.5px solid $primaryColor;
+		@media screen and ($large) {
+			flex-direction: row;
+		}
+
+		@media screen and ($small) {
+			flex-direction: column-reverse;
+		}
+
+		> div {
+			&:not(:empty) {
+				@media screen and ($extraLarge) {
+					border-top: solid 2px rgba(128, 128, 128, 0.1);
+					border-bottom: solid 2px rgba(128, 128, 128, 0.1);
+					padding: 1em 0.5em 1.75em;
+					margin-top: 1em;
+				}
+
+				@media screen and ($large) {
+					border: none;
+					padding: 0 0.5em 1.75em;
+					margin-top: 0em;
+				}
+
+				@media screen and ($small) {
+					border-top: solid 2px rgba(128, 128, 128, 0.1);
+					border-bottom: solid 2px rgba(128, 128, 128, 0.1);
+					padding: 1em 0.5em 1.75em;
+					margin-top: 1em;
+				}
+			}
+
+			> span {
+				font-size: 0.875rem;
+				text-underline-offset: 4px;
+				text-decoration-thickness: 2px;
+			}
+
+			> ul {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				margin-top: 1.75em;
+
+				> li {
+					background: $redColor;
+					border-radius: 3px;
+					padding: 0.25em 0.75em;
+					font-size: 0.8rem;
+					width: fit-content;
+					outline: 1px rgba(255, 255, 255, 0.75) solid;
+				}
+			}
+		}
+
+		&-error {
+			text-decoration: underline;
+			text-decoration-color: $redColor;
+		}
+
+		&-approved {
+			text-decoration: underline;
+			text-decoration-color: $greenColor;
+		}
+
+		> button {
+			@include buttonStyle(
+				$whiteColor,
+				$primaryColor,
+				$whiteColor,
+				$tertiaryColor
+			);
+
+			align-self: flex-end;
+			margin-left: auto;
+			margin-bottom: auto;
+
+			&:disabled {
+				opacity: 0.5;
+			}
 		}
 	}
 

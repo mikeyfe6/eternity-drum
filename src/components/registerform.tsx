@@ -349,11 +349,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('firstName')}
-										className={
-											emptyFields.includes('firstName') && !formData.firstName
-												? 'error'
-												: ''
-										}
+										className={emptyFields.includes('firstName') ? 'error' : ''}
 									/>
 								</div>
 

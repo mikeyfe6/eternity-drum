@@ -353,7 +353,8 @@ select {
 		}
 
 		// -------------------------- column 6
-		&.discover {
+		&.discover,
+		&.subject {
 			flex: 100%;
 		}
 
@@ -363,7 +364,8 @@ select {
 		}
 
 		// -------------------------- column 7
-		&.comments {
+		&.comments,
+		&.message {
 			flex: 100%;
 			label {
 				top: 17.5px;

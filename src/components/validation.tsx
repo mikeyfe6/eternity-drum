@@ -131,11 +131,11 @@ export function validateBookingsForm(formData: BookingsFormData): string[] {
 	}
 
 	if (formData.subject.trim() === '') {
-		errors.push('Je huisnummer is verplicht.');
+		errors.push('Onderwerp invullen is verplicht.');
 	}
 
 	if (formData.message.trim() === '') {
-		errors.push('Je postcode is verplicht.');
+		errors.push('Wat is jouw bericht?');
 	}
 
 	return errors;
