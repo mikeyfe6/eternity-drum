@@ -1,7 +1,7 @@
 import * as React from 'react';
-import axios from 'axios';
 
-import { navigate } from 'gatsby'; //
+import { navigate } from 'gatsby';
+import axios from 'axios';
 
 import * as styles from '../styles/modules/bookingsform.module.scss';
 

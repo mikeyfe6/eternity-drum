@@ -1,14 +1,14 @@
 import * as React from 'react';
 
+import { navigate } from 'gatsby';
+import { useLocation } from '@reach/router';
 import axios from 'axios';
+
 import 'react-datepicker/dist/react-datepicker.css';
 
 import { validateRegisterForm, RegisterFormData } from './validation';
-import { navigate } from 'gatsby';
 
 import * as styles from '../styles/modules/registerform.module.scss';
-
-import { useLocation } from '@reach/router';
 
 interface RegisterFormProps {
 	inputRef: React.RefObject<HTMLInputElement>;

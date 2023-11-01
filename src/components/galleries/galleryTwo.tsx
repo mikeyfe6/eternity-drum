@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 
+import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 import {

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+
 import { useStaticQuery, graphql } from 'gatsby';
 
 import * as styles from '../styles/modules/audio.module.scss';

@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import type { HeadFC, PageProps } from 'gatsby';
 
 import { SEO } from '../components/seo';
@@ -7,7 +8,7 @@ import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
-import MusicPlayer from '../components/musicplayer';
+import MusicPlayer from '../components/musicPlayer';
 import Relevance from '../components/relevance';
 
 import GalleryOne from '../components/galleries/galleryOne';

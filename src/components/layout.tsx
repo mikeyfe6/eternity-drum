@@ -3,7 +3,7 @@ import React, { ReactNode, useState, useEffect } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
-import MobileMenu from '../components/mobilemenu';
+import MobileMenu from './mobileMenu';
 
 import '../styles/layout.scss';
 import '../styles/forms.scss';

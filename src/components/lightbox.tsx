@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 import * as styles from '../styles/modules/lightbox.module.scss';

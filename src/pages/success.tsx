@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { Link, HeadFC, PageProps } from 'gatsby';
 
 import { SEO } from '../components/seo';

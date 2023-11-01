@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { navigate } from 'gatsby';
 
 import * as styles from '../styles/modules/cta.module.scss';

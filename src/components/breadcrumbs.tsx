@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { Link } from 'gatsby';
 
 import * as styles from '../styles/modules/breadcrumbs.module.scss';

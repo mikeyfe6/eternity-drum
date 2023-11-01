@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { graphql, useStaticQuery, Link } from 'gatsby';
 
 import * as styles from '../styles/modules/actual.module.scss';

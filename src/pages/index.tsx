@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import type { HeadFC, PageProps } from 'gatsby';
 
 import { useSiteMetadata } from '../hooks/use-site-metadata';
