@@ -16,8 +16,8 @@ const OverOns: React.FC<PageProps> = () => {
 		<Layout>
 			<Hero />
 			<section data-main-section>
-				<h1>Over Ons</h1>
 				<Breadcrumb crumbs={breadcrumbs} />
+				<h1>Over Ons</h1>
 				<section data-main-content className='page-content-image-right'>
 					<div>
 						<p>
