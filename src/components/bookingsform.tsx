@@ -3,14 +3,19 @@ import * as React from 'react';
 import axios from 'axios';
 
 import * as styles from '../styles/modules/bookingsform.module.scss';
+import { validateBookingsForm, BookingsFormData } from './validation';
 
 const BookingsForm: React.FC = () => {
-	const [formData, setFormData] = React.useState({
-		name: '',
+	const [formData, setFormData] = React.useState<BookingsFormData>({
+		firstName: '',
+		lastName: '',
 		email: '',
 		subject: '',
 		message: '',
 	});
+
+	const [errors, setErrors] = React.useState<string[]>([]);
+	const [submitted, setSubmitted] = React.useState(false);
 
 	const handleInputChange = (
 		event: React.ChangeEvent<
@@ -22,17 +27,21 @@ const BookingsForm: React.FC = () => {
 			...formData,
 			[name]: value,
 		});
+
+		// Reset errors when the user interacts with the form.
+		setErrors([]);
 	};
 
 	const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault();
 
-		if (
-			formData.name.trim() === '' ||
-			formData.email.trim() === '' ||
-			formData.subject.trim() === ''
-		) {
-			alert('Please fill in all fields.');
+		setSubmitted(true);
+
+		// Check for form validation and update errors.
+		const validationErrors = validateBookingsForm(formData);
+		setErrors(validationErrors);
+
+		if (validationErrors.length > 0) {
 			return;
 		}
 
@@ -40,17 +49,17 @@ const BookingsForm: React.FC = () => {
 			.post('/.netlify/functions/sendmail', formData)
 			.then((response) => {
 				console.log('Form submitted successfully:', response.data);
+				setFormData({
+					firstName: '',
+					lastName: '',
+					email: '',
+					subject: '',
+					message: '',
+				});
 			})
 			.catch((error) => {
 				console.error('Form submission error:', error);
 			});
-
-		setFormData({
-			name: '',
-			email: '',
-			subject: '',
-			message: '',
-		});
 	};
 
 	return (
@@ -60,22 +69,39 @@ const BookingsForm: React.FC = () => {
 					<form onSubmit={handleSubmit}>
 						<fieldset>
 							<legend>
-								Vul hieronder u gegevens in en wij nemen zo spoedig mogelijk
+								Vul hieronder uw gegevens in en wij nemen zo spoedig mogelijk
 								contact met u op.
 							</legend>
 
-							<label htmlFor='name'>Naam:</label>
+							<label htmlFor='firstName'>Naam:</label>
 							<input
 								type='text'
-								id='name'
-								name='name'
-								value={formData.name}
-								placeholder='Naam'
+								id='firstName'
+								name='firstName'
+								placeholder='Voornaam'
+								value={formData.firstName}
 								onChange={handleInputChange}
 								autoComplete='name'
 							/>
+							{errors.includes('name') && (
+								<span className='error-message'>Name is required.</span>
+							)}
 
-							<label htmlFor='name'>E-mailadres</label>
+							<label htmlFor='lastName'>Naam:</label>
+							<input
+								type='text'
+								id='lastName'
+								name='lastName'
+								value={formData.lastName}
+								placeholder='Achternaam'
+								onChange={handleInputChange}
+								autoComplete='name'
+							/>
+							{errors.includes('name') && (
+								<span className='error-message'>Name is required.</span>
+							)}
+
+							<label htmlFor='email'>E-mailadres</label>
 							<input
 								type='email'
 								name='email'
@@ -84,6 +110,9 @@ const BookingsForm: React.FC = () => {
 								onChange={handleInputChange}
 								autoComplete='email'
 							/>
+							{errors.includes('email') && (
+								<span className='error-message'>Valid email is required.</span>
+							)}
 
 							<label htmlFor='subject'>Onderwerp</label>
 							<div className={styles.bookingsformSelect}>
@@ -99,6 +128,9 @@ const BookingsForm: React.FC = () => {
 									<option value='boeking'>Boeking / Offerte</option>
 									<option value='vraag'>Vraag / Opmerking</option>
 								</select>
+								{errors.includes('subject') && (
+									<span className='error-message'>Select an option.</span>
+								)}
 								<div className={styles.arrow}></div>
 							</div>
 
@@ -110,6 +142,9 @@ const BookingsForm: React.FC = () => {
 								onChange={handleInputChange}
 								placeholder='Uw bericht'
 							></textarea>
+							{errors.includes('message') && (
+								<span className='error-message'>Message is required.</span>
+							)}
 						</fieldset>
 
 						<button type='submit'>
@@ -127,14 +162,12 @@ const BookingsForm: React.FC = () => {
 							Engeland (Londen en Birmingham), Atlanta (USA) en Brazilië .
 						</strong>
 					</p>
-
 					<p>
 						In juli 2006 heeft Eternity de prijs gewonnen van Beste Brassband
 						Ortel Zomercarnaval 2006. Een vakkundige jury heeft Eternity
 						beoordeelt op de hoge kwaliteit van ritme, muziek, juiste harmonie
 						en gevarieerde show.
 					</p>
-
 					<p>
 						U kunt ons inhuren voor; <u>bedrijfsevenementen</u>,{' '}
 						<u>begrafenissen</u>, <u>bruiloften</u>, <u>jubilea</u>,{' '}
@@ -142,7 +175,6 @@ const BookingsForm: React.FC = () => {
 						<u>verjaardagen</u>. Het repertoire wordt afgestemd op het publiek
 						en de gelegenheid.
 					</p>
-
 					<p>
 						Wij leveren formaties van{' '}
 						<strong>
@@ -151,7 +183,6 @@ const BookingsForm: React.FC = () => {
 						voor setjes van 10 tot maximaal 30 min (U kunt ook meerdere setjes
 						boeken).
 					</p>
-
 					<p>
 						Voor meer informatie kunt u telefonisch contact opnemen via:{' '}
 						<a href='#!'>06 242 55 391</a> of een offerte opvragen via{' '}

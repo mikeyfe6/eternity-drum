@@ -3,7 +3,7 @@ import * as React from 'react';
 import axios from 'axios';
 import 'react-datepicker/dist/react-datepicker.css';
 
-import { validateForm } from './validation';
+import { validateRegisterForm, RegisterFormData } from './validation';
 import { navigate } from 'gatsby';
 
 import * as styles from '../styles/modules/registerform.module.scss';
@@ -39,7 +39,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
 	const [isOlderThan18, setIsOlderThan18] = React.useState(true);
 
-	const [formData, setFormData] = React.useState({
+	const [formData, setFormData] = React.useState<RegisterFormData>({
 		firstName: '',
 		lastName: '',
 
@@ -116,7 +116,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		});
 
 		if (submitted) {
-			const newValidationErrors = validateForm(
+			const newValidationErrors = validateRegisterForm(
 				{
 					...formData,
 					[name]: value,
@@ -145,7 +145,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		const updatedEmptyFields = emptyFields.filter((field) => field !== name);
 
 		if (submitted) {
-			const newValidationErrors = validateForm(
+			const newValidationErrors = validateRegisterForm(
 				{
 					...formData,
 					[name]: value,
@@ -185,7 +185,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
 		setSubmitted(true);
 
-		const validationErrors = validateForm(formData, isOlderThan18);
+		const validationErrors = validateRegisterForm(formData, isOlderThan18);
 
 		const missingFields = requiredFields.filter((field) => {
 			const value = formData[field as keyof typeof formData];
@@ -261,7 +261,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 			setIsOlderThan18(age >= 18);
 
 			if (submitted) {
-				const newValidationErrors = validateForm(formData, age >= 18);
+				const newValidationErrors = validateRegisterForm(formData, age >= 18);
 				setErrors(newValidationErrors);
 			}
 		} else {

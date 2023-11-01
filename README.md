@@ -17,7 +17,7 @@
 
 <br>
 
-Deze webapp is gebouwd door [Michael Fransman](https://www.linkedin.com/in/michaelfransman/) voor Stichting Eternity Percussion uit Amsterdam.
+Deze webapp is gebouwd door [Michael Fransman](https://www.linkedin.com/in/michaelfransman/), voor Stichting Eternity Percussion uit Amsterdam.
 
 Eternity is een culturele instelling die zich bezighoudt met activiteiten, projecten en evenementen op het gebied van muzikale vorming en performance.
 

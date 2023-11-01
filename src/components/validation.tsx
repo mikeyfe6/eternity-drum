@@ -1,4 +1,4 @@
-export interface FormData {
+export interface RegisterFormData {
 	firstName: string;
 	lastName: string;
 
@@ -10,6 +10,7 @@ export interface FormData {
 	province: string;
 
 	email: string;
+	gender?: string;
 
 	phone: string;
 
@@ -17,20 +18,30 @@ export interface FormData {
 	monthOfBirth: string;
 	yearOfBirth: string;
 
+	discover?: string;
+	other?: string;
+	comments?: string;
+
 	firstNameParent: string;
 	lastNameParent: string;
 	emailParent: string;
 	phoneParent: string;
 }
 
-export function validateForm(
-	formData: FormData,
+export interface BookingsFormData {
+	firstName: string;
+	lastName: string;
+
+	email: string;
+	subject: string;
+	message: string;
+}
+
+export function validateRegisterForm(
+	formData: RegisterFormData,
 	isOlderThan18: boolean
 ): string[] {
 	const errors: string[] = [];
-
-	// console.log('formData', formData);
-	// console.log('isOlderThan18', isOlderThan18);
 
 	if (formData.firstName.trim() === '') {
 		errors.push('Je voornaam is verplicht.');
@@ -98,6 +109,33 @@ export function validateForm(
 		if (formData.phoneParent.trim() === '') {
 			errors.push('Vul het telefoonnummer van jouw ouder/verzorger in.');
 		}
+	}
+
+	return errors;
+}
+export function validateBookingsForm(formData: BookingsFormData): string[] {
+	const errors: string[] = [];
+
+	if (formData.firstName.trim() === '') {
+		errors.push('Je voornaam is verplicht.');
+	}
+
+	if (formData.lastName.trim() === '') {
+		errors.push('Je achternaam is verplicht.');
+	}
+
+	if (formData.email.trim() === '') {
+		errors.push('Je e-mailadres is verplicht.');
+	} else if (!isValidEmail(formData.email)) {
+		errors.push('Je e-mailadres is ongeldig.');
+	}
+
+	if (formData.subject.trim() === '') {
+		errors.push('Je huisnummer is verplicht.');
+	}
+
+	if (formData.message.trim() === '') {
+		errors.push('Je postcode is verplicht.');
 	}
 
 	return errors;
