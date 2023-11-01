@@ -180,7 +180,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		setFocusedInput(null);
 	};
 
-	const handleSubmit = (event: React.FormEvent) => {
+	const handleSubmit = async (event: React.FormEvent) => {
 		event.preventDefault();
 
 		setSubmitted(true);
@@ -197,16 +197,21 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		if (validationErrors.length > 0 || missingFields.length > 0) {
 			setErrors(validationErrors);
 		} else {
-			setErrors([]);
-			axios
-				.post('/.netlify/functions/sendmail', formData)
-				.then((response) => {
-					console.log('Form submitted successfully:', response.data);
-				})
-				.catch((error) => {
-					console.error('Form submission error:', error);
-				});
-			navigate('/success');
+			try {
+				setErrors([]);
+				const response = await axios.post(
+					'/.netlify/functions/sendmail',
+					formData
+				);
+				console.log(
+					'Eternity Percussion; [Form submitted successfully]',
+					response.data
+				);
+				navigate('/success');
+			} catch (error) {
+				console.error('Eternity Percussion; [Form submission error]', error);
+				alert('Er is iets misgegaan. Probeer het later opnieuw.');
+			}
 		}
 
 		if (validationErrors.length === 0) {
