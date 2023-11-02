@@ -25,7 +25,7 @@ const siteMetadata = {
 
 	email: `info@eternitydrum.com`,
 	address: `Anton de Komplein 240`,
-	postalCode: `1104 DR`,
+	postalCode: `1102 DR`,
 	city: `Amsterdam`,
 
 	companyName: `Stichting Eternity Percussion`,

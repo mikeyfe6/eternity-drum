@@ -37,6 +37,13 @@ export interface BookingsFormData {
 	message: string;
 }
 
+export interface NewsletterFormData {
+	firstName: string;
+	lastName: string;
+
+	email: string;
+}
+
 export function validateRegisterForm(
 	formData: RegisterFormData,
 	isOlderThan18: boolean
@@ -113,6 +120,7 @@ export function validateRegisterForm(
 
 	return errors;
 }
+
 export function validateBookingsForm(formData: BookingsFormData): string[] {
 	const errors: string[] = [];
 
@@ -136,6 +144,26 @@ export function validateBookingsForm(formData: BookingsFormData): string[] {
 
 	if (formData.message.trim() === '') {
 		errors.push('Wat is jouw bericht?');
+	}
+
+	return errors;
+}
+
+export function validateNewsletterForm(formData: NewsletterFormData): string[] {
+	const errors: string[] = [];
+
+	if (formData.firstName.trim() === '') {
+		errors.push('Je voornaam is verplicht.');
+	}
+
+	if (formData.lastName.trim() === '') {
+		errors.push('Je achternaam is verplicht.');
+	}
+
+	if (formData.email.trim() === '') {
+		errors.push('Je e-mailadres is verplicht.');
+	} else if (!isValidEmail(formData.email)) {
+		errors.push('Je e-mailadres is ongeldig.');
 	}
 
 	return errors;

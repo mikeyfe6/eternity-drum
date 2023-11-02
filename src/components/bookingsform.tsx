@@ -341,7 +341,7 @@ const BookingsForm: React.FC = () => {
 										{errors.length > 0 && (
 											<>
 												<span className={styles.bookingsformSubmitError}>
-													Het formulier is nog niet juist of volledig ingevuld:
+													Formulier niet juist ingevuld
 												</span>
 												<ul>
 													{errors.map((error, index) => (
@@ -395,7 +395,7 @@ const BookingsForm: React.FC = () => {
 						<a href='#' onClick={(event) => handleClick(inputRef, event)}>
 							online boekingsformulier
 						</a>
-						.
+						.{' '}
 					</p>
 				</section>
 			</div>

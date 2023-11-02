@@ -11,20 +11,20 @@
 	}
 
 	&-wrapper {
-		padding: 3em 2em 1em;
+		padding: 3em 2em 0em;
 
 		@include epWrapper;
 
 		@media screen and ($medium) {
-			padding: 3em 2em 1em;
+			padding: 3em 2em 0em;
 		}
 
 		@media screen and ($small) {
-			padding: 2.5em 1.5em 1em;
+			padding: 2.5em 1.5em 0em;
 		}
 
 		@media screen and ($extraSmall) {
-			padding: 2.5em 1em 1em;
+			padding: 2.5em 1em 0em;
 		}
 	}
 
@@ -32,163 +32,126 @@
 		display: flex;
 		justify-content: space-evenly;
 		flex-wrap: wrap;
-		gap: 30px;
-		row-gap: 75px;
+		gap: 5%;
+		row-gap: 1em;
 
-		@media screen and ($large) {
-			row-gap: 50px;
-		}
-
-		@media screen and ($medium) {
-			justify-content: flex-start;
-			column-gap: 100px;
-		}
-
-		> div {
-			h5 {
-				margin: 1.375em 0 -0.5em;
-				font-size: 0.95rem;
-				margin-bottom: -0.75em;
-				font-style: italic;
-				opacity: 0.75;
-			}
-
-			> ul {
-				margin-top: 1em;
-
-				> li {
-					padding: 0.25em 0;
-					display: block;
-
-					> a:hover {
-						color: darken($tertiaryColor, 10);
-					}
-
-					> i {
-						color: $primaryColor;
-						font-size: 1.25rem;
-						vertical-align: middle;
-						padding-right: 0.5em;
-					}
-				}
-			}
-		}
-	}
-
-	&-newsletter {
-		&-container {
-			display: flex;
-			flex-direction: column;
-			gap: 35px;
+		> * {
+			flex: 1;
 
 			@media screen and ($extraLarge) {
-				flex-direction: row;
-				align-items: center;
-				justify-content: space-evenly;
-				width: 100%;
-			}
-
-			@media screen and ($large) {
-				margin: 1em 0 0;
-				gap: 50px;
-			}
-
-			@media screen and ($small) {
-				flex-direction: column;
+				flex: 45%;
 			}
 		}
+	}
 
-		&-wrapper {
-			@media screen and ($small) {
+	&-column {
+		min-width: 275px;
+
+		> h5 {
+			margin: 1.375em 0 -0.5em;
+			font-size: 0.95rem;
+			margin-bottom: -0.75em;
+			font-style: italic;
+			opacity: 0.75;
+		}
+
+		> ul {
+			margin: 1em 0 2em;
+
+			> li {
+				padding: 0.25em 0;
 				display: block;
-				width: 100%;
-			}
 
-			form {
-				background: $primaryColor;
-				color: $whiteColor;
-				padding: 1.5em 2em;
-				border-radius: 10px;
-				display: flex;
-				flex-direction: column;
-
-				@media screen and ($small) {
-					padding: 1.5em 1.25em;
+				> a:hover {
+					color: darken($tertiaryColor, 10);
 				}
 
-				@include boxShadow;
-
-				fieldset {
-					display: flex;
-					flex-direction: column;
-
-					legend {
-						font-weight: 600;
-						font-size: 1.125rem;
-						margin-bottom: 0.75em;
-					}
-
-					label {
-						padding: 0.5em 0;
-
-						input {
-							border-radius: 5px;
-							padding: 0.5em 0.75em;
-							width: 100%;
-
-							@media screen and ($medium) {
-								min-width: auto;
-								width: 100%;
-							}
-						}
-					}
-				}
-
-				button {
-					@include buttonStyle(
-						$whiteColor,
-						$primaryColor,
-						$whiteColor,
-						$tertiaryColor
-					);
-
-					margin-top: 1em;
-					align-self: end;
+				> i {
+					color: $primaryColor;
+					font-size: 1.25rem;
+					vertical-align: middle;
+					padding-right: 0.5em;
 				}
 			}
 		}
 	}
 
-	&-logo-social {
+	&-special-row {
 		display: flex;
-		gap: 35px;
+		flex-direction: column;
 
 		@media screen and ($large) {
-			flex-direction: column;
+			flex-direction: row;
+
+			> * {
+				flex: 1;
+			}
 		}
 
 		@media screen and ($small) {
-			flex-direction: row;
-			justify-content: space-around;
-			width: 100%;
+			flex-direction: column;
 		}
 
-		> a {
-			width: 100%;
-			max-width: 100px;
+		> div > ul {
+			margin: 1em 0 2em;
+
+			> li {
+				padding: 0.25em 0;
+				display: block;
+
+				> a:hover {
+					color: darken($tertiaryColor, 10);
+				}
+
+				> i {
+					color: $primaryColor;
+					font-size: 1.25rem;
+					vertical-align: middle;
+					padding-right: 0.5em;
+				}
+			}
+		}
+	}
+
+	&-logo {
+		width: 125px;
+
+		&-social {
+			display: flex;
+			gap: 35px;
+			margin-top: 1em;
 
 			@media screen and ($large) {
-				max-width: 125px;
+				flex-direction: row;
+			}
+
+			@media screen and ($medium) {
+				flex-direction: column;
 			}
 
 			@media screen and ($small) {
 				flex-direction: row;
+				justify-content: normal;
+				width: 100%;
 			}
 
-			> .footer-logo {
+			> a {
 				width: 100%;
-				height: auto;
-				object-fit: contain;
+				max-width: 100px;
+
+				@media screen and ($large) {
+					max-width: 125px;
+				}
+
+				@media screen and ($small) {
+					flex-direction: row;
+				}
+
+				> .footer-logo {
+					width: 100%;
+					height: auto;
+					object-fit: contain;
+				}
 			}
 		}
 	}
@@ -214,16 +177,38 @@
 	}
 
 	&-bottom-banner {
-		padding-top: 3em;
+		background: $primaryColor;
+		color: $whiteColor;
+		padding: 0.75em 0;
 		display: flex;
 		justify-content: center;
 
-		span {
+		@include fullWidth;
+
+		> span {
 			text-align: center;
 
 			@media screen and ($small) {
 				font-size: 0.675rem;
 				margin-bottom: 0em;
+			}
+		}
+
+		a {
+			display: inline-flex;
+			align-items: center;
+
+			color: $secondaryColor;
+			filter: grayscale(100%);
+
+			&:hover {
+				filter: grayscale(0%);
+			}
+
+			img {
+				max-width: 20px;
+				max-height: 20px;
+				margin-left: 0.25em;
 			}
 		}
 	}

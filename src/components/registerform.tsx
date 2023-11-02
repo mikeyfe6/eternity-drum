@@ -321,669 +321,657 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
 	return (
 		<section>
-			<>
-				<div className={styles.registerformWrapper}>
-					<h2>Online inschrijfformulier</h2>
-					<span>
-						Vul hieronder jouw gegevens in en wij nemen zo spoedig mogelijk
-						contact met je op.
-					</span>
-					<form onSubmit={handleSubmit} noValidate>
-						<fieldset>
-							<legend>Gegevens cursist:</legend>
+			<div className={styles.registerformWrapper}>
+				<h2>Online inschrijfformulier</h2>
+				<span>
+					Vul hieronder jouw gegevens in en wij nemen zo spoedig mogelijk
+					contact met je op.
+				</span>
+				<form onSubmit={handleSubmit} noValidate>
+					<fieldset>
+						<legend>Gegevens cursist:</legend>
 
-							<div className='form-column'>
-								<div className='form-group firstName'>
-									<label
-										htmlFor='firstName'
-										className={
-											focusedInput === 'firstName' || formData.firstName
-												? 'visited'
-												: ''
-										}
-									>
-										Voornaam
-									</label>
-									<input
-										type='text'
-										id='firstName'
-										name='firstName'
-										placeholder='Voornaam'
-										ref={inputRef}
-										value={formData.firstName}
-										onChange={handleInputChange}
-										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('firstName')}
-										className={emptyFields.includes('firstName') ? 'error' : ''}
-									/>
-								</div>
-
-								<div className='form-group lastName'>
-									<label
-										htmlFor='lastName'
-										className={
-											focusedInput === 'lastName' || formData.lastName
-												? 'visited'
-												: ''
-										}
-									>
-										Achternaam
-									</label>
-									<input
-										type='text'
-										id='lastName'
-										name='lastName'
-										placeholder='Achternaam'
-										value={formData.lastName}
-										onChange={handleInputChange}
-										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('lastName')}
-										className={emptyFields.includes('lastName') ? 'error' : ''}
-									/>
-								</div>
+						<div className='form-column'>
+							<div className='form-group firstName'>
+								<label
+									htmlFor='firstName'
+									className={
+										focusedInput === 'firstName' || formData.firstName
+											? 'visited'
+											: ''
+									}
+								>
+									Voornaam
+								</label>
+								<input
+									type='text'
+									id='firstName'
+									name='firstName'
+									placeholder='Voornaam'
+									ref={inputRef}
+									value={formData.firstName}
+									onChange={handleInputChange}
+									onBlur={handleInputBlur}
+									onFocus={() => handleInputFocus('firstName')}
+									className={emptyFields.includes('firstName') ? 'error' : ''}
+								/>
 							</div>
 
-							<div className='form-column collapseOne'>
-								<div className='form-group streetName'>
-									<label
-										htmlFor='streetName'
-										className={
-											focusedInput === 'streetName' || formData.streetName
-												? 'visited'
-												: ''
-										}
-									>
-										Straatnaam
-									</label>
-									<input
-										type='text'
-										id='streetName'
-										name='streetName'
-										placeholder='Straatnaam'
-										value={formData.streetName}
-										onChange={handleInputChange}
-										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('streetName')}
-										className={
-											emptyFields.includes('streetName') ? 'error' : ''
-										}
-									/>
-								</div>
+							<div className='form-group lastName'>
+								<label
+									htmlFor='lastName'
+									className={
+										focusedInput === 'lastName' || formData.lastName
+											? 'visited'
+											: ''
+									}
+								>
+									Achternaam
+								</label>
+								<input
+									type='text'
+									id='lastName'
+									name='lastName'
+									placeholder='Achternaam'
+									value={formData.lastName}
+									onChange={handleInputChange}
+									onBlur={handleInputBlur}
+									onFocus={() => handleInputFocus('lastName')}
+									className={emptyFields.includes('lastName') ? 'error' : ''}
+								/>
+							</div>
+						</div>
 
-								<div className='form-group houseNumber'>
-									<label
-										htmlFor='houseNumber'
-										className={
-											focusedInput === 'houseNumber' || formData.houseNumber
-												? 'visited'
-												: ''
-										}
-									>
-										Huisnr.
-									</label>
-									<input
-										type='text'
-										id='houseNumber'
-										name='houseNumber'
-										placeholder='Huisnr.'
-										value={formData.houseNumber}
-										onChange={handleInputChange}
-										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('houseNumber')}
-										className={
-											emptyFields.includes('houseNumber') ? 'error' : ''
-										}
-									/>
-								</div>
-								<div className='form-group zipCode'>
-									<label
-										htmlFor='zipCode'
-										className={
-											focusedInput === 'zipCode' || formData.zipCode
-												? 'visited'
-												: ''
-										}
-									>
-										Postcode
-									</label>
-									<input
-										type='text'
-										id='zipCode'
-										name='zipCode'
-										placeholder='Postcode'
-										value={formData.zipCode}
-										onChange={handleInputChange}
-										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('zipCode')}
-										className={emptyFields.includes('zipCode') ? 'error' : ''}
-									/>
-								</div>
+						<div className='form-column collapseOne'>
+							<div className='form-group streetName'>
+								<label
+									htmlFor='streetName'
+									className={
+										focusedInput === 'streetName' || formData.streetName
+											? 'visited'
+											: ''
+									}
+								>
+									Straatnaam
+								</label>
+								<input
+									type='text'
+									id='streetName'
+									name='streetName'
+									placeholder='Straatnaam'
+									value={formData.streetName}
+									onChange={handleInputChange}
+									onBlur={handleInputBlur}
+									onFocus={() => handleInputFocus('streetName')}
+									className={emptyFields.includes('streetName') ? 'error' : ''}
+								/>
 							</div>
 
-							<div className='form-column'>
-								<div className='form-group city'>
-									<label
-										htmlFor='city'
-										className={
-											focusedInput === 'city' || formData.city ? 'visited' : ''
-										}
-									>
-										Woonplaats
-									</label>
-									<input
-										type='text'
-										id='city'
-										name='city'
-										placeholder='Woonplaats'
-										value={formData.city}
-										onChange={handleInputChange}
-										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('city')}
-										className={emptyFields.includes('city') ? 'error' : ''}
-									/>
-								</div>
+							<div className='form-group houseNumber'>
+								<label
+									htmlFor='houseNumber'
+									className={
+										focusedInput === 'houseNumber' || formData.houseNumber
+											? 'visited'
+											: ''
+									}
+								>
+									Huisnr.
+								</label>
+								<input
+									type='text'
+									id='houseNumber'
+									name='houseNumber'
+									placeholder='Huisnr.'
+									value={formData.houseNumber}
+									onChange={handleInputChange}
+									onBlur={handleInputBlur}
+									onFocus={() => handleInputFocus('houseNumber')}
+									className={emptyFields.includes('houseNumber') ? 'error' : ''}
+								/>
+							</div>
+							<div className='form-group zipCode'>
+								<label
+									htmlFor='zipCode'
+									className={
+										focusedInput === 'zipCode' || formData.zipCode
+											? 'visited'
+											: ''
+									}
+								>
+									Postcode
+								</label>
+								<input
+									type='text'
+									id='zipCode'
+									name='zipCode'
+									placeholder='Postcode'
+									value={formData.zipCode}
+									onChange={handleInputChange}
+									onBlur={handleInputBlur}
+									onFocus={() => handleInputFocus('zipCode')}
+									className={emptyFields.includes('zipCode') ? 'error' : ''}
+								/>
+							</div>
+						</div>
 
-								<div className='form-group province'>
-									<label
-										htmlFor='province'
-										className={
-											focusedInput === 'province' || formData.province
-												? 'visited'
-												: ''
-										}
-									>
-										Provincie
-									</label>
-									<input
-										type='text'
-										id='province'
-										name='province'
-										placeholder='Provincie'
-										value={formData.province}
-										onChange={handleInputChange}
-										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('province')}
-										className={emptyFields.includes('province') ? 'error' : ''}
-									/>
-								</div>
+						<div className='form-column'>
+							<div className='form-group city'>
+								<label
+									htmlFor='city'
+									className={
+										focusedInput === 'city' || formData.city ? 'visited' : ''
+									}
+								>
+									Woonplaats
+								</label>
+								<input
+									type='text'
+									id='city'
+									name='city'
+									placeholder='Woonplaats'
+									value={formData.city}
+									onChange={handleInputChange}
+									onBlur={handleInputBlur}
+									onFocus={() => handleInputFocus('city')}
+									className={emptyFields.includes('city') ? 'error' : ''}
+								/>
 							</div>
 
-							<div className='form-column collapseTwo'>
-								<div className='form-group email'>
+							<div className='form-group province'>
+								<label
+									htmlFor='province'
+									className={
+										focusedInput === 'province' || formData.province
+											? 'visited'
+											: ''
+									}
+								>
+									Provincie
+								</label>
+								<input
+									type='text'
+									id='province'
+									name='province'
+									placeholder='Provincie'
+									value={formData.province}
+									onChange={handleInputChange}
+									onBlur={handleInputBlur}
+									onFocus={() => handleInputFocus('province')}
+									className={emptyFields.includes('province') ? 'error' : ''}
+								/>
+							</div>
+						</div>
+
+						<div className='form-column collapseTwo'>
+							<div className='form-group email'>
+								<label
+									htmlFor='email'
+									className={
+										focusedInput === 'email' || formData.email ? 'visited' : ''
+									}
+								>
+									E-mailadres
+								</label>
+								<input
+									type='email'
+									id='email'
+									name='email'
+									autoComplete='email'
+									placeholder='E-mailadres'
+									value={formData.email}
+									onChange={handleInputChange}
+									onBlur={handleInputBlur}
+									onFocus={() => handleInputFocus('email')}
+									className={emptyFields.includes('email') ? 'error' : ''}
+								/>
+							</div>
+
+							<div className='form-group gender'>
+								<div className='form-select'>
 									<label
-										htmlFor='email'
+										htmlFor='gender'
 										className={
-											focusedInput === 'email' || formData.email
+											focusedInput === 'gender' || formData.gender
 												? 'visited'
 												: ''
 										}
 									>
-										E-mailadres
+										Geslacht
 									</label>
-									<input
-										type='email'
-										id='email'
-										name='email'
-										autoComplete='email'
-										placeholder='E-mailadres'
-										value={formData.email}
+									<select
+										id='gender'
+										name='gender'
+										value={formData.gender}
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('email')}
-										className={emptyFields.includes('email') ? 'error' : ''}
-									/>
-								</div>
-
-								<div className='form-group gender'>
-									<div className='form-select'>
-										<label
-											htmlFor='gender'
-											className={
-												focusedInput === 'gender' || formData.gender
-													? 'visited'
-													: ''
-											}
-										>
+										onFocus={() => handleInputFocus('gender')}
+										className={emptyFields.includes('gender') ? 'error' : ''}
+									>
+										<option value='' disabled>
 											Geslacht
-										</label>
-										<select
-											id='gender'
-											name='gender'
-											value={formData.gender}
-											onChange={handleInputChange}
-											onBlur={handleInputBlur}
-											onFocus={() => handleInputFocus('gender')}
-											className={emptyFields.includes('gender') ? 'error' : ''}
-										>
-											<option value='' disabled>
-												Geslacht
-											</option>
-											<option value='male'>Man</option>
-											<option value='female'>Vrouw</option>
-											<option value='other'>Anders</option>
-										</select>
-										<div className='arrow' />
-									</div>
+										</option>
+										<option value='male'>Man</option>
+										<option value='female'>Vrouw</option>
+										<option value='other'>Anders</option>
+									</select>
+									<div className='arrow' />
 								</div>
 							</div>
+						</div>
 
-							<div className='form-column collapseThree'>
-								<div className='form-group phone'>
-									<label
-										htmlFor='phone'
+						<div className='form-column collapseThree'>
+							<div className='form-group phone'>
+								<label
+									htmlFor='phone'
+									className={
+										focusedInput === 'phone' || formData.phone ? 'visited' : ''
+									}
+								>
+									Telefoon
+								</label>
+								<input
+									type='tel'
+									id='phone'
+									name='phone'
+									autoComplete='tel'
+									placeholder='Telefoon'
+									value={formData.phone}
+									onChange={handleInputChange}
+									onBlur={handleInputBlur}
+									onFocus={() => handleInputFocus('phone')}
+									className={emptyFields.includes('phone') ? 'error' : ''}
+								/>
+							</div>
+
+							<div className='form-group dateOfBirth'>
+								<label
+									htmlFor='dateOfBirth'
+									className={
+										focusedInput === 'dateOfBirth' ||
+										formData.dayOfBirth ||
+										formData.monthOfBirth ||
+										formData.yearOfBirth
+											? 'visited'
+											: ''
+									}
+								>
+									Geboortedatum
+								</label>
+								<div className='date-inputs'>
+									<select
+										id='dayOfBirth'
+										name='dayOfBirth'
+										value={formData.dayOfBirth}
+										onChange={(event) =>
+											handleDateChange('dayOfBirth', event.target.value)
+										}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('dayOfBirth')}
 										className={
-											focusedInput === 'phone' || formData.phone
+											emptyFields.includes('dayOfBirth') && !formData.dayOfBirth
+												? 'error'
+												: ''
+										}
+									>
+										<option value='' disabled>
+											Dag
+										</option>
+										{Array.from({ length: 31 }, (_, i) => (
+											<option key={i} value={i + 1}>
+												{i + 1}
+											</option>
+										))}
+									</select>
+									<select
+										id='monthOfBirth'
+										name='monthOfBirth'
+										value={formData.monthOfBirth}
+										onChange={(event) =>
+											handleDateChange('monthOfBirth', event.target.value)
+										}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('monthOfBirth')}
+										className={
+											emptyFields.includes('monthOfBirth') ? 'error' : ''
+										}
+									>
+										<option value='' disabled>
+											Maand
+										</option>
+										{[
+											'Januari',
+											'Februari',
+											'Maart',
+											'April',
+											'Mei',
+											'Juni',
+											'Juli',
+											'Augustus',
+											'September',
+											'Oktober',
+											'November',
+											'December',
+										].map((month, index) => (
+											<option key={index} value={index + 1}>
+												{month}
+											</option>
+										))}
+									</select>
+									<select
+										id='yearOfBirth'
+										name='yearOfBirth'
+										value={formData.yearOfBirth}
+										onChange={(event) =>
+											handleDateChange('yearOfBirth', event.target.value)
+										}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('yearOfBirth')}
+										className={
+											emptyFields.includes('yearOfBirth') ? 'error' : ''
+										}
+									>
+										<option value='' disabled>
+											Jaar
+										</option>
+										{Array.from({ length: 100 }, (_, i) => (
+											<option key={i} value={new Date().getFullYear() - i}>
+												{new Date().getFullYear() - i}
+											</option>
+										))}
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div
+							className='form-column'
+							style={{
+								marginBottom:
+									formData.discover === 'Overig' ? '1em' : 'revert-layer',
+							}}
+						>
+							<div className='form-group discover'>
+								<div className='form-select'>
+									<label
+										htmlFor='discover'
+										className={
+											focusedInput === 'discover' || formData.discover
 												? 'visited'
 												: ''
 										}
 									>
-										Telefoon
+										Hoe ben je bij ons terecht gekomen?
+									</label>
+									<select
+										id='discover'
+										name='discover'
+										value={formData.discover}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('discover')}
+									>
+										<option value='' disabled>
+											Hoe ben je bij ons terecht gekomen?
+										</option>
+										<option value='Via Social Media (Facebook, Instagram, Etc)'>
+											Via Social Media (Facebook, Instagram, Etc)
+										</option>
+										<option value='Via Google, Bing of een andere zoekmachine'>
+											Via Google, Bing of een andere zoekmachine
+										</option>
+										<option value='Via een vriend(in), kennis, collega of familielid'>
+											Via een vriend(in), kennis, collega of familielid
+										</option>
+										<option value='Via eerdere workshops (bijv. de Eternity Summerschool)'>
+											Via eerdere workshops (bijv. de Eternity Summerschool)
+										</option>
+										<option value='U heeft ons eerder zien/horen spelen'>
+											Ik heb jullie eerder zien/horen spelen
+										</option>
+										<option value='Overig'>
+											Op een andere manier, namelijk:
+										</option>
+									</select>
+									<div className='arrow' />
+								</div>
+							</div>
+						</div>
+
+						{formData.discover === 'Overig' && (
+							<div className='form-column'>
+								<div className='form-group other'>
+									<label htmlFor='other'>Meer info..</label>
+									<input
+										type='text'
+										id='other'
+										name='other'
+										placeholder='...'
+										value={formData.other}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('other')}
+										className={emptyFields.includes('other') ? 'reset' : ''}
+									/>
+								</div>
+							</div>
+						)}
+
+						<div className='form-column'>
+							<div className='form-group comments'>
+								<label
+									htmlFor='comments'
+									className={
+										focusedInput === 'comments' || formData.comments
+											? 'visited'
+											: ''
+									}
+								>
+									Heb je nog opmerkingen?
+								</label>
+								<textarea
+									id='comments'
+									name='comments'
+									placeholder='Heb je nog opmerkingen?'
+									value={formData.comments}
+									onChange={handleInputChange}
+									onBlur={handleInputBlur}
+									onFocus={() => handleInputFocus('comments')}
+								></textarea>
+							</div>
+						</div>
+					</fieldset>
+
+					{!isOlderThan18 && (
+						<span>
+							Jonger dan 18? Vul hieronder de gegevens van jouw ouders/voogd in.
+						</span>
+					)}
+
+					{!isOlderThan18 && (
+						<fieldset>
+							<legend>Gegevens ouders/voogd:</legend>
+
+							<div className='form-column'>
+								<div className='form-group firstNameParent'>
+									<label
+										htmlFor='firstNameParent'
+										className={
+											focusedInput === 'firstNameParent' ||
+											formData.firstNameParent
+												? 'visited'
+												: ''
+										}
+									>
+										Voornaam (ouders/voogd)
+									</label>
+									<input
+										type='text'
+										id='firstNameParent'
+										name='firstNameParent'
+										placeholder='Voornaam (ouders/voogd)'
+										value={formData.firstNameParent}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('firstNameParent')}
+										className={
+											emptyFields.includes('firstNameParent') ? 'error' : ''
+										}
+									/>
+								</div>
+
+								<div className='form-group lastNameParent'>
+									<label
+										htmlFor='lastNameParent'
+										className={
+											focusedInput === 'lastNameParent' ||
+											formData.lastNameParent
+												? 'visited'
+												: ''
+										}
+									>
+										Achternaam (ouders/voogd)
+									</label>
+									<input
+										type='text'
+										id='lastNameParent'
+										name='lastNameParent'
+										placeholder='Achternaam (ouders/voogd)'
+										value={formData.lastNameParent}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('lastNameParent')}
+										className={
+											emptyFields.includes('lastNameParent') ? 'error' : ''
+										}
+									/>
+								</div>
+							</div>
+
+							<div className='form-column'>
+								<div className='form-group emailParent'>
+									<label
+										htmlFor='emailParent'
+										className={
+											focusedInput === 'emailParent' || formData.emailParent
+												? 'visited'
+												: ''
+										}
+									>
+										E-mailadres (ouders/voogd)
+									</label>
+									<input
+										id='emailParent'
+										type='email'
+										name='emailParent'
+										placeholder='E-mailadres (ouders/voogd)'
+										value={formData.emailParent}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('emailParent')}
+										className={
+											emptyFields.includes('emailParent') ? 'error' : ''
+										}
+									/>
+								</div>
+
+								<div className='form-group phoneParent'>
+									<label
+										htmlFor='phoneParent'
+										className={
+											focusedInput === 'phoneParent' || formData.phoneParent
+												? 'visited'
+												: ''
+										}
+									>
+										Telefoonnummer (ouders/voogd)
 									</label>
 									<input
 										type='tel'
-										id='phone'
-										name='phone'
-										autoComplete='tel'
-										placeholder='Telefoon'
-										value={formData.phone}
+										id='phoneParent'
+										name='phoneParent'
+										placeholder='Telefoonnummer (ouders/voogd)'
+										value={formData.phoneParent}
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('phone')}
-										className={emptyFields.includes('phone') ? 'error' : ''}
+										onFocus={() => handleInputFocus('phoneParent')}
+										className={
+											emptyFields.includes('phoneParent') ? 'error' : ''
+										}
 									/>
-								</div>
-
-								<div className='form-group dateOfBirth'>
-									<label
-										htmlFor='dateOfBirth'
-										className={
-											focusedInput === 'dateOfBirth' ||
-											formData.dayOfBirth ||
-											formData.monthOfBirth ||
-											formData.yearOfBirth
-												? 'visited'
-												: ''
-										}
-									>
-										Geboortedatum
-									</label>
-									<div className='date-inputs'>
-										<select
-											id='dayOfBirth'
-											name='dayOfBirth'
-											value={formData.dayOfBirth}
-											onChange={(event) =>
-												handleDateChange('dayOfBirth', event.target.value)
-											}
-											onBlur={handleInputBlur}
-											onFocus={() => handleInputFocus('dayOfBirth')}
-											className={
-												emptyFields.includes('dayOfBirth') &&
-												!formData.dayOfBirth
-													? 'error'
-													: ''
-											}
-										>
-											<option value='' disabled>
-												Dag
-											</option>
-											{Array.from({ length: 31 }, (_, i) => (
-												<option key={i} value={i + 1}>
-													{i + 1}
-												</option>
-											))}
-										</select>
-										<select
-											id='monthOfBirth'
-											name='monthOfBirth'
-											value={formData.monthOfBirth}
-											onChange={(event) =>
-												handleDateChange('monthOfBirth', event.target.value)
-											}
-											onBlur={handleInputBlur}
-											onFocus={() => handleInputFocus('monthOfBirth')}
-											className={
-												emptyFields.includes('monthOfBirth') ? 'error' : ''
-											}
-										>
-											<option value='' disabled>
-												Maand
-											</option>
-											{[
-												'Januari',
-												'Februari',
-												'Maart',
-												'April',
-												'Mei',
-												'Juni',
-												'Juli',
-												'Augustus',
-												'September',
-												'Oktober',
-												'November',
-												'December',
-											].map((month, index) => (
-												<option key={index} value={index + 1}>
-													{month}
-												</option>
-											))}
-										</select>
-										<select
-											id='yearOfBirth'
-											name='yearOfBirth'
-											value={formData.yearOfBirth}
-											onChange={(event) =>
-												handleDateChange('yearOfBirth', event.target.value)
-											}
-											onBlur={handleInputBlur}
-											onFocus={() => handleInputFocus('yearOfBirth')}
-											className={
-												emptyFields.includes('yearOfBirth') ? 'error' : ''
-											}
-										>
-											<option value='' disabled>
-												Jaar
-											</option>
-											{Array.from({ length: 100 }, (_, i) => (
-												<option key={i} value={new Date().getFullYear() - i}>
-													{new Date().getFullYear() - i}
-												</option>
-											))}
-										</select>
-									</div>
-								</div>
-							</div>
-
-							<div
-								className='form-column'
-								style={{
-									marginBottom:
-										formData.discover === 'Overig' ? '1em' : 'revert-layer',
-								}}
-							>
-								<div className='form-group discover'>
-									<div className='form-select'>
-										<label
-											htmlFor='discover'
-											className={
-												focusedInput === 'discover' || formData.discover
-													? 'visited'
-													: ''
-											}
-										>
-											Hoe ben je bij ons terecht gekomen?
-										</label>
-										<select
-											id='discover'
-											name='discover'
-											value={formData.discover}
-											onChange={handleInputChange}
-											onBlur={handleInputBlur}
-											onFocus={() => handleInputFocus('discover')}
-										>
-											<option value='' disabled>
-												Hoe ben je bij ons terecht gekomen?
-											</option>
-											<option value='Via Social Media (Facebook, Instagram, Etc)'>
-												Via Social Media (Facebook, Instagram, Etc)
-											</option>
-											<option value='Via Google, Bing of een andere zoekmachine'>
-												Via Google, Bing of een andere zoekmachine
-											</option>
-											<option value='Via een vriend(in), kennis, collega of familielid'>
-												Via een vriend(in), kennis, collega of familielid
-											</option>
-											<option value='Via eerdere workshops (bijv. de Eternity Summerschool)'>
-												Via eerdere workshops (bijv. de Eternity Summerschool)
-											</option>
-											<option value='U heeft ons eerder zien/horen spelen'>
-												Ik heb jullie eerder zien/horen spelen
-											</option>
-											<option value='Overig'>
-												Op een andere manier, namelijk:
-											</option>
-										</select>
-										<div className='arrow' />
-									</div>
-								</div>
-							</div>
-
-							{formData.discover === 'Overig' && (
-								<div className='form-column'>
-									<div className='form-group other'>
-										<label htmlFor='other'>Meer info..</label>
-										<input
-											type='text'
-											id='other'
-											name='other'
-											placeholder='...'
-											value={formData.other}
-											onChange={handleInputChange}
-											onBlur={handleInputBlur}
-											onFocus={() => handleInputFocus('other')}
-											className={emptyFields.includes('other') ? 'reset' : ''}
-										/>
-									</div>
-								</div>
-							)}
-
-							<div className='form-column'>
-								<div className='form-group comments'>
-									<label
-										htmlFor='comments'
-										className={
-											focusedInput === 'comments' || formData.comments
-												? 'visited'
-												: ''
-										}
-									>
-										Heb je nog opmerkingen?
-									</label>
-									<textarea
-										id='comments'
-										name='comments'
-										placeholder='Heb je nog opmerkingen?'
-										value={formData.comments}
-										onChange={handleInputChange}
-										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('comments')}
-									></textarea>
 								</div>
 							</div>
 						</fieldset>
+					)}
 
-						{!isOlderThan18 && (
-							<span>
-								Jonger dan 18? Vul hieronder de gegevens van jouw ouders/voogd
-								in.
-							</span>
-						)}
-
-						{!isOlderThan18 && (
-							<fieldset>
-								<legend>Gegevens ouders/voogd:</legend>
-
-								<div className='form-column'>
-									<div className='form-group firstNameParent'>
-										<label
-											htmlFor='firstNameParent'
-											className={
-												focusedInput === 'firstNameParent' ||
-												formData.firstNameParent
-													? 'visited'
-													: ''
-											}
-										>
-											Voornaam (ouders/voogd)
-										</label>
-										<input
-											type='text'
-											id='firstNameParent'
-											name='firstNameParent'
-											placeholder='Voornaam (ouders/voogd)'
-											value={formData.firstNameParent}
-											onChange={handleInputChange}
-											onBlur={handleInputBlur}
-											onFocus={() => handleInputFocus('firstNameParent')}
-											className={
-												emptyFields.includes('firstNameParent') ? 'error' : ''
-											}
-										/>
-									</div>
-
-									<div className='form-group lastNameParent'>
-										<label
-											htmlFor='lastNameParent'
-											className={
-												focusedInput === 'lastNameParent' ||
-												formData.lastNameParent
-													? 'visited'
-													: ''
-											}
-										>
-											Achternaam (ouders/voogd)
-										</label>
-										<input
-											type='text'
-											id='lastNameParent'
-											name='lastNameParent'
-											placeholder='Achternaam (ouders/voogd)'
-											value={formData.lastNameParent}
-											onChange={handleInputChange}
-											onBlur={handleInputBlur}
-											onFocus={() => handleInputFocus('lastNameParent')}
-											className={
-												emptyFields.includes('lastNameParent') ? 'error' : ''
-											}
-										/>
-									</div>
-								</div>
-
-								<div className='form-column'>
-									<div className='form-group emailParent'>
-										<label
-											htmlFor='emailParent'
-											className={
-												focusedInput === 'emailParent' || formData.emailParent
-													? 'visited'
-													: ''
-											}
-										>
-											E-mailadres (ouders/voogd)
-										</label>
-										<input
-											id='emailParent'
-											type='email'
-											name='emailParent'
-											placeholder='E-mailadres (ouders/voogd)'
-											value={formData.emailParent}
-											onChange={handleInputChange}
-											onBlur={handleInputBlur}
-											onFocus={() => handleInputFocus('emailParent')}
-											className={
-												emptyFields.includes('emailParent') ? 'error' : ''
-											}
-										/>
-									</div>
-
-									<div className='form-group phoneParent'>
-										<label
-											htmlFor='phoneParent'
-											className={
-												focusedInput === 'phoneParent' || formData.phoneParent
-													? 'visited'
-													: ''
-											}
-										>
-											Telefoonnummer (ouders/voogd)
-										</label>
-										<input
-											type='tel'
-											id='phoneParent'
-											name='phoneParent'
-											placeholder='Telefoonnummer (ouders/voogd)'
-											value={formData.phoneParent}
-											onChange={handleInputChange}
-											onBlur={handleInputBlur}
-											onFocus={() => handleInputFocus('phoneParent')}
-											className={
-												emptyFields.includes('phoneParent') ? 'error' : ''
-											}
-										/>
-									</div>
-								</div>
-							</fieldset>
-						)}
-
-						<div className={styles.registerformSubmit}>
-							{isFormValid() ||
-								(errors.length > 0 && (
-									<div>
-										{isFormValid() && (
-											<span className={styles.registerformSubmitApproved}>
-												Het formulier is juist & volledig ingevuld.
+					<div className={styles.registerformSubmit}>
+						{isFormValid() ||
+							(errors.length > 0 && (
+								<div>
+									{isFormValid() && (
+										<span className={styles.registerformSubmitApproved}>
+											Het formulier is juist & volledig ingevuld.
+										</span>
+									)}
+									{errors.length > 0 && (
+										<>
+											<span className={styles.registerformSubmitError}>
+												Formulier niet juist ingevuld
 											</span>
-										)}
-										{errors.length > 0 && (
-											<>
-												<span className={styles.registerformSubmitError}>
-													Het formulier is nog niet juist of volledig ingevuld:
-												</span>
-												<ul>
-													{errors.map((error, index) => (
-														<li key={index}>{error}</li>
-													))}
-												</ul>
-											</>
-										)}
-									</div>
-								))}
-							<button type='submit' disabled={errors.length > 0}>
-								Nu inschrijven
-							</button>
-						</div>
-					</form>
-
-					<div className={styles.registerformConditions}>
-						<p>
-							<strong>Voorwaarden:</strong>
-						</p>
-						<ul>
-							<li>
-								Eternity Percussion kan niet aansprakelijk worden gesteld voor
-								enig lichamelijk letsel, schade of vermissing van eigendom
-								tijdens de lessen en/of repetities
-							</li>
-							{pathname.includes('drumworkshops') ? (
-								<>
-									<li>
-										Het lesgeld dient aan het begin van elke maand op de
-										rekening van Eternity Percussion worden over gemaakt
-									</li>
-									<li>
-										De opzegtermijn bedraagt minimaal een maand en dient via
-										email info@eternitydrum.com te worden doorgegeven
-									</li>
-								</>
-							) : null}
-						</ul>
-						<p>
-							<strong>Let op !</strong>
-						</p>
-						<ul>
-							<li>Vul het inschrijfformulier volledig in</li>
-						</ul>
-
-						<p>
-							<u>
-								Door invulling en het versturen van dit formulier, stemt u
-								automatisch in met de voorwaarden en huisregels van Eternity
-								Percussion
-							</u>
-						</p>
+											<ul>
+												{errors.map((error, index) => (
+													<li key={index}>{error}</li>
+												))}
+											</ul>
+										</>
+									)}
+								</div>
+							))}
+						<button type='submit' disabled={errors.length > 0}>
+							Nu inschrijven
+						</button>
 					</div>
+				</form>
+
+				<div className={styles.registerformConditions}>
+					<p>
+						<strong>Voorwaarden:</strong>
+					</p>
+					<ul>
+						<li>
+							Eternity Percussion kan niet aansprakelijk worden gesteld voor
+							enig lichamelijk letsel, schade of vermissing van eigendom tijdens
+							de lessen en/of repetities
+						</li>
+						{pathname.includes('drumworkshops') ? (
+							<>
+								<li>
+									Het lesgeld dient aan het begin van elke maand op de rekening
+									van Eternity Percussion worden over gemaakt
+								</li>
+								<li>
+									De opzegtermijn bedraagt minimaal een maand en dient via email
+									info@eternitydrum.com te worden doorgegeven
+								</li>
+							</>
+						) : null}
+					</ul>
+					<p>
+						<strong>Let op !</strong>
+					</p>
+					<ul>
+						<li>Vul het inschrijfformulier volledig in</li>
+					</ul>
+
+					<p>
+						<u>
+							Door invulling en het versturen van dit formulier, stemt u
+							automatisch in met de voorwaarden en huisregels van Eternity
+							Percussion
+						</u>
+					</p>
 				</div>
-			</>
+			</div>
 		</section>
 	);
 };

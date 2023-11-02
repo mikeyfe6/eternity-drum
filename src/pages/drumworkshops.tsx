@@ -33,8 +33,8 @@ const Drumworkshops: React.FC<PageProps> = () => {
 						<p>
 							<strong>
 								Muziekeducatie vormt een goede basis voor de ontwikkeling van
-								een kind.{' '}
-							</strong>
+								een kind.
+							</strong>{' '}
 							Momenteel verzorgen wij drumlessen op het Bindelmeer College en de
 							Bredeschool Zuidoost als vast onderdeel van het onderwijspakket.
 							Speciaal voor kinderen en jongeren verzorgen wij ook drumworkshops
@@ -44,8 +44,8 @@ const Drumworkshops: React.FC<PageProps> = () => {
 						<p>
 							<strong>
 								Voor slechts 45,- euro per maand kan je 1x in de week bij ons
-								drumlessen volgen.{' '}
-							</strong>
+								drumlessen volgen.
+							</strong>{' '}
 							Je leert bij ons niet alleen het spelen van Afrikaanse,
 							Afro-Caribische en Afro-Surinaamse ritmes, maar ook het lezen van
 							muzieknoten voor percussie instrumenten. Per drumles zijn er 2

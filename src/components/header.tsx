@@ -133,6 +133,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 
 						<button
 							type='button'
+							name='menu'
 							onClick={openMobileMenu}
 							className={styles.hamburgerButton}
 						>
