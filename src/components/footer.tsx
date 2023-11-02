@@ -7,6 +7,8 @@ import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 import NewsletterForm from './newsletterForm';
 
+import menefexLogo from '../images/menefex/menefex-logo.svg';
+
 import * as styles from '../styles/modules/footer.module.scss';
 
 const Footer = () => {
@@ -222,9 +224,9 @@ const Footer = () => {
 					<NewsletterForm />
 				</div>
 				<div className={styles.footerBottomBanner}>
-					<span>
+					<p>
 						© 2002 – {new Date().getFullYear()} · <strong>{companyName}</strong>{' '}
-						{/* | <Link to='/sitemap-index.xml'>Sitemap</Link>  */}| Powered by{' '}
+						| Powered by{' '}
 						<strong>
 							<a
 								href='https://menefex.nl'
@@ -232,14 +234,10 @@ const Footer = () => {
 								target='_blank'
 							>
 								Menefex
-								<StaticImage
-									src='../images/menefex/menefex-logo.svg'
-									alt={`${title} Logo`}
-									placeholder='blurred'
-								/>
+								<img src={menefexLogo} alt='' />
 							</a>
 						</strong>
-					</span>
+					</p>
 				</div>
 			</div>
 		</footer>

@@ -185,11 +185,15 @@
 
 		@include fullWidth;
 
-		> span {
+		@media screen and ($small) {
+			// padding: 1em 0;
+		}
+
+		> p {
 			text-align: center;
 
 			@media screen and ($small) {
-				font-size: 0.675rem;
+				font-size: 0.625rem;
 				margin-bottom: 0em;
 			}
 		}

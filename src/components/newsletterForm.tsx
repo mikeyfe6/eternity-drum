@@ -144,9 +144,6 @@ const NewsletterForm: React.FC = () => {
 		return allFieldsFilled && areErrorsValid;
 	};
 
-	console.log('isFormValid()', isFormValid());
-	console.log('errors', errors);
-
 	return (
 		<div className={styles.newsletterWrapper}>
 			<form onSubmit={handleSubmit}>
