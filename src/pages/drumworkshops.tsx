@@ -77,7 +77,7 @@ const Drumworkshops: React.FC<PageProps> = () => {
 						<p>
 							Meld jezelf of kind nu direct aan via het{' '}
 							<a href='#' onClick={(event) => handleClick(inputRef, event)}>
-								online inschrijvingsformulier
+								online inschrijfformulier
 							</a>
 							, via de mail <a href='#!'>info@eternitydrum.com</a> of
 							telefonisch via <a href='#!'>06 24 25 53 91</a>.

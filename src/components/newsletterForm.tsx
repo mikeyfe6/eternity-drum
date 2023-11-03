@@ -12,6 +12,11 @@ type FieldErrors = {
 };
 
 const NewsletterForm: React.FC = () => {
+	const [focusedInput, setFocusedInput] = React.useState<string | null>(null);
+	const [fieldErrors, setFieldErrors] = React.useState<FieldErrors>({});
+
+	const [isFormSubmitted, setIsFormSubmitted] = React.useState<boolean>(false);
+
 	const [formData, setFormData] = React.useState<NewsletterFormData>({
 		firstName: '',
 		lastName: '',
@@ -19,10 +24,6 @@ const NewsletterForm: React.FC = () => {
 	});
 
 	const requiredFields = ['firstName', 'lastName', 'email'];
-
-	const [fieldErrors, setFieldErrors] = React.useState<FieldErrors>({});
-
-	const [focusedInput, setFocusedInput] = React.useState<string | null>(null);
 
 	const handleInputFocus = (name: string) => {
 		setFocusedInput(name);
@@ -74,6 +75,8 @@ const NewsletterForm: React.FC = () => {
 		if (errorMessages.length > 0) {
 			return;
 		}
+
+		setIsFormSubmitted(true);
 
 		try {
 			const response = await axios.post(
@@ -140,7 +143,11 @@ const NewsletterForm: React.FC = () => {
 								className={
 									fieldErrors.firstName && fieldErrors.firstName.length > 0
 										? 'error'
-										: formData.firstName && fieldErrors.firstName.length === 0
+										: (formData.firstName &&
+												fieldErrors.firstName &&
+												fieldErrors.firstName.length === 0) ||
+										  (fieldErrors.firstName === undefined &&
+												isFormSubmitted === true)
 										? 'approved'
 										: ''
 								}
@@ -171,7 +178,11 @@ const NewsletterForm: React.FC = () => {
 								className={
 									fieldErrors.lastName && fieldErrors.lastName.length > 0
 										? 'error'
-										: formData.lastName && fieldErrors.lastName.length === 0
+										: (formData.lastName &&
+												fieldErrors.lastName &&
+												fieldErrors.lastName.length === 0) ||
+										  (fieldErrors.lastName === undefined &&
+												isFormSubmitted === true)
 										? 'approved'
 										: ''
 								}
@@ -202,7 +213,11 @@ const NewsletterForm: React.FC = () => {
 								className={
 									fieldErrors.email && fieldErrors.email.length > 0
 										? 'error'
-										: formData.email && fieldErrors.email.length === 0
+										: (formData.email &&
+												fieldErrors.email &&
+												fieldErrors.email.length === 0) ||
+										  (fieldErrors.email === undefined &&
+												isFormSubmitted === true)
 										? 'approved'
 										: ''
 								}

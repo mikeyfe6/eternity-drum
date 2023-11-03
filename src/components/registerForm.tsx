@@ -35,15 +35,12 @@ export const handleClick = (
 };
 
 const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
-	const [errors, setErrors] = React.useState<string[]>([]);
-	const [emptyFields, setEmptyFields] = React.useState<string[]>([]);
 	const [focusedInput, setFocusedInput] = React.useState<string | null>(null);
+	const [fieldErrors, setFieldErrors] = React.useState<FieldErrors>({});
 
-	const [submitted, setSubmitted] = React.useState(false);
+	const [isFormSubmitted, setIsFormSubmitted] = React.useState<boolean>(false);
 
 	const [isOlderThan18, setIsOlderThan18] = React.useState(true);
-
-	const [fieldErrors, setFieldErrors] = React.useState<FieldErrors>({});
 
 	const [formData, setFormData] = React.useState<RegisterFormData>({
 		firstName: '',
@@ -121,10 +118,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 			[name]: value,
 		});
 
-		if (submitted) {
-			setErrors([]);
-		}
-
 		if (value.trim() !== '') {
 			const inputElement = document.getElementById(name);
 			if (inputElement) {
@@ -133,28 +126,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		}
 	};
 
-	React.useEffect(() => {
-		for (const field in formData) {
-			if (formData.hasOwnProperty(field)) {
-				const value = formData[field as keyof typeof formData];
-
-				if (value && value.trim() !== '') {
-					const fieldErrors = validateRegisterForm(
-						{
-							...formData,
-							[field]: value,
-						},
-						isOlderThan18
-					);
-
-					if (fieldErrors[field]) {
-						setErrors([...fieldErrors[field]]);
-					}
-				}
-			}
-		}
-	}, [formData, isOlderThan18]);
-
 	const handleInputChange = (
 		event: React.ChangeEvent<
 			HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -162,20 +133,15 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 	) => {
 		const { name, value } = event.target;
 
-		const updatedEmptyFields = emptyFields.filter((field) => field !== name);
-
-		const newValidationErrors = validateRegisterForm(
-			{
-				...formData,
-				[name]: value,
-			},
-			isOlderThan18
-		);
-
 		const updatedFieldErrors = { ...fieldErrors };
-		const errorMessages = newValidationErrors[name] || [];
-
-		updatedFieldErrors[name] = errorMessages;
+		updatedFieldErrors[name] =
+			validateRegisterForm(
+				{
+					...formData,
+					[name]: value,
+				},
+				isOlderThan18
+			)[name] || [];
 
 		setFieldErrors(updatedFieldErrors);
 
@@ -184,13 +150,11 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 			[name]: value,
 		});
 
-		event.target.classList.toggle('error', errorMessages.length > 0);
-		event.target.classList.toggle('approved', errorMessages.length === 0);
-
-		const allErrors = Object.values(updatedFieldErrors).flat();
-		setErrors(allErrors);
-
-		setEmptyFields(updatedEmptyFields);
+		event.target.classList.toggle('error', updatedFieldErrors[name].length > 0);
+		event.target.classList.toggle(
+			'approved',
+			updatedFieldErrors[name].length === 0
+		);
 	};
 
 	const handleInputBlur = () => {
@@ -200,50 +164,31 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 	const handleSubmit = async (event: React.FormEvent) => {
 		event.preventDefault();
 
-		setSubmitted(true);
-
 		const validationErrors = validateRegisterForm(formData, isOlderThan18);
-
-		const missingFields = requiredFields.filter((field) => {
-			const value = formData[field as keyof typeof formData];
-			return value === undefined || value.trim() === '';
-		});
-
-		setEmptyFields(missingFields);
-
-		console.log('emptyFields', emptyFields);
-		console.log('missingFields', missingFields);
 
 		const errorMessages = Object.values(validationErrors).flatMap(
 			(error) => error
 		);
 
-		console.log('errors', errors);
-		console.log('validationErrors', validationErrors);
+		setFieldErrors(validationErrors);
 
-		setErrors(errorMessages);
-
-		if (errorMessages.length > 0 || missingFields.length > 0) {
-			setErrors(errorMessages);
-		} else {
-			try {
-				setErrors([]);
-				const response = await axios.post(
-					'/.netlify/functions/sendmail',
-					formData
-				);
-				console.log(
-					'Eternity Percussion; [Form submitted successfully]',
-					response.data
-				);
-				navigate('/success');
-			} catch (error) {
-				console.error('Eternity Percussion; [Form submission error]', error);
-				alert('Er is iets misgegaan. Probeer het later opnieuw.');
-			}
+		if (errorMessages.length > 0) {
+			return;
 		}
 
-		if (errorMessages.length === 0) {
+		setIsFormSubmitted(true);
+
+		try {
+			const response = await axios.post(
+				'/.netlify/functions/sendmail',
+				formData
+			);
+			console.log(
+				'Eternity Percussion; [Form submitted successfully]',
+				response.data
+			);
+			navigate('/success');
+
 			setFormData({
 				firstName: '',
 				lastName: '',
@@ -267,8 +212,12 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 				other: '',
 			});
 
-			setEmptyFields([]);
-			removeApprovedClasses();
+			setFieldErrors({});
+
+			setFocusedInput(null);
+		} catch (error) {
+			console.error('Eternity Percussion; [Form submission error]', error);
+			alert('Er is iets misgegaan. Probeer het later opnieuw.');
 		}
 	};
 
@@ -290,29 +239,11 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 				age--;
 			}
 
-			setErrors([]);
-
 			setIsOlderThan18(age >= 18);
-
-			if (submitted) {
-				setErrors([]);
-			}
 		} else {
 			setIsOlderThan18(true);
 		}
-	}, [
-		formData.dayOfBirth,
-		formData.monthOfBirth,
-		formData.yearOfBirth,
-		submitted,
-	]);
-
-	const removeApprovedClasses = () => {
-		const elements = document.querySelectorAll('.approved');
-		elements.forEach((element) => {
-			element.classList.remove('approved');
-		});
-	};
+	}, [formData.dayOfBirth, formData.monthOfBirth, formData.yearOfBirth]);
 
 	React.useEffect(() => {
 		if (formData.discover === 'Overig') {
@@ -327,7 +258,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		const allFieldsFilled = requiredFields.every(
 			(field) => formData[field as keyof RegisterFormData]
 		);
-		const areErrorsValid = errors.length <= 0;
+		const areErrorsValid = Object.values(fieldErrors).flat().length <= 0;
 
 		return allFieldsFilled && areErrorsValid;
 	};
@@ -368,7 +299,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									onChange={handleInputChange}
 									onBlur={handleInputBlur}
 									onFocus={() => handleInputFocus('firstName')}
-									className={emptyFields.includes('firstName') ? 'error' : ''}
+									className={
+										fieldErrors.firstName && fieldErrors.firstName.length > 0
+											? 'error'
+											: (formData.firstName &&
+													fieldErrors.firstName &&
+													fieldErrors.firstName.length === 0) ||
+											  (fieldErrors.firstName === undefined &&
+													isFormSubmitted === true)
+											? 'approved'
+											: ''
+									}
 								/>
 							</div>
 
@@ -392,7 +333,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									onChange={handleInputChange}
 									onBlur={handleInputBlur}
 									onFocus={() => handleInputFocus('lastName')}
-									className={emptyFields.includes('lastName') ? 'error' : ''}
+									className={
+										fieldErrors.lastName && fieldErrors.lastName.length > 0
+											? 'error'
+											: (formData.lastName &&
+													fieldErrors.lastName &&
+													fieldErrors.lastName.length === 0) ||
+											  (fieldErrors.lastName === undefined &&
+													isFormSubmitted === true)
+											? 'approved'
+											: ''
+									}
 								/>
 							</div>
 						</div>
@@ -419,7 +370,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									onChange={handleInputChange}
 									onBlur={handleInputBlur}
 									onFocus={() => handleInputFocus('streetName')}
-									className={emptyFields.includes('streetName') ? 'error' : ''}
+									className={
+										fieldErrors.streetName && fieldErrors.streetName.length > 0
+											? 'error'
+											: (formData.streetName &&
+													fieldErrors.streetName &&
+													fieldErrors.streetName.length === 0) ||
+											  (fieldErrors.streetName === undefined &&
+													isFormSubmitted === true)
+											? 'approved'
+											: ''
+									}
 								/>
 							</div>
 
@@ -443,7 +404,18 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									onChange={handleInputChange}
 									onBlur={handleInputBlur}
 									onFocus={() => handleInputFocus('houseNumber')}
-									className={emptyFields.includes('houseNumber') ? 'error' : ''}
+									className={
+										fieldErrors.houseNumber &&
+										fieldErrors.houseNumber.length > 0
+											? 'error'
+											: (formData.houseNumber &&
+													fieldErrors.houseNumber &&
+													fieldErrors.houseNumber.length === 0) ||
+											  (fieldErrors.houseNumber === undefined &&
+													isFormSubmitted === true)
+											? 'approved'
+											: ''
+									}
 								/>
 							</div>
 							<div className='form-group zipCode'>
@@ -466,7 +438,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									onChange={handleInputChange}
 									onBlur={handleInputBlur}
 									onFocus={() => handleInputFocus('zipCode')}
-									className={emptyFields.includes('zipCode') ? 'error' : ''}
+									className={
+										fieldErrors.zipCode && fieldErrors.zipCode.length > 0
+											? 'error'
+											: (formData.zipCode &&
+													fieldErrors.zipCode &&
+													fieldErrors.zipCode.length === 0) ||
+											  (fieldErrors.zipCode === undefined &&
+													isFormSubmitted === true)
+											? 'approved'
+											: ''
+									}
 								/>
 							</div>
 						</div>
@@ -490,7 +472,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									onChange={handleInputChange}
 									onBlur={handleInputBlur}
 									onFocus={() => handleInputFocus('city')}
-									className={emptyFields.includes('city') ? 'error' : ''}
+									className={
+										fieldErrors.city && fieldErrors.city.length > 0
+											? 'error'
+											: (formData.city &&
+													fieldErrors.city &&
+													fieldErrors.city.length === 0) ||
+											  (fieldErrors.city === undefined &&
+													isFormSubmitted === true)
+											? 'approved'
+											: ''
+									}
 								/>
 							</div>
 
@@ -514,7 +506,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									onChange={handleInputChange}
 									onBlur={handleInputBlur}
 									onFocus={() => handleInputFocus('province')}
-									className={emptyFields.includes('province') ? 'error' : ''}
+									className={
+										fieldErrors.province && fieldErrors.province.length > 0
+											? 'error'
+											: (formData.province &&
+													fieldErrors.province &&
+													fieldErrors.province.length === 0) ||
+											  (fieldErrors.province === undefined &&
+													isFormSubmitted === true)
+											? 'approved'
+											: ''
+									}
 								/>
 							</div>
 						</div>
@@ -539,7 +541,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									onChange={handleInputChange}
 									onBlur={handleInputBlur}
 									onFocus={() => handleInputFocus('email')}
-									className={emptyFields.includes('email') ? 'error' : ''}
+									className={
+										fieldErrors.email && fieldErrors.email.length > 0
+											? 'error'
+											: (formData.email &&
+													fieldErrors.email &&
+													fieldErrors.email.length === 0) ||
+											  (fieldErrors.email === undefined &&
+													isFormSubmitted === true)
+											? 'approved'
+											: ''
+									}
 								/>
 							</div>
 
@@ -562,7 +574,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('gender')}
-										className={emptyFields.includes('gender') ? 'error' : ''}
 									>
 										<option value='' disabled>
 											Geslacht
@@ -596,7 +607,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									onChange={handleInputChange}
 									onBlur={handleInputBlur}
 									onFocus={() => handleInputFocus('phone')}
-									className={emptyFields.includes('phone') ? 'error' : ''}
+									className={
+										fieldErrors.phone && fieldErrors.phone.length > 0
+											? 'error'
+											: (formData.phone &&
+													fieldErrors.phone &&
+													fieldErrors.phone.length === 0) ||
+											  (fieldErrors.phone === undefined &&
+													isFormSubmitted === true)
+											? 'approved'
+											: ''
+									}
 								/>
 							</div>
 
@@ -625,8 +646,15 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('dayOfBirth')}
 										className={
-											emptyFields.includes('dayOfBirth') && !formData.dayOfBirth
+											fieldErrors.dayOfBirth &&
+											fieldErrors.dayOfBirth.length > 0
 												? 'error'
+												: (formData.dayOfBirth &&
+														fieldErrors.dayOfBirth &&
+														fieldErrors.dayOfBirth.length === 0) ||
+												  (fieldErrors.dayOfBirth === undefined &&
+														isFormSubmitted === true)
+												? 'approved'
 												: ''
 										}
 									>
@@ -649,7 +677,16 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('monthOfBirth')}
 										className={
-											emptyFields.includes('monthOfBirth') ? 'error' : ''
+											fieldErrors.monthOfBirth &&
+											fieldErrors.monthOfBirth.length > 0
+												? 'error'
+												: (formData.monthOfBirth &&
+														fieldErrors.monthOfBirth &&
+														fieldErrors.monthOfBirth.length === 0) ||
+												  (fieldErrors.monthOfBirth === undefined &&
+														isFormSubmitted === true)
+												? 'approved'
+												: ''
 										}
 									>
 										<option value='' disabled>
@@ -684,7 +721,16 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('yearOfBirth')}
 										className={
-											emptyFields.includes('yearOfBirth') ? 'error' : ''
+											fieldErrors.yearOfBirth &&
+											fieldErrors.yearOfBirth.length > 0
+												? 'error'
+												: (formData.yearOfBirth &&
+														fieldErrors.yearOfBirth &&
+														fieldErrors.yearOfBirth.length === 0) ||
+												  (fieldErrors.yearOfBirth === undefined &&
+														isFormSubmitted === true)
+												? 'approved'
+												: ''
 										}
 									>
 										<option value='' disabled>
@@ -767,7 +813,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('other')}
-										className={emptyFields.includes('other') ? 'reset' : ''}
 									/>
 								</div>
 							</div>
@@ -831,7 +876,16 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('firstNameParent')}
 										className={
-											emptyFields.includes('firstNameParent') ? 'error' : ''
+											fieldErrors.firstNameParent &&
+											fieldErrors.firstNameParent.length > 0
+												? 'error'
+												: (formData.firstNameParent &&
+														fieldErrors.firstNameParent &&
+														fieldErrors.firstNameParent.length === 0) ||
+												  (fieldErrors.firstNameParent === undefined &&
+														isFormSubmitted === true)
+												? 'approved'
+												: ''
 										}
 									/>
 								</div>
@@ -858,7 +912,16 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('lastNameParent')}
 										className={
-											emptyFields.includes('lastNameParent') ? 'error' : ''
+											fieldErrors.lastNameParent &&
+											fieldErrors.lastNameParent.length > 0
+												? 'error'
+												: (formData.lastNameParent &&
+														fieldErrors.lastNameParent &&
+														fieldErrors.lastNameParent.length === 0) ||
+												  (fieldErrors.lastNameParent === undefined &&
+														isFormSubmitted === true)
+												? 'approved'
+												: ''
 										}
 									/>
 								</div>
@@ -886,7 +949,16 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('emailParent')}
 										className={
-											emptyFields.includes('emailParent') ? 'error' : ''
+											fieldErrors.emailParent &&
+											fieldErrors.emailParent.length > 0
+												? 'error'
+												: (formData.emailParent &&
+														fieldErrors.emailParent &&
+														fieldErrors.emailParent.length === 0) ||
+												  (fieldErrors.emailParent === undefined &&
+														isFormSubmitted === true)
+												? 'approved'
+												: ''
 										}
 									/>
 								</div>
@@ -912,7 +984,16 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('phoneParent')}
 										className={
-											emptyFields.includes('phoneParent') ? 'error' : ''
+											fieldErrors.phoneParent &&
+											fieldErrors.phoneParent.length > 0
+												? 'error'
+												: (formData.phoneParent &&
+														fieldErrors.phoneParent &&
+														fieldErrors.phoneParent.length === 0) ||
+												  (fieldErrors.phoneParent === undefined &&
+														isFormSubmitted === true)
+												? 'approved'
+												: ''
 										}
 									/>
 								</div>
@@ -928,22 +1009,29 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 								</span>
 							)}
 
-							{errors.length > 0 && (
+							{Object.values(fieldErrors).flat().length > 0 && (
 								<span className={styles.registerformSubmitError}>
 									Actie vereist!
 								</span>
 							)}
 
-							<button type='submit' disabled={errors.length > 0}>
+							<button
+								type='submit'
+								disabled={
+									Object.values(fieldErrors).flat().length > 0 || !isFormValid()
+								}
+							>
 								Schrijf in
 							</button>
 						</div>
 
-						{errors.length > 0 && (
+						{Object.values(fieldErrors).flat().length > 0 && (
 							<ul>
-								{errors.map((error, index) => (
-									<li key={index}>{error}</li>
-								))}
+								{Object.values(fieldErrors)
+									.flat()
+									.map((error, index) => (
+										<li key={index}>{error}</li>
+									))}
 							</ul>
 						)}
 					</div>
