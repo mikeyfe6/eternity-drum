@@ -7,7 +7,16 @@ import * as styles from '../styles/modules/bookingsform.module.scss';
 
 import { validateBookingsForm, BookingsFormData } from './validation';
 
+type FieldErrors = {
+	[key: string]: string[];
+};
+
 const BookingsForm: React.FC = () => {
+	const [focusedInput, setFocusedInput] = React.useState<string | null>(null);
+	const [fieldErrors, setFieldErrors] = React.useState<FieldErrors>({});
+
+	const [isFormSubmitted, setIsFormSubmitted] = React.useState<boolean>(false);
+
 	const [formData, setFormData] = React.useState<BookingsFormData>({
 		firstName: '',
 		lastName: '',
@@ -24,11 +33,6 @@ const BookingsForm: React.FC = () => {
 		'message',
 	];
 
-	const [errors, setErrors] = React.useState<string[]>([]);
-	const [submitted, setSubmitted] = React.useState(false);
-	const [emptyFields, setEmptyFields] = React.useState<string[]>([]);
-	const [focusedInput, setFocusedInput] = React.useState<string | null>(null);
-
 	const inputRef = React.useRef<HTMLInputElement>(null);
 
 	const handleInputFocus = (name: string) => {
@@ -42,35 +46,25 @@ const BookingsForm: React.FC = () => {
 	) => {
 		const { name, value } = event.target;
 
-		const updatedEmptyFields = emptyFields.filter((field) => field !== name);
-
-		if (submitted) {
-			const newValidationErrors = validateBookingsForm({
+		const updatedFieldErrors = { ...fieldErrors };
+		updatedFieldErrors[name] =
+			validateBookingsForm({
 				...formData,
 				[name]: value,
-			});
+			})[name] || [];
 
-			setErrors(newValidationErrors);
-		}
+		setFieldErrors(updatedFieldErrors);
 
 		setFormData({
 			...formData,
 			[name]: value,
 		});
 
-		if (value.trim() === '') {
-			if (!emptyFields.includes(name)) {
-				updatedEmptyFields.push(name);
-			}
-
-			event.target.classList.remove('approved');
-			event.target.classList.add('error');
-		} else {
-			event.target.classList.remove('error');
-			event.target.classList.add('approved');
-		}
-
-		setEmptyFields(updatedEmptyFields);
+		event.target.classList.toggle('error', updatedFieldErrors[name].length > 0);
+		event.target.classList.toggle(
+			'approved',
+			updatedFieldErrors[name].length === 0
+		);
 	};
 
 	const handleInputBlur = () => {
@@ -80,38 +74,31 @@ const BookingsForm: React.FC = () => {
 	const handleSubmit = async (event: React.FormEvent) => {
 		event.preventDefault();
 
-		setSubmitted(true);
-
 		const validationErrors = validateBookingsForm(formData);
 
-		const missingFields = requiredFields.filter((field) => {
-			const value = formData[field as keyof typeof formData];
-			return value === undefined || value.trim() === '';
-		});
+		const errorMessages = Object.values(validationErrors).flatMap(
+			(error) => error
+		);
 
-		setEmptyFields(missingFields);
+		setFieldErrors(validationErrors);
 
-		if (validationErrors.length > 0 || missingFields.length > 0) {
-			setErrors(validationErrors);
-		} else {
-			try {
-				setErrors([]);
-				const response = await axios.post(
-					'/.netlify/functions/sendmail',
-					formData
-				);
-				console.log(
-					'Eternity Percussion; [Form submitted successfully]',
-					response.data
-				);
-				navigate('/success');
-			} catch (error) {
-				console.error('Eternity Percussion; [Form submission error]', error);
-				alert('Er is iets misgegaan. Probeer het later opnieuw.');
-			}
+		if (errorMessages.length > 0) {
+			return;
 		}
 
-		if (validationErrors.length === 0) {
+		setIsFormSubmitted(true);
+
+		try {
+			const response = await axios.post(
+				'/.netlify/functions/sendmail',
+				formData
+			);
+			console.log(
+				'Eternity Percussion; [Form submitted successfully]',
+				response.data
+			);
+			navigate('/success');
+
 			setFormData({
 				firstName: '',
 				lastName: '',
@@ -120,45 +107,20 @@ const BookingsForm: React.FC = () => {
 				message: '',
 			});
 
-			setEmptyFields([]);
-			removeApprovedClasses();
+			setFieldErrors({});
+
+			setFocusedInput(null);
+		} catch (error) {
+			console.error('Eternity Percussion; [Form submission error]', error);
+			alert('Er is iets misgegaan. Probeer het later opnieuw.');
 		}
-	};
-
-	React.useEffect(() => {
-		const addApprovedClassForField = (name: string) => {
-			const inputElement = document.getElementById(name) as HTMLInputElement;
-			if (inputElement && inputElement.value.trim() !== '') {
-				inputElement.classList.add('approved');
-			}
-		};
-
-		for (const field of requiredFields) {
-			addApprovedClassForField(field);
-		}
-	}, [formData, requiredFields]);
-
-	React.useEffect(() => {
-		if (formData.subject === 'Overig') {
-			const inputElement = document.getElementById('other') as HTMLInputElement;
-			if (inputElement && inputElement.value.trim() !== '') {
-				inputElement.classList.add('approved');
-			}
-		}
-	}, [formData]);
-
-	const removeApprovedClasses = () => {
-		const elements = document.querySelectorAll('.approved');
-		elements.forEach((element) => {
-			element.classList.remove('approved');
-		});
 	};
 
 	const isFormValid = () => {
 		const allFieldsFilled = requiredFields.every(
-			(field) => formData[field as keyof typeof formData]
+			(field) => formData[field as keyof BookingsFormData]
 		);
-		const areErrorsValid = errors.length <= 0;
+		const areErrorsValid = Object.values(fieldErrors).flat().length <= 0;
 
 		return allFieldsFilled && areErrorsValid;
 	};
@@ -213,7 +175,17 @@ const BookingsForm: React.FC = () => {
 										ref={inputRef}
 										onFocus={() => handleInputFocus('firstName')}
 										autoComplete='name'
-										className={emptyFields.includes('firstName') ? 'error' : ''}
+										className={
+											fieldErrors.firstName && fieldErrors.firstName.length > 0
+												? 'error'
+												: (formData.firstName &&
+														fieldErrors.firstName &&
+														fieldErrors.firstName.length === 0) ||
+												  (fieldErrors.firstName === undefined &&
+														isFormSubmitted === true)
+												? 'approved'
+												: ''
+										}
 									/>
 								</div>
 
@@ -238,7 +210,17 @@ const BookingsForm: React.FC = () => {
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('lastName')}
 										autoComplete='name'
-										className={emptyFields.includes('lastName') ? 'error' : ''}
+										className={
+											fieldErrors.lastName && fieldErrors.lastName.length > 0
+												? 'error'
+												: (formData.lastName &&
+														fieldErrors.lastName &&
+														fieldErrors.lastName.length === 0) ||
+												  (fieldErrors.lastName === undefined &&
+														isFormSubmitted === true)
+												? 'approved'
+												: ''
+										}
 									/>
 								</div>
 							</div>
@@ -265,7 +247,17 @@ const BookingsForm: React.FC = () => {
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('email')}
 										autoComplete='email'
-										className={emptyFields.includes('email') ? 'error' : ''}
+										className={
+											fieldErrors.email && fieldErrors.email.length > 0
+												? 'error'
+												: (formData.email &&
+														fieldErrors.email &&
+														fieldErrors.email.length === 0) ||
+												  (fieldErrors.email === undefined &&
+														isFormSubmitted === true)
+												? 'approved'
+												: ''
+										}
 									/>
 								</div>
 							</div>
@@ -290,7 +282,17 @@ const BookingsForm: React.FC = () => {
 											onChange={handleInputChange}
 											onBlur={handleInputBlur}
 											onFocus={() => handleInputFocus('subject')}
-											className={emptyFields.includes('email') ? 'error' : ''}
+											className={
+												fieldErrors.subject && fieldErrors.subject.length > 0
+													? 'error'
+													: (formData.subject &&
+															fieldErrors.subject &&
+															fieldErrors.subject.length === 0) ||
+													  (fieldErrors.subject === undefined &&
+															isFormSubmitted === true)
+													? 'approved'
+													: ''
+											}
 										>
 											<option value='' disabled>
 												Kies onderwerp
@@ -323,38 +325,56 @@ const BookingsForm: React.FC = () => {
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('message')}
-										className={emptyFields.includes('message') ? 'error' : ''}
+										className={
+											fieldErrors.message && fieldErrors.message.length > 0
+												? 'error'
+												: (formData.message &&
+														fieldErrors.message &&
+														fieldErrors.message.length === 0) ||
+												  (fieldErrors.message === undefined &&
+														isFormSubmitted === true)
+												? 'approved'
+												: ''
+										}
 									></textarea>
 								</div>
 							</div>
 						</fieldset>
 
 						<div className={styles.bookingsformSubmit}>
-							{isFormValid() ||
-								(errors.length > 0 && (
-									<div>
-										{isFormValid() && (
-											<span className={styles.bookingsformSubmitApproved}>
-												Het formulier is juist & volledig ingevuld.
-											</span>
-										)}
-										{errors.length > 0 && (
-											<>
-												<span className={styles.bookingsformSubmitError}>
-													Formulier niet juist ingevuld
-												</span>
-												<ul>
-													{errors.map((error, index) => (
-														<li key={index}>{error}</li>
-													))}
-												</ul>
-											</>
-										)}
-									</div>
-								))}
-							<button type='submit' disabled={errors.length > 0}>
-								{formData.subject === 'boeking' ? 'Boek nu' : 'Verstuur'}
-							</button>
+							<div>
+								{isFormValid() && (
+									<span className={styles.bookingsformSubmitApproved}>
+										Formulier is juist ingevuld!
+									</span>
+								)}
+
+								{Object.values(fieldErrors).flat().length > 0 && (
+									<span className={styles.bookingsformSubmitError}>
+										Actie vereist!
+									</span>
+								)}
+
+								<button
+									type='submit'
+									disabled={
+										Object.values(fieldErrors).flat().length > 0 ||
+										!isFormValid()
+									}
+								>
+									Schrijf in
+								</button>
+							</div>
+
+							{Object.values(fieldErrors).flat().length > 0 && (
+								<ul>
+									{Object.values(fieldErrors)
+										.flat()
+										.map((error, index) => (
+											<li key={index}>{error}</li>
+										))}
+								</ul>
+							)}
 						</div>
 					</form>
 				</section>

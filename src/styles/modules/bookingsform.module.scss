@@ -115,65 +115,42 @@
 
 	&-submit {
 		display: flex;
-		justify-content: space-between;
-		margin: 2em 0;
+		flex-direction: column;
+		margin: 2em 0 1em;
 
-		@media screen and ($extraLarge) {
-			flex-direction: column-reverse;
-			gap: 20px;
+		> :nth-child(1) {
+			display: flex;
+			justify-content: space-between;
+			align-items: end;
 		}
 
-		@media screen and ($large) {
-			flex-direction: row;
+		> div > span {
+			font-size: 0.875rem;
+			text-underline-offset: 4px;
+			text-decoration-thickness: 2px;
+			padding-left: 0.25em;
 		}
 
-		@media screen and ($small) {
-			flex-direction: column-reverse;
-		}
+		> ul {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			margin-top: 1.75em;
 
-		> div {
+			> li {
+				background: $redColor;
+				border-radius: 3px;
+				padding: 0.25em 0.75em;
+				font-size: 0.8rem;
+				width: fit-content;
+				outline: 1px rgba(255, 255, 255, 0.75) solid;
+			}
+
 			&:not(:empty) {
-				@media screen and ($extraLarge) {
-					border-top: solid 2px rgba(128, 128, 128, 0.1);
-					border-bottom: solid 2px rgba(128, 128, 128, 0.1);
-					padding: 1em 0.5em 1.75em;
-					margin-top: 1em;
-				}
-
-				@media screen and ($large) {
-					border: none;
-					padding: 0 0.5em 1.75em;
-					margin-top: 0em;
-				}
-
-				@media screen and ($small) {
-					border-top: solid 2px rgba(128, 128, 128, 0.1);
-					border-bottom: solid 2px rgba(128, 128, 128, 0.1);
-					padding: 1em 0.5em 1.75em;
-					margin-top: 1em;
-				}
-			}
-
-			> span {
-				font-size: 0.875rem;
-				text-underline-offset: 4px;
-				text-decoration-thickness: 2px;
-			}
-
-			> ul {
-				display: flex;
-				flex-direction: column;
-				gap: 10px;
-				margin-top: 1.75em;
-
-				> li {
-					background: $redColor;
-					border-radius: 3px;
-					padding: 0.25em 0.75em;
-					font-size: 0.8rem;
-					width: fit-content;
-					outline: 1px rgba(255, 255, 255, 0.75) solid;
-				}
+				border-top: solid 2px rgba(128, 128, 128, 0.1);
+				border-bottom: solid 2px rgba(128, 128, 128, 0.1);
+				padding: 1.5em 0.25em;
+				margin-top: 1.5em;
 			}
 		}
 
@@ -187,7 +164,7 @@
 			text-decoration-color: $greenColor;
 		}
 
-		> button {
+		> div > button {
 			@include buttonStyle(
 				$whiteColor,
 				$primaryColor,
@@ -195,9 +172,7 @@
 				$tertiaryColor
 			);
 
-			align-self: flex-end;
 			margin-left: auto;
-			margin-bottom: auto;
 
 			&:disabled {
 				opacity: 0.5;
