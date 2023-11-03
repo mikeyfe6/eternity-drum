@@ -23,7 +23,7 @@ const Anbi: React.FC<PageProps> = () => {
 				<Breadcrumb crumbs={breadcrumbs} />
 
 				<h1>ANBI</h1>
-				<section data-main-content className='page-content-center'>
+				<section data-main-content className='page-content center'>
 					<h2>Doelstelling: Eternity Percussion</h2>
 
 					<p>

@@ -22,7 +22,7 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 				<Breadcrumb crumbs={breadcrumbs} />
 
 				<h1>Cultuureducatie</h1>
-				<section data-main-content className='page-content-center'>
+				<section data-main-content className='page-content center'>
 					<p>
 						<strong>Eternity</strong> heeft de ambitie de komende jaren te
 						groeien en een instituut te worden voor Caribische drumbands.

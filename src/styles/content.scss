@@ -1,7 +1,11 @@
 @import './configs/globals';
 
 .page-content {
-	&-center {
+	li > p {
+		display: inline;
+	}
+
+	&.center {
 		max-width: 1250px;
 		margin: 3em auto;
 		background: #80808010;
@@ -27,7 +31,7 @@
 		}
 	}
 
-	&-image-right {
+	&.image-right {
 		display: flex;
 		justify-content: center;
 		gap: 87.5px;
@@ -68,21 +72,23 @@
 
 		> :nth-child(2) {
 			max-width: 600px;
-			height: fit-content;
-			border-radius: 2px;
-			outline: 1px solid $lightgreyColor;
-			overflow: hidden;
-
-			@include boxShadow;
 
 			@media screen and ($large) {
 				max-width: 100%;
 			}
 
-			img {
-				@include boxShadow;
-				border-radius: 3px;
-				width: 100%;
+			> div {
+				overflow: hidden;
+				border-radius: 5px;
+				height: fit-content;
+
+				outline: 1px solid $lightgreyColor;
+
+				img {
+					@include boxShadow;
+
+					width: 100%;
+				}
 			}
 		}
 	}

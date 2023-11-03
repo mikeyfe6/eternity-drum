@@ -27,8 +27,9 @@ interface Vacancy {
     jobTitle: string;
     department: string;
     jobImage: {
-        url: string;
+        gatsbyImageData: any;
         title: string;
+        description: string;
     };
     jobDescription: {
         raw: string;
@@ -131,7 +132,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                 slug
                 jobTitle
                 jobImage {
-                    url
+                    gatsbyImageData
                     title
                     description
                 }

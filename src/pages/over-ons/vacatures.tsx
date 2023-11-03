@@ -70,7 +70,7 @@ const Vacatures: React.FC<PageProps> = () => {
 						return (
 							<li key={id}>
 								<Link to={`${slug}/`}>
-									<p>Vacature: {jobTitle}</p>
+									<strong>{jobTitle}</strong> <span>&#8594;</span>
 								</Link>
 							</li>
 						);

@@ -1,23 +1,25 @@
-/* eslint-disable indent */
 import React from 'react';
 
 import type { HeadFC } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import { SEO } from '../components/seo';
 
+import Hero from '../components/heroslider';
+
 // import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
+import Breadcrumb from '../components/breadcrumbs';
 
 interface PostProps {
 	pageContext: {
-		slug: string;
 		jobTitle: string;
 		department: string;
 		jobImage: {
-			url: string;
+			gatsbyImageData: any;
 			title: string;
 			description: string;
 		};
@@ -52,7 +54,6 @@ interface PostProps {
 
 const Vacancy = ({
 	pageContext: {
-		slug,
 		jobTitle,
 		jobImage,
 		department,
@@ -68,37 +69,58 @@ const Vacancy = ({
 		contactPhone,
 	},
 }: PostProps) => {
+	const breadcrumbs = [
+		{ label: 'Home', link: '/' },
+		{ label: 'Drumworkshops', link: '/drumworkshops/' },
+		{ label: 'Summerschool 2020' },
+	];
+
+	const image = jobImage.gatsbyImageData
+		? getImage(jobImage.gatsbyImageData)
+		: null;
+
 	return (
 		<Layout>
-			<h1>Vacature: {jobTitle}</h1>
-			<br />
-			<p>{slug}</p>
-			<br />
-			<p>{department}</p>
-			<br />
-			<img src={jobImage.url} />
-			<br />
-			<br />
-			{documentToReactComponents(JSON.parse(jobDescription.raw))}
-			<br />
-			{documentToReactComponents(JSON.parse(organisationDetails.raw))}
-			<br />
-			{documentToReactComponents(JSON.parse(requirements.raw))}
-			<br />
-			{documentToReactComponents(JSON.parse(responsibilities.raw))}
-			<br />
-			{documentToReactComponents(JSON.parse(availablity.raw))}
-			<br />
-			{documentToReactComponents(JSON.parse(apply.raw))}
-			<br />
-			<p>{location.lat}</p>
-			<p>{location.lon}</p>
-			<br />
-			<p>{applicationDeadline}</p>
-			<br />
-			<p>{contactEmail}</p>
-			<br />
-			<p>{contactPhone}</p>
+			<Hero />
+			<section data-main-section>
+				<Breadcrumb crumbs={breadcrumbs} />
+				<h1>Vacature: {jobTitle}</h1>
+				<section data-main-content className='page-content image-right'>
+					<div>
+						<h3>betreft vacature:</h3>
+						{documentToReactComponents(JSON.parse(jobDescription.raw))}
+
+						{documentToReactComponents(JSON.parse(organisationDetails.raw))}
+
+						{documentToReactComponents(JSON.parse(requirements.raw))}
+
+						{documentToReactComponents(JSON.parse(responsibilities.raw))}
+
+						{documentToReactComponents(JSON.parse(availablity.raw))}
+
+						{documentToReactComponents(JSON.parse(apply.raw))}
+
+						{/* <p>{location.lat}</p>
+						<p>{location.lon}</p> */}
+						<br />
+						{/* <p>{applicationDeadline}</p> */}
+						<br />
+
+						<p>{department}</p>
+					</div>
+					<div>
+						<div>
+							<GatsbyImage image={image!} alt={jobImage.description} />
+						</div>
+						{/* <br /> */}
+						{/* <div>
+							<p>{contactEmail}</p>
+							<br />
+							<p>{contactPhone}</p>
+						</div> */}
+					</div>
+				</section>
+			</section>
 		</Layout>
 	);
 };

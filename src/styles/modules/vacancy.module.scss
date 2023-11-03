@@ -8,8 +8,19 @@
 		@include boxShadow;
 
 		a {
-			display: block;
-			padding: 1em;
+			display: flex;
+			gap: 1em;
+			padding: 1em 1.5em;
+			align-items: center;
+
+			span {
+				font-weight: 800;
+				color: $linkColor;
+			}
+
+			:nth-child(2) {
+				font-size: 0.875rem;
+			}
 
 			&:hover {
 				outline: 2px solid $linkColor;

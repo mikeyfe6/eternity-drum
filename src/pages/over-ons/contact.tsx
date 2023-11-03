@@ -8,6 +8,7 @@ import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumbs';
 
 import Hero from '../../components/heroslider';
+import GoogleMaps from '../../components/maps';
 
 const Contact: React.FC<PageProps> = () => {
 	const breadcrumbs = [
@@ -24,6 +25,8 @@ const Contact: React.FC<PageProps> = () => {
 
 				<h1>Contact</h1>
 				<p>Welcome to your new Gatsby site.</p>
+				<br />
+				<GoogleMaps />
 			</section>
 		</Layout>
 	);
