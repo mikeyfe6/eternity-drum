@@ -14,6 +14,10 @@ interface RegisterFormProps {
 	inputRef: React.RefObject<HTMLInputElement>;
 }
 
+type FieldErrors = {
+	[key: string]: string[];
+};
+
 export const handleClick = (
 	inputRef: React.RefObject<HTMLInputElement>,
 	event: React.MouseEvent<HTMLAnchorElement>
@@ -38,6 +42,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 	const [submitted, setSubmitted] = React.useState(false);
 
 	const [isOlderThan18, setIsOlderThan18] = React.useState(true);
+
+	const [fieldErrors, setFieldErrors] = React.useState<FieldErrors>({});
 
 	const [formData, setFormData] = React.useState<RegisterFormData>({
 		firstName: '',
@@ -116,15 +122,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		});
 
 		if (submitted) {
-			const newValidationErrors = validateRegisterForm(
-				{
-					...formData,
-					[name]: value,
-				},
-				isOlderThan18
-			);
-
-			setErrors(newValidationErrors);
+			setErrors([]);
 		}
 
 		if (value.trim() !== '') {
@@ -135,6 +133,28 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		}
 	};
 
+	React.useEffect(() => {
+		for (const field in formData) {
+			if (formData.hasOwnProperty(field)) {
+				const value = formData[field as keyof typeof formData];
+
+				if (value && value.trim() !== '') {
+					const fieldErrors = validateRegisterForm(
+						{
+							...formData,
+							[field]: value,
+						},
+						isOlderThan18
+					);
+
+					if (fieldErrors[field]) {
+						setErrors([...fieldErrors[field]]);
+					}
+				}
+			}
+		}
+	}, [formData, isOlderThan18]);
+
 	const handleInputChange = (
 		event: React.ChangeEvent<
 			HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -144,34 +164,31 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
 		const updatedEmptyFields = emptyFields.filter((field) => field !== name);
 
-		if (submitted) {
-			const newValidationErrors = validateRegisterForm(
-				{
-					...formData,
-					[name]: value,
-				},
-				isOlderThan18
-			);
+		const newValidationErrors = validateRegisterForm(
+			{
+				...formData,
+				[name]: value,
+			},
+			isOlderThan18
+		);
 
-			setErrors(newValidationErrors);
-		}
+		const updatedFieldErrors = { ...fieldErrors };
+		const errorMessages = newValidationErrors[name] || [];
+
+		updatedFieldErrors[name] = errorMessages;
+
+		setFieldErrors(updatedFieldErrors);
 
 		setFormData({
 			...formData,
 			[name]: value,
 		});
 
-		if (value.trim() === '') {
-			if (!emptyFields.includes(name)) {
-				updatedEmptyFields.push(name);
-			}
+		event.target.classList.toggle('error', errorMessages.length > 0);
+		event.target.classList.toggle('approved', errorMessages.length === 0);
 
-			event.target.classList.remove('approved');
-			event.target.classList.add('error');
-		} else {
-			event.target.classList.remove('error');
-			event.target.classList.add('approved');
-		}
+		const allErrors = Object.values(updatedFieldErrors).flat();
+		setErrors(allErrors);
 
 		setEmptyFields(updatedEmptyFields);
 	};
@@ -194,8 +211,20 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
 		setEmptyFields(missingFields);
 
-		if (validationErrors.length > 0 || missingFields.length > 0) {
-			setErrors(validationErrors);
+		console.log('emptyFields', emptyFields);
+		console.log('missingFields', missingFields);
+
+		const errorMessages = Object.values(validationErrors).flatMap(
+			(error) => error
+		);
+
+		console.log('errors', errors);
+		console.log('validationErrors', validationErrors);
+
+		setErrors(errorMessages);
+
+		if (errorMessages.length > 0 || missingFields.length > 0) {
+			setErrors(errorMessages);
 		} else {
 			try {
 				setErrors([]);
@@ -214,7 +243,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 			}
 		}
 
-		if (validationErrors.length === 0) {
+		if (errorMessages.length === 0) {
 			setFormData({
 				firstName: '',
 				lastName: '',
@@ -255,8 +284,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 			let age = today.getFullYear() - dob.getFullYear();
 
 			if (
-				today.getMonth() < dob.getMonth() ||
-				(today.getMonth() === dob.getMonth() && today.getDate() < dob.getDate())
+				today.getMonth() < dobMonth ||
+				(today.getMonth() === dobMonth && today.getDate() < dobDay)
 			) {
 				age--;
 			}
@@ -266,8 +295,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 			setIsOlderThan18(age >= 18);
 
 			if (submitted) {
-				const newValidationErrors = validateRegisterForm(formData, age >= 18);
-				setErrors(newValidationErrors);
+				setErrors([]);
 			}
 		} else {
 			setIsOlderThan18(true);
@@ -279,18 +307,12 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		submitted,
 	]);
 
-	React.useEffect(() => {
-		const addApprovedClassForField = (name: string) => {
-			const inputElement = document.getElementById(name) as HTMLInputElement;
-			if (inputElement && inputElement.value.trim() !== '') {
-				inputElement.classList.add('approved');
-			}
-		};
-
-		for (const field of requiredFields) {
-			addApprovedClassForField(field);
-		}
-	}, [formData, requiredFields]);
+	const removeApprovedClasses = () => {
+		const elements = document.querySelectorAll('.approved');
+		elements.forEach((element) => {
+			element.classList.remove('approved');
+		});
+	};
 
 	React.useEffect(() => {
 		if (formData.discover === 'Overig') {
@@ -301,16 +323,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		}
 	}, [formData]);
 
-	const removeApprovedClasses = () => {
-		const elements = document.querySelectorAll('.approved');
-		elements.forEach((element) => {
-			element.classList.remove('approved');
-		});
-	};
-
 	const isFormValid = () => {
 		const allFieldsFilled = requiredFields.every(
-			(field) => formData[field as keyof typeof formData]
+			(field) => formData[field as keyof RegisterFormData]
 		);
 		const areErrorsValid = errors.length <= 0;
 
@@ -399,6 +414,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									id='streetName'
 									name='streetName'
 									placeholder='Straatnaam'
+									autoComplete='street-address'
 									value={formData.streetName}
 									onChange={handleInputChange}
 									onBlur={handleInputBlur}
@@ -905,31 +921,31 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 					)}
 
 					<div className={styles.registerformSubmit}>
-						{isFormValid() ||
-							(errors.length > 0 && (
-								<div>
-									{isFormValid() && (
-										<span className={styles.registerformSubmitApproved}>
-											Het formulier is juist & volledig ingevuld.
-										</span>
-									)}
-									{errors.length > 0 && (
-										<>
-											<span className={styles.registerformSubmitError}>
-												Formulier niet juist ingevuld
-											</span>
-											<ul>
-												{errors.map((error, index) => (
-													<li key={index}>{error}</li>
-												))}
-											</ul>
-										</>
-									)}
-								</div>
-							))}
-						<button type='submit' disabled={errors.length > 0}>
-							Nu inschrijven
-						</button>
+						<div>
+							{isFormValid() && (
+								<span className={styles.registerformSubmitApproved}>
+									Formulier is juist ingevuld!
+								</span>
+							)}
+
+							{errors.length > 0 && (
+								<span className={styles.registerformSubmitError}>
+									Actie vereist!
+								</span>
+							)}
+
+							<button type='submit' disabled={errors.length > 0}>
+								Schrijf in
+							</button>
+						</div>
+
+						{errors.length > 0 && (
+							<ul>
+								{errors.map((error, index) => (
+									<li key={index}>{error}</li>
+								))}
+							</ul>
+						)}
 					</div>
 				</form>
 

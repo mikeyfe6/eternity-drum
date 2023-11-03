@@ -44,132 +44,173 @@ export interface NewsletterFormData {
 	email: string;
 }
 
-export function validateRegisterForm(
+export type FieldErrors = {
+	[key: string]: string[];
+};
+
+export const validateRegisterForm = (
 	formData: RegisterFormData,
 	isOlderThan18: boolean
-): string[] {
-	const errors: string[] = [];
+): FieldErrors => {
+	const errors: FieldErrors = {};
 
 	if (formData.firstName.trim() === '') {
-		errors.push('Je voornaam is verplicht.');
+		errors['firstName'] = ['Je voornaam is verplicht.'];
+	} else if (!isValidFirstName(formData.firstName)) {
+		errors['firstName'] = ['Je voornaam mag geen nummers bevatten.'];
 	}
 
 	if (formData.lastName.trim() === '') {
-		errors.push('Je achternaam is verplicht.');
+		errors['lastName'] = ['Je achternaam is verplicht.'];
+	} else if (!isValidLastName(formData.lastName)) {
+		errors['lastName'] = ['Je achternaam mag geen nummers bevatten.'];
 	}
 
 	if (formData.streetName.trim() === '') {
-		errors.push('Je straatnaam is verplicht');
+		errors['streetName'] = ['Je straatnaam is verplicht.'];
+	} else if (!isValidStreetName(formData.streetName)) {
+		errors['streetName'] = ['Je straatnaam is ongeldig.'];
 	}
 
 	if (formData.houseNumber.trim() === '') {
-		errors.push('Je huisnummer is verplicht.');
+		errors['houseNumber'] = ['Je huisnummer is verplicht.'];
+	} else if (!isValidHouseNumber(formData.houseNumber)) {
+		errors['houseNumber'] = ['Je huisnummer is ongeldig.'];
 	}
 
 	if (formData.zipCode.trim() === '') {
-		errors.push('Je postcode is verplicht.');
+		errors['zipCode'] = ['Je postcode is verplicht.'];
 	}
 
 	if (formData.city.trim() === '') {
-		errors.push('Jouw huidige woonstad is verplicht.');
+		errors['city'] = ['Jouw huidige woonstad is verplicht.'];
 	}
 
 	if (formData.province.trim() === '') {
-		errors.push('Jouw huidige provincie is verplicht.');
+		errors['province'] = ['Jouw huidige provincie is verplicht.'];
 	}
 
 	if (formData.email.trim() === '') {
-		errors.push('Je e-mailadres is verplicht.');
+		errors['email'] = ['Je e-mailadres is verplicht.'];
 	} else if (!isValidEmail(formData.email)) {
-		errors.push('Je e-mailadres is ongeldig.');
+		errors['email'] = ['Je e-mailadres is ongeldig.'];
 	}
 
 	if (formData.phone.trim() === '') {
-		errors.push('Jouw telefoonnummer is verplicht.');
+		errors['phone'] = ['Jouw telefoonnummer is verplicht.'];
 	}
 
 	if (formData.dayOfBirth.trim() === '') {
-		errors.push('Vul je geboortedag in.');
+		errors['dayOfBirth'] = ['Vul je geboortedag in.'];
 	}
 
 	if (formData.monthOfBirth.trim() === '') {
-		errors.push('Vul je geboortemaand in.');
+		errors['monthOfBirth'] = ['Vul je geboortemaand in.'];
 	}
 
 	if (formData.yearOfBirth.trim() === '') {
-		errors.push('Vul je geboortejaar in.');
+		errors['yearOfBirth'] = ['Vul je geboortejaar in.'];
 	}
 
 	if (!isOlderThan18) {
 		if (formData.firstNameParent.trim() === '') {
-			errors.push('Vul de naam van jouw ouder/verzorger in.');
+			errors['firstNameParent'] = ['Vul de naam van jouw ouder/verzorger in.'];
 		}
 
 		if (formData.lastNameParent.trim() === '') {
-			errors.push('Vul de achternaam van jouw ouder/verzorger in.');
+			errors['lastNameParent'] = [
+				'Vul de achternaam van jouw ouder/verzorger in.',
+			];
 		}
 
 		if (formData.emailParent.trim() === '') {
-			errors.push('Vul het e-mailadres van jouw ouder/verzorger in.');
+			errors['emailParent'] = [
+				'Vul het e-mailadres van jouw ouder/verzorger in.',
+			];
 		}
 
 		if (formData.phoneParent.trim() === '') {
-			errors.push('Vul het telefoonnummer van jouw ouder/verzorger in.');
+			errors['phoneParent'] = [
+				'Vul het telefoonnummer van jouw ouder/verzorger in.',
+			];
 		}
 	}
 
 	return errors;
-}
+};
 
-export function validateBookingsForm(formData: BookingsFormData): string[] {
-	const errors: string[] = [];
+export function validateBookingsForm(formData: BookingsFormData): FieldErrors {
+	const errors: FieldErrors = {};
 
 	if (formData.firstName.trim() === '') {
-		errors.push('Je voornaam is verplicht.');
+		errors['firstName'] = ['Je voornaam is verplicht.'];
 	}
 
 	if (formData.lastName.trim() === '') {
-		errors.push('Je achternaam is verplicht.');
+		errors['lastName'] = ['Je achternaam is verplicht.'];
 	}
 
 	if (formData.email.trim() === '') {
-		errors.push('Je e-mailadres is verplicht.');
+		errors['email'] = ['Je e-mailadres is verplicht.'];
 	} else if (!isValidEmail(formData.email)) {
-		errors.push('Je e-mailadres is ongeldig.');
+		errors['email'] = ['Je e-mailadres is ongeldig.'];
 	}
 
 	if (formData.subject.trim() === '') {
-		errors.push('Onderwerp invullen is verplicht.');
+		errors['subject'] = ['Onderwerp invullen is verplicht.'];
 	}
 
 	if (formData.message.trim() === '') {
-		errors.push('Wat is jouw bericht?');
+		errors['message'] = ['Wat is jouw bericht?'];
 	}
 
 	return errors;
 }
 
-export function validateNewsletterForm(formData: NewsletterFormData): string[] {
-	const errors: string[] = [];
+export function validateNewsletterForm(
+	formData: NewsletterFormData
+): FieldErrors {
+	const errors: FieldErrors = {};
 
 	if (formData.firstName.trim() === '') {
-		errors.push('Je voornaam is verplicht.');
+		errors['firstName'] = ['Je voornaam is verplicht.'];
 	}
 
 	if (formData.lastName.trim() === '') {
-		errors.push('Je achternaam is verplicht.');
+		errors['lastName'] = ['Je achternaam is verplicht.'];
 	}
 
 	if (formData.email.trim() === '') {
-		errors.push('Je e-mailadres is verplicht.');
+		errors['email'] = ['Je e-mailadres is verplicht.'];
 	} else if (!isValidEmail(formData.email)) {
-		errors.push('Je e-mailadres is ongeldig.');
+		errors['email'] = ['Je e-mailadres is ongeldig.'];
 	}
 
 	return errors;
 }
 
+export function isValidFirstName(firstName: string): boolean {
+	const firstNameRegex = /^[A-Za-z\s'-]+$/;
+	return firstNameRegex.test(firstName);
+}
+
+export function isValidLastName(lastName: string): boolean {
+	const lastNameRegex = /^[A-Za-z\s'-]+$/;
+	return lastNameRegex.test(lastName);
+}
+
+export function isValidStreetName(streetName: string): boolean {
+	const streetNameRegex = /^[A-Za-z\s'-]+$/;
+	return streetNameRegex.test(streetName);
+}
+
+export function isValidHouseNumber(houseNumber: string): boolean {
+	const houseNumberRegex = /^[A-Za-z0-9\s]{1,8}$/;
+	return houseNumberRegex.test(houseNumber);
+}
+
 export function isValidEmail(email: string): boolean {
-	const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+	const emailRegex =
+		/(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 	return emailRegex.test(email);
 }

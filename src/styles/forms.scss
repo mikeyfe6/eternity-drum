@@ -55,10 +55,6 @@ select {
 			opacity: 0;
 		}
 	}
-
-	&:-webkit-autofill {
-		outline-color: $greenColor;
-	}
 }
 
 .form {
@@ -231,7 +227,7 @@ select {
 
 		// -------------------------- column 2
 		&.streetName {
-			flex: 67.5%;
+			flex: 65%;
 
 			@media screen and ($superSized) {
 				flex: 60%;
@@ -250,7 +246,7 @@ select {
 			}
 		}
 		&.houseNumber {
-			flex: 15%;
+			flex: 17.5%;
 
 			@media screen and ($superSized) {
 				flex: 20%;
@@ -388,10 +384,20 @@ select {
 		// -------------------------- column 10
 
 		&.emailParent {
-			flex: 50%;
+			flex: 67.5%;
+
+			@media screen and ($extraSmall) {
+				width: 87.5%;
+				flex: initial;
+			}
 		}
 		&.phoneParent {
-			flex: 50%;
+			flex: 37.5%;
+
+			@media screen and ($extraSmall) {
+				width: 75%;
+				flex: initial;
+			}
 		}
 	}
 }

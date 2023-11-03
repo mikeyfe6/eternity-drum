@@ -7,6 +7,10 @@ import * as styles from '../styles/modules/newsletterform.module.scss';
 
 import { validateNewsletterForm, NewsletterFormData } from './validation';
 
+type FieldErrors = {
+	[key: string]: string[];
+};
+
 const NewsletterForm: React.FC = () => {
 	const [formData, setFormData] = React.useState<NewsletterFormData>({
 		firstName: '',
@@ -16,16 +20,35 @@ const NewsletterForm: React.FC = () => {
 
 	const requiredFields = ['firstName', 'lastName', 'email'];
 
+	const [fieldErrors, setFieldErrors] = React.useState<FieldErrors>({});
+
 	const [errors, setErrors] = React.useState<string[]>([]);
-	const [submitted, setSubmitted] = React.useState(false);
+
 	const [emptyFields, setEmptyFields] = React.useState<string[]>([]);
 	const [focusedInput, setFocusedInput] = React.useState<string | null>(null);
-
-	const inputRef = React.useRef<HTMLInputElement>(null);
 
 	const handleInputFocus = (name: string) => {
 		setFocusedInput(name);
 	};
+
+	React.useEffect(() => {
+		for (const field in formData) {
+			if (formData.hasOwnProperty(field)) {
+				const value = formData[field as keyof typeof formData];
+
+				if (value && value.trim() !== '') {
+					const fieldErrors = validateNewsletterForm({
+						...formData,
+						[field]: value,
+					});
+
+					if (fieldErrors[field]) {
+						setErrors([...fieldErrors[field]]);
+					}
+				}
+			}
+		}
+	}, [formData]);
 
 	const handleInputChange = (
 		event: React.ChangeEvent<
@@ -36,31 +59,28 @@ const NewsletterForm: React.FC = () => {
 
 		const updatedEmptyFields = emptyFields.filter((field) => field !== name);
 
-		if (submitted) {
-			const newValidationErrors = validateNewsletterForm({
-				...formData,
-				[name]: value,
-			});
+		const newValidationErrors = validateNewsletterForm({
+			...formData,
+			[name]: value,
+		});
 
-			setErrors(newValidationErrors);
-		}
+		const updatedFieldErrors = { ...fieldErrors };
+		const errorMessages = newValidationErrors[name] || [];
+
+		updatedFieldErrors[name] = errorMessages;
+
+		setFieldErrors(updatedFieldErrors);
 
 		setFormData({
 			...formData,
 			[name]: value,
 		});
 
-		if (value.trim() === '') {
-			if (!emptyFields.includes(name)) {
-				updatedEmptyFields.push(name);
-			}
+		event.target.classList.toggle('error', errorMessages.length > 0);
+		event.target.classList.toggle('approved', errorMessages.length === 0);
 
-			event.target.classList.remove('approved');
-			event.target.classList.add('error');
-		} else {
-			event.target.classList.remove('error');
-			event.target.classList.add('approved');
-		}
+		const allErrors = Object.values(updatedFieldErrors).flat();
+		setErrors(allErrors);
 
 		setEmptyFields(updatedEmptyFields);
 	};
@@ -72,8 +92,6 @@ const NewsletterForm: React.FC = () => {
 	const handleSubmit = async (event: React.FormEvent) => {
 		event.preventDefault();
 
-		setSubmitted(true);
-
 		const validationErrors = validateNewsletterForm(formData);
 
 		const missingFields = requiredFields.filter((field) => {
@@ -83,8 +101,14 @@ const NewsletterForm: React.FC = () => {
 
 		setEmptyFields(missingFields);
 
-		if (validationErrors.length > 0 || missingFields.length > 0) {
-			setErrors(validationErrors);
+		const errorMessages = Object.values(validationErrors).flatMap(
+			(error) => error
+		);
+
+		setErrors(errorMessages);
+
+		if (errorMessages.length > 0 || missingFields.length > 0) {
+			setErrors(errorMessages);
 		} else {
 			try {
 				setErrors([]);
@@ -103,7 +127,7 @@ const NewsletterForm: React.FC = () => {
 			}
 		}
 
-		if (validationErrors.length === 0) {
+		if (errorMessages.length === 0) {
 			setFormData({
 				firstName: '',
 				lastName: '',
@@ -115,19 +139,6 @@ const NewsletterForm: React.FC = () => {
 		}
 	};
 
-	React.useEffect(() => {
-		const addApprovedClassForField = (name: string) => {
-			const inputElement = document.getElementById(name) as HTMLInputElement;
-			if (inputElement && inputElement.value.trim() !== '') {
-				inputElement.classList.add('approved');
-			}
-		};
-
-		for (const field of requiredFields) {
-			addApprovedClassForField(field);
-		}
-	}, [formData, requiredFields]);
-
 	const removeApprovedClasses = () => {
 		const elements = document.querySelectorAll('.approved');
 		elements.forEach((element) => {
@@ -137,7 +148,7 @@ const NewsletterForm: React.FC = () => {
 
 	const isFormValid = () => {
 		const allFieldsFilled = requiredFields.every(
-			(field) => formData[field as keyof typeof formData]
+			(field) => formData[field as keyof NewsletterFormData]
 		);
 		const areErrorsValid = errors.length <= 0;
 
@@ -169,9 +180,8 @@ const NewsletterForm: React.FC = () => {
 								value={formData.firstName}
 								onChange={handleInputChange}
 								onBlur={handleInputBlur}
-								ref={inputRef}
 								onFocus={() => handleInputFocus('firstName')}
-								autoComplete='name'
+								autoComplete='given-name'
 								className={emptyFields.includes('firstName') ? 'error' : ''}
 							/>
 						</div>
@@ -196,7 +206,7 @@ const NewsletterForm: React.FC = () => {
 								onChange={handleInputChange}
 								onBlur={handleInputBlur}
 								onFocus={() => handleInputFocus('lastName')}
-								autoComplete='name'
+								autoComplete='family-name'
 								className={emptyFields.includes('lastName') ? 'error' : ''}
 							/>
 						</div>
