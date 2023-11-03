@@ -22,33 +22,11 @@ const NewsletterForm: React.FC = () => {
 
 	const [fieldErrors, setFieldErrors] = React.useState<FieldErrors>({});
 
-	const [errors, setErrors] = React.useState<string[]>([]);
-
-	const [emptyFields, setEmptyFields] = React.useState<string[]>([]);
 	const [focusedInput, setFocusedInput] = React.useState<string | null>(null);
 
 	const handleInputFocus = (name: string) => {
 		setFocusedInput(name);
 	};
-
-	React.useEffect(() => {
-		for (const field in formData) {
-			if (formData.hasOwnProperty(field)) {
-				const value = formData[field as keyof typeof formData];
-
-				if (value && value.trim() !== '') {
-					const fieldErrors = validateNewsletterForm({
-						...formData,
-						[field]: value,
-					});
-
-					if (fieldErrors[field]) {
-						setErrors([...fieldErrors[field]]);
-					}
-				}
-			}
-		}
-	}, [formData]);
 
 	const handleInputChange = (
 		event: React.ChangeEvent<
@@ -57,17 +35,12 @@ const NewsletterForm: React.FC = () => {
 	) => {
 		const { name, value } = event.target;
 
-		const updatedEmptyFields = emptyFields.filter((field) => field !== name);
-
-		const newValidationErrors = validateNewsletterForm({
-			...formData,
-			[name]: value,
-		});
-
 		const updatedFieldErrors = { ...fieldErrors };
-		const errorMessages = newValidationErrors[name] || [];
-
-		updatedFieldErrors[name] = errorMessages;
+		updatedFieldErrors[name] =
+			validateNewsletterForm({
+				...formData,
+				[name]: value,
+			})[name] || [];
 
 		setFieldErrors(updatedFieldErrors);
 
@@ -76,13 +49,11 @@ const NewsletterForm: React.FC = () => {
 			[name]: value,
 		});
 
-		event.target.classList.toggle('error', errorMessages.length > 0);
-		event.target.classList.toggle('approved', errorMessages.length === 0);
-
-		const allErrors = Object.values(updatedFieldErrors).flat();
-		setErrors(allErrors);
-
-		setEmptyFields(updatedEmptyFields);
+		event.target.classList.toggle('error', updatedFieldErrors[name].length > 0);
+		event.target.classList.toggle(
+			'approved',
+			updatedFieldErrors[name].length === 0
+		);
 	};
 
 	const handleInputBlur = () => {
@@ -94,63 +65,47 @@ const NewsletterForm: React.FC = () => {
 
 		const validationErrors = validateNewsletterForm(formData);
 
-		const missingFields = requiredFields.filter((field) => {
-			const value = formData[field as keyof typeof formData];
-			return value === undefined || value.trim() === '';
-		});
-
-		setEmptyFields(missingFields);
-
 		const errorMessages = Object.values(validationErrors).flatMap(
 			(error) => error
 		);
 
-		setErrors(errorMessages);
+		setFieldErrors(validationErrors);
 
-		if (errorMessages.length > 0 || missingFields.length > 0) {
-			setErrors(errorMessages);
-		} else {
-			try {
-				setErrors([]);
-				const response = await axios.post(
-					'/.netlify/functions/sendmail',
-					formData
-				);
-				console.log(
-					'Eternity Percussion; [Form submitted successfully]',
-					response.data
-				);
-				navigate('/success');
-			} catch (error) {
-				console.error('Eternity Percussion; [Form submission error]', error);
-				alert('Er is iets misgegaan. Probeer het later opnieuw.');
-			}
+		if (errorMessages.length > 0) {
+			return;
 		}
 
-		if (errorMessages.length === 0) {
+		try {
+			const response = await axios.post(
+				'/.netlify/functions/sendmail',
+				formData
+			);
+			console.log(
+				'Eternity Percussion; [Form submitted successfully]',
+				response.data
+			);
+			navigate('/success');
+
 			setFormData({
 				firstName: '',
 				lastName: '',
 				email: '',
 			});
 
-			setEmptyFields([]);
-			removeApprovedClasses();
-		}
-	};
+			setFieldErrors({});
 
-	const removeApprovedClasses = () => {
-		const elements = document.querySelectorAll('.approved');
-		elements.forEach((element) => {
-			element.classList.remove('approved');
-		});
+			setFocusedInput(null);
+		} catch (error) {
+			console.error('Eternity Percussion; [Form submission error]', error);
+			alert('Er is iets misgegaan. Probeer het later opnieuw.');
+		}
 	};
 
 	const isFormValid = () => {
 		const allFieldsFilled = requiredFields.every(
 			(field) => formData[field as keyof NewsletterFormData]
 		);
-		const areErrorsValid = errors.length <= 0;
+		const areErrorsValid = Object.values(fieldErrors).flat().length <= 0;
 
 		return allFieldsFilled && areErrorsValid;
 	};
@@ -177,12 +132,18 @@ const NewsletterForm: React.FC = () => {
 								id='firstName'
 								name='firstName'
 								placeholder='Voornaam'
+								autoComplete='given-name'
 								value={formData.firstName}
 								onChange={handleInputChange}
 								onBlur={handleInputBlur}
 								onFocus={() => handleInputFocus('firstName')}
-								autoComplete='given-name'
-								className={emptyFields.includes('firstName') ? 'error' : ''}
+								className={
+									fieldErrors.firstName && fieldErrors.firstName.length > 0
+										? 'error'
+										: formData.firstName && fieldErrors.firstName.length === 0
+										? 'approved'
+										: ''
+								}
 							/>
 						</div>
 
@@ -201,13 +162,19 @@ const NewsletterForm: React.FC = () => {
 								type='text'
 								id='lastName'
 								name='lastName'
-								value={formData.lastName}
 								placeholder='Achternaam'
+								autoComplete='family-name'
+								value={formData.lastName}
 								onChange={handleInputChange}
 								onBlur={handleInputBlur}
 								onFocus={() => handleInputFocus('lastName')}
-								autoComplete='family-name'
-								className={emptyFields.includes('lastName') ? 'error' : ''}
+								className={
+									fieldErrors.lastName && fieldErrors.lastName.length > 0
+										? 'error'
+										: formData.lastName && fieldErrors.lastName.length === 0
+										? 'approved'
+										: ''
+								}
 							/>
 						</div>
 					</div>
@@ -226,13 +193,19 @@ const NewsletterForm: React.FC = () => {
 								type='text'
 								id='email'
 								name='email'
-								value={formData.email}
 								placeholder='E-mailadres'
+								autoComplete='email'
+								value={formData.email}
 								onChange={handleInputChange}
 								onBlur={handleInputBlur}
 								onFocus={() => handleInputFocus('email')}
-								autoComplete='email'
-								className={emptyFields.includes('email') ? 'error' : ''}
+								className={
+									fieldErrors.email && fieldErrors.email.length > 0
+										? 'error'
+										: formData.email && fieldErrors.email.length === 0
+										? 'approved'
+										: ''
+								}
 							/>
 						</div>
 					</div>
@@ -246,22 +219,29 @@ const NewsletterForm: React.FC = () => {
 							</span>
 						)}
 
-						{errors.length > 0 && (
+						{Object.values(fieldErrors).flat().length > 0 && (
 							<span className={styles.newsletterformSubmitError}>
 								Actie vereist!
 							</span>
 						)}
 
-						<button type='submit' disabled={errors.length > 0}>
+						<button
+							type='submit'
+							disabled={
+								Object.values(fieldErrors).flat().length > 0 || !isFormValid()
+							}
+						>
 							Schrijf in
 						</button>
 					</div>
 
-					{errors.length > 0 && (
+					{Object.values(fieldErrors).flat().length > 0 && (
 						<ul>
-							{errors.map((error, index) => (
-								<li key={index}>{error}</li>
-							))}
+							{Object.values(fieldErrors)
+								.flat()
+								.map((error, index) => (
+									<li key={index}>{error}</li>
+								))}
 						</ul>
 					)}
 				</div>
