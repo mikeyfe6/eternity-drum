@@ -21,6 +21,7 @@ const BookingsForm: React.FC = () => {
 		firstName: '',
 		lastName: '',
 		email: '',
+		phone: '',
 		subject: '',
 		message: '',
 	});
@@ -103,6 +104,7 @@ const BookingsForm: React.FC = () => {
 				firstName: '',
 				lastName: '',
 				email: '',
+				phone: '',
 				subject: '',
 				message: '',
 			});
@@ -174,7 +176,7 @@ const BookingsForm: React.FC = () => {
 										onBlur={handleInputBlur}
 										ref={inputRef}
 										onFocus={() => handleInputFocus('firstName')}
-										autoComplete='name'
+										autoComplete='given-name'
 										className={
 											fieldErrors.firstName && fieldErrors.firstName.length > 0
 												? 'error'
@@ -209,7 +211,7 @@ const BookingsForm: React.FC = () => {
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('lastName')}
-										autoComplete='name'
+										autoComplete='family-name'
 										className={
 											fieldErrors.lastName && fieldErrors.lastName.length > 0
 												? 'error'
@@ -225,8 +227,8 @@ const BookingsForm: React.FC = () => {
 								</div>
 							</div>
 
-							<div className='form-column'>
-								<div className='form-group email'>
+							<div className='form-column collapseFour'>
+								<div className='form-group email booking'>
 									<label
 										htmlFor='email'
 										className={
@@ -254,6 +256,41 @@ const BookingsForm: React.FC = () => {
 														fieldErrors.email &&
 														fieldErrors.email.length === 0) ||
 												  (fieldErrors.email === undefined &&
+														isFormSubmitted === true)
+												? 'approved'
+												: ''
+										}
+									/>
+								</div>
+
+								<div className='form-group phone booking'>
+									<label
+										htmlFor='phone'
+										className={
+											focusedInput === 'phone' || formData.phone
+												? 'visited'
+												: ''
+										}
+									>
+										Telefoon
+									</label>
+									<input
+										type='tel'
+										id='phone'
+										name='phone'
+										autoComplete='tel'
+										placeholder='Telefoon'
+										value={formData.phone}
+										onChange={handleInputChange}
+										onBlur={handleInputBlur}
+										onFocus={() => handleInputFocus('phone')}
+										className={
+											fieldErrors.phone && fieldErrors.phone.length > 0
+												? 'error'
+												: (formData.phone &&
+														fieldErrors.phone &&
+														fieldErrors.phone.length === 0) ||
+												  (fieldErrors.phone === undefined &&
 														isFormSubmitted === true)
 												? 'approved'
 												: ''
@@ -345,7 +382,7 @@ const BookingsForm: React.FC = () => {
 							<div>
 								{isFormValid() && (
 									<span className={styles.bookingsformSubmitApproved}>
-										Formulier is juist ingevuld!
+										Formulier is juist ingevuld..
 									</span>
 								)}
 

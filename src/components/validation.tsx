@@ -33,6 +33,8 @@ export interface BookingsFormData {
 	lastName: string;
 
 	email: string;
+	phone: string;
+
 	subject: string;
 	message: string;
 }
@@ -154,6 +156,10 @@ export function validateBookingsForm(formData: BookingsFormData): FieldErrors {
 		errors['email'] = ['Je e-mailadres is verplicht.'];
 	} else if (!isValidEmail(formData.email)) {
 		errors['email'] = ['Je e-mailadres is ongeldig.'];
+	}
+
+	if (formData.phone.trim() === '') {
+		errors['phone'] = ['Je telefoonnummer is verplicht.'];
 	}
 
 	if (formData.subject.trim() === '') {

@@ -4,10 +4,21 @@
 	&-button-prev,
 	&-button-next {
 		color: var(--swiper-theme-color);
-		transform: scale(0.75);
+		transform: scale(0.75) translateY(-50%);
+
+		width: 100px !important;
+		height: 100px !important;
+
+		opacity: 0.5;
+
+		&:hover {
+			opacity: 1;
+		}
 
 		@media screen and ($small) {
 			transform: scale(0.5);
+			width: 50px !important;
+			height: 50px !important;
 		}
 	}
 
@@ -15,7 +26,7 @@
 		background: var(--swiper-theme-color);
 	}
 
-	&--pagination-bullet {
+	&-pagination-bullet {
 		width: var(
 			--swiper-pagination-bullet-width,
 			var(--swiper-pagination-bullet-size, 10px)
@@ -24,18 +35,18 @@
 			--swiper-pagination-bullet-height,
 			var(--swiper-pagination-bullet-size, 10px)
 		) !important;
-	}
 
-	.swiper-button-prev,
-	.swiper-button-next {
-		opacity: 0.5;
-
-		&:hover {
-			opacity: 1;
+		@media screen and ($small) {
+			width: var(
+				--swiper-pagination-bullet-width,
+				var(--swiper-pagination-bullet-size, 7px)
+			) !important;
+			height: var(
+				--swiper-pagination-bullet-height,
+				var(--swiper-pagination-bullet-size, 7px)
+			) !important;
 		}
-	}
 
-	.swiper-pagination-bullet {
 		&:hover {
 			background: var(--swiper-pagination-bullet-inactive-color-hover);
 		}

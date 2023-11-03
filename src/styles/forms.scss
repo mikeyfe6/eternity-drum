@@ -156,6 +156,18 @@ select {
 				}
 			}
 		}
+
+		&.collapseFour {
+			@media screen and ($small) {
+				flex-direction: column;
+				gap: 35px;
+
+				.date-inputs {
+					justify-content: start;
+					gap: 15px;
+				}
+			}
+		}
 	}
 
 	&-group {
@@ -309,6 +321,15 @@ select {
 			@media screen and ($small) {
 				flex: 70%;
 			}
+
+			&.booking {
+				flex: 65%;
+
+				@media screen and ($small) {
+					width: 75%;
+					flex: initial;
+				}
+			}
 		}
 
 		&.gender {
@@ -336,6 +357,15 @@ select {
 			@media screen and ($extraSmall) {
 				width: 55%;
 				flex: initial;
+			}
+
+			&.booking {
+				flex: 35%;
+
+				@media screen and ($small) {
+					width: 55%;
+					flex: initial;
+				}
 			}
 		}
 		&.dateOfBirth {

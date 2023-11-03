@@ -24,12 +24,6 @@ export const handleClick = (
 ) => {
 	event.preventDefault();
 	if (inputRef.current) {
-		if (window.innerWidth > 992) {
-			inputRef.current.scrollIntoView({
-				behavior: 'smooth',
-				block: 'center',
-			});
-		}
 		inputRef.current.focus();
 	}
 };

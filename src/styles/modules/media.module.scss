@@ -16,9 +16,6 @@
 	}
 
 	> * {
-		background: #80808010;
-		padding: 1.5em;
-
 		@include boxShadow;
 	}
 }
@@ -26,6 +23,8 @@
 .mediaContOne {
 	margin-bottom: 50px;
 	align-items: center;
+
+	@include DRY;
 
 	.music {
 		background: $primaryColor;
@@ -35,11 +34,16 @@
 		max-width: 450px;
 		border-radius: 5px;
 		position: relative;
+		padding: 1.5em;
 
 		@media screen and ($large) {
 			width: 450px;
 			max-width: 100%;
 			flex: 100%;
+		}
+
+		> * {
+			@include boxShadow;
 		}
 	}
 
@@ -47,6 +51,12 @@
 		flex: 30%;
 		max-width: 600px;
 		height: fit-content;
+		padding: 1.5em;
+		background: #80808010;
+
+		@media screen and ($small) {
+			padding: 1em;
+		}
 
 		iframe {
 			width: 100%;
@@ -60,8 +70,6 @@
 	@media screen and ($large) {
 		flex-direction: column-reverse;
 	}
-
-	@include DRY;
 }
 
 .videos {
@@ -71,6 +79,10 @@
 	background: #80808010;
 	padding: 1.5em;
 
+	@media screen and ($small) {
+		padding: 1em;
+	}
+
 	@include boxShadow;
 }
 
@@ -79,11 +91,10 @@
 	max-width: 1200px;
 	margin: 50px auto;
 	background: lighten($lightgreyColor, 10%);
-	// color: white;
 	padding: 1.5em 1.5em 0.25em;
 
 	@media screen and ($small) {
-		padding: 1.25em 1.25em 0.5em;
+		padding: 1em 1em 0.25em;
 	}
 
 	hr {

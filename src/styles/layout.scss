@@ -102,7 +102,8 @@ section[data-main-content] {
 	ul {
 		margin-bottom: 1em;
 		list-style: square;
-		padding-left: 18px;
+		list-style-position: inside;
+		padding-left: 0.125em;
 	}
 
 	a {
