@@ -41,8 +41,8 @@ const Footer = () => {
 								<li>
 									<strong>{companyName}</strong>
 								</li>
-								<li>Kruitberg 16</li>
-								<li>1104 AA Amsterdam</li>
+								<li>Kruitbergstraat 18</li>
+								<li>1104 CH Amsterdam</li>
 							</ul>
 							<h5>Postadres:</h5>
 							<ul>

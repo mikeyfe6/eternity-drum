@@ -1,15 +1,17 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+import epLogo from '../images/logo/ep-logo-small.png';
+
+const Marker = () => <img src={epLogo} alt='Eternity Percussion' width='75' />;
 
 const GoogleMaps = () => {
 	const defaultProps = {
 		center: {
-			lat: 52.31453,
-			lng: 4.960213,
+			lat: 52.31796830934763,
+			lng: 4.9778735331231525,
 		},
-		zoom: 14,
+		zoom: 16,
 	};
 
 	return (
@@ -19,11 +21,7 @@ const GoogleMaps = () => {
 				defaultCenter={defaultProps.center}
 				defaultZoom={defaultProps.zoom}
 			>
-				<AnyReactComponent
-					lat={defaultProps.center.lat}
-					lng={defaultProps.center.lng}
-					text='Your Marker Text'
-				/>
+				<Marker />
 			</GoogleMapReact>
 		</div>
 	);
