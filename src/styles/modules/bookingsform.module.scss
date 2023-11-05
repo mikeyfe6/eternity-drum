@@ -4,7 +4,6 @@
 	&-container {
 		display: flex;
 		justify-content: center;
-
 		gap: 100px;
 		margin: 50px 0;
 
@@ -121,7 +120,7 @@
 		> :nth-child(1) {
 			display: flex;
 			justify-content: space-between;
-			align-items: end;
+			align-items: flex-end;
 		}
 
 		> div > span {
@@ -143,12 +142,12 @@
 				padding: 0.25em 0.75em;
 				font-size: 0.8rem;
 				width: fit-content;
-				outline: 1px rgba(255, 255, 255, 0.75) solid;
+				outline: 1px rgb(255 255 255 / 75%) solid;
 			}
 
 			&:not(:empty) {
-				border-top: solid 2px rgba(128, 128, 128, 0.1);
-				border-bottom: solid 2px rgba(128, 128, 128, 0.1);
+				border-top: solid 2px rgb(128 128 128 / 10%);
+				border-bottom: solid 2px rgb(128 128 128 / 10%);
 				padding: 1.5em 0.25em;
 				margin-top: 1.5em;
 			}

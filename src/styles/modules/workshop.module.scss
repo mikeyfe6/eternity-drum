@@ -66,7 +66,7 @@
 			gap: 37.5px;
 		}
 		@media screen and ($large) {
-			align-items: start;
+			align-items: flex-start;
 			flex-direction: row;
 			justify-content: space-evenly;
 			width: 100%;

@@ -13,12 +13,12 @@
 	@media screen and ($superSized) {
 		position: static;
 		width: 100%;
-		justify-content: end;
+		justify-content: flex-end;
 		margin-bottom: 2em;
 	}
 
 	@media screen and ($small) {
-		align-items: end;
+		align-items: flex-end;
 		margin-left: initial;
 	}
 

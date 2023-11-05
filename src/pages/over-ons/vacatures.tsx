@@ -37,6 +37,12 @@ interface Vacancy {
 }
 
 const Vacatures: React.FC<PageProps> = () => {
+	const breadcrumbs = [
+		{ label: 'Home', link: '/' },
+		{ label: 'Over Ons', link: '/over-ons/' },
+		{ label: 'Vacatures' },
+	];
+
 	const data = useStaticQuery(graphql`
 		query {
 			allContentfulVacancy {
@@ -50,12 +56,6 @@ const Vacatures: React.FC<PageProps> = () => {
 	`);
 
 	const vacancies: Vacancy[] = data.allContentfulVacancy.nodes;
-
-	const breadcrumbs = [
-		{ label: 'Home', link: '/' },
-		{ label: 'Over Ons', link: '/over-ons/' },
-		{ label: 'Vacatures' },
-	];
 
 	return (
 		<Layout>

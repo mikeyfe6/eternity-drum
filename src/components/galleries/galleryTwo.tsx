@@ -149,6 +149,14 @@ const GalleryTwo: React.FC = () => {
 									image.localFile?.childImageSharp?.gatsbyImageData &&
 									openLightbox(image.localFile.childImageSharp.gatsbyImageData)
 								}
+								onKeyDown={(event) => {
+									if (event.key === 'Enter') {
+										image.localFile?.childImageSharp?.gatsbyImageData &&
+											openLightbox(
+												image.localFile.childImageSharp.gatsbyImageData
+											);
+									}
+								}}
 								style={{ cursor: 'pointer' }}
 							>
 								<GatsbyImage

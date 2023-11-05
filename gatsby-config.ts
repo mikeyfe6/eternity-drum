@@ -26,11 +26,12 @@ const siteMetadata = {
 	email: `info@eternitydrum.com`,
 	address: `Anton de Komplein 240`,
 	postalCode: `1102 DR`,
-	city: `Amsterdam`,
+	city: `Amsterdam-Zuidoost`,
 
 	companyName: `Stichting Eternity Percussion`,
 	kvk: `34284743`,
 	btw: `NL818556286B01`,
+	bank: `NL53 ABNA 0591 433 923`,
 
 	bgWebColor: `#181a37`,
 	bgThemeColor: `#f6ce0e`,

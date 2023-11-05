@@ -17,6 +17,12 @@ import LightBox from '../../components/lightbox';
 import * as styles from '../../styles/modules/workshop.module.scss';
 
 const Sankofa: React.FC<PageProps> = () => {
+	const breadcrumbs = [
+		{ label: 'Home', link: '/' },
+		{ label: 'Projecten', link: '/projecten/' },
+		{ label: 'Sankofa Academy' },
+	];
+
 	const { sankofaB, sankofaF } = useStaticQuery(graphql`
 		query {
 			sankofaB: file(relativePath: { eq: "sankofa-2.jpg" }) {
@@ -31,12 +37,6 @@ const Sankofa: React.FC<PageProps> = () => {
 			}
 		}
 	`);
-
-	const breadcrumbs = [
-		{ label: 'Home', link: '/' },
-		{ label: 'Projecten', link: '/projecten/' },
-		{ label: 'Sankofa Academy' },
-	];
 
 	const inputRef = React.useRef<HTMLInputElement>(null);
 

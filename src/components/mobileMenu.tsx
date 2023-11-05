@@ -111,6 +111,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 					<Link
 						to='/projecten/'
 						activeClassName={styles.activeMenuItem}
+						partiallyActive={true}
 						onClick={handleMenuItemClick}
 					>
 						Projecten

@@ -1,34 +1,18 @@
+@use 'sass:color';
+
 @import '../configs/globals';
 
-@mixin DRY {
+.media-cont-one {
+	margin-bottom: 50px;
+	align-items: center;
+
 	display: flex;
 	justify-content: center;
 	gap: 50px;
 
-	a {
-		@include pageLink;
-
-		i {
-			margin-left: 0.5em;
-			font-size: 0.75rem;
-			vertical-align: super;
-		}
-	}
-
-	> * {
-		@include boxShadow;
-	}
-}
-
-.mediaContOne {
-	margin-bottom: 50px;
-	align-items: center;
-
-	@include DRY;
-
 	.music {
 		background: $primaryColor;
-		outline: 1px solid lighten($primaryColor, 10%);
+		outline: 1px solid color.adjust($primaryColor, $lightness: 10%);
 		color: white;
 		flex: 25%;
 		max-width: 450px;
@@ -36,14 +20,12 @@
 		position: relative;
 		padding: 1.5em;
 
+		@include boxShadow;
+
 		@media screen and ($large) {
 			width: 450px;
 			max-width: 100%;
 			flex: 100%;
-		}
-
-		> * {
-			@include boxShadow;
 		}
 	}
 
@@ -53,6 +35,18 @@
 		height: fit-content;
 		padding: 1.5em;
 		background: #80808010;
+
+		@include boxShadow;
+
+		a {
+			@include pageLink;
+
+			i {
+				margin-left: 0.5em;
+				font-size: 0.75rem;
+				vertical-align: super;
+			}
+		}
 
 		@media screen and ($small) {
 			padding: 1em;
@@ -74,8 +68,6 @@
 
 .videos {
 	width: 100%;
-	// max-width: 400px;
-
 	background: #80808010;
 	padding: 1.5em;
 
@@ -90,7 +82,7 @@
 	width: 100%;
 	max-width: 1200px;
 	margin: 50px auto;
-	background: lighten($lightgreyColor, 10%);
+	background: color.adjust($lightgreyColor, $lightness: 10%);
 	padding: 1.5em 1.5em 0.25em;
 
 	@media screen and ($small) {

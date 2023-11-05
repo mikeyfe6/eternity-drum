@@ -7,12 +7,9 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import { SEO } from '../components/seo';
 
-import Hero from '../components/heroslider';
-
-// import { Link } from 'gatsby';
-
 import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
+import Hero from '../components/heroslider';
 
 interface PostProps {
 	pageContext: {

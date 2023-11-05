@@ -10,12 +10,17 @@ import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumbs';
 
 import Hero from '../../components/heroslider';
-
 import LightBox from '../../components/lightbox';
 
 import * as styles from '../../styles/modules/workshop.module.scss';
 
 const SummerschoolFirst: React.FC<PageProps> = () => {
+	const breadcrumbs = [
+		{ label: 'Home', link: '/' },
+		{ label: 'Drumworkshops', link: '/drumworkshops/' },
+		{ label: 'Summerschool 2020' },
+	];
+
 	const { flyer, midzomer } = useStaticQuery(graphql`
 		query {
 			flyer: file(relativePath: { eq: "summerschool-2020.jpg" }) {
@@ -30,12 +35,6 @@ const SummerschoolFirst: React.FC<PageProps> = () => {
 			}
 		}
 	`);
-
-	const breadcrumbs = [
-		{ label: 'Home', link: '/' },
-		{ label: 'Drumworkshops', link: '/drumworkshops/' },
-		{ label: 'Summerschool 2020' },
-	];
 
 	const summerSchoolFlyer = flyer.childImageSharp.gatsbyImageData;
 	const midzomerLogo = midzomer.childImageSharp.gatsbyImageData;
