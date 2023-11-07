@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 @import '../configs/globals';
 
 section {
@@ -25,7 +27,7 @@ section {
 
 				&:not(:last-child)::after {
 					content: '\f0da';
-					font-family: 'FontAwesome', sans-serif;
+					font-family: FontAwesome, sans-serif;
 					font-size: 0.75rem;
 					margin-left: 1em;
 					color: $whiteColor;
@@ -55,7 +57,7 @@ section {
 					}
 
 					&:hover {
-						color: lighten($tertiaryColor, 15);
+						color: color.adjust($tertiaryColor, $lightness: 15%);
 					}
 				}
 			}

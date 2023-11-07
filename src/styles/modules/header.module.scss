@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 @import '../configs/globals';
 
 .header {
@@ -8,11 +10,10 @@
 
 	&-top-banner {
 		width: 100%;
-		background-color: $primaryColor;
-		background-color: linear-gradient(
+		background: linear-gradient(
 			45deg,
 			$primaryColor,
-			scale-color($primaryColor, $lightness: 10%)
+			color.scale($primaryColor, $lightness: 10%)
 		);
 		display: inline-block;
 
@@ -93,11 +94,11 @@
 				transform: translateZ(0);
 
 				ul > li > ul > li {
-					border-right: 1px solid rgba(128, 128, 128, 0.25);
-					border-left: 1px solid rgba(128, 128, 128, 0.25);
+					border-right: 1px solid color.adjust($transGrey, $alpha: -0.75);
+					border-left: 1px solid color.adjust($transGrey, $alpha: -0.75);
 
 					&:last-child {
-						border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+						border-bottom: 1px solid color.adjust($transGrey, $alpha: -0.75);
 					}
 				}
 
@@ -224,7 +225,7 @@
 						top: 50%;
 						transform: translateY(-50%);
 
-						background-color: rgba(128, 128, 128, 0.25);
+						background-color: color.adjust($transGrey, $alpha: -0.75);
 					}
 
 					&::before {
@@ -237,9 +238,10 @@
 						top: 50%;
 						transform: translateY(-50%);
 
-						background-color: rgba(128, 128, 128, 0.25);
+						background-color: color.adjust($transGrey, $alpha: -0.75);
 					}
 				}
+
 				> a {
 					font-size: 1.3rem;
 					font-family: $bebasNeue;
@@ -308,7 +310,7 @@
 						transform: translateX(-50%);
 						padding-top: 38px;
 						background: $whiteColor;
-						box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+						box-shadow: rgba(17 17 26 / 0.1) 0 1px 0;
 
 						min-width: 100%;
 						white-space: nowrap;

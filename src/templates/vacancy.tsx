@@ -9,6 +9,7 @@ import { SEO } from '../components/seo';
 
 import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
+
 import Hero from '../components/heroslider';
 
 interface PostProps {

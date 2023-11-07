@@ -155,7 +155,7 @@ const BookingsForm: React.FC = () => {
 								contact met je op.
 							</legend>
 							<div className='form-column'>
-								<div className='form-group firstName'>
+								<div className='form-group first-name'>
 									<label
 										htmlFor='firstName'
 										className={
@@ -191,7 +191,7 @@ const BookingsForm: React.FC = () => {
 									/>
 								</div>
 
-								<div className='form-group lastName'>
+								<div className='form-group last-name'>
 									<label
 										htmlFor='lastName'
 										className={
@@ -227,7 +227,7 @@ const BookingsForm: React.FC = () => {
 								</div>
 							</div>
 
-							<div className='form-column collapseFour'>
+							<div className='form-column collapse-four'>
 								<div className='form-group email booking'>
 									<label
 										htmlFor='email'

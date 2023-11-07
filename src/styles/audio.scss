@@ -1,7 +1,8 @@
+@use 'sass:color';
+
 @import './configs/globals';
 
 input[type='range'] {
-	-webkit-appearance: none;
 	appearance: none;
 	background: transparent;
 
@@ -9,25 +10,25 @@ input[type='range'] {
 		z-index: 1;
 
 		&:hover {
-			outline: lighten($tertiaryColor, 0%);
+			outline: $tertiaryColor;
 		}
 	}
 
 	&::-webkit-slider-thumb {
-		-webkit-appearance: none;
+		appearance: none;
 		width: 25px;
 		height: 25px;
-		background: darken($whiteColor, 5%);
+		background: color.adjust($whiteColor, $lightness: -5%);
 		outline: 1px solid rgba($lightgreyColor, 0.2);
 		border-radius: 50%;
 		z-index: 2;
 
 		&:hover {
-			background: lighten($tertiaryColor, 15%);
+			background: color.adjust($tertiaryColor, $lightness: 15%);
 		}
 
 		&:active {
-			background: lighten($tertiaryColor, 5%);
+			background: color.adjust($tertiaryColor, $lightness: 5%);
 		}
 	}
 }

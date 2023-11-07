@@ -272,7 +272,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 						<legend>Gegevens cursist:</legend>
 
 						<div className='form-column'>
-							<div className='form-group firstName'>
+							<div className='form-group first-name'>
 								<label
 									htmlFor='firstName'
 									className={
@@ -307,7 +307,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 								/>
 							</div>
 
-							<div className='form-group lastName'>
+							<div className='form-group last-name'>
 								<label
 									htmlFor='lastName'
 									className={
@@ -342,8 +342,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 							</div>
 						</div>
 
-						<div className='form-column collapseOne'>
-							<div className='form-group streetName'>
+						<div className='form-column collapse-one'>
+							<div className='form-group street-name'>
 								<label
 									htmlFor='streetName'
 									className={
@@ -378,7 +378,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 								/>
 							</div>
 
-							<div className='form-group houseNumber'>
+							<div className='form-group house-number'>
 								<label
 									htmlFor='houseNumber'
 									className={
@@ -412,7 +412,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									}
 								/>
 							</div>
-							<div className='form-group zipCode'>
+							<div className='form-group zip-code'>
 								<label
 									htmlFor='zipCode'
 									className={
@@ -515,7 +515,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 							</div>
 						</div>
 
-						<div className='form-column collapseTwo'>
+						<div className='form-column collapse-two'>
 							<div className='form-group email'>
 								<label
 									htmlFor='email'
@@ -581,7 +581,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 							</div>
 						</div>
 
-						<div className='form-column collapseThree'>
+						<div className='form-column collapse-three'>
 							<div className='form-group phone'>
 								<label
 									htmlFor='phone'
@@ -615,7 +615,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 								/>
 							</div>
 
-							<div className='form-group dateOfBirth'>
+							<div className='form-group date-of-birth'>
 								<label
 									htmlFor='dateOfBirth'
 									className={
@@ -848,7 +848,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 							<legend>Gegevens ouders/voogd:</legend>
 
 							<div className='form-column'>
-								<div className='form-group firstNameParent'>
+								<div className='form-group first-name-parent'>
 									<label
 										htmlFor='firstNameParent'
 										className={
@@ -884,7 +884,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									/>
 								</div>
 
-								<div className='form-group lastNameParent'>
+								<div className='form-group last-name-parent'>
 									<label
 										htmlFor='lastNameParent'
 										className={
@@ -922,7 +922,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 							</div>
 
 							<div className='form-column'>
-								<div className='form-group emailParent'>
+								<div className='form-group email-parent'>
 									<label
 										htmlFor='emailParent'
 										className={
@@ -957,7 +957,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									/>
 								</div>
 
-								<div className='form-group phoneParent'>
+								<div className='form-group phone-parent'>
 									<label
 										htmlFor='phoneParent'
 										className={

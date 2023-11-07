@@ -7,8 +7,6 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import { SEO } from '../components/seo';
 
-// import { Link } from 'gatsby';
-
 import Layout from '../components/layout';
 
 interface PostProps {

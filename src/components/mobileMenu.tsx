@@ -183,6 +183,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 								<Link
 									to='/over-ons/vacatures/'
 									activeClassName={styles.activeMenuItem}
+									partiallyActive={true}
 									onClick={handleMenuItemClick}
 								>
 									Vacatures

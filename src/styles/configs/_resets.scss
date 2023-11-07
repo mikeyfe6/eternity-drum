@@ -115,10 +115,10 @@ q {
 	quotes: none;
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
 	content: '';
 	content: none;
 }
@@ -130,7 +130,15 @@ table {
 
 /* The New CSS Reset by Elad Shechter */
 *:where(
-		:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
+		:not(html),
+		:not(iframe),
+		:not(canvas),
+		:not(img),
+		:not(svg),
+		:not(video),
+		:not(audio),
+		:not(svg *),
+		:not(symbol *)
 	) {
 	all: unset;
 	display: revert;
@@ -155,7 +163,6 @@ img {
 
 input,
 textarea {
-	-webkit-user-select: auto;
 	user-select: auto;
 }
 
@@ -165,7 +172,6 @@ textarea {
 }
 
 meter {
-	-webkit-appearance: revert;
 	appearance: revert;
 }
 
@@ -191,7 +197,6 @@ meter {
 	overflow-wrap: break-word;
 	-webkit-line-break: after-white-space;
 	line-break: after-white-space;
-	-webkit-user-select: auto;
 	user-select: auto;
 }
 
@@ -302,7 +307,7 @@ sup {
 
 /* Normalize.css */
 html {
-	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
 }
 
 main {
@@ -371,7 +376,6 @@ button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
-	-webkit-appearance: button;
 	appearance: button;
 }
 
@@ -415,17 +419,16 @@ progress {
 }
 
 [type='search'] {
-	-webkit-appearance: textfield;
 	appearance: textfield;
 	outline-offset: -2px;
 }
 
 [type='search']::-webkit-search-decoration {
-	-webkit-appearance: none;
+	appearance: none;
 }
 
 ::-webkit-file-upload-button {
-	-webkit-appearance: button;
+	appearance: button;
 	font: inherit;
 }
 

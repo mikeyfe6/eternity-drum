@@ -64,7 +64,7 @@ const OverOns: React.FC<PageProps> = () => {
 							</ul>
 						</p>
 						<p>
-							<strong>Doelgroepen</strong>
+							<strong>Doelgroepen:</strong>
 							<ul>
 								<li>
 									Kinderen, jongeren en jongvolwassenen die affiniteit hebben

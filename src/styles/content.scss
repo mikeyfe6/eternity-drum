@@ -11,6 +11,10 @@
 		align-items: center;
 		gap: 87.5px;
 		margin: 50px 0;
+
+		@media screen and ($extraLarge) {
+			flex-direction: column-reverse;
+		}
 	}
 
 	&.center {

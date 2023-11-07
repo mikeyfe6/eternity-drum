@@ -76,8 +76,8 @@ const Contact: React.FC<PageProps> = () => {
 								<span>REKENINGNR</span> <span>{bank}</span>
 							</li>
 						</ul>
-						<h4>Social Media Kanalen</h4>
-						<ul>
+						{/* <h4>Social Media Kanalen</h4> */}
+						{/* <ul>
 							<li>
 								<a href={facebookUrl} rel='noopener noreferrer' target='_blank'>
 									<span>FACEBOOK</span> <i className='fab fa-facebook' />
@@ -102,7 +102,7 @@ const Contact: React.FC<PageProps> = () => {
 									<span>YOUTUBE</span> <i className='fab fa-youtube' />
 								</a>
 							</li>
-						</ul>
+						</ul> */}
 					</section>
 					<GoogleMaps />
 				</section>

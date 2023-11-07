@@ -1,6 +1,6 @@
 @import '../configs/globals';
 
-.succesButton {
+.succes-button {
 	@include buttonStyle(
 		$primaryColor,
 		$whiteColor,

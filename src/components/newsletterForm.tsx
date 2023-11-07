@@ -119,7 +119,7 @@ const NewsletterForm: React.FC = () => {
 				<fieldset>
 					<legend>Schrijf je in voor onze nieuwsbrief</legend>
 					<div className='form-column'>
-						<div className='form-group firstName'>
+						<div className='form-group first-name'>
 							<label
 								htmlFor='firstName'
 								className={
@@ -154,7 +154,7 @@ const NewsletterForm: React.FC = () => {
 							/>
 						</div>
 
-						<div className='form-group lastName'>
+						<div className='form-group last-name'>
 							<label
 								htmlFor='lastName'
 								className={

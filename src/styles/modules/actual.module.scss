@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 @import '../configs/globals';
 
 .actual-container {
@@ -14,7 +16,7 @@
 		gap: 3em;
 
 		> li {
-			outline: 1px solid rgba(128, 128, 128, 0.3);
+			outline: 1px solid color.adjust($transGrey, $alpha: -0.7);
 			border-radius: 15px;
 			overflow: hidden;
 			max-width: 375px;
@@ -37,7 +39,7 @@
 
 			img {
 				width: 100%;
-				border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+				border-bottom: 1px solid color.adjust($transGrey, $alpha: -0.75);
 				height: 300px;
 				object-fit: cover;
 			}
@@ -81,8 +83,8 @@
 				hr {
 					height: 3px;
 					border-width: 0;
-					color: rgba(128, 128, 128, 0.1);
-					background-color: rgba(128, 128, 128, 0.1);
+					color: color.adjust($transGrey, $alpha: -0.9);
+					background-color: color.adjust($transGrey, $alpha: -0.9);
 					margin: 1em 0;
 				}
 

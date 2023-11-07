@@ -1,12 +1,3 @@
-// $breakpoint-xs-max: 575px;
-// $breakpoint-sm-min: 576px;
-// $breakpoint-sm-max: 767px;
-// $breakpoint-md-min: 768px;
-// $breakpoint-md-max: 991px;
-// $breakpoint-lg-min: 992px;
-// $breakpoint-lg-max: 1199px;
-// $breakpoint-xl-min: 1200px;
-
 $ultraSmall: 'max-width: 320px';
 $superSmall: 'max-width: 420px';
 $extraSmall: 'max-width: 480px';
@@ -21,33 +12,3 @@ $tothemoon: 'min-width: 1601px';
 
 $portrait: 'orientation: portrait';
 $landscape: 'orientation: landscape';
-
-// /* Extra Small (XS) Devices: */
-// @media screen and (max-width: 576px) {
-// 	/* Commonly used for smartphones in portrait mode. */
-// }
-
-// /* Small (SM) Devices */
-// @media screen and (min-width: 577px) and (max-width: 768px) {
-// 	/* Suitable for smartphones in landscape mode and small tablets. */
-// }
-
-// /* Medium (MD) Devices */
-// @media screen and (min-width: 769px) and (max-width: 992px) {
-// 	/* Often used for larger smartphones and smaller tablets. */
-// }
-
-// /* Large (LG) Devices */
-// @media screen and (min-width: 993px) and (max-width: 1200px) {
-// 	/* Suitable for desktop and larger tablets. */
-// }
-
-// /* Extra Large (XL) Devices */
-// @media screen and (min-width: 1201px) {
-// 	/* Commonly used for desktop and large screens */
-// }
-
-// /* Super Sized (XXL) Devices */
-// @media screen and (min-width: 1400px) {
-// 	/* Commonly used for desktop and large screens */
-// }
