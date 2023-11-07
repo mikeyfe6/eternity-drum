@@ -201,6 +201,11 @@
 				font-size: 0.625rem;
 				margin-bottom: 0;
 			}
+
+			@media screen and ($superSmall) {
+				font-size: 0.5rem;
+				margin-bottom: 0;
+			}
 		}
 
 		a {

@@ -16,10 +16,23 @@ section {
 			padding: 0.5em 1em 0.6em;
 			border-radius: 5px;
 
+			@media screen and ($medium) {
+				max-width: 500px;
+				white-space: nowrap;
+			}
+
 			@media screen and ($small) {
 				padding: 0.125em 1em 0.375em;
 				margin-bottom: 17.5px;
 				gap: 10px;
+			}
+
+			@media screen and ($extraSmall) {
+				max-width: 350px;
+			}
+
+			@media screen and ($superSmall) {
+				max-width: 300px;
 			}
 
 			> li {
@@ -39,12 +52,21 @@ section {
 					}
 				}
 
+				&:last-child {
+					overflow: hidden;
+				}
+
 				> span {
 					font-weight: 600;
 					color: $secondaryColor;
 
+					text-overflow: ellipsis;
+					overflow: hidden;
+					display: block;
+
 					@media screen and ($small) {
 						font-size: 0.75rem;
+						height: 16.5px;
 					}
 				}
 

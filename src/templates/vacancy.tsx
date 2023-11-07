@@ -69,8 +69,9 @@ const Vacancy = ({
 }: PostProps) => {
 	const breadcrumbs = [
 		{ label: 'Home', link: '/' },
-		{ label: 'Drumworkshops', link: '/drumworkshops/' },
-		{ label: 'Summerschool 2020' },
+		{ label: 'Over Ons', link: '/over-ons/' },
+		{ label: 'Vacatures', link: '/over-ons/vacatures/' },
+		{ label: jobTitle },
 	];
 
 	const image = jobImage.gatsbyImageData
