@@ -4,11 +4,11 @@
 	background: #80808010;
 	padding: 1.5em;
 	height: fit-content;
-	min-width: 500px;
+	max-width: 500px;
+	width: 100%;
 
 	@media screen and ($small) {
 		padding: 1em;
-		min-width: 100%;
 	}
 
 	@include boxShadow;
@@ -43,13 +43,16 @@
 		display: flex;
 		justify-content: space-between;
 		gap: 0.5em;
-		flex-wrap: wrap;
+
+		@media screen and ($extraSmall) {
+			flex-direction: column;
+		}
 
 		> li {
 			> a {
 				display: flex;
 				align-items: center;
-				gap: 0.125em;
+				gap: 0.25em;
 
 				> i {
 					color: $primaryColor;
