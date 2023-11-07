@@ -49,6 +49,7 @@ h1 {
 	font-family: $bebasNeue;
 	font-size: 5rem;
 	margin-bottom: 0.25em;
+	letter-spacing: 0.5px;
 
 	@media screen and ($massive) {
 		font-size: 4.5rem;
@@ -67,6 +68,7 @@ h2 {
 	font-family: $bebasNeue;
 	font-size: 3rem;
 	margin-bottom: 0.5em;
+	letter-spacing: 0.5px;
 
 	@media screen and ($medium) {
 		font-size: 2.75rem;
@@ -81,18 +83,21 @@ h3 {
 	font-family: $bebasNeue;
 	font-size: 1.5rem;
 	margin-bottom: 0.25em;
+	letter-spacing: 0.5px;
 }
 
 h4 {
 	font-size: 1.25rem;
 	margin-bottom: 0.25em;
 	font-weight: 600;
+	letter-spacing: 0.5px;
 }
 
 h5 {
 	font-size: 1.1rem;
 	margin-bottom: 0.25em;
 	font-weight: 400;
+	letter-spacing: 0.5px;
 }
 
 p {
@@ -192,7 +197,7 @@ section[data-main-content] {
 		@include pageLink;
 	}
 
-	i {
+	i:not(.fab) {
 		font-style: italic;
 	}
 

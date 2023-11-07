@@ -1,11 +1,68 @@
-.contact-wrapper {
-	> ul > li {
-		display: flex;
+@import '../configs/globals';
 
-		:nth-child(1) {
-			min-width: 150px;
-			font-weight: 800;
+.contact-wrapper {
+	background: #80808010;
+	padding: 1.5em;
+	height: fit-content;
+	min-width: 500px;
+
+	@media screen and ($small) {
+		padding: 1em;
+		min-width: 100%;
+	}
+
+	@include boxShadow;
+
+	> h3:nth-of-type(2) {
+		font-size: 1.25rem;
+		margin-top: 2em;
+	}
+
+	> ul:nth-of-type(1) {
+		> li {
+			display: flex;
 			padding: 0.25em 0;
+
+			> :nth-child(1) {
+				min-width: 200px;
+				font-weight: 800;
+
+				@media screen and ($extraLarge) {
+					min-width: 200px;
+				}
+
+				@media screen and ($small) {
+					min-width: 150px;
+				}
+			}
+		}
+	}
+
+	> ul:nth-of-type(2) {
+		margin-bottom: 1em;
+		display: flex;
+		justify-content: space-between;
+		gap: 0.5em;
+		flex-wrap: wrap;
+
+		> li {
+			> a {
+				display: flex;
+				align-items: center;
+				gap: 0.125em;
+
+				> i {
+					color: $primaryColor;
+				}
+			}
+		}
+	}
+
+	> p {
+		font-size: 1rem;
+
+		> a > i {
+			color: $primaryColor;
 		}
 	}
 }

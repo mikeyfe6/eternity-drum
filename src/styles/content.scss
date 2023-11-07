@@ -16,6 +16,10 @@
 			flex-direction: column-reverse;
 		}
 
+		@media screen and ($large) {
+			gap: 50px;
+		}
+
 		@media screen and ($small) {
 			margin: 1em auto;
 		}

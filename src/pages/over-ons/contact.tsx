@@ -51,36 +51,66 @@ const Contact: React.FC<PageProps> = () => {
 						<h3>{companyName}</h3>
 						<ul>
 							<li>
-								<span>ADRES</span> <span>{address}</span>
+								<span>Adres</span> <span>{address}</span>
 							</li>
 							<li>
-								<span>POSTCODE</span> <span>{postalCode}</span>
+								<span>Postcode</span> <span>{postalCode}</span>
 							</li>
 							<li>
-								<span>PLAATS</span> <span>{city}</span>
+								<span>Plaats</span> <span>{city}</span>
 							</li>
 							<li>
-								<span>TELEFOONNR</span>
-								<span>06 - 242 55 391 | 020 - 311 39 33</span>
+								<span>Telefoon</span>
+								<span>
+									<a
+										href='tel:31203113933'
+										rel='noopener noreferrer'
+										target='_blank'
+									>
+										020 311 39 33
+									</a>
+								</span>
 							</li>
 							<li>
-								<span>EMAILADRES</span> <span>{email}</span>
+								<span>Mobiel</span>
+								<span>
+									<a
+										href='tel:31624255391'
+										rel='noopener noreferrer'
+										target='_blank'
+									>
+										06 242 55 391
+									</a>
+								</span>
 							</li>
 							<li>
-								<span>KVK</span> <span>{kvk}</span>
+								<span>E-mailadres</span>{' '}
+								<span>
+									<a
+										href={`mailto:${email}`}
+										rel='noopener noreferrer'
+										target='_blank'
+									>
+										{email}
+									</a>
+								</span>
 							</li>
 							<li>
-								<span>BTW</span> <span>{btw}</span>
+								<span>KVK-nummer</span> <span>{kvk}</span>
 							</li>
 							<li>
-								<span>REKENINGNR</span> <span>{bank}</span>
+								<span>BTW-nummer</span> <span>{btw}</span>
+							</li>
+							<li>
+								<span>Rekeningnummer</span> <span>{bank}</span>
 							</li>
 						</ul>
-						{/* <h4>Social Media Kanalen</h4> */}
-						{/* <ul>
+						<h3>Social Media Kanalen</h3>
+						<ul>
 							<li>
 								<a href={facebookUrl} rel='noopener noreferrer' target='_blank'>
-									<span>FACEBOOK</span> <i className='fab fa-facebook' />
+									<span>Facebook</span>
+									<i className='fab fa-facebook' />
 								</a>
 							</li>
 							<li>
@@ -89,20 +119,33 @@ const Contact: React.FC<PageProps> = () => {
 									rel='noopener noreferrer'
 									target='_blank'
 								>
-									<span>INSTAGRAM</span> <i className='fab fa-instagram' />
+									<span>Instagram</span>
+									<i className='fab fa-instagram' />
 								</a>
 							</li>
 							<li>
 								<a href={linkedinUrl} rel='noopener noreferrer' target='_blank'>
-									<span>LINKEDIN</span> <i className='fab fa-linkedin' />
+									<span>Linkedin</span>
+									<i className='fab fa-linkedin' />
 								</a>
 							</li>
 							<li>
 								<a href={youtubeUrl} rel='noopener noreferrer' target='_blank'>
-									<span>YOUTUBE</span> <i className='fab fa-youtube' />
+									<span>Youtube</span>
+									<i className='fab fa-youtube' />
 								</a>
 							</li>
-						</ul> */}
+						</ul>
+						<p>
+							We zijn ook bereikbaar via{' '}
+							<a
+								href={`https://wa.me/${phoneRaw}`}
+								rel='noopener noreferrer'
+								target='_blank'
+							>
+								<span>Whatsapp</span> <i className='fab fa-whatsapp' />
+							</a>
+						</p>
 					</section>
 					<GoogleMaps />
 				</section>
