@@ -5,7 +5,9 @@ import epLogo from '../images/logo/ep-logo-small.png';
 
 import * as styles from '../styles/modules/maps.module.scss';
 
-const Marker = () => <img src={epLogo} alt='Eternity Percussion' width='75' />;
+const Marker = () => (
+	<img src={epLogo} alt='Eternity Percussion' className={styles.marker} />
+);
 
 const GoogleMaps = () => {
 	const defaultProps = {
