@@ -10,10 +10,14 @@
 		justify-content: center;
 		align-items: center;
 		gap: 87.5px;
-		margin: 50px 0;
+		margin: 3em auto;
 
 		@media screen and ($extraLarge) {
 			flex-direction: column-reverse;
+		}
+
+		@media screen and ($small) {
+			margin: 1em auto;
 		}
 	}
 
@@ -27,7 +31,7 @@
 
 		@media screen and ($small) {
 			padding: 1em;
-			margin: 1em auto 3em;
+			margin: 1em auto;
 
 			h2 {
 				font-size: 1.75rem;
@@ -47,10 +51,15 @@
 		display: flex;
 		justify-content: center;
 		gap: 87.5px;
-		margin: 50px 0;
+		margin: 3em auto;
 
 		@media screen and ($large) {
 			flex-direction: column;
+		}
+
+		@media screen and ($small) {
+			margin: 1em auto 1.25em;
+			gap: 50px;
 		}
 
 		> :nth-child(1) {
@@ -66,7 +75,6 @@
 
 			@media screen and ($small) {
 				padding: 1em;
-				margin: 1em auto 3em;
 
 				h2 {
 					font-size: 1.75rem;

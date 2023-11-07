@@ -62,9 +62,9 @@ const Relevance: React.FC = () => {
 			<br />
 			<iframe
 				id='ytplayer'
-				src='https://www.youtube.com/embed/fRDGRiSMDSc'
+				src='https://www.youtube.com/embed/fRDGRiSMDSc?rel=0'
 				title='Eternity in het Surinaamse nieuws'
-				allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+				allow='accelerometer; encrypted-media; gyroscope; picture-in-picture'
 				allowFullScreen
 			></iframe>
 		</>
