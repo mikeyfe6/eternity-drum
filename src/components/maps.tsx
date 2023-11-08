@@ -5,12 +5,27 @@ import epLogo from '../images/logo/ep-logo-small.png';
 
 import * as styles from '../styles/modules/maps.module.scss';
 
-const Marker = () => (
-	<img src={epLogo} alt='Eternity Percussion' className={styles.marker} />
+interface MarkerProps {
+	lat: number;
+	lng: number;
+}
+
+interface DefaultProps {
+	center: {
+		lat: number;
+		lng: number;
+	};
+	zoom: number;
+}
+
+const Marker: React.FC<MarkerProps> = ({ lat, lng }) => (
+	<div data-lat={lat} data-lng={lng} className={styles.marker}>
+		<img src={epLogo} alt='Eternity Percussion' />
+	</div>
 );
 
 const GoogleMaps = () => {
-	const defaultProps = {
+	const defaultProps: DefaultProps = {
 		center: {
 			lat: 52.31796830934763,
 			lng: 4.9778735331231525,
@@ -25,7 +40,7 @@ const GoogleMaps = () => {
 				defaultCenter={defaultProps.center}
 				defaultZoom={defaultProps.zoom}
 			>
-				<Marker />
+				<Marker lat={52.31796830934763} lng={4.9778735331231525} />
 			</GoogleMapReact>
 		</div>
 	);
