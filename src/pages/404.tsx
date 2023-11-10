@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Link, HeadFC, PageProps } from 'gatsby';
 
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 
 import Layout from '../components/layout';
 
@@ -32,4 +32,4 @@ const NotFoundPage: React.FC<PageProps> = () => {
 
 export default NotFoundPage;
 
-export const Head: HeadFC = () => <SEO title='Pagina niet gevonden!' />;
+export const Head: HeadFC = () => <Seo title='Pagina niet gevonden!' />;

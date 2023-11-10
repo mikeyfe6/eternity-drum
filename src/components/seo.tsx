@@ -9,7 +9,7 @@ interface SEOProps {
 	children?: ReactNode;
 }
 
-export const SEO: React.FC<SEOProps> = ({
+export const Seo: React.FC<SEOProps> = ({
 	title,
 	description,
 	pathname,
@@ -20,11 +20,12 @@ export const SEO: React.FC<SEOProps> = ({
 		description: defaultDescription,
 		image,
 		siteUrl,
+		slogan,
 		twitterUsername,
 	} = useSiteMetadata();
 
 	const seo = {
-		title: title ? `${title} · ${siteTitle}` : siteTitle,
+		title: title ? `${title} · ${siteTitle}` : `${siteTitle} · ${slogan}`,
 		description: description ?? defaultDescription,
 		image: `${siteUrl}${image}`,
 		url: `${siteUrl}${pathname ?? ''}`,

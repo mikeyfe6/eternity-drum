@@ -1,11 +1,11 @@
 import React from 'react';
 
-import type { HeadFC } from 'gatsby';
+import type { HeadProps } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 
 import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
@@ -123,6 +123,14 @@ const Vacancy = ({
 		</Layout>
 	);
 };
+
 export default Vacancy;
 
-export const Head: HeadFC = () => <SEO />;
+interface SeoContext {
+	jobTitle: string;
+}
+
+export const Head: React.FC<HeadProps> = ({ pageContext }) => {
+	const pageTitle = (pageContext as SeoContext)?.jobTitle || '';
+	return <Seo title={pageTitle} />;
+};

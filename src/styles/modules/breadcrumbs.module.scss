@@ -48,6 +48,10 @@ section {
 					vertical-align: -0.25px;
 					margin-right: 0.25em;
 
+					&:hover {
+						color: color.adjust($tertiaryColor, $lightness: 15%);
+					}
+
 					@media screen and ($small) {
 						font-size: 1.125em;
 					}

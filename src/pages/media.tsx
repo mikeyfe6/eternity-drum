@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import type { HeadFC, PageProps } from 'gatsby';
 
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 
 import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
@@ -66,4 +66,4 @@ const Media: React.FC<PageProps> = () => {
 
 export default Media;
 
-export const Head: HeadFC = () => <SEO title='Media' />;
+export const Head: HeadFC = () => <Seo title='Media' />;

@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import type { HeadFC, PageProps } from 'gatsby';
 
-import { SEO } from '../../components/seo';
+import { Seo } from '../../components/seo';
 
 import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumbs';
@@ -170,4 +170,4 @@ const SummerschoolFirst: React.FC<PageProps> = () => {
 
 export default SummerschoolFirst;
 
-export const Head: HeadFC = () => <SEO title='Summerschool 2020' />;
+export const Head: HeadFC = () => <Seo title='Summerschool 2020' />;

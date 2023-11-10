@@ -4,7 +4,7 @@ import type { HeadFC, PageProps } from 'gatsby';
 
 import { StaticImage } from 'gatsby-plugin-image';
 
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 
 import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
@@ -110,4 +110,4 @@ const OverOns: React.FC<PageProps> = () => {
 
 export default OverOns;
 
-export const Head: HeadFC = () => <SEO title='Over Ons' />;
+export const Head: HeadFC = () => <Seo title='Over Ons' />;

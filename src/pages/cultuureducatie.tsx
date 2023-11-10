@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import type { HeadFC, PageProps } from 'gatsby';
 
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 
 import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
@@ -12,7 +12,7 @@ import Hero from '../components/heroslider';
 const CultuurEducatie: React.FC<PageProps> = () => {
 	const breadcrumbs = [
 		{ label: 'Home', link: '/' },
-		{ label: 'Cultuur Educatie' },
+		{ label: 'Cultuureducatie' },
 	];
 
 	return (
@@ -53,4 +53,4 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 
 export default CultuurEducatie;
 
-export const Head: HeadFC = () => <SEO title='Cultuur Educatie' />;
+export const Head: HeadFC = () => <Seo title='Cultuureducatie' />;

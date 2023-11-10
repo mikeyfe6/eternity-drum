@@ -3,7 +3,7 @@ import * as React from 'react';
 import type { HeadFC, PageProps } from 'gatsby';
 
 import { useSiteMetadata } from '../hooks/use-site-metadata';
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 
 import Layout from '../components/layout';
 
@@ -51,4 +51,4 @@ const Index: React.FC<PageProps> = () => {
 
 export default Index;
 
-export const Head: HeadFC = () => <SEO />;
+export const Head: HeadFC = () => <Seo />;

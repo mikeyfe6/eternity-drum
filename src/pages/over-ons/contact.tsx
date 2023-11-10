@@ -4,7 +4,7 @@ import type { HeadFC, PageProps } from 'gatsby';
 
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
-import { SEO } from '../../components/seo';
+import { Seo } from '../../components/seo';
 
 import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumbs';
@@ -156,4 +156,4 @@ const Contact: React.FC<PageProps> = () => {
 
 export default Contact;
 
-export const Head: HeadFC = () => <SEO title='Contact' />;
+export const Head: HeadFC = () => <Seo title='Contact' />;

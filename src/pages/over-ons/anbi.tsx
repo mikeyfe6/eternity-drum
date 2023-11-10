@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import type { HeadFC, PageProps } from 'gatsby';
 
-import { SEO } from '../../components/seo';
+import { Seo } from '../../components/seo';
 
 import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumbs';
@@ -153,4 +153,4 @@ const Anbi: React.FC<PageProps> = () => {
 
 export default Anbi;
 
-export const Head: HeadFC = () => <SEO title='ANBI' />;
+export const Head: HeadFC = () => <Seo title='ANBI' />;

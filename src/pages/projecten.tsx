@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import type { HeadFC, PageProps } from 'gatsby';
 
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 
 import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
@@ -27,4 +27,4 @@ const Projecten: React.FC<PageProps> = () => {
 
 export default Projecten;
 
-export const Head: HeadFC = () => <SEO title='Projecten' />;
+export const Head: HeadFC = () => <Seo title='Projecten' />;

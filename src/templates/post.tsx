@@ -1,11 +1,11 @@
 /* eslint-disable indent */
 import React from 'react';
 
-import type { HeadFC } from 'gatsby';
+import type { HeadProps } from 'gatsby';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 
 import Layout from '../components/layout';
 
@@ -78,6 +78,14 @@ const Post = ({
 		</Layout>
 	);
 };
+
 export default Post;
 
-export const Head: HeadFC = () => <SEO />;
+interface SeoContext {
+	title: string;
+}
+
+export const Head: React.FC<HeadProps> = ({ pageContext }) => {
+	const pageTitle = (pageContext as SeoContext)?.title || '';
+	return <Seo title={pageTitle} />;
+};

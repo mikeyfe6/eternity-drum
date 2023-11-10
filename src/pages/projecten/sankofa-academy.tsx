@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import type { HeadFC, PageProps } from 'gatsby';
 
-import { SEO } from '../../components/seo';
+import { Seo } from '../../components/seo';
 
 import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumbs';
@@ -150,4 +150,4 @@ const Sankofa: React.FC<PageProps> = () => {
 
 export default Sankofa;
 
-export const Head: HeadFC = () => <SEO title='Sankofa Academy' />;
+export const Head: HeadFC = () => <Seo title='Sankofa Academy' />;

@@ -4,7 +4,7 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 
 import type { HeadFC, PageProps } from 'gatsby';
 
-import { SEO } from '../../components/seo';
+import { Seo } from '../../components/seo';
 
 import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumbs';
@@ -83,4 +83,4 @@ const Vacatures: React.FC<PageProps> = () => {
 
 export default Vacatures;
 
-export const Head: HeadFC = () => <SEO title='Vacatures' />;
+export const Head: HeadFC = () => <Seo title='Vacatures' />;

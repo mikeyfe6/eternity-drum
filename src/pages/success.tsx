@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Link, HeadFC, PageProps } from 'gatsby';
 
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 
 import Layout from '../components/layout';
 
@@ -37,5 +37,5 @@ const Success: React.FC<PageProps> = () => {
 export default Success;
 
 export const Head: HeadFC = () => (
-	<SEO title='Succes! Je bericht is verstuurd!' />
+	<Seo title='Succes! Je bericht is verstuurd!' />
 );
