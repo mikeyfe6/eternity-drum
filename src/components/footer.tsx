@@ -19,6 +19,7 @@ const Footer = () => {
 		city,
 		phoneRaw,
 		telephone,
+		mobile,
 		email,
 		kvk,
 		btw,
@@ -209,7 +210,7 @@ const Footer = () => {
 									</li>
 									<li>
 										<a
-											href={`https://wa.me/${phoneRaw}`}
+											href={`https://wa.me/${mobile}`}
 											rel='noopener noreferrer'
 											target='_blank'
 										>

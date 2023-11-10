@@ -26,8 +26,7 @@ const Contact: React.FC<PageProps> = () => {
 		address,
 		postalCode,
 		city,
-		phoneRaw,
-		telephone,
+		mobile,
 		email,
 		kvk,
 		btw,
@@ -36,7 +35,6 @@ const Contact: React.FC<PageProps> = () => {
 		instagramUrl,
 		linkedinUrl,
 		youtubeUrl,
-		title,
 	} = useSiteMetadata();
 
 	return (
@@ -139,7 +137,7 @@ const Contact: React.FC<PageProps> = () => {
 						<p>
 							We zijn ook bereikbaar via{' '}
 							<a
-								href={`https://wa.me/${phoneRaw}`}
+								href={`https://wa.me/${mobile}`}
 								rel='noopener noreferrer'
 								target='_blank'
 							>
