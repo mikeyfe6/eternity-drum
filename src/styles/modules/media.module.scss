@@ -31,6 +31,10 @@
 			max-width: 100%;
 			flex: 100%;
 		}
+
+		@media screen and ($small) {
+			padding: 1em;
+		}
 	}
 
 	.news {

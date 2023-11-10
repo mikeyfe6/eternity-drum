@@ -8,35 +8,24 @@ section {
 			display: flex;
 			align-items: center;
 			gap: 15px;
-			margin-top: 10px;
 			background: $primaryColor;
 
 			@include boxShadow;
 
+			white-space: nowrap;
+
 			padding: 0.5em 1em 0.6em;
 			border-radius: 5px;
 
-			@media screen and ($medium) {
-				max-width: 500px;
-				white-space: nowrap;
-			}
-
 			@media screen and ($small) {
-				padding: 0.125em 1em 0.375em;
+				padding: 0.25em 0.75em 0.325em;
 				margin-bottom: 17.5px;
 				gap: 10px;
 			}
 
-			@media screen and ($extraSmall) {
-				max-width: 350px;
-			}
-
-			@media screen and ($superSmall) {
-				max-width: 300px;
-			}
-
 			> li {
 				display: block;
+				line-height: 21.5px;
 
 				&:not(:last-child)::after {
 					content: '\f0da';
@@ -48,25 +37,43 @@ section {
 
 					@media screen and ($small) {
 						margin-left: 1em;
-						font-size: 0.5rem;
+						font-size: 0.625rem;
+						vertical-align: 0;
+					}
+				}
+
+				> a > i {
+					font-size: 1em;
+					color: $whiteColor;
+					vertical-align: -0.25px;
+					margin-right: 0.25em;
+
+					@media screen and ($small) {
+						font-size: 1.125em;
 					}
 				}
 
 				&:last-child {
 					overflow: hidden;
-				}
+					white-space: nowrap;
+					text-overflow: ellipsis;
 
-				> span {
 					font-weight: 600;
+
 					color: $secondaryColor;
 
-					text-overflow: ellipsis;
-					overflow: hidden;
-					display: block;
+					@media screen and ($medium) {
+						max-width: 200px;
+					}
 
 					@media screen and ($small) {
 						font-size: 0.75rem;
-						height: 16.5px;
+						max-width: 125px;
+					}
+
+					@media screen and ($superSmall) {
+						font-size: 0.75rem;
+						max-width: 75px;
 					}
 				}
 

@@ -7,11 +7,15 @@
 		margin-left: auto;
 
 		@include buttonStyle(
-			$tertiaryColor,
 			$whiteColor,
 			$tertiaryColor,
+			$whiteColor,
 			$secondaryColor
 		);
+
+		> i {
+			font-size: 1.375em;
+		}
 	}
 
 	.music-info {

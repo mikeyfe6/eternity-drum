@@ -19,10 +19,14 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ crumbs }) => {
 			<ul className={styles.breadcrumbList}>
 				{crumbs.map((crumb, index) => (
 					<li key={index}>
-						{crumb.link ? (
+						{index === 0 ? (
+							<Link to='/'>
+								<i className='fa-solid fa-house-chimney' />
+							</Link>
+						) : crumb.link ? (
 							<Link to={crumb.link}>{crumb.label}</Link>
 						) : (
-							<span>{crumb.label}</span>
+							crumb.label
 						)}
 					</li>
 				))}

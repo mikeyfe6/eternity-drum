@@ -48,13 +48,13 @@
     "react-datepicker": "^4.21.0",
     "react-dom": "^18.2.0",
     "sass": "^1.69.5",
-    "swiper": "^11.0.3"
+    "swiper": "^11.0.4"
   },
   "devDependencies": {
-    "@types/node": "^20.8.10",
-    "@types/react": "^18.2.36",
-    "@types/react-datepicker": "^4.19.1",
-    "@types/react-dom": "^18.2.14",
+    "@types/node": "^20.9.0",
+    "@types/react": "^18.2.37",
+    "@types/react-datepicker": "^4.19.2",
+    "@types/react-dom": "^18.2.15",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
     "eslint": "^8.53.0",

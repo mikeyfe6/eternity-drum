@@ -19,7 +19,7 @@ const Projecten: React.FC<PageProps> = () => {
 				<Breadcrumb crumbs={breadcrumbs} />
 
 				<h1>Projecten</h1>
-				<p>Welcome to your new Gatsby site.</p>
+				<p>Pagina onder constructie..</p>
 			</section>
 		</Layout>
 	);

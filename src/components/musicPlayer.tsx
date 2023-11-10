@@ -153,7 +153,7 @@ const MusicPlayer: React.FC = () => {
 		<div className={styles.component}>
 			{!isLoaded && (
 				<button onClick={loadMusic} className={styles.loadingBtn}>
-					Open muziekspeler
+					<i className='fa-solid fa-power-off' />
 				</button>
 			)}
 
