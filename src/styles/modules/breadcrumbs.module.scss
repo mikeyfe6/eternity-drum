@@ -17,6 +17,15 @@ section {
 			padding: 0.5em 1em 0.6em;
 			border-radius: 5px;
 
+			&.overflow {
+				li:last-child {
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					max-width: 100px;
+				}
+			}
+
 			@media screen and ($small) {
 				padding: 0.25em 0.75em 0.325em;
 				margin-bottom: 17.5px;
@@ -58,26 +67,12 @@ section {
 				}
 
 				&:last-child {
-					overflow: hidden;
-					white-space: nowrap;
-					text-overflow: ellipsis;
-
 					font-weight: 600;
 
 					color: $secondaryColor;
 
-					@media screen and ($medium) {
-						max-width: 200px;
-					}
-
 					@media screen and ($small) {
 						font-size: 0.75rem;
-						max-width: 125px;
-					}
-
-					@media screen and ($superSmall) {
-						font-size: 0.75rem;
-						max-width: 75px;
 					}
 				}
 
