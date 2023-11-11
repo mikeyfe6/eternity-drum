@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import YouTubePlayer from './youtubePlayer';
+
 const Relevance: React.FC = () => {
 	return (
 		<>
@@ -60,13 +62,7 @@ const Relevance: React.FC = () => {
 			<b>Eternity in het Surinaamse nieuws, bekijk video:</b>
 			<br />
 			<br />
-			<iframe
-				id='ytplayer'
-				src='https://www.youtube.com/embed/fRDGRiSMDSc?rel=0'
-				title='Eternity in het Surinaamse nieuws'
-				allow='accelerometer; encrypted-media; gyroscope; picture-in-picture'
-				allowFullScreen
-			></iframe>
+			<YouTubePlayer videoId='fRDGRiSMDSc' />
 		</>
 	);
 };

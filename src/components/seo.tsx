@@ -47,9 +47,6 @@ export const Seo: React.FC<SEOProps> = ({
 			<meta name='twitter:image' content={seo.image} />
 			<meta name='twitter:creator' content={seo.twitterUsername} />
 
-			{/* OVERALL LINKS */}
-			{/* SCRIPTS */}
-
 			{/* NICE! no incoming scripts & overall script! */}
 
 			{/* FONTS */}

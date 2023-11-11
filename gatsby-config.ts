@@ -37,7 +37,7 @@ const siteMetadata = {
 	bgThemeColor: `#f6ce0e`,
 }
 
-const { siteUrl, companyName, title, bgWebColor, bgThemeColor } = siteMetadata;
+const { siteUrl, title, bgWebColor, bgThemeColor } = siteMetadata;
 
 const config: GatsbyConfig = {
 	siteMetadata: siteMetadata,
