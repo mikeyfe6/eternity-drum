@@ -11,7 +11,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({
 	width = '720',
 	height = '405',
 }) => {
-	const embedUrl = `https://www.youtube.com/embed/${videoId}?origin=https://eternitydrum.com&controls=0&rel=0`;
+	const embedUrl = `https://www.youtube.com/embed/${videoId}?origin=https://eternitydrum.com&color=white&rel=0`;
 
 	return (
 		<iframe
