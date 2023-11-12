@@ -4,6 +4,8 @@
 
 section {
 	> nav {
+		max-width: 100%;
+
 		> .breadcrumb-list {
 			display: flex;
 			align-items: center;
