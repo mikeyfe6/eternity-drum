@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'gatsby';
 import * as styles from '../styles/modules/breadcrumbs.module.scss';
 
@@ -13,33 +13,35 @@ interface BreadcrumbProps {
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ crumbs }) => {
 	const breadcrumbRef = useRef<HTMLUListElement>(null);
-	const [isOverflow, setIsOverflow] = useState(false);
+	const [ulWidth, setUlWidth] = useState<number | null>(null);
 
 	useEffect(() => {
-		const checkOverflow = () => {
-			const containerWidth = document.documentElement.offsetWidth - 100;
-			const breadcrumbWidth = breadcrumbRef.current?.scrollWidth || 0;
-			const isOverflowing = breadcrumbWidth > containerWidth;
-			setIsOverflow(isOverflowing);
+		const handleResize = () => {
+			if (breadcrumbRef.current) {
+				const availableSpace =
+					document.body.clientWidth -
+					(breadcrumbRef.current.getBoundingClientRect().left || 0);
+
+				setUlWidth(availableSpace);
+			}
 		};
 
-		const debouncedCheckOverflow = debounce(checkOverflow, 10);
-		debouncedCheckOverflow();
+		handleResize();
 
-		window.addEventListener('resize', debouncedCheckOverflow);
+		window.addEventListener('resize', handleResize);
 
 		return () => {
-			window.removeEventListener('resize', debouncedCheckOverflow);
+			window.removeEventListener('resize', handleResize);
 		};
 	}, []);
 
-	const breadcrumbClass = `${styles.breadcrumbList} ${
-		isOverflow ? styles.overflow : ''
-	}`;
-
 	return (
 		<nav data-main-breadcrumbs>
-			<ul className={breadcrumbClass} ref={breadcrumbRef}>
+			<ul
+				ref={breadcrumbRef}
+				className={styles.breadcrumbList}
+				style={{ maxWidth: ulWidth ? `${ulWidth}px` : '100%' }}
+			>
 				{crumbs.map((crumb, index) => (
 					<li key={index}>
 						{index === 0 ? (
@@ -56,14 +58,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ crumbs }) => {
 			</ul>
 		</nav>
 	);
-};
-
-const debounce = (func: Function, wait: number) => {
-	let timeout: number;
-	return (...args: any[]) => {
-		clearTimeout(timeout);
-		timeout = window.setTimeout(() => func(...args), wait);
-	};
 };
 
 export default Breadcrumb;

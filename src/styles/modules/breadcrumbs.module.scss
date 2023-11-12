@@ -17,13 +17,10 @@ section {
 			padding: 0.5em 1em 0.6em;
 			border-radius: 5px;
 
-			&.overflow {
-				li:last-child {
-					overflow: hidden;
-					white-space: nowrap;
-					text-overflow: ellipsis;
-					max-width: 100px;
-				}
+			li:last-child {
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
 			}
 
 			@media screen and ($small) {
