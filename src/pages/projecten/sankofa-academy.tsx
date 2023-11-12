@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useRef } from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
 
@@ -38,7 +38,7 @@ const Sankofa: React.FC<PageProps> = () => {
 		}
 	`);
 
-	const inputRef = React.useRef<HTMLInputElement>(null);
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	const sankofaBack = sankofaB.childImageSharp.gatsbyImageData;
 	const sankofaFront = sankofaF.childImageSharp.gatsbyImageData;

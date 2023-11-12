@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'gatsby';
 
@@ -10,9 +10,9 @@ interface MobileMenuProps {
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
-	const [isSubMenu1Open, setIsSubMenu1Open] = React.useState(false);
-	const [isSubMenu2Open, setIsSubMenu2Open] = React.useState(false);
-	const [isSubMenu3Open, setIsSubMenu3Open] = React.useState(false);
+	const [isSubMenu1Open, setIsSubMenu1Open] = useState(false);
+	const [isSubMenu2Open, setIsSubMenu2Open] = useState(false);
+	const [isSubMenu3Open, setIsSubMenu3Open] = useState(false);
 
 	const menuClass = isOpen
 		? `${styles.mobileMenu} ${styles.open}`

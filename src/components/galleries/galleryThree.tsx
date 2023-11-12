@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
@@ -46,14 +46,15 @@ type ThumbsSwiperType = {
 };
 
 const GalleryThree: React.FC = () => {
-	const [thumbsSwiper, setThumbsSwiper] =
-		React.useState<ThumbsSwiperType | null>(null);
+	const [thumbsSwiper, setThumbsSwiper] = useState<ThumbsSwiperType | null>(
+		null
+	);
 	const [lightboxImage, setLightboxImage] = useState<IGatsbyImageData | null>(
 		null
 	);
 
-	const progressCircle = React.useRef<SVGSVGElement | null>(null);
-	const progressContent = React.useRef<HTMLSpanElement | null>(null);
+	const progressCircle = useRef<SVGSVGElement | null>(null);
+	const progressContent = useRef<HTMLSpanElement | null>(null);
 
 	const data = useStaticQuery(graphql`
 		query AllGalleryThreeImages {

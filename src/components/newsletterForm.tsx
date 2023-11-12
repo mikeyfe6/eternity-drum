@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 
 import { navigate } from 'gatsby';
 import axios from 'axios';
@@ -12,12 +12,12 @@ type FieldErrors = {
 };
 
 const NewsletterForm: React.FC = () => {
-	const [focusedInput, setFocusedInput] = React.useState<string | null>(null);
-	const [fieldErrors, setFieldErrors] = React.useState<FieldErrors>({});
+	const [focusedInput, setFocusedInput] = useState<string | null>(null);
+	const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
-	const [isFormSubmitted, setIsFormSubmitted] = React.useState<boolean>(false);
+	const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
 
-	const [formData, setFormData] = React.useState<NewsletterFormData>({
+	const [formData, setFormData] = useState<NewsletterFormData>({
 		firstName: '',
 		lastName: '',
 		email: '',

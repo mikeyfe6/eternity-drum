@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useRef } from 'react';
 
 import { navigate } from 'gatsby';
 import axios from 'axios';
@@ -12,12 +12,12 @@ type FieldErrors = {
 };
 
 const BookingsForm: React.FC = () => {
-	const [focusedInput, setFocusedInput] = React.useState<string | null>(null);
-	const [fieldErrors, setFieldErrors] = React.useState<FieldErrors>({});
+	const [focusedInput, setFocusedInput] = useState<string | null>(null);
+	const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
-	const [isFormSubmitted, setIsFormSubmitted] = React.useState<boolean>(false);
+	const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
 
-	const [formData, setFormData] = React.useState<BookingsFormData>({
+	const [formData, setFormData] = useState<BookingsFormData>({
 		firstName: '',
 		lastName: '',
 		email: '',
@@ -34,7 +34,7 @@ const BookingsForm: React.FC = () => {
 		'message',
 	];
 
-	const inputRef = React.useRef<HTMLInputElement>(null);
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	const handleInputFocus = (name: string) => {
 		setFocusedInput(name);

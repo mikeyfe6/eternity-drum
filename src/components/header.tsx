@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
@@ -12,8 +12,8 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
-	const [isHeaderFixed, setIsHeaderFixed] = React.useState(false);
-	const [, setScrollY] = React.useState(0);
+	const [isHeaderFixed, setIsHeaderFixed] = useState(false);
+	const [, setScrollY] = useState(0);
 
 	const {
 		title,
@@ -25,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 		slogan,
 	} = useSiteMetadata();
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const handleScroll = () => {
 			const currentScrollY = window.scrollY;
 			const headerTopBannerWrapper = document.querySelector(

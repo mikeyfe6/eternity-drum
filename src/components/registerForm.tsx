@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { navigate } from 'gatsby';
 import { useLocation } from '@reach/router';
@@ -29,14 +29,14 @@ export const handleClick = (
 };
 
 const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
-	const [focusedInput, setFocusedInput] = React.useState<string | null>(null);
-	const [fieldErrors, setFieldErrors] = React.useState<FieldErrors>({});
+	const [focusedInput, setFocusedInput] = useState<string | null>(null);
+	const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
-	const [isFormSubmitted, setIsFormSubmitted] = React.useState<boolean>(false);
+	const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
 
-	const [isOlderThan18, setIsOlderThan18] = React.useState(true);
+	const [isOlderThan18, setIsOlderThan18] = useState(true);
 
-	const [formData, setFormData] = React.useState<RegisterFormData>({
+	const [formData, setFormData] = useState<RegisterFormData>({
 		firstName: '',
 		lastName: '',
 
@@ -215,7 +215,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		}
 	};
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (formData.dayOfBirth && formData.monthOfBirth && formData.yearOfBirth) {
 			const dobYear = parseInt(formData.yearOfBirth, 10);
 			const dobMonth = parseInt(formData.monthOfBirth, 10) - 1;
@@ -239,7 +239,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		}
 	}, [formData.dayOfBirth, formData.monthOfBirth, formData.yearOfBirth]);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (formData.discover === 'Overig') {
 			const inputElement = document.getElementById('other') as HTMLInputElement;
 			if (inputElement && inputElement.value.trim() !== '') {

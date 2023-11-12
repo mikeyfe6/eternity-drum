@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
 import { Link } from 'gatsby';
 import * as styles from '../styles/modules/breadcrumbs.module.scss';
 
@@ -15,7 +15,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ crumbs }) => {
 	const breadcrumbRef = useRef<HTMLUListElement>(null);
 	const [ulWidth, setUlWidth] = useState<number | null>(null);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const handleResize = () => {
 			if (breadcrumbRef.current) {
 				const availableSpace =
@@ -29,9 +29,11 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ crumbs }) => {
 		handleResize();
 
 		window.addEventListener('resize', handleResize);
+		window.addEventListener('load', handleResize);
 
 		return () => {
 			window.removeEventListener('resize', handleResize);
+			window.removeEventListener('load', handleResize);
 		};
 	}, []);
 

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useRef } from 'react';
 
 import type { HeadFC, PageProps } from 'gatsby';
 
@@ -18,7 +18,7 @@ const Drumworkshops: React.FC<PageProps> = () => {
 		{ label: 'Drumworkshops' },
 	];
 
-	const inputRef = React.useRef<HTMLInputElement>(null);
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	return (
 		<Layout>
