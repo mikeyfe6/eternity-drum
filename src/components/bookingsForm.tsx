@@ -422,7 +422,7 @@ const BookingsForm: React.FC = () => {
 							buitenland. De afgelopen jaren heeft Eternity op verschillende
 							grote evenementen en festivals in Nederland optredens verricht.
 							Ook internationale optredens zoals op Curaçao, in Suriname,
-							Engeland (Londen en Birmingham), Atlanta (USA) en Brazilië .
+							Engeland (Londen en Birmingham), Atlanta (USA) en Brazilië.
 						</strong>
 					</p>
 					<p>

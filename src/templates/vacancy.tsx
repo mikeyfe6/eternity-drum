@@ -103,7 +103,6 @@ const Vacancy = ({
 						<p>{location.lon}</p> */}
 						<br />
 						{/* <p>{applicationDeadline}</p> */}
-						<br />
 
 						<p>{department}</p>
 					</div>
