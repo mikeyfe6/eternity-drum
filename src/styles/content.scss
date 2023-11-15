@@ -5,6 +5,10 @@
 		display: inline;
 	}
 
+	a {
+		display: inline-block;
+	}
+
 	&.maps {
 		display: flex;
 		justify-content: center;
