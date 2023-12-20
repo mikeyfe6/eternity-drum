@@ -19,8 +19,10 @@ const siteMetadata = {
 	linkedinUrl: `#!`,
 	youtubeUrl: `https://www.youtube.com/@eternitydrum`,
 
-	telephone: `+31 (0)20 311 39 33`,
-	phoneRaw: `31203113933`,
+	telephoneBpt: `+31 (0)20 311 39 33`,
+	telephoneSeda: `+31 (0)20 773 38 88`,
+	phoneRawBpt: `31203113933`,
+	phoneRawSeda: `3120773388`,
 	mobile: `31624255391`,
 
 	email: `info@eternitydrum.com`,

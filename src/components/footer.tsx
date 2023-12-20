@@ -17,8 +17,10 @@ const Footer = () => {
 		address,
 		postalCode,
 		city,
-		phoneRaw,
-		telephone,
+		telephoneBpt,
+		telephoneSeda,
+		phoneRawBpt,
+		phoneRawSeda,
 		mobile,
 		email,
 		kvk,
@@ -37,33 +39,42 @@ const Footer = () => {
 					<section>
 						<section className={styles.footerColumn}>
 							<h4>Contactgegevens</h4>
+							<br />
+							<strong>{companyName}</strong>
 							<h5>Bezoekadres:</h5>
 							<ul>
-								<li>
+								{/* <li>
 									<strong>{companyName}</strong>
-								</li>
-								<li>Kruitbergstraat 18</li>
-								<li>1104 CH Amsterdam</li>
-							</ul>
-							<h5>Postadres:</h5>
-							<ul>
+								</li> */}
 								<li>
-									<strong>{companyName}</strong>
-								</li>
-								<li>{address}</li>
-								<li>{`${postalCode} ${city}`}</li>
-							</ul>
-							<ul>
-								<li>
-									<i className='fas fa-phone' />
+									{' '}
 									<a
-										href={`tel:+${phoneRaw}`}
+										href='https://maps.app.goo.gl/MGox9UBh15DWsfLg8'
 										rel='noopener noreferrer'
 										target='_blank'
 									>
-										<strong>{telephone}</strong>
+										Kruitbergstraat 18
 									</a>
 								</li>
+								<li>{`1104 CH ${city}`}</li>
+							</ul>
+							<h5>Postadres:</h5>
+							<ul>
+								{/* <li>
+									<strong>{companyName}</strong>
+								</li> */}
+								<li>
+									<a
+										href='https://maps.app.goo.gl/exZZFm9LkUFDrsEH7'
+										rel='noopener noreferrer'
+										target='_blank'
+									>
+										{address}
+									</a>
+								</li>
+								<li>{`${postalCode} ${city}`}</li>
+							</ul>
+							<ul>
 								<li>
 									<i className='fas fa-envelope' />
 									<a
@@ -72,6 +83,26 @@ const Footer = () => {
 										target='_blank'
 									>
 										<strong>{email}</strong>
+									</a>
+								</li>
+								<li>
+									<i className='fas fa-drum' />
+									<a
+										href={`tel:+${phoneRawSeda}`}
+										rel='noopener noreferrer'
+										target='_blank'
+									>
+										<strong>{telephoneSeda}</strong> (SEDA)
+									</a>
+								</li>
+								<li>
+									<i className='fas fa-phone' />
+									<a
+										href={`tel:+${phoneRawBpt}`}
+										rel='noopener noreferrer'
+										target='_blank'
+									>
+										<strong>{telephoneBpt}</strong> (Bijlmer Parktheater)
 									</a>
 								</li>
 							</ul>

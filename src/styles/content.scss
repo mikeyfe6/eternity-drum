@@ -120,4 +120,69 @@
 			}
 		}
 	}
+
+	&.seda {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 87.5px;
+		margin: 3em auto;
+
+		@media screen and ($large) {
+			flex-direction: column;
+		}
+
+		@media screen and ($small) {
+			margin: 1em auto 1.25em;
+			gap: 50px;
+		}
+
+		> :nth-child(1) {
+			max-width: 600px;
+
+			@media screen and ($large) {
+				max-width: 100%;
+			}
+
+			@media screen and ($small) {
+				h2 {
+					font-size: 1.75rem;
+				}
+
+				h4 {
+					font-size: 1.1rem;
+				}
+
+				p {
+					font-size: 1rem;
+				}
+			}
+		}
+
+		> :nth-child(2) {
+			max-width: 550px;
+
+			@media screen and ($small) {
+				max-width: 100%;
+			}
+
+			> div {
+				overflow: hidden;
+				border-radius: 5px;
+				height: fit-content;
+
+				outline: 1px solid $lightgreyColor;
+
+				img {
+					@include boxShadow;
+					min-width: 400px;
+					width: 100%;
+
+					@media screen and ($small) {
+						min-width: 100%;
+					}
+				}
+			}
+		}
+	}
 }

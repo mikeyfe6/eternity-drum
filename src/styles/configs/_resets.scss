@@ -187,9 +187,9 @@ meter {
 	content: initial;
 }
 
-:where([hidden]) {
-	display: none;
-}
+// :where([hidden]) {
+// 	display: none;
+// }
 
 :where([contenteditable]:not([contenteditable='false'])) {
 	-moz-user-modify: read-write;
@@ -441,9 +441,5 @@ summary {
 }
 
 template {
-	display: none;
-}
-
-[hidden] {
 	display: none;
 }

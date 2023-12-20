@@ -15,6 +15,14 @@
 	--swiper-pagination-bullet-inactive-opacity: 0.125 !important;
 }
 
+:where([hidden]) {
+	visibility: hidden;
+}
+
+// :where([hidden]) {
+// 	display: none;
+// }
+
 html,
 body,
 #gatsby-focus-wrapper,
