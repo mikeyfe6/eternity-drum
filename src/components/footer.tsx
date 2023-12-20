@@ -169,23 +169,30 @@ const Footer = () => {
 							<h4>De stichting</h4>
 							<ul>
 								<li>
-									<Link to='/#!'>Ons verhaal</Link>
+									<Link to='/over-ons/'>Ons verhaal</Link>
 								</li>
 								<li>
-									<Link to='/#!'>Vacatures</Link>
+									<Link to='/drumworkshops/'>Drumworkshops</Link>
 								</li>
 								<li>
-									<Link to='/#!'>Contact ons</Link>
+									<Link to='/cultuureducatie/'>Cultuureducatie</Link>
 								</li>
 								<li>
-									<Link to='/#!'>Cultuureducatie</Link>
+									<Link to='/over-ons/vacatures/'>Vacatures</Link>
 								</li>
 								<li>
-									<Link to='/#!'>SEDA</Link>
+									<Link to='/over-ons/contact/'>Contact ons</Link>
 								</li>
 								<li>
-									<Link to='/#!'>Sitemap</Link>
+									<Link to='/seda/'>SEDA</Link>
 								</li>
+
+								{/* <li>
+									<Link to='/#!'>
+										Sitemap{' '}
+										<i className='fa-solid fa-up-right-from-square fa-xs' />
+									</Link>
+								</li> */}
 							</ul>
 						</section>
 
