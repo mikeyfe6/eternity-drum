@@ -16,7 +16,7 @@ import LightBox from '../../components/lightbox';
 
 import * as styles from '../../styles/modules/workshop.module.scss';
 
-const Sankofa: React.FC<PageProps> = () => {
+const SankofaAcademy: React.FC<PageProps> = () => {
 	const breadcrumbs = [
 		{ label: 'Home', link: '/' },
 		{ label: 'Projecten', link: '/projecten/' },
@@ -148,6 +148,6 @@ const Sankofa: React.FC<PageProps> = () => {
 	);
 };
 
-export default Sankofa;
+export default SankofaAcademy;
 
 export const Head: HeadFC = () => <Seo title='Sankofa Academy' />;

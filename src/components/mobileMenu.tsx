@@ -132,6 +132,15 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 									Sankofa Academy
 								</Link>
 							</li>
+							<li>
+								<Link
+									to='/projecten/sankofa-school/'
+									activeClassName={styles.activeMenuItem}
+									onClick={handleMenuItemClick}
+								>
+									Sankofa School
+								</Link>
+							</li>
 						</ul>
 					)}
 				</li>

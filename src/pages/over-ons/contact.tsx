@@ -33,7 +33,7 @@ const Contact: React.FC<PageProps> = () => {
 		bank,
 		facebookUrl,
 		instagramUrl,
-		linkedinUrl,
+		// linkedinUrl,
 		youtubeUrl,
 	} = useSiteMetadata();
 
@@ -121,12 +121,12 @@ const Contact: React.FC<PageProps> = () => {
 									<i className='fab fa-instagram' />
 								</a>
 							</li>
-							<li>
+							{/* <li>
 								<a href={linkedinUrl} rel='noopener noreferrer' target='_blank'>
 									<span>Linkedin</span>
 									<i className='fab fa-linkedin' />
 								</a>
-							</li>
+							</li> */}
 							<li>
 								<a href={youtubeUrl} rel='noopener noreferrer' target='_blank'>
 									<span>Youtube</span>

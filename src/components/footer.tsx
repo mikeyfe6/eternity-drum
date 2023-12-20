@@ -27,7 +27,7 @@ const Footer = () => {
 		btw,
 		facebookUrl,
 		instagramUrl,
-		linkedinUrl,
+		// linkedinUrl,
 		youtubeUrl,
 		title,
 	} = useSiteMetadata();
@@ -102,7 +102,7 @@ const Footer = () => {
 										rel='noopener noreferrer'
 										target='_blank'
 									>
-										<strong>{telephoneBpt}</strong> (Bijlmer Parktheater)
+										<strong>{telephoneBpt}</strong> (BPT)
 									</a>
 								</li>
 							</ul>
@@ -221,7 +221,7 @@ const Footer = () => {
 											<i className='fab fa-instagram' />
 										</a>
 									</li>
-									<li>
+									{/* <li>
 										<a
 											href={linkedinUrl}
 											rel='noopener noreferrer'
@@ -229,7 +229,7 @@ const Footer = () => {
 										>
 											<i className='fab fa-linkedin' />
 										</a>
-									</li>
+									</li> */}
 									<li>
 										<a
 											href={youtubeUrl}

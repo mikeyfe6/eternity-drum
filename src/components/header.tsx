@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 		title,
 		facebookUrl,
 		instagramUrl,
-		linkedinUrl,
+		// linkedinUrl,
 		youtubeUrl,
 		mobile,
 		slogan,
@@ -103,11 +103,11 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 									<i className='fab fa-instagram' />
 								</a>
 							</li>
-							<li>
+							{/* <li>
 								<a href={linkedinUrl} rel='noopener noreferrer' target='_blank'>
 									<i className='fab fa-linkedin' />
 								</a>
-							</li>
+							</li> */}
 							<li>
 								<a href={youtubeUrl} rel='noopener noreferrer' target='_blank'>
 									<i className='fab fa-youtube' />
@@ -222,6 +222,14 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 										activeClassName={styles.activeMenuItem}
 									>
 										Sankofa Academy
+									</Link>
+								</li>
+								<li>
+									<Link
+										to='/projecten/sankofa-school/'
+										activeClassName={styles.activeMenuItem}
+									>
+										Sankofa School
 									</Link>
 								</li>
 							</ul>
