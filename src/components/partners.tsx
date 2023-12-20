@@ -28,11 +28,6 @@ const Partners: React.FC = () => {
 			name: 'Going Social',
 		},
 		{
-			url: 'http://www.ebony-steelband-trust.co.uk',
-			img: 'ebony.png',
-			name: 'Ebony Steelband',
-		},
-		{
 			url: 'https://untold.nl',
 			img: 'untold.jpg',
 			name: 'Theatergezelschap Untold',
@@ -43,23 +38,67 @@ const Partners: React.FC = () => {
 			name: 'KalentuRa Drums',
 		},
 		{
+			url: 'https://blackharmony.nl',
+			img: 'blackharmony.png',
+			name: 'Black Harmony',
+		},
+		{
+			url: 'http://www.ebony-steelband-trust.co.uk',
+			img: 'ebony.png',
+			name: 'Ebony Steelband (UK)',
+		},
+		{
 			url: 'https://acedanceandmusic.com',
 			img: 'ace.png',
 			name: 'ACE Dance and Music (UK)',
 		},
 		{
-			url: 'https://blackharmony.nl',
-			img: 'blackharmony.png',
-			name: 'Black Harmony',
+			url: 'https://manhoodacademyofficial.com',
+			img: 'manhood-academy.jpg',
+			name: 'Manhood Academy (UK)',
+		},
+		{
+			url: 'https://www.vapstudios.com',
+			img: 'vap-dance-academy-studios.jpg',
+			name: 'VAP Dance Academy & Studios (South Africa)',
+		},
+		{
+			url: 'https://www.instagram.com/ilfbarbados/',
+			img: 'israel-lovell-foundation.jpg',
+			name: 'Israel Lovell Foundation (Barbados)',
+		},
+		{
+			url: 'https://www.instagram.com/izavybe/',
+			img: 'izavybe.jpg',
+			name: 'Izavybe (Barbados)',
 		},
 	];
+
+	const shuffleArray = (array: any[]) => {
+		let currentIndex = array.length;
+		let temporaryValue;
+		let randomIndex;
+
+		while (currentIndex !== 0) {
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;
+
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}
+
+		return array;
+	};
+
+	const shuffledPartners = shuffleArray(partners);
 
 	return (
 		<section className={styles.partnersContainer}>
 			<h2>Partners</h2>
 
 			<ul>
-				{partners.map((partner, index) => {
+				{shuffledPartners.map((partner, index) => {
 					const partnerImage = partnerImages.find(
 						(image: { relativePath: string }) =>
 							image.relativePath === `partners/${partner.img}`

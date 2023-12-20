@@ -42,6 +42,7 @@
 				border-bottom: 1px solid color.adjust($transGrey, $alpha: -0.75);
 				height: 300px;
 				object-fit: cover;
+				overflow: hidden;
 			}
 
 			div {

@@ -15,9 +15,9 @@
 		direction: rtl;
 
 		li {
-			outline: 1px transparent solid;
-			width: 175px;
-			height: 175px;
+			outline: 1px rgba(128 128 128 / 0.125) solid;
+			width: 167.5px;
+			height: 167.5px;
 
 			@media screen and ($small) {
 				width: 125px;
