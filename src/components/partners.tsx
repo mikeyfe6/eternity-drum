@@ -43,7 +43,7 @@ const Partners: React.FC = () => {
 			name: 'Black Harmony',
 		},
 		{
-			url: 'http://www.ebony-steelband-trust.co.uk',
+			url: 'https://www.ebony-steelband-trust.co.uk',
 			img: 'ebony.png',
 			name: 'Ebony Steelband (UK)',
 		},
