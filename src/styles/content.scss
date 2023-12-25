@@ -128,7 +128,7 @@
 		margin: 3em auto;
 
 		@media screen and ($large) {
-			flex-direction: column;
+			flex-direction: column-reverse;
 		}
 
 		@media screen and ($small) {
@@ -138,18 +138,12 @@
 
 		> :nth-child(1) {
 			max-width: 600px;
-			background: #80808010;
-			padding: 2.5em 2em;
-
-			@include boxShadow;
 
 			@media screen and ($large) {
 				max-width: 100%;
 			}
 
 			@media screen and ($small) {
-				padding: 1em;
-
 				h2 {
 					font-size: 1.75rem;
 				}
@@ -179,9 +173,14 @@
 				outline: 1px solid $lightgreyColor;
 
 				img {
+					min-width: 400px;
+					width: 100%;
+
 					@include boxShadow;
 
-					width: 100%;
+					@media screen and ($small) {
+						min-width: 100%;
+					}
 				}
 			}
 		}
@@ -240,9 +239,10 @@
 				outline: 1px solid $lightgreyColor;
 
 				img {
-					@include boxShadow;
 					min-width: 400px;
 					width: 100%;
+
+					@include boxShadow;
 
 					@media screen and ($small) {
 						min-width: 100%;
