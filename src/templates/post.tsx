@@ -45,10 +45,8 @@ const Post = ({
 					},
 				} = node;
 
-				console.log(node);
-
-				const imageUrl = file.url || '';
-				const imageAlt = title || '';
+				const imageUrl = file && file.url ? file.url : '';
+				const imageAlt = title && title ? title : '';
 
 				return <img alt={imageAlt} src={imageUrl} />;
 			},
