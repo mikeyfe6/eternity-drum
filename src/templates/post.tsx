@@ -43,12 +43,16 @@ const Post = ({
 					data: {
 						target: { title, file },
 					},
-				} = node;
+				} = node || {};
 
 				const imageUrl = file && file.url ? file.url : '';
 				const imageAlt = title && title ? title : '';
 
-				return <img alt={imageAlt} src={imageUrl} />;
+				if (imageUrl && imageAlt) {
+					return <img alt={imageAlt} src={imageUrl} />;
+				} else {
+					return null;
+				}
 			},
 		},
 	};
