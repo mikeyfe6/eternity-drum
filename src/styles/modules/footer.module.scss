@@ -16,6 +16,8 @@
 
 		@include epWrapper;
 
+		@include boxShadow;
+
 		@media screen and ($medium) {
 			padding: 3em 2em 0;
 		}
@@ -190,6 +192,8 @@
 		justify-content: center;
 
 		@include fullWidth;
+
+		@include boxShadow;
 
 		@media screen and ($small) {
 			padding: 0.875em 0;

@@ -88,6 +88,23 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
             title
             content {
               raw
+              references {
+                ... on ContentfulAsset {
+                  __typename
+                  title
+                  file {
+                    url
+                    fileName
+                    details {
+                      size
+                      image {
+                        width
+                        height
+                      }
+                    }
+                  }
+                }
+              }
             }
             writer {
               name

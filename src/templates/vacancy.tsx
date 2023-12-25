@@ -1,9 +1,9 @@
 import React from 'react';
 
 import type { HeadProps } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
 import { Seo } from '../components/seo';
 
@@ -12,7 +12,7 @@ import Breadcrumb from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
 
-interface PostProps {
+interface VacancyProps {
 	pageContext: {
 		jobTitle: string;
 		department: string;
@@ -66,7 +66,7 @@ const Vacancy = ({
 		contactEmail,
 		contactPhone,
 	},
-}: PostProps) => {
+}: VacancyProps) => {
 	const breadcrumbs = [
 		{ label: 'Home', link: '/' },
 		{ label: 'Over Ons', link: '/over-ons/' },
@@ -87,17 +87,17 @@ const Vacancy = ({
 				<section data-main-content className='page-content image-right'>
 					<div>
 						<h3>betreft vacature:</h3>
-						{documentToReactComponents(JSON.parse(jobDescription.raw))}
+						{renderRichText(jobDescription)}
 
-						{documentToReactComponents(JSON.parse(organisationDetails.raw))}
+						{renderRichText(organisationDetails)}
 
-						{documentToReactComponents(JSON.parse(requirements.raw))}
+						{renderRichText(requirements)}
 
-						{documentToReactComponents(JSON.parse(responsibilities.raw))}
+						{renderRichText(responsibilities)}
 
-						{documentToReactComponents(JSON.parse(availablity.raw))}
+						{renderRichText(availablity)}
 
-						{documentToReactComponents(JSON.parse(apply.raw))}
+						{renderRichText(apply)}
 
 						{/* <p>{location.lat}</p>
 						<p>{location.lon}</p> */}

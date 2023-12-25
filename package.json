@@ -23,7 +23,7 @@
     "@contentful/rich-text-types": "^16.3.0",
     "@mdx-js/react": "^3.0.0",
     "dotenv": "^16.3.1",
-    "gatsby": "^5.13.0",
+    "gatsby": "^5.13.1",
     "gatsby-adapter-netlify": "^1.1.1",
     "gatsby-plugin-canonical-urls": "^5.13.0",
     "gatsby-plugin-catch-links": "^5.13.0",
@@ -61,7 +61,7 @@
     "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "stylelint": "^16.0.2",
+    "stylelint": "^16.1.0",
     "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-standard-scss": "^12.0.0",
     "typescript": "^5.3.3"

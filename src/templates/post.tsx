@@ -3,11 +3,13 @@ import React from 'react';
 
 import type { HeadProps } from 'gatsby';
 
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS } from '@contentful/rich-text-types';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
 import { Seo } from '../components/seo';
 
 import Layout from '../components/layout';
+import Breadcrumb from '../components/breadcrumbs';
 
 interface PostProps {
 	pageContext: {
@@ -32,49 +34,69 @@ interface PostProps {
 const Post = ({
 	pageContext: { slug, tags, title, content, writer, featuredImage },
 }: PostProps) => {
+	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: title }];
+
+	const renderOptions = {
+		renderNode: {
+			[BLOCKS.EMBEDDED_ASSET]: (node: any) => {
+				const {
+					data: {
+						target: { title, file },
+					},
+				} = node;
+
+				console.log(node);
+
+				const imageUrl = file.url || '';
+				const imageAlt = title || '';
+
+				return <img alt={imageAlt} src={imageUrl} />;
+			},
+		},
+	};
+
 	return (
 		<Layout>
-			<h1>{title}</h1>
+			<section data-main-section>
+				<Breadcrumb crumbs={breadcrumbs} />
 
-			<div>
-				<strong>slug/url:</strong> {slug}
-			</div>
+				<h1>{title}</h1>
 
-			<br />
+				<section data-main-content className='page-content singlepost'>
+					<div>
+						<div>
+							<strong>content:</strong>
+							{renderRichText(content, renderOptions)}
+						</div>
 
-			<br />
-
-			<div>
-				<strong>content:</strong>
-				{documentToReactComponents(JSON.parse(content.raw))}
-			</div>
-
-			<br />
-
-			<ul>
-				<strong>tags:</strong>
-				{tags.map((tag, index) => (
-					<li key={index}>{tag}</li>
-				))}
-			</ul>
-
-			<br />
-
-			<div>
-				{writer && (
-					<>
-						<strong>Author email:</strong> {writer.email}
 						<br />
-						<strong>Author name:</strong> {writer.name}
-					</>
-				)}
-			</div>
 
-			<br />
+						<ul>
+							<strong>tags:</strong>
+							{tags.map((tag, index) => (
+								<li key={index}>{tag}</li>
+							))}
+						</ul>
 
-			<strong>img:</strong>
-			<br />
-			<img src={featuredImage.url} alt={featuredImage.title} />
+						<div>
+							{writer && (
+								<>
+									<strong>Author email:</strong> {writer.email}
+									<br />
+									<strong>Author name:</strong> {writer.name}
+								</>
+							)}
+						</div>
+					</div>
+
+					<div>
+						<div>
+							{' '}
+							<img src={featuredImage.url} alt={featuredImage.title} />
+						</div>
+					</div>
+				</section>
+			</section>
 		</Layout>
 	);
 };
