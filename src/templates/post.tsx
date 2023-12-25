@@ -40,9 +40,7 @@ const Post = ({
 		renderNode: {
 			[BLOCKS.EMBEDDED_ASSET]: (node: any) => {
 				const {
-					data: {
-						target: { title, file },
-					},
+					data: { target: { title = '', file = { url: '' } } = {} } = {},
 				} = node || {};
 
 				const imageUrl = file && file.url ? file.url : '';
