@@ -18,6 +18,7 @@ interface PostProps {
 		title: string;
 		content: {
 			raw: string;
+			references: any[];
 		};
 		writer: {
 			name: string;
@@ -40,20 +41,25 @@ const Post = ({
 		renderNode: {
 			[BLOCKS.EMBEDDED_ASSET]: (node: any) => {
 				const {
-					data: { target: { title = '', file = { url: '' } } = {} } = {},
+					data: {
+						target: { title: nodeTitle = '', file: nodeFile = {} } = {},
+					} = {
+						target: {},
+					},
 				} = node || {};
 
-				const imageUrl = file && file.url ? file.url : '';
-				const imageAlt = title && title ? title : '';
+				console.log(node);
 
-				if (imageUrl && imageAlt) {
-					return <img alt={imageAlt} src={imageUrl} />;
+				if (nodeTitle && nodeFile && nodeFile.url) {
+					return <img alt={nodeTitle} src={nodeFile.url} />;
 				} else {
 					return null;
 				}
 			},
 		},
 	};
+
+	console.log(content);
 
 	return (
 		<Layout>

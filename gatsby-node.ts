@@ -78,46 +78,47 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
     const vacancyTemplate = path.resolve('./src/templates/vacancy.tsx');
 
     const postQueryResult = await graphql<QueryResult>(`
-    query postQuery {
-      allContentfulPost {
-        edges {
-          node {
-            id
-            slug
-            tags
-            title
-            content {
-              raw
-              references {
-                ... on ContentfulAsset {
-                  __typename
-                  title
-                  file {
-                    url
-                    fileName
-                    details {
-                      size
-                      image {
-                        width
-                        height
-                      }
+        query postQuery {
+            allContentfulPost {
+                edges {
+                    node {
+                        id
+                        slug
+                        tags
+                        title
+                        content {
+                            raw
+                            references {
+                                ... on ContentfulAsset {
+                                    __typename
+                                    contentful_id
+                                    title
+                                    file {
+                                        url
+                                        fileName
+                                        details {
+                                            size
+                                            image {
+                                                width
+                                                height
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        writer {
+                            name
+                            email
+                        }
+                        featuredImage {
+                            url
+                            title
+                        }
                     }
-                  }
                 }
-              }
             }
-            writer {
-              name
-              email
-            }
-            featuredImage {
-              url
-              title
-            }
-          }
         }
-      }
-    }
   `);
 
     if (postQueryResult.errors) {

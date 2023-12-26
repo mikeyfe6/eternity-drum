@@ -11,12 +11,12 @@
 		);
 	}
 
+	@include boxShadow;
+
 	&-wrapper {
 		padding: 3em 2em 0;
 
 		@include epWrapper;
-
-		@include boxShadow;
 
 		@media screen and ($medium) {
 			padding: 3em 2em 0;
