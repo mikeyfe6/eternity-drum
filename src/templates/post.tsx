@@ -18,6 +18,7 @@ interface PostProps {
 		slug: string;
 		tags: string[];
 		title: string;
+		excerpt: string;
 		content: {
 			raw: string;
 			references: any[];
@@ -35,7 +36,7 @@ interface PostProps {
 }
 
 const Post = ({
-	pageContext: { slug, tags, title, content, writer, featuredImage },
+	pageContext: { slug, tags, title, excerpt, content, writer, featuredImage },
 }: PostProps) => {
 	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: title }];
 
@@ -44,16 +45,25 @@ const Post = ({
 			[BLOCKS.EMBEDDED_ASSET]: (node: any) => {
 				const {
 					data: {
-						target: { title: nodeTitle = '', gatsbyImageData },
+						target: {
+							title: nodeTitle = '',
+							description: nodeDescription = '',
+							gatsbyImageData,
+						},
 					},
 				} = node || {};
 
-				if (nodeTitle && gatsbyImageData) {
+				if (gatsbyImageData) {
 					return (
-						<GatsbyImage
-							image={gatsbyImageData as IGatsbyImageData}
-							alt={nodeTitle}
-						/>
+						<div className='singlepost images'>
+							<GatsbyImage
+								image={gatsbyImageData as IGatsbyImageData}
+								alt={nodeTitle}
+								imgStyle={{ borderRadius: '5px', overflow: 'hidden' }}
+							/>
+							<span>{nodeTitle}</span>
+							<span>{nodeDescription}</span>
+						</div>
 					);
 				} else {
 					return null;
@@ -71,35 +81,28 @@ const Post = ({
 
 				<section data-main-content className='page-content singlepost'>
 					<div>
-						<div>
-							<strong>content:</strong>
-							{renderRichText(content, renderOptions)}
-						</div>
+						<h3>{excerpt}</h3>
 
-						<br />
-
-						<ul>
-							<strong>tags:</strong>
-							{tags.map((tag, index) => (
-								<li key={index}>{tag}</li>
-							))}
-						</ul>
-
-						<div>
-							{writer && (
-								<>
-									<strong>Author email:</strong> {writer.email}
-									<br />
-									<strong>Author name:</strong> {writer.name}
-								</>
-							)}
-						</div>
+						<div>{renderRichText(content, renderOptions)}</div>
 					</div>
 
 					<div>
-						<div>
-							{' '}
-							<img src={featuredImage.url} alt={featuredImage.title} />
+						<img src={featuredImage.url} alt={featuredImage.title} />
+
+						<div className='singlepost sidebar'>
+							<ul>
+								{tags.map((tag, index) => (
+									<li key={index}>{tag}</li>
+								))}
+							</ul>
+
+							{writer && (
+								<p>
+									<u>Auteursinformatie</u>
+									naam:<strong> {writer.name}</strong> <br />
+									email:<strong> {writer.email}</strong>
+								</p>
+							)}
 						</div>
 					</div>
 				</section>
@@ -112,9 +115,24 @@ export default Post;
 
 interface SeoContext {
 	title: string;
+	excerpt: string;
+	tags: string;
 }
 
 export const Head: React.FC<HeadProps> = ({ pageContext }) => {
 	const pageTitle = (pageContext as SeoContext)?.title || '';
-	return <Seo title={pageTitle} />;
+	const pageDescription = (pageContext as SeoContext)?.excerpt || '';
+	const pageTags = (pageContext as SeoContext)?.tags || [];
+
+	const tagsArray: string[] = Array.isArray(pageTags) ? pageTags : [];
+
+	const pageKeywords = tagsArray.join(', ');
+
+	return (
+		<Seo
+			title={pageTitle}
+			keywords={pageKeywords}
+			description={pageDescription}
+		/>
+	);
 };

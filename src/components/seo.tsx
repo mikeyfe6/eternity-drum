@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
-
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 interface SEOProps {
 	title?: string;
 	description?: string;
+	keywords?: string;
 	pathname?: string;
 	children?: ReactNode;
 }
@@ -12,6 +12,7 @@ interface SEOProps {
 export const Seo: React.FC<SEOProps> = ({
 	title,
 	description,
+	keywords,
 	pathname,
 	children,
 }: SEOProps) => {
@@ -35,11 +36,16 @@ export const Seo: React.FC<SEOProps> = ({
 	return (
 		<>
 			<html lang='nl' />
-			<title>{seo.title}</title>
 
-			{/* METATAGS */}
+			{/* BASE METATAGS */}
+			<title>{seo.title}</title>
 			<meta name='description' content={seo.description} />
 			<meta name='image' content={seo.image} />
+
+			{keywords && <meta name='keywords' content={keywords} />}
+
+			{/* SOCIAL MEDIA METATAGS */}
+
 			<meta name='twitter:card' content='summary_large_image' />
 			<meta name='twitter:title' content={seo.title} />
 			<meta name='twitter:url' content={seo.url} />

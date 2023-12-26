@@ -4,6 +4,9 @@ import path from 'path';
 interface Post {
     slug: string;
     title: string;
+    excerpt: {
+        excerpt: string;
+    };
     tags: string[];
     content: {
         raw: string;
@@ -86,6 +89,9 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                         slug
                         tags
                         title
+                        excerpt {
+                            excerpt
+                        }
                         content {
                             raw
                             references {
@@ -93,6 +99,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                                     __typename
                                     contentful_id
                                     gatsbyImageData
+                                    description
                                     title
                                     file {
                                         url
@@ -135,6 +142,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                 slug: node.slug,
                 title: node.title,
                 tags: node.tags,
+                excerpt: node.excerpt.excerpt,
                 content: node.content,
                 writer: node.writer,
                 featuredImage: node.featuredImage,

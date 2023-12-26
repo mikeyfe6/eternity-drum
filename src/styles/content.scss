@@ -127,13 +127,87 @@
 		gap: 87.5px;
 		margin: 3em auto;
 
+		@media screen and ($extraLarge) {
+			gap: 50px;
+		}
+
 		@media screen and ($large) {
 			flex-direction: column-reverse;
+			gap: 25px;
 		}
 
 		@media screen and ($small) {
 			margin: 1em auto 1.25em;
-			gap: 50px;
+			gap: 15px;
+		}
+
+		.images {
+			margin: 2em 0;
+
+			span {
+				text-align: right;
+				display: block;
+
+				&:nth-of-type(1) {
+					margin-top: 0.5em;
+					font-size: 0.95rem;
+				}
+
+				&:nth-of-type(2) {
+					color: $lightgreyColor;
+					font-size: 0.9rem;
+					margin-right: 0.125em;
+				}
+			}
+		}
+
+		.sidebar {
+			margin: 1em 0;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20px;
+
+			ul {
+				margin-left: auto;
+
+				@media screen and ($large) {
+					margin-left: initial;
+				}
+
+				list-style: none;
+				display: flex;
+				gap: 10px;
+				justify-content: flex-end;
+				flex-wrap: wrap;
+
+				li {
+					background: $secondaryColor;
+					width: fit-content;
+					padding: 0.25em 0.5em;
+					border-radius: 2.5px;
+					height: fit-content;
+				}
+			}
+
+			p {
+				margin-left: auto;
+				font-size: 1rem;
+				width: fit-content;
+
+				@media screen and ($small) {
+					width: 100%;
+				}
+
+				u {
+					display: block;
+					margin-bottom: 0.5em;
+				}
+
+				background: $primaryColor;
+				padding: 1em 1.25em;
+				border-radius: 7.5px;
+				color: $whiteColor;
+			}
 		}
 
 		> :nth-child(1) {
@@ -165,22 +239,17 @@
 				max-width: 100%;
 			}
 
-			> div {
-				overflow: hidden;
+			img {
+				min-width: 400px;
+				width: 100%;
 				border-radius: 5px;
-				height: fit-content;
-
+				overflow: hidden;
 				outline: 1px solid $lightgreyColor;
 
-				img {
-					min-width: 400px;
-					width: 100%;
+				@include boxShadow;
 
-					@include boxShadow;
-
-					@media screen and ($small) {
-						min-width: 100%;
-					}
+				@media screen and ($small) {
+					min-width: 100%;
 				}
 			}
 		}

@@ -2,7 +2,7 @@
 
 .vacancies {
 	li {
-		background: #80808010;
+		background: $paperColor;
 		width: fit-content;
 
 		@include boxShadow;
@@ -10,8 +10,12 @@
 		a {
 			display: flex;
 			gap: 1em;
-			padding: 1em 1.5em;
+			padding: 1.5em 2.5em;
 			align-items: center;
+
+			@media screen and ($small) {
+				padding: 1em;
+			}
 
 			span {
 				font-weight: 800;

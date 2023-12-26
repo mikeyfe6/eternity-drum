@@ -65,6 +65,9 @@ const Vacatures: React.FC<PageProps> = () => {
 
 				<h1>Vacatures</h1>
 
+				<hr />
+				<br />
+
 				<ul className={styles.vacancies}>
 					{vacancies.map(({ slug, jobTitle, id }) => {
 						return (

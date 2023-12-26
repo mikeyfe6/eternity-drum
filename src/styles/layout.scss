@@ -197,7 +197,7 @@ section[data-main-content] {
 		margin-bottom: 1em;
 	}
 
-	ul:not(.page-content.maps ul) {
+	ul:not(.page-content.maps ul, .page-content.singlepost .sidebar ul) {
 		margin-bottom: 1em;
 		list-style: square;
 		list-style-position: inside;

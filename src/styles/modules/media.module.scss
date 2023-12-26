@@ -17,7 +17,7 @@
 	.music {
 		background: $primaryColor;
 		outline: 1px solid color.adjust($primaryColor, $lightness: 10%);
-		color: white;
+		color: $whiteColor;
 		flex: 25%;
 		max-width: 450px;
 		border-radius: 5px;
