@@ -92,6 +92,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                                 ... on ContentfulAsset {
                                     __typename
                                     contentful_id
+                                    gatsbyImageData
                                     title
                                     file {
                                         url

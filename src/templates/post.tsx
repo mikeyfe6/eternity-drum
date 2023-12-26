@@ -3,6 +3,8 @@ import React from 'react';
 
 import type { HeadProps } from 'gatsby';
 
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+
 import { BLOCKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
@@ -42,24 +44,23 @@ const Post = ({
 			[BLOCKS.EMBEDDED_ASSET]: (node: any) => {
 				const {
 					data: {
-						target: { title: nodeTitle = '', file: nodeFile = {} } = {},
-					} = {
-						target: {},
+						target: { title: nodeTitle = '', gatsbyImageData },
 					},
 				} = node || {};
 
-				console.log(node);
-
-				if (nodeTitle && nodeFile && nodeFile.url) {
-					return <img alt={nodeTitle} src={nodeFile.url} />;
+				if (nodeTitle && gatsbyImageData) {
+					return (
+						<GatsbyImage
+							image={gatsbyImageData as IGatsbyImageData}
+							alt={nodeTitle}
+						/>
+					);
 				} else {
 					return null;
 				}
 			},
 		},
 	};
-
-	console.log(content);
 
 	return (
 		<Layout>
