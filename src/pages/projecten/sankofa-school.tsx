@@ -23,7 +23,7 @@ const SankofaSchool: React.FC<PageProps> = () => {
 				<Breadcrumb crumbs={breadcrumbs} />
 
 				<h1>SEDA School</h1>
-				<p>Pagina onder constructie..</p>
+				<p>Pagina komt binnenkort..</p>
 			</section>
 		</Layout>
 	);
