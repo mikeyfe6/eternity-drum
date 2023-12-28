@@ -48,7 +48,14 @@ const Projecten: React.FC<PageProps> = () => {
 					</p>
 					<br />
 					<p>
-						Mede mogelijk gemaakt door https://www.europeansolidaritycorps.nl/
+						Mede mogelijk gemaakt door{' '}
+						<a
+							href='https://www.europeansolidaritycorps.nl/'
+							rel='noopener noreferrer'
+							target='_blank'
+						>
+							European Solidarity Corps
+						</a>
 					</p>
 
 					<br />
@@ -83,7 +90,16 @@ const Projecten: React.FC<PageProps> = () => {
 						<b>Projectleider:</b> Derillio Alexander
 					</p>
 					<br />
-					<p>Mede mogelijk gemaakt door https://www.erasmusplus.nl</p>
+					<p>
+						Mede mogelijk gemaakt door{' '}
+						<a
+							href='https://www.erasmusplus.nl'
+							rel='noopener noreferrer'
+							target='_blank'
+						>
+							Erasmus+
+						</a>
+					</p>
 
 					<br />
 					<hr />
@@ -188,12 +204,20 @@ const Projecten: React.FC<PageProps> = () => {
 						vaardigheden, sociale competenties en kennis bijgebracht over de
 						Afrikaanse geschiedenis.
 					</p>
-					<br />
 					<p>
 						<b>Projectleider:</b> Jamal Bijnoe
 					</p>
 					<br />
-					<p>Mede mogelijk gemaakt door https://www.erasmusplus.nl</p>
+					<p>
+						Mede mogelijk gemaakt door{' '}
+						<a
+							href='https://www.erasmusplus.nl'
+							rel='noopener noreferrer'
+							target='_blank'
+						>
+							Erasmus+
+						</a>
+					</p>
 
 					<div className='pjs-image-collage-top'>
 						<div>
