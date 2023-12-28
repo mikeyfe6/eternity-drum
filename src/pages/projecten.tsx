@@ -204,6 +204,7 @@ const Projecten: React.FC<PageProps> = () => {
 						vaardigheden, sociale competenties en kennis bijgebracht over de
 						Afrikaanse geschiedenis.
 					</p>
+					<br />
 					<p>
 						<b>Projectleider:</b> Jamal Bijnoe
 					</p>
