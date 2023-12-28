@@ -50,7 +50,11 @@ const Projecten: React.FC<PageProps> = () => {
 					<p>
 						Mede mogelijk gemaakt door https://www.europeansolidaritycorps.nl/
 					</p>
+
+					<br />
 					<hr />
+					<br />
+
 					<h3>Get Up Stand Up</h3>
 					<p>
 						"Get Up Stand Up" is een Europese uitwisselingsprogramma tussen
@@ -80,7 +84,11 @@ const Projecten: React.FC<PageProps> = () => {
 					</p>
 					<br />
 					<p>Mede mogelijk gemaakt door https://www.erasmusplus.nl</p>
+
+					<br />
 					<hr />
+					<br />
+
 					<div className='pjs-image-left'>
 						<div>
 							<StaticImage
@@ -114,7 +122,11 @@ const Projecten: React.FC<PageProps> = () => {
 							</p>
 						</div>
 					</div>
+
+					<br />
 					<hr />
+					<br />
+
 					<div className='pjs-image-right'>
 						<div>
 							<p>
@@ -153,10 +165,12 @@ const Projecten: React.FC<PageProps> = () => {
 							/>
 						</div>
 					</div>
+
+					<br />
 					<hr />
-					<p>
-						<strong>"Rite of The passage"</strong>
-					</p>
+					<br />
+
+					<h3>"Rite of The passage"</h3>
 					<p>
 						In 2019 hebben Eternity en The Manhood Academy de
 						uitwisselingsprogramma Rite The Passage succesvol georganiseerd voor
@@ -244,7 +258,11 @@ const Projecten: React.FC<PageProps> = () => {
 							</div>
 						</div>
 					</div>
+
+					<br />
 					<hr />
+					<br />
+
 					<div className='pjs-image-over-text'>
 						<div>
 							<StaticImage
@@ -256,9 +274,7 @@ const Projecten: React.FC<PageProps> = () => {
 							/>
 						</div>
 						<div>
-							<p>
-								<strong>Theatervoorstelling: "UMUNTU"</strong>
-							</p>
+							<h3>Theatervoorstelling: "UMUNTU"</h3>
 							<p>
 								Een groep jongeren gaat op zoek naar verschillende rituelen dat
 								leidt naar hun mannelijkheid. Ze gebruiken hun passie voor
