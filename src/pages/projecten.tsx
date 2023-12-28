@@ -11,6 +11,8 @@ import Breadcrumb from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
 
+import YouTubePlayer from '../components/youtubePlayer';
+
 const Projecten: React.FC<PageProps> = () => {
 	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'Projecten' }];
 
@@ -321,6 +323,26 @@ const Projecten: React.FC<PageProps> = () => {
 								placeholder='blurred'
 								imgClassName='pjs-image'
 							/>
+						</div>
+					</div>
+
+					<br />
+					<hr />
+					<br />
+
+					<h2>MINI-DOCU'S: Uitwisselingsprojecten</h2>
+					<div className='pjs-vids'>
+						<div>
+							<YouTubePlayer videoId='9e7lBlK0hXo' />
+							<p>
+								VIDEO: <strong>MODERN AND THE BEAT</strong>
+							</p>
+						</div>
+						<div>
+							<YouTubePlayer videoId='O4goCbxhNDQ' />
+							<p>
+								VIDEO: <strong>ETERNITY IN BRAZIL</strong>
+							</p>
 						</div>
 					</div>
 				</section>
