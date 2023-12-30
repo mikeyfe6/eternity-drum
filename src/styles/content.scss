@@ -203,9 +203,6 @@
 					flex: 1;
 
 					> iframe {
-						aspect-ratio: 16 / 9;
-						width: 100%;
-
 						@media screen and ($large) {
 							aspect-ratio: auto;
 							height: 450px;

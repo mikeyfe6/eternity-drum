@@ -61,9 +61,6 @@
 		}
 
 		iframe {
-			aspect-ratio: 16 / 9;
-			width: 100%;
-
 			@media screen and ($small) {
 				height: 225px;
 			}

@@ -45,7 +45,7 @@ type ThumbsSwiperType = {
 	wrapperEl: HTMLElement | null;
 };
 
-const GalleryFour: React.FC = () => {
+const GalleryEight: React.FC = () => {
 	const [thumbsSwiper, setThumbsSwiper] = useState<ThumbsSwiperType | null>(
 		null
 	);
@@ -57,8 +57,8 @@ const GalleryFour: React.FC = () => {
 	const progressContent = useRef<HTMLSpanElement | null>(null);
 
 	const data = useStaticQuery(graphql`
-		query AllGalleryFourImages {
-			allS3Object(filter: { Key: { regex: "/^photos/epinuk-01/[^/]+$/" } }) {
+		query AllGalleryEightImages {
+			allS3Object(filter: { Key: { regex: "/^photos/beatit-01/[^/]+$/" } }) {
 				nodes {
 					Key
 					localFile {
@@ -105,7 +105,7 @@ const GalleryFour: React.FC = () => {
 	return (
 		<section className={styles.swiperContainer} data-main-gallery>
 			<h3>
-				Eternity in UK 2023 <span>(collab. w/ ACE Dance & Music)</span>
+				Beat It <span>(collab. w/ Ebony Steelband)</span>
 			</h3>
 			<Swiper
 				modules={[
@@ -223,8 +223,10 @@ const GalleryFour: React.FC = () => {
 					<div className={styles.lightboxContent}>
 						<GatsbyImage
 							image={lightboxImage}
-							alt='Eternity in UK 2023 (collab. w/ ACE Dance & Music)'
+							alt='Beat It (collab. w/ Ebony Steelband)'
 							className={styles.lightboxImage}
+							objectFit='contain'
+							loading='eager'
 						/>
 					</div>
 					<button className={styles.lightboxClose} onClick={closeLightbox}>
@@ -236,4 +238,4 @@ const GalleryFour: React.FC = () => {
 	);
 };
 
-export default GalleryFour;
+export default GalleryEight;

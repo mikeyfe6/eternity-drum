@@ -46,8 +46,8 @@
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
-@mixin baseTransition($element) {
-	transition: $element 0.1s ease-in-out;
+@mixin baseTransition($element, $time: 0.1s) {
+	transition: $element $time ease-in-out;
 }
 
 @mixin fullWidth($position: relative) {

@@ -45,7 +45,7 @@ type ThumbsSwiperType = {
 	wrapperEl: HTMLElement | null;
 };
 
-const GalleryFour: React.FC = () => {
+const GallerySeven: React.FC = () => {
 	const [thumbsSwiper, setThumbsSwiper] = useState<ThumbsSwiperType | null>(
 		null
 	);
@@ -57,8 +57,10 @@ const GalleryFour: React.FC = () => {
 	const progressContent = useRef<HTMLSpanElement | null>(null);
 
 	const data = useStaticQuery(graphql`
-		query AllGalleryFourImages {
-			allS3Object(filter: { Key: { regex: "/^photos/epinuk-01/[^/]+$/" } }) {
+		query AllGallerySevenImages {
+			allS3Object(
+				filter: { Key: { regex: "/^photos/pulseandbeat-01/[^/]+$/" } }
+			) {
 				nodes {
 					Key
 					localFile {
@@ -105,7 +107,7 @@ const GalleryFour: React.FC = () => {
 	return (
 		<section className={styles.swiperContainer} data-main-gallery>
 			<h3>
-				Eternity in UK 2023 <span>(collab. w/ ACE Dance & Music)</span>
+				Pulse and Beat <span>(collab. w/ ACE Dance & Music)</span>
 			</h3>
 			<Swiper
 				modules={[
@@ -223,7 +225,7 @@ const GalleryFour: React.FC = () => {
 					<div className={styles.lightboxContent}>
 						<GatsbyImage
 							image={lightboxImage}
-							alt='Eternity in UK 2023 (collab. w/ ACE Dance & Music)'
+							alt='Pulse and Beat (collab. w/ ACE Dance & Music)'
 							className={styles.lightboxImage}
 						/>
 					</div>
@@ -236,4 +238,4 @@ const GalleryFour: React.FC = () => {
 	);
 };
 
-export default GalleryFour;
+export default GallerySeven;

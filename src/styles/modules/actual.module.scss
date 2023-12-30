@@ -2,112 +2,155 @@
 
 @import '../configs/globals';
 
-.actual-container {
-	margin: 2em 0;
+.collapsible {
+	position: relative;
+	display: flex;
+	justify-content: space-evenly;
+	gap: 15px;
+	background: linear-gradient(
+		45deg,
+		$primaryColor,
+		color.scale($primaryColor, $lightness: 25%)
+	);
+	border-radius: 10px 10px 0 0;
+	padding: 1em;
+	flex-wrap: wrap;
+	max-width: 1000px;
+	margin: 0 auto;
 
-	> h2 {
-		text-align: center;
+	&-container {
+		display: flex;
+		flex-direction: column;
 	}
 
-	> ul {
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-		gap: 3em;
+	&-btns {
+		button {
+			cursor: pointer;
+			background: $whiteColor;
+			color: $primaryColor;
 
-		> li {
-			outline: 1px solid color.adjust($transGrey, $alpha: -0.7);
-			border-radius: 15px;
+			border-radius: 5px;
 			overflow: hidden;
-			max-width: 375px;
-			position: relative;
+			font-weight: 700;
 
-			background: linear-gradient(
-				45deg,
-				$smokeColor,
-				color.scale($whiteColor, $lightness: 10%)
-			);
+			display: flex;
+			align-items: center;
+			justify-content: center;
 
-			@media screen and ($large) {
-				max-width: fit-content;
+			gap: 1em;
+
+			outline: 2px solid transparent;
+
+			&.active-button {
+				outline-color: $linkColor;
+
+				> span {
+					border-right: 2px color.scale($linkColor, $lightness: 25%) solid;
+				}
 			}
-
-			@include baseTransition(all);
-			@include boxShadow;
 
 			&:hover {
-				outline-color: $tertiaryColor;
+				outline-color: color.scale($linkColor, $lightness: 10%);
+
+				> span {
+					border-right: 2px color.scale($linkColor, $lightness: 10%) solid;
+				}
 			}
 
-			&:active {
-				outline-color: $linkColor;
+			> span {
+				background: $secondaryColor;
+				border-right: 2px color.scale($primaryColor, $lightness: 25%) solid;
+				padding: 0.375em 1em;
+				font-weight: lighter;
 			}
 
-			img {
-				width: 100%;
-				border-bottom: 1px solid color.adjust($transGrey, $alpha: -0.75);
-				height: 300px;
-				object-fit: cover;
-				overflow: hidden;
+			> p {
+				padding-right: 1em;
+				font-weight: lighter;
+				font-size: 1rem;
 			}
 
-			div {
-				padding: 1em;
+			@media screen and ($extraSmall) {
+				p {
+					font-size: 0.9rem;
+
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					width: 150px;
+				}
 
 				span {
-					position: absolute;
-					top: 15px;
-					right: 15px;
-					background-color: $primaryColor;
-					color: $whiteColor;
-					padding: 0.25em 0.5em;
-					border-radius: 5px;
-				}
-
-				> h3 {
-					display: inline;
-					display: -webkit-box;
-					-webkit-line-clamp: 2;
-					-webkit-box-orient: vertical;
-					overflow: hidden;
-					min-height: 3em;
-
-					a {
-						color: $tertiaryColor;
-
-						&:hover {
-							color: color.adjust($tertiaryColor, $lightness: -10%);
-						}
-					}
-				}
-
-				p {
-					display: -webkit-box;
-					max-width: 95%;
-					-webkit-line-clamp: 3;
-					-webkit-box-orient: vertical;
-					overflow: hidden;
-					margin: 0 0 2em;
-					font-size: 1.05rem;
-				}
-
-				hr {
-					height: 3px;
-					border-width: 0;
-					color: color.adjust($transGrey, $alpha: -0.9);
-					background-color: color.adjust($transGrey, $alpha: -0.9);
-					margin: 1em 0;
-				}
-
-				time {
-					float: right;
 					font-size: 0.9rem;
-				}
-
-				> a {
-					color: $tertiaryColor;
 				}
 			}
 		}
 	}
+
+	&-images {
+		display: flex;
+		justify-content: center;
+		gap: 15px;
+		margin-top: 1em;
+
+		img {
+			border-radius: 5px;
+			border: 1px solid $whiteColor;
+			overflow: hidden;
+		}
+	}
+
+	// animation: move-left-to-right 10s linear infinite;
+
+	// @keyframes move-left-to-right {
+	// 	0% {
+	// 		transform: translateX(100%);
+	// 	}
+
+	// 	100% {
+	// 		transform: translateX(-100%);
+	// 	}
+	// }
+}
+
+.content {
+	max-height: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	border-bottom: 1px solid $primaryColor;
+	border-left: 1px solid $primaryColor;
+	border-right: 1px solid $primaryColor;
+	border-radius: 0 0 10px 10px;
+	color: $primaryColor;
+
+	background: linear-gradient(
+		45deg,
+		$smokeColor,
+		color.scale($smokeColor, $lightness: 100%)
+	);
+
+	span {
+		display: block;
+		margin-top: 1em;
+	}
+
+	button {
+		@include buttonStyle(
+			$primaryColor,
+			$whiteColor,
+			$primaryColor,
+			$secondaryColor
+		);
+
+		margin-top: 1em;
+		margin-left: auto;
+	}
+}
+
+.open {
+	max-height: fit-content;
+	padding: 1.5em 1em;
 }

@@ -17,6 +17,10 @@ import GalleryThree from '../components/galleries/galleryThree';
 import GalleryFour from '../components/galleries/galleryFour';
 import GalleryFive from '../components/galleries/galleryFive';
 import GallerySix from '../components/galleries/gallerySix';
+import GallerySeven from '../components/galleries/gallerySeven';
+import GalleryEight from '../components/galleries/galleryEight';
+
+import YouTubePlayer from '../components/youtubePlayer';
 
 import * as styles from '../styles/modules/media.module.scss';
 
@@ -58,6 +62,23 @@ const Media: React.FC<PageProps> = () => {
 					<GallerySix />
 					<hr />
 					<GalleryFive />
+					<hr />
+					<GallerySeven />
+					<hr />
+					<GalleryEight />
+				</section>
+
+				<section className={styles.videos}>
+					{' '}
+					<h2>Video's</h2>
+					<YouTubePlayer videoId='dav38cHRAM0' />
+					<YouTubePlayer videoId='czwOwdNREgU' />
+					<YouTubePlayer videoId='6u3690Hc7EI' />
+					<YouTubePlayer videoId='incatDwpaqk' />
+					<YouTubePlayer videoId='V281m7npf6o' />
+					<YouTubePlayer videoId='uVWWOwVlr1k' />
+					<YouTubePlayer videoId='0im5wdxXxDM' />
+					<YouTubePlayer videoId='czwOwdNREgU' />
 				</section>
 			</section>
 		</Layout>
