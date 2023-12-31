@@ -16,25 +16,9 @@ import '../styles/swiper.scss';
 const duration = 0.5;
 
 const variants = {
-	initial: {
-		opacity: 0,
-		x: 100,
-	},
-	animate: {
-		opacity: 1,
-		y: 0,
-		x: 0,
-		transition: {
-			duration: duration,
-			delay: duration,
-			when: 'beforeChildren',
-		},
-	},
-	exit: {
-		opacity: 0,
-		y: 200,
-		transition: { duration: duration },
-	},
+	initial: { opacity: 0 },
+	animate: { opacity: 1, transition: { duration: duration } },
+	exit: { opacity: 0, transition: { duration: duration } },
 };
 
 interface LayoutProps {
