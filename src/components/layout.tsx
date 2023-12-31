@@ -62,7 +62,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 		<div className='eternity-container'>
 			<Header openMobileMenu={openMobileMenu} />
 			<div className='eternity-wrapper'>
-				<AnimatePresence>
+				<AnimatePresence mode='wait'>
 					<motion.main
 						key={typeof window !== 'undefined' ? window.location.pathname : ''}
 						variants={variants}
