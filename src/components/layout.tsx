@@ -13,7 +13,7 @@ import '../styles/content.scss';
 import '../styles/audio.scss';
 import '../styles/swiper.scss';
 
-const duration = 0.5;
+const duration = 0.25;
 
 const variants = {
 	initial: { opacity: 0 },
