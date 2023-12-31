@@ -133,10 +133,6 @@ const GalleryEight: React.FC = () => {
 				scrollbar={{
 					draggable: true,
 				}}
-				// autoplay={{
-				// 	delay: 6000,
-				// 	disableOnInteraction: false,
-				// }}
 				onAutoplayTimeLeft={onAutoplayTimeLeft}
 				className={styles.swiperWrapper}
 			>

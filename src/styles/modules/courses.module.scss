@@ -1,0 +1,35 @@
+@import '../configs/globals';
+
+.courses-container {
+	> h2 {
+		text-align: center;
+	}
+
+	> div {
+		max-width: 1250px;
+		margin: 3em auto;
+		background: #80808010;
+		padding: 2.5em 2em;
+
+		display: flex;
+		flex-direction: column;
+		gap: 1.5em;
+
+		button {
+			@include buttonStyle(
+				$primaryColor,
+				$whiteColor,
+				$primaryColor,
+				$secondaryColor
+			);
+
+			width: fit-content;
+			margin-left: auto;
+		}
+
+		ul {
+			list-style-type: square;
+			list-style-position: inside;
+		}
+	}
+}

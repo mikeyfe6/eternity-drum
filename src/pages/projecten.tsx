@@ -29,7 +29,7 @@ const Projecten: React.FC<PageProps> = () => {
 						maandelijkse bijeenkomsten voor jongeren uit Amsterdam Zuidoost die
 						gaan over identiteit, de bijdragen die zwarte mensen hebben geleverd
 						aan de samenleving en informatie over het Nederlands
-						slavernijverleden.Elke maand vind er een bijeenkomst plaats voor 15
+						slavernijverleden. Elke maand vind er een bijeenkomst plaats voor 15
 						t/m 20 jongeren waarbij ze op interactieve wijze kennis maken met
 						verschillende facetten over de zwarte geschiedenis,
 						Trans-Atlantische slavernij en empowerment. Een aantal bijeenkomsten
@@ -152,21 +152,21 @@ const Projecten: React.FC<PageProps> = () => {
 							<ul>
 								<li>
 									<p>
-										<strong>"Modern and The Beat"</strong>, uitwisselingsproject
-										tussen Eternity en ACE in zowel Birmingham als in Amsterdam
-										(augustus en september 2013).
+										<strong>"Modern and The Beat"</strong>, een
+										uitwisselingsproject tussen Eternity en ACE in zowel
+										Birmingham als in Amsterdam (augustus en september 2013).
 									</p>
 								</li>
 								<li>
 									<p>
-										<strong>"Muziek als universele taal"</strong>,
+										<strong>"Muziek als universele taal"</strong>, een
 										uitwisselingsproject tussen Eternity en Batuque Batucada in
 										Brazilië (oktober 2012)
 									</p>
 								</li>
 								<li>
 									<p>
-										<strong>"Pass The Stick" </strong>, uitwisselingsproject
+										<strong>"Pass The Stick" </strong>, een uitwisselingsproject
 										tussen Eternity en Ebony Steelband in Amsterdam (juli 2012)
 									</p>
 								</li>
@@ -304,17 +304,18 @@ const Projecten: React.FC<PageProps> = () => {
 							<p>
 								Een groep jongeren gaat op zoek naar verschillende rituelen dat
 								leidt naar hun mannelijkheid. Ze gebruiken hun passie voor
-								muziek als middel om dit te bewerkstelligen. Umuntu betekent
-								"man" in het Zuid-Afrikaans en gaat over een groep jongens die
-								hun Rite of Passage doorlopen. Welke elementen en personen
-								hebben zij nodig om succesvol te zijn in het leven. Welke
-								situaties zijn er die voor blokkades/obstakels kunnen zorgen. En
-								welke tools zijn er nodig om deze hiaten te overwinnen om weer
-								het pad naar succes voort te zetten. Daarbij moet je altijd in
-								staat zijn als succesvolle jongeman om een legacy achter te
-								laten voor de volgende generatie. Dit is ook een op een te
-								weerleggen als het gaat om vader en zoon relatie of vaderlijke
-								rol die een persoon ten opzichte van een jongeman inneemt...
+								muziek als middel om dit te bewerkstelligen. <b>Umuntu</b>{' '}
+								betekent "man" in het Zuid-Afrikaans en gaat over een groep
+								jongens die hun Rite of Passage doorlopen. Welke elementen en
+								personen hebben zij nodig om succesvol te zijn in het leven.
+								Welke situaties zijn er die voor blokkades / obstakels kunnen
+								zorgen. En welke tools zijn er nodig om deze hiaten te
+								overwinnen om weer het pad naar succes voort te zetten. Daarbij
+								moet je altijd in staat zijn als succesvolle jongeman om een
+								legacy achter te laten voor de volgende generatie. Dit is ook
+								een op een te weerleggen als het gaat om vader en zoon relatie
+								of vaderlijke rol die een persoon ten opzichte van een jongeman
+								inneemt...
 							</p>
 							<StaticImage
 								src='../images/projects/umuntu-hands.jpg'

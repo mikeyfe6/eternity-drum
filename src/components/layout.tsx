@@ -13,7 +13,7 @@ import '../styles/content.scss';
 import '../styles/audio.scss';
 import '../styles/swiper.scss';
 
-const duration = 0.25;
+const duration = 0.1;
 
 const variants = {
 	initial: { opacity: 0 },
@@ -69,7 +69,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 						initial='initial'
 						animate='animate'
 						exit='exit'
-						className='main-content' // Add your own class here if needed
 					>
 						<main>{children}</main>
 					</motion.main>

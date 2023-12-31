@@ -43,20 +43,21 @@ const OverOns: React.FC<PageProps> = () => {
 							<strong>De organisatie heeft als doel:</strong>
 							<ul>
 								<li>
-									Het bieden van een platform voor drummers die bezig zijn met
-									Caribische muziekstijlen.{' '}
+									Het <u>bieden van een platform</u> voor drummers die bezig
+									zijn met Caribische muziekstijlen.{' '}
 								</li>
 								<li>
-									Het ontwikkelen van trajecten ter bevordering van muzikale
-									vaardigheden.{' '}
-								</li>
-								<li>
-									{' '}
-									Het programmeren van drumshows bij (semi) professionele podia.
+									Het <u>ontwikkelen van trajecten</u> ter bevordering van
+									muzikale vaardigheden.{' '}
 								</li>
 								<li>
 									{' '}
-									Bevorderen van samenwerking tussen zelforganisaties en
+									Het <u>programmeren van drumshows</u> bij (semi) professionele
+									podia.
+								</li>
+								<li>
+									{' '}
+									<u>Bevorderen van samenwerking</u> tussen zelforganisaties en
 									gevestigde instellingen voor de nodige doorstroming van
 									getalenteerde jongeren.
 								</li>

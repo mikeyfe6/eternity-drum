@@ -8,10 +8,11 @@ import { Seo } from '../components/seo';
 import Hero from '../components/heroslider';
 import CtaButtons from '../components/cta';
 // import Sidebar from '../components/sidebar';
+import Collapsible from '../components/actual';
 import Berichten from '../components/posts';
+import Courses from '../components/courses';
 import Partners from '../components/partners';
 import WhiteSpace from '../components/whitespace';
-import Collapsible from '../components/actual';
 
 import * as styles from '../styles/modules/index.module.scss';
 
@@ -44,6 +45,8 @@ const Index: React.FC<PageProps> = () => {
 			<Collapsible />
 			<WhiteSpace />
 			<Berichten />
+			<WhiteSpace />
+			<Courses />
 			<WhiteSpace />
 			<Partners />
 		</>

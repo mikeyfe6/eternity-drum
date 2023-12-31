@@ -47,7 +47,6 @@ interface VacancyProps {
 		contactPhone: string;
 	};
 }
-// jobImage: node.jobImage,
 
 const Vacancy = ({
 	pageContext: {

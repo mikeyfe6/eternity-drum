@@ -34,10 +34,25 @@ const Drumworkshops: React.FC<PageProps> = () => {
 								Muziekeducatie vormt een goede basis voor de ontwikkeling van
 								een kind.
 							</strong>{' '}
-							Momenteel verzorgen wij drumlessen op het Bindelmeer College en de
-							Bredeschool Zuidoost als vast onderdeel van het onderwijspakket.
-							Speciaal voor kinderen en jongeren verzorgen wij ook drumworkshops
-							na schooltijd in Amsterdam Zuidoost.
+							Momenteel verzorgen wij drumlessen op het{' '}
+							<a
+								href='https://www.bindelmeercollege.nl/'
+								rel='noopener noreferrer'
+								target='_blank'
+							>
+								Bindelmeer College{' '}
+							</a>
+							en de
+							<a
+								href='https://bredeschoolzuidoost.nl/'
+								rel='noopener noreferrer'
+								target='_blank'
+							>
+								Bredeschool Zuidoost{' '}
+							</a>
+							als vast onderdeel van het onderwijspakket. Speciaal voor kinderen
+							en jongeren verzorgen wij ook drumworkshops na schooltijd in
+							Amsterdam Zuidoost.
 						</p>
 
 						<p>
@@ -91,8 +106,15 @@ const Drumworkshops: React.FC<PageProps> = () => {
 							Voor de ouders die graag hun kinderen aan deze activiteit willen
 							laten deelnemen, maar niet in staat zijn om de bijdrage te betalen
 							kunnen wij een regeling treffen via het{' '}
-							<a href='#!'>Jongerencultuurfonds</a>. Voor vragen omtrent deze
-							regeling kunt u telefonisch contact met ons opnemen.
+							<a
+								href='https://www.jongerencultuurfonds.nl/'
+								rel='noopener noreferrer'
+								target='_blank'
+							>
+								Jongerencultuurfonds
+							</a>
+							. Voor vragen omtrent deze regeling kunt u telefonisch contact met
+							ons opnemen.
 						</p>
 					</section>
 				</div>

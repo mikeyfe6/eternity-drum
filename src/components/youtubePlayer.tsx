@@ -4,14 +4,20 @@ interface YouTubePlayerProps {
 	videoId: string;
 	width?: string;
 	height?: string;
+	additionalParams?: boolean;
 }
 
 const YouTubePlayer: React.FC<YouTubePlayerProps> = ({
 	videoId,
 	width = '720',
 	height = '405',
+	additionalParams = false,
 }) => {
-	const embedUrl = `https://www.youtube.com/embed/${videoId}?origin=https://eternitydrum.com&color=white&rel=0`;
+	let embedUrl = `https://www.youtube.com/embed/${videoId}`;
+
+	if (additionalParams) {
+		embedUrl += '?origin=https://eternitydrum.com&color=white&rel=0';
+	}
 
 	return (
 		<iframe
@@ -20,6 +26,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({
 			width={width}
 			height={height}
 			src={embedUrl}
+			allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
 			allowFullScreen
 		></iframe>
 	);

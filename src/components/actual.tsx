@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, MouseEvent } from 'react';
 
-import { graphql, useStaticQuery, navigate } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 
 import YouTubePlayer from './youtubePlayer';
 
@@ -55,13 +55,10 @@ const Actualiteiten: React.FC = () => {
 			}
 		};
 
-		// Initial height update
 		updateHeight();
 
-		// Event listener for window resize
 		window.addEventListener('resize', updateHeight);
 
-		// Cleanup event listener on component unmount
 		return () => {
 			window.removeEventListener('resize', updateHeight);
 		};
@@ -121,14 +118,7 @@ const Actualiteiten: React.FC = () => {
 				<LightBox image={sankofaBack} alt='Sankofa Flyer Achterkant' />
 				<LightBox image={sankofaFront} alt='Sankofa Flyer Voorkant' />
 			</div>
-
-			<button
-				onClick={() => {
-					navigate('/projecten/sankofa-academy/');
-				}}
-			>
-				Lees meer
-			</button>
+			<Link to='/projecten/sankofa-academy/'>Lees meer</Link>
 		</div>,
 		/* 3 */
 		<div key={`content-2`}>
@@ -136,13 +126,7 @@ const Actualiteiten: React.FC = () => {
 				Percussionband Eternity, Untold Empowerment & Black Harmony geven dit
 				jaar na groot succes OPNIEUW gratis workshops!
 			</p>
-			<button
-				onClick={() => {
-					navigate('/drumworkshops/summerschool-2021/');
-				}}
-			>
-				Lees meer
-			</button>
+			<Link to='/drumworkshops/summerschool-2021/'>Lees meer</Link>
 		</div>,
 		/* 4 */
 		<div key={`content-3`}>
@@ -150,41 +134,33 @@ const Actualiteiten: React.FC = () => {
 				We zijn voor de organisaties Untold en Eternity op zoek naar een
 				coördinator productie die graag de handen uit de mouwen steekt!
 			</p>
-			<button
-				onClick={() => {
-					navigate('/over-ons/vacatures/meewerkend-coordinator-productie/');
-				}}
-			>
+			<Link to='/over-ons/vacatures/meewerkend-coordinator-productie/'>
 				Ga naar vacature
-			</button>
+			</Link>
 		</div>,
 		/* 5 */
 		<div key={`content-4`}>
 			<p>"Building Strong Communities: op zoek naar het verleden."</p>
 			<span> Bron: Salto PI</span>
-			<button
-				onClick={() => {
-					navigate(
-						'https://participationpool.eu/project/discover-black-history-building-strong-communities/'
-					);
-				}}
+			<a
+				href='https://participationpool.eu/project/discover-black-history-building-strong-communities/'
+				rel='noopener noreferrer'
+				target='_blank'
 			>
 				Lees het artikel
-			</button>
+			</a>
 		</div>,
 		/* 6 */
 		<div key={`content-5`}>
 			<p>"Drum Academy: eindelijk kunnen drumbands weer decibellen maken."</p>
 			<span> Bron: Parool, door Patrick Meershoek</span>
-			<button
-				onClick={() => {
-					navigate(
-						'https://www.parool.nl/ps/drum-academy-eindelijk-kunnen-drumbands-weer-decibellen-maken~b48470e0b/'
-					);
-				}}
+			<a
+				href='https://www.parool.nl/ps/drum-academy-eindelijk-kunnen-drumbands-weer-decibellen-maken~b48470e0b/'
+				rel='noopener noreferrer'
+				target='_blank'
 			>
 				Lees het artikel
-			</button>
+			</a>
 		</div>,
 		/* 7 */
 		<div key={`content-6`}>
@@ -192,13 +168,7 @@ const Actualiteiten: React.FC = () => {
 				Percussionband Eternity, Untold Empowerment & Black Harmony geven gratis
 				workshops!
 			</p>
-			<button
-				onClick={() => {
-					navigate('/drumworkshops/summerschool-2020/');
-				}}
-			>
-				Lees meer
-			</button>
+			<Link to='/drumworkshops/summerschool-2020/'>Lees meer</Link>
 		</div>,
 		/* 8 */
 		<div key={`content-7`}>

@@ -21,10 +21,14 @@
 	&-container {
 		display: flex;
 		flex-direction: column;
+
+		@media screen and ($small) {
+			max-width: 100%;
+		}
 	}
 
 	&-btns {
-		button {
+		> button {
 			cursor: pointer;
 			background: $whiteColor;
 			color: $primaryColor;
@@ -49,6 +53,14 @@
 				}
 			}
 
+			&:not(.active-button) {
+				opacity: 0.725;
+			}
+
+			&:not(.active-button):hover {
+				opacity: 1;
+			}
+
 			&:hover {
 				outline-color: color.scale($linkColor, $lightness: 10%);
 
@@ -65,23 +77,27 @@
 			}
 
 			> p {
-				padding-right: 1em;
+				padding: 0.375em 1em 0.375em 0;
 				font-weight: lighter;
 				font-size: 1rem;
 			}
 
-			@media screen and ($extraSmall) {
-				p {
+			@media screen and ($small) {
+				white-space: nowrap;
+				max-width: 100%;
+
+				> span {
 					font-size: 0.9rem;
+				}
+
+				> p {
+					font-size: 0.9rem;
+
+					display: block;
 
 					overflow: hidden;
 					white-space: nowrap;
 					text-overflow: ellipsis;
-					width: 150px;
-				}
-
-				span {
-					font-size: 0.9rem;
 				}
 			}
 		}
@@ -90,8 +106,8 @@
 	&-images {
 		display: flex;
 		justify-content: center;
-		gap: 15px;
-		margin-top: 1em;
+		gap: 0.75em;
+		margin: 2em 0;
 
 		img {
 			border-radius: 5px;
@@ -132,12 +148,12 @@
 		color.scale($smokeColor, $lightness: 100%)
 	);
 
-	span {
+	> div > span {
 		display: block;
 		margin-top: 1em;
 	}
 
-	button {
+	> div > a {
 		@include buttonStyle(
 			$primaryColor,
 			$whiteColor,
@@ -145,8 +161,19 @@
 			$secondaryColor
 		);
 
-		margin-top: 1em;
+		width: fit-content;
+		margin-top: 2em;
 		margin-left: auto;
+	}
+
+	@media screen and ($extraSmall) {
+		> div > p {
+			font-size: 0.95rem;
+		}
+
+		> div > span {
+			font-size: 0.95rem;
+		}
 	}
 }
 
@@ -159,6 +186,6 @@
 	}
 
 	@media screen and ($extraSmall) {
-		padding: 0.75em 0.5em 0;
+		padding: 0.75em 0.75em 1em;
 	}
 }
