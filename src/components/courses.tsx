@@ -35,13 +35,13 @@ const Courses: React.FC = () => {
 					<li>
 						Metronome (Play store):{' '}
 						<a href='https://play.google.com/store/apps/details?id=com.eumlab.android.prometronome&gl=NL'>
-							download hier de app
+							download de app
 						</a>
 					</li>
 					<li>
 						Metronome (App store):{' '}
 						<a href='https://apps.apple.com/us/app/metronome-%CF%9F/id416443133'>
-							download hier de app
+							download de app
 						</a>
 					</li>
 				</ul>

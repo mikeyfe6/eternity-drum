@@ -6,8 +6,9 @@
 	}
 
 	> div {
+		font-size: 0.95rem;
 		max-width: 1250px;
-		margin: 3em auto;
+		margin: 0 auto;
 		background: #80808010;
 		padding: 2.5em 2em;
 
@@ -29,6 +30,10 @@
 
 			width: fit-content;
 			margin-left: auto;
+
+			@media screen and ($small) {
+				margin-top: 1em;
+			}
 		}
 
 		ul {
