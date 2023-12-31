@@ -74,8 +74,11 @@
 
 .videos {
 	width: 100%;
+	max-width: 900px;
+	margin: 3em auto;
 	background: #80808010;
 	padding: 1.5em;
+	text-align: center;
 
 	@media screen and ($small) {
 		padding: 1em;

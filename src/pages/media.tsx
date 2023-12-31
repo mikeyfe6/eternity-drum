@@ -9,6 +9,7 @@ import Breadcrumb from '../components/breadcrumbs';
 import Hero from '../components/heroslider';
 import MusicPlayer from '../components/musicPlayer';
 import Relevance from '../components/relevance';
+import Videos from '../components/videos';
 
 import GalleryOne from '../components/galleries/galleryOne';
 import GalleryTwo from '../components/galleries/galleryTwo';
@@ -68,22 +69,8 @@ const Media: React.FC<PageProps> = () => {
 				</section>
 
 				<section className={styles.videos}>
-					<h2 style={{ textAlign: 'center' }}>Video's</h2>
-					<br />
-					<h3 style={{ textAlign: 'center' }}>15 Jaar Eternity & Untold!</h3>
-					<YouTubePlayer videoId='dav38cHRAM0' />
-					<hr />
-					<br />
-					<h3 style={{ textAlign: 'center' }}>
-						ETERNITY @ Notting Hill Carnival (UK)
-					</h3>
-					<YouTubePlayer videoId='czwOwdNREgU' />
-					<YouTubePlayer videoId='6u3690Hc7EI' />
-					<YouTubePlayer videoId='incatDwpaqk' />
-					<YouTubePlayer videoId='V281m7npf6o' />
-					<YouTubePlayer videoId='uVWWOwVlr1k' />
-					<YouTubePlayer videoId='0im5wdxXxDM' />
-					<YouTubePlayer videoId='czwOwdNREgU' />
+					<h2>Video's</h2>
+					<Videos />
 				</section>
 			</section>
 		</>

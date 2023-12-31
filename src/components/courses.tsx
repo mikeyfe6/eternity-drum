@@ -11,7 +11,6 @@ const Courses: React.FC = () => {
 
 	return (
 		<section className={styles.coursesContainer}>
-			<h2>Online Cursussen</h2>
 			<div>
 				<p>
 					Hoewel eerder, door de impact van het coronavirus (COVID-19), de
