@@ -4,13 +4,11 @@ import { Link, HeadFC, PageProps } from 'gatsby';
 
 import { Seo } from '../components/seo';
 
-import Layout from '../components/layout';
-
 import * as styles from '../styles/modules/success.module.scss';
 
 const Success: React.FC<PageProps> = () => {
 	return (
-		<Layout>
+		<>
 			<section data-main-section>
 				<h1>Succes!</h1>
 				<p>
@@ -30,7 +28,7 @@ const Success: React.FC<PageProps> = () => {
 					</button>
 				</p>
 			</section>
-		</Layout>
+		</>
 	);
 };
 

@@ -5,8 +5,6 @@ import type { HeadFC, PageProps } from 'gatsby';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 import { Seo } from '../components/seo';
 
-import Layout from '../components/layout';
-
 import Hero from '../components/heroslider';
 import CtaButtons from '../components/cta';
 // import Sidebar from '../components/sidebar';
@@ -21,7 +19,7 @@ const Index: React.FC<PageProps> = () => {
 	const { title } = useSiteMetadata();
 
 	return (
-		<Layout>
+		<>
 			<Hero />
 			<section className={styles.homepage} data-main-section>
 				<CtaButtons />
@@ -48,7 +46,7 @@ const Index: React.FC<PageProps> = () => {
 			<Berichten />
 			<WhiteSpace />
 			<Partners />
-		</Layout>
+		</>
 	);
 };
 

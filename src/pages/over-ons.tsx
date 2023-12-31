@@ -6,7 +6,6 @@ import { StaticImage } from 'gatsby-plugin-image';
 
 import { Seo } from '../components/seo';
 
-import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
@@ -15,7 +14,7 @@ const OverOns: React.FC<PageProps> = () => {
 	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'Over Ons' }];
 
 	return (
-		<Layout>
+		<>
 			<Hero />
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
@@ -104,7 +103,7 @@ const OverOns: React.FC<PageProps> = () => {
 					</div>
 				</section>
 			</section>
-		</Layout>
+		</>
 	);
 };
 

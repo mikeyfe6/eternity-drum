@@ -10,7 +10,6 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
 import { Seo } from '../components/seo';
 
-import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
 
 interface PostProps {
@@ -73,7 +72,7 @@ const Post = ({
 	};
 
 	return (
-		<Layout>
+		<>
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
 
@@ -107,7 +106,7 @@ const Post = ({
 					</div>
 				</section>
 			</section>
-		</Layout>
+		</>
 	);
 };
 

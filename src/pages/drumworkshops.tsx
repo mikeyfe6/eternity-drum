@@ -4,7 +4,6 @@ import type { HeadFC, PageProps } from 'gatsby';
 
 import { Seo } from '../components/seo';
 
-import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
@@ -21,7 +20,7 @@ const Drumworkshops: React.FC<PageProps> = () => {
 	const inputRef = useRef<HTMLInputElement>(null);
 
 	return (
-		<Layout>
+		<>
 			<Hero />
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
@@ -98,7 +97,7 @@ const Drumworkshops: React.FC<PageProps> = () => {
 					</section>
 				</div>
 			</section>
-		</Layout>
+		</>
 	);
 };
 

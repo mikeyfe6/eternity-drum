@@ -6,7 +6,6 @@ import type { HeadFC, PageProps } from 'gatsby';
 
 import { Seo } from '../../components/seo';
 
-import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumbs';
 
 import Hero from '../../components/heroslider';
@@ -58,7 +57,7 @@ const Vacatures: React.FC<PageProps> = () => {
 	const vacancies: Vacancy[] = data.allContentfulVacancy.nodes;
 
 	return (
-		<Layout>
+		<>
 			<Hero />
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
@@ -80,7 +79,7 @@ const Vacatures: React.FC<PageProps> = () => {
 					})}
 				</ul>
 			</section>
-		</Layout>
+		</>
 	);
 };
 

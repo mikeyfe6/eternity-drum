@@ -4,7 +4,6 @@ import type { HeadFC, PageProps } from 'gatsby';
 
 import { Seo } from '../components/seo';
 
-import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
@@ -28,7 +27,7 @@ const Media: React.FC<PageProps> = () => {
 	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'Media' }];
 
 	return (
-		<Layout>
+		<>
 			<Hero />
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
@@ -81,7 +80,7 @@ const Media: React.FC<PageProps> = () => {
 					<YouTubePlayer videoId='czwOwdNREgU' />
 				</section>
 			</section>
-		</Layout>
+		</>
 	);
 };
 

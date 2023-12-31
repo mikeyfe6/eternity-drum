@@ -6,7 +6,6 @@ import type { HeadFC, PageProps } from 'gatsby';
 
 import { Seo } from '../../components/seo';
 
-import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumbs';
 
 import Hero from '../../components/heroslider';
@@ -44,7 +43,7 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 	const sankofaFront = sankofaF.childImageSharp.gatsbyImageData;
 
 	return (
-		<Layout>
+		<>
 			<Hero />
 			<section data-main-section>
 				<div className={styles.workshopBgImage} />
@@ -144,7 +143,7 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 					</section>
 				</div>
 			</section>
-		</Layout>
+		</>
 	);
 };
 

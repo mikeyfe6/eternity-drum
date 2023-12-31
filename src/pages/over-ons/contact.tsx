@@ -6,7 +6,6 @@ import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 import { Seo } from '../../components/seo';
 
-import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumbs';
 
 import Hero from '../../components/heroslider';
@@ -38,7 +37,7 @@ const Contact: React.FC<PageProps> = () => {
 	} = useSiteMetadata();
 
 	return (
-		<Layout>
+		<>
 			<Hero />
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
@@ -148,7 +147,7 @@ const Contact: React.FC<PageProps> = () => {
 					<GoogleMaps />
 				</section>
 			</section>
-		</Layout>
+		</>
 	);
 };
 

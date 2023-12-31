@@ -6,7 +6,6 @@ import type { HeadFC, PageProps } from 'gatsby';
 
 import { Seo } from '../../components/seo';
 
-import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumbs';
 
 import Hero from '../../components/heroslider';
@@ -40,7 +39,7 @@ const SummerschoolFirst: React.FC<PageProps> = () => {
 	const midzomerLogo = midzomer.childImageSharp.gatsbyImageData;
 
 	return (
-		<Layout>
+		<>
 			<Hero />
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
@@ -164,7 +163,7 @@ const SummerschoolFirst: React.FC<PageProps> = () => {
 					</section>
 				</div>
 			</section>
-		</Layout>
+		</>
 	);
 };
 

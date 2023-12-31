@@ -120,9 +120,9 @@
 	top: 100%;
 	left: 0;
 	width: 100%;
-	border-bottom: 1px solid $primaryColor;
-	border-left: 1px solid $primaryColor;
-	border-right: 1px solid $primaryColor;
+	border-bottom: 2px solid $primaryColor;
+	border-left: 2px solid $primaryColor;
+	border-right: 2px solid $primaryColor;
 	border-radius: 0 0 10px 10px;
 	color: $primaryColor;
 
@@ -152,5 +152,13 @@
 
 .open {
 	max-height: fit-content;
-	padding: 1.5em 1em;
+	padding: 1.5em 1em 1em;
+
+	&:has(iframe) {
+		padding: 0.5em 0.375em 0;
+	}
+
+	@media screen and ($extraSmall) {
+		padding: 0.75em 0.5em 0;
+	}
 }

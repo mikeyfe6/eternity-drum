@@ -4,11 +4,9 @@ import { Link, HeadFC, PageProps } from 'gatsby';
 
 import { Seo } from '../components/seo';
 
-import Layout from '../components/layout';
-
 const NotFoundPage: React.FC<PageProps> = () => {
 	return (
-		<Layout>
+		<>
 			<section data-main-section>
 				<h1>Ojee.. Pagina niet gevonden</h1>
 				<p>
@@ -26,7 +24,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
 					<Link to='/'>Ga terug naar de homepagina..</Link>.
 				</p>
 			</section>
-		</Layout>
+		</>
 	);
 };
 

@@ -4,7 +4,6 @@ import type { HeadFC, PageProps } from 'gatsby';
 
 import { Seo } from '../components/seo';
 
-import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
@@ -16,7 +15,7 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 	];
 
 	return (
-		<Layout>
+		<>
 			<Hero />
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
@@ -47,7 +46,7 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 					</p>
 				</section>
 			</section>
-		</Layout>
+		</>
 	);
 };
 

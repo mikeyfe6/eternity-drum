@@ -4,7 +4,6 @@ import type { HeadFC, PageProps } from 'gatsby';
 
 import { Seo } from '../../components/seo';
 
-import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumbs';
 
 import Hero from '../../components/heroslider';
@@ -17,7 +16,7 @@ const SankofaSchool: React.FC<PageProps> = () => {
 	];
 
 	return (
-		<Layout>
+		<>
 			<Hero />
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
@@ -25,7 +24,7 @@ const SankofaSchool: React.FC<PageProps> = () => {
 				<h1>SEDA School</h1>
 				<p>Pagina komt binnenkort..</p>
 			</section>
-		</Layout>
+		</>
 	);
 };
 

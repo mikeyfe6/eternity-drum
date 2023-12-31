@@ -4,7 +4,6 @@ import type { HeadFC, PageProps } from 'gatsby';
 
 import { Seo } from '../../components/seo';
 
-import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumbs';
 
 import Hero from '../../components/heroslider';
@@ -17,7 +16,7 @@ const Anbi: React.FC<PageProps> = () => {
 	];
 
 	return (
-		<Layout>
+		<>
 			<Hero />
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
@@ -147,7 +146,7 @@ const Anbi: React.FC<PageProps> = () => {
 					</p>
 				</section>
 			</section>
-		</Layout>
+		</>
 	);
 };
 

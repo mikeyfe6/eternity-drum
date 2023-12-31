@@ -1,5 +1,7 @@
 import React, { ReactNode, useState, useEffect } from 'react';
 
+import { AnimatePresence, motion } from 'framer-motion';
+
 import Header from '../components/header';
 import Footer from '../components/footer';
 
@@ -10,6 +12,30 @@ import '../styles/forms.scss';
 import '../styles/content.scss';
 import '../styles/audio.scss';
 import '../styles/swiper.scss';
+
+const duration = 0.5;
+
+const variants = {
+	initial: {
+		opacity: 0,
+		x: 100,
+	},
+	animate: {
+		opacity: 1,
+		y: 0,
+		x: 0,
+		transition: {
+			duration: duration,
+			delay: duration,
+			when: 'beforeChildren',
+		},
+	},
+	exit: {
+		opacity: 0,
+		y: 200,
+		transition: { duration: duration },
+	},
+};
 
 interface LayoutProps {
 	children: ReactNode;
@@ -52,7 +78,18 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 		<div className='eternity-container'>
 			<Header openMobileMenu={openMobileMenu} />
 			<div className='eternity-wrapper'>
-				<main>{children}</main>
+				<AnimatePresence>
+					<motion.main
+						key={typeof window !== 'undefined' ? window.location.pathname : ''}
+						variants={variants}
+						initial='initial'
+						animate='animate'
+						exit='exit'
+						className='main-content' // Add your own class here if needed
+					>
+						<main>{children}</main>
+					</motion.main>
+				</AnimatePresence>
 			</div>
 			<Footer />
 

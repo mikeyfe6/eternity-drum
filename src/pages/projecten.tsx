@@ -6,7 +6,6 @@ import { StaticImage } from 'gatsby-plugin-image';
 
 import { Seo } from '../components/seo';
 
-import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
@@ -17,7 +16,7 @@ const Projecten: React.FC<PageProps> = () => {
 	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'Projecten' }];
 
 	return (
-		<Layout>
+		<>
 			<Hero />
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
@@ -347,7 +346,7 @@ const Projecten: React.FC<PageProps> = () => {
 					</div>
 				</section>
 			</section>
-		</Layout>
+		</>
 	);
 };
 

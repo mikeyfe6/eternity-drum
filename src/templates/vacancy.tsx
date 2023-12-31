@@ -7,7 +7,6 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
 import { Seo } from '../components/seo';
 
-import Layout from '../components/layout';
 import Breadcrumb from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
@@ -79,7 +78,7 @@ const Vacancy = ({
 		: null;
 
 	return (
-		<Layout>
+		<>
 			<Hero />
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
@@ -119,7 +118,7 @@ const Vacancy = ({
 					</div>
 				</section>
 			</section>
-		</Layout>
+		</>
 	);
 };
 
