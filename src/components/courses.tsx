@@ -26,9 +26,24 @@ const Courses: React.FC = () => {
 					attributen aan te raden, verkrijgbaar bij de meeste muziekwinkels:
 				</p>
 				<ul>
-					<li>Drumpad + Drumstokken: klik hier</li>
-					<li>Metronome (Play store): download hier</li>
-					<li>Metronome (App store): download hier</li>
+					<li>
+						Drumpad + Drumstokken:{' '}
+						<a href='https://www.thomann.de/nl/millenium_ak25_uebungs_pad_set.htm?glp=1&gclid=CjwKCAjwvtX0BRAFEiwAGWJyZHw0gx3fb4kZY_NruwUV9UVgpPJ9omqcR6lWUJnmxDssJGZZq6tk7xoCCcsQAvD_BwE'>
+							ga naar website
+						</a>
+					</li>
+					<li>
+						Metronome (Play store):{' '}
+						<a href='https://play.google.com/store/apps/details?id=com.eumlab.android.prometronome&gl=NL'>
+							download hier de app
+						</a>
+					</li>
+					<li>
+						Metronome (App store):{' '}
+						<a href='https://apps.apple.com/us/app/metronome-%CF%9F/id416443133'>
+							download hier de app
+						</a>
+					</li>
 				</ul>
 
 				<button onClick={toggleCollapse}>

@@ -15,6 +15,10 @@
 		flex-direction: column;
 		gap: 1.5em;
 
+		@media screen and ($small) {
+			padding: 1em;
+		}
+
 		button {
 			@include buttonStyle(
 				$primaryColor,
@@ -30,6 +34,19 @@
 		ul {
 			list-style-type: square;
 			list-style-position: inside;
+
+			li {
+				a {
+					color: $linkColor;
+					text-decoration: none;
+					transition: color 0.2s;
+					font-weight: bold;
+
+					&:hover {
+						color: $primaryColor;
+					}
+				}
+			}
 		}
 	}
 }
