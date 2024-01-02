@@ -120,7 +120,65 @@ const config: GatsbyConfig = {
 				siteUrl: siteUrl,
 			},
 		},
-		'gatsby-plugin-sitemap',
+		{
+			resolve: 'gatsby-plugin-sitemap',
+			options: {
+				query: `
+				{
+					allSitePage {
+						nodes {
+							path
+						}
+					}
+					allContentfulPost {
+						nodes {
+							slug
+							updatedAt
+						}
+					}
+					allContentfulVacancy {
+						nodes {
+							slug
+							updatedAt
+						}
+					}
+				}
+				`,
+				resolveSiteUrl: () => siteUrl,
+				resolvePages: ({
+					allSitePage,
+					allContentfulPost,
+					allContentfulVacancy,
+				}: {
+					allSitePage: { nodes: { path: string }[] };
+					allContentfulPost: { nodes: { slug: string; updatedAt: string }[] };
+					allContentfulVacancy: { nodes: { slug: string; updatedAt: string }[] };
+				}) => {
+					const postsMap = allContentfulPost.nodes.reduce((acc: Record<string, any>, post) => {
+						const { slug, updatedAt } = post;
+						acc[`/${slug}/`] = { path: `/${slug}/`, updatedAt };
+						return acc;
+					}, {});
+
+					const vacanciesMap = allContentfulVacancy.nodes.reduce((acc: Record<string, any>, vacancy) => {
+						const { slug, updatedAt } = vacancy;
+						acc[`/over-ons/vacatures/${slug}`] = { path: `/over-ons/vacatures/${slug}`, updatedAt };
+						return acc;
+					}, {});
+
+					return [...allSitePage.nodes, ...Object.values(postsMap), ...Object.values(vacanciesMap)];
+				},
+				serialize: ({ path, updatedAt }: { path: string; updatedAt: string }) => {
+					return {
+						url: path,
+						lastmod: updatedAt,
+						changefreq: 'daily',
+						priority: 0.7,
+					};
+				},
+
+			},
+		},
 		{
 			resolve: 'gatsby-plugin-robots-txt',
 			options: {
