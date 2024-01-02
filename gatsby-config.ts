@@ -50,6 +50,18 @@ const config: GatsbyConfig = {
 	graphqlTypegen: true,
 	plugins: [
 		{
+			resolve: 'gatsby-plugin-google-tagmanager',
+			options: {
+				id: 'GTM-MR6HHSRT',
+				includeInDevelopment: false,
+				defaultDataLayer: { platform: 'gatsby' },
+
+				// Specify optional GTM environment details.
+				// gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
+				// gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
+			},
+		},
+		{
 			resolve: 'gatsby-source-contentful',
 			options: {
 				accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
@@ -101,7 +113,6 @@ const config: GatsbyConfig = {
 		'gatsby-plugin-sharp',
 		'gatsby-transformer-sharp',
 		'gatsby-plugin-sass',
-		// 'gatsby-plugin-google-gtag',
 		'gatsby-plugin-catch-links',
 		{
 			resolve: 'gatsby-plugin-canonical-urls',
