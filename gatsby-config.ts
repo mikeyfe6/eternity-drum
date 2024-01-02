@@ -10,7 +10,7 @@ const siteMetadata = {
 	slogan: `The Leaders of Tomorrow`,
 	description: `Eternity is een culturele instelling die zich bezighoudt met activiteiten, projecten en evenementen op het gebied van muzikale vorming en performance.`,
 
-	siteUrl: `https://eternitydrum.netlify.app`,
+	siteUrl: `https://eternitydrum.com`,
 	image: `/images/logo/ep-logo.png`,
 
 	twitterUsername: `@eternitydrum`,
