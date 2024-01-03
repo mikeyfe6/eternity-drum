@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import { navigate } from 'gatsby';
 
+import axios from 'axios';
+
 import * as styles from '../styles/modules/newsletterform.module.scss';
 
 import { validateNewsletterForm, NewsletterFormData } from './validation';
@@ -63,41 +65,51 @@ const NewsletterForm: React.FC = () => {
 	const handleSubmit = async (event: React.FormEvent) => {
 		event.preventDefault();
 
-		const myForm = event.target as HTMLFormElement;
-		const formData = new FormData(myForm);
+		const validationErrors = validateNewsletterForm(formData);
+		const errorMessages = Object.values(validationErrors).flatMap(
+			(error) => error
+		);
 
-		const encodedFormData = new URLSearchParams(formData as any).toString();
+		setFieldErrors(validationErrors);
+
+		if (errorMessages.length > 0) {
+			return;
+		}
+
+		setIsFormSubmitted(true);
 
 		try {
-			const response = await fetch('/', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-				body: encodedFormData,
+			const formDataParams = new URLSearchParams();
+			const formKeys: Array<keyof NewsletterFormData> = [
+				'firstName',
+				'lastName',
+				'email',
+			];
+
+			formKeys.forEach((key) => {
+				formDataParams.append(key, formData[key]);
 			});
 
-			if (response.ok) {
-				setIsFormSubmitted(true);
+			const response = await axios.post('/', formDataParams.toString(), {
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+			});
 
-				setFormData({
-					firstName: '',
-					lastName: '',
-					email: '',
-				});
+			console.log('Form submitted successfully:', response.data);
+			navigate('/success');
 
-				setFieldErrors({});
-				setFocusedInput(null);
+			setFormData({
+				firstName: '',
+				lastName: '',
+				email: '',
+			});
 
-				const formFields = document.querySelectorAll('.approved');
-				formFields.forEach((field) => {
-					field.classList.remove('approved');
-				});
-
-				navigate('/success');
-			} else {
-				throw new Error('Form submission failed');
-			}
-		} catch (error: any) {
-			alert(error.message || 'An error occurred');
+			setFieldErrors({});
+			setFocusedInput(null);
+		} catch (error) {
+			console.error('Form submission error:', error);
+			alert('Er is iets misgegaan. Probeer het later opnieuw.');
 		}
 	};
 
@@ -112,14 +124,7 @@ const NewsletterForm: React.FC = () => {
 
 	return (
 		<div className={styles.newsletterWrapper}>
-			<form
-				onSubmit={handleSubmit}
-				name='newsletter-form'
-				method='post'
-				data-netlify='true'
-				data-netlify-honeypot='bot-field'
-			>
-				<input type='hidden' name='form-name' value='newsletter-form' />
+			<form onSubmit={handleSubmit}>
 				<fieldset>
 					<legend>Schrijf je in voor onze nieuwsbrief</legend>
 					<div className='form-column'>
@@ -229,6 +234,7 @@ const NewsletterForm: React.FC = () => {
 						</div>
 					</div>
 				</fieldset>
+
 				<div className={styles.newsletterformSubmit}>
 					<div>
 						{isFormValid() && (
