@@ -22,17 +22,11 @@ const BookingsForm: React.FC = () => {
 		lastName: '',
 		email: '',
 		phone: '',
-		subject: '',
+		topic: '',
 		message: '',
 	});
 
-	const requiredFields = [
-		'firstName',
-		'lastName',
-		'email',
-		'subject',
-		'message',
-	];
+	const requiredFields = ['firstName', 'lastName', 'email', 'topic', 'message'];
 
 	const inputRef = useRef<HTMLInputElement>(null);
 
@@ -111,7 +105,7 @@ const BookingsForm: React.FC = () => {
 				'lastName',
 				'email',
 				'phone',
-				'subject',
+				'topic',
 				'message',
 			];
 
@@ -138,7 +132,7 @@ const BookingsForm: React.FC = () => {
 				lastName: '',
 				email: '',
 				phone: '',
-				subject: '',
+				topic: '',
 				message: '',
 			});
 
@@ -344,12 +338,12 @@ const BookingsForm: React.FC = () => {
 							</div>
 
 							<div className='form-column'>
-								<div className='form-group subject'>
+								<div className='form-group topic'>
 									<div className='form-select'>
 										<label
-											htmlFor='subject'
+											htmlFor='topic'
 											className={
-												focusedInput === 'subject' || formData.subject
+												focusedInput === 'topic' || formData.topic
 													? 'visited'
 													: ''
 											}
@@ -357,19 +351,19 @@ const BookingsForm: React.FC = () => {
 											Kies onderwerp
 										</label>
 										<select
-											id='subject'
-											name='subject'
-											value={formData.subject}
+											id='topic'
+											name='topic'
+											value={formData.topic}
 											onChange={handleInputChange}
 											onBlur={handleInputBlur}
-											onFocus={() => handleInputFocus('subject')}
+											onFocus={() => handleInputFocus('topic')}
 											className={
-												fieldErrors.subject && fieldErrors.subject.length > 0
+												fieldErrors.topic && fieldErrors.topic.length > 0
 													? 'error'
-													: (formData.subject &&
-															fieldErrors.subject &&
-															fieldErrors.subject.length === 0) ||
-													  (fieldErrors.subject === undefined &&
+													: (formData.topic &&
+															fieldErrors.topic &&
+															fieldErrors.topic.length === 0) ||
+													  (fieldErrors.topic === undefined &&
 															isFormSubmitted === true)
 													? 'approved'
 													: ''
