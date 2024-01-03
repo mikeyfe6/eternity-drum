@@ -206,18 +206,28 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 				'discover',
 				'comments',
 				'other',
-				...(isOlderThan18
-					? []
-					: [
-							'firstNameParent',
-							'lastNameParent',
-							'emailParent',
-							'phoneParent',
-					  ]),
+				'firstNameParent',
+				'lastNameParent',
+				'emailParent',
+				'phoneParent',
 			];
 
 			formKeys.forEach((key) => {
 				if (typeof key === 'string' && key in formData) {
+					formDataParams.append(
+						key,
+						formData[key as keyof RegisterFormData] ?? ''
+					);
+				}
+				if (
+					!isOlderThan18 &&
+					[
+						'firstNameParent',
+						'lastNameParent',
+						'emailParent',
+						'phoneParent',
+					].includes(key)
+				) {
 					formDataParams.append(
 						key,
 						formData[key as keyof RegisterFormData] ?? ''
