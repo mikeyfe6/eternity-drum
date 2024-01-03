@@ -62,8 +62,25 @@ const NewsletterForm: React.FC = () => {
 		setFocusedInput(null);
 	};
 
-	const handleSubmit = async (event: React.FormEvent) => {
+	const encode = (data: { [key: string]: string | null }) => {
+		return Object.keys(data)
+			.map(
+				(key) =>
+					encodeURIComponent(key) + '=' + encodeURIComponent(data[key] ?? '') // Ensure a string value
+			)
+			.join('&');
+	};
+
+	const handleSubmit = async (
+		event: React.FormEvent<HTMLFormElement>,
+		myForm: HTMLFormElement | null
+	) => {
 		event.preventDefault();
+
+		if (!myForm) {
+			console.error('Form reference is null');
+			return;
+		}
 
 		const validationErrors = validateNewsletterForm(formData);
 		const errorMessages = Object.values(validationErrors).flatMap(
@@ -90,15 +107,15 @@ const NewsletterForm: React.FC = () => {
 				formDataParams.append(key, formData[key]);
 			});
 
-			const response = await axios.post(
-				location.href,
-				formDataParams.toString(),
-				{
-					headers: {
-						'Content-Type': 'application/x-www-form-urlencoded',
-					},
-				}
-			);
+			const response = await axios({
+				method: 'POST',
+				url: '/',
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				data: encode({
+					'form-name': myForm.getAttribute('name'),
+					...formData,
+				}),
+			});
 
 			console.log('Form submitted successfully:', response.data);
 			navigate('/success');
@@ -129,7 +146,9 @@ const NewsletterForm: React.FC = () => {
 	return (
 		<div className={styles.newsletterWrapper}>
 			<form
-				onSubmit={handleSubmit}
+				onSubmit={(event) =>
+					handleSubmit(event, document.querySelector('form'))
+				}
 				method='post'
 				data-netlify='true'
 				data-netlify-honeypot='bot-field'
