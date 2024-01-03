@@ -213,6 +213,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 			];
 
 			formKeys.forEach((key) => {
+				console.log('Current key:', key); // Log the current key
+
 				if (typeof key === 'string' && key in formData) {
 					formDataParams.append(
 						key,
@@ -229,6 +231,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 						'phoneParent',
 					].includes(key as string) // Ensure key is a string
 				) {
+					console.log('Adding parent key:', key); // Log when adding parent fields
 					formDataParams.append(
 						key,
 						formData[key as keyof RegisterFormData] ?? ''
