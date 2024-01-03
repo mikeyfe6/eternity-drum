@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import { navigate } from 'gatsby';
-
 import axios from 'axios';
 
 import * as styles from '../styles/modules/newsletterform.module.scss';
@@ -66,7 +65,7 @@ const NewsletterForm: React.FC = () => {
 		return Object.keys(data)
 			.map(
 				(key) =>
-					encodeURIComponent(key) + '=' + encodeURIComponent(data[key] ?? '') // Ensure a string value
+					encodeURIComponent(key) + '=' + encodeURIComponent(data[key] ?? '')
 			)
 			.join('&');
 	};
@@ -78,7 +77,7 @@ const NewsletterForm: React.FC = () => {
 		event.preventDefault();
 
 		if (myForm !== null) {
-			myForm.reset!(); // Non-null assertion operator added here
+			myForm.reset!();
 		}
 
 		const validationErrors = validateNewsletterForm(formData);

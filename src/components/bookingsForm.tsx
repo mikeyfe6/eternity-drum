@@ -72,11 +72,26 @@ const BookingsForm: React.FC = () => {
 		setFocusedInput(null);
 	};
 
-	const handleSubmit = async (event: React.FormEvent) => {
+	const encode = (data: { [key: string]: string | null | undefined }) => {
+		return Object.keys(data)
+			.map(
+				(key) =>
+					encodeURIComponent(key) + '=' + encodeURIComponent(data[key] ?? '')
+			)
+			.join('&');
+	};
+
+	const handleSubmit = async (
+		event: React.FormEvent<HTMLFormElement>,
+		myForm: HTMLFormElement | null
+	) => {
 		event.preventDefault();
 
-		const validationErrors = validateBookingsForm(formData);
+		if (myForm !== null) {
+			myForm.reset!();
+		}
 
+		const validationErrors = validateBookingsForm(formData);
 		const errorMessages = Object.values(validationErrors).flatMap(
 			(error) => error
 		);
@@ -90,14 +105,29 @@ const BookingsForm: React.FC = () => {
 		setIsFormSubmitted(true);
 
 		try {
+			const formDataParams = new URLSearchParams();
+			const formKeys: Array<keyof BookingsFormData> = [
+				'firstName',
+				'lastName',
+				'email',
+			];
+
+			formKeys.forEach((key) => {
+				formDataParams.append(key, formData[key]);
+			});
+
 			const response = await axios.post(
-				'/.netlify/functions/sendmail',
-				formData
+				'/',
+				encode({
+					'form-name': myForm?.getAttribute('name'),
+					...formData,
+				}),
+				{
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				}
 			);
-			console.log(
-				'Eternity Percussion; [Form submitted successfully]',
-				response.data
-			);
+
+			console.log('Form submitted successfully:', response.data);
 			navigate('/success');
 
 			setFormData({
@@ -110,10 +140,10 @@ const BookingsForm: React.FC = () => {
 			});
 
 			setFieldErrors({});
-
 			setFocusedInput(null);
+			setIsFormSubmitted(false);
 		} catch (error) {
-			console.error('Eternity Percussion; [Form submission error]', error);
+			console.error('Form submission error:', error);
 			alert('Er is iets misgegaan. Probeer het later opnieuw.');
 		}
 	};
@@ -148,7 +178,17 @@ const BookingsForm: React.FC = () => {
 			<div className={styles.bookingsformContainer}>
 				<section className={styles.bookingsformWrapper}>
 					<h2>Online boekingsformulier</h2>
-					<form onSubmit={handleSubmit}>
+					<form
+						onSubmit={(event) =>
+							handleSubmit(event, document.querySelector('form'))
+						}
+						name='bookings-form'
+						method='post'
+						data-netlify='true'
+						data-netlify-honeypot='bot-field'
+						action='#'
+					>
+						<input type='hidden' name='form-name' value='bookings-form' />
 						<fieldset>
 							<legend>
 								Vul hieronder uw gegevens in en wij nemen zo spoedig mogelijk
