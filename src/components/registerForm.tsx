@@ -219,6 +219,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 						formData[key as keyof RegisterFormData] ?? ''
 					);
 				}
+
 				if (
 					!isOlderThan18 &&
 					[
@@ -226,7 +227,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 						'lastNameParent',
 						'emailParent',
 						'phoneParent',
-					].includes(key)
+					].includes(key as string) // Ensure key is a string
 				) {
 					formDataParams.append(
 						key,
