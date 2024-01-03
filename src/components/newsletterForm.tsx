@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import { navigate } from 'gatsby';
-import axios from 'axios';
 
 import * as styles from '../styles/modules/newsletterform.module.scss';
 
@@ -61,7 +60,7 @@ const NewsletterForm: React.FC = () => {
 		setFocusedInput(null);
 	};
 
-	const handleSubmit = async (event: React.FormEvent) => {
+	const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault();
 
 		const validationErrors = validateNewsletterForm(formData);
@@ -78,30 +77,22 @@ const NewsletterForm: React.FC = () => {
 
 		setIsFormSubmitted(true);
 
-		try {
-			const response = await axios.post(
-				'/.netlify/functions/sendmail',
-				formData
-			);
-			console.log(
-				'Eternity Percussion; [Form submitted successfully]',
-				response.data
-			);
-			navigate('/success');
+		setFormData({
+			firstName: '',
+			lastName: '',
+			email: '',
+		});
 
-			setFormData({
-				firstName: '',
-				lastName: '',
-				email: '',
-			});
+		setFieldErrors({});
 
-			setFieldErrors({});
+		setFocusedInput(null);
 
-			setFocusedInput(null);
-		} catch (error) {
-			console.error('Eternity Percussion; [Form submission error]', error);
-			alert('Er is iets misgegaan. Probeer het later opnieuw.');
-		}
+		const formFields = document.querySelectorAll('.approved');
+		formFields.forEach((field) => {
+			field.classList.remove('approved');
+		});
+
+		navigate('/success');
 	};
 
 	const isFormValid = () => {
@@ -115,7 +106,14 @@ const NewsletterForm: React.FC = () => {
 
 	return (
 		<div className={styles.newsletterWrapper}>
-			<form onSubmit={handleSubmit}>
+			<form
+				onSubmit={handleSubmit}
+				name='newsletter-form'
+				method='post'
+				data-netlify='true'
+				data-netlify-honeypot='bot-field'
+			>
+				<input type='hidden' name='form-name' value='newsletter-form' />
 				<fieldset>
 					<legend>Schrijf je in voor onze nieuwsbrief</legend>
 					<div className='form-column'>
@@ -225,7 +223,6 @@ const NewsletterForm: React.FC = () => {
 						</div>
 					</div>
 				</fieldset>
-
 				<div className={styles.newsletterformSubmit}>
 					<div>
 						{isFormValid() && (
