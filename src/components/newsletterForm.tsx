@@ -154,6 +154,7 @@ const NewsletterForm: React.FC = () => {
 				data-netlify='true'
 				data-netlify-honeypot='bot-field'
 				action='#'
+				noValidate
 			>
 				<input type='hidden' name='form-name' value='newsletter-form' />
 				<fieldset>

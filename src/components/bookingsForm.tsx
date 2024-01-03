@@ -110,6 +110,9 @@ const BookingsForm: React.FC = () => {
 				'firstName',
 				'lastName',
 				'email',
+				'phone',
+				'subject',
+				'message',
 			];
 
 			formKeys.forEach((key) => {
@@ -187,6 +190,7 @@ const BookingsForm: React.FC = () => {
 						data-netlify='true'
 						data-netlify-honeypot='bot-field'
 						action='#'
+						noValidate
 					>
 						<input type='hidden' name='form-name' value='bookings-form' />
 						<fieldset>
