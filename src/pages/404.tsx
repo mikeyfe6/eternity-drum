@@ -21,7 +21,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
 						</>
 					) : null}
 					<br />
-					<Link to='/'>Ga terug naar de homepagina..</Link>.
+					<Link to='/'>Ga terug naar de homepagina..</Link>
 				</p>
 			</section>
 		</>

@@ -24,7 +24,7 @@ const Success: React.FC<PageProps> = () => {
 					) : null}
 					<br />
 					<button type='button' className={styles.succesButton}>
-						<Link to='/'>Ga terug naar de homepagina</Link>.
+						<Link to='/'>Ga terug naar de homepagina</Link>
 					</button>
 				</p>
 			</section>
