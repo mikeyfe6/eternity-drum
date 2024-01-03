@@ -62,7 +62,7 @@ const NewsletterForm: React.FC = () => {
 		setFocusedInput(null);
 	};
 
-	const encode = (data: { [key: string]: string | null }) => {
+	const encode = (data: { [key: string]: string | null | undefined }) => {
 		return Object.keys(data)
 			.map(
 				(key) =>
@@ -77,9 +77,8 @@ const NewsletterForm: React.FC = () => {
 	) => {
 		event.preventDefault();
 
-		if (!myForm) {
-			console.error('Form reference is null');
-			return;
+		if (myForm !== null) {
+			myForm.reset!(); // Non-null assertion operator added here
 		}
 
 		const validationErrors = validateNewsletterForm(formData);
@@ -107,15 +106,16 @@ const NewsletterForm: React.FC = () => {
 				formDataParams.append(key, formData[key]);
 			});
 
-			const response = await axios({
-				method: 'POST',
-				url: '/',
-				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-				data: encode({
-					'form-name': myForm.getAttribute('name'),
+			const response = await axios.post(
+				'/',
+				encode({
+					'form-name': myForm?.getAttribute('name'),
 					...formData,
 				}),
-			});
+				{
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				}
+			);
 
 			console.log('Form submitted successfully:', response.data);
 			navigate('/success');
@@ -149,10 +149,13 @@ const NewsletterForm: React.FC = () => {
 				onSubmit={(event) =>
 					handleSubmit(event, document.querySelector('form'))
 				}
+				name='newsletter-form'
 				method='post'
 				data-netlify='true'
 				data-netlify-honeypot='bot-field'
+				action='#'
 			>
+				<input type='hidden' name='form-name' value='newsletter-form' />
 				<fieldset>
 					<legend>Schrijf je in voor onze nieuwsbrief</legend>
 					<div className='form-column'>
