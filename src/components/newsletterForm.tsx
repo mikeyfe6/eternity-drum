@@ -60,39 +60,45 @@ const NewsletterForm: React.FC = () => {
 		setFocusedInput(null);
 	};
 
-	const handleSubmit = (event: React.FormEvent) => {
+	const handleSubmit = async (event: React.FormEvent) => {
 		event.preventDefault();
 
-		const validationErrors = validateNewsletterForm(formData);
+		const myForm = event.target as HTMLFormElement;
+		const formData = new FormData(myForm);
 
-		const errorMessages = Object.values(validationErrors).flatMap(
-			(error) => error
-		);
+		const encodedFormData = new URLSearchParams(formData as any).toString();
 
-		setFieldErrors(validationErrors);
+		try {
+			const response = await fetch('/', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				body: encodedFormData,
+			});
 
-		if (errorMessages.length > 0) {
-			return;
+			if (response.ok) {
+				setIsFormSubmitted(true);
+
+				setFormData({
+					firstName: '',
+					lastName: '',
+					email: '',
+				});
+
+				setFieldErrors({});
+				setFocusedInput(null);
+
+				const formFields = document.querySelectorAll('.approved');
+				formFields.forEach((field) => {
+					field.classList.remove('approved');
+				});
+
+				navigate('/success');
+			} else {
+				throw new Error('Form submission failed');
+			}
+		} catch (error: any) {
+			alert(error.message || 'An error occurred');
 		}
-
-		setIsFormSubmitted(true);
-
-		setFormData({
-			firstName: '',
-			lastName: '',
-			email: '',
-		});
-
-		setFieldErrors({});
-
-		setFocusedInput(null);
-
-		const formFields = document.querySelectorAll('.approved');
-		formFields.forEach((field) => {
-			field.classList.remove('approved');
-		});
-
-		navigate('/success');
 	};
 
 	const isFormValid = () => {
