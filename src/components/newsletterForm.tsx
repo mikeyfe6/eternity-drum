@@ -128,6 +128,7 @@ const NewsletterForm: React.FC = () => {
 
 			setFieldErrors({});
 			setFocusedInput(null);
+			setIsFormSubmitted(false);
 		} catch (error) {
 			console.error('Form submission error:', error);
 			alert('Er is iets misgegaan. Probeer het later opnieuw.');
