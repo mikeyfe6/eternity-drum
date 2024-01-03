@@ -218,8 +218,11 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 			}
 
 			formKeys.forEach((key) => {
-				formDataParams.append(key, formData[key] ?? '');
-				console.log(key, formData[key]);
+				const value = formData[key];
+				if (value !== undefined) {
+					formDataParams.append(key, value);
+					console.log(key, value);
+				}
 			});
 
 			const response = await axios.post(
