@@ -189,7 +189,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
 		try {
 			const formDataParams = new URLSearchParams();
-			const formKeys: Array<keyof RegisterFormData> = [
+			const formKeys: Array<keyof RegisterFormData | string> = [
 				'firstName',
 				'lastName',
 				'streetName',
@@ -203,17 +203,26 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 				'yearOfBirth',
 				'gender',
 				'phone',
-				'firstNameParent',
-				'lastNameParent',
-				'emailParent',
-				'phoneParent',
 				'discover',
 				'comments',
 				'other',
+				...(isOlderThan18
+					? []
+					: [
+							'firstNameParent',
+							'lastNameParent',
+							'emailParent',
+							'phoneParent',
+					  ]),
 			];
 
 			formKeys.forEach((key) => {
-				formDataParams.append(key, formData[key] ?? '');
+				if (typeof key === 'string' && key in formData) {
+					formDataParams.append(
+						key,
+						formData[key as keyof RegisterFormData] ?? ''
+					);
+				}
 			});
 
 			const response = await axios.post(
