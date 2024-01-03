@@ -124,7 +124,12 @@ const NewsletterForm: React.FC = () => {
 
 	return (
 		<div className={styles.newsletterWrapper}>
-			<form onSubmit={handleSubmit}>
+			<form
+				onSubmit={handleSubmit}
+				method='post'
+				data-netlify='true'
+				data-netlify-honeypot='bot-field'
+			>
 				<fieldset>
 					<legend>Schrijf je in voor onze nieuwsbrief</legend>
 					<div className='form-column'>
