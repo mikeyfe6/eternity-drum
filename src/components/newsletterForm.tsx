@@ -90,11 +90,15 @@ const NewsletterForm: React.FC = () => {
 				formDataParams.append(key, formData[key]);
 			});
 
-			const response = await axios.post('/', formDataParams.toString(), {
-				headers: {
-					'Content-Type': 'application/x-www-form-urlencoded',
-				},
-			});
+			const response = await axios.post(
+				location.href,
+				formDataParams.toString(),
+				{
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded',
+					},
+				}
+			);
 
 			console.log('Form submitted successfully:', response.data);
 			navigate('/success');
