@@ -5,3 +5,7 @@
   NPM_VERSION = "10.2.5" # - latest NPM
   # NPM_VERSION = "8.13.2" # - stable NPM
   YARN_VERSION = "1.22.19" # - latest YARN
+
+[dev]
+  command = "npm run develop" 
+  publish = "public"
