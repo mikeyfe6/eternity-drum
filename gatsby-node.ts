@@ -105,7 +105,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             content: Content
             writer: Writer
             featuredImage: FeaturedImage
-            id: String
+            publishedDate: String 
         }
 
         type ContentfulVacancy implements Node {
@@ -120,9 +120,10 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             availability: Availability
             apply: Apply
             location: Location
-            applicationDeadline: String @dateformat(formatString: "YYYY-MM-DD")
+            applicationDeadline: String
             contactEmail: String
             contactPhone: String
+            postType: PostType
             id: String
         }
 
@@ -143,6 +144,10 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
         type FeaturedImage {
             url: String
             title: String
+        }
+
+        type PostType {
+            name: String
         }
 
         type JobImage {
@@ -297,7 +302,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                     lat
                     lon
                 }
-                applicationDeadline(formatString: "")
+                applicationDeadline
                 contactEmail
                 contactPhone
               }
