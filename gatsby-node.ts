@@ -79,13 +79,89 @@ interface QueryResult {
 export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({ actions }) => {
     const { createTypes } = actions;
     const typeDefs = `
-      type ContentfulPost implements Node {
-        slug: String
-      }
-      
-      type ContentfulVacancy implements Node {
-        slug: String
-      }
+        type ContentfulPost implements Node {
+            slug: String
+            tags: [String]
+            title: String
+            excerpt: Excerpt
+            content: Content
+            writer: Writer
+            featuredImage: FeaturedImage
+            id: String
+        }
+
+        type ContentfulVacancy implements Node {
+            slug: String
+            jobTitle: String
+            department: String
+            jobImage: JobImage
+            jobDescription: JobDescription
+            organisationDetails: OrganisationDetails
+            requirements: Requirements
+            responsibilities: Responsibilities
+            availability: Availability
+            apply: Apply
+            location: Location
+            applicationDeadline: String
+            contactEmail: String
+            contactPhone: String
+            id: String
+        }
+
+        type Excerpt {
+            excerpt: String
+        }
+
+        type Content {
+            raw: String
+        }
+
+        type Writer {
+            name: String
+            email: String
+        }
+
+        type FeaturedImage {
+            url: String
+            title: String
+            # Add other fields if necessary
+        }
+
+        type JobImage {
+            gatsbyImageData: String
+            title: String
+            description: String
+            # Add other fields if necessary
+        }
+
+        type JobDescription {
+            raw: String
+        }
+
+        type OrganisationDetails {
+            raw: String
+        }
+
+        type Requirements {
+            raw: String
+        }
+
+        type Responsibilities {
+            raw: String
+        }
+
+        type Availability {
+            raw: String
+        }
+
+        type Apply {
+            raw: String
+        }
+
+        type Location {
+            lat: Float
+            lon: Float
+        }
     `;
     createTypes(typeDefs);
 };
