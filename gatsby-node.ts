@@ -106,15 +106,13 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             tags: [String]
             title: String
             excerpt: Excerpt
-            publishedDate: String @dateformat(formatString: "YYYY-MM-DD")
             content: Content
-            postType: ContentfulPostType @link(by: "contentful_id", from: "references___NODE")
             writer: Writer
             featuredImage: FeaturedImage
             id: String
         }
 
-        type ContentfulVacancy implements Node @infer {
+        type ContentfulVacancy implements Node {
             slug: String
             jobTitle: String
             department: String
