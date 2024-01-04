@@ -222,7 +222,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 			}
 
 			formKeys.forEach((key) => {
-				formDataParams.append(key, formData[key]);
+				formDataParams.append(key, formData[key] ?? '');
 			});
 
 			console.log('formKeys', formKeys);
@@ -916,157 +916,155 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 						</span>
 					)}
 
-					{!isOlderThan18 && (
-						<fieldset>
-							<legend>Gegevens ouders/voogd:</legend>
+					<fieldset style={{ display: isOlderThan18 ? 'none' : ' block' }}>
+						<legend>Gegevens ouders/voogd:</legend>
 
-							<div className='form-column'>
-								<div className='form-group first-name-parent'>
-									<label
-										htmlFor='firstNameParent'
-										className={
-											focusedInput === 'firstNameParent' ||
-											formData.firstNameParent
-												? 'visited'
-												: ''
-										}
-									>
-										Voornaam (ouders/voogd)
-									</label>
-									<input
-										type='text'
-										id='firstNameParent'
-										name='firstNameParent'
-										placeholder='Voornaam (ouders/voogd)'
-										value={formData.firstNameParent}
-										onChange={handleInputChange}
-										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('firstNameParent')}
-										className={
-											fieldErrors.firstNameParent &&
-											fieldErrors.firstNameParent.length > 0
-												? 'error'
-												: (formData.firstNameParent &&
-														fieldErrors.firstNameParent &&
-														fieldErrors.firstNameParent.length === 0) ||
-												  (fieldErrors.firstNameParent === undefined &&
-														isFormSubmitted === true)
-												? 'approved'
-												: ''
-										}
-									/>
-								</div>
-
-								<div className='form-group last-name-parent'>
-									<label
-										htmlFor='lastNameParent'
-										className={
-											focusedInput === 'lastNameParent' ||
-											formData.lastNameParent
-												? 'visited'
-												: ''
-										}
-									>
-										Achternaam (ouders/voogd)
-									</label>
-									<input
-										type='text'
-										id='lastNameParent'
-										name='lastNameParent'
-										placeholder='Achternaam (ouders/voogd)'
-										value={formData.lastNameParent}
-										onChange={handleInputChange}
-										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('lastNameParent')}
-										className={
-											fieldErrors.lastNameParent &&
-											fieldErrors.lastNameParent.length > 0
-												? 'error'
-												: (formData.lastNameParent &&
-														fieldErrors.lastNameParent &&
-														fieldErrors.lastNameParent.length === 0) ||
-												  (fieldErrors.lastNameParent === undefined &&
-														isFormSubmitted === true)
-												? 'approved'
-												: ''
-										}
-									/>
-								</div>
+						<div className='form-column'>
+							<div className='form-group first-name-parent'>
+								<label
+									htmlFor='firstNameParent'
+									className={
+										focusedInput === 'firstNameParent' ||
+										formData.firstNameParent
+											? 'visited'
+											: ''
+									}
+								>
+									Voornaam (ouders/voogd)
+								</label>
+								<input
+									type='text'
+									id='firstNameParent'
+									name='firstNameParent'
+									placeholder='Voornaam (ouders/voogd)'
+									value={formData.firstNameParent}
+									onChange={handleInputChange}
+									onBlur={handleInputBlur}
+									onFocus={() => handleInputFocus('firstNameParent')}
+									className={
+										fieldErrors.firstNameParent &&
+										fieldErrors.firstNameParent.length > 0
+											? 'error'
+											: (formData.firstNameParent &&
+													fieldErrors.firstNameParent &&
+													fieldErrors.firstNameParent.length === 0) ||
+											  (fieldErrors.firstNameParent === undefined &&
+													isFormSubmitted === true)
+											? 'approved'
+											: ''
+									}
+								/>
 							</div>
 
-							<div className='form-column'>
-								<div className='form-group email-parent'>
-									<label
-										htmlFor='emailParent'
-										className={
-											focusedInput === 'emailParent' || formData.emailParent
-												? 'visited'
-												: ''
-										}
-									>
-										E-mailadres (ouders/voogd)
-									</label>
-									<input
-										id='emailParent'
-										type='email'
-										name='emailParent'
-										placeholder='E-mailadres (ouders/voogd)'
-										value={formData.emailParent}
-										onChange={handleInputChange}
-										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('emailParent')}
-										className={
-											fieldErrors.emailParent &&
-											fieldErrors.emailParent.length > 0
-												? 'error'
-												: (formData.emailParent &&
-														fieldErrors.emailParent &&
-														fieldErrors.emailParent.length === 0) ||
-												  (fieldErrors.emailParent === undefined &&
-														isFormSubmitted === true)
-												? 'approved'
-												: ''
-										}
-									/>
-								</div>
-
-								<div className='form-group phone-parent'>
-									<label
-										htmlFor='phoneParent'
-										className={
-											focusedInput === 'phoneParent' || formData.phoneParent
-												? 'visited'
-												: ''
-										}
-									>
-										Telefoonnummer (ouders/voogd)
-									</label>
-									<input
-										type='tel'
-										id='phoneParent'
-										name='phoneParent'
-										placeholder='Telefoonnummer (ouders/voogd)'
-										value={formData.phoneParent}
-										onChange={handleInputChange}
-										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('phoneParent')}
-										className={
-											fieldErrors.phoneParent &&
-											fieldErrors.phoneParent.length > 0
-												? 'error'
-												: (formData.phoneParent &&
-														fieldErrors.phoneParent &&
-														fieldErrors.phoneParent.length === 0) ||
-												  (fieldErrors.phoneParent === undefined &&
-														isFormSubmitted === true)
-												? 'approved'
-												: ''
-										}
-									/>
-								</div>
+							<div className='form-group last-name-parent'>
+								<label
+									htmlFor='lastNameParent'
+									className={
+										focusedInput === 'lastNameParent' || formData.lastNameParent
+											? 'visited'
+											: ''
+									}
+								>
+									Achternaam (ouders/voogd)
+								</label>
+								<input
+									type='text'
+									id='lastNameParent'
+									name='lastNameParent'
+									placeholder='Achternaam (ouders/voogd)'
+									value={formData.lastNameParent}
+									onChange={handleInputChange}
+									onBlur={handleInputBlur}
+									onFocus={() => handleInputFocus('lastNameParent')}
+									className={
+										fieldErrors.lastNameParent &&
+										fieldErrors.lastNameParent.length > 0
+											? 'error'
+											: (formData.lastNameParent &&
+													fieldErrors.lastNameParent &&
+													fieldErrors.lastNameParent.length === 0) ||
+											  (fieldErrors.lastNameParent === undefined &&
+													isFormSubmitted === true)
+											? 'approved'
+											: ''
+									}
+								/>
 							</div>
-						</fieldset>
-					)}
+						</div>
+
+						<div className='form-column'>
+							<div className='form-group email-parent'>
+								<label
+									htmlFor='emailParent'
+									className={
+										focusedInput === 'emailParent' || formData.emailParent
+											? 'visited'
+											: ''
+									}
+								>
+									E-mailadres (ouders/voogd)
+								</label>
+								<input
+									id='emailParent'
+									type='email'
+									name='emailParent'
+									placeholder='E-mailadres (ouders/voogd)'
+									value={formData.emailParent}
+									onChange={handleInputChange}
+									onBlur={handleInputBlur}
+									onFocus={() => handleInputFocus('emailParent')}
+									className={
+										fieldErrors.emailParent &&
+										fieldErrors.emailParent.length > 0
+											? 'error'
+											: (formData.emailParent &&
+													fieldErrors.emailParent &&
+													fieldErrors.emailParent.length === 0) ||
+											  (fieldErrors.emailParent === undefined &&
+													isFormSubmitted === true)
+											? 'approved'
+											: ''
+									}
+								/>
+							</div>
+
+							<div className='form-group phone-parent'>
+								<label
+									htmlFor='phoneParent'
+									className={
+										focusedInput === 'phoneParent' || formData.phoneParent
+											? 'visited'
+											: ''
+									}
+								>
+									Telefoonnummer (ouders/voogd)
+								</label>
+								<input
+									type='tel'
+									id='phoneParent'
+									name='phoneParent'
+									placeholder='Telefoonnummer (ouders/voogd)'
+									value={formData.phoneParent}
+									onChange={handleInputChange}
+									onBlur={handleInputBlur}
+									onFocus={() => handleInputFocus('phoneParent')}
+									className={
+										fieldErrors.phoneParent &&
+										fieldErrors.phoneParent.length > 0
+											? 'error'
+											: (formData.phoneParent &&
+													fieldErrors.phoneParent &&
+													fieldErrors.phoneParent.length === 0) ||
+											  (fieldErrors.phoneParent === undefined &&
+													isFormSubmitted === true)
+											? 'approved'
+											: ''
+									}
+								/>
+							</div>
+						</div>
+					</fieldset>
+					{/* )} */}
 
 					<div className={styles.registerformSubmit}>
 						<div>
