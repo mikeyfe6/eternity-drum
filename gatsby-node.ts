@@ -75,6 +75,21 @@ interface QueryResult {
     };
 }
 
+
+export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({ actions }) => {
+    const { createTypes } = actions;
+    const typeDefs = `
+      type ContentfulPost implements Node {
+        slug: String
+      }
+      
+      type ContentfulVacancy implements Node {
+        slug: String
+      }
+    `;
+    createTypes(typeDefs);
+};
+
 export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql }) => {
     const { createPage } = actions;
     const postTemplate = path.resolve('./src/templates/post.tsx');
