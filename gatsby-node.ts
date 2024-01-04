@@ -133,22 +133,31 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
         throw new Error(postQueryResult.errors.join(', '));
     }
 
-    postQueryResult.data?.allContentfulPost.edges.forEach(({ node }) => {
-        createPage({
-            component: postTemplate,
-            ownerNodeId: node.id,
-            path: node.slug,
-            context: {
-                slug: node.slug,
-                title: node.title,
-                tags: node.tags,
-                excerpt: node.excerpt.excerpt,
-                content: node.content,
-                writer: node.writer,
-                featuredImage: node.featuredImage,
-            },
+    if (
+        !postQueryResult.data?.allContentfulPost.edges.length
+    ) {
+        console.log('No published posts found. No post pages will be created.');
+
+    } else {
+        postQueryResult.data?.allContentfulPost.edges.forEach(({ node }) => {
+            createPage({
+                component: postTemplate,
+                ownerNodeId: node.id,
+                path: node.slug,
+                context: {
+                    slug: node.slug,
+                    title: node.title,
+                    tags: node.tags,
+                    excerpt: node.excerpt.excerpt,
+                    content: node.content,
+                    writer: node.writer,
+                    featuredImage: node.featuredImage,
+                },
+            });
         });
-    });
+    }
+
+
 
     const vacancyQueryResult = await graphql<QueryResult>(`
     query VacancyQuery {
@@ -201,27 +210,33 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
         throw new Error(vacancyQueryResult.errors.join(', '));
     }
 
-    vacancyQueryResult.data?.allContentfulVacancy.edges.forEach(({ node }) => {
-        createPage({
-            component: vacancyTemplate,
-            ownerNodeId: node.id,
-            path: `/over-ons/vacatures/${node.slug}/`,
-            context: {
-                slug: node.slug,
-                jobTitle: node.jobTitle,
-                jobImage: node.jobImage,
-                department: node.department,
-                jobDescription: node.jobDescription,
-                organisationDetails: node.organisationDetails,
-                responsibilities: node.responsibilities,
-                requirements: node.requirements,
-                availablity: node.availability,
-                apply: node.apply,
-                location: node.location,
-                applicationDeadline: node.applicationDeadline,
-                contactEmail: node.contactEmail,
-                contactPhone: node.contactPhone,
-            },
+    if (
+        !vacancyQueryResult.data?.allContentfulVacancy.edges.length
+    ) {
+        console.log('No published vacancies found. No vacancy pages will be created.');
+    } else {
+        vacancyQueryResult.data?.allContentfulVacancy.edges.forEach(({ node }) => {
+            createPage({
+                component: vacancyTemplate,
+                ownerNodeId: node.id,
+                path: `/over-ons/vacatures/${node.slug}/`,
+                context: {
+                    slug: node.slug,
+                    jobTitle: node.jobTitle,
+                    jobImage: node.jobImage,
+                    department: node.department,
+                    jobDescription: node.jobDescription,
+                    organisationDetails: node.organisationDetails,
+                    responsibilities: node.responsibilities,
+                    requirements: node.requirements,
+                    availablity: node.availability,
+                    apply: node.apply,
+                    location: node.location,
+                    applicationDeadline: node.applicationDeadline,
+                    contactEmail: node.contactEmail,
+                    contactPhone: node.contactPhone,
+                },
+            });
         });
-    });
+    }
 };
