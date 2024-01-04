@@ -127,8 +127,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 	) => {
 		const { name, value } = event.target;
 
-		console.log('formdata', formData);
-
 		const updatedFieldErrors = { ...fieldErrors };
 		updatedFieldErrors[name] =
 			validateRegisterForm(
@@ -145,6 +143,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 			...formData,
 			[name]: value,
 		});
+
+		console.log('formdata', formData);
 
 		event.target.classList.toggle('error', updatedFieldErrors[name].length > 0);
 		event.target.classList.toggle(
@@ -175,6 +175,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		if (myForm !== null) {
 			myForm.reset!();
 		}
+
+		console.log('myForm', myForm);
 
 		const validationErrors = validateRegisterForm(formData, isOlderThan18);
 		const errorMessages = Object.values(validationErrors).flatMap(
@@ -223,7 +225,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 				formDataParams.append(key, formData[key]);
 			});
 
-			console.log(formKeys);
+			console.log('formKeys', formKeys);
+			console.log('formDataParams', formDataParams);
 
 			const response = await axios.post(
 				'/',
@@ -235,6 +238,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				}
 			);
+
+			console.log('response', response);
 
 			console.log('Form submitted successfully:', response.data);
 			navigate('/success');
