@@ -9,6 +9,21 @@
 		text-align: center;
 	}
 
+	> p {
+		background: linear-gradient(
+			45deg,
+			$primaryColor,
+			color.scale($primaryColor, $lightness: 25%)
+		);
+
+		width: fit-content;
+		color: $whiteColor;
+		text-align: center;
+		margin: 0 auto;
+		padding: 1em 1.5em;
+		border-radius: 10px;
+	}
+
 	> ul {
 		display: flex;
 		justify-content: center;
