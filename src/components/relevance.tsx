@@ -46,7 +46,7 @@ const Relevance: React.FC = () => {
 				rel='noopener noreferrer'
 				target='_blank'
 			>
-				Eternity wint Brassband battle 2006 Eternity Kunstvol
+				Drummen met Eternity Percussion
 				<i className='fa-solid fa-up-right-from-square' />
 			</a>
 			<hr />
