@@ -9,9 +9,6 @@ interface Post {
     };
     tags: string[];
     publishedDate: string;
-    postType: {
-        name: string;
-    };
     content: {
         raw: string;
         references: {
@@ -227,9 +224,6 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                                     }
                                 }
                             }
-                        }
-                        postType {
-                            name
                         }
                         publishedDate
                         writer {
