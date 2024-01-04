@@ -123,7 +123,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             applicationDeadline: String
             contactEmail: String
             contactPhone: String
-            postType: PostType
+            postType: [PostType] @infer
             id: String
         }
 
