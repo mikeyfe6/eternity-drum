@@ -114,6 +114,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
 
         type Content {
             raw: String
+            references: [References]
         }
 
         type Writer {
@@ -124,14 +125,12 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
         type FeaturedImage {
             url: String
             title: String
-            # Add other fields if necessary
         }
 
         type JobImage {
             gatsbyImageData: String
             title: String
             description: String
-            # Add other fields if necessary
         }
 
         type JobDescription {
