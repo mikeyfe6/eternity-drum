@@ -10,12 +10,12 @@ interface Post {
 	id: string;
 	postType: [
 		{
-			name: string;
+			name?: string;
 		}
 	];
-	publishedDate: string;
+	publishedDate?: string;
 	featuredImage: {
-		description: string;
+		// description: string;
 		url: string;
 		title: string;
 	};
@@ -35,9 +35,9 @@ const Berichten: React.FC = () => {
 					content {
 						raw
 					}
-					createdAt
+					# createdAt
 					featuredImage {
-						description
+						# description
 						url
 						title
 					}
