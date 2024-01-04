@@ -132,10 +132,9 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
     console.log('postQueryResult.data?.allContentfulPost', postQueryResult.data?.allContentfulPost)
     console.log('postQueryResult.data?.allContentfulPost.edges.length', postQueryResult.data?.allContentfulPost.edges.length)
     console.log('postQueryResult', postQueryResult)
+    console.log('postQueryResult.data?', postQueryResult.data)
 
-    if (
-        postQueryResult.data == undefined
-    ) {
+    if (!postQueryResult.data?.allContentfulPost || !postQueryResult.data?.allContentfulPost.edges.length) {
         console.log('No published posts found. No post pages will be created.');
     } else {
         postQueryResult.data?.allContentfulPost.edges.forEach(({ node }) => {
