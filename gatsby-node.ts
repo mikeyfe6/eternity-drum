@@ -108,11 +108,11 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             id: String
         }
 
-        type ContentfulVacancy implements Node {
+        type ContentfulVacancy implements Node @infer {
             slug: String
             jobTitle: String
             department: String
-            jobImage: JobImage
+            jobImage: JobImage @link(by: "contentful_id", from: "references___NODE")
             jobDescription: JobDescription
             organisationDetails: OrganisationDetails
             requirements: Requirements
@@ -120,7 +120,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             availability: Availability
             apply: Apply
             location: Location
-            applicationDeadline: String
+            applicationDeadline: String @dateformat(formatString: "YYYY-MM-DD")
             contactEmail: String
             contactPhone: String
             id: String
@@ -182,6 +182,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     `;
     createTypes(typeDefs);
 };
+
 
 export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql }) => {
     const { createPage } = actions;
