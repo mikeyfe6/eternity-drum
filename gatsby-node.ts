@@ -8,7 +8,6 @@ interface Post {
         excerpt: string;
     };
     tags: string[];
-    publishedDate: string;
     content: {
         raw: string;
         references: {
@@ -225,7 +224,6 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                                 }
                             }
                         }
-                        publishedDate
                         writer {
                             name
                             email
