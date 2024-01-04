@@ -10,6 +10,24 @@ interface Post {
     tags: string[];
     content: {
         raw: string;
+        references: {
+            __typename: string;
+            contentful_id: string;
+            gatsbyImageData: any;
+            description: string;
+            title: string;
+            file: {
+                url: string;
+                fileName: string;
+                details: {
+                    size: number;
+                    image: {
+                        width: number;
+                        height: number;
+                    };
+                };
+            };
+        }[];
     };
     writer: [
         {
@@ -114,7 +132,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
 
         type Content {
             raw: String
-            references: String
+            references: [ContentfulAsset] @link(by: "contentful_id", from: "references___NODE")
         }
 
         type Writer {
