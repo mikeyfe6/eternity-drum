@@ -13,7 +13,7 @@ interface Post {
 			name?: string;
 		}
 	];
-	publishedDate?: string;
+	publishedDate: string;
 	featuredImage: {
 		// description: string;
 		url: string;
@@ -35,9 +35,7 @@ const Berichten: React.FC = () => {
 					content {
 						raw
 					}
-					# createdAt
 					featuredImage {
-						# description
 						url
 						title
 					}
