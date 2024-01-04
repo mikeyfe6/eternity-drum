@@ -129,8 +129,9 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
         }
   `);
 
-    console.log(postQueryResult.data?.allContentfulPost)
-    console.log(postQueryResult)
+    console.log('postQueryResult.data?.allContentfulPost', postQueryResult.data?.allContentfulPost)
+    console.log('postQueryResult.data?.allContentfulPost.edges.length', postQueryResult.data?.allContentfulPost.edges.length)
+    console.log('postQueryResult', postQueryResult)
 
     if (
         !postQueryResult.data?.allContentfulPost.edges.length
