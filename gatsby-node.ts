@@ -114,7 +114,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
 
         type Content {
             raw: String
-            references: [Object]?
+            references: [Object]
         }
 
         type Writer {
