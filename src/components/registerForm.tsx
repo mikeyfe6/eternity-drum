@@ -127,6 +127,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 	) => {
 		const { name, value } = event.target;
 
+		console.log('formdata', formData);
+
 		const updatedFieldErrors = { ...fieldErrors };
 		updatedFieldErrors[name] =
 			validateRegisterForm(
@@ -218,12 +220,10 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 			}
 
 			formKeys.forEach((key) => {
-				const value = formData[key];
-				if (value !== undefined) {
-					formDataParams.append(key, value);
-					console.log(key, value);
-				}
+				formDataParams.append(key, formData[key]);
 			});
+
+			console.log(formKeys);
 
 			const response = await axios.post(
 				'/',
