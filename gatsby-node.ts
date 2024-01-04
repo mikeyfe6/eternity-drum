@@ -129,15 +129,12 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
         }
   `);
 
-    if (postQueryResult.errors) {
-        throw new Error(postQueryResult.errors.join(', '));
-    }
+    console.log(postQueryResult.data?.allContentfulPost)
 
     if (
         !postQueryResult.data?.allContentfulPost.edges.length
     ) {
         console.log('No published posts found. No post pages will be created.');
-
     } else {
         postQueryResult.data?.allContentfulPost.edges.forEach(({ node }) => {
             createPage({
@@ -157,7 +154,9 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
         });
     }
 
-
+    if (postQueryResult.errors) {
+        throw new Error(postQueryResult.errors.join(', '));
+    }
 
     const vacancyQueryResult = await graphql<QueryResult>(`
     query VacancyQuery {
@@ -206,10 +205,6 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
     }
   `);
 
-    if (vacancyQueryResult.errors) {
-        throw new Error(vacancyQueryResult.errors.join(', '));
-    }
-
     if (
         !vacancyQueryResult.data?.allContentfulVacancy.edges.length
     ) {
@@ -238,5 +233,9 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                 },
             });
         });
+    }
+
+    if (vacancyQueryResult.errors) {
+        throw new Error(vacancyQueryResult.errors.join(', '));
     }
 };
