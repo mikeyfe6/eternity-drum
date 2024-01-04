@@ -13,6 +13,7 @@ const Courses: React.FC = () => {
 		<section className={styles.coursesContainer}>
 			<div>
 				<p>
+					<i className='fa-solid fa-circle-exclamation' />
 					Hoewel eerder, door de impact van het coronavirus (COVID-19), de
 					overheid maatregelen moest treffen die onze reguliere lessen
 					beïnvloedden, boden we destijds online lessen aan als een tijdelijke
