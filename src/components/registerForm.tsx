@@ -144,8 +144,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 			[name]: value,
 		});
 
-		console.log('formdata', formData);
-
 		event.target.classList.toggle('error', updatedFieldErrors[name].length > 0);
 		event.target.classList.toggle(
 			'approved',
@@ -175,8 +173,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		if (myForm !== null) {
 			myForm.reset!();
 		}
-
-		console.log('myForm', myForm);
 
 		const validationErrors = validateRegisterForm(formData, isOlderThan18);
 		const errorMessages = Object.values(validationErrors).flatMap(
@@ -225,10 +221,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 				formDataParams.append(key, formData[key] ?? '');
 			});
 
-			console.log('formKeys', formKeys);
-			console.log('formDataParams', formDataParams);
-
-			const response = await axios.post(
+			await axios.post(
 				'/',
 				encode({
 					'form-name': myForm?.getAttribute('name'),
@@ -239,9 +232,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 				}
 			);
 
-			console.log('response', response);
-
-			console.log('Form submitted successfully:', response.data);
 			navigate('/success');
 
 			setFormData({
@@ -703,6 +693,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									Geboortedatum
 								</label>
 								<div className='date-inputs'>
+									<label htmlFor='dayOfBirth' hidden>
+										Geboortedag
+									</label>
 									<select
 										id='dayOfBirth'
 										name='dayOfBirth'
@@ -734,6 +727,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 											</option>
 										))}
 									</select>
+									<label htmlFor='monthOfBirth' hidden>
+										Geboortemaand
+									</label>
 									<select
 										id='monthOfBirth'
 										name='monthOfBirth'
@@ -778,6 +774,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 											</option>
 										))}
 									</select>
+									<label htmlFor='yearOfBirth' hidden>
+										Geboortejaar
+									</label>
 									<select
 										id='yearOfBirth'
 										name='yearOfBirth'
@@ -867,23 +866,26 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 							</div>
 						</div>
 
-						{formData.discover === 'Overig' && (
-							<div className='form-column'>
-								<div className='form-group other'>
-									<label htmlFor='other'>Meer info..</label>
-									<input
-										type='text'
-										id='other'
-										name='other'
-										placeholder='...'
-										value={formData.other}
-										onChange={handleInputChange}
-										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('other')}
-									/>
-								</div>
+						<div
+							className='form-column'
+							style={{
+								display: formData.discover === 'Overig' ? 'block' : ' none',
+							}}
+						>
+							<div className='form-group other'>
+								<label htmlFor='other'>Meer info..</label>
+								<input
+									type='text'
+									id='other'
+									name='other'
+									placeholder='...'
+									value={formData.other}
+									onChange={handleInputChange}
+									onBlur={handleInputBlur}
+									onFocus={() => handleInputFocus('other')}
+								/>
 							</div>
-						)}
+						</div>
 
 						<div className='form-column'>
 							<div className='form-group comments'>
@@ -1064,7 +1066,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 							</div>
 						</div>
 					</fieldset>
-					{/* )} */}
 
 					<div className={styles.registerformSubmit}>
 						<div>

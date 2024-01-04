@@ -113,7 +113,7 @@ const BookingsForm: React.FC = () => {
 				formDataParams.append(key, formData[key]);
 			});
 
-			const response = await axios.post(
+			await axios.post(
 				'/',
 				encode({
 					'form-name': myForm?.getAttribute('name'),
@@ -124,7 +124,6 @@ const BookingsForm: React.FC = () => {
 				}
 			);
 
-			console.log('Form submitted successfully:', response.data);
 			navigate('/success');
 
 			setFormData({
