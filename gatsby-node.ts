@@ -51,6 +51,7 @@ interface Vacancy {
         gatsbyImageData: any;
         title: string;
         description: string;
+
     };
     jobDescription: {
         raw: string;
@@ -113,7 +114,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             slug: String
             jobTitle: String
             department: String
-            jobImage: JobImage @link(by: "contentful_id", from: "references___NODE")
+            jobImage: JobImage
             jobDescription: JobDescription
             organisationDetails: OrganisationDetails
             requirements: Requirements
