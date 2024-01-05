@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
 		<section className={styles.swiperContainer} data-main-hero>
 			<Swiper
 				modules={[Navigation, Pagination, Scrollbar, A11y, Parallax, Autoplay]}
-				spaceBetween={0}
+				spaceBetween={10}
 				slidesPerView={1}
 				centeredSlides={true}
 				loop={true}
