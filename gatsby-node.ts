@@ -95,27 +95,14 @@ interface QueryResult {
     };
 }
 
-
 export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = async ({ actions }) => {
     const { createTypes } = actions;
 
     const typeDefs = `
-        type ContentfulAsset implements Node {
-            contentful_id: String!
-            gatsbyImageData: JSON!
-            description: String
-            title: String
-            file: File!
+        type ContentfulPost implements Node @infer {
+            id: ID!
+            slug: String
         }
-
-        type Post implements Node {
-            content: ContentfulAsset @link(from: "content.references")
-        }
-
-        type Vacancy implements Node {
-            jobImage: ContentfulAsset @link(from: "jobImage")
-        }
-        # Define other custom types here if needed
     `;
 
     createTypes(typeDefs);
