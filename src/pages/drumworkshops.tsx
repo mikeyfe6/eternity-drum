@@ -148,4 +148,9 @@ const Drumworkshops: React.FC<PageProps> = () => {
 
 export default Drumworkshops;
 
-export const Head: HeadFC = () => <Seo title='Drumworkshops' />;
+export const Head: HeadFC = () => (
+	<Seo
+		title='Drumworkshops'
+		description='Ontdek onze boeiende drumworkshops voor kinderen en jongeren in Amsterdam Zuidoost. Leer Afrikaanse, Afro-Caribische en Afro-Surinaamse ritmes spelen en noten lezen voor percussie-instrumenten. Onze lessen worden verzorgd door ervaren docenten, met presentatiemogelijkheden op lokale evenementen. Meld je nu aan voor een muzikale reis vol ontwikkeling en plezier.'
+	/>
+);

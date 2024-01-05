@@ -110,4 +110,9 @@ const OverOns: React.FC<PageProps> = () => {
 
 export default OverOns;
 
-export const Head: HeadFC = () => <Seo title='Over Ons' />;
+export const Head: HeadFC = () => (
+	<Seo
+		title='Over Ons'
+		description="Ontdek hoe Eternity, als culturele instelling, zich inzet voor talentontwikkeling, cultuurparticipatie en visieverbreding van jongeren. Muziekeducatie staat centraal, waarbij jongeren de kans krijgen om cultureel te ondernemen en te participeren in de Nederlandse samenleving. Door muzikaal vormende programma's en kennismaking met Caribische drumstijlen kunnen jongeren hun talenten ontwikkelen en zich als artiest ontplooien. Eternity is een culturele instelling gericht op muzikale vorming en performance, waarbij het platform biedt aan drummers, trajecten ontwikkelt voor muzikale vaardigheden, drumshows programmeert en samenwerking bevordert tussen zelforganisaties en gevestigde instellingen voor getalenteerde jongeren. De doelgroepen omvatten kinderen, jongeren en jongvolwassenen met affiniteit voor Caribische muziekstijlen, alsmede afnemers van optredens, bezoekers, muziekliefhebbers en professionals uit de muzieksector. "
+	/>
+);

@@ -20,8 +20,6 @@ import GallerySix from '../components/galleries/gallerySix';
 import GallerySeven from '../components/galleries/gallerySeven';
 import GalleryEight from '../components/galleries/galleryEight';
 
-import YouTubePlayer from '../components/youtubePlayer';
-
 import * as styles from '../styles/modules/media.module.scss';
 
 const Media: React.FC<PageProps> = () => {
@@ -79,4 +77,9 @@ const Media: React.FC<PageProps> = () => {
 
 export default Media;
 
-export const Head: HeadFC = () => <Seo title='Media' />;
+export const Head: HeadFC = () => (
+	<Seo
+		title='Media'
+		description="Verken de multimediale wereld van Eternity Percussion op de Media-pagina. Geniet van onze muziekspeler, ontdek relevante nieuwsartikelen en duik in een visuele reis met onze uitgebreide fotogalerij. Bekijk onze verzameling video's om onze optredens en projecten in actie te zien. Ervaar de veelzijdigheid van Eternity Percussion door geluid, beeld en nieuws te verkennen op één plek."
+	/>
+);

@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
 
+import { StaticImage } from 'gatsby-plugin-image';
+
 import {
 	Navigation,
 	Pagination,
@@ -19,12 +21,6 @@ import 'swiper/scss/pagination';
 import 'swiper/scss/scrollbar';
 import 'swiper/scss/parallax';
 import 'swiper/scss/autoplay';
-
-import beats from '../images/hero/beats.jpg';
-import mandhood from '../images/hero/manhood-ac.jpg';
-import umuntu from '../images/hero/umuntu.jpg';
-import youngep from '../images/hero/young-ep.jpg';
-import thecrew from '../images/hero/thecrew.jpg';
 
 const Hero: React.FC = () => {
 	const progressCircle = useRef<SVGSVGElement | null>(null);
@@ -65,19 +61,44 @@ const Hero: React.FC = () => {
 				className={styles.swiperWrapper}
 			>
 				<SwiperSlide className={styles.swiperSlide}>
-					<img src={beats} alt='' />
+					<StaticImage
+						src='../images/hero/beats.jpg'
+						alt={`Beats`}
+						placeholder='blurred'
+						className={styles.swiperImage}
+					/>
 				</SwiperSlide>
 				<SwiperSlide className={styles.swiperSlide}>
-					<img src={mandhood} alt='' />
+					<StaticImage
+						src='../images/hero/manhood-ac.jpg'
+						alt={`Manhood`}
+						placeholder='blurred'
+						className={styles.swiperImage}
+					/>
 				</SwiperSlide>
 				<SwiperSlide className={styles.swiperSlide}>
-					<img src={umuntu} alt='' />
+					<StaticImage
+						src='../images/hero/umuntu.jpg'
+						alt={`Umuntu`}
+						placeholder='blurred'
+						className={styles.swiperImage}
+					/>
 				</SwiperSlide>
 				<SwiperSlide className={styles.swiperSlide}>
-					<img src={youngep} alt='' />
+					<StaticImage
+						src='../images/hero/young-ep.jpg'
+						alt={`Young Eternity`}
+						placeholder='blurred'
+						className={styles.swiperImage}
+					/>
 				</SwiperSlide>
 				<SwiperSlide className={styles.swiperSlide}>
-					<img src={thecrew} alt='' />
+					<StaticImage
+						src='../images/hero/thecrew.jpg'
+						alt={`The Crew`}
+						placeholder='blurred'
+						className={styles.swiperImage}
+					/>
 				</SwiperSlide>
 
 				<div className={styles.autoplayProgress} slot='container-end'>

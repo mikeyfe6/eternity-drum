@@ -52,6 +52,11 @@
 		@include epWrapper;
 	}
 
+	&-image {
+		width: 100%;
+		opacity: 0.75;
+	}
+
 	&-slide {
 		border-radius: 10px;
 		overflow: hidden;
@@ -61,7 +66,6 @@
 		}
 
 		img {
-			opacity: 0.75;
 			border-radius: 10px;
 
 			@include respImage(100%, 100%, 600px, cover);

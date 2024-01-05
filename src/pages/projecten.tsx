@@ -372,4 +372,9 @@ const Projecten: React.FC<PageProps> = () => {
 
 export default Projecten;
 
-export const Head: HeadFC = () => <Seo title='Projecten' />;
+export const Head: HeadFC = () => (
+	<Seo
+		title='Projecten'
+		description="Ontdek de diverse projecten van Eternity die jeugdontwikkeling en culturele uitwisseling bevorderen. Van 'Building Strong Communities,' waarbij de jeugd van Amsterdam Zuidoost wordt geëmpowerd met interactieve sessies over de zwarte geschiedenis, tot 'Get Up Stand Up,' een uitwisselingsprogramma in Amsterdam en Londen om veerkracht tegen geweld te versterken. Ontdek meer initiatieven zoals 'Van Hobby naar Succes,' dat een cultureel-educatieve reis biedt met drumlessen. Doe mee met deze transformerende inspanningen!"
+	/>
+);

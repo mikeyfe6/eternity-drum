@@ -89,4 +89,9 @@ const Vacatures: React.FC<PageProps> = () => {
 
 export default Vacatures;
 
-export const Head: HeadFC = () => <Seo title='Vacatures' />;
+export const Head: HeadFC = () => (
+	<Seo
+		title='Vacatures'
+		description='Ontdek de laatste vacatures bij Eternity! Bekijk onze actuele lijst met openstaande functies en mogelijkheden om deel uit te maken van ons team. Bij Eternity bieden we kansen in verschillende vakgebieden en afdelingen. Bekijk onze vacatures en solliciteer vandaag nog om deel uit te maken van ons dynamische en gepassioneerde team in Amsterdam Zuidoost.'
+	/>
+);

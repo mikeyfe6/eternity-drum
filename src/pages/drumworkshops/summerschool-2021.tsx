@@ -136,4 +136,9 @@ const SummerschoolSecond: React.FC<PageProps> = () => {
 
 export default SummerschoolSecond;
 
-export const Head: HeadFC = () => <Seo title='Summerschool 2021' />;
+export const Head: HeadFC = () => (
+	<Seo
+		title='Summerschool 2021'
+		description='Ontdek onze zinderende Summerschool 2021! Gratis Brassband, Drum- en Afro-Caribische drumworkshops voor kinderen, tieners en jongeren in Amsterdam Zuidoost. 6 weken lang muzieklessen met de mogelijkheid om lid te worden van Eternity, Untold of Black Harmony. Ontdek de data, tijden en locaties van onze boeiende workshops en sluit je aan bij een van onze artiestengroepen voor verdere muzikale training.'
+	/>
+);

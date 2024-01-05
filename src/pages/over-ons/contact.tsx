@@ -153,4 +153,9 @@ const Contact: React.FC<PageProps> = () => {
 
 export default Contact;
 
-export const Head: HeadFC = () => <Seo title='Contact' />;
+export const Head: HeadFC = () => (
+	<Seo
+		title='Contact'
+		description='Neem contact op met ons! Ontdek onze gegevens voor directe communicatie en bezoek ons in Amsterdam Zuidoost. Ontdek onze locatie, bel ons, stuur een e-mail of volg ons op verschillende sociale mediaplatforms. Bij Eternity bieden we een scala aan communicatiekanalen, waaronder telefoon, e-mail en sociale media, om ervoor te zorgen dat u gemakkelijk met ons in contact kunt komen. U kunt ons ook bereiken via WhatsApp voor directe ondersteuning.'
+	/>
+);

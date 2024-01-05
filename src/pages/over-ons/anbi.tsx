@@ -156,4 +156,9 @@ const Anbi: React.FC<PageProps> = () => {
 
 export default Anbi;
 
-export const Head: HeadFC = () => <Seo title='ANBI' />;
+export const Head: HeadFC = () => (
+	<Seo
+		title='ANBI'
+		description="Ontdek meer over de culturele instelling 'Stichting Eternity Percussion' (ANBI). Leer over onze missie en doelstellingen als organisatie die zich bezighoudt met het organiseren van muzikale vormingsactiviteiten en evenementen. Verken ons doel om een platform te bieden voor drummers die Caribische muziekstijlen verkennen, evenals onze inspanningen voor het ontwikkelen van talent en samenwerking binnen de muziekgemeenschap. Krijg inzicht in onze contactgegevens en het bestuur."
+	/>
+);

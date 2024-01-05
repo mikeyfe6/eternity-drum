@@ -32,6 +32,4 @@ const Success: React.FC<PageProps> = () => {
 
 export default Success;
 
-export const Head: HeadFC = () => (
-	<Seo title='Succes! Je bericht is verstuurd!' />
-);
+export const Head: HeadFC = () => <Seo title='Succesvolle formulierzending!' />;

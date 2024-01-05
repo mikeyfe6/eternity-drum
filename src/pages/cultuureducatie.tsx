@@ -66,4 +66,9 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 
 export default CultuurEducatie;
 
-export const Head: HeadFC = () => <Seo title='Cultuureducatie' />;
+export const Head: HeadFC = () => (
+	<Seo
+		title='Cultuureducatie'
+		description="Dompel jezelf onder in de wereld van Caribische drumbands met Eternity's Cultuureducatie programma. Ontdek hoe we kinderen en jongeren bereiken door educatieve en naschoolse drumworkshops aan te bieden in Amsterdam. Een educatief traject dat talent, houding en samenwerking in de band stimuleert, leidt tot optredens met onze professionele drumband. Ontdek onze workshops op verschillende instellingen zoals het Bindelmeer College en Bredeschool Zuidoost."
+	/>
+);
