@@ -152,7 +152,6 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
         }
 
         type JobImage {
-            gatsbyImageData: String
             title: String
             description: String
         }
