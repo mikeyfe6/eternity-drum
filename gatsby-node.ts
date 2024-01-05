@@ -102,6 +102,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
         type ContentfulPost implements Node @infer {
             id: ID!
             slug: String
+            tags: [String]
         }
     `;
 
