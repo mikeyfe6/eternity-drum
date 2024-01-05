@@ -16,7 +16,7 @@ interface Post {
         references: {
             __typename: string;
             contentful_id: string;
-            gatsbyImageData: any;
+            gatsbyImageData: IGatsbyImageData;
             description: string;
             title: string;
             file: {
@@ -96,99 +96,44 @@ interface QueryResult {
 }
 
 
-export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({ actions }) => {
-    const { createTypes } = actions;
-    const typeDefs = `
-        type ContentfulPost implements Node {
-            slug: String
-            tags: [String]
-            title: String
-            excerpt: Excerpt
-            content: Content
-            writer: Writer
-            featuredImage: FeaturedImage
-            publishedDate: String 
-            postType: PostType
-        }
+// export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({ actions }) => {
+//     const { createTypes } = actions;
+//     const typeDefs = `
+//         type ContentfulPost implements Node {
+//             slug: String
+//             title: String
+//             tags: [String]
+//             content: Content
+//             writer: [Writer]
+//             featuredImage: FeaturedImage
+//             id: String
+//         }
 
-        type ContentfulVacancy implements Node {
-            slug: String
-            jobTitle: String
-            department: String
-            jobDescription: JobDescription
-            jobImage: JobImage
-            organisationDetails: OrganisationDetails
-            requirements: Requirements
-            responsibilities: Responsibilities
-            availability: Availability
-            apply: Apply
-            location: Location
-            applicationDeadline: String
-            contactEmail: String
-            contactPhone: String
-            id: String
-        }
+//         type ContentfulVacancy implements Node {
+//             id: String
+//             slug: String
+//             jobTitle: String
+//             department: String
+//         }
 
-        type Excerpt {
-            excerpt: String
-        }
 
-        type Content {
-            raw: String
-            references: [ContentfulAsset] @link(by: "contentful_id", from: "references___NODE")
-        }
+//         type Content {
+//             raw: String
+//             references: [ContentfulAsset] @link(by: "contentful_id", from: "references___NODE")
+//         }
 
-        type Writer {
-            name: String
-            email: String
-        }
+//         type Writer {
+//             name: String
+//             email: String
+//         }
 
-        type FeaturedImage {
-            url: String
-            title: String
-        }
-
-        type PostType {
-            name: String
-        }
-
-        type JobImage {
-            gatsbyImageData: JSON
-            title: String
-            description: String
-        }
-
-        type JobDescription {
-            raw: String
-        }
-
-        type OrganisationDetails {
-            raw: String
-        }
-
-        type Requirements {
-            raw: String
-        }
-
-        type Responsibilities {
-            raw: String
-        }
-
-        type Availability {
-            raw: String
-        }
-
-        type Apply {
-            raw: String
-        }
-
-        type Location {
-            lat: Float
-            lon: Float
-        }
-    `;
-    createTypes(typeDefs);
-};
+//         type FeaturedImage {
+//             url: String
+//             title: String
+//         }
+//     `;
+//     createTypes(typeDefs);
+// };
 
 
 export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql }) => {
