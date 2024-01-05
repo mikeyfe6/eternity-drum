@@ -106,6 +106,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             writer: Writer
             featuredImage: FeaturedImage
             publishedDate: String 
+            postType: PostType
         }
 
         type ContentfulVacancy implements Node {
@@ -123,7 +124,6 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             applicationDeadline: String
             contactEmail: String
             contactPhone: String
-            postType: [PostType] @infer
             id: String
         }
 
