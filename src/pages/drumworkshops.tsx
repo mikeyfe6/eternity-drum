@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 
 import type { HeadFC, PageProps } from 'gatsby';
 
+import { useSiteMetadata } from '../hooks/use-site-metadata';
+
 import { Seo } from '../components/seo';
 
 import Breadcrumb from '../components/breadcrumbs';
@@ -12,6 +14,8 @@ import RegisterForm, { handleClick } from '../components/registerForm';
 import * as styles from '../styles/modules/workshop.module.scss';
 
 const Drumworkshops: React.FC<PageProps> = () => {
+	const { email, mobile } = useSiteMetadata();
+
 	const breadcrumbs = [
 		{ label: 'Home', link: '/' },
 		{ label: 'Drumworkshops' },
@@ -36,15 +40,15 @@ const Drumworkshops: React.FC<PageProps> = () => {
 							</strong>{' '}
 							Momenteel verzorgen wij drumlessen op het{' '}
 							<a
-								href='https://www.bindelmeercollege.nl/'
+								href='https://www.bindelmeercollege.nl'
 								rel='noopener noreferrer'
 								target='_blank'
 							>
 								Bindelmeer College{' '}
 							</a>
-							en de
+							en de{' '}
 							<a
-								href='https://bredeschoolzuidoost.nl/'
+								href='https://bredeschoolzuidoost.nl'
 								rel='noopener noreferrer'
 								target='_blank'
 							>
@@ -89,12 +93,27 @@ const Drumworkshops: React.FC<PageProps> = () => {
 						</p>
 
 						<p>
-							Meld jezelf of kind nu direct aan via het{' '}
+							Meld jezelf of jouw kind nu direct aan via het{' '}
 							<a href='#' onClick={(event) => handleClick(inputRef, event)}>
 								online inschrijfformulier
 							</a>
-							, via de mail <a href='#!'>info@eternitydrum.com</a> of
-							telefonisch via <a href='#!'>06 24 25 53 91</a>.
+							, via de mail{' '}
+							<a
+								href={`mailto:${email}`}
+								rel='noopener noreferrer'
+								target='_blank'
+							>
+								{email}
+							</a>{' '}
+							of telefonisch via{' '}
+							<a
+								href={`tel:+${mobile}`}
+								rel='noopener noreferrer'
+								target='_blank'
+							>
+								06 242 55 391
+							</a>
+							.
 						</p>
 
 						<p>
@@ -107,13 +126,17 @@ const Drumworkshops: React.FC<PageProps> = () => {
 							laten deelnemen, maar niet in staat zijn om de bijdrage te betalen
 							kunnen wij een regeling treffen via het{' '}
 							<a
-								href='https://www.jongerencultuurfonds.nl/'
+								href='https://www.jongerencultuurfonds.nl'
 								rel='noopener noreferrer'
 								target='_blank'
 							>
 								Jongerencultuurfonds
 							</a>
-							. Voor vragen omtrent deze regeling kunt u telefonisch contact met
+							.
+						</p>
+
+						<p>
+							Voor vragen omtrent deze regeling kan je telefonisch contact met
 							ons opnemen.
 						</p>
 					</section>

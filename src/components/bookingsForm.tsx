@@ -3,6 +3,8 @@ import React, { useState, useRef } from 'react';
 import { navigate } from 'gatsby';
 import axios from 'axios';
 
+import { useSiteMetadata } from '../hooks/use-site-metadata';
+
 import * as styles from '../styles/modules/bookingsform.module.scss';
 
 import { validateBookingsForm, BookingsFormData } from './validation';
@@ -12,6 +14,8 @@ type FieldErrors = {
 };
 
 const BookingsForm: React.FC = () => {
+	const { mobile } = useSiteMetadata();
+
 	const [focusedInput, setFocusedInput] = useState<string | null>(null);
 	const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
@@ -188,7 +192,7 @@ const BookingsForm: React.FC = () => {
 						<input type='hidden' name='form-name' value='bookings-form' />
 						<fieldset>
 							<legend>
-								Vul hieronder uw gegevens in en wij nemen zo spoedig mogelijk
+								Vul hieronder je gegevens in en wij nemen zo spoedig mogelijk
 								contact met je op.
 							</legend>
 							<div className='form-column'>
@@ -469,7 +473,7 @@ const BookingsForm: React.FC = () => {
 						en gevarieerde show.
 					</p>
 					<p>
-						U kunt ons inhuren voor; <u>bedrijfsevenementen</u>,{' '}
+						Wij zijn in te huren voor; <u>bedrijfsevenementen</u>,{' '}
 						<u>begrafenissen</u>, <u>bruiloften</u>, <u>jubilea</u>,{' '}
 						<u>openingen</u>, <u>parades</u>, <u>theatervoorstellingen</u> en{' '}
 						<u>verjaardagen</u>. Het repertoire wordt afgestemd op het publiek
@@ -480,12 +484,19 @@ const BookingsForm: React.FC = () => {
 						<strong>
 							minimaal 6 en maximaal 15 drummers inclusief de blazerssectie
 						</strong>{' '}
-						voor setjes van 10 tot maximaal 30 min (U kunt ook meerdere setjes
+						voor setjes van 10 tot maximaal 30 min (Je kunt ook meerdere setjes
 						boeken).
 					</p>
 					<p>
-						Voor meer informatie kunt u telefonisch contact opnemen via:{' '}
-						<a href='#!'>06 242 55 391</a> of een offerte opvragen via het{' '}
+						Voor meer informatie kan je telefonisch contact opnemen via:{' '}
+						<a
+							href={`tel:+${mobile}`}
+							rel='noopener noreferrer'
+							target='_blank'
+						>
+							06 242 55 391
+						</a>{' '}
+						of een offerte opvragen via het{' '}
 						<a href='#' onClick={(event) => handleClick(inputRef, event)}>
 							online boekingsformulier
 						</a>

@@ -124,13 +124,13 @@ const Footer = () => {
 									<Link to='/projecten/sankofa-academy/'>Sankofa Academy</Link>
 								</li>
 								<li>
-									<Link to='/drumworkshops/summerschool-2020/'>
-										Summerschool 2020
+									<Link to='/drumworkshops/summerschool-2021/'>
+										Summerschool 2021
 									</Link>
 								</li>
 								<li>
-									<Link to='/drumworkshops/summerschool-2021/'>
-										Summerschool 2021
+									<Link to='/drumworkshops/summerschool-2020/'>
+										Summerschool 2020
 									</Link>
 								</li>
 							</ul>
@@ -140,9 +140,10 @@ const Footer = () => {
 							<h4>Aankomende Evenementen</h4>
 							<ul>
 								<li>
-									<Link to='/#!'>Optreden 1 @ Bijlmer Parktheater</Link>
+									{/* <Link to='/#!'>Optreden 1 @ Bijlmer Parktheater</Link> */}
+									Binnenkort meer..
 								</li>
-								<li>
+								{/* <li>
 									<Link to='/#!'>Optreden 2 @ Almere</Link>
 								</li>
 								<li>
@@ -159,7 +160,7 @@ const Footer = () => {
 								</li>
 								<li>
 									<Link to='/#!'>Uitwisseling 2 @ Breda</Link>
-								</li>
+								</li> */}
 							</ul>
 						</section>
 					</section>

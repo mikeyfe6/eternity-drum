@@ -21,7 +21,7 @@ Deze webapp is gebouwd door [Michael Fransman](https://www.linkedin.com/in/micha
 
 Eternity is een culturele instelling die zich bezighoudt met activiteiten, projecten en evenementen op het gebied van muzikale vorming en performance.
 
-- _Meer weten? Bekijk de webapp / check the webapp: [Eternity Percussion](https://eternity-drum.netlify.app/)_
+- _Meer weten? Bekijk de webapp / check the webapp: [Eternity Percussion](https://eternity-drum.netlify.app)_
 
 <br>
 
@@ -31,7 +31,7 @@ Eternity is een culturele instelling die zich bezighoudt met activiteiten, proje
 
 **Deze webapp is gebouwd met GatsbyJS, ReactJS, Contentful, GraphQl & Netlify.**
 
-Powered by [Menefex](https://menefex.nl/) ✨
+Powered by [Menefex](https://menefex.nl) ✨
 
 <br>
 

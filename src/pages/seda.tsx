@@ -4,6 +4,8 @@ import type { HeadFC, PageProps } from 'gatsby';
 
 import { StaticImage } from 'gatsby-plugin-image';
 
+import { useSiteMetadata } from '../hooks/use-site-metadata';
+
 import { Seo } from '../components/seo';
 
 import Breadcrumb from '../components/breadcrumbs';
@@ -11,6 +13,8 @@ import Breadcrumb from '../components/breadcrumbs';
 import Hero from '../components/heroslider';
 
 const Seda: React.FC<PageProps> = () => {
+	const { email } = useSiteMetadata();
+
 	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'SEDA' }];
 
 	return (
@@ -47,15 +51,29 @@ const Seda: React.FC<PageProps> = () => {
 						</p>
 						<p>
 							Onze locatie is niet te missen:{' '}
-							<a href='https://maps.app.goo.gl/MGox9UBh15DWsfLg8'>
+							<a
+								href='https://maps.app.goo.gl/MGox9UBh15DWsfLg8'
+								rel='noopener noreferrer'
+								target='_blank'
+							>
 								Kruitbergstraat 18
 							</a>
 							, 1104 CH, gelegen in een opvallende paarse container onder het
-							metrostation Kraaiennest in Amsterdam Zuidoost. Wil je meer weten
-							over de verhuurmogelijkheden? Neem dan contact met ons, stuur ons
-							een e-mail op <a href='#!'>info@eternitydrum.com</a>.
+							metrostation Kraaiennest in Amsterdam Zuidoost.
 							{/* Bezoek onze website op www.eternitydrum.com
 							of stuur ons een e-mail op info@eternitydrum.com. */}
+						</p>
+						<p>
+							Wil je meer weten over de verhuurmogelijkheden? Neem dan contact
+							met ons op via onze e-mail;{' '}
+							<a
+								href={`mailto:${email}`}
+								rel='noopener noreferrer'
+								target='_blank'
+							>
+								{email}
+							</a>
+							.
 						</p>
 					</div>
 					<div>

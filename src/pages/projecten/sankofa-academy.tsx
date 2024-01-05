@@ -4,6 +4,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import type { HeadFC, PageProps } from 'gatsby';
 
+import { useSiteMetadata } from '../../hooks/use-site-metadata';
+
 import { Seo } from '../../components/seo';
 
 import Breadcrumb from '../../components/breadcrumbs';
@@ -16,6 +18,8 @@ import LightBox from '../../components/lightbox';
 import * as styles from '../../styles/modules/workshop.module.scss';
 
 const SankofaAcademy: React.FC<PageProps> = () => {
+	const { email, mobile } = useSiteMetadata();
+
 	const breadcrumbs = [
 		{ label: 'Home', link: '/' },
 		{ label: 'Projecten', link: '/projecten/' },
@@ -88,7 +92,15 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 							project is in het kader van de afschaffing van de
 							Trans-Atlantische slavernij door Nederland in Suriname en de
 							voormalige Nederlandse Antillen. Dit project is in samenwerking
-							met <a href='#!'>Untold Empowerment</a>.
+							met{' '}
+							<a
+								href='https://untold.nl'
+								rel='noopener noreferrer'
+								target='_blank'
+							>
+								Untold Empowerment
+							</a>
+							.
 						</p>
 
 						<p>
@@ -132,8 +144,23 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 							<a href='#' onClick={(event) => handleClick(inputRef, event)}>
 								online inschrijfformulier
 							</a>
-							, via de mail <a href='#!'>info@eternitydrum.com</a> of
-							telefonisch via <a href='#!'>06 24 25 53 91</a>.
+							, via de mail{' '}
+							<a
+								href={`mailto:${email}`}
+								rel='noopener noreferrer'
+								target='_blank'
+							>
+								{email}
+							</a>{' '}
+							of telefonisch via{' '}
+							<a
+								href={`tel:+${mobile}`}
+								rel='noopener noreferrer'
+								target='_blank'
+							>
+								06 242 55 391
+							</a>
+							.
 						</p>
 
 						<p>

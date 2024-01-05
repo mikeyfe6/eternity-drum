@@ -231,8 +231,6 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
         throw new Error(postQueryResult.errors.join(', '));
     }
 
-    console.log('postQueryResult.data?.allContentfulPost.edges', postQueryResult.data?.allContentfulPost.edges);
-
     postQueryResult.data?.allContentfulPost.edges.forEach(({ node }) => {
         createPage({
             component: postTemplate,

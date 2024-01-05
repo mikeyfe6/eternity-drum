@@ -67,17 +67,21 @@ const Vacatures: React.FC<PageProps> = () => {
 				<hr />
 				<br />
 
-				<ul className={styles.vacancies}>
-					{vacancies.map(({ slug, jobTitle, id }) => {
-						return (
-							<li key={id}>
-								<Link to={`${slug}/`}>
-									<strong>{jobTitle}</strong> <span>&#8594;</span>
-								</Link>
-							</li>
-						);
-					})}
-				</ul>
+				{vacancies.length > 0 ? (
+					<ul className={styles.vacancies}>
+						{vacancies.map(({ slug, jobTitle, id }) => {
+							return (
+								<li key={id}>
+									<Link to={`${slug}/`}>
+										<strong>{jobTitle}</strong> <span>&#8594;</span>
+									</Link>
+								</li>
+							);
+						})}
+					</ul>
+				) : (
+					<p>(Nog) geen berichten...</p>
+				)}
 			</section>
 		</>
 	);

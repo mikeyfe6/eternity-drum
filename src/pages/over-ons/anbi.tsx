@@ -2,6 +2,8 @@ import React from 'react';
 
 import type { HeadFC, PageProps } from 'gatsby';
 
+import { Link } from 'gatsby';
+
 import { Seo } from '../../components/seo';
 
 import Breadcrumb from '../../components/breadcrumbs';
@@ -103,17 +105,19 @@ const Anbi: React.FC<PageProps> = () => {
 						<u>Beleidsplan</u>
 					</h4>
 					<p>
-						<a href='#!'>Klik hier voor een overzicht van ons beleidsplan</a>
+						<Link to='/beleidsplan-2021.pdf'>
+							Klik hier voor een overzicht van ons beleidsplan
+						</Link>
 					</p>
 
 					<h4>
 						<u>De balans en staat van baten en lasten</u>
 					</h4>
 					<p>
-						<a href='#!'>
+						<Link to='/baat-lasten-2019.pdf'>
 							Klik hier voor een overzicht van de balans en staat van baten en
 							lasten{' '}
-						</a>
+						</Link>
 					</p>
 
 					<h4>

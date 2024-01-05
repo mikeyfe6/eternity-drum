@@ -1135,7 +1135,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
 					<p>
 						<u>
-							Door invulling en het versturen van dit formulier, stemt u
+							Door invulling en het versturen van dit formulier, stem je
 							automatisch in met de voorwaarden en huisregels van Eternity
 							Percussion
 						</u>

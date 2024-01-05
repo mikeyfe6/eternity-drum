@@ -4,16 +4,19 @@ import type { HeadFC, PageProps } from 'gatsby';
 
 import { StaticImage } from 'gatsby-plugin-image';
 
+import { useSiteMetadata } from '../hooks/use-site-metadata';
+
 import { Seo } from '../components/seo';
 
 import Breadcrumb from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
-
 import YouTubePlayer from '../components/youtubePlayer';
 
 const Projecten: React.FC<PageProps> = () => {
 	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'Projecten' }];
+
+	const { email } = useSiteMetadata();
 
 	return (
 		<>
@@ -42,7 +45,14 @@ const Projecten: React.FC<PageProps> = () => {
 						<b>Periode:</b> juni t/m november 2021
 					</p>
 					<p>
-						<b>Aanmelden:</b> info@eternitydrum.com
+						<b>Aanmelden:</b>{' '}
+						<a
+							href={`mailto:${email}`}
+							rel='noopener noreferrer'
+							target='_blank'
+						>
+							{email}
+						</a>
 					</p>
 					<p>
 						<b>Projectleider:</b> Revelino Pinas
@@ -51,7 +61,7 @@ const Projecten: React.FC<PageProps> = () => {
 					<p>
 						Mede mogelijk gemaakt door{' '}
 						<a
-							href='https://www.europeansolidaritycorps.nl/'
+							href='https://www.europeansolidaritycorps.nl'
 							rel='noopener noreferrer'
 							target='_blank'
 						>
@@ -85,7 +95,14 @@ const Projecten: React.FC<PageProps> = () => {
 						<b>Periode:</b> juli 2020 in Amsterdam & oktober 2020 in Londen
 					</p>
 					<p>
-						<b>Aanmelden:</b> info@eternitydrum.com
+						<b>Aanmelden:</b>{' '}
+						<a
+							href={`mailto:${email}`}
+							rel='noopener noreferrer'
+							target='_blank'
+						>
+							{email}
+						</a>
 					</p>
 					<p>
 						<b>Projectleider:</b> Derillio Alexander
@@ -306,16 +323,18 @@ const Projecten: React.FC<PageProps> = () => {
 								leidt naar hun mannelijkheid. Ze gebruiken hun passie voor
 								muziek als middel om dit te bewerkstelligen. <b>Umuntu</b>{' '}
 								betekent "man" in het Zuid-Afrikaans en gaat over een groep
-								jongens die hun Rite of Passage doorlopen. Welke elementen en
-								personen hebben zij nodig om succesvol te zijn in het leven.
-								Welke situaties zijn er die voor blokkades / obstakels kunnen
-								zorgen. En welke tools zijn er nodig om deze hiaten te
-								overwinnen om weer het pad naar succes voort te zetten. Daarbij
-								moet je altijd in staat zijn als succesvolle jongeman om een
-								legacy achter te laten voor de volgende generatie. Dit is ook
-								een op een te weerleggen als het gaat om vader en zoon relatie
-								of vaderlijke rol die een persoon ten opzichte van een jongeman
-								inneemt...
+								jongens die hun Rite of Passage doorlopen.
+							</p>
+							<p>
+								Welke elementen en personen hebben zij nodig om succesvol te
+								zijn in het leven. Welke situaties zijn er die voor blokkades /
+								obstakels kunnen zorgen. En welke tools zijn er nodig om deze
+								hiaten te overwinnen om weer het pad naar succes voort te
+								zetten. Daarbij moet je altijd in staat zijn als succesvolle
+								jongeman om een legacy achter te laten voor de volgende
+								generatie. Dit is ook een op een te weerleggen als het gaat om
+								vader en zoon relatie of vaderlijke rol die een persoon ten
+								opzichte van een jongeman inneemt...
 							</p>
 							<StaticImage
 								src='../images/projects/umuntu-hands.jpg'
