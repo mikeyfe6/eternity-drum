@@ -14,7 +14,6 @@ import Breadcrumb from '../components/breadcrumbs';
 
 interface PostProps {
 	pageContext: {
-		slug: string;
 		tags: string[];
 		title: string;
 		excerpt: string;
@@ -35,9 +34,11 @@ interface PostProps {
 }
 
 const Post = ({
-	pageContext: { slug, tags, title, excerpt, content, writer, featuredImage },
+	pageContext: { tags, title, excerpt, content, writer, featuredImage },
 }: PostProps) => {
 	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: title }];
+
+	console.log('featuredImage', excerpt);
 
 	const renderOptions = {
 		renderNode: {
@@ -72,41 +73,39 @@ const Post = ({
 	};
 
 	return (
-		<>
-			<section data-main-section>
-				<Breadcrumb crumbs={breadcrumbs} />
+		<section data-main-section>
+			<Breadcrumb crumbs={breadcrumbs} />
 
-				<h1>{title}</h1>
+			<h1>{title}</h1>
 
-				<section data-main-content className='page-content singlepost'>
-					<div>
-						<h3>{excerpt}</h3>
+			<section data-main-content className='page-content singlepost'>
+				<div>
+					<h3>{excerpt}</h3>
 
-						<div>{renderRichText(content, renderOptions)}</div>
+					<div>{renderRichText(content, renderOptions)}</div>
+				</div>
+
+				<div>
+					<img src={featuredImage.url} alt={featuredImage.title} />
+
+					<div className='singlepost sidebar'>
+						<ul>
+							{tags.map((tag, index) => (
+								<li key={index}>{tag}</li>
+							))}
+						</ul>
+
+						{writer && (
+							<p>
+								<u>Auteursinformatie</u>
+								naam:<strong> {writer.name}</strong> <br />
+								email:<strong> {writer.email}</strong>
+							</p>
+						)}
 					</div>
-
-					<div>
-						<img src={featuredImage.url} alt={featuredImage.title} />
-
-						<div className='singlepost sidebar'>
-							<ul>
-								{tags.map((tag, index) => (
-									<li key={index}>{tag}</li>
-								))}
-							</ul>
-
-							{writer && (
-								<p>
-									<u>Auteursinformatie</u>
-									naam:<strong> {writer.name}</strong> <br />
-									email:<strong> {writer.email}</strong>
-								</p>
-							)}
-						</div>
-					</div>
-				</section>
+				</div>
 			</section>
-		</>
+		</section>
 	);
 };
 

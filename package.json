@@ -8,10 +8,10 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
+    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "restart": "gatsby clean && yarn cache clean && gatsby develop",
     "reinstall": "rm -rf node_modules package-lock.json yarn.lock && yarn",
-    "locally": "gatsby develop -H 0.0.0.0 --open",
+    "locally": "GATSBY_GRAPHQL_IDE=playground gatsby develop -H 0.0.0.0 --open",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",

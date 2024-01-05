@@ -96,45 +96,30 @@ interface QueryResult {
 }
 
 
-// export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({ actions }) => {
-//     const { createTypes } = actions;
-//     const typeDefs = `
-//         type ContentfulPost implements Node {
-//             slug: String
-//             title: String
-//             tags: [String]
-//             content: Content
-//             writer: [Writer]
-//             featuredImage: FeaturedImage
-//             id: String
-//         }
+export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = async ({ actions }) => {
+    const { createTypes } = actions;
 
-//         type ContentfulVacancy implements Node {
-//             id: String
-//             slug: String
-//             jobTitle: String
-//             department: String
-//         }
+    const typeDefs = `
+        type ContentfulAsset implements Node {
+            contentful_id: String!
+            gatsbyImageData: JSON!
+            description: String
+            title: String
+            file: File!
+        }
 
+        type Post implements Node {
+            content: ContentfulAsset @link(from: "content.references")
+        }
 
-//         type Content {
-//             raw: String
-//             references: [ContentfulAsset] @link(by: "contentful_id", from: "references___NODE")
-//         }
+        type Vacancy implements Node {
+            jobImage: ContentfulAsset @link(from: "jobImage")
+        }
+        # Define other custom types here if needed
+    `;
 
-//         type Writer {
-//             name: String
-//             email: String
-//         }
-
-//         type FeaturedImage {
-//             url: String
-//             title: String
-//         }
-//     `;
-//     createTypes(typeDefs);
-// };
-
+    createTypes(typeDefs);
+};
 
 export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql }) => {
     const { createPage } = actions;
@@ -193,6 +178,8 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
     if (postQueryResult.errors) {
         throw new Error(postQueryResult.errors.join(', '));
     }
+
+    console.log('postQueryResult.data?.allContentfulPost.edges', postQueryResult.data?.allContentfulPost.edges);
 
     postQueryResult.data?.allContentfulPost.edges.forEach(({ node }) => {
         createPage({
