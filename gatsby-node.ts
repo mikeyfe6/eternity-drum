@@ -1,4 +1,5 @@
 import { GatsbyNode } from 'gatsby';
+
 import path from 'path';
 
 interface Post {
@@ -152,7 +153,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
         }
 
         type JobImage {
-            gatsbyImageData: IGatsbyImageData
+            gatsbyImageData: JSON!
             title: String
             description: String
         }
@@ -330,7 +331,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                 organisationDetails: node.organisationDetails,
                 responsibilities: node.responsibilities,
                 requirements: node.requirements,
-                availablity: node.availability,
+                availability: node.availability,
                 apply: node.apply,
                 location: node.location,
                 applicationDeadline: node.applicationDeadline,

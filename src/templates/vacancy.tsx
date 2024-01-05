@@ -32,7 +32,7 @@ interface VacancyProps {
 		responsibilities: {
 			raw: string;
 		};
-		availablity: {
+		availability: {
 			raw: string;
 		};
 		apply: {
