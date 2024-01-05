@@ -80,7 +80,7 @@ const Vacatures: React.FC<PageProps> = () => {
 						})}
 					</ul>
 				) : (
-					<p>(Nog) geen berichten...</p>
+					<p>Momenteel geen vacatures...</p>
 				)}
 			</section>
 		</>

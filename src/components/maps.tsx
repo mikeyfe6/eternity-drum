@@ -27,8 +27,8 @@ const Marker: React.FC<MarkerProps> = ({ lat, lng }) => (
 const GoogleMaps = () => {
 	const defaultProps: DefaultProps = {
 		center: {
-			lat: 52.31796830934763,
-			lng: 4.9778735331231525,
+			lat: 52.31778767284739,
+			lng: 4.978261737097896,
 		},
 		zoom: 16,
 	};
