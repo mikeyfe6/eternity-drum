@@ -109,6 +109,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             writer: ContentfulAuthor @link(by: "id", from: "writer___NODE")
             featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
             publishedDate: Date @dateformat
+            updatedAt: Date @dateformat
             postType: [ContentfulCategory] @link(by: "id", from: "postType___NODE")
         }
 
