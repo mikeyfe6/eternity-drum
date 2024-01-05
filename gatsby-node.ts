@@ -115,7 +115,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             slug: String
             jobTitle: String
             department: String
-            jobImage: JobImage @dontInfer
+            jobImage: JobImage @link(from: "gatsbyImageData") 
             jobDescription: JobDescription
             organisationDetails: OrganisationDetails
             requirements: Requirements
