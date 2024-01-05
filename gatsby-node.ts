@@ -138,6 +138,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             applicationDeadline: Date @dateformat
             contactEmail: String
             contactPhone: String
+            updatedAt: Date @dateformat
         }
 
         type ContentfulVacancyJobDescription @infer {
