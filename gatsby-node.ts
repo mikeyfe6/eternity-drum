@@ -104,6 +104,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             slug: String
             tags: [String]
             title: String
+            excerpt: contentfulPostExcerptTextNode @link(by: "id", from: "excerpt___NODE")
             content: ContentfulPostContent
             writer: ContentfulAuthor @link(by: "id", from: "writer___NODE")
             featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
