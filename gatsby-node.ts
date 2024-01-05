@@ -112,6 +112,10 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             postType: [ContentfulCategory] @link(by: "id", from: "postType___NODE")
         }
 
+        type contentfulPostExcerptTextNode implements Node @infer {
+            excerpt: String
+        }
+
         type ContentfulPostContent @infer {
             raw: String
             references: [ContentfulAsset] @link(by: "id", from: "references___NODE")
