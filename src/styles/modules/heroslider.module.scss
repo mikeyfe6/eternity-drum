@@ -55,15 +55,6 @@
 	&-image {
 		width: 100%;
 		opacity: 0.75;
-	}
-
-	&-slide {
-		border-radius: 10px;
-		overflow: hidden;
-
-		@media screen and ($small) {
-			border-radius: 0;
-		}
 
 		img {
 			border-radius: 10px;
@@ -86,6 +77,15 @@
 			@media screen and ($ultraSmall) {
 				height: 225px;
 			}
+		}
+	}
+
+	&-slide {
+		border-radius: 10px;
+		overflow: hidden;
+
+		@media screen and ($small) {
+			border-radius: 0;
 		}
 	}
 }
