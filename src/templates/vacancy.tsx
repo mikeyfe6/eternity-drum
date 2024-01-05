@@ -57,7 +57,7 @@ const Vacancy = ({
 		organisationDetails,
 		requirements,
 		responsibilities,
-		availablity,
+		availability,
 		apply,
 		location,
 		applicationDeadline,
@@ -93,7 +93,7 @@ const Vacancy = ({
 
 						{renderRichText(responsibilities)}
 
-						{renderRichText(availablity)}
+						{renderRichText(availability)}
 
 						{renderRichText(apply)}
 
