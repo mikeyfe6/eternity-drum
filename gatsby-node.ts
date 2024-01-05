@@ -103,6 +103,65 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             id: ID!
             slug: String
             tags: [String]
+            title: String
+            excerpt: contentfulPostExcerptTextNode @link(by: "id", from: "excerpt___NODE")
+            content: ContentfulPostContent
+            writer: ContentfulAuthor @link(by: "id", from: "writer___NODE")
+            featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
+            publishedAt: Date @dateformat
+            postType: [ContentfulCategory] @link(by: "id", from: "postType___NODE")
+        }
+
+        type ContentfulPostContent @infer {
+            raw: String
+            references: [ContentfulAsset] @link(by: "id", from: "references___NODE")
+        }
+
+        type ContentfulVacancy implements Node @infer {
+            id: ID!
+            slug: String
+            jobTitle: String
+            jobImage: ContentfulAsset @link(by: "id", from: "jobImage___NODE")
+            department: String
+            jobDescription: ContentfulVacancyJobDescription
+            organisationDetails: ContentfulVacancyOrganisationDetails
+            requirements: ContentfulVacancyRequirements
+            responsibilities: ContentfulVacancyResponsibilities
+            availability: ContentfulVacancyAvailability
+            apply: ContentfulVacancyApply
+            location: ContentfulVacancyLocation
+            applicationDeadline: Date @dateformat
+            contactEmail: String
+            contactPhone: String
+        }
+
+        type ContentfulVacancyJobDescription @infer {
+            raw: String
+        }
+
+        type ContentfulVacancyOrganisationDetails @infer {
+            raw: String
+        }
+
+        type ContentfulVacancyRequirements @infer {
+            raw: String
+        }
+
+        type ContentfulVacancyResponsibilities @infer {
+            raw: String
+        }
+
+        type ContentfulVacancyAvailability @infer {
+            raw: String
+        }
+
+        type ContentfulVacancyApply @infer {
+            raw: String
+        }
+
+        type ContentfulVacancyLocation @infer {
+            lat: Float
+            lon: Float
         }
     `;
 
