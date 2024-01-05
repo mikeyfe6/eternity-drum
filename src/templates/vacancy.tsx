@@ -72,7 +72,7 @@ const Vacancy = ({
 		{ label: jobTitle },
 	];
 
-	const image = jobImage.gatsbyImageData
+	const image = jobImage?.gatsbyImageData
 		? getImage(jobImage.gatsbyImageData)
 		: null;
 
