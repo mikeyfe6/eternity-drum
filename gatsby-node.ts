@@ -48,7 +48,7 @@ interface Vacancy {
     jobTitle: string;
     department: string;
     jobImage: {
-        // gatsbyImageData: any;
+        gatsbyImageData: any;
         title: string;
         description: string;
 
@@ -152,6 +152,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
         }
 
         type JobImage {
+            gatsbyImageData: JSON
             title: String
             description: String
         }
