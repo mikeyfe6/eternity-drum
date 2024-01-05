@@ -1,5 +1,7 @@
 import { GatsbyNode } from 'gatsby';
 
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+
 import path from 'path';
 
 interface Post {
@@ -49,10 +51,9 @@ interface Vacancy {
     jobTitle: string;
     department: string;
     jobImage: {
-        gatsbyImageData: any;
+        gatsbyImageData: IGatsbyImageData;
         title: string;
         description: string;
-
     };
     jobDescription: {
         raw: string;
@@ -79,7 +80,6 @@ interface Vacancy {
     applicationDeadline: string;
     contactEmail: string;
     contactPhone: string;
-
 }
 
 interface QueryResult {
@@ -115,8 +115,8 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             slug: String
             jobTitle: String
             department: String
-            jobImage: JobImage @link(from: "gatsbyImageData") 
             jobDescription: JobDescription
+            jobImage: JobImage
             organisationDetails: OrganisationDetails
             requirements: Requirements
             responsibilities: Responsibilities
@@ -153,7 +153,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
         }
 
         type JobImage {
-            gatsbyImageData: JSON!
+            gatsbyImageData: JSON
             title: String
             description: String
         }

@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { HeadProps } from 'gatsby';
 
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
 import { Seo } from '../components/seo';
@@ -16,7 +16,7 @@ interface VacancyProps {
 		jobTitle: string;
 		department: string;
 		jobImage: {
-			gatsbyImageData: any;
+			gatsbyImageData: IGatsbyImageData;
 			title: string;
 			description: string;
 		};
