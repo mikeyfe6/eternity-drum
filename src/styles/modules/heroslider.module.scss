@@ -70,20 +70,57 @@
 		@media screen and ($ultraSmall) {
 			max-height: 225px;
 		}
-
-		// @media screen and ($small) {
-		// 	border-radius: 0;
-		// }
 	}
 
 	&-image {
 		opacity: 0.75;
-		object-position: center 25%;
+
+		img {
+			max-height: 600px;
+			object-position: center 25%;
+
+			@media screen and ($large) {
+				max-height: 400px;
+			}
+
+			@media screen and ($small) {
+				max-height: 300px;
+				border-radius: 0;
+			}
+
+			@media screen and ($extraSmall) {
+				max-height: 275px;
+			}
+
+			@media screen and ($ultraSmall) {
+				max-height: 225px;
+			}
+		}
 	}
 
 	&-slide {
 		border-radius: 10px;
 		overflow: hidden;
+
+		max-height: 600px;
+		object-position: center 25%;
+
+		@media screen and ($large) {
+			max-height: 400px;
+		}
+
+		@media screen and ($small) {
+			max-height: 300px;
+			border-radius: 0;
+		}
+
+		@media screen and ($extraSmall) {
+			max-height: 275px;
+		}
+
+		@media screen and ($ultraSmall) {
+			max-height: 225px;
+		}
 
 		@media screen and ($small) {
 			border-radius: 0;
