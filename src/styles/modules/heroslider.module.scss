@@ -52,6 +52,25 @@
 		@include epWrapper;
 		border-radius: 10px;
 
+		height: 600px;
+
+		@media screen and ($large) {
+			max-height: 400px;
+		}
+
+		@media screen and ($small) {
+			max-height: 300px;
+			border-radius: 0;
+		}
+
+		@media screen and ($extraSmall) {
+			max-height: 275px;
+		}
+
+		@media screen and ($ultraSmall) {
+			max-height: 225px;
+		}
+
 		@media screen and ($small) {
 			border-radius: 0;
 		}
@@ -59,28 +78,6 @@
 
 	&-image {
 		opacity: 0.75;
-		max-height: 600px;
-
-		img {
-			@include respImage(100%, 100%, 100%, cover);
-		}
-
-		@media screen and ($large) {
-			height: 400px;
-		}
-
-		@media screen and ($small) {
-			height: 300px;
-			border-radius: 0;
-		}
-
-		@media screen and ($extraSmall) {
-			height: 275px;
-		}
-
-		@media screen and ($ultraSmall) {
-			height: 225px;
-		}
 	}
 
 	&-slide {
