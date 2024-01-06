@@ -59,26 +59,27 @@
 
 	&-image {
 		opacity: 0.75;
+		max-height: 600px;
 
 		img {
-			@include respImage(100%, 100%, 600px, cover);
+			@include respImage(100%, 100%, 100%, cover);
+		}
 
-			@media screen and ($large) {
-				height: 400px;
-			}
+		@media screen and ($large) {
+			height: 400px;
+		}
 
-			@media screen and ($small) {
-				height: 300px;
-				border-radius: 0;
-			}
+		@media screen and ($small) {
+			height: 300px;
+			border-radius: 0;
+		}
 
-			@media screen and ($extraSmall) {
-				height: 275px;
-			}
+		@media screen and ($extraSmall) {
+			height: 275px;
+		}
 
-			@media screen and ($ultraSmall) {
-				height: 225px;
-			}
+		@media screen and ($ultraSmall) {
+			height: 225px;
 		}
 	}
 
