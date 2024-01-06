@@ -53,10 +53,10 @@ const Hero: React.FC = () => {
 				scrollbar={{
 					draggable: true,
 				}}
-				// autoplay={{
-				// 	delay: 5000,
-				// 	disableOnInteraction: false,
-				// }}
+				autoplay={{
+					delay: 5000,
+					disableOnInteraction: false,
+				}}
 				onAutoplayTimeLeft={onAutoplayTimeLeft}
 				className={styles.swiperWrapper}
 			>
