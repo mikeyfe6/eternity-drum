@@ -71,18 +71,23 @@
 	&-wrapper {
 		@include epWrapper;
 		margin-bottom: 0.5em;
+		border-radius: 5px;
+
+		@media screen and ($small) {
+			border-radius: 3px;
+		}
 	}
 
 	&-slide {
 		&-top {
+			border-radius: 5px;
+			border: 2px solid $whiteColor;
 			overflow: hidden;
 
 			img {
 				opacity: 0.75;
-				border-radius: 5px;
-				border: 2px solid $whiteColor;
 
-				@include respImage(100%, 100%, 99.25%, cover);
+				@include respImage(100%, 100%, 100%, cover);
 
 				@media screen and ($small) {
 					border-radius: 3px;

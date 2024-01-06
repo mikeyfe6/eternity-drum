@@ -50,15 +50,17 @@
 
 	&-wrapper {
 		@include epWrapper;
+		border-radius: 10px;
+
+		@media screen and ($small) {
+			border-radius: 0;
+		}
 	}
 
 	&-image {
-		width: 100%;
 		opacity: 0.75;
 
 		img {
-			border-radius: 10px;
-
 			@include respImage(100%, 100%, 600px, cover);
 
 			@media screen and ($large) {
