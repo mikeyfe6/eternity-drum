@@ -63,6 +63,16 @@ const Hero: React.FC = () => {
 				<SwiperSlide className={styles.swiperSlide}>
 					<div className={styles.swiperImage}>
 						<StaticImage
+							src='../images/hero/thecrew.jpg'
+							alt={`The Crew`}
+							placeholder='blurred'
+							style={{ width: '100%' }}
+						/>
+					</div>
+				</SwiperSlide>
+				<SwiperSlide className={styles.swiperSlide}>
+					<div className={styles.swiperImage}>
+						<StaticImage
 							src='../images/hero/beats.jpg'
 							alt={`Beats`}
 							placeholder='blurred'
@@ -95,16 +105,6 @@ const Hero: React.FC = () => {
 						<StaticImage
 							src='../images/hero/young-ep.jpg'
 							alt={`Young Eternity`}
-							placeholder='blurred'
-							style={{ width: '100%' }}
-						/>
-					</div>
-				</SwiperSlide>
-				<SwiperSlide className={styles.swiperSlide}>
-					<div className={styles.swiperImage}>
-						<StaticImage
-							src='../images/hero/thecrew.jpg'
-							alt={`The Crew`}
 							placeholder='blurred'
 							style={{ width: '100%' }}
 						/>
