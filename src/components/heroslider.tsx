@@ -73,6 +73,16 @@ const Hero: React.FC = () => {
 				<SwiperSlide className={styles.swiperSlide}>
 					<div className={styles.swiperImage}>
 						<StaticImage
+							src='../images/hero/young-ep.jpg'
+							alt={`The Crew`}
+							placeholder='blurred'
+							style={{ width: '100%' }}
+						/>
+					</div>
+				</SwiperSlide>
+				<SwiperSlide className={styles.swiperSlide}>
+					<div className={styles.swiperImage}>
+						<StaticImage
 							src='../images/hero/beats.jpg'
 							alt={`Beats`}
 							placeholder='blurred'
@@ -103,7 +113,57 @@ const Hero: React.FC = () => {
 				<SwiperSlide className={styles.swiperSlide}>
 					<div className={styles.swiperImage}>
 						<StaticImage
-							src='../images/hero/young-ep.jpg'
+							src='../images/hero/ep-botd.jpg'
+							alt={`Young Eternity`}
+							placeholder='blurred'
+							style={{ width: '100%' }}
+						/>
+					</div>
+				</SwiperSlide>
+				<SwiperSlide className={styles.swiperSlide}>
+					<div className={styles.swiperImage}>
+						<StaticImage
+							src='../images/hero/ep-ogs.jpg'
+							alt={`Young Eternity`}
+							placeholder='blurred'
+							style={{ width: '100%' }}
+						/>
+					</div>
+				</SwiperSlide>
+				<SwiperSlide className={styles.swiperSlide}>
+					<div className={styles.swiperImage}>
+						<StaticImage
+							src='../images/hero/ep-kids-linedup.jpg'
+							alt={`Young Eternity`}
+							placeholder='blurred'
+							style={{ width: '100%' }}
+						/>
+					</div>
+				</SwiperSlide>
+				<SwiperSlide className={styles.swiperSlide}>
+					<div className={styles.swiperImage}>
+						<StaticImage
+							src='../images/hero/ep-future.jpg'
+							alt={`Young Eternity`}
+							placeholder='blurred'
+							style={{ width: '100%' }}
+						/>
+					</div>
+				</SwiperSlide>
+				<SwiperSlide className={styles.swiperSlide}>
+					<div className={styles.swiperImage}>
+						<StaticImage
+							src='../images/hero/nottinghill.jpg'
+							alt={`Young Eternity`}
+							placeholder='blurred'
+							style={{ width: '100%' }}
+						/>
+					</div>
+				</SwiperSlide>
+				<SwiperSlide className={styles.swiperSlide}>
+					<div className={styles.swiperImage}>
+						<StaticImage
+							src='../images/hero/kids-performing.jpg'
 							alt={`Young Eternity`}
 							placeholder='blurred'
 							style={{ width: '100%' }}
