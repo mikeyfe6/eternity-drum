@@ -51,7 +51,7 @@ const Relevance: React.FC = () => {
 			</a>
 			<hr />
 			<a
-				href='http://www.bijlmerenmeer.nl/kenny-zschuschen-het-had-ook-anders-met-mij-kunnen-aflopen/'
+				href='https://www.bijlmerenmeer.nl/kenny-zschuschen-het-had-ook-anders-met-mij-kunnen-aflopen/'
 				rel='noopener noreferrer'
 				target='_blank'
 			>

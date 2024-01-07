@@ -172,6 +172,6 @@ export default SummerschoolFirst;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Summerschool 2020'
-		description='Ontdek onze zinderende Summerschool 2020! Gratis Brassband, Drum- en Afro-Caribische drumworkshops voor kinderen, tieners en jongeren in Amsterdam Zuidoost. 6 weken lang muzieklessen met de mogelijkheid om lid te worden van Eternity, Untold of Black Harmony. Ontdek de data, tijden en locaties van onze boeiende workshops en sluit je aan bij een van onze artiestengroepen voor verdere muzikale training.'
+		description='Ontdek onze zinderende Summerschool 2020! Gratis muzieklessen voor kinderen, tieners en jongeren in Amsterdam Zuidoost. Leer en sluit je aan bij Eternity, Untold of Black Harmony.'
 	/>
 );

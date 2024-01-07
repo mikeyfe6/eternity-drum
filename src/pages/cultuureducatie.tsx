@@ -42,7 +42,7 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 					<p>
 						Momenteel verzorgen wij diverse drumworkshops en lessen o.a. op het{' '}
 						<a
-							href='https://www.bindelmeercollege.nl/'
+							href='https://www.bindelmeercollege.nl'
 							rel='noopener noreferrer'
 							target='_blank'
 						>
@@ -50,7 +50,7 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 						</a>{' '}
 						en{' '}
 						<a
-							href='https://bredeschoolzuidoost.nl/'
+							href='https://www.bredeschoolzuidoost.nl'
 							rel='noopener noreferrer'
 							target='_blank'
 						>
@@ -69,6 +69,6 @@ export default CultuurEducatie;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Cultuureducatie'
-		description="Dompel jezelf onder in de wereld van Caribische drumbands met Eternity's Cultuureducatie programma. Ontdek hoe we kinderen en jongeren bereiken door educatieve en naschoolse drumworkshops aan te bieden in Amsterdam. Een educatief traject dat talent, houding en samenwerking in de band stimuleert, leidt tot optredens met onze professionele drumband. Ontdek onze workshops op verschillende instellingen zoals het Bindelmeer College en Bredeschool Zuidoost."
+		description="Ontdek Eternity's Cultuureducatie: educatieve en naschoolse drumworkshops in Amsterdam. Talentontwikkeling en optredens met professionele drumband."
 	/>
 );

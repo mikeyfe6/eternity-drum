@@ -80,6 +80,6 @@ export default Media;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Media'
-		description="Verken de multimediale wereld van Eternity Percussion op de Media-pagina. Geniet van onze muziekspeler, ontdek relevante nieuwsartikelen en duik in een visuele reis met onze uitgebreide fotogalerij. Bekijk onze verzameling video's om onze optredens en projecten in actie te zien. Ervaar de veelzijdigheid van Eternity Percussion door geluid, beeld en nieuws te verkennen op één plek."
+		description="Ontdek de multimediale wereld van Eternity Percussion op onze Media-pagina. Luister naar onze muziek, bekijk nieuwsartikelen en ontdek onze fotogalerij en video's."
 	/>
 );

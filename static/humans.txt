@@ -1,0 +1,49 @@
+/* TEAM */
+
+- Oprichters: Otmar Watson
+- Muziekdirecteuren: [Naam Directeuren]
+- Artiesten: [Naam Artiesten]
+- Productieteam: [Naam Team]
+- Contact: info@eternitydrum.com
+
+/* BEDANKT & BIJDRAGERS */
+
+- Speciale Dank: [Erkenning en Dankbaarheid]
+- Bijdragers: [Dank voor Bijdragen]
+
+/* TECHNOLOGIE STACK */
+
+- Website Framework: Gatsby, React, Netlify
+- CMS: Contentful
+- Hosting: Hostnet
+
+/* WEBSITE */
+
+- Titel: Eternity Percussion
+- Slogan: The Leaders of Tomorrow
+- Beschrijving: Eternity is een culturele instelling die zich bezighoudt met activiteiten, projecten en evenementen op het gebied van muzikale vorming en performance.
+- Site URL: https://eternitydrum.com
+- Twitter: @eternitydrum
+- Facebook: https://www.facebook.com/EternityDrum/
+- Instagram: https://www.instagram.com/percussionband_eternity/
+- YouTube: https://www.youtube.com/@eternitydrum
+
+/* CONTACT */
+
+- Email: info@eternitydrum.com
+- Telefoon (Bpt): +31 (0)20 311 39 33
+- Telefoon (Seda): +31 (0)20 773 38 88
+- Mobiel: +31 6 24255391
+- Adres: Anton de Komplein 240, 1102 DR Amsterdam-Zuidoost
+
+/* BEDRIJFSINFORMATIE */
+
+- Bedrijfsnaam: Stichting Eternity Percussion
+- Kamer van Koophandel (KvK): 34284743
+- BTW-nummer: NL818556286B01
+- Bankrekening: NL53 ABNA 0591 433 923
+
+/* KLEUREN */
+
+- Web Achtergrondkleur: #181a37
+- Thema Kleur: #f6ce0e

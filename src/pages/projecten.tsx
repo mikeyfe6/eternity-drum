@@ -375,6 +375,6 @@ export default Projecten;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Projecten'
-		description="Ontdek de diverse projecten van Eternity die jeugdontwikkeling en culturele uitwisseling bevorderen. Van 'Building Strong Communities,' waarbij de jeugd van Amsterdam Zuidoost wordt geëmpowerd met interactieve sessies over de zwarte geschiedenis, tot 'Get Up Stand Up,' een uitwisselingsprogramma in Amsterdam en Londen om veerkracht tegen geweld te versterken. Ontdek meer initiatieven zoals 'Van Hobby naar Succes,' dat een cultureel-educatieve reis biedt met drumlessen. Doe mee met deze transformerende inspanningen!"
+		description="Ontdek de diverse jeugdprojecten van Eternity, van educatieve sessies over de zwarte geschiedenis tot uitwisselingsprogramma's in Amsterdam en Londen. Doe mee aan initiatieven zoals 'Van Hobby naar Succes' voor een culturele en educatieve reis met drumlessen."
 	/>
 );

@@ -1,0 +1,10 @@
+@import '../configs/globals';
+
+.notfound-button {
+	@include buttonStyle(
+		$primaryColor,
+		$whiteColor,
+		$primaryColor,
+		$secondaryColor
+	);
+}

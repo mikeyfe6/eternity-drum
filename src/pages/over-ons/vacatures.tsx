@@ -92,6 +92,6 @@ export default Vacatures;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Vacatures'
-		description='Ontdek de laatste vacatures bij Eternity! Bekijk onze actuele lijst met openstaande functies en mogelijkheden om deel uit te maken van ons team. Bij Eternity bieden we kansen in verschillende vakgebieden en afdelingen. Bekijk onze vacatures en solliciteer vandaag nog om deel uit te maken van ons dynamische en gepassioneerde team in Amsterdam Zuidoost.'
+		description='Ontdek onze nieuwste vacatures! Kijk naar open posities en kansen om bij ons in Amsterdam Zuidoost te werken. Solliciteer vandaag nog en sluit je aan bij ons team!'
 	/>
 );

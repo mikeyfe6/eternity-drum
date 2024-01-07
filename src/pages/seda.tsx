@@ -99,6 +99,6 @@ export default Seda;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Seda'
-		description='Stap in de betoverende wereld van ritme bij de Southeast Drum Academy (SEDA). Ontdek onze inspirerende oefenruimte en kleedkamers, een uitnodiging aan alle drumgroepen die op zoek zijn naar een plek voor hun muzikale reis. Bij SEDA bloeit samenwerking en gemeenschap op. Onder leiding van artistiek directeur Orlando Ceder, verwelkomen we nieuwe partnerschappen en versterken we onze positie in de muziekwereld. Gelegen onder het metrostation Kraaiennest in Amsterdam Zuidoost, is onze locatie op Kruitbergstraat 18, 1104 CH, een opvallende paarse container die niet te missen is.'
+		description='Ontdek de inspirerende oefenruimte en kleedkamers van Southeast Drum Academy (SEDA), een plek voor drumgroepen op hun muzikale reis. Onder artistiek directeur Orlando Ceder bloeit samenwerking en gemeenschap op. Gevestigd onder metrostation Kraaiennest in Amsterdam Zuidoost, op Kruitbergstraat 18, 1104 CH.'
 	/>
 );

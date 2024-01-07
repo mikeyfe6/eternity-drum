@@ -48,7 +48,7 @@ const Drumworkshops: React.FC<PageProps> = () => {
 							</a>
 							en de{' '}
 							<a
-								href='https://bredeschoolzuidoost.nl'
+								href='https://www.bredeschoolzuidoost.nl'
 								rel='noopener noreferrer'
 								target='_blank'
 							>
@@ -151,6 +151,6 @@ export default Drumworkshops;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Drumworkshops'
-		description='Ontdek onze boeiende drumworkshops voor kinderen en jongeren in Amsterdam Zuidoost. Leer Afrikaanse, Afro-Caribische en Afro-Surinaamse ritmes spelen en noten lezen voor percussie-instrumenten. Onze lessen worden verzorgd door ervaren docenten, met presentatiemogelijkheden op lokale evenementen. Meld je nu aan voor een muzikale reis vol ontwikkeling en plezier.'
+		description='Ontdek onze drumworkshops in Amsterdam Zuidoost voor kinderen en jongeren. Leer diverse ritmes en noten spelen, met optredens op lokale evenementen.'
 	/>
 );

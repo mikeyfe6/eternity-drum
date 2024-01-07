@@ -179,6 +179,6 @@ export default SankofaAcademy;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Sankofa Academy'
-		description='Ontdek de Sankofa Academy, een educatief initiatief van Eternity Percussion gericht op het empowerment en emancipatie van mensen van Afrikaanse afkomst. Leer over de gedeelde geschiedenis, trans-Atlantische slavernij en kolonialisme door educatieve activiteiten en ontmoetingen. Versterk je identiteit, bewustzijn en positie binnen de Nederlandse samenleving. Dit programma, ontwikkeld in samenwerking met Untold Empowerment, bevordert begrip, sociale cohesie en verbroedering.'
+		description='Ontdek Sankofa Academy: empower en emancipeer mensen van Afrikaanse afkomst. Leer over gedeelde geschiedenis, identiteit en bewustzijn.'
 	/>
 );
