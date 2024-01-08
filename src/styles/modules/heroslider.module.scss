@@ -52,23 +52,8 @@
 		@include epWrapper;
 		border-radius: 10px;
 
-		max-height: 600px;
-
-		@media screen and ($large) {
-			max-height: 400px;
-		}
-
 		@media screen and ($small) {
-			max-height: 300px;
 			border-radius: 0;
-		}
-
-		@media screen and ($extraSmall) {
-			max-height: 275px;
-		}
-
-		@media screen and ($ultraSmall) {
-			max-height: 225px;
 		}
 	}
 
@@ -76,24 +61,44 @@
 		opacity: 0.75;
 
 		img {
-			max-height: 600px;
-			object-position: center 27.5%;
+			max-height: 650px;
+			object-position: center 25%;
+
+			@media screen and ($tothemoon) {
+				max-height: 650px;
+			}
+
+			@media screen and ($massive) {
+				max-height: 600px;
+			}
+
+			@media screen and ($superSized) {
+				max-height: 550px;
+			}
+
+			@media screen and ($extraLarge) {
+				max-height: 450px;
+			}
 
 			@media screen and ($large) {
 				max-height: 400px;
 			}
 
-			@media screen and ($small) {
+			@media screen and ($medium) {
 				max-height: 300px;
+			}
+
+			@media screen and ($small) {
+				max-height: 250px;
 				border-radius: 0;
 			}
 
 			@media screen and ($extraSmall) {
-				max-height: 275px;
+				max-height: 225px;
 			}
 
 			@media screen and ($ultraSmall) {
-				max-height: 225px;
+				max-height: 200px;
 			}
 		}
 	}
@@ -101,25 +106,6 @@
 	&-slide {
 		border-radius: 10px;
 		overflow: hidden;
-
-		max-height: 600px;
-
-		@media screen and ($large) {
-			max-height: 400px;
-		}
-
-		@media screen and ($small) {
-			max-height: 300px;
-			border-radius: 0;
-		}
-
-		@media screen and ($extraSmall) {
-			max-height: 275px;
-		}
-
-		@media screen and ($ultraSmall) {
-			max-height: 225px;
-		}
 
 		@media screen and ($small) {
 			border-radius: 0;

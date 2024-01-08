@@ -38,6 +38,15 @@
 				$secondaryColor
 			);
 
+			max-width: 100%;
+
+			span {
+				display: block;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
 			width: fit-content;
 			margin-left: auto;
 

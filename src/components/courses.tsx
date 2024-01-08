@@ -63,8 +63,8 @@ const Courses: React.FC = () => {
 				</ul>
 
 				<button onClick={toggleCollapse}>
-					{(collapsed && <>Ontdek onze ONLINE drumlessen</>) || (
-						<>Verberg de video</>
+					{(collapsed && <span>Ontdek onze ONLINE drumlessen</span>) || (
+						<span>Verberg de video</span>
 					)}
 				</button>
 				{!collapsed && (

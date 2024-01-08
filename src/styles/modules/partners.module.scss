@@ -13,15 +13,30 @@
 		flex-wrap: wrap;
 		gap: 30px;
 		direction: rtl;
+		margin-left: auto;
+		width: 80%;
+
+		@media screen and ($large) {
+			width: 90%;
+		}
+
+		@media screen and ($small) {
+			width: 100%;
+		}
 
 		li {
 			outline: 1px rgba(128 128 128 / 0.125) solid;
-			width: 167.5px;
-			height: 167.5px;
+			width: 150px;
+			height: 150px;
 
-			@media screen and ($small) {
+			@media screen and ($large) {
 				width: 125px;
 				height: 125px;
+			}
+
+			@media screen and ($small) {
+				width: 100px;
+				height: 100px;
 			}
 
 			@include baseTransition(all);
