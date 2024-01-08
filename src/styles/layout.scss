@@ -1,4 +1,7 @@
 /* stylelint-disable selector-id-pattern */
+
+@use 'sass:color';
+
 @import 'configs/resets';
 @import 'configs/globals';
 
@@ -174,14 +177,28 @@ section[data-main-section] {
 	position: relative;
 
 	> h1 {
-		max-width: 20ch;
+		border-radius: 5px;
+		color: $primaryColor;
+		max-width: 25ch;
+		padding: 0.0875em 0.25em 0;
+		background: linear-gradient(
+			45deg,
+			color.scale($secondaryColor, $lightness: 12.5%),
+			color.scale($whiteColor, $lightness: 100%)
+		);
+
+		box-shadow: -5px 5px 10px -5px rgba(0 0 0 / 0.1);
 
 		@media screen and ($massive) {
-			max-width: 23ch;
+			max-width: 20ch;
 		}
 
-		@media screen and ($superSized) {
+		@media screen and ($extraLarge) {
 			max-width: 20ch;
+		}
+
+		@media screen and ($extraLarge) {
+			max-width: 100%;
 		}
 	}
 }
