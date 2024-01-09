@@ -184,7 +184,9 @@ section[data-main-section] {
 		background: linear-gradient(
 			45deg,
 			color.scale($secondaryColor, $lightness: 12.5%),
-			color.scale($whiteColor, $lightness: 100%)
+			color.scale($secondaryColor, $lightness: 50%),
+			color.scale($secondaryColor, $lightness: 87.5%),
+			$whiteColor
 		);
 
 		box-shadow: -5px 5px 10px -5px rgba(0 0 0 / 0.1);
