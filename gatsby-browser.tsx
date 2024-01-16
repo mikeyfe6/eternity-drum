@@ -4,12 +4,6 @@ import Layout from './src/components/layout';
 
 export const onServiceWorkerUpdateReady = () => window.location.reload();
 
-export const onRouteUpdate = ({ location, prevLocation }) => {
-	if (location !== prevLocation) {
-		window.scrollTo(0, 0);
-	}
-};
-
 export const wrapPageElement = ({ element, props }) => {
 	return <Layout {...props}>{element}</Layout>;
 };
