@@ -9,7 +9,7 @@ import * as styles from '../styles/modules/success.module.scss';
 const Success: React.FC<PageProps> = () => {
 	return (
 		<section data-main-section>
-			<h1>Succes!</h1>
+			<h1>Bedankt!</h1>
 			<p>
 				Je bericht is succesvol verstuurd! We nemen zo snel mogelijk contact met
 				je op.
