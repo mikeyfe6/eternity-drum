@@ -440,7 +440,7 @@ const BookingsForm: React.FC = () => {
 										!isFormValid()
 									}
 								>
-									Schrijf in
+									Verstuur
 								</button>
 							</div>
 
