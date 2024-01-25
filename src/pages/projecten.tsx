@@ -345,11 +345,11 @@ const Projecten: React.FC<PageProps> = () => {
 						</div>
 					</div>
 
-					<br />
+					{/* <br />
 					<hr />
-					<br />
+					<br /> */}
 
-					<h2>MINI-DOCU'S: Uitwisselingsprojecten</h2>
+					{/* <h2>MINI-DOCU'S: Uitwisselingsprojecten</h2>
 					<div className='pjs-vids'>
 						<div>
 							<YouTubePlayer videoId='9e7lBlK0hXo' />
@@ -363,7 +363,7 @@ const Projecten: React.FC<PageProps> = () => {
 								VIDEO: <strong>ETERNITY IN BRAZIL</strong>
 							</p>
 						</div>
-					</div>
+					</div> */}
 				</section>
 			</section>
 		</>
