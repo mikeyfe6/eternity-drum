@@ -13,14 +13,14 @@ import {
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import * as styles from '../styles/modules/heroslider.module.scss';
-
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/scrollbar';
 import 'swiper/scss/parallax';
 import 'swiper/scss/autoplay';
+
+import * as styles from '../styles/modules/heroslider.module.scss';
 
 const Hero: React.FC = () => {
 	const progressCircle = useRef<SVGSVGElement | null>(null);
