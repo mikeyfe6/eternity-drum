@@ -12,30 +12,41 @@ const Actualiteiten: React.FC = () => {
 	const [activeButton, setActiveButton] = useState<number>(0);
 	const openContentRef = useRef<HTMLDivElement | null>(null);
 
-	const { sankofaB, sankofaF, rotpF, rotpB } = useStaticQuery(graphql`
-		query {
-			sankofaB: file(relativePath: { eq: "sankofa-2.jpg" }) {
-				childImageSharp {
-					gatsbyImageData
+	const { sankofaB, sankofaF, rotpF, rotpB, wijkImpOne, wijkImpTwo } =
+		useStaticQuery(graphql`
+			query {
+				sankofaB: file(relativePath: { eq: "sankofa-2.jpg" }) {
+					childImageSharp {
+						gatsbyImageData
+					}
+				}
+				sankofaF: file(relativePath: { eq: "sankofa-1.jpg" }) {
+					childImageSharp {
+						gatsbyImageData
+					}
+				}
+				rotpF: file(relativePath: { eq: "rotp-front.jpeg" }) {
+					childImageSharp {
+						gatsbyImageData
+					}
+				}
+				rotpB: file(relativePath: { eq: "rotp-back.jpeg" }) {
+					childImageSharp {
+						gatsbyImageData
+					}
+				}
+				wijkImpOne: file(relativePath: { eq: "wijkimpuls-190424.jpg" }) {
+					childImageSharp {
+						gatsbyImageData
+					}
+				}
+				wijkImpTwo: file(relativePath: { eq: "wijkimpuls-260424.jpg" }) {
+					childImageSharp {
+						gatsbyImageData
+					}
 				}
 			}
-			sankofaF: file(relativePath: { eq: "sankofa-1.jpg" }) {
-				childImageSharp {
-					gatsbyImageData
-				}
-			}
-			rotpF: file(relativePath: { eq: "rotp-front.jpeg" }) {
-				childImageSharp {
-					gatsbyImageData
-				}
-			}
-			rotpB: file(relativePath: { eq: "rotp-back.jpeg" }) {
-				childImageSharp {
-					gatsbyImageData
-				}
-			}
-		}
-	`);
+		`);
 
 	const sankofaBack = sankofaB.childImageSharp.gatsbyImageData;
 	const sankofaFront = sankofaF.childImageSharp.gatsbyImageData;
@@ -43,32 +54,50 @@ const Actualiteiten: React.FC = () => {
 	const rotpFront = rotpF.childImageSharp.gatsbyImageData;
 	const rotpBack = rotpB.childImageSharp.gatsbyImageData;
 
+	const wijkImpulsOne = wijkImpOne.childImageSharp.gatsbyImageData;
+	const wijkImpulsTwo = wijkImpTwo.childImageSharp.gatsbyImageData;
+
 	useEffect(() => {
 		const updateHeight = () => {
 			const element = openContentRef.current;
 			if (element) {
 				const height = element.clientHeight;
-				const collapsibleDiv = document.querySelector(`.${styles.collapsible}`);
-				if (collapsibleDiv instanceof HTMLElement) {
-					collapsibleDiv.style.marginBottom = `${height}px`;
-				}
+				const collapsibleDivs = document.querySelectorAll(
+					`.${styles.collapsible}`
+				);
+				collapsibleDivs.forEach((collapsibleDiv) => {
+					const div = collapsibleDiv as HTMLElement;
+					div.style.marginBottom = `${height}px`;
+				});
 			}
 		};
 
 		updateHeight();
 
-		window.addEventListener('resize', updateHeight);
+		const resizeListener = () => {
+			updateHeight();
+		};
+
+		window.addEventListener('resize', resizeListener);
 
 		return () => {
-			window.removeEventListener('resize', updateHeight);
+			window.removeEventListener('resize', resizeListener);
 		};
-	}, [activeButton]);
+	}, [openContentRef.current]);
 
 	const toggleCollapsible = (index: number) => {
 		setActiveButton((prevIndex) => (prevIndex === index ? prevIndex : index));
 	};
 
 	const buttons = [
+		<>
+			<span>Presentatie</span>
+			<p>Wijkimpuls - 19/04/24</p>
+		</>,
+		<>
+			<span>Masterclass</span>
+			<p>Wijkimpuls - 26/04/24</p>
+		</>,
 		<>
 			<span>Media</span>
 			<p>Sankofa Academy</p>
@@ -105,9 +134,21 @@ const Actualiteiten: React.FC = () => {
 
 	const contents: (JSX.Element | string)[] = [
 		/* 1 */
-		<YouTubePlayer key={`content-0`} videoId='5lMEV6HLFQQ' />,
+		<div key={`content-0`}>
+			<div className={styles.collapsibleImages}>
+				<LightBox image={wijkImpulsOne} alt='Wijkimpuls - 19/04/24' />
+			</div>
+		</div>,
 		/* 2 */
 		<div key={`content-1`}>
+			<div className={styles.collapsibleImages}>
+				<LightBox image={wijkImpulsTwo} alt='Wijkimpuls - 26/04/24' />
+			</div>
+		</div>,
+		/* 3 */
+		<YouTubePlayer key={`content-2`} videoId='5lMEV6HLFQQ' />,
+		/* 4 */
+		<div key={`content-3`}>
 			<p>
 				Sankofa Academy is een educatief programma in het kader van een gedeelte
 				geschiedenis om mensen van Afrikaanse afkomst te leren over hun eigen
@@ -120,16 +161,16 @@ const Actualiteiten: React.FC = () => {
 			</div>
 			<Link to='/projecten/sankofa-academy/'>Lees meer</Link>
 		</div>,
-		/* 3 */
-		<div key={`content-2`}>
+		/* 5 */
+		<div key={`content-4`}>
 			<p>
 				Percussionband Eternity, Untold Empowerment & Black Harmony geven dit
 				jaar na groot succes OPNIEUW gratis workshops!
 			</p>
 			<Link to='/drumworkshops/summerschool-2021/'>Lees meer</Link>
 		</div>,
-		/* 4 */
-		<div key={`content-3`}>
+		/* 6 */
+		<div key={`content-5`}>
 			<p>
 				We zijn voor de organisaties Untold en Eternity op zoek naar een
 				coördinator productie die graag de handen uit de mouwen steekt!
@@ -138,40 +179,38 @@ const Actualiteiten: React.FC = () => {
 				Ga naar vacature
 			</Link>
 		</div>,
-		/* 5 */
-		<div key={`content-4`}>
+		/* 7 */
+		<div key={`content-6`}>
 			<p>"Building Strong Communities: op zoek naar het verleden."</p>
 			<span> Bron: Salto PI</span>
 			<a
 				href='https://participationpool.eu/project/discover-black-history-building-strong-communities/'
 				rel='noopener noreferrer'
-				target='_blank'
-			>
+				target='_blank'>
 				Lees het artikel
 			</a>
 		</div>,
-		/* 6 */
-		<div key={`content-5`}>
+		/* 8 */
+		<div key={`content-7`}>
 			<p>"Drum Academy: eindelijk kunnen drumbands weer decibellen maken."</p>
 			<span> Bron: Parool, door Patrick Meershoek</span>
 			<a
 				href='https://www.parool.nl/ps/drum-academy-eindelijk-kunnen-drumbands-weer-decibellen-maken~b48470e0b/'
 				rel='noopener noreferrer'
-				target='_blank'
-			>
+				target='_blank'>
 				Lees het artikel
 			</a>
 		</div>,
-		/* 7 */
-		<div key={`content-6`}>
+		/* 9 */
+		<div key={`content-8`}>
 			<p>
 				Percussionband Eternity, Untold Empowerment & Black Harmony geven gratis
 				workshops!
 			</p>
 			<Link to='/drumworkshops/summerschool-2020/'>Lees meer</Link>
 		</div>,
-		/* 8 */
-		<div key={`content-7`}>
+		/* 10 */
+		<div key={`content-9`}>
 			<div className={styles.collapsibleImages}>
 				<LightBox
 					image={rotpFront}
@@ -196,16 +235,14 @@ const Actualiteiten: React.FC = () => {
 					return (
 						<div
 							key={`button-${index}`}
-							className={styles.collapsibleContainer}
-						>
+							className={styles.collapsibleContainer}>
 							<div className={styles.collapsibleBtns}>
 								<button
 									onClick={(e: MouseEvent<HTMLButtonElement>) =>
 										toggleCollapsible(index)
 									}
 									className={isButtonActive ? styles.activeButton : ''}
-									style={{ cursor: 'pointer' }}
-								>
+									style={{ cursor: 'pointer' }}>
 									{button}
 								</button>
 							</div>
@@ -217,8 +254,7 @@ const Actualiteiten: React.FC = () => {
 									if (contentRef && el) {
 										contentRef.current = el;
 									}
-								}}
-							>
+								}}>
 								{contents[index]}
 							</div>
 						</div>

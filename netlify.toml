@@ -1,8 +1,8 @@
 [build.environment]
-  NODE_VERSION = "20.11.0" # - latest NODE version
-  NPM_VERSION = "10.4.0" # - latest NPM version
-  YARN_VERSION = "1.22.21" # - latest YARN version
+NODE_VERSION = "20.12.2" # - latest NODE version
+NPM_VERSION = "10.5.2"   # - latest NPM version
+YARN_VERSION = "1.22.22" # - latest YARN version
 
 [dev]
-  command = "npm run develop" 
-  publish = "public"
+command = "npm run develop"
+publish = "public"
