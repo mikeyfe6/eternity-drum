@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, MouseEvent } from 'react';
+import React, { useState, useRef, MouseEvent, useLayoutEffect } from 'react';
 
 import { graphql, useStaticQuery, Link } from 'gatsby';
 
@@ -57,7 +57,7 @@ const Actualiteiten: React.FC = () => {
 	const wijkImpulsOne = wijkImpOne.childImageSharp.gatsbyImageData;
 	const wijkImpulsTwo = wijkImpTwo.childImageSharp.gatsbyImageData;
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const updateHeight = () => {
 			const element = openContentRef.current;
 			if (element) {
