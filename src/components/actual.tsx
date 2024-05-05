@@ -1,4 +1,4 @@
-import React, { useState, useRef, MouseEvent, useLayoutEffect } from 'react';
+import React, { useState, useRef, MouseEvent, useEffect } from 'react';
 
 import { graphql, useStaticQuery, Link } from 'gatsby';
 
@@ -57,21 +57,21 @@ const Actualiteiten: React.FC = () => {
 	const wijkImpulsOne = wijkImpOne.childImageSharp.gatsbyImageData;
 	const wijkImpulsTwo = wijkImpTwo.childImageSharp.gatsbyImageData;
 
-	useLayoutEffect(() => {
-		const updateHeight = () => {
-			const element = openContentRef.current;
-			if (element) {
-				const height = element.clientHeight;
-				const collapsibleDivs = document.querySelectorAll(
-					`.${styles.collapsible}`
-				);
-				collapsibleDivs.forEach((collapsibleDiv) => {
-					const div = collapsibleDiv as HTMLElement;
-					div.style.marginBottom = `${height}px`;
-				});
-			}
-		};
+	const updateHeight = () => {
+		const element = openContentRef.current;
+		if (element) {
+			const height = element.clientHeight;
+			const collapsibleDivs = document.querySelectorAll(
+				`.${styles.collapsible}`
+			);
+			collapsibleDivs.forEach((collapsibleDiv) => {
+				const div = collapsibleDiv as HTMLElement;
+				div.style.marginBottom = `${height}px`;
+			});
+		}
+	};
 
+	useEffect(() => {
 		updateHeight();
 
 		const resizeListener = () => {
@@ -79,11 +79,17 @@ const Actualiteiten: React.FC = () => {
 		};
 
 		window.addEventListener('resize', resizeListener);
+		window.addEventListener('DOMContentLoaded', resizeListener);
+		window.addEventListener('load', resizeListener);
+		document.addEventListener('readystatechange', resizeListener);
 
 		return () => {
 			window.removeEventListener('resize', resizeListener);
+			window.removeEventListener('DOMContentLoaded', resizeListener);
+			window.removeEventListener('load', resizeListener);
+			document.removeEventListener('readystatechange', resizeListener);
 		};
-	}, [openContentRef.current]);
+	}, []);
 
 	const toggleCollapsible = (index: number) => {
 		setActiveButton((prevIndex) => (prevIndex === index ? prevIndex : index));
