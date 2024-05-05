@@ -78,6 +78,9 @@ const Actualiteiten: React.FC = () => {
 			updateHeight();
 		};
 
+		const observer = new MutationObserver(resizeListener);
+		observer.observe(document.body, { subtree: true, childList: true });
+
 		window.addEventListener('resize', resizeListener);
 		window.addEventListener('DOMContentLoaded', resizeListener);
 		window.addEventListener('load', resizeListener);
