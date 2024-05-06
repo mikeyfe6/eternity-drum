@@ -107,7 +107,6 @@
 		display: flex;
 		justify-content: center;
 		gap: 0.75em;
-		margin: 2em 0;
 
 		img {
 			border-radius: 5px;
@@ -115,18 +114,6 @@
 			overflow: hidden;
 		}
 	}
-
-	// animation: move-left-to-right 10s linear infinite;
-
-	// @keyframes move-left-to-right {
-	// 	0% {
-	// 		transform: translateX(100%);
-	// 	}
-
-	// 	100% {
-	// 		transform: translateX(-100%);
-	// 	}
-	// }
 }
 
 .content {
@@ -151,6 +138,10 @@
 	> div > span {
 		display: block;
 		margin-top: 1em;
+	}
+
+	> div > p {
+		margin-bottom: 1em;
 	}
 
 	> div > a {
@@ -179,10 +170,14 @@
 
 .open {
 	max-height: fit-content;
-	padding: 1.5em 1em 1em;
+	padding: 1em;
 
 	&:has(iframe) {
 		padding: 0.5em 0.375em 0;
+	}
+
+	&:has(div > p) {
+		padding: 1.25em;
 	}
 
 	@media screen and ($extraSmall) {
