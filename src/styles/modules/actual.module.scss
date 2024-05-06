@@ -178,9 +178,13 @@
 
 	&:has(div > p) {
 		padding: 1.25em;
+
+		@media screen and ($small) {
+			padding: 1em;
+		}
 	}
 
-	@media screen and ($extraSmall) {
-		padding: 0.75em 0.75em 1em;
+	@media screen and ($small) {
+		padding: 0.75em;
 	}
 }
