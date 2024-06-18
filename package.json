@@ -19,13 +19,13 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^15.19.6",
-    "@contentful/rich-text-types": "^16.3.5",
+    "@contentful/rich-text-react-renderer": "^15.21.2",
+    "@contentful/rich-text-types": "^16.5.2",
     "@mdx-js/react": "^3.0.1",
     "dotenv": "^16.4.5",
-    "framer-motion": "^11.1.9",
-    "gatsby": "^5.13.4",
-    "gatsby-adapter-netlify": "^1.1.4",
+    "framer-motion": "^11.2.10",
+    "gatsby": "^5.13.6",
+    "gatsby-adapter-netlify": "^1.1.6",
     "gatsby-plugin-canonical-urls": "^5.13.1",
     "gatsby-plugin-catch-links": "^5.13.1",
     "gatsby-plugin-google-tagmanager": "^5.13.1",
@@ -46,25 +46,26 @@
     "gatsby-transformer-sharp": "^5.13.1",
     "google-map-react": "^2.2.1",
     "react": "^18.3.1",
-    "react-datepicker": "^6.9.0",
+    "react-datepicker": "^7.0.0",
     "react-dom": "^18.3.1",
-    "sass": "^1.77.1",
-    "swiper": "^11.1.1"
+    "sass": "^1.77.6",
+    "swiper": "^11.1.4"
   },
   "devDependencies": {
-    "@types/node": "^20.12.11",
-    "@types/react": "^18.3.2",
+    "@types/node": "^20.14.5",
+    "@types/react": "^18.3.3",
     "@types/react-datepicker": "^6.2.0",
     "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.8.0",
-    "@typescript-eslint/parser": "^7.8.0",
-    "eslint": "^9.2.0",
+    "@typescript-eslint/eslint-plugin": "^7.13.1",
+    "@typescript-eslint/parser": "^7.13.1",
+    "eslint": "^9.5.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "stylelint": "^16.5.0",
+    "stylelint": "^16.6.1",
     "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-standard-scss": "^13.1.0",
     "typescript": "^5.4.5"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }

@@ -11,7 +11,7 @@ const siteMetadata = {
 	description: `Eternity is een culturele instelling die zich bezighoudt met activiteiten, projecten en evenementen op het gebied van muzikale vorming en performance.`,
 
 	siteUrl: `https://eternitydrum.com`,
-	image: `/images/logo/ep-logo.png`,
+	image: `/ep-logo.png`,
 
 	twitterUsername: `@eternitydrum`,
 	facebookUrl: `https://www.facebook.com/EternityDrum/`,
