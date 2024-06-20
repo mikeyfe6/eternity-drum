@@ -1,15 +1,11 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 
-&nbsp;&nbsp;
-
 <p align="center">
   <a href="https://eternitydrum.com" rel="noopener noreferrer"
               target="_blank">
     <img alt="Eternity Percussion Logo" src="https://eternitydrum.com/ep-logo.png" width="500" />
   </a>
 </p>
-
-&nbsp;&nbsp;
 
 <br>
 
