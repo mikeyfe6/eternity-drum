@@ -62,8 +62,7 @@ const Contact: React.FC<PageProps> = () => {
 									<a
 										href='tel:31203113933'
 										rel='noopener noreferrer'
-										target='_blank'
-									>
+										target='_blank'>
 										020 311 39 33
 									</a>
 								</span>
@@ -74,8 +73,7 @@ const Contact: React.FC<PageProps> = () => {
 									<a
 										href='tel:31624255391'
 										rel='noopener noreferrer'
-										target='_blank'
-									>
+										target='_blank'>
 										06 242 55 391
 									</a>
 								</span>
@@ -86,8 +84,7 @@ const Contact: React.FC<PageProps> = () => {
 									<a
 										href={`mailto:${email}`}
 										rel='noopener noreferrer'
-										target='_blank'
-									>
+										target='_blank'>
 										{email}
 									</a>
 								</span>
@@ -114,8 +111,7 @@ const Contact: React.FC<PageProps> = () => {
 								<a
 									href={instagramUrl}
 									rel='noopener noreferrer'
-									target='_blank'
-								>
+									target='_blank'>
 									<span>Instagram</span>
 									<i className='fab fa-instagram' />
 								</a>
@@ -138,8 +134,7 @@ const Contact: React.FC<PageProps> = () => {
 							<a
 								href={`https://wa.me/${mobile}`}
 								rel='noopener noreferrer'
-								target='_blank'
-							>
+								target='_blank'>
 								<span>Whatsapp</span> <i className='fab fa-whatsapp' />
 							</a>
 						</p>
@@ -156,6 +151,7 @@ export default Contact;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Contact'
+		pathname='/over-ons/contact/'
 		description='Contacteer ons voor directe communicatie! Ontdek onze locatie in Amsterdam Zuidoost, bel, e-mail of volg ons op sociale media. Bij Eternity bieden we verschillende communicatiekanalen, waaronder WhatsApp.'
 	/>
 );

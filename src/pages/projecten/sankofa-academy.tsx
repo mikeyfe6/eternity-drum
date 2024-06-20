@@ -96,8 +96,7 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 							<a
 								href='https://untold.nl'
 								rel='noopener noreferrer'
-								target='_blank'
-							>
+								target='_blank'>
 								Untold Empowerment
 							</a>
 							.
@@ -148,16 +147,14 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 							<a
 								href={`mailto:${email}`}
 								rel='noopener noreferrer'
-								target='_blank'
-							>
+								target='_blank'>
 								{email}
 							</a>{' '}
 							of telefonisch via{' '}
 							<a
 								href={`tel:+${mobile}`}
 								rel='noopener noreferrer'
-								target='_blank'
-							>
+								target='_blank'>
 								06 242 55 391
 							</a>
 							.
@@ -179,6 +176,7 @@ export default SankofaAcademy;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Sankofa Academy'
+		pathname='/projecten/sankofa-academy/'
 		description='Ontdek Sankofa Academy: empower en emancipeer mensen van Afrikaanse afkomst. Leer over gedeelde geschiedenis, identiteit en bewustzijn.'
 	/>
 );

@@ -7,6 +7,7 @@ interface SEOProps {
 	keywords?: string;
 	pathname?: string;
 	children?: ReactNode;
+	article?: boolean;
 }
 
 export const Seo: React.FC<SEOProps> = ({
@@ -15,6 +16,7 @@ export const Seo: React.FC<SEOProps> = ({
 	keywords,
 	pathname,
 	children,
+	article = false,
 }: SEOProps) => {
 	const {
 		title: siteTitle,
@@ -52,7 +54,7 @@ export const Seo: React.FC<SEOProps> = ({
 			<meta property='og:site_name' content={siteTitle} />
 			{seo.url && <meta property='og:url' content={seo.url} />}
 			<meta property='og:locale' content='nl_NL' />
-			<meta property='og:type' content={pathname ? 'article' : 'website'} />
+			<meta property='og:type' content={article ? 'article' : 'website'} />
 
 			{/* TWITTER META TAGS */}
 			<meta name='twitter:card' content='summary_large_image' />

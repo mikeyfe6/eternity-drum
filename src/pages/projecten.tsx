@@ -49,8 +49,7 @@ const Projecten: React.FC<PageProps> = () => {
 						<a
 							href={`mailto:${email}`}
 							rel='noopener noreferrer'
-							target='_blank'
-						>
+							target='_blank'>
 							{email}
 						</a>
 					</p>
@@ -63,8 +62,7 @@ const Projecten: React.FC<PageProps> = () => {
 						<a
 							href='https://www.europeansolidaritycorps.nl'
 							rel='noopener noreferrer'
-							target='_blank'
-						>
+							target='_blank'>
 							European Solidarity Corps
 						</a>
 					</p>
@@ -99,8 +97,7 @@ const Projecten: React.FC<PageProps> = () => {
 						<a
 							href={`mailto:${email}`}
 							rel='noopener noreferrer'
-							target='_blank'
-						>
+							target='_blank'>
 							{email}
 						</a>
 					</p>
@@ -113,8 +110,7 @@ const Projecten: React.FC<PageProps> = () => {
 						<a
 							href='https://www.erasmusplus.nl'
 							rel='noopener noreferrer'
-							target='_blank'
-						>
+							target='_blank'>
 							Erasmus+
 						</a>
 					</p>
@@ -232,8 +228,7 @@ const Projecten: React.FC<PageProps> = () => {
 						<a
 							href='https://www.erasmusplus.nl'
 							rel='noopener noreferrer'
-							target='_blank'
-						>
+							target='_blank'>
 							Erasmus+
 						</a>
 					</p>
@@ -375,6 +370,7 @@ export default Projecten;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Projecten'
+		pathname='/projecten/'
 		description="Ontdek de diverse jeugdprojecten van Eternity, van educatieve sessies over de zwarte geschiedenis tot uitwisselingsprogramma's in Amsterdam en Londen. Doe mee aan initiatieven zoals 'Van Hobby naar Succes' voor een culturele en educatieve reis met drumlessen."
 	/>
 );

@@ -92,6 +92,7 @@ export default Vacatures;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Vacatures'
+		pathname='/over-ons/vacatures/'
 		description='Ontdek onze nieuwste vacatures! Kijk naar open posities en kansen om bij ons in Amsterdam Zuidoost te werken. Solliciteer vandaag nog en sluit je aan bij ons team!'
 	/>
 );

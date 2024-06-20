@@ -30,4 +30,6 @@ const SankofaSchool: React.FC<PageProps> = () => {
 
 export default SankofaSchool;
 
-export const Head: HeadFC = () => <Seo title='Sankofa School' />;
+export const Head: HeadFC = () => (
+	<Seo title='Sankofa School' pathname='/projecten/sankofa-school/' />
+);

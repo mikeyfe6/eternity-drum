@@ -159,6 +159,7 @@ export default Anbi;
 export const Head: HeadFC = () => (
 	<Seo
 		title='ANBI'
+		pathname='/over-ons/anbi/'
 		description="Ontdek meer over 'Stichting Eternity Percussion' (ANBI). Leer over onze missie en doelstellingen als organisatie voor muzikale vormingsactiviteiten en evenementen. Ontdek ons platform voor Caribische muziekstijlen, talentontwikkeling en muzikale samenwerking. Krijg inzicht in onze contactgegevens en bestuur."
 	/>
 );

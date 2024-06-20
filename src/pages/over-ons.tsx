@@ -113,6 +113,7 @@ export default OverOns;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Over Ons'
+		pathname='/over-ons/'
 		description="Ontdek Eternity, een culturele instelling die zich richt op talentontwikkeling en cultuurparticipatie van jongeren door muziekeducatie en Caribische drumstijlen. We bieden programma's voor muzikale vaardigheden, organiseren drumshows en stimuleren samenwerking tussen jonge artiesten en gevestigde instellingen. Onze doelgroep omvat kinderen, jongeren en liefhebbers van Caribische muziek."
 	/>
 );

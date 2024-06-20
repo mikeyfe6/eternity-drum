@@ -27,4 +27,10 @@ const BoekenPage: React.FC<PageProps> = () => {
 
 export default BoekenPage;
 
-export const Head: HeadFC = () => <Seo title='Boeken' description='Boek Drumband Eternity Percussion voor je evenementen, jubilea, bruiloften en meer. Ons ensemble van 6 tot 15 drummers en blazers treedt op in binnen- en buitenland. Ontvang een offerte via ons online boekingsformulier of bel voor meer informatie' />;
+export const Head: HeadFC = () => (
+	<Seo
+		title='Boeken'
+		pathname='/boeken/'
+		description='Boek Drumband Eternity Percussion voor je evenementen, jubilea, bruiloften en meer. Ons ensemble van 6 tot 15 drummers en blazers treedt op in binnen- en buitenland. Ontvang een offerte via ons online boekingsformulier of bel voor meer informatie'
+	/>
+);

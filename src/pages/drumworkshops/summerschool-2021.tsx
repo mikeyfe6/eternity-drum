@@ -139,6 +139,7 @@ export default SummerschoolSecond;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Summerschool 2021'
+		pathname='/drumworkshops/summerschool-2021/'
 		description='Ontdek onze zinderende Summerschool 2021! Gratis muziekworkshops voor kinderen, tieners en jongeren in Amsterdam Zuidoost. Lid worden van Eternity, Untold of Black Harmony? Bekijk onze workshops en sluit je aan!'
 	/>
 );

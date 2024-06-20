@@ -44,16 +44,14 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 						<a
 							href='https://www.bindelmeercollege.nl'
 							rel='noopener noreferrer'
-							target='_blank'
-						>
+							target='_blank'>
 							Bindelmeer College
 						</a>{' '}
 						en{' '}
 						<a
 							href='https://www.bredeschoolzuidoost.nl'
 							rel='noopener noreferrer'
-							target='_blank'
-						>
+							target='_blank'>
 							Bredeschool Zuidoost
 						</a>{' '}
 						in Amsterdam Zuidoost.
@@ -69,6 +67,7 @@ export default CultuurEducatie;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Cultuureducatie'
+		pathname='/cultuureducatie/'
 		description="Ontdek Eternity's Cultuureducatie: educatieve en naschoolse drumworkshops in Amsterdam. Talentontwikkeling en optredens met professionele drumband."
 	/>
 );

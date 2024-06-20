@@ -42,16 +42,14 @@ const Drumworkshops: React.FC<PageProps> = () => {
 							<a
 								href='https://www.bindelmeercollege.nl'
 								rel='noopener noreferrer'
-								target='_blank'
-							>
+								target='_blank'>
 								Bindelmeer College{' '}
 							</a>
 							en de{' '}
 							<a
 								href='https://www.bredeschoolzuidoost.nl'
 								rel='noopener noreferrer'
-								target='_blank'
-							>
+								target='_blank'>
 								Bredeschool Zuidoost{' '}
 							</a>
 							als vast onderdeel van het onderwijspakket. Speciaal voor kinderen
@@ -101,16 +99,14 @@ const Drumworkshops: React.FC<PageProps> = () => {
 							<a
 								href={`mailto:${email}`}
 								rel='noopener noreferrer'
-								target='_blank'
-							>
+								target='_blank'>
 								{email}
 							</a>{' '}
 							of telefonisch via{' '}
 							<a
 								href={`tel:+${mobile}`}
 								rel='noopener noreferrer'
-								target='_blank'
-							>
+								target='_blank'>
 								06 242 55 391
 							</a>
 							.
@@ -128,8 +124,7 @@ const Drumworkshops: React.FC<PageProps> = () => {
 							<a
 								href='https://www.jongerencultuurfonds.nl'
 								rel='noopener noreferrer'
-								target='_blank'
-							>
+								target='_blank'>
 								Jongerencultuurfonds
 							</a>
 							.
@@ -151,6 +146,7 @@ export default Drumworkshops;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Drumworkshops'
+		pathname='/drumworkshops/'
 		description='Ontdek onze drumworkshops in Amsterdam Zuidoost voor kinderen en jongeren. Leer diverse ritmes en noten spelen, met optredens op lokale evenementen.'
 	/>
 );

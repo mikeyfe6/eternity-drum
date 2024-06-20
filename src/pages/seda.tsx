@@ -54,8 +54,7 @@ const Seda: React.FC<PageProps> = () => {
 							<a
 								href='https://maps.app.goo.gl/MGox9UBh15DWsfLg8'
 								rel='noopener noreferrer'
-								target='_blank'
-							>
+								target='_blank'>
 								Kruitbergstraat 18
 							</a>
 							, 1104 CH, gelegen in een opvallende paarse container onder het
@@ -69,8 +68,7 @@ const Seda: React.FC<PageProps> = () => {
 							<a
 								href={`mailto:${email}`}
 								rel='noopener noreferrer'
-								target='_blank'
-							>
+								target='_blank'>
 								{email}
 							</a>
 							.
@@ -99,6 +97,7 @@ export default Seda;
 export const Head: HeadFC = () => (
 	<Seo
 		title='Seda'
+		pathname='/seda/'
 		description='Ontdek de inspirerende oefenruimte en kleedkamers van Southeast Drum Academy (SEDA), een plek voor drumgroepen op hun muzikale reis. Onder artistiek directeur Orlando Ceder bloeit samenwerking en gemeenschap op. Gevestigd onder metrostation Kraaiennest in Amsterdam Zuidoost, op Kruitbergstraat 18, 1104 CH.'
 	/>
 );
