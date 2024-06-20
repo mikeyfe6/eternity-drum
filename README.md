@@ -1,15 +1,15 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 
-<!-- &nbsp;&nbsp; -->
+&nbsp;&nbsp;
 
-<!-- <p align="center">
-  <a href="https://afrodiasphere.netlify.app/" rel="noopener noreferrer"
+<p align="center">
+  <a href="https://eternitydrum.com" rel="noopener noreferrer"
               target="_blank">
-    <img alt="Afrodiasphere" src="https://i.postimg.cc/Yq04rydW/Afrodiasphere-screen.png" width="500" />
+    <img alt="Eternity Percussion Logo" src="https://eternitydrum.com/ep-logo.png" width="500" />
   </a>
-</p> -->
+</p>
 
-<!-- &nbsp;&nbsp; -->
+&nbsp;&nbsp;
 
 <br>
 
@@ -17,11 +17,11 @@
 
 <br>
 
-Deze webapp is gebouwd door [Michael Fransman](https://www.linkedin.com/in/michaelfransman/), voor Stichting Eternity Percussion uit Amsterdam.
+Deze website is gebouwd door [Michael Fransman](https://www.linkedin.com/in/michaelfransman/), voor Stichting Eternity Percussion uit Amsterdam.
 
 Eternity is een culturele instelling die zich bezighoudt met activiteiten, projecten en evenementen op het gebied van muzikale vorming en performance.
 
-- _Meer weten? Bekijk de webapp / check the webapp: [Eternity Percussion](https://eternity-drum.netlify.app)_
+- _Meer weten? Bekijk de website / check the website: [Eternity Percussion](https://eternitydrum.com)_
 
 <br>
 
@@ -29,7 +29,7 @@ Eternity is een culturele instelling die zich bezighoudt met activiteiten, proje
 
 <br>
 
-**Deze webapp is gebouwd met GatsbyJS, ReactJS, Contentful, GraphQl & Netlify.**
+**Deze website is gebouwd met GatsbyJS, ReactJS, Contentful, GraphQl & Netlify.**
 
 Powered by [Menefex](https://menefex.nl) ✨
 
