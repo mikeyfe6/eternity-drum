@@ -29,6 +29,9 @@
 			width: 150px;
 			height: 150px;
 
+			@include baseTransition(all);
+			@include boxShadow;
+
 			@media screen and ($large) {
 				width: 125px;
 				height: 125px;
@@ -38,9 +41,6 @@
 				width: 100px;
 				height: 100px;
 			}
-
-			@include baseTransition(all);
-			@include boxShadow;
 
 			&:hover {
 				outline-color: $tertiaryColor;

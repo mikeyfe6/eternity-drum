@@ -145,16 +145,16 @@
 	}
 
 	> div > a {
+		width: fit-content;
+		margin-top: 2em;
+		margin-left: auto;
+
 		@include buttonStyle(
 			$primaryColor,
 			$whiteColor,
 			$primaryColor,
 			$secondaryColor
 		);
-
-		width: fit-content;
-		margin-top: 2em;
-		margin-left: auto;
 	}
 
 	@media screen and ($extraSmall) {

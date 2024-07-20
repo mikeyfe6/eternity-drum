@@ -79,11 +79,11 @@
 			height: 125px;
 			background-color: $whiteColor;
 
+			@include baseTransition(all);
+
 			@media screen and ($small) {
 				height: 80px;
 			}
-
-			@include baseTransition(all);
 
 			&.fixed-menu {
 				position: fixed;
@@ -92,6 +92,8 @@
 				width: 100%;
 				z-index: 5;
 				transform: translateZ(0);
+
+				@include boxBottomShadow;
 
 				ul > li > ul > li {
 					border-right: 1px solid color.adjust($transGrey, $alpha: -0.75);
@@ -105,8 +107,6 @@
 				ul > li > ul {
 					padding-top: 20px;
 				}
-
-				@include boxBottomShadow;
 			}
 
 			&::before {

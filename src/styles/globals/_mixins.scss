@@ -14,6 +14,7 @@
 	cursor: pointer;
 
 	@include boxShadow;
+	@include baseTransition(all);
 
 	@media screen and ($small) {
 		font-size: 1rem;
@@ -34,8 +35,6 @@
 			color: $secondaryColor;
 		}
 	}
-
-	@include baseTransition(all);
 }
 
 @mixin boxShadow {

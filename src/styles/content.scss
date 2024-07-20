@@ -301,9 +301,9 @@
 				outline: 1px solid $lightgreyColor;
 
 				img {
-					@include boxShadow;
-
 					width: 100%;
+
+					@include boxShadow;
 				}
 			}
 		}
@@ -357,16 +357,15 @@
 
 			ul {
 				margin-left: auto;
-
-				@media screen and ($large) {
-					margin-left: initial;
-				}
-
 				list-style: none;
 				display: flex;
 				gap: 10px;
 				justify-content: flex-end;
 				flex-wrap: wrap;
+
+				@media screen and ($large) {
+					margin-left: initial;
+				}
 
 				li {
 					background: $secondaryColor;

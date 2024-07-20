@@ -31,6 +31,10 @@
 		}
 
 		button {
+			max-width: 100%;
+			width: fit-content;
+			margin-left: auto;
+
 			@include buttonStyle(
 				$primaryColor,
 				$whiteColor,
@@ -38,17 +42,12 @@
 				$secondaryColor
 			);
 
-			max-width: 100%;
-
 			span {
 				display: block;
 				white-space: nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;
 			}
-
-			width: fit-content;
-			margin-left: auto;
 
 			@media screen and ($small) {
 				margin-top: 1em;

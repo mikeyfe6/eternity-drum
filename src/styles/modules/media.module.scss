@@ -80,11 +80,11 @@
 	padding: 1.5em;
 	text-align: center;
 
+	@include boxShadow;
+
 	@media screen and ($small) {
 		padding: 1em;
 	}
-
-	@include boxShadow;
 }
 
 .photos {
@@ -93,6 +93,8 @@
 	margin: 3em auto;
 	background: color.adjust($lightgreyColor, $lightness: 10%);
 	padding: 1.5em 1.5em 0.25em;
+
+	@include boxShadow;
 
 	@media screen and ($small) {
 		padding: 1em 1em 0.25em;
@@ -103,6 +105,4 @@
 		margin: 3em 0 2em;
 		background-color: $whiteColor;
 	}
-
-	@include boxShadow;
 }

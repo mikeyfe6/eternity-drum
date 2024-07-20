@@ -3,6 +3,8 @@
 @import '../configs/globals';
 
 .footer {
+	@include boxShadow;
+
 	&-container {
 		background: linear-gradient(
 			45deg,
@@ -10,8 +12,6 @@
 			color.scale($secondaryColor, $lightness: 25%)
 		);
 	}
-
-	@include boxShadow;
 
 	&-wrapper {
 		padding: 3em 2em 0;
