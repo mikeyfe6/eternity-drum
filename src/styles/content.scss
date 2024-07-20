@@ -380,6 +380,10 @@
 				margin-left: auto;
 				font-size: 1rem;
 				width: fit-content;
+				background: $primaryColor;
+				padding: 1em 1.25em;
+				border-radius: 7.5px;
+				color: $whiteColor;
 
 				@media screen and ($small) {
 					width: 100%;
@@ -389,11 +393,6 @@
 					display: block;
 					margin-bottom: 0.5em;
 				}
-
-				background: $primaryColor;
-				padding: 1em 1.25em;
-				border-radius: 7.5px;
-				color: $whiteColor;
 			}
 		}
 
