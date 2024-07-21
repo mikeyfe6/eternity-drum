@@ -69,27 +69,13 @@ const config: GatsbyConfig = {
 				host: process.env.CONTENTFUL_HOST,
 			},
 		},
-		{
-			resolve: `gatsby-source-s3`,
-			options: {
-				aws: {
-					credentials: {
-						accessKeyId: process.env.AWS_EP_ACCESS_KEY_ID,
-						secretAccessKey: process.env.AWS_EP_SECRET_ACCESS_KEY,
-					},
-					region: process.env.AWS_EP_REGION,
-				},
-				buckets: [process.env.AWS_EP_BUCKET_NAME],
-				expiration: 120,
-			},
-		},
 		'gatsby-plugin-preload-fonts',
 		'gatsby-plugin-mdx',
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
 				name: 'images',
-				path: './src/images/',
+				path: `${__dirname}/src/images/`,
 			},
 			__key: 'images',
 		},
@@ -97,7 +83,7 @@ const config: GatsbyConfig = {
 			resolve: 'gatsby-source-filesystem',
 			options: {
 				name: 'pages',
-				path: './src/pages/',
+				path: `${__dirname}/src/pages/`,
 			},
 			__key: 'pages',
 		},

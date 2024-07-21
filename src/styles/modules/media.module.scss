@@ -104,5 +104,9 @@
 	hr {
 		margin: 3em 0 2em;
 		background-color: $whiteColor;
+
+		@media screen and ($medium) {
+			margin: 1.5em 0 1.25em;
+		}
 	}
 }

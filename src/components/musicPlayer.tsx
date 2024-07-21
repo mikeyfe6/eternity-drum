@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 
-import { useStaticQuery, graphql } from 'gatsby';
-
 import * as styles from '../styles/modules/audio.module.scss';
 
 import albumCover from '../images/logo/ep-logo-small.png';
+
+import { fetchS3Files } from '../utils/aws-init';
 
 const MusicPlayer: React.FC = () => {
 	const [isPlaying, setIsPlaying] = useState(false);
@@ -17,30 +17,14 @@ const MusicPlayer: React.FC = () => {
 
 	const audioElementRefs = useRef<Array<HTMLAudioElement | null>>([]);
 
-	const data = useStaticQuery(graphql`
-		query AllMusicInDirectory {
-			allS3Object(filter: { Key: { regex: "/^music/[^/]+$/" } }) {
-				nodes {
-					Key
-				}
-			}
-		}
-	`);
-
 	useEffect(() => {
-		const newSongs = data.allS3Object.nodes.map((node: any) => {
-			const fullTitle = node.Key.split('/').pop();
-			const title = fullTitle.substring(3, fullTitle.length - 4);
-			const formattedTitle = title.replace(/-/g, ' ');
-			return {
-				title: formattedTitle,
-				artist: 'Eternity Percussion',
-				src: process.env.GATSBY_AWS_URL + node.Key,
-			};
-		});
-
-		setSongs(newSongs);
-	}, [data]);
+		const fetchSongs = async () => {
+			const bucketName = process.env.GATSBY_AWS_EP_BUCKET_NAME ?? '';
+			const fetchedSongs = await fetchS3Files(bucketName, 'music/');
+			setSongs(fetchedSongs);
+		};
+		fetchSongs();
+	}, []);
 
 	useEffect(() => {
 		const audioElement = audioElementRefs.current[currentSong];
@@ -94,22 +78,22 @@ const MusicPlayer: React.FC = () => {
 				],
 			});
 
-			navigator.mediaSession.setActionHandler('play', function () {
+			navigator.mediaSession.setActionHandler('play', () => {
 				play();
 			});
 
-			navigator.mediaSession.setActionHandler('pause', function () {
+			navigator.mediaSession.setActionHandler('pause', () => {
 				pause();
 			});
 
-			navigator.mediaSession.setActionHandler('previoustrack', function () {
-				setCurrentTime(0);
+			navigator.mediaSession.setActionHandler('previoustrack', () => {
 				setCurrentSong(currentSong === 0 ? songs.length - 1 : currentSong - 1);
+				setCurrentTime(0);
 			});
 
-			navigator.mediaSession.setActionHandler('nexttrack', function () {
-				setCurrentTime(0);
+			navigator.mediaSession.setActionHandler('nexttrack', () => {
 				setCurrentSong((currentSong + 1) % songs.length);
+				setCurrentTime(0);
 			});
 		}
 
@@ -123,12 +107,12 @@ const MusicPlayer: React.FC = () => {
 	const switchToNextSong = () => {
 		const nextSongIndex = (currentSong + 1) % songs.length;
 		setCurrentSong(nextSongIndex);
+		setCurrentTime(0);
 	};
 
 	const formatTime = (time: number) => {
 		const minutes = Math.floor(time / 60);
 		const seconds = Math.floor(time % 60);
-
 		return `${minutes}:${String(seconds).padStart(2, '0')}`;
 	};
 
@@ -164,8 +148,8 @@ const MusicPlayer: React.FC = () => {
 					</div>
 
 					<div className={styles.artistInfo}>
-						<h3 className={styles.title}>{songs[currentSong].title}</h3>
-						<p className={styles.subTitle}>{songs[currentSong].artist}</p>
+						<h3 className={styles.title}>{songs[currentSong]?.title}</h3>
+						<p className={styles.subTitle}>{songs[currentSong]?.artist}</p>
 					</div>
 				</div>
 			)}
@@ -173,51 +157,43 @@ const MusicPlayer: React.FC = () => {
 			{isLoaded && (
 				<div className={styles.controls}>
 					<button
-						className={styles.controlButton}
+						className={`${styles.controlButton} fas fa-step-backward`}
 						onClick={() => {
-							setCurrentTime(0);
 							setCurrentSong(
 								currentSong === 0 ? songs.length - 1 : currentSong - 1
 							);
-						}}
-					>
-						<i className='fas fa-step-backward'></i>
-					</button>
-					<button
-						className={styles.controlButton}
-						onClick={isPlaying ? pause : play}
-					>
-						<i
-							className={`fas ${
-								isPlaying ? 'fa-pause-circle' : 'fa-play-circle'
-							}`}
-						></i>
-					</button>
-					<button
-						className={styles.controlButton}
-						onClick={() => {
 							setCurrentTime(0);
-							setCurrentSong((currentSong + 1) % songs.length);
 						}}
-					>
-						<i className='fas fa-step-forward'></i>
-					</button>
+					/>
+					<button
+						className={`${styles.controlButton} fas ${
+							isPlaying ? 'fa-pause-circle' : 'fa-play-circle'
+						}`}
+						onClick={isPlaying ? pause : play}
+					/>
+					<button
+						className={`${styles.controlButton} fas fa-step-forward`}
+						onClick={() => {
+							setCurrentSong((currentSong + 1) % songs.length);
+							setCurrentTime(0);
+						}}
+					/>
 
 					<div className={styles.controlVolume}>
 						{volume === 0 && (
-							<i
+							<button
 								className='fa-solid fa-volume-mute'
 								onClick={() => setVolume(100)}
 							/>
 						)}
 						{volume >= 1 && volume <= 49 && (
-							<i
+							<button
 								className='fa-solid fa-volume-low'
 								onClick={() => setVolume(100)}
 							/>
 						)}
 						{volume >= 50 && volume <= 100 && (
-							<i
+							<button
 								className='fa-solid fa-volume-high'
 								onClick={() => setVolume(0)}
 							/>
@@ -259,6 +235,16 @@ const MusicPlayer: React.FC = () => {
 					</div>
 				</>
 			)}
+
+			{isLoaded &&
+				songs.map((song, index) => (
+					<audio
+						key={index}
+						ref={(el) => (audioElementRefs.current[index] = el)}
+						src={song.src}>
+						<track kind='captions' />
+					</audio>
+				))}
 		</div>
 	);
 };

@@ -10,7 +10,6 @@ import MobileMenu from './mobileMenu';
 import '../styles/layout.scss';
 import '../styles/forms.scss';
 import '../styles/content.scss';
-import '../styles/audio.scss';
 import '../styles/swiper.scss';
 
 const duration = 0.1;
@@ -68,8 +67,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 						variants={variants}
 						initial='initial'
 						animate='animate'
-						exit='exit'
-					>
+						exit='exit'>
 						<main>{children}</main>
 					</motion.main>
 				</AnimatePresence>

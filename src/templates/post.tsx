@@ -38,8 +38,6 @@ const Post = ({
 }: PostProps) => {
 	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: title }];
 
-	console.log('featuredImage', excerpt);
-
 	const renderOptions = {
 		renderNode: {
 			[BLOCKS.EMBEDDED_ASSET]: (node: any) => {

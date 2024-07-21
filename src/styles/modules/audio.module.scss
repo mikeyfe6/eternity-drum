@@ -117,7 +117,7 @@
 				display: none;
 			}
 
-			> i {
+			> button {
 				text-align: center;
 				margin: 0 auto;
 				font-size: 1.5em;
@@ -199,12 +199,39 @@
 				margin-bottom: 1em;
 			}
 
-			> input {
+			> input[type='range'] {
 				width: 100%;
 				height: 5px;
-				background: color.adjust($whiteColor, $lightness: -10%);
 				border-radius: 2px;
+				appearance: none;
+				background: color.adjust($whiteColor, $lightness: -10%);
 				cursor: pointer;
+
+				&::-webkit-slider-runnable-track {
+					z-index: 1;
+
+					&:hover {
+						outline: $tertiaryColor;
+					}
+				}
+
+				&::-webkit-slider-thumb {
+					appearance: none;
+					width: 25px;
+					height: 25px;
+					background: color.adjust($whiteColor, $lightness: -5%);
+					outline: 1px solid rgba($lightgreyColor, 0.2);
+					border-radius: 50%;
+					z-index: 2;
+
+					&:hover {
+						background: color.adjust($tertiaryColor, $lightness: 15%);
+					}
+
+					&:active {
+						background: color.adjust($tertiaryColor, $lightness: 5%);
+					}
+				}
 			}
 		}
 	}

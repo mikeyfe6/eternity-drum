@@ -69,9 +69,9 @@
 	}
 
 	&-wrapper {
-		@include epWrapper;
-		margin-bottom: 0.5em;
+		overflow: hidden;
 		border-radius: 5px;
+		margin-bottom: 0.75em;
 
 		@media screen and ($small) {
 			border-radius: 3px;
@@ -80,33 +80,68 @@
 
 	&-slide {
 		&-top {
+			max-height: 650px;
+			overflow: hidden;
 			border-radius: 5px;
 			border: 2px solid $whiteColor;
-			overflow: hidden;
+			cursor: pointer;
+
+			@media screen and ($superSized) {
+				max-height: 600px;
+			}
+
+			@media screen and ($extraLarge) {
+				max-height: 500px;
+			}
+
+			@media screen and ($large) {
+				max-height: 400px;
+			}
+
+			@media screen and ($medium) {
+				max-height: 300px;
+			}
+
+			@media screen and ($small) {
+				max-height: 267.5px;
+				border-radius: 3px;
+			}
+
+			@media screen and ($extraSmall) {
+				max-height: 225px;
+			}
+
+			@media screen and ($superSmall) {
+				max-height: 175px;
+			}
 
 			img {
-				opacity: 0.75;
-
 				@include respImage(100%, 100%, 100%, cover);
-
-				@media screen and ($small) {
-					border-radius: 3px;
-				}
 			}
 		}
 
 		&-bottom {
 			opacity: 0.75;
-			border-radius: 5px;
+			height: 125px;
 			overflow: hidden;
+			border-radius: 5px;
 			border: 2px solid $whiteColor;
+			cursor: pointer;
+
+			@media screen and ($medium) {
+				max-height: 110px;
+			}
 
 			@media screen and ($small) {
-				border-radius: 3px;
+				max-height: 100px;
+			}
+
+			@media screen and ($extraSmall) {
+				max-height: 80px;
 			}
 
 			img {
-				cursor: pointer;
+				@include respImage(100%, 100%, 100%, cover);
 			}
 
 			&:hover {
@@ -131,15 +166,14 @@
 }
 
 .lightbox-content {
-	max-width: 85%;
-	max-height: 100%;
 	position: relative;
 	text-align: center;
+	max-width: 90%;
 
-	@media screen and ($landscape) and ($large) {
-		max-width: 100%;
-		max-height: 100%;
-	}
+	// @media screen and ($landscape) and ($large) {
+	// 	max-width: 100%;
+	// 	max-height: 100%;
+	// }
 }
 
 .lightbox-close {
@@ -147,22 +181,21 @@
 	top: 15px;
 	right: 30px;
 	border: none;
-	cursor: pointer;
 	z-index: 10;
 	font-size: 45px;
 	color: $whiteColor;
+	cursor: pointer;
 }
 
 .lightbox-image {
-	max-width: 100%;
-	max-height: 100%;
-	object-fit: cover;
+	width: 100%;
+	max-height: calc(100vh - 6em);
+	object-fit: contain;
 	display: block;
-	width: 90em;
 	outline: 1px solid rgba($whiteColor, 33%);
 
-	@media screen and ($landscape) and ($large) {
-		width: 35em;
-		height: 23em;
-	}
+	// @media screen and ($landscape) and ($large) {
+	// 	width: 35em;
+	// 	height: 23em;
+	// }
 }

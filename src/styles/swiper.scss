@@ -5,25 +5,37 @@
 	&-button-next {
 		color: var(--swiper-theme-color);
 		transform: scale(0.75) translateY(-50%);
+		background: rgba($smokeColor, 0.125);
 
-		width: 100px !important;
-		height: 100px !important;
-
+		border-radius: 10px;
 		opacity: 0.5;
+
+		margin-top: 0 !important;
+		width: 75px !important;
+		height: 75px !important;
 
 		&:hover {
 			opacity: 1;
 		}
 
-		@media screen and ($small) {
-			transform: scale(0.5);
-			width: 50px !important;
-			height: 50px !important;
+		@media screen and ($medium) {
+			width: 67.5px !important;
+			height: 67.5px !important;
+
+			&::after {
+				transform: scale(0.75);
+			}
 		}
 	}
 
-	&-scrollbar-drag {
-		background: var(--swiper-theme-color);
+	&-scrollbar {
+		&-drag {
+			background: var(--swiper-theme-color);
+		}
+
+		&-horizontal {
+			bottom: var(--swiper-scrollbar-bottom, 8px) !important;
+		}
 	}
 
 	&-pagination-bullet {

@@ -1,8 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { SwiperOptions } from 'swiper/types';
 import {
 	Navigation,
 	Pagination,
@@ -13,9 +12,6 @@ import {
 	FreeMode,
 	Thumbs,
 } from 'swiper/modules';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { SwiperOptions } from 'swiper/types';
 
 import * as styles from '../../styles/modules/gallery.module.scss';
 
@@ -28,14 +24,12 @@ import 'swiper/scss/scrollbar';
 import 'swiper/scss/parallax';
 import 'swiper/scss/autoplay';
 
+import { fetchS3Files } from '../../utils/aws-init';
+
 type ImageType = {
-	Key: string;
-	localFile: {
-		name: string;
-		childImageSharp: {
-			gatsbyImageData: IGatsbyImageData | undefined;
-		};
-	};
+	title: string;
+	artist: string;
+	src: string;
 };
 
 type ThumbsSwiperType = {
@@ -46,41 +40,32 @@ type ThumbsSwiperType = {
 };
 
 const GallerySix: React.FC = () => {
+	const [images, setImages] = useState<ImageType[]>([]);
 	const [thumbsSwiper, setThumbsSwiper] = useState<ThumbsSwiperType | null>(
 		null
 	);
-	const [lightboxImage, setLightboxImage] = useState<IGatsbyImageData | null>(
-		null
-	);
+
+	const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
 	const progressCircle = useRef<SVGSVGElement | null>(null);
 	const progressContent = useRef<HTMLSpanElement | null>(null);
 
-	const data = useStaticQuery(graphql`
-		query AllGallerySixImages {
-			allS3Object(filter: { Key: { regex: "/^photos/adpaf-141121/[^/]+$/" } }) {
-				nodes {
-					Key
-					localFile {
-						name
-						childImageSharp {
-							gatsbyImageData(
-								layout: FULL_WIDTH
-								placeholder: BLURRED
-								aspectRatio: 1.5
-							)
-						}
-					}
-				}
-			}
-		}
-	`);
+	useEffect(() => {
+		const loadImages = async () => {
+			const bucketName = process.env.GATSBY_AWS_EP_BUCKET_NAME || '';
+			const prefix = 'photos/adpaf-141121/';
 
-	const images = data.allS3Object.nodes;
+			const fetchedImages = await fetchS3Files(bucketName, prefix);
+			const formattedImages = fetchedImages.map((image) => ({
+				title: image.title || '',
+				artist: image.artist,
+				src: image.src,
+			}));
+			setImages(formattedImages);
+		};
 
-	if (images.length === 0) {
-		return <div>No images found in the specified directory.</div>;
-	}
+		loadImages();
+	}, []);
 
 	const onAutoplayTimeLeft = (s: any, time: any, progress: any) => {
 		progressCircle.current?.style.setProperty(
@@ -92,8 +77,8 @@ const GallerySix: React.FC = () => {
 		}
 	};
 
-	const openLightbox = (image: IGatsbyImageData) => {
-		setLightboxImage(image);
+	const openLightbox = (imageSrc: string) => {
+		setLightboxImage(imageSrc);
 		document.body.style.overflow = 'hidden';
 	};
 
@@ -105,7 +90,7 @@ const GallerySix: React.FC = () => {
 	return (
 		<section className={styles.swiperContainer} data-main-gallery>
 			<h3>
-				African Diaspora Performing Arts Festival <span>14 november 2021</span>
+				African Diaspora Performing Arts Festival <span>14 November 2021</span>
 			</h3>
 			<Swiper
 				modules={[
@@ -134,36 +119,18 @@ const GallerySix: React.FC = () => {
 					draggable: true,
 				}}
 				onAutoplayTimeLeft={onAutoplayTimeLeft}
-				className={styles.swiperWrapper}
-			>
-				{images.map((image: ImageType, index: number) => (
+				className={styles.swiperWrapper}>
+				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideTop}>
-						{image.localFile?.childImageSharp?.gatsbyImageData && (
-							<div
-								onClick={() =>
-									image.localFile?.childImageSharp?.gatsbyImageData &&
-									openLightbox(image.localFile.childImageSharp.gatsbyImageData)
+						<div
+							onClick={() => openLightbox(image.src)}
+							onKeyDown={(event) => {
+								if (event.key === 'Enter') {
+									openLightbox(image.src);
 								}
-								onKeyDown={(event) => {
-									if (event.key === 'Enter') {
-										image.localFile?.childImageSharp?.gatsbyImageData &&
-											openLightbox(
-												image.localFile.childImageSharp.gatsbyImageData
-											);
-									}
-								}}
-								style={{ cursor: 'pointer' }}
-							>
-								<GatsbyImage
-									image={
-										getImage(
-											image.localFile.childImageSharp.gatsbyImageData
-										) as IGatsbyImageData
-									}
-									alt={image.localFile.name}
-								/>
-							</div>
-						)}
+							}}>
+							<img src={image.src} alt={image.title} />
+						</div>
 					</SwiperSlide>
 				))}
 
@@ -184,43 +151,29 @@ const GallerySix: React.FC = () => {
 				spaceBetween={10}
 				slidesPerView={3}
 				breakpoints={{
-					640: {
-						slidesPerView: 4,
-					},
-					768: {
-						slidesPerView: 5,
-					},
-					1024: {
-						slidesPerView: 6,
-					},
+					640: { slidesPerView: 4 },
+					768: { slidesPerView: 5 },
+					1024: { slidesPerView: 6 },
 				}}
 				freeMode={true}
 				watchSlidesProgress={true}
-				modules={[FreeMode, Navigation, Thumbs]}
-			>
-				{images.map((image: ImageType, index: number) => (
+				modules={[FreeMode, Navigation, Thumbs]}>
+				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideBottom}>
-						{image.localFile?.childImageSharp?.gatsbyImageData && (
-							<GatsbyImage
-								image={
-									getImage(
-										image.localFile.childImageSharp.gatsbyImageData
-									) as IGatsbyImageData
-								}
-								alt={image.localFile.name}
-							/>
-						)}
+						<img src={image.src} alt={image.title} loading='lazy' />
 					</SwiperSlide>
 				))}
 			</Swiper>
 
 			{lightboxImage && (
-				<div className={styles.lightboxContainer}>
+				<div className={styles.lightboxContainer} onClick={closeLightbox}>
 					<div className={styles.lightboxContent}>
-						<GatsbyImage
-							image={lightboxImage}
-							alt='African Diaspora Performing Arts Festival - 14 november 2021'
+						<img
+							src={lightboxImage}
+							alt='African Diaspora Performing Arts Festival - 14 November 2021'
 							className={styles.lightboxImage}
+							onClick={(e) => e.stopPropagation()}
+							loading='lazy'
 						/>
 					</div>
 					<button className={styles.lightboxClose} onClick={closeLightbox}>

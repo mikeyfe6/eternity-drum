@@ -101,7 +101,7 @@
     "@smithy/util-utf8" "^2.0.0"
     tslib "^2.6.2"
 
-"@aws-sdk/client-s3@^3.484.0":
+"@aws-sdk/client-s3@^3.616.0":
   version "3.616.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-s3/-/client-s3-3.616.0.tgz#3b86643233908a91de5c9bb13b63e0f728dd4836"
   integrity sha512-6gyZnBlAgOU8cwNqPhFO9s6maGI4/iHV3cmqvQgUn3uqhi1EgTSZSsTMuRzKEgBpTGgC+9Bm6djKqOderMqjdA==
@@ -544,20 +544,6 @@
     "@smithy/util-middleware" "^3.0.3"
     tslib "^2.6.2"
 
-"@aws-sdk/s3-request-presigner@^3.484.0":
-  version "3.616.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/s3-request-presigner/-/s3-request-presigner-3.616.0.tgz#65bd11f480903905801d389a82564624d32f6188"
-  integrity sha512-C5ADFHTBCPGw+W3XNvS7vZdCY2LtRbcw05hu34xxhNlDXatOAPE4O22uRfiaZq12Lu0Qq8ylNYnD8I28r7I4Qg==
-  dependencies:
-    "@aws-sdk/signature-v4-multi-region" "3.616.0"
-    "@aws-sdk/types" "3.609.0"
-    "@aws-sdk/util-format-url" "3.609.0"
-    "@smithy/middleware-endpoint" "^3.0.5"
-    "@smithy/protocol-http" "^4.0.4"
-    "@smithy/smithy-client" "^3.1.8"
-    "@smithy/types" "^3.3.0"
-    tslib "^2.6.2"
-
 "@aws-sdk/signature-v4-multi-region@3.616.0":
   version "3.616.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/signature-v4-multi-region/-/signature-v4-multi-region-3.616.0.tgz#2794d8c497c496fbb0f767b9c9d3ee20a8879d9f"
@@ -604,16 +590,6 @@
     "@aws-sdk/types" "3.609.0"
     "@smithy/types" "^3.3.0"
     "@smithy/util-endpoints" "^2.0.5"
-    tslib "^2.6.2"
-
-"@aws-sdk/util-format-url@3.609.0":
-  version "3.609.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/util-format-url/-/util-format-url-3.609.0.tgz#f53907193bb636b52b61c81bbe6d7bd5ddc76c68"
-  integrity sha512-fuk29BI/oLQlJ7pfm6iJ4gkEpHdavffAALZwXh9eaY1vQ0ip0aKfRTiNudPoJjyyahnz5yJ1HkmlcDitlzsOrQ==
-  dependencies:
-    "@aws-sdk/types" "3.609.0"
-    "@smithy/querystring-builder" "^3.0.3"
-    "@smithy/types" "^3.3.0"
     tslib "^2.6.2"
 
 "@aws-sdk/util-locate-window@^3.0.0":
@@ -1725,7 +1701,7 @@
   resolved "https://registry.yarnpkg.com/@babel/regjsgen/-/regjsgen-0.8.0.tgz#f0ba69b075e1f05fb2825b7fad991e7adbb18310"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.7", "@babel/runtime@^7.17.9", "@babel/runtime@^7.20.13", "@babel/runtime@^7.21.0", "@babel/runtime@^7.23.7", "@babel/runtime@^7.3.4", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.7", "@babel/runtime@^7.17.9", "@babel/runtime@^7.20.13", "@babel/runtime@^7.21.0", "@babel/runtime@^7.3.4", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.24.8"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.8.tgz#5d958c3827b13cc6d05e038c07fb2e5e3420d82e"
   integrity sha512-5F7SDGs1T72ZczbRwbGO9lQi0NLjQxzl6i4lJxLxfW9U5UluCSyEJeniWvnhl3/euNiqQVbo8zruhsDfid0esA==
@@ -7965,7 +7941,7 @@ gatsby-source-contentful@^8.13.2:
     semver "^7.5.3"
     url "^0.11.1"
 
-gatsby-source-filesystem@^5.13.0, gatsby-source-filesystem@^5.13.1:
+gatsby-source-filesystem@^5.13.1:
   version "5.13.1"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-5.13.1.tgz#1aad8f969fbfd4efe6f7cfcd8542253f54fdbd8a"
   integrity sha512-nFWzOBpi84nDeVNeO7bpKL9mVYMl1tfjJmE5l868YATFShGzZnA6qMd200XCsf78PexZHAiV/P1MlsyKqjJduA==
@@ -7979,16 +7955,6 @@ gatsby-source-filesystem@^5.13.0, gatsby-source-filesystem@^5.13.1:
     pretty-bytes "^5.6.0"
     valid-url "^1.0.9"
     xstate "^4.38.0"
-
-gatsby-source-s3@^4.1.3:
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/gatsby-source-s3/-/gatsby-source-s3-4.1.3.tgz#5baa5c7b6e0a056034d2b12ef9f18cf9edd85de3"
-  integrity sha512-bz+po7suID5OVEAtrv6oeXKg608GkHxYGBztj0gxfXUkgdZl3O3PQh+wRMsYBKd7hVeYqIzFtEcAqX2AW4bYcQ==
-  dependencies:
-    "@aws-sdk/client-s3" "^3.484.0"
-    "@aws-sdk/s3-request-presigner" "^3.484.0"
-    "@babel/runtime" "^7.23.7"
-    gatsby-source-filesystem "^5.13.0"
 
 gatsby-telemetry@^4.13.1:
   version "4.13.1"
