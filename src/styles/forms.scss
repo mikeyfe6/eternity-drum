@@ -14,47 +14,49 @@
 	outline: 2px solid $lightgreyColor;
 }
 
-input,
-textarea,
-select {
-	height: 44px;
-	opacity: 0.99;
-	line-height: 1.5;
+form {
+	input,
+	textarea,
+	select {
+		height: 44px;
+		opacity: 0.99;
+		line-height: 1.5;
 
-	background: linear-gradient(45deg, #eaecf7, $whiteColor);
+		background: linear-gradient(45deg, #eaecf7, $whiteColor);
 
-	outline: 2px solid $lightgreyColor;
+		outline: 2px solid $lightgreyColor;
 
-	&:not(select) {
-		color: $primaryColor;
-	}
-
-	&:not(input, textarea) {
-		color: $greyColor;
-		overflow: hidden;
-
-		&.approved {
+		&:not(select) {
 			color: $primaryColor;
 		}
-	}
 
-	&::placeholder {
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		max-width: 100%;
-		color: $greyColor;
+		&:not(input, textarea) {
+			color: $greyColor;
+			overflow: hidden;
 
-		@media screen and ($small) {
-			font-size: 0.9rem;
+			&.approved {
+				color: $primaryColor;
+			}
 		}
-	}
-
-	&:focus {
-		outline-color: $tertiaryColor;
 
 		&::placeholder {
-			opacity: 0;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 100%;
+			color: $greyColor;
+
+			@media screen and ($small) {
+				font-size: 0.9rem;
+			}
+		}
+
+		&:focus {
+			outline-color: $tertiaryColor;
+
+			&::placeholder {
+				opacity: 0;
+			}
 		}
 	}
 }

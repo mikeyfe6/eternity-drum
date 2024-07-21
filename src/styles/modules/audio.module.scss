@@ -138,10 +138,10 @@
 				opacity: 0;
 			}
 
-			input[type='range'] {
+			> input[type='range'] {
 				transform: rotate(270deg);
 				position: relative;
-				bottom: 30px;
+				bottom: 20px;
 				outline: none;
 				opacity: 0;
 
@@ -156,7 +156,7 @@
 				}
 
 				&::-webkit-slider-thumb {
-					margin-top: -10px;
+					margin-top: -6.25px;
 				}
 			}
 

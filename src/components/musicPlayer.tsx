@@ -133,6 +133,13 @@ const MusicPlayer: React.FC = () => {
 		setCurrentSong(0);
 	};
 
+	useEffect(() => {
+		const audioElement = audioElementRefs.current[currentSong];
+		if (audioElement) {
+			setDuration(audioElement.duration);
+		}
+	}, [currentSong]);
+
 	return (
 		<div className={styles.component}>
 			{!isLoaded && (
