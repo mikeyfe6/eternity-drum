@@ -107,7 +107,9 @@ const MusicPlayer: React.FC = () => {
 	const switchToNextSong = () => {
 		const nextSongIndex = (currentSong + 1) % songs.length;
 		setCurrentSong(nextSongIndex);
-		setCurrentTime(0);
+		if (audioElementRefs.current[nextSongIndex]) {
+			audioElementRefs.current[nextSongIndex].currentTime = 0;
+		}
 	};
 
 	const formatTime = (time: number) => {
@@ -130,7 +132,11 @@ const MusicPlayer: React.FC = () => {
 
 	const loadMusic = () => {
 		setIsLoaded(true);
-		setCurrentSong(0);
+
+		const audioElement = audioElementRefs.current[currentSong];
+		if (audioElement) {
+			setDuration(audioElement.duration);
+		}
 	};
 
 	useEffect(() => {
@@ -166,10 +172,21 @@ const MusicPlayer: React.FC = () => {
 					<button
 						className={`${styles.controlButton} fas fa-step-backward`}
 						onClick={() => {
-							setCurrentSong(
-								currentSong === 0 ? songs.length - 1 : currentSong - 1
-							);
-							setCurrentTime(0);
+							if (
+								audioElementRefs.current[currentSong] &&
+								audioElementRefs.current[currentSong].currentTime > 10
+							) {
+								audioElementRefs.current[currentSong].currentTime = 0;
+							} else {
+								const prevSongIndex =
+									currentSong === 0 ? songs.length - 1 : currentSong - 1;
+
+								setCurrentSong(prevSongIndex);
+
+								if (audioElementRefs.current[prevSongIndex]) {
+									audioElementRefs.current[prevSongIndex].currentTime = 0;
+								}
+							}
 						}}
 					/>
 					<button
@@ -181,8 +198,11 @@ const MusicPlayer: React.FC = () => {
 					<button
 						className={`${styles.controlButton} fas fa-step-forward`}
 						onClick={() => {
-							setCurrentSong((currentSong + 1) % songs.length);
-							setCurrentTime(0);
+							const nextSongIndex = (currentSong + 1) % songs.length;
+							setCurrentSong(nextSongIndex);
+							if (audioElementRefs.current[nextSongIndex]) {
+								audioElementRefs.current[nextSongIndex].currentTime = 0;
+							}
 						}}
 					/>
 
