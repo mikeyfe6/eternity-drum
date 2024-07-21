@@ -131,17 +131,25 @@
 
 			> span {
 				position: absolute;
-				right: 3.1em;
-				bottom: 4.75em;
-				width: 30px;
+				right: 50%;
+				transform: translateX(50%);
+				bottom: 5.25em;
 				text-align: center;
 				opacity: 0;
+				display: inline-flex;
+				font-size: 0.9rem;
+				gap: 0.25em;
+
+				> small {
+					font-size: 70%;
+					color: color.adjust($tertiaryColor, $lightness: 15%);
+				}
 			}
 
 			> input[type='range'] {
 				transform: rotate(270deg);
 				position: relative;
-				bottom: 20px;
+				bottom: 22.5px;
 				outline: none;
 				opacity: 0;
 
@@ -156,11 +164,20 @@
 				}
 
 				&::-webkit-slider-thumb {
-					margin-top: -6.25px;
+					margin-top: -5px;
+					border-radius: 50%;
+					width: 15px;
+					height: 15px;
+					background: color.adjust($tertiaryColor, $lightness: 15%);
+					appearance: none;
 				}
 			}
 
 			&:hover {
+				> button {
+					color: color.adjust($tertiaryColor, $lightness: 15%);
+				}
+
 				> span {
 					opacity: 1;
 				}

@@ -225,7 +225,9 @@ const MusicPlayer: React.FC = () => {
 								onClick={() => setVolume(0)}
 							/>
 						)}
-						<span>{volume}</span>
+						<span>
+							{volume} <small>%</small>
+						</span>
 						<input
 							type='range'
 							min={0}
