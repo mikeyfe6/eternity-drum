@@ -160,7 +160,7 @@ const GallerySix: React.FC = () => {
 				modules={[FreeMode, Navigation, Thumbs]}>
 				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideBottom}>
-						<img src={image.src} alt={image.title} loading='lazy' />
+						<img src={image.src} alt={image.title} />
 					</SwiperSlide>
 				))}
 			</Swiper>
@@ -173,7 +173,6 @@ const GallerySix: React.FC = () => {
 							alt='African Diaspora Performing Arts Festival - 14 November 2021'
 							className={styles.lightboxImage}
 							onClick={(e) => e.stopPropagation()}
-							loading='lazy'
 						/>
 					</div>
 					<button className={styles.lightboxClose} onClick={closeLightbox}>

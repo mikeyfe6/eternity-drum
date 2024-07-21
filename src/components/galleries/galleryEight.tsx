@@ -44,6 +44,7 @@ const GalleryEight: React.FC = () => {
 	const [thumbsSwiper, setThumbsSwiper] = useState<ThumbsSwiperType | null>(
 		null
 	);
+
 	const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
 	const progressCircle = useRef<SVGSVGElement | null>(null);
@@ -161,7 +162,7 @@ const GalleryEight: React.FC = () => {
 				modules={[FreeMode, Navigation, Thumbs]}>
 				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideBottom}>
-						<img src={image.src} alt={image.title} loading='lazy' />
+						<img src={image.src} alt={image.title} />
 					</SwiperSlide>
 				))}
 			</Swiper>
@@ -174,7 +175,6 @@ const GalleryEight: React.FC = () => {
 							alt='Beat It (collab. w/ Ebony Steelband)'
 							className={styles.lightboxImage}
 							onClick={(e) => e.stopPropagation()}
-							loading='lazy'
 						/>
 					</div>
 					<button className={styles.lightboxClose} onClick={closeLightbox}>

@@ -129,7 +129,7 @@ const GalleryTwo: React.FC = () => {
 									openLightbox(image.src);
 								}
 							}}>
-							<img src={image.src} alt={image.title} loading='lazy' />
+							<img src={image.src} alt={image.title} />
 						</div>
 					</SwiperSlide>
 				))}
@@ -160,7 +160,7 @@ const GalleryTwo: React.FC = () => {
 				modules={[FreeMode, Navigation, Thumbs]}>
 				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideBottom}>
-						<img src={image.src} alt={image.title} loading='lazy' />
+						<img src={image.src} alt={image.title} />
 					</SwiperSlide>
 				))}
 			</Swiper>
@@ -173,7 +173,6 @@ const GalleryTwo: React.FC = () => {
 							alt='Swazoom Live - 3 December 2022'
 							className={styles.lightboxImage}
 							onClick={(e) => e.stopPropagation()}
-							loading='lazy'
 						/>
 					</div>
 					<button className={styles.lightboxClose} onClick={closeLightbox}>

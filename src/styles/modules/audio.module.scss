@@ -49,9 +49,7 @@
 				object-position: center;
 				border-radius: 5px;
 				padding: 1em 0;
-				outline: #101334 1px solid;
-
-				@include boxBottomShadow;
+				box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.1);
 
 				@media screen and ($large) {
 					max-width: 100px;

@@ -160,7 +160,7 @@ const GalleryFour: React.FC = () => {
 				modules={[FreeMode, Navigation, Thumbs]}>
 				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideBottom}>
-						<img src={image.src} alt={image.title} loading='lazy' />
+						<img src={image.src} alt={image.title} />
 					</SwiperSlide>
 				))}
 			</Swiper>
@@ -173,7 +173,6 @@ const GalleryFour: React.FC = () => {
 							alt='Eternity in UK 2023 (collab. w/ ACE Dance & Music)'
 							className={styles.lightboxImage}
 							onClick={(e) => e.stopPropagation()}
-							loading='lazy'
 						/>
 					</div>
 					<button className={styles.lightboxClose} onClick={closeLightbox}>

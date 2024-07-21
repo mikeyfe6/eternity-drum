@@ -129,7 +129,7 @@ const GalleryThree: React.FC = () => {
 									openLightbox(image.src);
 								}
 							}}>
-							<img src={image.src} alt={image.title} loading='lazy' />
+							<img src={image.src} alt={image.title} />
 						</div>
 					</SwiperSlide>
 				))}
@@ -159,7 +159,7 @@ const GalleryThree: React.FC = () => {
 				modules={[FreeMode, Navigation, Thumbs]}>
 				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideBottom}>
-						<img src={image.src} alt={image.title} loading='lazy' />
+						<img src={image.src} alt={image.title} />
 					</SwiperSlide>
 				))}
 			</Swiper>
@@ -171,7 +171,6 @@ const GalleryThree: React.FC = () => {
 							alt='Bijlmer on Stage - 18 December 2022'
 							className={styles.lightboxImage}
 							onClick={(e) => e.stopPropagation()}
-							loading='lazy'
 						/>
 					</div>
 					<button className={styles.lightboxClose} onClick={closeLightbox}>

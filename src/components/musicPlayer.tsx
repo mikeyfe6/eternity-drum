@@ -270,7 +270,8 @@ const MusicPlayer: React.FC = () => {
 					<audio
 						key={index}
 						ref={(el) => (audioElementRefs.current[index] = el)}
-						src={song.src}>
+						src={song.src}
+						onEnded={switchToNextSong}>
 						<track kind='captions' />
 					</audio>
 				))}
