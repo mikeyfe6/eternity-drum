@@ -80,49 +80,58 @@
 
 	&-slide {
 		&-top {
-			max-height: 650px;
-			overflow: hidden;
 			border-radius: 5px;
 			border: 2px solid $whiteColor;
+			overflow: hidden;
+
 			cursor: pointer;
 
-			@media screen and ($superSized) {
-				max-height: 600px;
-			}
+			div[data-gatsby-image-wrapper] {
+				width: 100%;
 
-			@media screen and ($extraLarge) {
-				max-height: 500px;
-			}
+				> div {
+					max-width: 100% !important;
+					max-height: 600px;
 
-			@media screen and ($large) {
-				max-height: 400px;
-			}
+					@media screen and ($superSized) {
+						max-height: 600px;
+					}
 
-			@media screen and ($medium) {
-				max-height: 300px;
-			}
+					@media screen and ($extraLarge) {
+						max-height: 500px;
+					}
 
-			@media screen and ($small) {
-				max-height: 267.5px;
-				border-radius: 3px;
-			}
+					@media screen and ($large) {
+						max-height: 400px;
+					}
 
-			@media screen and ($extraSmall) {
-				max-height: 225px;
-			}
+					@media screen and ($medium) {
+						max-height: 300px;
+					}
 
-			@media screen and ($superSmall) {
-				max-height: 175px;
-			}
+					@media screen and ($small) {
+						max-height: 267.5px;
+						border-radius: 3px;
+					}
 
-			img {
-				@include respImage(100%, 100%, 100%, cover);
+					@media screen and ($extraSmall) {
+						max-height: 225px;
+					}
+
+					@media screen and ($superSmall) {
+						max-height: 175px;
+					}
+				}
+
+				img[data-main-image] {
+					object-position: center 25%;
+				}
 			}
 		}
 
 		&-bottom {
 			opacity: 0.75;
-			height: 125px;
+			height: 120px;
 			overflow: hidden;
 			border-radius: 5px;
 			border: 2px solid $whiteColor;
@@ -138,10 +147,6 @@
 
 			@media screen and ($extraSmall) {
 				max-height: 80px;
-			}
-
-			img {
-				@include respImage(100%, 100%, 100%, cover);
 			}
 
 			&:hover {

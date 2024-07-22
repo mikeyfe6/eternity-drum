@@ -6,6 +6,8 @@ import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3';
 
 import path from 'path';
 
+import { createRemoteFileNode } from 'gatsby-source-filesystem';
+
 interface Post {
     slug: string;
     title: string;
@@ -103,7 +105,6 @@ interface File {
     ext: string;
 }
 
-
 const s3 = new S3Client({
     region: process.env.GATSBY_AWS_EP_REGION ?? '',
     credentials: {
@@ -144,10 +145,19 @@ const fetchS3Files = async (bucketName: string, prefix: string, fileTypes: strin
     }
 };
 
-export const sourceNodes: GatsbyNode['sourceNodes'] = async ({ actions, createNodeId, getCache }) => {
+export const sourceNodes: GatsbyNode['sourceNodes'] = async ({ actions, createNodeId, createContentDigest, getCache }) => {
     const { createNode } = actions;
     const bucketName = process.env.GATSBY_AWS_EP_BUCKET_NAME ?? '';
-    const imagePrefixes = ['photos/swazoomlive-080723/', 'photos/swazoomlive-031222/', 'photos/bijlmeronstage-181222/', 'photos/epinuk-01/', 'photos/adpaf-101119/', 'photos/adpaf-141121/', 'photos/pulseandbeat-01/', 'photos/beatit-01/'];
+    const imagePrefixes = [
+        'photos/swazoomlive-080723/',
+        'photos/swazoomlive-031222/',
+        'photos/bijlmeronstage-181222/',
+        'photos/epinuk-01/',
+        'photos/adpaf-101119/',
+        'photos/adpaf-141121/',
+        'photos/pulseandbeat-01/',
+        'photos/beatit-01/'
+    ];
     const musicPrefix = 'music/';
     const imageFileTypes = ['.jpg', '.jpeg', '.png', '.gif'];
     const musicFileTypes = ['.mp3', '.wav'];
@@ -158,6 +168,15 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({ actions, createNo
 
         for (const file of files) {
             const nodeId = createNodeId(`s3-image-file-${folderName}-${file.title}`);
+
+            const fileNode = await createRemoteFileNode({
+                url: file.src,
+                parentId: nodeId,
+                createNode,
+                createNodeId,
+                getCache,
+            });
+
             createNode({
                 ...file,
                 id: nodeId,
@@ -165,10 +184,10 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({ actions, createNo
                 children: [],
                 internal: {
                     type: 'S3ImageFile',
-                    contentDigest: file.src,
+                    contentDigest: createContentDigest(file.src),
                 },
                 folderName,
-                getCache,
+                file___NODE: fileNode?.id,
             });
         }
     }
@@ -185,10 +204,9 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({ actions, createNo
             children: [],
             internal: {
                 type: 'S3MusicFile',
-                contentDigest: file.src,
+                contentDigest: createContentDigest(file.src),
             },
             folderName: musicFolderName,
-            getCache,
         });
     }
 };
@@ -203,6 +221,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             src: String
             ext: String
             folderName: String
+            file: File @link(from: "file___NODE")
         }
 
         type S3MusicFile implements Node @infer {

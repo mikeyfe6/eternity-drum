@@ -32,10 +32,6 @@
 		&-drag {
 			background: var(--swiper-theme-color);
 		}
-
-		&-horizontal {
-			bottom: var(--swiper-scrollbar-bottom, 1px) !important;
-		}
 	}
 
 	&-pagination-bullet {

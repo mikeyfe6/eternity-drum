@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby';
 
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperOptions } from 'swiper/types';
 import {
@@ -27,8 +29,9 @@ import * as styles from '../../styles/modules/gallery.module.scss';
 
 type ImageType = {
 	title: string;
-	src: string;
+	imageData: any;
 };
+
 type ThumbsSwiperType = {
 	params: SwiperOptions;
 	originalParams: SwiperOptions;
@@ -42,7 +45,7 @@ const GallerySeven: React.FC = () => {
 		null
 	);
 
-	const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+	const [lightboxImage, setLightboxImage] = useState<any>(null);
 
 	const progressCircle = useRef<SVGSVGElement | null>(null);
 	const progressContent = useRef<HTMLSpanElement | null>(null);
@@ -54,7 +57,11 @@ const GallerySeven: React.FC = () => {
 					node {
 						id
 						title
-						src
+						file {
+							childImageSharp {
+								gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+							}
+						}
 					}
 				}
 			}
@@ -65,7 +72,7 @@ const GallerySeven: React.FC = () => {
 		if (data?.allS3ImageFile) {
 			const fetchedImages = data.allS3ImageFile.edges.map((edge: any) => ({
 				title: edge.node.title || '',
-				src: edge.node.src,
+				imageData: getImage(edge.node.file.childImageSharp),
 			}));
 			setImages(fetchedImages);
 		}
@@ -83,8 +90,8 @@ const GallerySeven: React.FC = () => {
 		}
 	};
 
-	const openLightbox = (imageSrc: string) => {
-		setLightboxImage(imageSrc);
+	const openLightbox = (imageData: any) => {
+		setLightboxImage(imageData);
 		document.body.style.overflow = 'hidden';
 	};
 
@@ -129,13 +136,13 @@ const GallerySeven: React.FC = () => {
 				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideTop}>
 						<div
-							onClick={() => openLightbox(image.src)}
+							onClick={() => openLightbox(image.imageData)}
 							onKeyDown={(event) => {
 								if (event.key === 'Enter') {
-									openLightbox(image.src);
+									openLightbox(image.imageData);
 								}
 							}}>
-							<img src={image.src} alt={image.title} />
+							<GatsbyImage image={image.imageData} alt={image.title} />
 						</div>
 					</SwiperSlide>
 				))}
@@ -166,7 +173,7 @@ const GallerySeven: React.FC = () => {
 				modules={[FreeMode, Navigation, Thumbs]}>
 				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideBottom}>
-						<img src={image.src} alt={image.title} />
+						<GatsbyImage image={image.imageData} alt={image.title} />
 					</SwiperSlide>
 				))}
 			</Swiper>
@@ -174,8 +181,8 @@ const GallerySeven: React.FC = () => {
 			{lightboxImage && (
 				<div className={styles.lightboxContainer} onClick={closeLightbox}>
 					<div className={styles.lightboxContent}>
-						<img
-							src={lightboxImage}
+						<GatsbyImage
+							image={lightboxImage}
 							alt='Pulse and Beat (collab. w/ ACE Dance & Music)'
 							className={styles.lightboxImage}
 							onClick={(e) => e.stopPropagation()}
