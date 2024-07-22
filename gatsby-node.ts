@@ -2,6 +2,8 @@ import { GatsbyNode } from 'gatsby';
 
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
+import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3';
+
 import path from 'path';
 
 interface Post {
@@ -95,10 +97,122 @@ interface QueryResult {
     };
 }
 
+interface File {
+    title: string;
+    src: string;
+    ext: string;
+}
+
+
+const s3 = new S3Client({
+    region: process.env.GATSBY_AWS_EP_REGION ?? '',
+    credentials: {
+        accessKeyId: process.env.GATSBY_AWS_EP_ACCESS_KEY_ID ?? '',
+        secretAccessKey: process.env.GATSBY_AWS_EP_SECRET_ACCESS_KEY ?? '',
+    }
+});
+
+const fetchS3Files = async (bucketName: string, prefix: string, fileTypes: string[]): Promise<File[]> => {
+    try {
+        const command = new ListObjectsV2Command({
+            Bucket: bucketName,
+            Prefix: prefix,
+        });
+
+        const data = await s3.send(command);
+
+        if (data.Contents) {
+            return data.Contents
+                .filter((object) => object.Key && fileTypes.includes(path.extname(object.Key ?? '').toLowerCase()))
+                .map((object) => {
+                    const fullTitle = object.Key?.split('/').pop() ?? 'Untitled';
+                    const encodedUrl = encodeURI(`${process.env.GATSBY_AWS_URL ?? ''}${object.Key ?? ''}`);
+
+                    return {
+                        title: fullTitle,
+                        src: encodedUrl,
+                        ext: path.extname(object.Key ?? '').toLowerCase(),
+                    };
+                });
+        } else {
+            console.error('No contents found in the bucket.');
+            return [];
+        }
+    } catch (error) {
+        console.error('Error fetching files from S3:', error);
+        return [];
+    }
+};
+
+export const sourceNodes: GatsbyNode['sourceNodes'] = async ({ actions, createNodeId, getCache }) => {
+    const { createNode } = actions;
+    const bucketName = process.env.GATSBY_AWS_EP_BUCKET_NAME ?? '';
+    const imagePrefixes = ['photos/swazoomlive-080723/', 'photos/swazoomlive-031222/', 'photos/bijlmeronstage-181222/', 'photos/epinuk-01/', 'photos/adpaf-101119/', 'photos/adpaf-141121/', 'photos/pulseandbeat-01/', 'photos/beatit-01/'];
+    const musicPrefix = 'music/';
+    const imageFileTypes = ['.jpg', '.jpeg', '.png', '.gif'];
+    const musicFileTypes = ['.mp3', '.wav'];
+
+    for (const prefix of imagePrefixes) {
+        const folderName = path.basename(prefix);
+        const files = await fetchS3Files(bucketName, prefix, imageFileTypes);
+
+        for (const file of files) {
+            const nodeId = createNodeId(`s3-image-file-${folderName}-${file.title}`);
+            createNode({
+                ...file,
+                id: nodeId,
+                parent: null,
+                children: [],
+                internal: {
+                    type: 'S3ImageFile',
+                    contentDigest: file.src,
+                },
+                folderName,
+                getCache,
+            });
+        }
+    }
+
+    const musicFolderName = path.basename(musicPrefix);
+    const musicFiles = await fetchS3Files(bucketName, musicPrefix, musicFileTypes);
+
+    for (const file of musicFiles) {
+        const nodeId = createNodeId(`s3-music-file-${musicFolderName}-${file.title}`);
+        createNode({
+            ...file,
+            id: nodeId,
+            parent: null,
+            children: [],
+            internal: {
+                type: 'S3MusicFile',
+                contentDigest: file.src,
+            },
+            folderName: musicFolderName,
+            getCache,
+        });
+    }
+};
+
 export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = async ({ actions }) => {
     const { createTypes } = actions;
 
     const typeDefs = `
+        type S3ImageFile implements Node @infer {
+            id: ID!
+            title: String
+            src: String
+            ext: String
+            folderName: String
+        }
+
+        type S3MusicFile implements Node @infer {
+            id: ID!
+            title: String
+            src: String
+            ext: String
+            folderName: String
+        }
+
         type ContentfulPost implements Node @infer {
             id: ID!
             slug: String

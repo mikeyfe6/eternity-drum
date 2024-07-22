@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+import { graphql, useStaticQuery } from 'gatsby';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperOptions } from 'swiper/types';
 import {
@@ -12,9 +14,6 @@ import {
 	FreeMode,
 	Thumbs,
 } from 'swiper/modules';
-
-import * as styles from '../../styles/modules/gallery.module.scss';
-
 import 'swiper/scss';
 import 'swiper/scss/thumbs';
 import 'swiper/scss/free-mode';
@@ -24,11 +23,10 @@ import 'swiper/scss/scrollbar';
 import 'swiper/scss/parallax';
 import 'swiper/scss/autoplay';
 
-import { fetchS3Files } from '../../utils/aws-init';
+import * as styles from '../../styles/modules/gallery.module.scss';
 
 type ImageType = {
 	title: string;
-	artist: string;
 	src: string;
 };
 
@@ -50,22 +48,29 @@ const GalleryEight: React.FC = () => {
 	const progressCircle = useRef<SVGSVGElement | null>(null);
 	const progressContent = useRef<HTMLSpanElement | null>(null);
 
+	const data = useStaticQuery(graphql`
+		query {
+			allS3ImageFile(filter: { folderName: { regex: "/beatit-01/" } }) {
+				edges {
+					node {
+						id
+						title
+						src
+					}
+				}
+			}
+		}
+	`);
+
 	useEffect(() => {
-		const loadImages = async () => {
-			const bucketName = process.env.GATSBY_AWS_EP_BUCKET_NAME || '';
-			const prefix = 'photos/beatit-01/';
-
-			const fetchedImages = await fetchS3Files(bucketName, prefix);
-			const formattedImages = fetchedImages.map((image) => ({
-				title: image.title || '',
-				artist: image.artist,
-				src: image.src,
+		if (data?.allS3ImageFile) {
+			const fetchedImages = data.allS3ImageFile.edges.map((edge: any) => ({
+				title: edge.node.title || '',
+				src: edge.node.src,
 			}));
-			setImages(formattedImages);
-		};
-
-		loadImages();
-	}, []);
+			setImages(fetchedImages);
+		}
+	}, [data]);
 
 	const onAutoplayTimeLeft = (s: any, time: any, progress: any) => {
 		if (progressCircle.current) {

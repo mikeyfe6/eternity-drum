@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import * as styles from '../styles/modules/audio.module.scss';
-
 import albumCover from '../images/logo/ep-logo-small.png';
-
-import { fetchS3Files } from '../utils/aws-init';
 
 const MusicPlayer: React.FC = () => {
 	const [isPlaying, setIsPlaying] = useState(false);
@@ -13,18 +11,28 @@ const MusicPlayer: React.FC = () => {
 	const [isLoaded, setIsLoaded] = useState(false);
 	const [duration, setDuration] = useState(0);
 	const [volume, setVolume] = useState(100);
-	const [songs, setSongs] = useState<Array<any>>([]);
+
+	const data = useStaticQuery(graphql`
+		query {
+			allS3MusicFile {
+				edges {
+					node {
+						id
+						title
+						src
+					}
+				}
+			}
+		}
+	`);
+
+	const songs = data.allS3MusicFile.edges.map(({ node }: any) => ({
+		src: node.src,
+		title: node.title,
+		artist: 'Eternity Percussion',
+	}));
 
 	const audioElementRefs = useRef<Array<HTMLAudioElement | null>>([]);
-
-	useEffect(() => {
-		const fetchSongs = async () => {
-			const bucketName = process.env.GATSBY_AWS_EP_BUCKET_NAME ?? '';
-			const fetchedSongs = await fetchS3Files(bucketName, 'music/');
-			setSongs(fetchedSongs);
-		};
-		fetchSongs();
-	}, []);
 
 	useEffect(() => {
 		const audioElement = audioElementRefs.current[currentSong];
@@ -108,7 +116,7 @@ const MusicPlayer: React.FC = () => {
 		const nextSongIndex = (currentSong + 1) % songs.length;
 		setCurrentSong(nextSongIndex);
 		if (audioElementRefs.current[nextSongIndex]) {
-			audioElementRefs.current[nextSongIndex].currentTime = 0;
+			audioElementRefs.current[nextSongIndex]!.currentTime = 0;
 		}
 	};
 
@@ -132,7 +140,6 @@ const MusicPlayer: React.FC = () => {
 
 	const loadMusic = () => {
 		setIsLoaded(true);
-
 		const audioElement = audioElementRefs.current[currentSong];
 		if (audioElement) {
 			setDuration(audioElement.duration);
@@ -174,9 +181,9 @@ const MusicPlayer: React.FC = () => {
 						onClick={() => {
 							if (
 								audioElementRefs.current[currentSong] &&
-								audioElementRefs.current[currentSong].currentTime > 10
+								audioElementRefs.current[currentSong]!.currentTime > 10
 							) {
-								audioElementRefs.current[currentSong].currentTime = 0;
+								audioElementRefs.current[currentSong]!.currentTime = 0;
 							} else {
 								const prevSongIndex =
 									currentSong === 0 ? songs.length - 1 : currentSong - 1;
@@ -184,7 +191,7 @@ const MusicPlayer: React.FC = () => {
 								setCurrentSong(prevSongIndex);
 
 								if (audioElementRefs.current[prevSongIndex]) {
-									audioElementRefs.current[prevSongIndex].currentTime = 0;
+									audioElementRefs.current[prevSongIndex]!.currentTime = 0;
 								}
 							}
 						}}
@@ -201,7 +208,7 @@ const MusicPlayer: React.FC = () => {
 							const nextSongIndex = (currentSong + 1) % songs.length;
 							setCurrentSong(nextSongIndex);
 							if (audioElementRefs.current[nextSongIndex]) {
-								audioElementRefs.current[nextSongIndex].currentTime = 0;
+								audioElementRefs.current[nextSongIndex]!.currentTime = 0;
 							}
 						}}
 					/>
