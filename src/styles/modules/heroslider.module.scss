@@ -98,6 +98,10 @@
 			}
 
 			@media screen and ($superSmall) {
+				max-height: 250px;
+			}
+
+			@media screen and ($heavySmall) {
 				max-height: 225px;
 			}
 
