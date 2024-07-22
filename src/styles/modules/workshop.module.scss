@@ -22,9 +22,11 @@
 		justify-content: center;
 		gap: 15px;
 
-		img {
-			border-radius: 3px;
-			border: 1px solid $whiteColor;
+		> div:not([data-main-modal]) {
+			img {
+				border-radius: 5px;
+				overflow: hidden;
+			}
 		}
 	}
 
@@ -33,18 +35,14 @@
 		flex-direction: column;
 		gap: 75px;
 
-		img {
-			border-radius: 5px;
-			outline: 2px solid $whiteColor;
-
-			@media screen and ($small) {
-				border: 1px solid $whiteColor;
-			}
-		}
-
 		> div:not([data-main-modal]) {
 			max-width: 450px;
 			margin: 0 auto;
+
+			img {
+				border-radius: 5px;
+				overflow: hidden;
+			}
 		}
 	}
 
