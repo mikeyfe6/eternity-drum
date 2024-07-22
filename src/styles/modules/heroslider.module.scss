@@ -94,6 +94,10 @@
 			}
 
 			@media screen and ($extraSmall) {
+				max-height: 267.5px;
+			}
+
+			@media screen and ($superSmall) {
 				max-height: 225px;
 			}
 
