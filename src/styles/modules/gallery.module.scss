@@ -131,15 +131,11 @@
 
 		&-bottom {
 			opacity: 0.75;
-			height: 120px;
+			max-height: 120px;
 			overflow: hidden;
 			border-radius: 5px;
 			border: 2px solid $whiteColor;
 			cursor: pointer;
-
-			@media screen and ($medium) {
-				max-height: 110px;
-			}
 
 			@media screen and ($small) {
 				max-height: 100px;
