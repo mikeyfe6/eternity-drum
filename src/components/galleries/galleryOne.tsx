@@ -182,6 +182,7 @@ const GalleryOne: React.FC = () => {
 							alt='Swazoom Live - 8 Juli 2023'
 							className={styles.lightboxImage}
 							onClick={(e) => e.stopPropagation()}
+							objectFit='contain'
 						/>
 					</div>
 					<button className={styles.lightboxClose} onClick={closeLightbox}>
