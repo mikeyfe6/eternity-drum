@@ -86,7 +86,7 @@ const BookingsForm: React.FC = () => {
 		event.preventDefault();
 
 		if (myForm !== null) {
-			myForm.reset!();
+			myForm.reset();
 		}
 
 		const validationErrors = validateBookingsForm(formData);
@@ -186,10 +186,11 @@ const BookingsForm: React.FC = () => {
 						method='post'
 						data-netlify='true'
 						data-netlify-honeypot='bot-field'
+						data-netlify-recaptcha='true'
 						action='#'
-						noValidate
-					>
+						noValidate>
 						<input type='hidden' name='form-name' value='bookings-form' />
+						<input name='bot-field' hidden />
 						<fieldset>
 							<legend>
 								Vul hieronder je gegevens in en wij nemen zo spoedig mogelijk
@@ -203,8 +204,7 @@ const BookingsForm: React.FC = () => {
 											focusedInput === 'firstName' || formData.firstName
 												? 'visited'
 												: ''
-										}
-									>
+										}>
 										Voornaam
 									</label>
 									<input
@@ -218,6 +218,7 @@ const BookingsForm: React.FC = () => {
 										ref={inputRef}
 										onFocus={() => handleInputFocus('firstName')}
 										autoComplete='given-name'
+										required
 										className={
 											fieldErrors.firstName && fieldErrors.firstName.length > 0
 												? 'error'
@@ -239,8 +240,7 @@ const BookingsForm: React.FC = () => {
 											focusedInput === 'lastName' || formData.lastName
 												? 'visited'
 												: ''
-										}
-									>
+										}>
 										Achternaam
 									</label>
 									<input
@@ -253,6 +253,7 @@ const BookingsForm: React.FC = () => {
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('lastName')}
 										autoComplete='family-name'
+										required
 										className={
 											fieldErrors.lastName && fieldErrors.lastName.length > 0
 												? 'error'
@@ -276,8 +277,7 @@ const BookingsForm: React.FC = () => {
 											focusedInput === 'email' || formData.email
 												? 'visited'
 												: ''
-										}
-									>
+										}>
 										E-mailadres
 									</label>
 									<input
@@ -290,6 +290,7 @@ const BookingsForm: React.FC = () => {
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('email')}
 										autoComplete='email'
+										required
 										className={
 											fieldErrors.email && fieldErrors.email.length > 0
 												? 'error'
@@ -311,8 +312,7 @@ const BookingsForm: React.FC = () => {
 											focusedInput === 'phone' || formData.phone
 												? 'visited'
 												: ''
-										}
-									>
+										}>
 										Telefoon
 									</label>
 									<input
@@ -325,6 +325,7 @@ const BookingsForm: React.FC = () => {
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('phone')}
+										required
 										className={
 											fieldErrors.phone && fieldErrors.phone.length > 0
 												? 'error'
@@ -349,8 +350,7 @@ const BookingsForm: React.FC = () => {
 												focusedInput === 'topic' || formData.topic
 													? 'visited'
 													: ''
-											}
-										>
+											}>
 											Kies onderwerp
 										</label>
 										<select
@@ -360,6 +360,7 @@ const BookingsForm: React.FC = () => {
 											onChange={handleInputChange}
 											onBlur={handleInputBlur}
 											onFocus={() => handleInputFocus('topic')}
+											required
 											className={
 												fieldErrors.topic && fieldErrors.topic.length > 0
 													? 'error'
@@ -370,8 +371,7 @@ const BookingsForm: React.FC = () => {
 															isFormSubmitted === true)
 													? 'approved'
 													: ''
-											}
-										>
+											}>
 											<option value='' disabled>
 												Kies onderwerp
 											</option>
@@ -391,8 +391,7 @@ const BookingsForm: React.FC = () => {
 											focusedInput === 'message' || formData.message
 												? 'visited'
 												: ''
-										}
-									>
+										}>
 										Bericht
 									</label>
 									<textarea
@@ -403,6 +402,7 @@ const BookingsForm: React.FC = () => {
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('message')}
+										required
 										className={
 											fieldErrors.message && fieldErrors.message.length > 0
 												? 'error'
@@ -413,8 +413,7 @@ const BookingsForm: React.FC = () => {
 														isFormSubmitted === true)
 												? 'approved'
 												: ''
-										}
-									></textarea>
+										}></textarea>
 								</div>
 							</div>
 						</fieldset>
@@ -438,8 +437,7 @@ const BookingsForm: React.FC = () => {
 									disabled={
 										Object.values(fieldErrors).flat().length > 0 ||
 										!isFormValid()
-									}
-								>
+									}>
 									Verstuur
 								</button>
 							</div>
@@ -453,6 +451,8 @@ const BookingsForm: React.FC = () => {
 										))}
 								</ul>
 							)}
+
+							<div data-netlify-recaptcha='true' />
 						</div>
 					</form>
 				</section>
@@ -492,8 +492,7 @@ const BookingsForm: React.FC = () => {
 						<a
 							href={`tel:+${mobile}`}
 							rel='noopener noreferrer'
-							target='_blank'
-						>
+							target='_blank'>
 							06 242 55 391
 						</a>{' '}
 						of een offerte opvragen via het{' '}

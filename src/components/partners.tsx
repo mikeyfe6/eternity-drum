@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
@@ -91,12 +90,15 @@ const Partners: React.FC = () => {
 		return array;
 	};
 
-	const shuffledPartners = shuffleArray(partners);
+	const [shuffledPartners, setShuffledPartners] = useState(partners);
+
+	useEffect(() => {
+		setShuffledPartners(shuffleArray([...partners]));
+	}, []);
 
 	return (
 		<section className={styles.partnersContainer}>
 			<h2>Partners</h2>
-
 			<ul>
 				{shuffledPartners.map((partner, index) => {
 					const partnerImage = partnerImages.find(
@@ -115,8 +117,8 @@ const Partners: React.FC = () => {
 								<GatsbyImage
 									image={image}
 									alt={partner.name}
-									objectFit='contain'
 									className={styles.partnersLogo}
+									objectFit='contain'
 								/>
 							</a>
 						</li>

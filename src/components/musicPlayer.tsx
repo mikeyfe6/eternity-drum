@@ -12,6 +12,8 @@ const MusicPlayer: React.FC = () => {
 	const [duration, setDuration] = useState(0);
 	const [volume, setVolume] = useState(100);
 
+	console.log('isPlaying', isPlaying);
+
 	const data = useStaticQuery(graphql`
 		query {
 			allS3MusicFile {

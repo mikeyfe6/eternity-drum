@@ -41,54 +41,54 @@ const OverOns: React.FC<PageProps> = () => {
 						</p>
 						<p>
 							<strong>De organisatie heeft als doel:</strong>
-							<ul>
-								<li>
-									Het <u>bieden van een platform</u> voor drummers die bezig
-									zijn met Caribische muziekstijlen.{' '}
-								</li>
-								<li>
-									Het <u>ontwikkelen van trajecten</u> ter bevordering van
-									muzikale vaardigheden.{' '}
-								</li>
-								<li>
-									{' '}
-									Het <u>programmeren van drumshows</u> bij (semi) professionele
-									podia.
-								</li>
-								<li>
-									{' '}
-									<u>Bevorderen van samenwerking</u> tussen zelforganisaties en
-									gevestigde instellingen voor de nodige doorstroming van
-									getalenteerde jongeren.
-								</li>
-							</ul>
 						</p>
+						<ul>
+							<li>
+								Het <u>bieden van een platform</u> voor drummers die bezig zijn
+								met Caribische muziekstijlen.{' '}
+							</li>
+							<li>
+								Het <u>ontwikkelen van trajecten</u> ter bevordering van
+								muzikale vaardigheden.{' '}
+							</li>
+							<li>
+								{' '}
+								Het <u>programmeren van drumshows</u> bij (semi) professionele
+								podia.
+							</li>
+							<li>
+								{' '}
+								<u>Bevorderen van samenwerking</u> tussen zelforganisaties en
+								gevestigde instellingen voor de nodige doorstroming van
+								getalenteerde jongeren.
+							</li>
+						</ul>
 						<p>
 							<strong>Doelgroepen:</strong>
-							<ul>
-								<li>
-									Kinderen, jongeren en jongvolwassenen die affiniteit hebben
-									met Caribische muziekstijlen.
-								</li>
-							</ul>
 						</p>
+						<ul>
+							<li>
+								Kinderen, jongeren en jongvolwassenen die affiniteit hebben met
+								Caribische muziekstijlen.
+							</li>
+						</ul>
 						<p>
 							<strong>
 								Daarnaast richt Eternity zich op de volgende afgeleide
 								doelgroepen:
 							</strong>
-							<ul>
-								<li>
-									Afnemers van optredens (particulieren, bedrijven, festivals,
-									podia en instellingen)
-								</li>
-								<li> Bezoekers, muziekliefhebbers</li>
-								<li>
-									Professionals uit de muzieksector (musici, programmeurs,
-									managers, boekers, etc.)
-								</li>
-							</ul>
 						</p>
+						<ul>
+							<li>
+								Afnemers van optredens (particulieren, bedrijven, festivals,
+								podia en instellingen)
+							</li>
+							<li> Bezoekers, muziekliefhebbers</li>
+							<li>
+								Professionals uit de muzieksector (musici, programmeurs,
+								managers, boekers, etc.)
+							</li>
+						</ul>
 					</div>
 					<div>
 						<StaticImage

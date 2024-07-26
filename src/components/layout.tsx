@@ -16,8 +16,8 @@ const duration = 0.1;
 
 const variants = {
 	initial: { opacity: 0 },
-	animate: { opacity: 1, transition: { duration: duration } },
-	exit: { opacity: 0, transition: { duration: duration } },
+	animate: { opacity: 1, transition: { duration } },
+	exit: { opacity: 0, transition: { duration } },
 };
 
 interface LayoutProps {
@@ -57,13 +57,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 		};
 	}, [isMobileMenuOpen]);
 
+	const pathname =
+		typeof window !== 'undefined' ? window.location.pathname : '';
+
 	return (
 		<div className='eternity-container'>
 			<Header openMobileMenu={openMobileMenu} />
 			<div className='eternity-wrapper'>
 				<AnimatePresence mode='wait'>
 					<motion.main
-						key={typeof window !== 'undefined' ? window.location.pathname : ''}
+						key={pathname}
 						variants={variants}
 						initial='initial'
 						animate='animate'
