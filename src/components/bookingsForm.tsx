@@ -187,10 +187,9 @@ const BookingsForm: React.FC = () => {
 						data-netlify='true'
 						data-netlify-honeypot='bot-field'
 						data-netlify-recaptcha='true'
-						action='#'
 						noValidate>
 						<input type='hidden' name='form-name' value='bookings-form' />
-						<input name='bot-field' hidden />
+						<input type='hidden' name='bot-field' />
 						<fieldset>
 							<legend>
 								Vul hieronder je gegevens in en wij nemen zo spoedig mogelijk
@@ -325,7 +324,6 @@ const BookingsForm: React.FC = () => {
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('phone')}
-										required
 										className={
 											fieldErrors.phone && fieldErrors.phone.length > 0
 												? 'error'

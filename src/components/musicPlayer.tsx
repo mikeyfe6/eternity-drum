@@ -11,6 +11,7 @@ const MusicPlayer: React.FC = () => {
 	const [isLoaded, setIsLoaded] = useState(false);
 	const [duration, setDuration] = useState(0);
 	const [volume, setVolume] = useState(100);
+	const audioElementRefs = useRef<Array<HTMLAudioElement | null>>([]);
 
 	const data = useStaticQuery(graphql`
 		query {
@@ -30,13 +31,17 @@ const MusicPlayer: React.FC = () => {
 		return title.substring(3).replace('.mp3', '').replace(/_/g, ' ');
 	};
 
+	const formatTime = (time: number) => {
+		const minutes = Math.floor(time / 60);
+		const seconds = Math.floor(time % 60);
+		return `${minutes}:${String(seconds).padStart(2, '0')}`;
+	};
+
 	const songs = data.allS3MusicFile.edges.map(({ node }: any) => ({
 		src: node.src,
 		title: formatTitle(node.title),
 		artist: 'Eternity Percussion',
 	}));
-
-	const audioElementRefs = useRef<Array<HTMLAudioElement | null>>([]);
 
 	useEffect(() => {
 		const audioElement = audioElementRefs.current[currentSong];
@@ -105,12 +110,6 @@ const MusicPlayer: React.FC = () => {
 		}
 	};
 
-	const formatTime = (time: number) => {
-		const minutes = Math.floor(time / 60);
-		const seconds = Math.floor(time % 60);
-		return `${minutes}:${String(seconds).padStart(2, '0')}`;
-	};
-
 	const play = () => {
 		setIsPlaying(true);
 		audioElementRefs.current[currentSong]
@@ -153,10 +152,8 @@ const MusicPlayer: React.FC = () => {
 		}
 	}, [currentSong]);
 
-	console.log('isPlaying', isPlaying);
-
 	return (
-		<div className={styles.component}>
+		<div className={styles.musicPlayer}>
 			{!isLoaded && (
 				<button onClick={loadMusic} className={styles.loadingBtn}>
 					<i className='fa-solid fa-power-off' />
