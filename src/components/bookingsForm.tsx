@@ -89,12 +89,22 @@ const BookingsForm: React.FC = () => {
 			myForm.reset();
 		}
 
+		const allFieldsFilled = requiredFields.every(
+			(field) => formData[field as keyof BookingsFormData]
+		);
+
+		if (!allFieldsFilled) {
+			alert('Please fill in all required fields.');
+			return;
+		}
+
 		const validationErrors = validateBookingsForm(formData);
+
+		setFieldErrors(validationErrors);
+
 		const errorMessages = Object.values(validationErrors).flatMap(
 			(error) => error
 		);
-
-		setFieldErrors(validationErrors);
 
 		if (errorMessages.length > 0) {
 			return;
@@ -186,7 +196,6 @@ const BookingsForm: React.FC = () => {
 						method='post'
 						data-netlify='true'
 						data-netlify-honeypot='bot-field'
-						// data-netlify-recaptcha='true'
 						noValidate>
 						<input type='hidden' name='form-name' value='bookings-form' />
 						<input type='hidden' name='bot-field' />
@@ -217,7 +226,6 @@ const BookingsForm: React.FC = () => {
 										ref={inputRef}
 										onFocus={() => handleInputFocus('firstName')}
 										autoComplete='given-name'
-										required
 										className={
 											fieldErrors.firstName && fieldErrors.firstName.length > 0
 												? 'error'
@@ -252,7 +260,6 @@ const BookingsForm: React.FC = () => {
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('lastName')}
 										autoComplete='family-name'
-										required
 										className={
 											fieldErrors.lastName && fieldErrors.lastName.length > 0
 												? 'error'
@@ -289,7 +296,6 @@ const BookingsForm: React.FC = () => {
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('email')}
 										autoComplete='email'
-										required
 										className={
 											fieldErrors.email && fieldErrors.email.length > 0
 												? 'error'
@@ -358,7 +364,6 @@ const BookingsForm: React.FC = () => {
 											onChange={handleInputChange}
 											onBlur={handleInputBlur}
 											onFocus={() => handleInputFocus('topic')}
-											required
 											className={
 												fieldErrors.topic && fieldErrors.topic.length > 0
 													? 'error'
@@ -400,7 +405,6 @@ const BookingsForm: React.FC = () => {
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
 										onFocus={() => handleInputFocus('message')}
-										required
 										className={
 											fieldErrors.message && fieldErrors.message.length > 0
 												? 'error'
@@ -449,8 +453,6 @@ const BookingsForm: React.FC = () => {
 										))}
 								</ul>
 							)}
-
-							{/* <div data-netlify-recaptcha='true' /> */}
 						</div>
 					</form>
 				</section>
