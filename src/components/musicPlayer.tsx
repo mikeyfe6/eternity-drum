@@ -28,7 +28,7 @@ const MusicPlayer: React.FC = () => {
 	`);
 
 	const formatTitle = (title: string) => {
-		return title.substring(3).replace('.mp3', '').replace(/_/g, ' ');
+		return title.substring(3).replace('.mp3', '').replace(/[_-]/g, ' ');
 	};
 
 	const formatTime = (time: number) => {
@@ -84,12 +84,23 @@ const MusicPlayer: React.FC = () => {
 			navigator.mediaSession.setActionHandler('play', play);
 			navigator.mediaSession.setActionHandler('pause', pause);
 			navigator.mediaSession.setActionHandler('previoustrack', () => {
-				const prevSongIndex =
-					currentSong === 0 ? songs.length - 1 : currentSong - 1;
 				audioElementRefs.current[currentSong]?.pause();
-				audioElementRefs.current[currentSong]!.currentTime = 0;
-				setCurrentSong(prevSongIndex);
-				setCurrentTime(0);
+				if (
+					audioElementRefs.current[currentSong] &&
+					audioElementRefs.current[currentSong]!.currentTime > 10
+				) {
+					audioElementRefs.current[currentSong]!.currentTime = 0;
+
+					if (isPlaying) {
+						audioElementRefs.current[currentSong]?.play();
+					}
+				} else {
+					const prevSongIndex =
+						currentSong === 0 ? songs.length - 1 : currentSong - 1;
+					audioElementRefs.current[currentSong]!.currentTime = 0;
+					setCurrentSong(prevSongIndex);
+					setCurrentTime(0);
+				}
 			});
 			navigator.mediaSession.setActionHandler('nexttrack', () => {
 				const nextSongIndex = (currentSong + 1) % songs.length;
