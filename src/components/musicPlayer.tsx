@@ -26,9 +26,13 @@ const MusicPlayer: React.FC = () => {
 		}
 	`);
 
+	const formatTitle = (title: string) => {
+		return title.substring(3).replace('.mp3', '').replace(/_/g, ' ');
+	};
+
 	const songs = data.allS3MusicFile.edges.map(({ node }: any) => ({
 		src: node.src,
-		title: node.title,
+		title: formatTitle(node.title),
 		artist: 'Eternity Percussion',
 	}));
 
@@ -106,10 +110,6 @@ const MusicPlayer: React.FC = () => {
 		return `${minutes}:${String(seconds).padStart(2, '0')}`;
 	};
 
-	const formatTitle = (title: string) => {
-		return title.substring(3).replace('.mp3', '').replace(/_/g, ' ');
-	};
-
 	const play = () => {
 		setIsPlaying(true);
 		audioElementRefs.current[currentSong]
@@ -159,9 +159,7 @@ const MusicPlayer: React.FC = () => {
 					</div>
 
 					<div className={styles.artistInfo}>
-						<h3 className={styles.title}>
-							{formatTitle(songs[currentSong]?.title)}
-						</h3>
+						<h3 className={styles.title}>{songs[currentSong]?.title}</h3>
 						<p className={styles.subTitle}>{songs[currentSong]?.artist}</p>
 					</div>
 				</div>
