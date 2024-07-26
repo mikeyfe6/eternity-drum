@@ -81,22 +81,29 @@ const MusicPlayer: React.FC = () => {
 				],
 			});
 
-			navigator.mediaSession.setActionHandler('play', () => {
-				play();
-			});
-
-			navigator.mediaSession.setActionHandler('pause', () => {
-				pause();
-			});
-
+			navigator.mediaSession.setActionHandler('play', play);
+			navigator.mediaSession.setActionHandler('pause', pause);
 			navigator.mediaSession.setActionHandler('previoustrack', () => {
-				setCurrentSong(currentSong === 0 ? songs.length - 1 : currentSong - 1);
+				const prevSongIndex =
+					currentSong === 0 ? songs.length - 1 : currentSong - 1;
+				audioElementRefs.current[currentSong]?.pause();
+				audioElementRefs.current[currentSong]!.currentTime = 0;
+				setCurrentSong(prevSongIndex);
 				setCurrentTime(0);
 			});
-
 			navigator.mediaSession.setActionHandler('nexttrack', () => {
-				setCurrentSong((currentSong + 1) % songs.length);
+				const nextSongIndex = (currentSong + 1) % songs.length;
+				audioElementRefs.current[currentSong]?.pause();
+				audioElementRefs.current[currentSong]!.currentTime = 0;
+				setCurrentSong(nextSongIndex);
 				setCurrentTime(0);
+			});
+			navigator.mediaSession.setActionHandler('seekto', (event) => {
+				const seekTime = event.seekTime;
+				if (seekTime !== undefined && audioElementRefs.current[currentSong]) {
+					audioElementRefs.current[currentSong]!.currentTime = seekTime;
+					setCurrentTime(seekTime);
+				}
 			});
 		}
 	}, [currentSong, songs]);
