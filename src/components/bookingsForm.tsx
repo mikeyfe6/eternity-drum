@@ -186,7 +186,7 @@ const BookingsForm: React.FC = () => {
 						method='post'
 						data-netlify='true'
 						data-netlify-honeypot='bot-field'
-						data-netlify-recaptcha='true'
+						// data-netlify-recaptcha='true'
 						noValidate>
 						<input type='hidden' name='form-name' value='bookings-form' />
 						<input type='hidden' name='bot-field' />
@@ -450,7 +450,7 @@ const BookingsForm: React.FC = () => {
 								</ul>
 							)}
 
-							<div data-netlify-recaptcha='true' />
+							{/* <div data-netlify-recaptcha='true' /> */}
 						</div>
 					</form>
 				</section>
