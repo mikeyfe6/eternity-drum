@@ -12,8 +12,6 @@ const MusicPlayer: React.FC = () => {
 	const [duration, setDuration] = useState(0);
 	const [volume, setVolume] = useState(100);
 
-	console.log('isPlaying', isPlaying);
-
 	const data = useStaticQuery(graphql`
 		query {
 			allS3MusicFile {
@@ -49,20 +47,6 @@ const MusicPlayer: React.FC = () => {
 				setIsLoaded(true);
 				setDuration(audioElementRefs.current[currentSong]!.duration);
 			});
-		}
-
-		if (isPlaying) {
-			audioElementRefs.current[currentSong]
-				?.play()
-				.then(() => setIsPlaying(true))
-				.catch((error) => console.error(error));
-		}
-
-		if (audioElementRefs.current[currentSong]) {
-			const audioElement = audioElementRefs.current[currentSong];
-			if (audioElement) {
-				audioElement.volume = volume / 100;
-			}
 		}
 
 		audioElementRefs.current[currentSong]?.addEventListener(
@@ -106,13 +90,7 @@ const MusicPlayer: React.FC = () => {
 				setCurrentTime(0);
 			});
 		}
-
-		return () => {
-			if (audioElementRefs.current[currentSong]) {
-				audioElementRefs.current[currentSong]?.pause();
-			}
-		};
-	}, [currentSong, isPlaying, songs, volume]);
+	}, [currentSong, songs]);
 
 	const switchToNextSong = () => {
 		const nextSongIndex = (currentSong + 1) % songs.length;
@@ -128,9 +106,8 @@ const MusicPlayer: React.FC = () => {
 		return `${minutes}:${String(seconds).padStart(2, '0')}`;
 	};
 
-	const pause = () => {
-		setIsPlaying(false);
-		audioElementRefs.current[currentSong]?.pause();
+	const formatTitle = (title: string) => {
+		return title.substring(3).replace('.mp3', '').replace(/_/g, ' ');
 	};
 
 	const play = () => {
@@ -138,6 +115,11 @@ const MusicPlayer: React.FC = () => {
 		audioElementRefs.current[currentSong]
 			?.play()
 			.catch((error) => console.error(error));
+	};
+
+	const pause = () => {
+		setIsPlaying(false);
+		audioElementRefs.current[currentSong]?.pause();
 	};
 
 	const loadMusic = () => {
@@ -150,10 +132,17 @@ const MusicPlayer: React.FC = () => {
 
 	useEffect(() => {
 		const audioElement = audioElementRefs.current[currentSong];
-		if (audioElement) {
-			setDuration(audioElement.duration);
+
+		if (isPlaying) {
+			audioElement?.play().catch((error) => console.error(error));
+		} else {
+			audioElement?.pause();
 		}
-	}, [currentSong]);
+
+		if (audioElement) {
+			audioElement.volume = volume / 100;
+		}
+	}, [isPlaying, currentSong, volume]);
 
 	return (
 		<div className={styles.component}>
@@ -170,7 +159,9 @@ const MusicPlayer: React.FC = () => {
 					</div>
 
 					<div className={styles.artistInfo}>
-						<h3 className={styles.title}>{songs[currentSong]?.title}</h3>
+						<h3 className={styles.title}>
+							{formatTitle(songs[currentSong]?.title)}
+						</h3>
 						<p className={styles.subTitle}>{songs[currentSong]?.artist}</p>
 					</div>
 				</div>
@@ -275,7 +266,7 @@ const MusicPlayer: React.FC = () => {
 			)}
 
 			{isLoaded &&
-				songs.map((song, index) => (
+				songs.map((song: any, index: number) => (
 					<audio
 						key={index}
 						ref={(el) => (audioElementRefs.current[index] = el)}
