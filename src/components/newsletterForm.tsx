@@ -77,15 +77,25 @@ const NewsletterForm: React.FC = () => {
 		event.preventDefault();
 
 		if (myForm !== null) {
-			myForm.reset!();
+			myForm.reset();
+		}
+
+		const allRequiredFieldsFilled = requiredFields.every(
+			(field) => formData[field as keyof NewsletterFormData]
+		);
+
+		if (!allRequiredFieldsFilled) {
+			alert('Vul aub alle verplichte velden in. Geen workarounds!');
+			return;
 		}
 
 		const validationErrors = validateNewsletterForm(formData);
+
+		setFieldErrors(validationErrors);
+
 		const errorMessages = Object.values(validationErrors).flatMap(
 			(error) => error
 		);
-
-		setFieldErrors(validationErrors);
 
 		if (errorMessages.length > 0) {
 			return;
@@ -152,9 +162,7 @@ const NewsletterForm: React.FC = () => {
 				method='post'
 				data-netlify='true'
 				data-netlify-honeypot='bot-field'
-				action='#'
-				noValidate
-			>
+				noValidate>
 				<input type='hidden' name='form-name' value='newsletter-form' />
 				<fieldset>
 					<legend>Schrijf je in voor onze nieuwsbrief</legend>
@@ -166,8 +174,7 @@ const NewsletterForm: React.FC = () => {
 									focusedInput === 'firstName' || formData.firstName
 										? 'visited'
 										: ''
-								}
-							>
+								}>
 								Voornaam
 							</label>
 							<input
@@ -201,8 +208,7 @@ const NewsletterForm: React.FC = () => {
 									focusedInput === 'lastName' || formData.lastName
 										? 'visited'
 										: ''
-								}
-							>
+								}>
 								Achternaam
 							</label>
 							<input
@@ -236,8 +242,7 @@ const NewsletterForm: React.FC = () => {
 								htmlFor='email'
 								className={
 									focusedInput === 'email' || formData.email ? 'visited' : ''
-								}
-							>
+								}>
 								E-mailadres
 							</label>
 							<input
@@ -284,8 +289,7 @@ const NewsletterForm: React.FC = () => {
 							type='submit'
 							disabled={
 								Object.values(fieldErrors).flat().length > 0 || !isFormValid()
-							}
-						>
+							}>
 							Schrijf in
 						</button>
 					</div>

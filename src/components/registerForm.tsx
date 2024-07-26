@@ -171,15 +171,25 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		event.preventDefault();
 
 		if (myForm !== null) {
-			myForm.reset!();
+			myForm.reset();
+		}
+
+		const allRequiredFieldsFilled = requiredFields.every(
+			(field) => formData[field as keyof RegisterFormData]
+		);
+
+		if (!allRequiredFieldsFilled) {
+			alert('Vul aub alle verplichte velden in. Geen workarounds!');
+			return;
 		}
 
 		const validationErrors = validateRegisterForm(formData, isOlderThan18);
+
+		setFieldErrors(validationErrors);
+
 		const errorMessages = Object.values(validationErrors).flatMap(
 			(error) => error
 		);
-
-		setFieldErrors(validationErrors);
 
 		if (errorMessages.length > 0) {
 			return;
@@ -326,9 +336,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 					method='post'
 					data-netlify='true'
 					data-netlify-honeypot='bot-field'
-					action='#'
-					noValidate
-				>
+					noValidate>
 					<input type='hidden' name='form-name' value='register-form' />
 
 					<fieldset>
@@ -342,8 +350,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										focusedInput === 'firstName' || formData.firstName
 											? 'visited'
 											: ''
-									}
-								>
+									}>
 									Voornaam
 								</label>
 								<input
@@ -377,8 +384,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										focusedInput === 'lastName' || formData.lastName
 											? 'visited'
 											: ''
-									}
-								>
+									}>
 									Achternaam
 								</label>
 								<input
@@ -413,8 +419,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										focusedInput === 'streetName' || formData.streetName
 											? 'visited'
 											: ''
-									}
-								>
+									}>
 									Straatnaam
 								</label>
 								<input
@@ -448,8 +453,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										focusedInput === 'houseNumber' || formData.houseNumber
 											? 'visited'
 											: ''
-									}
-								>
+									}>
 									Huisnr.
 								</label>
 								<input
@@ -482,8 +486,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										focusedInput === 'zipCode' || formData.zipCode
 											? 'visited'
 											: ''
-									}
-								>
+									}>
 									Postcode
 								</label>
 								<input
@@ -516,8 +519,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									htmlFor='city'
 									className={
 										focusedInput === 'city' || formData.city ? 'visited' : ''
-									}
-								>
+									}>
 									Woonplaats
 								</label>
 								<input
@@ -550,8 +552,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										focusedInput === 'province' || formData.province
 											? 'visited'
 											: ''
-									}
-								>
+									}>
 									Provincie
 								</label>
 								<input
@@ -584,8 +585,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									htmlFor='email'
 									className={
 										focusedInput === 'email' || formData.email ? 'visited' : ''
-									}
-								>
+									}>
 									E-mailadres
 								</label>
 								<input
@@ -620,8 +620,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 											focusedInput === 'gender' || formData.gender
 												? 'visited'
 												: ''
-										}
-									>
+										}>
 										Geslacht
 									</label>
 									<select
@@ -630,8 +629,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										value={formData.gender}
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('gender')}
-									>
+										onFocus={() => handleInputFocus('gender')}>
 										<option value='' disabled>
 											Geslacht
 										</option>
@@ -650,8 +648,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									htmlFor='phone'
 									className={
 										focusedInput === 'phone' || formData.phone ? 'visited' : ''
-									}
-								>
+									}>
 									Telefoon
 								</label>
 								<input
@@ -688,8 +685,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										formData.yearOfBirth
 											? 'visited'
 											: ''
-									}
-								>
+									}>
 									Geboortedatum
 								</label>
 								<div className='date-inputs'>
@@ -716,8 +712,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 														isFormSubmitted === true)
 												? 'approved'
 												: ''
-										}
-									>
+										}>
 										<option value='' disabled>
 											Dag
 										</option>
@@ -750,8 +745,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 														isFormSubmitted === true)
 												? 'approved'
 												: ''
-										}
-									>
+										}>
 										<option value='' disabled>
 											Maand
 										</option>
@@ -797,8 +791,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 														isFormSubmitted === true)
 												? 'approved'
 												: ''
-										}
-									>
+										}>
 										<option value='' disabled>
 											Jaar
 										</option>
@@ -817,8 +810,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 							style={{
 								marginBottom:
 									formData.discover === 'Overig' ? '1em' : 'revert-layer',
-							}}
-						>
+							}}>
 							<div className='form-group discover'>
 								<div className='form-select'>
 									<label
@@ -827,8 +819,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 											focusedInput === 'discover' || formData.discover
 												? 'visited'
 												: ''
-										}
-									>
+										}>
 										Hoe ben je bij ons terecht gekomen?
 									</label>
 									<select
@@ -837,8 +828,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										value={formData.discover}
 										onChange={handleInputChange}
 										onBlur={handleInputBlur}
-										onFocus={() => handleInputFocus('discover')}
-									>
+										onFocus={() => handleInputFocus('discover')}>
 										<option value='' disabled>
 											Hoe ben je bij ons terecht gekomen?
 										</option>
@@ -870,8 +860,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 							className='form-column'
 							style={{
 								display: formData.discover === 'Overig' ? 'block' : ' none',
-							}}
-						>
+							}}>
 							<div className='form-group other'>
 								<label htmlFor='other'>Meer info..</label>
 								<input
@@ -895,8 +884,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										focusedInput === 'comments' || formData.comments
 											? 'visited'
 											: ''
-									}
-								>
+									}>
 									Heb je nog opmerkingen?
 								</label>
 								<textarea
@@ -906,8 +894,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									value={formData.comments}
 									onChange={handleInputChange}
 									onBlur={handleInputBlur}
-									onFocus={() => handleInputFocus('comments')}
-								></textarea>
+									onFocus={() => handleInputFocus('comments')}></textarea>
 							</div>
 						</div>
 					</fieldset>
@@ -930,8 +917,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										formData.firstNameParent
 											? 'visited'
 											: ''
-									}
-								>
+									}>
 									Voornaam (ouders/voogd)
 								</label>
 								<input
@@ -965,8 +951,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										focusedInput === 'lastNameParent' || formData.lastNameParent
 											? 'visited'
 											: ''
-									}
-								>
+									}>
 									Achternaam (ouders/voogd)
 								</label>
 								<input
@@ -1002,8 +987,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										focusedInput === 'emailParent' || formData.emailParent
 											? 'visited'
 											: ''
-									}
-								>
+									}>
 									E-mailadres (ouders/voogd)
 								</label>
 								<input
@@ -1037,8 +1021,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										focusedInput === 'phoneParent' || formData.phoneParent
 											? 'visited'
 											: ''
-									}
-								>
+									}>
 									Telefoonnummer (ouders/voogd)
 								</label>
 								<input
@@ -1085,8 +1068,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 								type='submit'
 								disabled={
 									Object.values(fieldErrors).flat().length > 0 || !isFormValid()
-								}
-							>
+								}>
 								Schrijf in
 							</button>
 						</div>

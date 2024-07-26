@@ -89,12 +89,12 @@ const BookingsForm: React.FC = () => {
 			myForm.reset();
 		}
 
-		const allFieldsFilled = requiredFields.every(
+		const allRequiredFieldsFilled = requiredFields.every(
 			(field) => formData[field as keyof BookingsFormData]
 		);
 
-		if (!allFieldsFilled) {
-			alert('Please fill in all required fields.');
+		if (!allRequiredFieldsFilled) {
+			alert('Vul aub alle verplichte velden in. Geen workarounds!');
 			return;
 		}
 
