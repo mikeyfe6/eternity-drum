@@ -51,7 +51,7 @@ const Drumworkshops: React.FC<PageProps> = () => {
 								rel='noopener noreferrer'
 								target='_blank'>
 								Bredeschool Zuidoost{' '}
-							</a>
+							</a>{' '}
 							als vast onderdeel van het onderwijspakket. Speciaal voor kinderen
 							en jongeren verzorgen wij ook drumworkshops na schooltijd in
 							Amsterdam Zuidoost.
@@ -118,16 +118,18 @@ const Drumworkshops: React.FC<PageProps> = () => {
 						</p>
 
 						<p>
-							Voor de ouders die graag hun kinderen aan deze activiteit willen
-							laten deelnemen, maar niet in staat zijn om de bijdrage te betalen
-							kunnen wij een regeling treffen via het{' '}
+							Wij zijn nu <strong>intermediair</strong> van het{' '}
 							<a
-								href='https://www.jongerencultuurfonds.nl'
+								href='https://jeugdfondssportencultuur.nl/'
 								rel='noopener noreferrer'
 								target='_blank'>
-								Jongerencultuurfonds
-							</a>
-							.
+								Jeugdfonds
+							</a>{' '}
+							en kunnen daardoor zelf aanvragen doen voor lesgeld namens ouders
+							die daarvoor in aanmerking komen. Zo kunnen wij direct
+							ondersteuning bieden en regelingen treffen via het Jeugdfonds aan
+							kinderen die graag willen deelnemen aan onze activiteiten, maar
+							waarbij financiële drempels een obstakel vormen.
 						</p>
 
 						<p>

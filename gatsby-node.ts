@@ -171,7 +171,7 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({ actions, createNo
 
             const fileNode = await createRemoteFileNode({
                 url: file.src,
-                parentId: nodeId,
+                parentNodeId: nodeId,
                 createNode,
                 createNodeId,
                 getCache,
