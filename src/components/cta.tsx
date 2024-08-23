@@ -9,6 +9,7 @@ const CtaButtons: React.FC = () => {
 		<section className={styles.ctaContainer}>
 			<Link to='/boeken/'>Direct Boeken</Link>
 			<Link to='/drumworkshops/'>Aanmelden Drumworkshops</Link>
+			<Link to='/media/'>Media</Link>
 			<Link to='/seda/' className={styles.specialButton}>
 				SEDA
 			</Link>
