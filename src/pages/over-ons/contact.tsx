@@ -65,7 +65,7 @@ const Contact: React.FC<PageProps> = () => {
 										href={`tel:+${phoneRawSeda}`}
 										rel='noopener noreferrer'
 										target='_blank'>
-										020 311 39 33
+										020 773 38 88
 									</a>
 								</span>
 							</li>
