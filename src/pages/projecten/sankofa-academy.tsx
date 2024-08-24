@@ -18,7 +18,7 @@ import LightBox from '../../components/lightbox';
 import * as styles from '../../styles/modules/workshop.module.scss';
 
 const SankofaAcademy: React.FC<PageProps> = () => {
-	const { email, mobile } = useSiteMetadata();
+	const { email, mobileRaw } = useSiteMetadata();
 
 	const breadcrumbs = [
 		{ label: 'Home', link: '/' },
@@ -152,7 +152,7 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 							</a>{' '}
 							of telefonisch via{' '}
 							<a
-								href={`tel:+${mobile}`}
+								href={`tel:+${mobileRaw}`}
 								rel='noopener noreferrer'
 								target='_blank'>
 								06 242 55 391

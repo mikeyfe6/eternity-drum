@@ -25,7 +25,9 @@ const Contact: React.FC<PageProps> = () => {
 		address,
 		postalCode,
 		city,
-		mobile,
+		phoneRawSeda,
+		phoneRawBpt,
+		mobileRaw,
 		email,
 		kvk,
 		btw,
@@ -57,10 +59,21 @@ const Contact: React.FC<PageProps> = () => {
 								<span>Plaats</span> <span>{city}</span>
 							</li>
 							<li>
-								<span>Telefoon</span>
+								<span>Telefoon (SEDA)</span>
 								<span>
 									<a
-										href='tel:31203113933'
+										href={`tel:+${phoneRawSeda}`}
+										rel='noopener noreferrer'
+										target='_blank'>
+										020 311 39 33
+									</a>
+								</span>
+							</li>
+							<li>
+								<span>Telefoon (BPT)</span>
+								<span>
+									<a
+										href={`tel:+${phoneRawBpt}`}
 										rel='noopener noreferrer'
 										target='_blank'>
 										020 311 39 33
@@ -71,7 +84,7 @@ const Contact: React.FC<PageProps> = () => {
 								<span>Mobiel</span>
 								<span>
 									<a
-										href='tel:31624255391'
+										href={`tel:+${mobileRaw}`}
 										rel='noopener noreferrer'
 										target='_blank'>
 										06 242 55 391
@@ -132,7 +145,7 @@ const Contact: React.FC<PageProps> = () => {
 						<p>
 							We zijn ook bereikbaar via{' '}
 							<a
-								href={`https://wa.me/${mobile}`}
+								href={`https://wa.me/${mobileRaw}`}
 								rel='noopener noreferrer'
 								target='_blank'>
 								<span>Whatsapp</span> <i className='fab fa-whatsapp' />

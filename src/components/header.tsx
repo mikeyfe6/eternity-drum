@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 		instagramUrl,
 		// linkedinUrl,
 		youtubeUrl,
-		mobile,
+		mobileRaw,
 		slogan,
 	} = useSiteMetadata();
 
@@ -98,8 +98,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 								<a
 									href={instagramUrl}
 									rel='noopener noreferrer'
-									target='_blank'
-								>
+									target='_blank'>
 									<i className='fab fa-instagram' />
 								</a>
 							</li>
@@ -115,10 +114,9 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							</li>
 							<li>
 								<a
-									href={`https://wa.me/${mobile}`}
+									href={`https://wa.me/${mobileRaw}`}
 									rel='noopener noreferrer'
-									target='_blank'
-								>
+									target='_blank'>
 									<i className='fab fa-whatsapp' />
 								</a>
 							</li>
@@ -142,8 +140,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							type='button'
 							name='menu'
 							onClick={openMobileMenu}
-							className={styles.hamburgerButton}
-						>
+							className={styles.hamburgerButton}>
 							<div className={styles.hamburgerIcon}>
 								<div className={styles.bar} />
 								<div className={styles.bar} />
@@ -167,24 +164,21 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							<Link
 								to='/drumworkshops/'
 								activeClassName={styles.activeMenuItem}
-								partiallyActive={true}
-							>
+								partiallyActive={true}>
 								Drumworkshops
 							</Link>
 							<ul>
 								<li>
 									<Link
 										to='/drumworkshops/summerschool-2020/'
-										activeClassName={styles.activeMenuItem}
-									>
+										activeClassName={styles.activeMenuItem}>
 										Eternity Summerschool 2020
 									</Link>
 								</li>
 								<li>
 									<Link
 										to='/drumworkshops/summerschool-2021/'
-										activeClassName={styles.activeMenuItem}
-									>
+										activeClassName={styles.activeMenuItem}>
 										Eternity Summerschool 2021
 									</Link>
 								</li>
@@ -193,8 +187,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 						<li>
 							<Link
 								to='/cultuureducatie/'
-								activeClassName={styles.activeMenuItem}
-							>
+								activeClassName={styles.activeMenuItem}>
 								Cultuureducatie
 							</Link>
 						</li>
@@ -211,24 +204,21 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							<Link
 								to='/projecten/'
 								activeClassName={styles.activeMenuItem}
-								partiallyActive={true}
-							>
+								partiallyActive={true}>
 								Projecten
 							</Link>
 							<ul>
 								<li>
 									<Link
 										to='/projecten/sankofa-academy/'
-										activeClassName={styles.activeMenuItem}
-									>
+										activeClassName={styles.activeMenuItem}>
 										Sankofa Academy
 									</Link>
 								</li>
 								<li>
 									<Link
 										to='/projecten/sankofa-school/'
-										activeClassName={styles.activeMenuItem}
-									>
+										activeClassName={styles.activeMenuItem}>
 										Sankofa School
 									</Link>
 								</li>
@@ -243,8 +233,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							<Link
 								to='/seda/'
 								className={styles.special}
-								activeClassName={styles.activeMenuItem}
-							>
+								activeClassName={styles.activeMenuItem}>
 								Seda
 							</Link>
 						</li>
@@ -252,16 +241,14 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							<Link
 								to='/over-ons/'
 								activeClassName={styles.activeMenuItem}
-								partiallyActive={true}
-							>
+								partiallyActive={true}>
 								Over ons
 							</Link>
 							<ul>
 								<li>
 									<Link
 										to='/over-ons/contact/'
-										activeClassName={styles.activeMenuItem}
-									>
+										activeClassName={styles.activeMenuItem}>
 										Contact
 									</Link>
 								</li>
@@ -269,16 +256,14 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 									<Link
 										to='/over-ons/vacatures/'
 										activeClassName={styles.activeMenuItem}
-										partiallyActive={true}
-									>
+										partiallyActive={true}>
 										Vacatures
 									</Link>
 								</li>
 								<li>
 									<Link
 										to='/over-ons/anbi/'
-										activeClassName={styles.activeMenuItem}
-									>
+										activeClassName={styles.activeMenuItem}>
 										ANBI
 									</Link>
 								</li>

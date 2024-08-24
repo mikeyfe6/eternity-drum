@@ -16,9 +16,10 @@ interface SiteMetadata {
 
 	telephoneSeda: string;
 	telephoneBpt: string;
+	mobile: string;
 	phoneRawSeda: string;
 	phoneRawBpt: string;
-	mobile: string;
+	mobileRaw: string;
 
 	email: string;
 	address: string;
@@ -54,9 +55,10 @@ export const useSiteMetadata = (): SiteMetadata => {
 
 					telephoneSeda
 					telephoneBpt
+					mobile
 					phoneRawSeda
 					phoneRawBpt
-					mobile
+					mobileRaw
 
 					email
 					address

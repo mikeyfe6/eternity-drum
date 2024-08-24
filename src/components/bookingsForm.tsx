@@ -14,7 +14,7 @@ type FieldErrors = {
 };
 
 const BookingsForm: React.FC = () => {
-	const { mobile } = useSiteMetadata();
+	const { mobileRaw } = useSiteMetadata();
 
 	const [focusedInput, setFocusedInput] = useState<string | null>(null);
 	const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
@@ -490,7 +490,7 @@ const BookingsForm: React.FC = () => {
 					<p>
 						Voor meer informatie kan je telefonisch contact opnemen via:{' '}
 						<a
-							href={`tel:+${mobile}`}
+							href={`tel:+${mobileRaw}`}
 							rel='noopener noreferrer'
 							target='_blank'>
 							06 242 55 391

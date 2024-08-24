@@ -22,6 +22,7 @@ const Footer = () => {
 		phoneRawBpt,
 		phoneRawSeda,
 		mobile,
+		mobileRaw,
 		email,
 		kvk,
 		btw,
@@ -51,8 +52,7 @@ const Footer = () => {
 									<a
 										href='https://maps.app.goo.gl/MGox9UBh15DWsfLg8'
 										rel='noopener noreferrer'
-										target='_blank'
-									>
+										target='_blank'>
 										Kruitbergstraat 18
 									</a>
 								</li>
@@ -67,8 +67,7 @@ const Footer = () => {
 									<a
 										href='https://maps.app.goo.gl/exZZFm9LkUFDrsEH7'
 										rel='noopener noreferrer'
-										target='_blank'
-									>
+										target='_blank'>
 										{address}
 									</a>
 								</li>
@@ -80,8 +79,7 @@ const Footer = () => {
 									<a
 										href={`mailto:${email}`}
 										rel='noopener noreferrer'
-										target='_blank'
-									>
+										target='_blank'>
 										<strong>{email}</strong>
 									</a>
 								</li>
@@ -90,8 +88,7 @@ const Footer = () => {
 									<a
 										href={`tel:+${phoneRawSeda}`}
 										rel='noopener noreferrer'
-										target='_blank'
-									>
+										target='_blank'>
 										<strong>{telephoneSeda}</strong> (SEDA)
 									</a>
 								</li>
@@ -100,9 +97,17 @@ const Footer = () => {
 									<a
 										href={`tel:+${phoneRawBpt}`}
 										rel='noopener noreferrer'
-										target='_blank'
-									>
+										target='_blank'>
 										<strong>{telephoneBpt}</strong> (BPT)
+									</a>
+								</li>
+								<li>
+									<i className='fas fa-mobile' />
+									<a
+										href={`tel:+${mobileRaw}`}
+										rel='noopener noreferrer'
+										target='_blank'>
+										<strong>{mobile}</strong> (BPT)
 									</a>
 								</li>
 							</ul>
@@ -215,8 +220,7 @@ const Footer = () => {
 										<a
 											href={facebookUrl}
 											rel='noopener noreferrer'
-											target='_blank'
-										>
+											target='_blank'>
 											<i className='fab fa-facebook' />
 										</a>
 									</li>
@@ -224,8 +228,7 @@ const Footer = () => {
 										<a
 											href={instagramUrl}
 											rel='noopener noreferrer'
-											target='_blank'
-										>
+											target='_blank'>
 											<i className='fab fa-instagram' />
 										</a>
 									</li>
@@ -242,17 +245,15 @@ const Footer = () => {
 										<a
 											href={youtubeUrl}
 											rel='noopener noreferrer'
-											target='_blank'
-										>
+											target='_blank'>
 											<i className='fab fa-youtube' />
 										</a>
 									</li>
 									<li>
 										<a
-											href={`https://wa.me/${mobile}`}
+											href={`https://wa.me/${mobileRaw}`}
 											rel='noopener noreferrer'
-											target='_blank'
-										>
+											target='_blank'>
 											<i className='fab fa-whatsapp' />
 										</a>
 									</li>
@@ -271,8 +272,7 @@ const Footer = () => {
 							<a
 								href='https://menefex.nl'
 								rel='noopener noreferrer'
-								target='_blank'
-							>
+								target='_blank'>
 								Menefex
 								<img src={menefexLogo} alt='' />
 							</a>

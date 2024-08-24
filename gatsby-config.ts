@@ -21,9 +21,10 @@ const siteMetadata = {
 
 	telephoneBpt: `+31 (0)20 311 39 33`,
 	telephoneSeda: `+31 (0)20 773 38 88`,
+	mobile: `+31 (0)6 242 55 391`,
 	phoneRawBpt: `31203113933`,
 	phoneRawSeda: `3120773388`,
-	mobile: `31624255391`,
+	mobileRaw: `31624255391`,
 
 	email: `info@eternitydrum.com`,
 	address: `Anton de Komplein 240`,
