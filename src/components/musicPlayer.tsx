@@ -173,9 +173,14 @@ const MusicPlayer: React.FC = () => {
 	return (
 		<div className={styles.musicPlayer}>
 			{!isLoaded && (
-				<button onClick={loadMusic} className={styles.loadingBtn}>
-					<i className='fa-solid fa-power-off' />
-				</button>
+				<>
+					<p className={styles.loadingTxt}>
+						Open muziekspeler
+						<button onClick={loadMusic} className={styles.loadingBtn}>
+							<i className='fa-solid fa-power-off' />
+						</button>
+					</p>
+				</>
 			)}
 
 			{isLoaded && (

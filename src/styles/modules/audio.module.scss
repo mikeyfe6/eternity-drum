@@ -3,18 +3,29 @@
 @import '../configs/globals';
 
 .music-player {
-	.loading-btn {
-		margin-left: auto;
+	.loading {
+		&-txt {
+			display: flex;
+			align-items: center;
+			margin-left: auto;
+			justify-content: flex-end;
+			font-family: 'Bebas Neue', sans-serif;
+			font-size: 1.5rem;
+			gap: 0.5em;
+			line-height: normal;
+		}
 
-		@include buttonStyle(
-			$whiteColor,
-			$tertiaryColor,
-			$whiteColor,
-			$secondaryColor
-		);
+		&-btn {
+			@include buttonStyle(
+				$whiteColor,
+				$tertiaryColor,
+				$whiteColor,
+				$secondaryColor
+			);
 
-		> i {
-			font-size: 1.375em;
+			> i {
+				font-size: 1.375em;
+			}
 		}
 	}
 
