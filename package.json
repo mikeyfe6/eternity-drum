@@ -17,12 +17,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.637.0",
-    "@contentful/rich-text-react-renderer": "^15.22.9",
-    "@contentful/rich-text-types": "^16.8.3",
+    "@aws-sdk/client-s3": "^3.664.0",
+    "@contentful/rich-text-react-renderer": "^15.22.11",
+    "@contentful/rich-text-types": "^16.8.5",
     "@mdx-js/react": "^3.0.1",
     "dotenv": "^16.4.5",
-    "framer-motion": "^11.3.30",
+    "framer-motion": "^11.11.0",
     "gatsby": "^5.13.7",
     "gatsby-adapter-netlify": "^1.1.7",
     "gatsby-plugin-canonical-urls": "^5.13.1",
@@ -33,7 +33,7 @@
     "gatsby-plugin-mdx": "^5.13.1",
     "gatsby-plugin-netlify": "^5.1.1",
     "gatsby-plugin-nprogress": "^5.13.1",
-    "gatsby-plugin-offline": "^6.13.2",
+    "gatsby-plugin-offline": "^6.13.3",
     "gatsby-plugin-preload-fonts": "^4.13.1",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sass": "^6.13.1",
@@ -44,26 +44,26 @@
     "gatsby-transformer-sharp": "^5.13.1",
     "google-map-react": "^2.2.1",
     "react": "^18.3.1",
-    "react-datepicker": "^7.3.0",
+    "react-datepicker": "^7.4.0",
     "react-dom": "^18.3.1",
-    "sass": "^1.77.8",
-    "swiper": "^11.1.10"
+    "sass": "^1.79.4",
+    "swiper": "^11.1.14"
   },
   "devDependencies": {
-    "@types/node": "^22.5.0",
-    "@types/react": "^18.3.4",
+    "@types/node": "^22.7.4",
+    "@types/react": "^18.3.11",
     "@types/react-datepicker": "^7.0.0",
     "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^8.2.0",
-    "@typescript-eslint/parser": "^8.2.0",
-    "eslint": "^9.9.1",
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "@typescript-eslint/parser": "^8.8.0",
+    "eslint": "^9.11.1",
     "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react": "^7.37.1",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "stylelint": "^16.8.2",
+    "stylelint": "^16.9.0",
     "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-standard-scss": "^13.1.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.2"
   },
   "packageManager": "yarn@1.22.22"
 }
