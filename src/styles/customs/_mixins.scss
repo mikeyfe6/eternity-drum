@@ -1,3 +1,9 @@
+@use 'sass:color';
+
+@use 'colors' as *;
+@use 'fonts' as *;
+@use 'mediaqueries' as *;
+
 @mixin buttonStyle($bgColor, $color, $hoverBgcolor, $hoverColor) {
 	background-color: $bgColor;
 	color: $color;
@@ -78,7 +84,7 @@
 	transition: color 0.1s ease-in-out;
 
 	&:hover {
-		color: darken($tertiaryColor, 10);
+		color: color.adjust($tertiaryColor, $lightness: -10%);
 	}
 }
 
@@ -88,7 +94,7 @@
 		top: -25px;
 
 		&.visited {
-			color: lighten($tertiaryColor, 10);
+			color: color.adjust($tertiaryColor, $lightness: 10%);
 		}
 	}
 }

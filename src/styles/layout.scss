@@ -2,8 +2,11 @@
 
 @use 'sass:color';
 
-@import 'configs/resets';
-@import 'configs/globals';
+@use './customs' as *;
+@use 'content';
+@use 'forms';
+@use 'resets';
+@use 'swiper';
 
 @import 'https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap';
 

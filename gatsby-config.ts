@@ -99,7 +99,15 @@ const config: GatsbyConfig = {
 		'gatsby-plugin-image',
 		'gatsby-plugin-sharp',
 		'gatsby-transformer-sharp',
-		'gatsby-plugin-sass',
+		{
+			resolve: `gatsby-plugin-sass`,
+			options: {
+				implementation: require('sass'),
+				sassOptions: {
+					silenceDeprecations: ['legacy-js-api'],
+				},
+			},
+		},
 		'gatsby-plugin-catch-links',
 		{
 			resolve: 'gatsby-plugin-canonical-urls',

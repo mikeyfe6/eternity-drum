@@ -8,9 +8,6 @@ import Footer from '../components/footer';
 import MobileMenu from './mobileMenu';
 
 import '../styles/layout.scss';
-import '../styles/forms.scss';
-import '../styles/content.scss';
-import '../styles/swiper.scss';
 
 const duration = 0.1;
 

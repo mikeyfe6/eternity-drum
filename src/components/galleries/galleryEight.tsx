@@ -16,14 +16,14 @@ import {
 	FreeMode,
 	Thumbs,
 } from 'swiper/modules';
-import 'swiper/scss';
-import 'swiper/scss/thumbs';
-import 'swiper/scss/free-mode';
-import 'swiper/scss/navigation';
-import 'swiper/scss/pagination';
-import 'swiper/scss/scrollbar';
-import 'swiper/scss/parallax';
-import 'swiper/scss/autoplay';
+import 'swiper/css';
+import 'swiper/css/thumbs';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import 'swiper/css/parallax';
+import 'swiper/css/autoplay';
 
 import * as styles from '../../styles/modules/gallery.module.scss';
 
