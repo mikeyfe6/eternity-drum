@@ -10,7 +10,6 @@
 	border-right: 3px solid rgba($tertiaryColor, 0.3);
 	overflow-x: hidden;
 	z-index: 6;
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -87,7 +86,6 @@
 				&.special {
 					color: $whiteColor;
 					background: $tertiaryColor;
-
 					padding: 0.375em 0.5em;
 					margin-left: -0.125em;
 
@@ -116,11 +114,9 @@
 				padding: 0.1em;
 				text-align: center;
 				border-radius: 50%;
-
 				position: absolute;
 				top: 21px;
 				right: 0;
-
 				cursor: pointer;
 
 				@media screen and ($landscape) and ($large) {

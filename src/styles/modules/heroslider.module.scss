@@ -33,6 +33,7 @@
 
 		.autoplay-progress svg {
 			--progress: 0;
+
 			position: absolute;
 			left: 0;
 			top: 0;
@@ -50,6 +51,7 @@
 
 	&-wrapper {
 		@include epWrapper;
+
 		border-radius: 10px;
 
 		@media screen and ($small) {

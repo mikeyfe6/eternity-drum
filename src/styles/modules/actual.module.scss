@@ -32,17 +32,13 @@
 			cursor: pointer;
 			background: $whiteColor;
 			color: $primaryColor;
-
 			border-radius: 5px;
 			overflow: hidden;
 			font-weight: 700;
-
 			display: flex;
 			align-items: center;
 			justify-content: center;
-
 			gap: 1em;
-
 			outline: 2px solid transparent;
 
 			&.active-button {
@@ -92,9 +88,7 @@
 
 				> p {
 					font-size: 0.9rem;
-
 					display: block;
-
 					overflow: hidden;
 					white-space: nowrap;
 					text-overflow: ellipsis;
@@ -129,7 +123,6 @@
 	border-right: 2px solid $primaryColor;
 	border-radius: 0 0 10px 10px;
 	color: $primaryColor;
-
 	background: linear-gradient(
 		45deg,
 		$smokeColor,

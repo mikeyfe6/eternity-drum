@@ -21,9 +21,7 @@ form {
 		height: 44px;
 		opacity: 0.99;
 		line-height: 1.5;
-
 		background: linear-gradient(45deg, #eaecf7, $whiteColor);
-
 		outline: 2px solid $lightgreyColor;
 
 		&:not(select) {
@@ -187,7 +185,6 @@ form {
 			#yearOfBirth {
 				padding: 0.625em 0.5em;
 				border-radius: 5px;
-
 				text-align: center;
 				text-align-last: center;
 
@@ -209,7 +206,6 @@ form {
 			letter-spacing: 0.5px;
 			transition: all 0.1s;
 			color: $greyColor;
-
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
@@ -224,7 +220,6 @@ form {
 				top: -25px;
 				left: 0;
 				transition: all 0.1s;
-
 				color: color.adjust($tertiaryColor, $lightness: 10%);
 
 				@media screen and ($small) {
@@ -379,6 +374,7 @@ form {
 
 		&.date-of-birth {
 			flex: 40%;
+
 			@include specialLabels;
 
 			@media screen and ($small) {

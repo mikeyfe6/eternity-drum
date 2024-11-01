@@ -14,7 +14,7 @@
 	border: none;
 	text-transform: uppercase;
 	min-height: 44px;
-	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 6px rgba(0 0 0 / 10%);
 	text-wrap: nowrap;
 	display: block;
 	cursor: pointer;
@@ -32,7 +32,7 @@
 		color: $hoverColor;
 	}
 
-	&.specialButton {
+	&.special-button {
 		background-color: $tertiaryColor;
 		color: $whiteColor;
 
@@ -44,11 +44,11 @@
 }
 
 @mixin boxShadow {
-	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+	box-shadow: rgba(0 0 0 / 12%) 0 1px 3px, rgba(0 0 0 / 24%) 0 1px 2px;
 }
 
 @mixin boxBottomShadow {
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 10px 0 rgba(0 0 0 / 20%);
 }
 
 @mixin baseTransition($element, $time: 0.1s) {

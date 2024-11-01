@@ -60,7 +60,7 @@
 				object-position: center;
 				border-radius: 5px;
 				padding: 1em 0;
-				box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.1);
+				box-shadow: 0 0 10px 0 rgba(255 255 255 / 10%);
 
 				@media screen and ($large) {
 					max-width: 100px;

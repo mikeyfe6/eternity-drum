@@ -68,17 +68,23 @@ const Post = ({
 				}
 			},
 		},
+		renderText: (text: any) => {
+			return text
+				.split('\n')
+				.reduce((children: any, textSegment: any, index: any) => {
+					return [...children, index > 0 && <br key={index} />, textSegment];
+				}, []);
+		},
 	};
 
 	return (
-		<section data-main-section>
-			<Breadcrumb crumbs={breadcrumbs} />
-
+		<section data-main-section id='post-template'>
 			<h1>{title}</h1>
+			<Breadcrumb crumbs={breadcrumbs} />
 
 			<section data-main-content className='page-content singlepost'>
 				<div>
-					<h3>{excerpt}</h3>
+					<h2>{excerpt}</h2>
 
 					<div>{renderRichText(content, renderOptions)}</div>
 				</div>
@@ -86,12 +92,12 @@ const Post = ({
 				<div>
 					<img src={featuredImage.url} alt={featuredImage.title} />
 
-					<div className='singlepost sidebar'>
+					{/* <div className='singlepost sidebar'>
 						<ul>
-							{tags.map((tag, index) => (
-								<li key={index}>{tag}</li>
-							))}
-						</ul>
+                            {tags.map((tag, index) => (
+                                <li key={index}>{tag}</li>
+                            ))}
+                        </ul>
 
 						{writer && (
 							<p>
@@ -100,7 +106,7 @@ const Post = ({
 								email:<strong> {writer.email}</strong>
 							</p>
 						)}
-					</div>
+					</div> */}
 				</div>
 			</section>
 		</section>

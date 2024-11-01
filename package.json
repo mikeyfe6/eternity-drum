@@ -17,12 +17,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.679.0",
+    "@aws-sdk/client-s3": "^3.682.0",
     "@contentful/rich-text-react-renderer": "^16.0.0",
     "@contentful/rich-text-types": "^17.0.0",
     "@mdx-js/react": "^3.1.0",
     "dotenv": "^16.4.5",
-    "framer-motion": "^11.11.10",
+    "framer-motion": "^11.11.11",
     "gatsby": "^5.13.7",
     "gatsby-adapter-netlify": "^1.1.7",
     "gatsby-plugin-canonical-urls": "^5.13.1",
@@ -46,11 +46,11 @@
     "react": "^18.3.1",
     "react-datepicker": "^7.5.0",
     "react-dom": "^18.3.1",
-    "sass": "^1.80.4",
+    "sass": "^1.80.5",
     "swiper": "^11.1.14"
   },
   "devDependencies": {
-    "@types/node": "^22.8.4",
+    "@types/node": "^22.8.6",
     "@types/react": "^18.3.12",
     "@types/react-datepicker": "^7.0.0",
     "@types/react-dom": "^18.3.1",

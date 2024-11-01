@@ -219,12 +219,10 @@
 						content: '';
 						height: 33%;
 						width: 1px;
-
 						position: absolute;
 						right: 0;
 						top: 50%;
 						transform: translateY(-50%);
-
 						background-color: color.adjust($transGrey, $alpha: -0.75);
 					}
 
@@ -232,12 +230,10 @@
 						content: '';
 						height: 33%;
 						width: 1px;
-
 						position: absolute;
 						left: 0;
 						top: 50%;
 						transform: translateY(-50%);
-
 						background-color: color.adjust($transGrey, $alpha: -0.75);
 					}
 				}
@@ -310,8 +306,7 @@
 						transform: translateX(-50%);
 						padding-top: 38px;
 						background: $whiteColor;
-						box-shadow: rgba(17 17 26 / 0.1) 0 1px 0;
-
+						box-shadow: rgba(17 17 26 / 10%) 0 1px 0;
 						min-width: 100%;
 						white-space: nowrap;
 

@@ -15,7 +15,6 @@
 			$primaryColor,
 			color.scale($primaryColor, $lightness: 25%)
 		);
-
 		width: fit-content;
 		color: $whiteColor;
 		text-align: center;
@@ -36,7 +35,6 @@
 			overflow: hidden;
 			max-width: 375px;
 			position: relative;
-
 			background: linear-gradient(
 				45deg,
 				$primaryColor,
@@ -70,10 +68,16 @@
 				outline-color: $linkColor;
 			}
 
+			> a {
+				display: block;
+				height: 300px;
+				overflow: hidden;
+			}
+
 			img {
 				width: 100%;
+				height: 100%;
 				border-bottom: 1px solid color.adjust($transGrey, $alpha: -0.75);
-				height: 300px;
 				object-fit: cover;
 				overflow: hidden;
 
@@ -99,7 +103,7 @@
 					-webkit-line-clamp: 2;
 					-webkit-box-orient: vertical;
 					overflow: hidden;
-					min-height: 3em;
+					min-height: 2em;
 
 					a {
 						color: $whiteColor;

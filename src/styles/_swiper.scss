@@ -6,10 +6,8 @@
 		color: var(--swiper-theme-color);
 		transform: scale(0.75) translateY(-50%);
 		background: rgba($smokeColor, 0.125);
-
 		border-radius: 10px;
 		opacity: 0.5;
-
 		margin-top: 0 !important;
 		width: 75px !important;
 		height: 75px !important;
@@ -18,7 +16,7 @@
 			opacity: 1;
 		}
 
-		@media screen and ($medium) {
+		@media screen and (max-width: $medium) {
 			width: 67.5px !important;
 			height: 67.5px !important;
 
@@ -44,7 +42,7 @@
 			var(--swiper-pagination-bullet-size, 10px)
 		) !important;
 
-		@media screen and ($small) {
+		@media screen and (max-width: $small) {
 			width: var(
 				--swiper-pagination-bullet-width,
 				var(--swiper-pagination-bullet-size, 7px)

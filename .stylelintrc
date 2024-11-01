@@ -4,11 +4,10 @@
         "stylelint-config-prettier-scss"
     ],
     "rules": {
-        "declaration-empty-line-before": null,
+        "media-feature-range-notation": "context",
         "no-descending-specificity": null,
-        "scss/dollar-variable-empty-line-before": null,
-        "alpha-value-notation": "number",
+        "scss/at-mixin-pattern": "^[a-z][a-zA-Z]*$",
         "scss/dollar-variable-pattern": "^[a-z][a-zA-Z]*$",
-        "scss/at-mixin-pattern": "^[a-z][a-zA-Z]*$"
+        "scss/dollar-variable-empty-line-before": null
     }
 }
