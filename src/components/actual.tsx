@@ -99,14 +99,14 @@ const Actualiteiten: React.FC = () => {
 	};
 
 	const buttons = [
-		<>
-			<span>Masterclass</span>
-			<p>Wijkimpuls - 26/04/24</p>
-		</>,
-		<>
-			<span>Presentatie</span>
-			<p>Wijkimpuls - 19/04/24</p>
-		</>,
+		// <>
+		// 	<span>Masterclass</span>
+		// 	<p>Wijkimpuls - 26/04/24</p>
+		// </>,
+		// <>
+		// 	<span>Presentatie</span>
+		// 	<p>Wijkimpuls - 19/04/24</p>
+		// </>,
 		<>
 			<span>Media</span>
 			<p>Sankofa Academy</p>
@@ -142,18 +142,18 @@ const Actualiteiten: React.FC = () => {
 	];
 
 	const contents: (JSX.Element | string)[] = [
-		/* 1 */
-		<div key={`content-1`}>
-			<div className={styles.collapsibleImages}>
-				<LightBox image={wijkImpulsTwo} alt='Wijkimpuls - 26/04/24' />
-			</div>
-		</div>,
-		/* 2 */
-		<div key={`content-0`}>
-			<div className={styles.collapsibleImages}>
-				<LightBox image={wijkImpulsOne} alt='Wijkimpuls - 19/04/24' />
-			</div>
-		</div>,
+		// /* 1 */
+		// <div key={`content-1`}>
+		// 	<div className={styles.collapsibleImages}>
+		// 		<LightBox image={wijkImpulsTwo} alt='Wijkimpuls - 26/04/24' />
+		// 	</div>
+		// </div>,
+		// /* 2 */
+		// <div key={`content-0`}>
+		// 	<div className={styles.collapsibleImages}>
+		// 		<LightBox image={wijkImpulsOne} alt='Wijkimpuls - 19/04/24' />
+		// 	</div>
+		// </div>,
 		/* 3 */
 		<YouTubePlayer key={`content-2`} videoId='5lMEV6HLFQQ' />,
 		/* 4 */
