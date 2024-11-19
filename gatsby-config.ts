@@ -157,21 +157,35 @@ const config: GatsbyConfig = {
 
 					const vacanciesMap = allContentfulVacancy.nodes.reduce((acc: Record<string, any>, vacancy) => {
 						const { slug, updatedAt } = vacancy;
-						acc[`/over-ons/vacatures/${slug}`] = { path: `/over-ons/vacatures/${slug}`, updatedAt };
+						acc[`/over-ons/vacatures/${slug}/`] = { path: `/over-ons/vacatures/${slug}/`, updatedAt };
 						return acc;
 					}, {});
 
-					return [...allSitePage.nodes, ...Object.values(postsMap), ...Object.values(vacanciesMap)];
+					const combinedPages = allSitePage.nodes.map((page) => {
+						return (
+							postsMap[page.path] ||
+							vacanciesMap[page.path] ||
+							{ path: page.path }
+						);
+					});
+
+					return [
+						...Object.values(postsMap),
+						...Object.values(vacanciesMap),
+						...combinedPages.filter(
+							(page) =>
+								!postsMap[page.path] && !vacanciesMap[page.path]
+						),
+					];
 				},
-				serialize: ({ path, updatedAt }: { path: string; updatedAt: string }) => {
+				serialize: ({ path, updatedAt }: { path: string; updatedAt?: string }) => {
 					return {
 						url: path,
-						lastmod: updatedAt,
+						lastmod: updatedAt || new Date().toISOString(),
 						changefreq: 'daily',
 						priority: 0.7,
 					};
 				},
-
 			},
 		},
 		{
