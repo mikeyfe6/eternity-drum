@@ -7,6 +7,7 @@ interface SEOProps {
 	keywords?: string;
 	pathname?: string;
 	children?: ReactNode;
+	image?: string;
 	article?: boolean;
 }
 
@@ -15,13 +16,14 @@ export const Seo: React.FC<SEOProps> = ({
 	description,
 	keywords,
 	pathname,
+	image,
 	children,
 	article = false,
 }: SEOProps) => {
 	const {
 		title: siteTitle,
 		description: defaultDescription,
-		image,
+		image: defaultImage,
 		siteUrl,
 		slogan,
 		twitterUsername,
@@ -30,7 +32,8 @@ export const Seo: React.FC<SEOProps> = ({
 	const seo = {
 		title: title ? `${title} · ${siteTitle}` : `${siteTitle} · ${slogan}`,
 		description: description ?? defaultDescription,
-		image: `${siteUrl}${image}`,
+		image: article ? `${image}` : `${siteUrl}${image ?? defaultImage}`,
+
 		url: `${siteUrl}${pathname ?? ''}`,
 		twitterUsername,
 	};
@@ -83,7 +86,7 @@ export const Seo: React.FC<SEOProps> = ({
 				crossOrigin='anonymous'
 				referrerPolicy='no-referrer'
 			/>
-
+			{/* TODO: add schemaMarkupData */}
 			{children}
 		</>
 	);

@@ -119,12 +119,18 @@ interface SeoContext {
 	title: string;
 	excerpt: string;
 	tags: string;
+	slug: string;
+	featuredImage: {
+		url: string;
+	};
 }
 
 export const Head: React.FC<HeadProps> = ({ pageContext }) => {
 	const pageTitle = (pageContext as SeoContext)?.title || '';
 	const pageDescription = (pageContext as SeoContext)?.excerpt || '';
 	const pageTags = (pageContext as SeoContext)?.tags || [];
+	const pageSlug = (pageContext as SeoContext)?.slug || '';
+	const pageImage = (pageContext as SeoContext)?.featuredImage.url || '';
 
 	const tagsArray: string[] = Array.isArray(pageTags) ? pageTags : [];
 
@@ -135,6 +141,9 @@ export const Head: React.FC<HeadProps> = ({ pageContext }) => {
 			title={pageTitle}
 			keywords={pageKeywords}
 			description={pageDescription}
+			pathname={'/' + pageSlug + '/'}
+			image={pageImage}
+			article={true}
 		/>
 	);
 };
