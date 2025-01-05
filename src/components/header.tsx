@@ -191,6 +191,11 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 								Cultuureducatie
 							</Link>
 						</li>
+						<li>
+							<Link to='/theater/' activeClassName={styles.activeMenuItem}>
+								Theater
+							</Link>
+						</li>
 						<li className={styles.logo}>
 							<Link to='/' className={styles.logoWrapper}>
 								<StaticImage
@@ -198,6 +203,13 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 									alt={`${title} Logo`}
 									placeholder='blurred'
 								/>
+							</Link>
+						</li>
+						<li>
+							<Link
+								to='/uitwisselingen/'
+								activeClassName={styles.activeMenuItem}>
+								Uitwisselingen
 							</Link>
 						</li>
 						<li>

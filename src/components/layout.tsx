@@ -42,7 +42,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
 	useEffect(() => {
 		const handleResize = () => {
-			if (window.innerWidth > 1400 && isMobileMenuOpen) {
+			if (window.innerWidth > 1600 && isMobileMenuOpen) {
 				closeMobileMenu();
 			}
 		};

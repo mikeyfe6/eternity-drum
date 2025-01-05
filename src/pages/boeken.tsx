@@ -9,7 +9,7 @@ import Breadcrumb from '../components/breadcrumbs';
 import Hero from '../components/heroslider';
 import BookingsForm from '../components/bookingsForm';
 
-const BoekenPage: React.FC<PageProps> = () => {
+const Boeken: React.FC<PageProps> = () => {
 	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'Boeken' }];
 
 	return (
@@ -25,7 +25,7 @@ const BoekenPage: React.FC<PageProps> = () => {
 	);
 };
 
-export default BoekenPage;
+export default Boeken;
 
 export const Head: HeadFC = () => (
 	<Seo

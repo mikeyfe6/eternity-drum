@@ -6,7 +6,7 @@ import { Seo } from '../components/seo';
 
 import * as styles from '../styles/modules/notfound.module.scss';
 
-const NotFoundPage: React.FC<PageProps> = () => {
+const NotFound: React.FC<PageProps> = () => {
 	return (
 		<section data-main-section>
 			<h1>Ojee.. Pagina niet gevonden</h1>
@@ -30,7 +30,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
 	);
 };
 
-export default NotFoundPage;
+export default NotFound;
 
 export const Head: HeadFC = () => (
 	<Seo title='Pagina niet gevonden!' pathname='/404/' />

@@ -16,7 +16,7 @@
 			opacity: 1;
 		}
 
-		@media screen and (max-width: $medium) {
+		@media screen and ($medium) {
 			width: 67.5px !important;
 			height: 67.5px !important;
 
@@ -42,7 +42,7 @@
 			var(--swiper-pagination-bullet-size, 10px)
 		) !important;
 
-		@media screen and (max-width: $small) {
+		@media screen and ($small) {
 			width: var(
 				--swiper-pagination-bullet-width,
 				var(--swiper-pagination-bullet-size, 7px)
