@@ -171,6 +171,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 									Bijlmer Drum Festival
 								</Link>
 							</li>
+							<li>
+								<Link
+									to='/projecten/van-hobby-naar-succes/'
+									activeClassName={styles.activeMenuItem}
+									onClick={handleMenuItemClick}>
+									Van Hobby Naar Succes
+								</Link>
+							</li>
 						</ul>
 					)}
 				</li>

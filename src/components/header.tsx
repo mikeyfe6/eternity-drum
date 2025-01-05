@@ -246,6 +246,13 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 										Bijlmer Drum Festival
 									</Link>
 								</li>
+								<li>
+									<Link
+										to='/projecten/van-hobby-naar-succes/'
+										activeClassName={styles.activeMenuItem}>
+										Van Hobby Naar Succes
+									</Link>
+								</li>
 							</ul>
 						</li>
 						<li>
