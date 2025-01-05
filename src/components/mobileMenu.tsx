@@ -115,8 +115,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 						Theater
 					</Link>
 					<i
-						className={`fa-solid fa-caret-${isSubMenu1Open ? 'up' : 'down'}`}
-						style={{ backgroundColor: isSubMenu1Open ? '#f6ce0e' : '#fff' }}
+						className={`fa-solid fa-caret-${isSubMenu2Open ? 'up' : 'down'}`}
+						style={{ backgroundColor: isSubMenu2Open ? '#f6ce0e' : '#fff' }}
 						onClick={toggleSubMenu2}
 					/>
 					{isSubMenu2Open && (
@@ -149,8 +149,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 						Projecten
 					</Link>
 					<i
-						className={`fa-solid fa-caret-${isSubMenu2Open ? 'up' : 'down'}`}
-						style={{ backgroundColor: isSubMenu2Open ? '#f6ce0e' : '#fff' }}
+						className={`fa-solid fa-caret-${isSubMenu3Open ? 'up' : 'down'}`}
+						style={{ backgroundColor: isSubMenu3Open ? '#f6ce0e' : '#fff' }}
 						onClick={toggleSubMenu3}
 					/>
 					{isSubMenu3Open && (
@@ -208,8 +208,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 						Over ons
 					</Link>
 					<i
-						className={`fa-solid fa-caret-${isSubMenu3Open ? 'up' : 'down'}`}
-						style={{ backgroundColor: isSubMenu3Open ? '#f6ce0e' : '#fff' }}
+						className={`fa-solid fa-caret-${isSubMenu4Open ? 'up' : 'down'}`}
+						style={{ backgroundColor: isSubMenu4Open ? '#f6ce0e' : '#fff' }}
 						onClick={toggleSubMenu4}
 					/>
 					{isSubMenu4Open && (
