@@ -13,6 +13,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 	const [isSubMenu1Open, setIsSubMenu1Open] = useState(false);
 	const [isSubMenu2Open, setIsSubMenu2Open] = useState(false);
 	const [isSubMenu3Open, setIsSubMenu3Open] = useState(false);
+	const [isSubMenu4Open, setIsSubMenu4Open] = useState(false);
 
 	const menuClass = isOpen
 		? `${styles.mobileMenu} ${styles.open}`
@@ -32,6 +33,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 
 	const toggleSubMenu3 = () => {
 		setIsSubMenu3Open(!isSubMenu3Open);
+	};
+
+	const toggleSubMenu4 = () => {
+		setIsSubMenu4Open(!isSubMenu4Open);
 	};
 
 	return (
@@ -105,9 +110,27 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 					<Link
 						to='/theater/'
 						activeClassName={styles.activeMenuItem}
+						partiallyActive={true}
 						onClick={handleMenuItemClick}>
 						Theater
 					</Link>
+					<i
+						className={`fa-solid fa-caret-${isSubMenu1Open ? 'up' : 'down'}`}
+						style={{ backgroundColor: isSubMenu1Open ? '#f6ce0e' : '#fff' }}
+						onClick={toggleSubMenu2}
+					/>
+					{isSubMenu2Open && (
+						<ul>
+							<li>
+								<Link
+									to='/theater/kwasi-en-yaw/'
+									activeClassName={styles.activeMenuItem}
+									onClick={handleMenuItemClick}>
+									Kwasi & Yaw
+								</Link>
+							</li>
+						</ul>
+					)}
 				</li>
 				<li>
 					<Link
@@ -128,9 +151,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 					<i
 						className={`fa-solid fa-caret-${isSubMenu2Open ? 'up' : 'down'}`}
 						style={{ backgroundColor: isSubMenu2Open ? '#f6ce0e' : '#fff' }}
-						onClick={toggleSubMenu2}
+						onClick={toggleSubMenu3}
 					/>
-					{isSubMenu2Open && (
+					{isSubMenu3Open && (
 						<ul>
 							<li>
 								<Link
@@ -142,10 +165,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 							</li>
 							<li>
 								<Link
-									to='/projecten/sankofa-school/'
+									to='/projecten/bijlmer-drum-festival/'
 									activeClassName={styles.activeMenuItem}
 									onClick={handleMenuItemClick}>
-									Sankofa School
+									Bijlmer Drum Festival
 								</Link>
 							</li>
 						</ul>
@@ -179,9 +202,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 					<i
 						className={`fa-solid fa-caret-${isSubMenu3Open ? 'up' : 'down'}`}
 						style={{ backgroundColor: isSubMenu3Open ? '#f6ce0e' : '#fff' }}
-						onClick={toggleSubMenu3}
+						onClick={toggleSubMenu4}
 					/>
-					{isSubMenu3Open && (
+					{isSubMenu4Open && (
 						<ul>
 							<li>
 								<Link

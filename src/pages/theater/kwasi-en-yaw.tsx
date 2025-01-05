@@ -8,11 +8,11 @@ import Breadcrumb from '../../components/breadcrumbs';
 
 import Hero from '../../components/heroslider';
 
-const SankofaSchool: React.FC<PageProps> = () => {
+const KwasiEnYaw: React.FC<PageProps> = () => {
 	const breadcrumbs = [
 		{ label: 'Home', link: '/' },
-		{ label: 'Projecten', link: '/projecten/' },
-		{ label: 'Sankofa School' },
+		{ label: 'Theater', link: '/theater/' },
+		{ label: 'Kwasi & Yaw' },
 	];
 
 	return (
@@ -21,15 +21,15 @@ const SankofaSchool: React.FC<PageProps> = () => {
 			<section data-main-section>
 				<Breadcrumb crumbs={breadcrumbs} />
 
-				<h1>SEDA School</h1>
+				<h1>Kwasi & Yaw</h1>
 				<p>Pagina komt binnenkort..</p>
 			</section>
 		</>
 	);
 };
 
-export default SankofaSchool;
+export default KwasiEnYaw;
 
 export const Head: HeadFC = () => (
-	<Seo title='Sankofa School' pathname='/projecten/sankofa-school/' />
+	<Seo title='Kwasi & Yaw' pathname='/theater/kwasi-en-yaw/' />
 );

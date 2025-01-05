@@ -192,9 +192,21 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							</Link>
 						</li>
 						<li>
-							<Link to='/theater/' activeClassName={styles.activeMenuItem}>
+							<Link
+								to='/theater/'
+								activeClassName={styles.activeMenuItem}
+								partiallyActive={true}>
 								Theater
 							</Link>
+							<ul>
+								<li>
+									<Link
+										to='/theater/kwasi-en-yaw/'
+										activeClassName={styles.activeMenuItem}>
+										Kwasi & Yaw
+									</Link>
+								</li>
+							</ul>
 						</li>
 						<li className={styles.logo}>
 							<Link to='/' className={styles.logoWrapper}>
@@ -229,9 +241,9 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 								</li>
 								<li>
 									<Link
-										to='/projecten/sankofa-school/'
+										to='/projecten/bijlmer-drum-festival/'
 										activeClassName={styles.activeMenuItem}>
-										Sankofa School
+										Bijlmer Drum Festival
 									</Link>
 								</li>
 							</ul>
