@@ -47,8 +47,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 					<Link
 						to='/'
 						activeClassName={styles.activeMenuItem}
-						onClick={handleMenuItemClick}
-					>
+						onClick={handleMenuItemClick}>
 						Home
 					</Link>
 				</li>
@@ -56,8 +55,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 					<Link
 						to='/boeken/'
 						activeClassName={styles.activeMenuItem}
-						onClick={handleMenuItemClick}
-					>
+						onClick={handleMenuItemClick}>
 						Boeken
 					</Link>
 				</li>
@@ -66,8 +64,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 						to='/drumworkshops/'
 						activeClassName={styles.activeMenuItem}
 						partiallyActive={true}
-						onClick={handleMenuItemClick}
-					>
+						onClick={handleMenuItemClick}>
 						Drumworkshops
 					</Link>
 					<i
@@ -81,8 +78,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 								<Link
 									to='/drumworkshops/summerschool-2020/'
 									activeClassName={styles.activeMenuItem}
-									onClick={handleMenuItemClick}
-								>
+									onClick={handleMenuItemClick}>
 									Eternity Summerschool 2020
 								</Link>
 							</li>
@@ -90,8 +86,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 								<Link
 									to='/drumworkshops/summerschool-2021/'
 									activeClassName={styles.activeMenuItem}
-									onClick={handleMenuItemClick}
-								>
+									onClick={handleMenuItemClick}>
 									Eternity Summerschool 2021
 								</Link>
 							</li>
@@ -102,9 +97,24 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 					<Link
 						to='/cultuureducatie/'
 						activeClassName={styles.activeMenuItem}
-						onClick={handleMenuItemClick}
-					>
+						onClick={handleMenuItemClick}>
 						Cultuureducatie
+					</Link>
+				</li>
+				<li>
+					<Link
+						to='/theater/'
+						activeClassName={styles.activeMenuItem}
+						onClick={handleMenuItemClick}>
+						Theater
+					</Link>
+				</li>
+				<li>
+					<Link
+						to='/uitwisselingen/'
+						activeClassName={styles.activeMenuItem}
+						onClick={handleMenuItemClick}>
+						Uitwisselingen
 					</Link>
 				</li>
 				<li>
@@ -112,8 +122,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 						to='/projecten/'
 						activeClassName={styles.activeMenuItem}
 						partiallyActive={true}
-						onClick={handleMenuItemClick}
-					>
+						onClick={handleMenuItemClick}>
 						Projecten
 					</Link>
 					<i
@@ -127,8 +136,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 								<Link
 									to='/projecten/sankofa-academy/'
 									activeClassName={styles.activeMenuItem}
-									onClick={handleMenuItemClick}
-								>
+									onClick={handleMenuItemClick}>
 									Sankofa Academy
 								</Link>
 							</li>
@@ -136,8 +144,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 								<Link
 									to='/projecten/sankofa-school/'
 									activeClassName={styles.activeMenuItem}
-									onClick={handleMenuItemClick}
-								>
+									onClick={handleMenuItemClick}>
 									Sankofa School
 								</Link>
 							</li>
@@ -148,8 +155,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 					<Link
 						to='/media/'
 						activeClassName={styles.activeMenuItem}
-						onClick={handleMenuItemClick}
-					>
+						onClick={handleMenuItemClick}>
 						Media
 					</Link>
 				</li>
@@ -158,8 +164,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 						to='/seda/'
 						activeClassName={styles.activeMenuItem}
 						className={styles.special}
-						onClick={handleMenuItemClick}
-					>
+						onClick={handleMenuItemClick}>
 						SEDA
 					</Link>
 				</li>
@@ -168,8 +173,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 						to='/over-ons/'
 						activeClassName={styles.activeMenuItem}
 						partiallyActive={true}
-						onClick={handleMenuItemClick}
-					>
+						onClick={handleMenuItemClick}>
 						Over ons
 					</Link>
 					<i
@@ -183,8 +187,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 								<Link
 									to='/over-ons/contact/'
 									activeClassName={styles.activeMenuItem}
-									onClick={handleMenuItemClick}
-								>
+									onClick={handleMenuItemClick}>
 									Contact
 								</Link>
 							</li>
@@ -193,8 +196,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 									to='/over-ons/vacatures/'
 									activeClassName={styles.activeMenuItem}
 									partiallyActive={true}
-									onClick={handleMenuItemClick}
-								>
+									onClick={handleMenuItemClick}>
 									Vacatures
 								</Link>
 							</li>
@@ -202,8 +204,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 								<Link
 									to='/over-ons/anbi/'
 									activeClassName={styles.activeMenuItem}
-									onClick={handleMenuItemClick}
-								>
+									onClick={handleMenuItemClick}>
 									ANBI
 								</Link>
 							</li>
