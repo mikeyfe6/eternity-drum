@@ -40,7 +40,7 @@ const siteMetadata = {
 	bgThemeColor: `#f6ce0e`,
 }
 
-const { siteUrl, title, bgWebColor, bgThemeColor } = siteMetadata;
+const { siteUrl, title, bgWebColor, bgThemeColor, companyName, description } = siteMetadata;
 
 const config: GatsbyConfig = {
 	siteMetadata: siteMetadata,
@@ -198,9 +198,9 @@ const config: GatsbyConfig = {
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
-				name: 'EP Webapp',
+				name: companyName,
 				short_name: title,
-				description: 'Ervaar onze Eternity Percussion webapplicatie geintegregreerd op uw toestel',
+				description: description,
 				start_url: '/',
 				background_color: bgThemeColor,
 				lang: 'nl',
