@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
-import { useSiteMetadata } from '../hooks/use-site-metadata';
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
-import * as styles from '../styles/modules/header.module.scss';
+import * as styles from "../styles/modules/header.module.scss";
 
 interface HeaderProps {
 	openMobileMenu: () => void;
@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 				`.${styles.headerMenu}`
 			) as HTMLElement;
 			const mainContent = document.querySelector(
-				`.eternity-wrapper`
+				".eternity-wrapper"
 			) as HTMLElement;
 
 			setScrollY(currentScrollY);
@@ -47,23 +47,24 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 				if (currentScrollY > headerTopBannerHeight) {
 					if (mainContent) {
 						mainContent.style.marginTop =
-							window.innerWidth > 576 ? '125px' : '90px';
+							window.innerWidth > 576 ? "125px" : "90px";
 					}
+
 					setIsHeaderFixed(true);
 				} else {
 					if (mainContent) {
-						mainContent.style.marginTop = '0';
+						mainContent.style.marginTop = "0";
 					}
 					setIsHeaderFixed(false);
 				}
 
 				if (currentScrollY > headerTopBannerHeight + 25) {
 					if (headerMenuWrapper) {
-						headerMenuWrapper.style.height = '90px';
+						headerMenuWrapper.style.height = "90px";
 					}
 				} else {
 					if (headerMenuWrapper && window.innerWidth > 576) {
-						headerMenuWrapper.style.height = '125px';
+						headerMenuWrapper.style.height = "125px";
 					}
 				}
 			}
@@ -71,10 +72,10 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 
 		const debouncedHandleScroll = debounce(handleScroll, 10);
 
-		window.addEventListener('scroll', debouncedHandleScroll);
+		window.addEventListener("scroll", debouncedHandleScroll);
 
 		return () => {
-			window.removeEventListener('scroll', debouncedHandleScroll);
+			window.removeEventListener("scroll", debouncedHandleScroll);
 		};
 	}, []);
 
@@ -90,16 +91,17 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 						<p>{slogan}</p>
 						<ul>
 							<li>
-								<a href={facebookUrl} rel='noopener noreferrer' target='_blank'>
-									<i className='fab fa-facebook' />
+								<a href={facebookUrl} rel="noopener noreferrer" target="_blank">
+									<i className="fab fa-facebook" />
 								</a>
 							</li>
 							<li>
 								<a
 									href={instagramUrl}
-									rel='noopener noreferrer'
-									target='_blank'>
-									<i className='fab fa-instagram' />
+									rel="noopener noreferrer"
+									target="_blank"
+								>
+									<i className="fab fa-instagram" />
 								</a>
 							</li>
 							{/* <li>
@@ -108,16 +110,17 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 								</a>
 							</li> */}
 							<li>
-								<a href={youtubeUrl} rel='noopener noreferrer' target='_blank'>
-									<i className='fab fa-youtube' />
+								<a href={youtubeUrl} rel="noopener noreferrer" target="_blank">
+									<i className="fab fa-youtube" />
 								</a>
 							</li>
 							<li>
 								<a
 									href={`https://wa.me/${mobileRaw}`}
-									rel='noopener noreferrer'
-									target='_blank'>
-									<i className='fab fa-whatsapp' />
+									rel="noopener noreferrer"
+									target="_blank"
+								>
+									<i className="fab fa-whatsapp" />
 								</a>
 							</li>
 						</ul>
@@ -127,20 +130,21 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 				<nav className={menuSwitchClass}>
 					<div className={styles.mobileMenuContainer}>
 						<div className={styles.mobileLogo}>
-							<Link to='/'>
+							<Link to="/">
 								<StaticImage
-									src='../images/logo/ep-logo.png'
+									src="../images/logo/ep-logo.png"
 									alt={`${title} Logo`}
-									placeholder='blurred'
+									placeholder="blurred"
 								/>
 							</Link>
 						</div>
 
 						<button
-							type='button'
-							name='menu'
+							type="button"
+							name="menu"
 							onClick={openMobileMenu}
-							className={styles.hamburgerButton}>
+							className={styles.hamburgerButton}
+						>
 							<div className={styles.hamburgerIcon}>
 								<div className={styles.bar} />
 								<div className={styles.bar} />
@@ -151,34 +155,37 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 
 					<ul className={styles.menuItems}>
 						<li>
-							<Link to='/' activeClassName={styles.activeMenuItem}>
+							<Link to="/" activeClassName={styles.activeMenuItem}>
 								Home
 							</Link>
 						</li>
 						<li>
-							<Link to='/boeken/' activeClassName={styles.activeMenuItem}>
+							<Link to="/boeken/" activeClassName={styles.activeMenuItem}>
 								Boeken
 							</Link>
 						</li>
 						<li>
 							<Link
-								to='/drumworkshops/'
+								to="/drumworkshops/"
 								activeClassName={styles.activeMenuItem}
-								partiallyActive={true}>
+								partiallyActive={true}
+							>
 								Drumworkshops
 							</Link>
 							<ul>
 								<li>
 									<Link
-										to='/drumworkshops/summerschool-2020/'
-										activeClassName={styles.activeMenuItem}>
+										to="/drumworkshops/summerschool-2020/"
+										activeClassName={styles.activeMenuItem}
+									>
 										Eternity Summerschool 2020
 									</Link>
 								</li>
 								<li>
 									<Link
-										to='/drumworkshops/summerschool-2021/'
-										activeClassName={styles.activeMenuItem}>
+										to="/drumworkshops/summerschool-2021/"
+										activeClassName={styles.activeMenuItem}
+									>
 										Eternity Summerschool 2021
 									</Link>
 								</li>
@@ -186,115 +193,144 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 						</li>
 						<li>
 							<Link
-								to='/cultuureducatie/'
-								activeClassName={styles.activeMenuItem}>
+								to="/cultuureducatie/"
+								activeClassName={styles.activeMenuItem}
+							>
 								Cultuureducatie
 							</Link>
 						</li>
 						<li>
 							<Link
-								to='/theater/'
+								to="/theater/"
 								activeClassName={styles.activeMenuItem}
-								partiallyActive={true}>
+								partiallyActive={true}
+							>
 								Theater
 							</Link>
 							<ul>
 								<li>
 									<Link
-										to='/theater/kwasi-en-yaw/'
-										activeClassName={styles.activeMenuItem}>
+										to="/theater/kwasi-en-yaw/"
+										activeClassName={styles.activeMenuItem}
+									>
 										Kwasi & Yaw
+									</Link>
+								</li>
+								<li>
+									<Link
+										to="/theater/muziki/"
+										activeClassName={styles.activeMenuItem}
+									>
+										Muziki
+									</Link>
+								</li>
+								<li>
+									<Link
+										to="/theater/umuntu/"
+										activeClassName={styles.activeMenuItem}
+									>
+										Umuntu
 									</Link>
 								</li>
 							</ul>
 						</li>
 						<li className={styles.logo}>
-							<Link to='/' className={styles.logoWrapper}>
+							<Link to="/" className={styles.logoWrapper}>
 								<StaticImage
-									src='../images/logo/ep-logo.png'
+									src="../images/logo/ep-logo.png"
 									alt={`${title} Logo`}
-									placeholder='blurred'
+									placeholder="blurred"
 								/>
 							</Link>
 						</li>
 						<li>
 							<Link
-								to='/uitwisselingen/'
-								activeClassName={styles.activeMenuItem}>
+								to="/uitwisselingen/"
+								activeClassName={styles.activeMenuItem}
+							>
 								Uitwisselingen
 							</Link>
 						</li>
 						<li>
 							<Link
-								to='/projecten/'
+								to="/projecten/"
 								activeClassName={styles.activeMenuItem}
-								partiallyActive={true}>
+								partiallyActive={true}
+							>
 								Projecten
 							</Link>
 							<ul>
 								<li>
 									<Link
-										to='/projecten/sankofa-academy/'
-										activeClassName={styles.activeMenuItem}>
+										to="/projecten/sankofa-academy/"
+										activeClassName={styles.activeMenuItem}
+									>
 										Sankofa Academy
 									</Link>
 								</li>
 								<li>
 									<Link
-										to='/projecten/bijlmer-drum-festival/'
-										activeClassName={styles.activeMenuItem}>
+										to="/projecten/bijlmer-drum-festival/"
+										activeClassName={styles.activeMenuItem}
+									>
 										Bijlmer Drum Festival
 									</Link>
 								</li>
 								<li>
 									<Link
-										to='/projecten/van-hobby-naar-succes/'
-										activeClassName={styles.activeMenuItem}>
+										to="/projecten/van-hobby-naar-succes/"
+										activeClassName={styles.activeMenuItem}
+									>
 										Van Hobby Naar Succes
 									</Link>
 								</li>
 							</ul>
 						</li>
 						<li>
-							<Link to='/media/' activeClassName={styles.activeMenuItem}>
+							<Link to="/media/" activeClassName={styles.activeMenuItem}>
 								Media
 							</Link>
 						</li>
 						<li>
 							<Link
-								to='/seda/'
+								to="/seda/"
 								className={styles.special}
-								activeClassName={styles.activeMenuItem}>
+								activeClassName={styles.activeMenuItem}
+							>
 								Seda
 							</Link>
 						</li>
 						<li>
 							<Link
-								to='/over-ons/'
+								to="/over-ons/"
 								activeClassName={styles.activeMenuItem}
-								partiallyActive={true}>
+								partiallyActive={true}
+							>
 								Over ons
 							</Link>
 							<ul>
 								<li>
 									<Link
-										to='/over-ons/contact/'
-										activeClassName={styles.activeMenuItem}>
+										to="/over-ons/contact/"
+										activeClassName={styles.activeMenuItem}
+									>
 										Contact
 									</Link>
 								</li>
 								<li>
 									<Link
-										to='/over-ons/vacatures/'
+										to="/over-ons/vacatures/"
 										activeClassName={styles.activeMenuItem}
-										partiallyActive={true}>
+										partiallyActive={true}
+									>
 										Vacatures
 									</Link>
 								</li>
 								<li>
 									<Link
-										to='/over-ons/anbi/'
-										activeClassName={styles.activeMenuItem}>
+										to="/over-ons/anbi/"
+										activeClassName={styles.activeMenuItem}
+									>
 										ANBI
 									</Link>
 								</li>

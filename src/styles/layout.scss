@@ -1,14 +1,14 @@
 /* stylelint-disable selector-id-pattern */
 
-@use 'sass:color';
+@use "sass:color";
 
-@use './customs' as *;
-@use 'content';
-@use 'forms';
-@use 'resets';
-@use 'swiper';
+@use "./customs" as *;
+@use "content";
+@use "forms";
+@use "resets";
+@use "swiper";
 
-@import 'https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap';
+@import "https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap";
 
 :root {
 	--swiper-theme-color: #f6ce0e !important;
@@ -34,12 +34,18 @@ body,
 	margin: 0;
 }
 
+.new-amsterdam-regular {
+	font-family: "New Amsterdam", serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
 html {
 	scroll-behavior: smooth;
 }
 
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: "Open Sans", sans-serif;
 	color: $primaryColor;
 	line-height: 1.5;
 

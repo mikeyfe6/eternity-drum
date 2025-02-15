@@ -1,21 +1,21 @@
-import React from 'react';
+import React from "react";
 
-import type { HeadFC, PageProps } from 'gatsby';
+import type { HeadFC, PageProps } from "gatsby";
 
-import { StaticImage } from 'gatsby-plugin-image';
+import { StaticImage } from "gatsby-plugin-image";
 
-import { useSiteMetadata } from '../hooks/use-site-metadata';
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
-import { Seo } from '../components/seo';
+import { Seo } from "../components/seo";
 
-import Breadcrumb from '../components/breadcrumbs';
+import Breadcrumb from "../components/breadcrumbs";
 
-import Hero from '../components/heroslider';
+import Hero from "../components/heroslider";
 
 const Seda: React.FC<PageProps> = () => {
 	const { email } = useSiteMetadata();
 
-	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'SEDA' }];
+	const breadcrumbs = [{ label: "Home", link: "/" }, { label: "SEDA" }];
 
 	return (
 		<>
@@ -24,7 +24,7 @@ const Seda: React.FC<PageProps> = () => {
 				<Breadcrumb crumbs={breadcrumbs} />
 
 				<h1>Seda</h1>
-				<section data-main-content className='page-content seda'>
+				<section data-main-content className="page-content basic">
 					<div>
 						<h2>Ontdek de Magie van Ritme bij de Southeast Drum Academy!</h2>
 						<p>
@@ -50,11 +50,12 @@ const Seda: React.FC<PageProps> = () => {
 							hard om deze creatieve hub te laten floreren.
 						</p>
 						<p>
-							Onze locatie is niet te missen:{' '}
+							Onze locatie is niet te missen:{" "}
 							<a
-								href='https://maps.app.goo.gl/MGox9UBh15DWsfLg8'
-								rel='noopener noreferrer'
-								target='_blank'>
+								href="https://maps.app.goo.gl/MGox9UBh15DWsfLg8"
+								rel="noopener noreferrer"
+								target="_blank"
+							>
 								Kruitbergstraat 18
 							</a>
 							, 1104 CH, gelegen in een opvallende paarse container onder het
@@ -64,11 +65,12 @@ const Seda: React.FC<PageProps> = () => {
 						</p>
 						<p>
 							Wil je meer weten over de verhuurmogelijkheden? Neem dan contact
-							met ons op via onze e-mail;{' '}
+							met ons op via onze e-mail;{" "}
 							<a
 								href={`mailto:${email}`}
-								rel='noopener noreferrer'
-								target='_blank'>
+								rel="noopener noreferrer"
+								target="_blank"
+							>
 								{email}
 							</a>
 							.
@@ -76,13 +78,13 @@ const Seda: React.FC<PageProps> = () => {
 					</div>
 					<div>
 						<StaticImage
-							src='../images/seda-logo.jpg'
+							src="../images/seda-logo.jpg"
 							alt={`Logo`}
-							placeholder='dominantColor'
+							placeholder="dominantColor"
 							style={{
-								width: '100%',
-								objectPosition: 'center',
-								objectFit: 'cover',
+								width: "100%",
+								objectPosition: "center",
+								objectFit: "cover",
 							}}
 						/>
 					</div>
@@ -96,8 +98,8 @@ export default Seda;
 
 export const Head: HeadFC = () => (
 	<Seo
-		title='Seda'
-		pathname='/seda/'
-		description='Ontdek de inspirerende oefenruimte en kleedkamers van Southeast Drum Academy (SEDA), een plek voor drumgroepen op hun muzikale reis. Onder artistiek directeur Orlando Ceder bloeit samenwerking en gemeenschap op. Gevestigd onder metrostation Kraaiennest in Amsterdam Zuidoost, op Kruitbergstraat 18, 1104 CH.'
+		title="Seda"
+		pathname="/seda/"
+		description="Ontdek de inspirerende oefenruimte en kleedkamers van Southeast Drum Academy (SEDA), een plek voor drumgroepen op hun muzikale reis. Onder artistiek directeur Orlando Ceder bloeit samenwerking en gemeenschap op. Gevestigd onder metrostation Kraaiennest in Amsterdam Zuidoost, op Kruitbergstraat 18, 1104 CH."
 	/>
 );

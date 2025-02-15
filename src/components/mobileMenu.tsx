@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { Link } from 'gatsby';
+import { Link } from "gatsby";
 
-import * as styles from '../styles/modules/mobilemenu.module.scss';
+import * as styles from "../styles/modules/mobilemenu.module.scss";
 
 interface MobileMenuProps {
 	isOpen: boolean;
@@ -50,48 +50,53 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 			<ul>
 				<li>
 					<Link
-						to='/'
+						to="/"
 						activeClassName={styles.activeMenuItem}
-						onClick={handleMenuItemClick}>
+						onClick={handleMenuItemClick}
+					>
 						Home
 					</Link>
 				</li>
 				<li>
 					<Link
-						to='/boeken/'
+						to="/boeken/"
 						activeClassName={styles.activeMenuItem}
-						onClick={handleMenuItemClick}>
+						onClick={handleMenuItemClick}
+					>
 						Boeken
 					</Link>
 				</li>
 				<li>
 					<Link
-						to='/drumworkshops/'
+						to="/drumworkshops/"
 						activeClassName={styles.activeMenuItem}
 						partiallyActive={true}
-						onClick={handleMenuItemClick}>
+						onClick={handleMenuItemClick}
+					>
 						Drumworkshops
 					</Link>
 					<i
-						className={`fa-solid fa-caret-${isSubMenu1Open ? 'up' : 'down'}`}
-						style={{ backgroundColor: isSubMenu1Open ? '#f6ce0e' : '#fff' }}
+						className={`fa-solid fa-caret-${isSubMenu1Open ? "up" : "down"}`}
+						style={{ backgroundColor: isSubMenu1Open ? "#f6ce0e" : "#fff" }}
 						onClick={toggleSubMenu1}
 					/>
 					{isSubMenu1Open && (
 						<ul>
 							<li>
 								<Link
-									to='/drumworkshops/summerschool-2020/'
+									to="/drumworkshops/summerschool-2020/"
 									activeClassName={styles.activeMenuItem}
-									onClick={handleMenuItemClick}>
+									onClick={handleMenuItemClick}
+								>
 									Eternity Summerschool 2020
 								</Link>
 							</li>
 							<li>
 								<Link
-									to='/drumworkshops/summerschool-2021/'
+									to="/drumworkshops/summerschool-2021/"
 									activeClassName={styles.activeMenuItem}
-									onClick={handleMenuItemClick}>
+									onClick={handleMenuItemClick}
+								>
 									Eternity Summerschool 2021
 								</Link>
 							</li>
@@ -100,33 +105,54 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 				</li>
 				<li>
 					<Link
-						to='/cultuureducatie/'
+						to="/cultuureducatie/"
 						activeClassName={styles.activeMenuItem}
-						onClick={handleMenuItemClick}>
+						onClick={handleMenuItemClick}
+					>
 						Cultuureducatie
 					</Link>
 				</li>
 				<li>
 					<Link
-						to='/theater/'
+						to="/theater/"
 						activeClassName={styles.activeMenuItem}
 						partiallyActive={true}
-						onClick={handleMenuItemClick}>
+						onClick={handleMenuItemClick}
+					>
 						Theater
 					</Link>
 					<i
-						className={`fa-solid fa-caret-${isSubMenu2Open ? 'up' : 'down'}`}
-						style={{ backgroundColor: isSubMenu2Open ? '#f6ce0e' : '#fff' }}
+						className={`fa-solid fa-caret-${isSubMenu2Open ? "up" : "down"}`}
+						style={{ backgroundColor: isSubMenu2Open ? "#f6ce0e" : "#fff" }}
 						onClick={toggleSubMenu2}
 					/>
 					{isSubMenu2Open && (
 						<ul>
 							<li>
 								<Link
-									to='/theater/kwasi-en-yaw/'
+									to="/theater/kwasi-en-yaw/"
 									activeClassName={styles.activeMenuItem}
-									onClick={handleMenuItemClick}>
+									onClick={handleMenuItemClick}
+								>
 									Kwasi & Yaw
+								</Link>
+							</li>
+							<li>
+								<Link
+									to="/theater/muziki/"
+									activeClassName={styles.activeMenuItem}
+									onClick={handleMenuItemClick}
+								>
+									Muziki
+								</Link>
+							</li>
+							<li>
+								<Link
+									to="/theater/umuntu/"
+									activeClassName={styles.activeMenuItem}
+									onClick={handleMenuItemClick}
+								>
+									Umuntu
 								</Link>
 							</li>
 						</ul>
@@ -134,48 +160,53 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 				</li>
 				<li>
 					<Link
-						to='/uitwisselingen/'
+						to="/uitwisselingen/"
 						activeClassName={styles.activeMenuItem}
-						onClick={handleMenuItemClick}>
+						onClick={handleMenuItemClick}
+					>
 						Uitwisselingen
 					</Link>
 				</li>
 				<li>
 					<Link
-						to='/projecten/'
+						to="/projecten/"
 						activeClassName={styles.activeMenuItem}
 						partiallyActive={true}
-						onClick={handleMenuItemClick}>
+						onClick={handleMenuItemClick}
+					>
 						Projecten
 					</Link>
 					<i
-						className={`fa-solid fa-caret-${isSubMenu3Open ? 'up' : 'down'}`}
-						style={{ backgroundColor: isSubMenu3Open ? '#f6ce0e' : '#fff' }}
+						className={`fa-solid fa-caret-${isSubMenu3Open ? "up" : "down"}`}
+						style={{ backgroundColor: isSubMenu3Open ? "#f6ce0e" : "#fff" }}
 						onClick={toggleSubMenu3}
 					/>
 					{isSubMenu3Open && (
 						<ul>
 							<li>
 								<Link
-									to='/projecten/sankofa-academy/'
+									to="/projecten/sankofa-academy/"
 									activeClassName={styles.activeMenuItem}
-									onClick={handleMenuItemClick}>
+									onClick={handleMenuItemClick}
+								>
 									Sankofa Academy
 								</Link>
 							</li>
 							<li>
 								<Link
-									to='/projecten/bijlmer-drum-festival/'
+									to="/projecten/bijlmer-drum-festival/"
 									activeClassName={styles.activeMenuItem}
-									onClick={handleMenuItemClick}>
+									onClick={handleMenuItemClick}
+								>
 									Bijlmer Drum Festival
 								</Link>
 							</li>
 							<li>
 								<Link
-									to='/projecten/van-hobby-naar-succes/'
+									to="/projecten/van-hobby-naar-succes/"
 									activeClassName={styles.activeMenuItem}
-									onClick={handleMenuItemClick}>
+									onClick={handleMenuItemClick}
+								>
 									Van Hobby Naar Succes
 								</Link>
 							</li>
@@ -184,58 +215,64 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 				</li>
 				<li>
 					<Link
-						to='/media/'
+						to="/media/"
 						activeClassName={styles.activeMenuItem}
-						onClick={handleMenuItemClick}>
+						onClick={handleMenuItemClick}
+					>
 						Media
 					</Link>
 				</li>
 				<li>
 					<Link
-						to='/seda/'
+						to="/seda/"
 						activeClassName={styles.activeMenuItem}
 						className={styles.special}
-						onClick={handleMenuItemClick}>
+						onClick={handleMenuItemClick}
+					>
 						SEDA
 					</Link>
 				</li>
 				<li>
 					<Link
-						to='/over-ons/'
+						to="/over-ons/"
 						activeClassName={styles.activeMenuItem}
 						partiallyActive={true}
-						onClick={handleMenuItemClick}>
+						onClick={handleMenuItemClick}
+					>
 						Over ons
 					</Link>
 					<i
-						className={`fa-solid fa-caret-${isSubMenu4Open ? 'up' : 'down'}`}
-						style={{ backgroundColor: isSubMenu4Open ? '#f6ce0e' : '#fff' }}
+						className={`fa-solid fa-caret-${isSubMenu4Open ? "up" : "down"}`}
+						style={{ backgroundColor: isSubMenu4Open ? "#f6ce0e" : "#fff" }}
 						onClick={toggleSubMenu4}
 					/>
 					{isSubMenu4Open && (
 						<ul>
 							<li>
 								<Link
-									to='/over-ons/contact/'
+									to="/over-ons/contact/"
 									activeClassName={styles.activeMenuItem}
-									onClick={handleMenuItemClick}>
+									onClick={handleMenuItemClick}
+								>
 									Contact
 								</Link>
 							</li>
 							<li>
 								<Link
-									to='/over-ons/vacatures/'
+									to="/over-ons/vacatures/"
 									activeClassName={styles.activeMenuItem}
 									partiallyActive={true}
-									onClick={handleMenuItemClick}>
+									onClick={handleMenuItemClick}
+								>
 									Vacatures
 								</Link>
 							</li>
 							<li>
 								<Link
-									to='/over-ons/anbi/'
+									to="/over-ons/anbi/"
 									activeClassName={styles.activeMenuItem}
-									onClick={handleMenuItemClick}>
+									onClick={handleMenuItemClick}
+								>
 									ANBI
 								</Link>
 							</li>

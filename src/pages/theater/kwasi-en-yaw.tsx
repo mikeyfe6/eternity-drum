@@ -1,18 +1,19 @@
-import React from 'react';
+import React from "react";
 
-import type { HeadFC, PageProps } from 'gatsby';
+import type { HeadFC, PageProps } from "gatsby";
 
-import { Seo } from '../../components/seo';
+import { StaticImage } from "gatsby-plugin-image";
 
-import Breadcrumb from '../../components/breadcrumbs';
+import Hero from "../../components/heroslider";
+import Breadcrumb from "../../components/breadcrumbs";
 
-import Hero from '../../components/heroslider';
+import { Seo } from "../../components/seo";
 
 const KwasiEnYaw: React.FC<PageProps> = () => {
 	const breadcrumbs = [
-		{ label: 'Home', link: '/' },
-		{ label: 'Theater', link: '/theater/' },
-		{ label: 'Kwasi & Yaw' },
+		{ label: "Home", link: "/" },
+		{ label: "Theater", link: "/theater/" },
+		{ label: "Kwasi & Yaw" },
 	];
 
 	return (
@@ -22,7 +23,71 @@ const KwasiEnYaw: React.FC<PageProps> = () => {
 				<Breadcrumb crumbs={breadcrumbs} />
 
 				<h1>Kwasi & Yaw</h1>
-				<p>Pagina komt binnenkort..</p>
+				<section data-main-content className="page-content basic">
+					<div>
+						<h2>Theatervoorstelling: "Kwasi & Yaw"</h2>
+						<p>
+							<strong>Kwasi en Yaw</strong> gaat over het zoeken naar
+							voorouderlijke krachten. Yaw komt vanuit Afrika door slavernij in
+							het heden, maar ontkent zijn achtergrond. In de nacht wordt hij
+							geplaagd door beelden uit het verleden, maar hij ziet niet hoe hij
+							in reine kan komen met zichzelf. Lukt het Yaw om zich te openen
+							voor de waarheid over zijn culturele wortels en zijn achtergrond
+							te omarmen? Een voorstelling over de kracht van spiritualiteit,
+							waarbij Afrikaanse dans en percussie een belangrijke rol spelen.
+						</p>
+						<p>
+							De voorstelling Kwasi en Yaw wordt geproduceerd door stichting
+							Eternity Percussion. Eternity is een culturele instelling die zich
+							bezighoudt met activiteiten, projecten en evenementen op het
+							gebied van muzikale vorming en performance.
+						</p>
+
+						<h4> Extra info</h4>
+						<p>
+							Uit onderzoek is gebleken, dat veel van de Afrikaanse Surinaamse
+							slaafgemaakten zijn geëxporteerd vanaf het West-Afrikaanse gebied
+							van de Akan, dat tegenwoordig bekend is onder de namen zoals
+							Ghana, Benin, Ivoorkust, Togo etc. De slaafgemaakten hadden de
+							gewoonte om hun kinderen namen te geven, die afhankelijk zijn van
+							de dag waarop ze zijn geboren. Kwasi is de naam die hoort bij
+							zondag als geboortedag en Yaw bij de donderdag.
+						</p>
+
+						<h4>Credits</h4>
+						<ul>
+							<li>
+								<b>Makers:</b> Derillio Alexander en Revelino Pinas
+							</li>
+							<li>
+								<b>Cast:</b> Derillio Alexander, Revelino Pinas, Denzil Tromp,
+								Miquel Nelom, Pape Matar Fall en Yeshua
+							</li>
+							<li>
+								<b>Dans (Untold):</b> Kleber Pique, Daphne Scheerlink, Nerissa
+								Macnack, Esperanza Anches en Jaleesa Gefferie
+							</li>
+							<li>
+								<b>Coach muzikaal arrangeur:</b> Orlando Ceder
+							</li>
+							<li>
+								<b>Regie:</b> Tati Wirahadiraksa
+							</li>
+						</ul>
+					</div>
+					<div>
+						<StaticImage
+							src="../../images/theater/kwasi-en-yaw.jpg"
+							alt={`Logo`}
+							placeholder="dominantColor"
+							style={{
+								width: "100%",
+								objectPosition: "center",
+								objectFit: "cover",
+							}}
+						/>
+					</div>
+				</section>
 			</section>
 		</>
 	);
@@ -31,5 +96,5 @@ const KwasiEnYaw: React.FC<PageProps> = () => {
 export default KwasiEnYaw;
 
 export const Head: HeadFC = () => (
-	<Seo title='Kwasi & Yaw' pathname='/theater/kwasi-en-yaw/' />
+	<Seo title="Kwasi & Yaw" pathname="/theater/kwasi-en-yaw/" />
 );
