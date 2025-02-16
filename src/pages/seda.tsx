@@ -60,8 +60,6 @@ const Seda: React.FC<PageProps> = () => {
 							</a>
 							, 1104 CH, gelegen in een opvallende paarse container onder het
 							metrostation Kraaiennest in Amsterdam Zuidoost.
-							{/* Bezoek onze website op www.eternitydrum.com
-							of stuur ons een e-mail op info@eternitydrum.com. */}
 						</p>
 						<p>
 							Wil je meer weten over de verhuurmogelijkheden? Neem dan contact

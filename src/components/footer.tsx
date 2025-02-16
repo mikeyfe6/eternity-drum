@@ -46,9 +46,6 @@ const Footer = () => {
 							<strong>{companyName}</strong>
 							<h5>Bezoekadres:</h5>
 							<ul>
-								{/* <li>
-									<strong>{companyName}</strong>
-								</li> */}
 								<li>
 									<a
 										href="https://maps.app.goo.gl/MGox9UBh15DWsfLg8"
@@ -62,9 +59,6 @@ const Footer = () => {
 							</ul>
 							<h5>Postadres:</h5>
 							<ul>
-								{/* <li>
-									<strong>{companyName}</strong>
-								</li> */}
 								<li>
 									<a
 										href="https://maps.app.goo.gl/exZZFm9LkUFDrsEH7"
@@ -151,28 +145,7 @@ const Footer = () => {
 						<section className={styles.footerColumn}>
 							<h4>Aankomende Evenementen</h4>
 							<ul>
-								<li>
-									{/* <Link to='/#!'>Optreden 1 @ Bijlmer Parktheater</Link> */}
-									Binnenkort meer..
-								</li>
-								{/* <li>
-									<Link to='/#!'>Optreden 2 @ Almere</Link>
-								</li>
-								<li>
-									<Link to='/#!'>Optreden 3 @ Amsterdam</Link>
-								</li>
-								<li>
-									<Link to='/#!'>Concert 1 @ Nijmegen</Link>
-								</li>
-								<li>
-									<Link to='/#!'>Uitwisseling 1 @ Breda</Link>
-								</li>
-								<li>
-									<Link to='/#!'>Excursie 1 @ Zuid-Afrika</Link>
-								</li>
-								<li>
-									<Link to='/#!'>Uitwisseling 2 @ Breda</Link>
-								</li> */}
+								<li>Binnenkort meer..</li>
 							</ul>
 						</section>
 					</section>

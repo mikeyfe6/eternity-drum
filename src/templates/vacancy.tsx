@@ -97,10 +97,7 @@ const Vacancy = ({
 
 						{renderRichText(apply)}
 
-						{/* <p>{location.lat}</p>
-						<p>{location.lon}</p> */}
 						<br />
-						{/* <p>{applicationDeadline}</p> */}
 
 						<p>{department}</p>
 					</div>
@@ -108,12 +105,6 @@ const Vacancy = ({
 						<div>
 							<GatsbyImage image={image!} alt={jobImage.description} />
 						</div>
-						{/* <br /> */}
-						{/* <div>
-							<p>{contactEmail}</p>
-							<br />
-							<p>{contactPhone}</p>
-						</div> */}
 					</div>
 				</section>
 			</section>

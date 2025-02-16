@@ -1,20 +1,19 @@
-import React from 'react';
+import React from "react";
 
-import type { HeadFC, PageProps } from 'gatsby';
+import type { HeadFC, PageProps } from "gatsby";
 
-import { useSiteMetadata } from '../hooks/use-site-metadata';
-import { Seo } from '../components/seo';
+import { useSiteMetadata } from "../hooks/use-site-metadata";
+import { Seo } from "../components/seo";
 
-import Hero from '../components/heroslider';
-import CtaButtons from '../components/cta';
-// import Sidebar from '../components/sidebar';
-import Collapsible from '../components/actual';
-import Berichten from '../components/posts';
-import Courses from '../components/courses';
-import Partners from '../components/partners';
-import WhiteSpace from '../components/whitespace';
+import Hero from "../components/heroslider";
+import CtaButtons from "../components/cta";
+import Collapsible from "../components/actual";
+import Berichten from "../components/posts";
+import Courses from "../components/courses";
+import Partners from "../components/partners";
+import WhiteSpace from "../components/whitespace";
 
-import * as styles from '../styles/modules/index.module.scss';
+import * as styles from "../styles/modules/index.module.scss";
 
 const Index: React.FC<PageProps> = () => {
 	const { title } = useSiteMetadata();
@@ -39,9 +38,7 @@ const Index: React.FC<PageProps> = () => {
 					bekwamen.
 				</p>
 			</section>
-			{/* <WhiteSpace /> */}
 			<WhiteSpace />
-			{/* <Sidebar /> */}
 			<Collapsible />
 			<WhiteSpace />
 			<Berichten />
