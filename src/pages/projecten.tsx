@@ -8,7 +8,7 @@ import { useSiteMetadata } from '../hooks/use-site-metadata';
 
 import { Seo } from '../components/seo';
 
-import Breadcrumb from '../components/breadcrumbs';
+import Breadcrumbs from '../components/breadcrumbs';
 
 import Hero from '../components/heroslider';
 import YouTubePlayer from '../components/youtubePlayer';
@@ -22,7 +22,7 @@ const Projecten: React.FC<PageProps> = () => {
 		<>
 			<Hero />
 			<section data-main-section>
-				<Breadcrumb crumbs={breadcrumbs} />
+				<Breadcrumbs crumbs={breadcrumbs} />
 				<h1>Projecten</h1>
 				<section data-main-content className='page-content projects'>
 					<h2>Nieuwe (uitwisselings)projecten !</h2>

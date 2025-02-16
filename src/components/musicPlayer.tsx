@@ -1,8 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import React, { useEffect, useState, useRef } from "react";
+import { graphql, useStaticQuery } from "gatsby";
 
-import * as styles from '../styles/modules/audio.module.scss';
-import albumCover from '../images/logo/ep-logo-small.png';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import * as styles from "../styles/modules/audio.module.scss";
+
+import albumCover from "../images/logo/ep-logo-small.png";
 
 const MusicPlayer: React.FC = () => {
 	const [isPlaying, setIsPlaying] = useState(false);
@@ -28,19 +31,19 @@ const MusicPlayer: React.FC = () => {
 	`);
 
 	const formatTitle = (title: string) => {
-		return title.substring(3).replace('.mp3', '').replace(/[_-]/g, ' ');
+		return title.substring(3).replace(".mp3", "").replace(/[_-]/g, " ");
 	};
 
 	const formatTime = (time: number) => {
 		const minutes = Math.floor(time / 60);
 		const seconds = Math.floor(time % 60);
-		return `${minutes}:${String(seconds).padStart(2, '0')}`;
+		return `${minutes}:${String(seconds).padStart(2, "0")}`;
 	};
 
 	const songs = data.allS3MusicFile.edges.map(({ node }: any) => ({
 		src: node.src,
 		title: formatTitle(node.title),
-		artist: 'Eternity Percussion',
+		artist: "Eternity Percussion",
 	}));
 
 	useEffect(() => {
@@ -49,17 +52,17 @@ const MusicPlayer: React.FC = () => {
 		if (!audioElement && songs[currentSong]) {
 			audioElementRefs.current[currentSong] = new Audio(songs[currentSong].src);
 			audioElementRefs.current[currentSong]?.addEventListener(
-				'ended',
+				"ended",
 				switchToNextSong
 			);
-			audioElementRefs.current[currentSong]?.addEventListener('canplay', () => {
+			audioElementRefs.current[currentSong]?.addEventListener("canplay", () => {
 				setIsLoaded(true);
 				setDuration(audioElementRefs.current[currentSong]!.duration);
 			});
 		}
 
 		audioElementRefs.current[currentSong]?.addEventListener(
-			'timeupdate',
+			"timeupdate",
 			() => {
 				if (audioElementRefs.current[currentSong]) {
 					setCurrentTime(audioElementRefs.current[currentSong]!.currentTime);
@@ -67,23 +70,23 @@ const MusicPlayer: React.FC = () => {
 			}
 		);
 
-		if ('mediaSession' in navigator && songs[currentSong]) {
+		if ("mediaSession" in navigator && songs[currentSong]) {
 			navigator.mediaSession.metadata = new MediaMetadata({
 				title: songs[currentSong].title,
 				artist: songs[currentSong].artist,
-				album: 'Eternity Percussion',
+				album: "Eternity Percussion",
 				artwork: [
 					{
 						src: albumCover,
-						sizes: '48x48',
-						type: 'image/png',
+						sizes: "48x48",
+						type: "image/png",
 					},
 				],
 			});
 
-			navigator.mediaSession.setActionHandler('play', play);
-			navigator.mediaSession.setActionHandler('pause', pause);
-			navigator.mediaSession.setActionHandler('previoustrack', () => {
+			navigator.mediaSession.setActionHandler("play", play);
+			navigator.mediaSession.setActionHandler("pause", pause);
+			navigator.mediaSession.setActionHandler("previoustrack", () => {
 				audioElementRefs.current[currentSong]?.pause();
 				if (
 					audioElementRefs.current[currentSong] &&
@@ -102,14 +105,14 @@ const MusicPlayer: React.FC = () => {
 					setCurrentTime(0);
 				}
 			});
-			navigator.mediaSession.setActionHandler('nexttrack', () => {
+			navigator.mediaSession.setActionHandler("nexttrack", () => {
 				const nextSongIndex = (currentSong + 1) % songs.length;
 				audioElementRefs.current[currentSong]?.pause();
 				audioElementRefs.current[currentSong]!.currentTime = 0;
 				setCurrentSong(nextSongIndex);
 				setCurrentTime(0);
 			});
-			navigator.mediaSession.setActionHandler('seekto', (event) => {
+			navigator.mediaSession.setActionHandler("seekto", (event) => {
 				const seekTime = event.seekTime;
 				if (seekTime !== undefined && audioElementRefs.current[currentSong]) {
 					audioElementRefs.current[currentSong]!.currentTime = seekTime;
@@ -177,7 +180,7 @@ const MusicPlayer: React.FC = () => {
 					<p className={styles.loadingTxt}>
 						Open muziekspeler
 						<button onClick={loadMusic} className={styles.loadingBtn}>
-							<i className='fa-solid fa-power-off' />
+							<FontAwesomeIcon icon={"power-off"} />
 						</button>
 					</p>
 				</>
@@ -186,7 +189,7 @@ const MusicPlayer: React.FC = () => {
 			{isLoaded && (
 				<div className={styles.musicInfo}>
 					<div className={styles.albumCover}>
-						<img src={albumCover} alt='Album Cover' />
+						<img src={albumCover} alt="Album Cover" />
 					</div>
 
 					<div className={styles.artistInfo}>
@@ -199,7 +202,7 @@ const MusicPlayer: React.FC = () => {
 			{isLoaded && (
 				<div className={styles.controls}>
 					<button
-						className={`${styles.controlButton} fas fa-step-backward`}
+						className={styles.controlButton}
 						onClick={() => {
 							audioElementRefs.current[currentSong]?.pause();
 							if (
@@ -220,15 +223,19 @@ const MusicPlayer: React.FC = () => {
 								}
 							}
 						}}
-					/>
+					>
+						<FontAwesomeIcon icon={"step-backward"} />
+					</button>
 					<button
-						className={`${styles.controlButton} fas ${
-							isPlaying ? 'fa-pause-circle' : 'fa-play-circle'
-						}`}
+						className={styles.controlButton}
 						onClick={isPlaying ? pause : play}
-					/>
+					>
+						<FontAwesomeIcon
+							icon={isPlaying ? "pause-circle" : "play-circle"}
+						/>
+					</button>
 					<button
-						className={`${styles.controlButton} fas fa-step-forward`}
+						className={styles.controlButton}
 						onClick={() => {
 							audioElementRefs.current[currentSong]?.pause();
 							const nextSongIndex = (currentSong + 1) % songs.length;
@@ -237,32 +244,31 @@ const MusicPlayer: React.FC = () => {
 								audioElementRefs.current[nextSongIndex]!.currentTime = 0;
 							}
 						}}
-					/>
+					>
+						<FontAwesomeIcon icon={"step-forward"} />
+					</button>
 
 					<div className={styles.controlVolume}>
 						{volume === 0 && (
-							<button
-								className='fa-solid fa-volume-mute'
-								onClick={() => setVolume(100)}
-							/>
+							<button onClick={() => setVolume(100)}>
+								<FontAwesomeIcon icon={"volume-mute"} />
+							</button>
 						)}
 						{volume >= 1 && volume <= 49 && (
-							<button
-								className='fa-solid fa-volume-low'
-								onClick={() => setVolume(100)}
-							/>
+							<button onClick={() => setVolume(100)}>
+								<FontAwesomeIcon icon={"volume-low"} />
+							</button>
 						)}
 						{volume >= 50 && volume <= 100 && (
-							<button
-								className='fa-solid fa-volume-high'
-								onClick={() => setVolume(0)}
-							/>
+							<button onClick={() => setVolume(0)}>
+								<FontAwesomeIcon icon={"volume-high"} />
+							</button>
 						)}
 						<span>
 							{volume} <small>%</small>
 						</span>
 						<input
-							type='range'
+							type="range"
 							min={0}
 							max={100}
 							value={volume}
@@ -281,7 +287,7 @@ const MusicPlayer: React.FC = () => {
 
 					<div className={styles.timeline}>
 						<input
-							type='range'
+							type="range"
 							min={0}
 							max={duration}
 							value={currentTime}
@@ -304,8 +310,9 @@ const MusicPlayer: React.FC = () => {
 						key={index}
 						ref={(el) => (audioElementRefs.current[index] = el)}
 						src={song.src}
-						onEnded={switchToNextSong}>
-						<track kind='captions' />
+						onEnded={switchToNextSong}
+					>
+						<track kind="captions" />
 					</audio>
 				))}
 		</div>

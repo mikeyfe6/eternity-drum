@@ -1,22 +1,22 @@
-import React from 'react';
+import React from "react";
 
-import type { HeadFC, PageProps } from 'gatsby';
+import type { HeadFC, PageProps } from "gatsby";
 
-import { Seo } from '../components/seo';
+import { Seo } from "../components/seo";
 
-import Breadcrumb from '../components/breadcrumbs';
+import Breadcrumbs from "../components/breadcrumbs";
 
-import Hero from '../components/heroslider';
-import BookingsForm from '../components/bookingsForm';
+import Hero from "../components/heroslider";
+import BookingsForm from "../components/bookingsForm";
 
 const Boeken: React.FC<PageProps> = () => {
-	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'Boeken' }];
+	const breadcrumbs = [{ label: "Home", link: "/" }, { label: "Boeken" }];
 
 	return (
 		<>
 			<Hero />
 			<section data-main-section>
-				<Breadcrumb crumbs={breadcrumbs} />
+				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>Boeken</h1>
 				<BookingsForm />
@@ -29,8 +29,8 @@ export default Boeken;
 
 export const Head: HeadFC = () => (
 	<Seo
-		title='Boeken'
-		pathname='/boeken/'
-		description='Boek Drumband Eternity Percussion voor je evenementen, jubilea, bruiloften en meer. Ons ensemble van 6 tot 15 drummers en blazers treedt op in binnen- en buitenland. Ontvang een offerte via ons online boekingsformulier of bel voor meer informatie'
+		title="Boeken"
+		pathname="/boeken/"
+		description="Boek Drumband Eternity Percussion voor je evenementen, jubilea, bruiloften en meer. Ons ensemble van 6 tot 15 drummers en blazers treedt op in binnen- en buitenland. Ontvang een offerte via ons online boekingsformulier of bel voor meer informatie"
 	/>
 );

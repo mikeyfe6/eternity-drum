@@ -30,7 +30,7 @@
 	&-btns {
 		> button {
 			cursor: pointer;
-			background: $whiteColor;
+			background-color: $whiteColor;
 			color: $primaryColor;
 			border-radius: 5px;
 			overflow: hidden;
@@ -66,7 +66,7 @@
 			}
 
 			> span {
-				background: $secondaryColor;
+				background-color: $secondaryColor;
 				border-right: 2px color.scale($primaryColor, $lightness: 25%) solid;
 				padding: 0.375em 1em;
 				font-weight: lighter;

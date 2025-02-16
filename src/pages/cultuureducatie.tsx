@@ -1,27 +1,27 @@
-import React from 'react';
+import React from "react";
 
-import type { HeadFC, PageProps } from 'gatsby';
+import type { HeadFC, PageProps } from "gatsby";
 
-import { Seo } from '../components/seo';
+import { Seo } from "../components/seo";
 
-import Breadcrumb from '../components/breadcrumbs';
+import Breadcrumbs from "../components/breadcrumbs";
 
-import Hero from '../components/heroslider';
+import Hero from "../components/heroslider";
 
 const CultuurEducatie: React.FC<PageProps> = () => {
 	const breadcrumbs = [
-		{ label: 'Home', link: '/' },
-		{ label: 'Cultuureducatie' },
+		{ label: "Home", link: "/" },
+		{ label: "Cultuureducatie" },
 	];
 
 	return (
 		<>
 			<Hero />
 			<section data-main-section>
-				<Breadcrumb crumbs={breadcrumbs} />
+				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>Cultuureducatie</h1>
-				<section data-main-content className='page-content center'>
+				<section data-main-content className="page-content center">
 					<p>
 						<strong>Eternity</strong> heeft de ambitie de komende jaren te
 						groeien en een instituut te worden voor Caribische drumbands.
@@ -40,20 +40,22 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 					</p>
 
 					<p>
-						Momenteel verzorgen wij diverse drumworkshops en lessen o.a. op het{' '}
+						Momenteel verzorgen wij diverse drumworkshops en lessen o.a. op het{" "}
 						<a
-							href='https://www.bindelmeercollege.nl'
-							rel='noopener noreferrer'
-							target='_blank'>
+							href="https://www.bindelmeercollege.nl"
+							rel="noopener noreferrer"
+							target="_blank"
+						>
 							Bindelmeer College
-						</a>{' '}
-						en{' '}
+						</a>{" "}
+						en{" "}
 						<a
-							href='https://www.bredeschoolzuidoost.nl'
-							rel='noopener noreferrer'
-							target='_blank'>
+							href="https://www.bredeschoolzuidoost.nl"
+							rel="noopener noreferrer"
+							target="_blank"
+						>
 							Bredeschool Zuidoost
-						</a>{' '}
+						</a>{" "}
 						in Amsterdam Zuidoost.
 					</p>
 				</section>
@@ -66,8 +68,8 @@ export default CultuurEducatie;
 
 export const Head: HeadFC = () => (
 	<Seo
-		title='Cultuureducatie'
-		pathname='/cultuureducatie/'
+		title="Cultuureducatie"
+		pathname="/cultuureducatie/"
 		description="Ontdek Eternity's Cultuureducatie: educatieve en naschoolse drumworkshops in Amsterdam. Talentontwikkeling en optredens met professionele drumband."
 	/>
 );

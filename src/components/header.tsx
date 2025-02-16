@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 import * as styles from "../styles/modules/header.module.scss";
@@ -92,7 +94,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 						<ul>
 							<li>
 								<a href={facebookUrl} rel="noopener noreferrer" target="_blank">
-									<i className="fab fa-facebook" />
+									<FontAwesomeIcon icon={["fab", "facebook"]} />
 								</a>
 							</li>
 							<li>
@@ -101,17 +103,12 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 									rel="noopener noreferrer"
 									target="_blank"
 								>
-									<i className="fab fa-instagram" />
+									<FontAwesomeIcon icon={["fab", "instagram"]} />
 								</a>
 							</li>
-							{/* <li>
-								<a href={linkedinUrl} rel='noopener noreferrer' target='_blank'>
-									<i className='fab fa-linkedin' />
-								</a>
-							</li> */}
 							<li>
 								<a href={youtubeUrl} rel="noopener noreferrer" target="_blank">
-									<i className="fab fa-youtube" />
+									<FontAwesomeIcon icon={["fab", "youtube"]} />
 								</a>
 							</li>
 							<li>
@@ -120,7 +117,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 									rel="noopener noreferrer"
 									target="_blank"
 								>
-									<i className="fab fa-whatsapp" />
+									<FontAwesomeIcon icon={["fab", "whatsapp"]} />
 								</a>
 							</li>
 						</ul>

@@ -129,20 +129,20 @@ table {
 }
 
 /* The New CSS Reset by Elad Shechter */
-*:where(
-		:not(html),
-		:not(iframe),
-		:not(canvas),
-		:not(img),
-		:not(svg),
-		:not(video),
-		:not(audio),
-		:not(svg *),
-		:not(symbol *)
-	) {
-	all: unset;
-	display: revert;
-}
+// *:where(
+// 		:not(html),
+// 		:not(iframe),
+// 		:not(canvas),
+// 		:not(img),
+// 		:not(svg),
+// 		:not(video),
+// 		:not(audio),
+// 		:not(svg *),
+// 		:not(symbol *)
+// 	) {
+// 	all: unset;
+// 	display: revert;
+// }
 
 *,
 *::before,
@@ -365,6 +365,7 @@ textarea {
 button,
 input {
 	overflow: visible;
+	border-style: inherit;
 }
 
 button,

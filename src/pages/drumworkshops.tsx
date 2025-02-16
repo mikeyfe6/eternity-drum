@@ -1,24 +1,24 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 
-import type { HeadFC, PageProps } from 'gatsby';
+import type { HeadFC, PageProps } from "gatsby";
 
-import { useSiteMetadata } from '../hooks/use-site-metadata';
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
-import { Seo } from '../components/seo';
+import { Seo } from "../components/seo";
 
-import Breadcrumb from '../components/breadcrumbs';
+import Breadcrumbs from "../components/breadcrumbs";
 
-import Hero from '../components/heroslider';
-import RegisterForm, { handleClick } from '../components/registerForm';
+import Hero from "../components/heroslider";
+import RegisterForm, { handleClick } from "../components/registerForm";
 
-import * as styles from '../styles/modules/workshop.module.scss';
+import * as styles from "../styles/modules/workshop.module.scss";
 
 const Drumworkshops: React.FC<PageProps> = () => {
 	const { email, mobileRaw } = useSiteMetadata();
 
 	const breadcrumbs = [
-		{ label: 'Home', link: '/' },
-		{ label: 'Drumworkshops' },
+		{ label: "Home", link: "/" },
+		{ label: "Drumworkshops" },
 	];
 
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -27,7 +27,7 @@ const Drumworkshops: React.FC<PageProps> = () => {
 		<>
 			<Hero />
 			<section data-main-section>
-				<Breadcrumb crumbs={breadcrumbs} />
+				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>Drumworkshops</h1>
 				<div className={styles.workshopContainer}>
@@ -37,21 +37,23 @@ const Drumworkshops: React.FC<PageProps> = () => {
 							<strong>
 								Muziekeducatie vormt een goede basis voor de ontwikkeling van
 								een kind.
-							</strong>{' '}
-							Momenteel verzorgen wij drumlessen op het{' '}
+							</strong>{" "}
+							Momenteel verzorgen wij drumlessen op het{" "}
 							<a
-								href='https://www.bindelmeercollege.nl'
-								rel='noopener noreferrer'
-								target='_blank'>
-								Bindelmeer College{' '}
+								href="https://www.bindelmeercollege.nl"
+								rel="noopener noreferrer"
+								target="_blank"
+							>
+								Bindelmeer College{" "}
 							</a>
-							en de{' '}
+							en de{" "}
 							<a
-								href='https://www.bredeschoolzuidoost.nl'
-								rel='noopener noreferrer'
-								target='_blank'>
-								Bredeschool Zuidoost{' '}
-							</a>{' '}
+								href="https://www.bredeschoolzuidoost.nl"
+								rel="noopener noreferrer"
+								target="_blank"
+							>
+								Bredeschool Zuidoost{" "}
+							</a>{" "}
 							als vast onderdeel van het onderwijspakket. Speciaal voor kinderen
 							en jongeren verzorgen wij ook drumworkshops na schooltijd in
 							Amsterdam Zuidoost.
@@ -61,7 +63,7 @@ const Drumworkshops: React.FC<PageProps> = () => {
 							<strong>
 								Voor slechts 45,- euro per maand kan je 1x in de week bij ons
 								drumlessen volgen.
-							</strong>{' '}
+							</strong>{" "}
 							Je leert bij ons niet alleen het spelen van Afrikaanse,
 							Afro-Caribische en Afro-Surinaamse ritmes, maar ook het lezen van
 							muzieknoten voor percussie instrumenten. Per drumles zijn er 2
@@ -91,22 +93,24 @@ const Drumworkshops: React.FC<PageProps> = () => {
 						</p>
 
 						<p>
-							Meld jezelf of jouw kind nu direct aan via het{' '}
-							<a href='#' onClick={(event) => handleClick(inputRef, event)}>
+							Meld jezelf of jouw kind nu direct aan via het{" "}
+							<a href="#" onClick={(event) => handleClick(inputRef, event)}>
 								online inschrijfformulier
 							</a>
-							, via de mail{' '}
+							, via de mail{" "}
 							<a
 								href={`mailto:${email}`}
-								rel='noopener noreferrer'
-								target='_blank'>
+								rel="noopener noreferrer"
+								target="_blank"
+							>
 								{email}
-							</a>{' '}
-							of telefonisch via{' '}
+							</a>{" "}
+							of telefonisch via{" "}
 							<a
 								href={`tel:+${mobileRaw}`}
-								rel='noopener noreferrer'
-								target='_blank'>
+								rel="noopener noreferrer"
+								target="_blank"
+							>
 								06 242 55 391
 							</a>
 							.
@@ -118,13 +122,14 @@ const Drumworkshops: React.FC<PageProps> = () => {
 						</p>
 
 						<p>
-							Wij zijn nu <strong>intermediair</strong> van het{' '}
+							Wij zijn nu <strong>intermediair</strong> van het{" "}
 							<a
-								href='https://jeugdfondssportencultuur.nl/'
-								rel='noopener noreferrer'
-								target='_blank'>
+								href="https://jeugdfondssportencultuur.nl/"
+								rel="noopener noreferrer"
+								target="_blank"
+							>
 								Jeugdfonds
-							</a>{' '}
+							</a>{" "}
 							en kunnen daardoor zelf aanvragen doen voor lesgeld namens ouders
 							die daarvoor in aanmerking komen. Zo kunnen wij direct
 							ondersteuning bieden en regelingen treffen via het Jeugdfonds aan
@@ -147,8 +152,8 @@ export default Drumworkshops;
 
 export const Head: HeadFC = () => (
 	<Seo
-		title='Drumworkshops'
-		pathname='/drumworkshops/'
-		description='Ontdek onze drumworkshops in Amsterdam Zuidoost voor kinderen en jongeren. Leer diverse ritmes en noten spelen, met optredens op lokale evenementen.'
+		title="Drumworkshops"
+		pathname="/drumworkshops/"
+		description="Ontdek onze drumworkshops in Amsterdam Zuidoost voor kinderen en jongeren. Leer diverse ritmes en noten spelen, met optredens op lokale evenementen."
 	/>
 );

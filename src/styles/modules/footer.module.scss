@@ -69,11 +69,12 @@
 					color: color.adjust($tertiaryColor, $lightness: -10%);
 				}
 
-				> i {
+				> svg {
 					color: $primaryColor;
 					font-size: 1.5rem;
 					vertical-align: middle;
-					min-width: 1.5em;
+					padding-right: 0.5rem;
+					min-width: 1.25em;
 				}
 
 				&:has(i) {
@@ -171,7 +172,7 @@
 
 		> li {
 			> a {
-				> i {
+				> svg {
 					color: $primaryColor;
 					font-size: 1.6rem;
 					vertical-align: middle;
@@ -185,7 +186,7 @@
 	}
 
 	&-bottom-banner {
-		background: $primaryColor;
+		background-color: $primaryColor;
 		color: $whiteColor;
 		padding: 0.75em 0;
 		display: flex;

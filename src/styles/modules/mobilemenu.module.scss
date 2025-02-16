@@ -6,7 +6,7 @@
 	top: 0;
 	left: -400px;
 	height: 100%;
-	background: rgba($primaryColor, 75%);
+	background-color: rgba($primaryColor, 75%);
 	border-right: 3px solid rgba($tertiaryColor, 0.3);
 	overflow-x: hidden;
 	z-index: 6;
@@ -46,7 +46,7 @@
 				width: 3px;
 				height: 25px;
 				position: absolute;
-				background: $primaryColor;
+				background-color: $primaryColor;
 				border-radius: 25px;
 				transform: rotate(45deg);
 				transition: transform 0.3s ease-in-out;
@@ -85,13 +85,13 @@
 
 				&.special {
 					color: $whiteColor;
-					background: $tertiaryColor;
+					background-color: $tertiaryColor;
 					padding: 0.375em 0.5em;
 					margin-left: -0.125em;
 
 					&.active-menu-item {
 						color: $secondaryColor;
-						background: $tertiaryColor;
+						background-color: $tertiaryColor;
 					}
 				}
 
@@ -105,9 +105,9 @@
 				}
 			}
 
-			> i {
+			> button {
 				font-size: 1.25rem;
-				background: $whiteColor;
+				background-color: $whiteColor;
 				color: $tertiaryColor;
 				width: 25px;
 				height: 25px;

@@ -1,16 +1,16 @@
 /* eslint-disable indent */
-import React from 'react';
+import React from "react";
 
-import type { HeadProps } from 'gatsby';
+import type { HeadProps } from "gatsby";
 
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 
-import { BLOCKS } from '@contentful/rich-text-types';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { BLOCKS } from "@contentful/rich-text-types";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
 
-import { Seo } from '../components/seo';
+import { Seo } from "../components/seo";
 
-import Breadcrumb from '../components/breadcrumbs';
+import Breadcrumbs from "../components/breadcrumbs";
 
 interface PostProps {
 	pageContext: {
@@ -36,7 +36,7 @@ interface PostProps {
 const Post = ({
 	pageContext: { tags, title, excerpt, content, writer, featuredImage },
 }: PostProps) => {
-	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: title }];
+	const breadcrumbs = [{ label: "Home", link: "/" }, { label: title }];
 
 	const renderOptions = {
 		renderNode: {
@@ -44,8 +44,8 @@ const Post = ({
 				const {
 					data: {
 						target: {
-							title: nodeTitle = '',
-							description: nodeDescription = '',
+							title: nodeTitle = "",
+							description: nodeDescription = "",
 							gatsbyImageData,
 						},
 					},
@@ -53,11 +53,11 @@ const Post = ({
 
 				if (gatsbyImageData) {
 					return (
-						<div className='singlepost images'>
+						<div className="singlepost images">
 							<GatsbyImage
 								image={gatsbyImageData as IGatsbyImageData}
 								alt={nodeTitle}
-								imgStyle={{ borderRadius: '5px', overflow: 'hidden' }}
+								imgStyle={{ borderRadius: "5px", overflow: "hidden" }}
 							/>
 							<span>{nodeTitle}</span>
 							<span>{nodeDescription}</span>
@@ -70,7 +70,7 @@ const Post = ({
 		},
 		renderText: (text: any) => {
 			return text
-				.split('\n')
+				.split("\n")
 				.reduce((children: any, textSegment: any, index: any) => {
 					return [...children, index > 0 && <br key={index} />, textSegment];
 				}, []);
@@ -78,11 +78,11 @@ const Post = ({
 	};
 
 	return (
-		<section data-main-section id='post-template'>
+		<section data-main-section id="post-template">
 			<h1>{title}</h1>
-			<Breadcrumb crumbs={breadcrumbs} />
+			<Breadcrumbs crumbs={breadcrumbs} />
 
-			<section data-main-content className='page-content singlepost'>
+			<section data-main-content className="page-content singlepost">
 				<div>
 					<h2>{excerpt}</h2>
 
@@ -126,22 +126,22 @@ interface SeoContext {
 }
 
 export const Head: React.FC<HeadProps> = ({ pageContext }) => {
-	const pageTitle = (pageContext as SeoContext)?.title || '';
-	const pageDescription = (pageContext as SeoContext)?.excerpt || '';
+	const pageTitle = (pageContext as SeoContext)?.title || "";
+	const pageDescription = (pageContext as SeoContext)?.excerpt || "";
 	const pageTags = (pageContext as SeoContext)?.tags || [];
-	const pageSlug = (pageContext as SeoContext)?.slug || '';
-	const pageImage = (pageContext as SeoContext)?.featuredImage.url || '';
+	const pageSlug = (pageContext as SeoContext)?.slug || "";
+	const pageImage = (pageContext as SeoContext)?.featuredImage.url || "";
 
 	const tagsArray: string[] = Array.isArray(pageTags) ? pageTags : [];
 
-	const pageKeywords = tagsArray.join(', ');
+	const pageKeywords = tagsArray.join(", ");
 
 	return (
 		<Seo
 			title={pageTitle}
 			keywords={pageKeywords}
 			description={pageDescription}
-			pathname={'/' + pageSlug + '/'}
+			pathname={"/" + pageSlug + "/"}
 			image={pageImage}
 			article={true}
 		/>

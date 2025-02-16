@@ -103,6 +103,7 @@
 		&-button {
 			font-size: 3.25em;
 			color: $whiteColor;
+			background-color: transparent;
 			cursor: pointer;
 
 			@include base-transition(all);
@@ -136,6 +137,14 @@
 				padding-top: 1em;
 				width: 30px;
 				cursor: pointer;
+				color: inherit;
+				background-color: transparent;
+
+				&:hover {
+					svg {
+						color: color.adjust($tertiaryColor, $lightness: 5%);
+					}
+				}
 			}
 
 			> span {
@@ -168,7 +177,7 @@
 					position: relative;
 					border-radius: 2px;
 					cursor: pointer;
-					background: $whiteColor;
+					background-color: $whiteColor;
 					height: 5px;
 				}
 
@@ -177,7 +186,7 @@
 					border-radius: 50%;
 					width: 15px;
 					height: 15px;
-					background: color.adjust($tertiaryColor, $lightness: 15%);
+					background-color: color.adjust($tertiaryColor, $lightness: 15%);
 					appearance: none;
 				}
 			}

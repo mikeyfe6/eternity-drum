@@ -15,7 +15,7 @@
 	}
 
 	.music {
-		background: $primaryColor;
+		background-color: $primaryColor;
 		outline: 1px solid color.adjust($primaryColor, $lightness: 10%);
 		color: $whiteColor;
 		flex: 25%;
@@ -42,14 +42,14 @@
 		max-width: 600px;
 		height: fit-content;
 		padding: 1.5em;
-		background: #80808010;
+		background-color: #80808010;
 
 		@include box-shadow;
 
 		a {
 			@include page-link;
 
-			i {
+			svg {
 				margin-left: 0.5em;
 				font-size: 0.75rem;
 				vertical-align: super;
@@ -76,7 +76,7 @@
 	width: 100%;
 	max-width: 900px;
 	margin: 3em auto;
-	background: #80808010;
+	background-color: #80808010;
 	padding: 1.5em;
 	text-align: center;
 

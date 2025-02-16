@@ -19,7 +19,7 @@
 		}
 
 		form {
-			background: $primaryColor;
+			background-color: $primaryColor;
 			color: $whiteColor;
 			display: flex;
 			flex-direction: column;
@@ -108,7 +108,7 @@
 			margin-top: 1.75em;
 
 			> li {
-				background: $redColor;
+				background-color: $redColor;
 				border-radius: 3px;
 				padding: 0.25em 0.75em;
 				font-size: 0.8rem;

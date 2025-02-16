@@ -1,13 +1,67 @@
-import React, { ReactNode, useState, useEffect } from 'react';
+import React, { ReactNode, useState, useEffect } from "react";
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from "framer-motion";
 
-import Header from '../components/header';
-import Footer from '../components/footer';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+	faHouseChimney,
+	faCaretRight,
+	faCircleExclamation,
+	faUpRightFromSquare,
+	faEnvelope,
+	faDrum,
+	faPhone,
+	faMobile,
+	faPowerOff,
+	faStepBackward,
+	faPauseCircle,
+	faPlayCircle,
+	faStepForward,
+	faVolumeMute,
+	faVolumeLow,
+	faVolumeHigh,
+	faCaretUp,
+	faCaretDown,
+} from "@fortawesome/free-solid-svg-icons";
 
-import MobileMenu from './mobileMenu';
+import {
+	faFacebook,
+	faInstagram,
+	faYoutube,
+	faWhatsapp,
+} from "@fortawesome/free-brands-svg-icons";
 
-import '../styles/layout.scss';
+library.add(
+	faHouseChimney,
+	faCaretRight,
+	faCircleExclamation,
+	faUpRightFromSquare,
+	faEnvelope,
+	faDrum,
+	faPhone,
+	faMobile,
+	faFacebook,
+	faInstagram,
+	faYoutube,
+	faWhatsapp,
+	faPowerOff,
+	faStepBackward,
+	faPauseCircle,
+	faPlayCircle,
+	faStepForward,
+	faVolumeMute,
+	faVolumeLow,
+	faVolumeHigh,
+	faCaretUp,
+	faCaretDown
+);
+
+import Header from "../components/header";
+import Footer from "../components/footer";
+
+import MobileMenu from "./mobileMenu";
+
+import "../styles/layout.scss";
 
 const duration = 0.1;
 
@@ -26,12 +80,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
 	const openMobileMenu = () => {
 		setIsMobileMenuOpen(true);
-		document.body.style.overflow = 'hidden';
+		document.body.style.overflow = "hidden";
 	};
 
 	const closeMobileMenu = () => {
 		setIsMobileMenuOpen(false);
-		document.body.style.overflow = 'visible';
+		document.body.style.overflow = "visible";
 	};
 
 	const handleOverlayClick = () => {
@@ -47,27 +101,28 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 			}
 		};
 
-		window.addEventListener('resize', handleResize);
+		window.addEventListener("resize", handleResize);
 
 		return () => {
-			window.removeEventListener('resize', handleResize);
+			window.removeEventListener("resize", handleResize);
 		};
 	}, [isMobileMenuOpen]);
 
 	const pathname =
-		typeof window !== 'undefined' ? window.location.pathname : '';
+		typeof window !== "undefined" ? window.location.pathname : "";
 
 	return (
-		<div className='eternity-container'>
+		<div className="eternity-container">
 			<Header openMobileMenu={openMobileMenu} />
-			<div className='eternity-wrapper'>
-				<AnimatePresence mode='wait'>
+			<div className="eternity-wrapper">
+				<AnimatePresence mode="wait">
 					<motion.main
 						key={pathname}
 						variants={variants}
-						initial='initial'
-						animate='animate'
-						exit='exit'>
+						initial="initial"
+						animate="animate"
+						exit="exit"
+					>
 						<main>{children}</main>
 					</motion.main>
 				</AnimatePresence>
@@ -75,7 +130,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 			<Footer />
 
 			{isMobileMenuOpen && (
-				<div className='overlay' onClick={handleOverlayClick} />
+				<div className="overlay" onClick={handleOverlayClick} />
 			)}
 
 			<MobileMenu isOpen={isMobileMenuOpen} closeMenu={closeMobileMenu} />

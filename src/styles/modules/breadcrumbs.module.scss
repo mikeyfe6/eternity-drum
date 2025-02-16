@@ -2,14 +2,16 @@
 
 @use "../customs" as *;
 
-nav {
+.breadcrumbs {
+	$breadcrumbs: &;
+
 	max-width: 100%;
 
-	> .breadcrumb-list {
+	&-list {
 		display: flex;
 		align-items: center;
 		gap: 15px;
-		background: $primaryColor;
+		background-color: $primaryColor;
 		width: fit-content;
 		white-space: nowrap;
 		padding: 0.5em 1em 0.6em;
@@ -18,60 +20,15 @@ nav {
 
 		@include box-shadow;
 
-		li:last-child {
-			overflow: hidden;
-			white-space: nowrap;
-			text-overflow: ellipsis;
-		}
-
 		@media screen and ($small) {
 			padding: 0.25em 0.75em 0.325em;
 			margin-bottom: 17.5px;
 			gap: 10px;
 		}
 
-		> li {
+		#{$breadcrumbs}-item {
 			display: block;
 			line-height: 21.5px;
-
-			&:not(:last-child)::after {
-				content: "\f0da";
-				font-family: FontAwesome, sans-serif;
-				font-size: 0.75rem;
-				margin-left: 1em;
-				color: $whiteColor;
-				vertical-align: 1px;
-
-				@media screen and ($small) {
-					margin-left: 1em;
-					font-size: 0.625rem;
-					vertical-align: 0;
-				}
-			}
-
-			> a > i {
-				font-size: 1em;
-				color: $whiteColor;
-				vertical-align: -0.25px;
-				margin-right: 0.25em;
-
-				&:hover {
-					color: color.adjust($tertiaryColor, $lightness: 15%);
-				}
-
-				@media screen and ($small) {
-					font-size: 1.125em;
-				}
-			}
-
-			&:last-child {
-				font-weight: 600;
-				color: $secondaryColor;
-
-				@media screen and ($small) {
-					font-size: 0.75rem;
-				}
-			}
 
 			> a {
 				color: $whiteColor;
@@ -83,6 +40,46 @@ nav {
 
 				&:hover {
 					color: color.adjust($tertiaryColor, $lightness: 15%);
+				}
+
+				#{$breadcrumbs}-home {
+					font-size: 1em;
+					color: $whiteColor;
+					vertical-align: -0.25px;
+					margin-right: 0.25em;
+
+					&:hover {
+						color: color.adjust($tertiaryColor, $lightness: 15%);
+					}
+
+					@media screen and ($small) {
+						font-size: 1.125em;
+					}
+				}
+			}
+
+			#{$breadcrumbs}-seperator {
+				font-size: 0.75rem;
+				margin-left: 1em;
+				color: $whiteColor;
+				vertical-align: baseline;
+
+				@media screen and ($small) {
+					margin-left: 1em;
+					font-size: 0.625rem;
+					vertical-align: 0;
+				}
+			}
+
+			#{$breadcrumbs}-page {
+				color: $secondaryColor;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				font-weight: 600;
+
+				@media screen and ($small) {
+					font-size: 0.75rem;
 				}
 			}
 		}

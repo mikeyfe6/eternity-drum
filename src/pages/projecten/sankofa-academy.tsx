@@ -1,29 +1,29 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from "gatsby";
 
-import type { HeadFC, PageProps } from 'gatsby';
+import type { HeadFC, PageProps } from "gatsby";
 
-import { useSiteMetadata } from '../../hooks/use-site-metadata';
+import { useSiteMetadata } from "../../hooks/use-site-metadata";
 
-import { Seo } from '../../components/seo';
+import { Seo } from "../../components/seo";
 
-import Breadcrumb from '../../components/breadcrumbs';
+import Breadcrumbs from "../../components/breadcrumbs";
 
-import Hero from '../../components/heroslider';
-import RegisterForm, { handleClick } from '../../components/registerForm';
+import Hero from "../../components/heroslider";
+import RegisterForm, { handleClick } from "../../components/registerForm";
 
-import LightBox from '../../components/lightbox';
+import LightBox from "../../components/lightbox";
 
-import * as styles from '../../styles/modules/workshop.module.scss';
+import * as styles from "../../styles/modules/workshop.module.scss";
 
 const SankofaAcademy: React.FC<PageProps> = () => {
 	const { email, mobileRaw } = useSiteMetadata();
 
 	const breadcrumbs = [
-		{ label: 'Home', link: '/' },
-		{ label: 'Projecten', link: '/projecten/' },
-		{ label: 'Sankofa Academy' },
+		{ label: "Home", link: "/" },
+		{ label: "Projecten", link: "/projecten/" },
+		{ label: "Sankofa Academy" },
 	];
 
 	const { sankofaB, sankofaF } = useStaticQuery(graphql`
@@ -51,7 +51,7 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 			<Hero />
 			<section data-main-section>
 				<div className={styles.workshopBgImage} />
-				<Breadcrumb crumbs={breadcrumbs} />
+				<Breadcrumbs crumbs={breadcrumbs} />
 				<h1>Sankofa Academy</h1>
 
 				<div className={styles.workshopContainer}>
@@ -70,8 +70,8 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 
 						<hr />
 						<div className={styles.workshopImages}>
-							<LightBox image={sankofaBack} alt='Sankofa Flyer Achterkant' />
-							<LightBox image={sankofaFront} alt='Sankofa Flyer Voorkant' />
+							<LightBox image={sankofaBack} alt="Sankofa Flyer Achterkant" />
+							<LightBox image={sankofaFront} alt="Sankofa Flyer Voorkant" />
 						</div>
 						<hr />
 
@@ -92,11 +92,12 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 							project is in het kader van de afschaffing van de
 							Trans-Atlantische slavernij door Nederland in Suriname en de
 							voormalige Nederlandse Antillen. Dit project is in samenwerking
-							met{' '}
+							met{" "}
 							<a
-								href='https://untold.nl'
-								rel='noopener noreferrer'
-								target='_blank'>
+								href="https://untold.nl"
+								rel="noopener noreferrer"
+								target="_blank"
+							>
 								Untold Empowerment
 							</a>
 							.
@@ -139,22 +140,24 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 						</p>
 
 						<p>
-							Meld jezelf of uw kind nu direct aan via het{' '}
-							<a href='#' onClick={(event) => handleClick(inputRef, event)}>
+							Meld jezelf of uw kind nu direct aan via het{" "}
+							<a href="#" onClick={(event) => handleClick(inputRef, event)}>
 								online inschrijfformulier
 							</a>
-							, via de mail{' '}
+							, via de mail{" "}
 							<a
 								href={`mailto:${email}`}
-								rel='noopener noreferrer'
-								target='_blank'>
+								rel="noopener noreferrer"
+								target="_blank"
+							>
 								{email}
-							</a>{' '}
-							of telefonisch via{' '}
+							</a>{" "}
+							of telefonisch via{" "}
 							<a
 								href={`tel:+${mobileRaw}`}
-								rel='noopener noreferrer'
-								target='_blank'>
+								rel="noopener noreferrer"
+								target="_blank"
+							>
 								06 242 55 391
 							</a>
 							.
@@ -175,8 +178,8 @@ export default SankofaAcademy;
 
 export const Head: HeadFC = () => (
 	<Seo
-		title='Sankofa Academy'
-		pathname='/projecten/sankofa-academy/'
-		description='Ontdek Sankofa Academy: empower en emancipeer mensen van Afrikaanse afkomst. Leer over gedeelde geschiedenis, identiteit en bewustzijn.'
+		title="Sankofa Academy"
+		pathname="/projecten/sankofa-academy/"
+		description="Ontdek Sankofa Academy: empower en emancipeer mensen van Afrikaanse afkomst. Leer over gedeelde geschiedenis, identiteit en bewustzijn."
 	/>
 );

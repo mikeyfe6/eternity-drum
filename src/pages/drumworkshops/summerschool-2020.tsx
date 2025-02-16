@@ -1,23 +1,23 @@
-import React from 'react';
+import React from "react";
 
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from "gatsby";
 
-import type { HeadFC, PageProps } from 'gatsby';
+import type { HeadFC, PageProps } from "gatsby";
 
-import { Seo } from '../../components/seo';
+import { Seo } from "../../components/seo";
 
-import Breadcrumb from '../../components/breadcrumbs';
+import Breadcrumbs from "../../components/breadcrumbs";
 
-import Hero from '../../components/heroslider';
-import LightBox from '../../components/lightbox';
+import Hero from "../../components/heroslider";
+import LightBox from "../../components/lightbox";
 
-import * as styles from '../../styles/modules/workshop.module.scss';
+import * as styles from "../../styles/modules/workshop.module.scss";
 
 const SummerschoolFirst: React.FC<PageProps> = () => {
 	const breadcrumbs = [
-		{ label: 'Home', link: '/' },
-		{ label: 'Drumworkshops', link: '/drumworkshops/' },
-		{ label: 'Summerschool 2020' },
+		{ label: "Home", link: "/" },
+		{ label: "Drumworkshops", link: "/drumworkshops/" },
+		{ label: "Summerschool 2020" },
 	];
 
 	const { flyer, midzomer } = useStaticQuery(graphql`
@@ -42,12 +42,12 @@ const SummerschoolFirst: React.FC<PageProps> = () => {
 		<>
 			<Hero />
 			<section data-main-section>
-				<Breadcrumb crumbs={breadcrumbs} />
+				<Breadcrumbs crumbs={breadcrumbs} />
 				<h1>Summerschool 2020</h1>
 				<div className={styles.workshopContainer}>
 					<div className={styles.workshopVisuals}>
-						<LightBox image={summerSchoolFlyer} alt='Summerschool 2020 Flyer' />
-						<LightBox image={midzomerLogo} alt='Sankofa Flyer Voorkant' />
+						<LightBox image={summerSchoolFlyer} alt="Summerschool 2020 Flyer" />
+						<LightBox image={midzomerLogo} alt="Sankofa Flyer Voorkant" />
 					</div>
 					<section data-main-content className={styles.workshopInfo}>
 						<h3>
@@ -157,7 +157,7 @@ const SummerschoolFirst: React.FC<PageProps> = () => {
 
 						<p>AANMELDEN: VRIJE INLOOP TIJDENS DE ACTIVITEITEN</p>
 
-						<p style={{ fontWeight: '200' }}>
+						<p style={{ fontWeight: "200" }}>
 							Nog vragen of opmerkingen? Neem gerust contact met ons op.
 						</p>
 					</section>
@@ -171,8 +171,8 @@ export default SummerschoolFirst;
 
 export const Head: HeadFC = () => (
 	<Seo
-		title='Summerschool 2020'
-		pathname='/drumworkshops/summerschool-2020/'
-		description='Ontdek onze zinderende Summerschool 2020! Gratis muzieklessen voor kinderen, tieners en jongeren in Amsterdam Zuidoost. Leer en sluit je aan bij Eternity, Untold of Black Harmony.'
+		title="Summerschool 2020"
+		pathname="/drumworkshops/summerschool-2020/"
+		description="Ontdek onze zinderende Summerschool 2020! Gratis muzieklessen voor kinderen, tieners en jongeren in Amsterdam Zuidoost. Leer en sluit je aan bij Eternity, Untold of Black Harmony."
 	/>
 );

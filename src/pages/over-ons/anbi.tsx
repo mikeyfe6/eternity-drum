@@ -1,30 +1,30 @@
-import React from 'react';
+import React from "react";
 
-import type { HeadFC, PageProps } from 'gatsby';
+import type { HeadFC, PageProps } from "gatsby";
 
-import { Link } from 'gatsby';
+import { Link } from "gatsby";
 
-import { Seo } from '../../components/seo';
+import { Seo } from "../../components/seo";
 
-import Breadcrumb from '../../components/breadcrumbs';
+import Breadcrumbs from "../../components/breadcrumbs";
 
-import Hero from '../../components/heroslider';
+import Hero from "../../components/heroslider";
 
 const Anbi: React.FC<PageProps> = () => {
 	const breadcrumbs = [
-		{ label: 'Home', link: '/' },
-		{ label: 'Over Ons', link: '/over-ons/' },
-		{ label: 'ANBI' },
+		{ label: "Home", link: "/" },
+		{ label: "Over Ons", link: "/over-ons/" },
+		{ label: "ANBI" },
 	];
 
 	return (
 		<>
 			<Hero />
 			<section data-main-section>
-				<Breadcrumb crumbs={breadcrumbs} />
+				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>ANBI</h1>
-				<section data-main-content className='page-content center'>
+				<section data-main-content className="page-content center">
 					<h2>Doelstelling: Eternity Percussion</h2>
 
 					<p>
@@ -105,7 +105,7 @@ const Anbi: React.FC<PageProps> = () => {
 						<u>Beleidsplan</u>
 					</h4>
 					<p>
-						<Link to='/beleidsplan-2021.pdf'>
+						<Link to="/beleidsplan-2021.pdf">
 							Klik hier voor een overzicht van ons beleidsplan
 						</Link>
 					</p>
@@ -114,9 +114,9 @@ const Anbi: React.FC<PageProps> = () => {
 						<u>De balans en staat van baten en lasten</u>
 					</h4>
 					<p>
-						<Link to='/baat-lasten-2019.pdf'>
+						<Link to="/baat-lasten-2019.pdf">
 							Klik hier voor een overzicht van de balans en staat van baten en
-							lasten{' '}
+							lasten{" "}
 						</Link>
 					</p>
 
@@ -158,8 +158,8 @@ export default Anbi;
 
 export const Head: HeadFC = () => (
 	<Seo
-		title='ANBI'
-		pathname='/over-ons/anbi/'
+		title="ANBI"
+		pathname="/over-ons/anbi/"
 		description="Ontdek meer over 'Stichting Eternity Percussion' (ANBI). Leer over onze missie en doelstellingen als organisatie voor muzikale vormingsactiviteiten en evenementen. Ontdek ons platform voor Caribische muziekstijlen, talentontwikkeling en muzikale samenwerking. Krijg inzicht in onze contactgegevens en bestuur."
 	/>
 );

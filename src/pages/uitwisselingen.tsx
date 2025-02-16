@@ -1,24 +1,24 @@
-import React from 'react';
+import React from "react";
 
-import type { HeadFC, PageProps } from 'gatsby';
+import type { HeadFC, PageProps } from "gatsby";
 
-import { Seo } from '../components/seo';
+import { Seo } from "../components/seo";
 
-import Breadcrumb from '../components/breadcrumbs';
+import Breadcrumbs from "../components/breadcrumbs";
 
-import Hero from '../components/heroslider';
+import Hero from "../components/heroslider";
 
 const Uitwisselingen: React.FC<PageProps> = () => {
 	const breadcrumbs = [
-		{ label: 'Home', link: '/' },
-		{ label: 'Uitwisselingen' },
+		{ label: "Home", link: "/" },
+		{ label: "Uitwisselingen" },
 	];
 
 	return (
 		<>
 			<Hero />
 			<section data-main-section>
-				<Breadcrumb crumbs={breadcrumbs} />
+				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>Uitwisselingen</h1>
 				<p>Pagina komt binnenkort..</p>
@@ -30,5 +30,5 @@ const Uitwisselingen: React.FC<PageProps> = () => {
 export default Uitwisselingen;
 
 export const Head: HeadFC = () => (
-	<Seo title='Uitwisselingen' pathname='/uitwisselingen/' />
+	<Seo title="Uitwisselingen" pathname="/uitwisselingen/" />
 );

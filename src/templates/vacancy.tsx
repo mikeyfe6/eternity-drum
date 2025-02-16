@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import type { HeadProps } from 'gatsby';
+import type { HeadProps } from "gatsby";
 
-import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
 
-import { Seo } from '../components/seo';
+import { Seo } from "../components/seo";
 
-import Breadcrumb from '../components/breadcrumbs';
+import Breadcrumbs from "../components/breadcrumbs";
 
-import Hero from '../components/heroslider';
+import Hero from "../components/heroslider";
 
 interface VacancyProps {
 	pageContext: {
@@ -66,9 +66,9 @@ const Vacancy = ({
 	},
 }: VacancyProps) => {
 	const breadcrumbs = [
-		{ label: 'Home', link: '/' },
-		{ label: 'Over Ons', link: '/over-ons/' },
-		{ label: 'Vacatures', link: '/over-ons/vacatures/' },
+		{ label: "Home", link: "/" },
+		{ label: "Over Ons", link: "/over-ons/" },
+		{ label: "Vacatures", link: "/over-ons/vacatures/" },
 		{ label: jobTitle },
 	];
 
@@ -80,9 +80,9 @@ const Vacancy = ({
 		<>
 			<Hero />
 			<section data-main-section>
-				<Breadcrumb crumbs={breadcrumbs} />
+				<Breadcrumbs crumbs={breadcrumbs} />
 				<h1>Vacature: {jobTitle}</h1>
-				<section data-main-content className='page-content image-right'>
+				<section data-main-content className="page-content image-right">
 					<div>
 						<h3>betreft vacature:</h3>
 						{renderRichText(jobDescription)}
@@ -128,6 +128,6 @@ interface SeoContext {
 }
 
 export const Head: React.FC<HeadProps> = ({ pageContext }) => {
-	const pageTitle = (pageContext as SeoContext)?.jobTitle || '';
+	const pageTitle = (pageContext as SeoContext)?.jobTitle || "";
 	return <Seo title={pageTitle} />;
 };

@@ -1,4 +1,4 @@
-@use './customs' as *;
+@use "./customs" as *;
 
 .page-content {
 	li > p {
@@ -32,7 +32,7 @@
 	&.center {
 		max-width: 1250px;
 		margin: 3em auto;
-		background: #80808010;
+		background-color: #80808010;
 		padding: 2.5em 2em;
 
 		@include box-shadow;
@@ -253,7 +253,7 @@
 
 		> :nth-child(1) {
 			max-width: 600px;
-			background: #80808010;
+			background-color: #80808010;
 			padding: 2.5em 2em;
 
 			@include box-shadow;
@@ -360,7 +360,7 @@
 				}
 
 				li {
-					background: $secondaryColor;
+					background-color: $secondaryColor;
 					width: fit-content;
 					padding: 0.25em 0.5em;
 					border-radius: 2.5px;
@@ -372,7 +372,7 @@
 				margin-left: auto;
 				font-size: 1rem;
 				width: fit-content;
-				background: $primaryColor;
+				background-color: $primaryColor;
 				padding: 1em 1.25em;
 				border-radius: 7.5px;
 				color: $whiteColor;

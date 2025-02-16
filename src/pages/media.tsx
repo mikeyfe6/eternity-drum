@@ -1,35 +1,35 @@
-import React from 'react';
+import React from "react";
 
-import type { HeadFC, PageProps } from 'gatsby';
+import type { HeadFC, PageProps } from "gatsby";
 
-import { Seo } from '../components/seo';
+import { Seo } from "../components/seo";
 
-import Breadcrumb from '../components/breadcrumbs';
+import Breadcrumbs from "../components/breadcrumbs";
 
-import Hero from '../components/heroslider';
-import MusicPlayer from '../components/musicPlayer';
-import Relevance from '../components/relevance';
-import Videos from '../components/videos';
+import Hero from "../components/heroslider";
+import MusicPlayer from "../components/musicPlayer";
+import Relevance from "../components/relevance";
+import Videos from "../components/videos";
 
-import GalleryOne from '../components/galleries/galleryOne';
-import GalleryTwo from '../components/galleries/galleryTwo';
-import GalleryThree from '../components/galleries/galleryThree';
-import GalleryFour from '../components/galleries/galleryFour';
-import GalleryFive from '../components/galleries/galleryFive';
-import GallerySix from '../components/galleries/gallerySix';
-import GallerySeven from '../components/galleries/gallerySeven';
-import GalleryEight from '../components/galleries/galleryEight';
+import GalleryOne from "../components/galleries/galleryOne";
+import GalleryTwo from "../components/galleries/galleryTwo";
+import GalleryThree from "../components/galleries/galleryThree";
+import GalleryFour from "../components/galleries/galleryFour";
+import GalleryFive from "../components/galleries/galleryFive";
+import GallerySix from "../components/galleries/gallerySix";
+import GallerySeven from "../components/galleries/gallerySeven";
+import GalleryEight from "../components/galleries/galleryEight";
 
-import * as styles from '../styles/modules/media.module.scss';
+import * as styles from "../styles/modules/media.module.scss";
 
 const Media: React.FC<PageProps> = () => {
-	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'Media' }];
+	const breadcrumbs = [{ label: "Home", link: "/" }, { label: "Media" }];
 
 	return (
 		<>
 			<Hero />
 			<section data-main-section>
-				<Breadcrumb crumbs={breadcrumbs} />
+				<Breadcrumbs crumbs={breadcrumbs} />
 				<h1>Media</h1>
 
 				<div className={styles.mediaContOne}>
@@ -79,8 +79,8 @@ export default Media;
 
 export const Head: HeadFC = () => (
 	<Seo
-		title='Media'
-		pathname='/media/'
+		title="Media"
+		pathname="/media/"
 		description="Ontdek de multimediale wereld van Eternity Percussion op onze Media-pagina. Luister naar onze muziek, bekijk nieuwsartikelen en ontdek onze fotogalerij en video's."
 	/>
 );

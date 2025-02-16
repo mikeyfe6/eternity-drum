@@ -1,15 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
-import { useSiteMetadata } from '../hooks/use-site-metadata';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import NewsletterForm from './newsletterForm';
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
-import menefexLogo from '../images/menefex/menefex-logo.svg';
+import NewsletterForm from "./newsletterForm";
 
-import * as styles from '../styles/modules/footer.module.scss';
+import menefexLogo from "../images/menefex/menefex-logo.svg";
+
+import * as styles from "../styles/modules/footer.module.scss";
 
 const Footer = () => {
 	const {
@@ -48,11 +50,11 @@ const Footer = () => {
 									<strong>{companyName}</strong>
 								</li> */}
 								<li>
-									{' '}
 									<a
-										href='https://maps.app.goo.gl/MGox9UBh15DWsfLg8'
-										rel='noopener noreferrer'
-										target='_blank'>
+										href="https://maps.app.goo.gl/MGox9UBh15DWsfLg8"
+										rel="noopener noreferrer"
+										target="_blank"
+									>
 										Kruitbergstraat 18
 									</a>
 								</li>
@@ -65,9 +67,10 @@ const Footer = () => {
 								</li> */}
 								<li>
 									<a
-										href='https://maps.app.goo.gl/exZZFm9LkUFDrsEH7'
-										rel='noopener noreferrer'
-										target='_blank'>
+										href="https://maps.app.goo.gl/exZZFm9LkUFDrsEH7"
+										rel="noopener noreferrer"
+										target="_blank"
+									>
 										{address}
 									</a>
 								</li>
@@ -75,38 +78,42 @@ const Footer = () => {
 							</ul>
 							<ul>
 								<li>
-									<i className='fas fa-envelope' />
+									<FontAwesomeIcon icon={"envelope"} />
 									<a
 										href={`mailto:${email}`}
-										rel='noopener noreferrer'
-										target='_blank'>
+										rel="noopener noreferrer"
+										target="_blank"
+									>
 										<strong>{email}</strong>
 									</a>
 								</li>
 								<li>
-									<i className='fas fa-drum' />
+									<FontAwesomeIcon icon={"drum"} />
 									<a
 										href={`tel:+${phoneRawSeda}`}
-										rel='noopener noreferrer'
-										target='_blank'>
+										rel="noopener noreferrer"
+										target="_blank"
+									>
 										<strong>{telephoneSeda}</strong> (SEDA)
 									</a>
 								</li>
 								<li>
-									<i className='fas fa-phone' />
+									<FontAwesomeIcon icon={"phone"} />
 									<a
 										href={`tel:+${phoneRawBpt}`}
-										rel='noopener noreferrer'
-										target='_blank'>
+										rel="noopener noreferrer"
+										target="_blank"
+									>
 										<strong>{telephoneBpt}</strong> (BPT)
 									</a>
 								</li>
 								<li>
-									<i className='fas fa-mobile' />
+									<FontAwesomeIcon icon={"mobile"} />
 									<a
 										href={`tel:+${mobileRaw}`}
-										rel='noopener noreferrer'
-										target='_blank'>
+										rel="noopener noreferrer"
+										target="_blank"
+									>
 										<strong>{mobile}</strong> (BPT)
 									</a>
 								</li>
@@ -126,15 +133,15 @@ const Footer = () => {
 							<h4>Recente Posts</h4>
 							<ul>
 								<li>
-									<Link to='/projecten/sankofa-academy/'>Sankofa Academy</Link>
+									<Link to="/projecten/sankofa-academy/">Sankofa Academy</Link>
 								</li>
 								<li>
-									<Link to='/drumworkshops/summerschool-2021/'>
+									<Link to="/drumworkshops/summerschool-2021/">
 										Summerschool 2021
 									</Link>
 								</li>
 								<li>
-									<Link to='/drumworkshops/summerschool-2020/'>
+									<Link to="/drumworkshops/summerschool-2020/">
 										Summerschool 2020
 									</Link>
 								</li>
@@ -175,41 +182,34 @@ const Footer = () => {
 							<h4>De stichting</h4>
 							<ul>
 								<li>
-									<Link to='/over-ons/'>Ons verhaal</Link>
+									<Link to="/over-ons/">Ons verhaal</Link>
 								</li>
 								<li>
-									<Link to='/drumworkshops/'>Drumworkshops</Link>
+									<Link to="/drumworkshops/">Drumworkshops</Link>
 								</li>
 								<li>
-									<Link to='/cultuureducatie/'>Cultuureducatie</Link>
+									<Link to="/cultuureducatie/">Cultuureducatie</Link>
 								</li>
 								<li>
-									<Link to='/over-ons/vacatures/'>Vacatures</Link>
+									<Link to="/over-ons/vacatures/">Vacatures</Link>
 								</li>
 								<li>
-									<Link to='/over-ons/contact/'>Contact ons</Link>
+									<Link to="/over-ons/contact/">Contact ons</Link>
 								</li>
 								<li>
-									<Link to='/seda/'>SEDA</Link>
+									<Link to="/seda/">SEDA</Link>
 								</li>
-
-								{/* <li>
-									<Link to='/#!'>
-										Sitemap{' '}
-										<i className='fa-solid fa-up-right-from-square fa-xs' />
-									</Link>
-								</li> */}
 							</ul>
 						</section>
 
 						<section className={styles.footerLogoSocial}>
 							<div className={styles.footerLogo}>
-								<Link to='/'>
+								<Link to="/">
 									<StaticImage
-										src='../images/logo/ep-logo-small.png'
+										src="../images/logo/ep-logo-small.png"
 										alt={`${title} Logo`}
-										placeholder='blurred'
-										style={{ width: '100%' }}
+										placeholder="blurred"
+										style={{ width: "100%" }}
 									/>
 								</Link>
 							</div>
@@ -219,42 +219,37 @@ const Footer = () => {
 									<li>
 										<a
 											href={facebookUrl}
-											rel='noopener noreferrer'
-											target='_blank'>
-											<i className='fab fa-facebook' />
+											rel="noopener noreferrer"
+											target="_blank"
+										>
+											<FontAwesomeIcon icon={["fab", "facebook"]} />
 										</a>
 									</li>
 									<li>
 										<a
 											href={instagramUrl}
-											rel='noopener noreferrer'
-											target='_blank'>
-											<i className='fab fa-instagram' />
+											rel="noopener noreferrer"
+											target="_blank"
+										>
+											<FontAwesomeIcon icon={["fab", "instagram"]} />
 										</a>
 									</li>
-									{/* <li>
-										<a
-											href={linkedinUrl}
-											rel='noopener noreferrer'
-											target='_blank'
-										>
-											<i className='fab fa-linkedin' />
-										</a>
-									</li> */}
 									<li>
 										<a
 											href={youtubeUrl}
-											rel='noopener noreferrer'
-											target='_blank'>
-											<i className='fab fa-youtube' />
+											rel="noopener noreferrer"
+											target="_blank"
+										>
+											<FontAwesomeIcon icon={["fab", "youtube"]} />
 										</a>
 									</li>
 									<li>
 										<a
 											href={`https://wa.me/${mobileRaw}`}
-											rel='noopener noreferrer'
-											target='_blank'>
-											<i className='fab fa-whatsapp' />
+											rel="noopener noreferrer"
+											target="_blank"
+										>
+											<FontAwesomeIcon icon={["fab", "whatsapp"]} />
 										</a>
 									</li>
 								</ul>
@@ -266,15 +261,16 @@ const Footer = () => {
 				</div>
 				<div className={styles.footerBottomBanner}>
 					<p>
-						© 2002 – {new Date().getFullYear()} · <strong>{companyName}</strong>{' '}
-						| Powered by{' '}
+						© 2002 – {new Date().getFullYear()} · <strong>{companyName}</strong>{" "}
+						| Powered by{" "}
 						<strong>
 							<a
-								href='https://menefex.nl'
-								rel='noopener noreferrer'
-								target='_blank'>
+								href="https://menefex.nl"
+								rel="noopener noreferrer"
+								target="_blank"
+							>
 								Menefex
-								<img src={menefexLogo} alt='' />
+								<img src={menefexLogo} alt="" />
 							</a>
 						</strong>
 					</p>

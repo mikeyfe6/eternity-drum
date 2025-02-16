@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import { Link } from "gatsby";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import * as styles from "../styles/modules/mobilemenu.module.scss";
 
 interface MobileMenuProps {
@@ -75,11 +77,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 					>
 						Drumworkshops
 					</Link>
-					<i
-						className={`fa-solid fa-caret-${isSubMenu1Open ? "up" : "down"}`}
-						style={{ backgroundColor: isSubMenu1Open ? "#f6ce0e" : "#fff" }}
+					<button
 						onClick={toggleSubMenu1}
-					/>
+						style={{ backgroundColor: isSubMenu1Open ? "#f6ce0e" : "#fff" }}
+					>
+						<FontAwesomeIcon icon={`caret-${isSubMenu1Open ? "up" : "down"}`} />
+					</button>
 					{isSubMenu1Open && (
 						<ul>
 							<li>
@@ -121,11 +124,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 					>
 						Theater
 					</Link>
-					<i
-						className={`fa-solid fa-caret-${isSubMenu2Open ? "up" : "down"}`}
-						style={{ backgroundColor: isSubMenu2Open ? "#f6ce0e" : "#fff" }}
+					<button
 						onClick={toggleSubMenu2}
-					/>
+						style={{ backgroundColor: isSubMenu2Open ? "#f6ce0e" : "#fff" }}
+					>
+						<FontAwesomeIcon icon={`caret-${isSubMenu2Open ? "up" : "down"}`} />
+					</button>
 					{isSubMenu2Open && (
 						<ul>
 							<li>
@@ -176,11 +180,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 					>
 						Projecten
 					</Link>
-					<i
-						className={`fa-solid fa-caret-${isSubMenu3Open ? "up" : "down"}`}
-						style={{ backgroundColor: isSubMenu3Open ? "#f6ce0e" : "#fff" }}
+					<button
 						onClick={toggleSubMenu3}
-					/>
+						style={{ backgroundColor: isSubMenu3Open ? "#f6ce0e" : "#fff" }}
+					>
+						<FontAwesomeIcon icon={`caret-${isSubMenu3Open ? "up" : "down"}`} />
+					</button>
 					{isSubMenu3Open && (
 						<ul>
 							<li>
@@ -241,11 +246,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 					>
 						Over ons
 					</Link>
-					<i
-						className={`fa-solid fa-caret-${isSubMenu4Open ? "up" : "down"}`}
-						style={{ backgroundColor: isSubMenu4Open ? "#f6ce0e" : "#fff" }}
+					<button
 						onClick={toggleSubMenu4}
-					/>
+						style={{ backgroundColor: isSubMenu4Open ? "#f6ce0e" : "#fff" }}
+					>
+						<FontAwesomeIcon icon={`caret-${isSubMenu4Open ? "up" : "down"}`} />
+					</button>
 					{isSubMenu4Open && (
 						<ul>
 							<li>

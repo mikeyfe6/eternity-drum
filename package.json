@@ -8,7 +8,7 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby clean && yarn cache clean && gatsby develop -H 0.0.0.0 --open",
+    "develop": "gatsby develop -H 0.0.0.0 --open",
     "start": "gatsby develop",
     "reinstall": "rm -rf node_modules package-lock.json yarn.lock && yarn",
     "build": "gatsby build",
@@ -16,10 +16,16 @@
     "clean": "gatsby clean && yarn cache clean",
     "typecheck": "tsc --noEmit"
   },
+  "license": "0BSD",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.749.0",
     "@contentful/rich-text-react-renderer": "^16.0.1",
     "@contentful/rich-text-types": "^17.0.0",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@mdx-js/react": "^3.1.0",
     "dotenv": "^16.4.7",
     "framer-motion": "^12.4.3",

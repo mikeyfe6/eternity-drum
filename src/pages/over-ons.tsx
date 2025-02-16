@@ -1,25 +1,25 @@
-import React from 'react';
+import React from "react";
 
-import type { HeadFC, PageProps } from 'gatsby';
+import type { HeadFC, PageProps } from "gatsby";
 
-import { StaticImage } from 'gatsby-plugin-image';
+import { StaticImage } from "gatsby-plugin-image";
 
-import { Seo } from '../components/seo';
+import { Seo } from "../components/seo";
 
-import Breadcrumb from '../components/breadcrumbs';
+import Breadcrumbs from "../components/breadcrumbs";
 
-import Hero from '../components/heroslider';
+import Hero from "../components/heroslider";
 
 const OverOns: React.FC<PageProps> = () => {
-	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'Over Ons' }];
+	const breadcrumbs = [{ label: "Home", link: "/" }, { label: "Over Ons" }];
 
 	return (
 		<>
 			<Hero />
 			<section data-main-section>
-				<Breadcrumb crumbs={breadcrumbs} />
+				<Breadcrumbs crumbs={breadcrumbs} />
 				<h1>Over Ons</h1>
-				<section data-main-content className='page-content image-right'>
+				<section data-main-content className="page-content image-right">
 					<div>
 						<p>
 							<b>Eternity</b> wilt als culturele instelling een bijdrage leveren
@@ -45,19 +45,19 @@ const OverOns: React.FC<PageProps> = () => {
 						<ul>
 							<li>
 								Het <u>bieden van een platform</u> voor drummers die bezig zijn
-								met Caribische muziekstijlen.{' '}
+								met Caribische muziekstijlen.{" "}
 							</li>
 							<li>
 								Het <u>ontwikkelen van trajecten</u> ter bevordering van
-								muzikale vaardigheden.{' '}
+								muzikale vaardigheden.{" "}
 							</li>
 							<li>
-								{' '}
+								{" "}
 								Het <u>programmeren van drumshows</u> bij (semi) professionele
 								podia.
 							</li>
 							<li>
-								{' '}
+								{" "}
 								<u>Bevorderen van samenwerking</u> tussen zelforganisaties en
 								gevestigde instellingen voor de nodige doorstroming van
 								getalenteerde jongeren.
@@ -92,13 +92,13 @@ const OverOns: React.FC<PageProps> = () => {
 					</div>
 					<div>
 						<StaticImage
-							src='../images/over-ons.jpg'
+							src="../images/over-ons.jpg"
 							alt={`Logo`}
-							placeholder='dominantColor'
+							placeholder="dominantColor"
 							style={{
-								width: '100%',
-								objectPosition: 'center',
-								objectFit: 'cover',
+								width: "100%",
+								objectPosition: "center",
+								objectFit: "cover",
 							}}
 						/>
 					</div>
@@ -112,8 +112,8 @@ export default OverOns;
 
 export const Head: HeadFC = () => (
 	<Seo
-		title='Over Ons'
-		pathname='/over-ons/'
+		title="Over Ons"
+		pathname="/over-ons/"
 		description="Ontdek Eternity, een culturele instelling die zich richt op talentontwikkeling en cultuurparticipatie van jongeren door muziekeducatie en Caribische drumstijlen. We bieden programma's voor muzikale vaardigheden, organiseren drumshows en stimuleren samenwerking tussen jonge artiesten en gevestigde instellingen. Onze doelgroep omvat kinderen, jongeren en liefhebbers van Caribische muziek."
 	/>
 );

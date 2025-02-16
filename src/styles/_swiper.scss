@@ -1,11 +1,11 @@
-@use './customs' as *;
+@use "./customs" as *;
 
 .swiper {
 	&-button-prev,
 	&-button-next {
 		color: var(--swiper-theme-color);
 		transform: scale(0.75) translateY(-50%);
-		background: rgba($smokeColor, 0.125);
+		background-color: rgba($smokeColor, 0.125);
 		border-radius: 10px;
 		opacity: 0.5;
 		margin-top: 0 !important;
@@ -28,7 +28,7 @@
 
 	&-scrollbar {
 		&-drag {
-			background: var(--swiper-theme-color);
+			background-color: var(--swiper-theme-color);
 		}
 	}
 
@@ -54,12 +54,12 @@
 		}
 
 		&:hover {
-			background: var(--swiper-pagination-bullet-inactive-color-hover);
+			background-color: var(--swiper-pagination-bullet-inactive-color-hover);
 		}
 	}
 
 	&-pagination-bullet-active {
-		background: var(--swiper-pagination-color, var(--swiper-theme-color));
+		background-color: var(--swiper-pagination-color, var(--swiper-theme-color));
 	}
 }
 

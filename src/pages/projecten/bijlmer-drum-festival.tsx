@@ -1,25 +1,25 @@
-import React from 'react';
+import React from "react";
 
-import type { HeadFC, PageProps } from 'gatsby';
+import type { HeadFC, PageProps } from "gatsby";
 
-import { Seo } from '../../components/seo';
+import { Seo } from "../../components/seo";
 
-import Breadcrumb from '../../components/breadcrumbs';
+import Breadcrumbs from "../../components/breadcrumbs";
 
-import Hero from '../../components/heroslider';
+import Hero from "../../components/heroslider";
 
 const BijlmerDrumFestival: React.FC<PageProps> = () => {
 	const breadcrumbs = [
-		{ label: 'Home', link: '/' },
-		{ label: 'Projecten', link: '/projecten/' },
-		{ label: 'Bijlmer Drum Festival' },
+		{ label: "Home", link: "/" },
+		{ label: "Projecten", link: "/projecten/" },
+		{ label: "Bijlmer Drum Festival" },
 	];
 
 	return (
 		<>
 			<Hero />
 			<section data-main-section>
-				<Breadcrumb crumbs={breadcrumbs} />
+				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>Bijlmer Drum Festival</h1>
 				<p>Pagina komt binnenkort..</p>
@@ -32,7 +32,7 @@ export default BijlmerDrumFestival;
 
 export const Head: HeadFC = () => (
 	<Seo
-		title='Bijlmer Drum Festival'
-		pathname='/projecten/bijlmer-drum-festival/'
+		title="Bijlmer Drum Festival"
+		pathname="/projecten/bijlmer-drum-festival/"
 	/>
 );

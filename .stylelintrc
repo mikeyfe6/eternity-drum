@@ -5,7 +5,6 @@
     ],
     "rules": {
         "media-feature-range-notation": "context",
-        "no-descending-specificity": null,
         "scss/dollar-variable-empty-line-before": null
     }
 }

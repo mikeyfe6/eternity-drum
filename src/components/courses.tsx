@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
-import YoutubePlayer from '../components/youtubePlayer';
-import * as styles from '../styles/modules/courses.module.scss';
+import React, { useState } from "react";
+
+import YoutubePlayer from "../components/youtubePlayer";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import * as styles from "../styles/modules/courses.module.scss";
 
 const Courses: React.FC = () => {
 	const [collapsed, setCollapsed] = useState(true);
@@ -10,10 +14,13 @@ const Courses: React.FC = () => {
 	};
 
 	return (
-		<section className={styles.coursesContainer}>
+		<section className={styles.courses}>
 			<div>
 				<p>
-					<i className='fa-solid fa-circle-exclamation' />
+					<FontAwesomeIcon
+						icon={"circle-exclamation"}
+						className={styles.coursesIcon}
+					/>
 					Hoewel eerder, door de impact van het coronavirus (COVID-19), de
 					overheid maatregelen moest treffen die onze reguliere lessen
 					beïnvloedden, boden we destijds online lessen aan als een tijdelijke
@@ -28,36 +35,33 @@ const Courses: React.FC = () => {
 				</p>
 				<ul>
 					<li>
-						Drumpad + Drumstokken:{' '}
+						Drumpad + Drumstokken:{" "}
 						<a
-							href='https://www.thomann.de/nl/millenium_ak25_uebungs_pad_set.htm?glp=1&gclid=CjwKCAjwvtX0BRAFEiwAGWJyZHw0gx3fb4kZY_NruwUV9UVgpPJ9omqcR6lWUJnmxDssJGZZq6tk7xoCCcsQAvD_BwE'
-							rel='noopener noreferrer'
-							target='_blank'
+							href="https://www.thomann.de/nl/millenium_ak25_uebungs_pad_set.htm?glp=1&gclid=CjwKCAjwvtX0BRAFEiwAGWJyZHw0gx3fb4kZY_NruwUV9UVgpPJ9omqcR6lWUJnmxDssJGZZq6tk7xoCCcsQAvD_BwE"
+							rel="noopener noreferrer"
+							target="_blank"
 						>
-							ga naar website{' '}
-							<i className='fa-solid fa-up-right-from-square fa-xs' />
+							ga naar website <FontAwesomeIcon icon={"up-right-from-square"} />
 						</a>
 					</li>
 					<li>
-						Metronome (Play store):{' '}
+						Metronome (Play store):{" "}
 						<a
-							href='https://play.google.com/store/apps/details?id=com.eumlab.android.prometronome&gl=NL'
-							rel='noopener noreferrer'
-							target='_blank'
+							href="https://play.google.com/store/apps/details?id=com.eumlab.android.prometronome&gl=NL"
+							rel="noopener noreferrer"
+							target="_blank"
 						>
-							download de app{' '}
-							<i className='fa-solid fa-up-right-from-square fa-xs' />
+							download de app <FontAwesomeIcon icon={"up-right-from-square"} />
 						</a>
 					</li>
 					<li>
-						Metronome (App store):{' '}
+						Metronome (App store):{" "}
 						<a
-							href='https://apps.apple.com/us/app/metronome-%CF%9F/id416443133'
-							rel='noopener noreferrer'
-							target='_blank'
+							href="https://apps.apple.com/us/app/metronome-%CF%9F/id416443133"
+							rel="noopener noreferrer"
+							target="_blank"
 						>
-							download de app{' '}
-							<i className='fa-solid fa-up-right-from-square fa-xs' />
+							download de app <FontAwesomeIcon icon={"up-right-from-square"} />
 						</a>
 					</li>
 				</ul>
@@ -70,7 +74,7 @@ const Courses: React.FC = () => {
 				{!collapsed && (
 					<>
 						<hr />
-						<YoutubePlayer videoId='videoseries?list=PLwjmiZZzmbwEN_tw2_XgNjuDHz_X8LOqF' />
+						<YoutubePlayer videoId="videoseries?list=PLwjmiZZzmbwEN_tw2_XgNjuDHz_X8LOqF" />
 					</>
 				)}
 			</div>

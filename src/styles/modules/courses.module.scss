@@ -1,6 +1,8 @@
 @use "../customs" as *;
 
-.courses-container {
+.courses {
+	$courses: &;
+
 	> h2 {
 		text-align: center;
 	}
@@ -9,7 +11,7 @@
 		font-size: 0.95rem;
 		max-width: 1000px;
 		margin: 0 auto;
-		background: #80808010;
+		background-color: #80808010;
 		padding: 2.25em 2em;
 		display: flex;
 		flex-direction: column;
@@ -19,7 +21,7 @@
 			padding: 1em;
 		}
 
-		> p > i {
+		#{$courses}-icon {
 			font-size: 2em;
 			margin: 0 0 0.875em 0.875em;
 			float: right;

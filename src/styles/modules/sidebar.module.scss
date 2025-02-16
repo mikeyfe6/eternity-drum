@@ -1,7 +1,7 @@
-@use '../customs' as *;
+@use "../customs" as *;
 
 .sidebar-container {
-	background: $paperColor;
+	background-color: $paperColor;
 	padding: 1em;
 	margin: 2em 0;
 }

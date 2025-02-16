@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { graphql, useStaticQuery, Link } from "gatsby";
 
-import type { HeadFC, PageProps } from 'gatsby';
+import type { HeadFC, PageProps } from "gatsby";
 
-import { Seo } from '../../components/seo';
+import { Seo } from "../../components/seo";
 
-import Breadcrumb from '../../components/breadcrumbs';
+import Breadcrumbs from "../../components/breadcrumbs";
 
-import Hero from '../../components/heroslider';
+import Hero from "../../components/heroslider";
 
-import * as styles from '../../styles/modules/vacancy.module.scss';
+import * as styles from "../../styles/modules/vacancy.module.scss";
 
 interface Vacancy {
 	id: string;
@@ -37,9 +37,9 @@ interface Vacancy {
 
 const Vacatures: React.FC<PageProps> = () => {
 	const breadcrumbs = [
-		{ label: 'Home', link: '/' },
-		{ label: 'Over Ons', link: '/over-ons/' },
-		{ label: 'Vacatures' },
+		{ label: "Home", link: "/" },
+		{ label: "Over Ons", link: "/over-ons/" },
+		{ label: "Vacatures" },
 	];
 
 	const data = useStaticQuery(graphql`
@@ -60,7 +60,7 @@ const Vacatures: React.FC<PageProps> = () => {
 		<>
 			<Hero />
 			<section data-main-section>
-				<Breadcrumb crumbs={breadcrumbs} />
+				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>Vacatures</h1>
 
@@ -91,8 +91,8 @@ export default Vacatures;
 
 export const Head: HeadFC = () => (
 	<Seo
-		title='Vacatures'
-		pathname='/over-ons/vacatures/'
-		description='Ontdek onze nieuwste vacatures! Kijk naar open posities en kansen om bij ons in Amsterdam Zuidoost te werken. Solliciteer vandaag nog en sluit je aan bij ons team!'
+		title="Vacatures"
+		pathname="/over-ons/vacatures/"
+		description="Ontdek onze nieuwste vacatures! Kijk naar open posities en kansen om bij ons in Amsterdam Zuidoost te werken. Solliciteer vandaag nog en sluit je aan bij ons team!"
 	/>
 );
