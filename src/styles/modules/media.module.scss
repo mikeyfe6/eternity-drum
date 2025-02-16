@@ -1,6 +1,6 @@
-@use 'sass:color';
+@use "sass:color";
 
-@use '../customs' as *;
+@use "../customs" as *;
 
 .media-cont-one {
 	align-items: center;
@@ -24,7 +24,7 @@
 		position: relative;
 		padding: 1.5em;
 
-		@include boxShadow;
+		@include box-shadow;
 
 		@media screen and ($large) {
 			width: 450px;
@@ -44,10 +44,10 @@
 		padding: 1.5em;
 		background: #80808010;
 
-		@include boxShadow;
+		@include box-shadow;
 
 		a {
-			@include pageLink;
+			@include page-link;
 
 			i {
 				margin-left: 0.5em;
@@ -80,7 +80,7 @@
 	padding: 1.5em;
 	text-align: center;
 
-	@include boxShadow;
+	@include box-shadow;
 
 	@media screen and ($small) {
 		padding: 1em;
@@ -94,7 +94,7 @@
 	background: color.adjust($lightgreyColor, $lightness: 10%);
 	padding: 1.5em 1.5em 0.25em;
 
-	@include boxShadow;
+	@include box-shadow;
 
 	@media screen and ($small) {
 		padding: 1em 1em 0.25em;

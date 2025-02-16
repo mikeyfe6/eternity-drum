@@ -1,7 +1,7 @@
-@use '../customs' as *;
+@use "../customs" as *;
 
 .succes-button {
-	@include buttonStyle(
+	@include button-style(
 		$primaryColor,
 		$whiteColor,
 		$primaryColor,

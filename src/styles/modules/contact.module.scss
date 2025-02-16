@@ -1,4 +1,4 @@
-@use '../customs' as *;
+@use "../customs" as *;
 
 .contact-wrapper {
 	background: #80808010;
@@ -7,7 +7,7 @@
 	max-width: 500px;
 	width: 100%;
 
-	@include boxShadow;
+	@include box-shadow;
 
 	@media screen and ($small) {
 		padding: 1em;
@@ -27,7 +27,7 @@
 				min-width: 200px;
 				font-weight: 800;
 
-				@media screen and ($extraLarge) {
+				@media screen and ($extra-large) {
 					min-width: 200px;
 				}
 
@@ -43,7 +43,7 @@
 		display: flex;
 		gap: 1em;
 
-		@media screen and ($extraSmall) {
+		@media screen and ($extra-small) {
 			flex-direction: column;
 		}
 

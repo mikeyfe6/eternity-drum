@@ -1,6 +1,6 @@
-@use 'sass:color';
+@use "sass:color";
 
-@use '../customs' as *;
+@use "../customs" as *;
 
 .music-player {
 	.loading {
@@ -9,14 +9,14 @@
 			align-items: center;
 			margin-left: auto;
 			justify-content: flex-end;
-			font-family: 'Bebas Neue', sans-serif;
+			font-family: "Bebas Neue", sans-serif;
 			font-size: 1.5rem;
 			gap: 0.5em;
 			line-height: normal;
 		}
 
 		&-btn {
-			@include buttonStyle(
+			@include button-style(
 				$whiteColor,
 				$tertiaryColor,
 				$whiteColor,
@@ -105,7 +105,7 @@
 			color: $whiteColor;
 			cursor: pointer;
 
-			@include baseTransition(all);
+			@include base-transition(all);
 
 			&:hover {
 				color: color.adjust($tertiaryColor, $lightness: 10%);
@@ -155,14 +155,14 @@
 				}
 			}
 
-			> input[type='range'] {
+			> input[type="range"] {
 				transform: rotate(270deg);
 				position: relative;
 				bottom: 22.5px;
 				outline: none;
 				opacity: 0;
 
-				@include baseTransition(all);
+				@include base-transition(all);
 
 				&::-webkit-slider-runnable-track {
 					position: relative;
@@ -191,7 +191,7 @@
 					opacity: 1;
 				}
 
-				input[type='range'] {
+				input[type="range"] {
 					opacity: 1;
 				}
 			}
@@ -225,7 +225,7 @@
 				margin-bottom: 1em;
 			}
 
-			> input[type='range'] {
+			> input[type="range"] {
 				width: 100%;
 				height: 5px;
 				border-radius: 2px;

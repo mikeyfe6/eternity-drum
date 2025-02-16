@@ -1,6 +1,6 @@
-@use 'sass:color';
+@use "sass:color";
 
-@use '../customs' as *;
+@use "../customs" as *;
 
 .registerform {
 	&-wrapper {
@@ -10,7 +10,7 @@
 		border-radius: 10px;
 		max-width: 600px;
 
-		@include boxShadow;
+		@include box-shadow;
 
 		@media screen and ($large) {
 			flex: 55%;
@@ -65,7 +65,7 @@
 					padding: 0.5em 0.5em 0.6em 0.6em;
 					width: 100%;
 
-					@include baseTransition(outline-color);
+					@include base-transition(outline-color);
 
 					@media screen and ($small) {
 						border-radius: 3px;
@@ -145,7 +145,7 @@
 		> div > button {
 			margin-left: auto;
 
-			@include buttonStyle(
+			@include button-style(
 				$whiteColor,
 				$primaryColor,
 				$whiteColor,

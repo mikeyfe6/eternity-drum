@@ -1,13 +1,13 @@
-@use 'sass:color';
+@use "sass:color";
 
-@use '../customs' as *;
+@use "../customs" as *;
 
 .newsletter {
 	&-wrapper {
 		min-width: 400px;
 		max-width: 650px;
 
-		@media screen and ($extraLarge) {
+		@media screen and ($extra-large) {
 			min-width: 462.5px;
 		}
 
@@ -26,7 +26,7 @@
 			padding: 1.5em 2em;
 			border-radius: 10px;
 
-			@include boxShadow;
+			@include box-shadow;
 
 			@media screen and ($small) {
 				padding: 1.5em 1.25em;
@@ -57,7 +57,7 @@
 					padding: 0.5em 0.5em 0.6em 0.6em;
 					width: 100%;
 
-					@include baseTransition(outline-color);
+					@include base-transition(outline-color);
 
 					@media screen and ($small) {
 						border-radius: 3px;
@@ -137,7 +137,7 @@
 		> div > button {
 			margin-left: auto;
 
-			@include buttonStyle(
+			@include button-style(
 				$whiteColor,
 				$primaryColor,
 				$whiteColor,

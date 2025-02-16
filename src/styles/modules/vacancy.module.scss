@@ -1,11 +1,11 @@
-@use '../customs' as *;
+@use "../customs" as *;
 
 .vacancies {
 	li {
 		background: $paperColor;
 		width: fit-content;
 
-		@include boxShadow;
+		@include box-shadow;
 
 		a {
 			display: flex;

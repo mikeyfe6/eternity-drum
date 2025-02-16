@@ -1,4 +1,4 @@
-@use '../customs' as *;
+@use "../customs" as *;
 
 .partners-container {
 	margin: 2em 0;
@@ -29,8 +29,8 @@
 			width: 150px;
 			height: 150px;
 
-			@include baseTransition(all);
-			@include boxShadow;
+			@include base-transition(all);
+			@include box-shadow;
 
 			@media screen and ($large) {
 				width: 125px;

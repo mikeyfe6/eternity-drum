@@ -1,6 +1,6 @@
-@use 'sass:color';
+@use "sass:color";
 
-@use '../customs' as *;
+@use "../customs" as *;
 
 .swiper {
 	&-container {
@@ -93,11 +93,11 @@
 					max-width: 100% !important;
 					max-height: 600px;
 
-					@media screen and ($superSized) {
+					@media screen and ($super-sized) {
 						max-height: 600px;
 					}
 
-					@media screen and ($extraLarge) {
+					@media screen and ($extra-large) {
 						max-height: 500px;
 					}
 
@@ -114,11 +114,11 @@
 						border-radius: 3px;
 					}
 
-					@media screen and ($extraSmall) {
+					@media screen and ($extra-small) {
 						max-height: 225px;
 					}
 
-					@media screen and ($superSmall) {
+					@media screen and ($super-small) {
 						max-height: 175px;
 					}
 				}
@@ -141,7 +141,7 @@
 				max-height: 100px;
 			}
 
-			@media screen and ($extraSmall) {
+			@media screen and ($extra-small) {
 				max-height: 80px;
 			}
 

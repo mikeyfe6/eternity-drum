@@ -1,4 +1,4 @@
-@use '../customs' as *;
+@use "../customs" as *;
 
 .swiper {
 	&-container {
@@ -8,7 +8,7 @@
 		@media screen and ($small) {
 			margin-bottom: 1em;
 
-			@include fullWidth;
+			@include full-width;
 		}
 
 		.autoplay-progress {
@@ -50,7 +50,7 @@
 	}
 
 	&-wrapper {
-		@include epWrapper;
+		@include ep-wrapper;
 
 		border-radius: 10px;
 
@@ -74,11 +74,11 @@
 				max-height: 600px;
 			}
 
-			@media screen and ($superSized) {
+			@media screen and ($super-sized) {
 				max-height: 550px;
 			}
 
-			@media screen and ($extraLarge) {
+			@media screen and ($extra-large) {
 				max-height: 450px;
 			}
 
@@ -95,19 +95,19 @@
 				border-radius: 0;
 			}
 
-			@media screen and ($extraSmall) {
+			@media screen and ($extra-small) {
 				max-height: 267.5px;
 			}
 
-			@media screen and ($superSmall) {
+			@media screen and ($super-small) {
 				max-height: 250px;
 			}
 
-			@media screen and ($heavySmall) {
+			@media screen and ($heavy-small) {
 				max-height: 225px;
 			}
 
-			@media screen and ($ultraSmall) {
+			@media screen and ($ultra-small) {
 				max-height: 200px;
 			}
 		}

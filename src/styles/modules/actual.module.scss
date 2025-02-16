@@ -1,6 +1,6 @@
-@use 'sass:color';
+@use "sass:color";
 
-@use '../customs' as *;
+@use "../customs" as *;
 
 .collapsible {
 	position: relative;
@@ -143,7 +143,7 @@
 		margin-top: 2em;
 		margin-left: auto;
 
-		@include buttonStyle(
+		@include button-style(
 			$primaryColor,
 			$whiteColor,
 			$primaryColor,
@@ -151,7 +151,7 @@
 		);
 	}
 
-	@media screen and ($extraSmall) {
+	@media screen and ($extra-small) {
 		> div > p {
 			font-size: 0.95rem;
 		}

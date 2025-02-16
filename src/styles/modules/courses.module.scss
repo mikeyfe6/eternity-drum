@@ -1,4 +1,4 @@
-@use '../customs' as *;
+@use "../customs" as *;
 
 .courses-container {
 	> h2 {
@@ -25,7 +25,7 @@
 			float: right;
 
 			&:hover {
-				@include boxShadow;
+				@include box-shadow;
 			}
 		}
 
@@ -34,7 +34,7 @@
 			width: fit-content;
 			margin-left: auto;
 
-			@include buttonStyle(
+			@include button-style(
 				$primaryColor,
 				$whiteColor,
 				$primaryColor,

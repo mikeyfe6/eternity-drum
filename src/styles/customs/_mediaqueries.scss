@@ -1,16 +1,78 @@
-$ultraSmall: 'max-width: 320px';
-$heavySmall: 'max-width: 360px';
-$superSmall: 'max-width: 420px';
-$extraSmall: 'max-width: 480px';
-$small: 'max-width: 576px';
-$medium: 'max-width: 768px';
-$large: 'max-width: 992px';
-$extraLarge: 'max-width: 1200px';
-$superSized: 'max-width: 1400px';
-$ultraSized: 'max-width: 1700px';
-$massive: 'max-width: 1600px';
+$ultra-small: "max-width: 320px";
+$heavy-small: "max-width: 360px";
+$super-small: "max-width: 420px";
+$extra-small: "max-width: 480px";
+$small: "max-width: 576px";
+$medium: "max-width: 768px";
+$large: "max-width: 992px";
+$extra-large: "max-width: 1200px";
+$super-sized: "max-width: 1400px";
+$ultra-sized: "max-width: 1700px";
+$massive: "max-width: 1600px";
 
-$tothemoon: 'min-width: 1601px';
+$tothemoon: "min-width: 1601px";
 
-$portrait: 'orientation: portrait';
-$landscape: 'orientation: landscape';
+$portrait: "orientation: portrait";
+$landscape: "orientation: landscape";
+
+// Mobile-first media query mixins
+@mixin mini {
+	@media (width >= 23em) {
+		@content;
+	}
+}
+
+@mixin compact {
+	@media (width >= 30em) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (width >= 40em) {
+		@content;
+	}
+}
+
+@mixin phablet {
+	@media (width >= 52em) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (width >= 64em) {
+		@content;
+	}
+}
+
+@mixin laptop {
+	@media (width >= 76em) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (width >= 90em) {
+		@content;
+	}
+}
+
+@mixin wide {
+	@media (width >= 120em) {
+		@content;
+	}
+}
+
+@mixin massive {
+	@media (width >= 120.063em) {
+		@content;
+	}
+}
+
+// Orientation-based media queries (for mobile-first)
+@mixin landscape {
+	@media (width >= 23em) and (width <= 64em) and (orientation: landscape) {
+		@content;
+	}
+}

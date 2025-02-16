@@ -1,6 +1,6 @@
-@use 'sass:color';
+@use "sass:color";
 
-@use '../customs' as *;
+@use "../customs" as *;
 
 nav {
 	max-width: 100%;
@@ -16,7 +16,7 @@ nav {
 		border-radius: 5px;
 		margin-left: auto;
 
-		@include boxShadow;
+		@include box-shadow;
 
 		li:last-child {
 			overflow: hidden;
@@ -35,7 +35,7 @@ nav {
 			line-height: 21.5px;
 
 			&:not(:last-child)::after {
-				content: '\f0da';
+				content: "\f0da";
 				font-family: FontAwesome, sans-serif;
 				font-size: 0.75rem;
 				margin-left: 1em;

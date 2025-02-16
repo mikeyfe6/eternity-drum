@@ -693,7 +693,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										Geboortedag
 									</label>
 									<select
-										id='dayOfBirth'
+										id='day-of-birth'
 										name='dayOfBirth'
 										value={formData.dayOfBirth}
 										onChange={(event) =>
@@ -726,7 +726,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										Geboortemaand
 									</label>
 									<select
-										id='monthOfBirth'
+										id='month-of-birth'
 										name='monthOfBirth'
 										value={formData.monthOfBirth}
 										onChange={(event) =>
@@ -772,7 +772,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 										Geboortejaar
 									</label>
 									<select
-										id='yearOfBirth'
+										id='year-of-birth'
 										name='yearOfBirth'
 										value={formData.yearOfBirth}
 										onChange={(event) =>

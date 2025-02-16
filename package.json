@@ -9,11 +9,11 @@
   ],
   "scripts": {
     "develop": "gatsby clean && yarn cache clean && gatsby develop -H 0.0.0.0 --open",
+    "start": "gatsby develop",
     "reinstall": "rm -rf node_modules package-lock.json yarn.lock && yarn",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean && yarn cache clean",
-    "preload-fonts": "gatsby-preload-fonts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -34,7 +34,6 @@
     "gatsby-plugin-netlify": "^5.1.1",
     "gatsby-plugin-nprogress": "^5.14.0",
     "gatsby-plugin-offline": "^6.14.0",
-    "gatsby-plugin-preload-fonts": "^4.14.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sass": "^6.14.0",
     "gatsby-plugin-sharp": "^5.14.0",

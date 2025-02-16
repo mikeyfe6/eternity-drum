@@ -1,0 +1,74 @@
+@use "./customs" as *;
+
+h1 {
+	font-family: $bebasNeue;
+	font-size: rem-calc(44);
+
+	@include tablet {
+		font-size: rem-calc(60);
+	}
+
+	// @media screen and ($massive) {
+	// 	font-size: 4.5rem;
+	// }
+
+	// @media screen and ($medium) {
+	// 	font-size: 4rem;
+	// }
+
+	// @media screen and ($small) {
+	// 	font-size: 2.75rem;
+	// }
+}
+
+h2 {
+	font-family: $bebasNeue;
+	font-size: 3rem;
+
+	@media screen and ($medium) {
+		font-size: 2.75rem;
+	}
+
+	@media screen and ($small) {
+		font-size: 2rem;
+	}
+}
+
+h3 {
+	font-family: $bebasNeue;
+	font-size: 1.5rem;
+}
+
+h4 {
+	font-size: 1.25rem;
+	font-weight: 600;
+}
+
+h5 {
+	font-size: 1.1rem;
+	font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 0.5em;
+	letter-spacing: 0.5px;
+}
+
+p {
+	font-size: 1.1rem;
+}
+
+strong {
+	font-weight: 600;
+}
+
+u {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	text-decoration-thickness: 2px;
+}

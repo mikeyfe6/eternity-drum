@@ -1,10 +1,10 @@
-@use 'sass:color';
+@use "sass:color";
 
-@use 'colors' as *;
-@use 'fonts' as *;
-@use 'mediaqueries' as *;
+@use "colors" as *;
+@use "fonts" as *;
+@use "mediaqueries" as *;
 
-@mixin buttonStyle($bgColor, $color, $hoverBgcolor, $hoverColor) {
+@mixin button-style($bgColor, $color, $hoverBgcolor, $hoverColor) {
 	background-color: $bgColor;
 	color: $color;
 	font-size: 1.125rem;
@@ -19,8 +19,8 @@
 	display: block;
 	cursor: pointer;
 
-	@include boxShadow;
-	@include baseTransition(all);
+	@include box-shadow;
+	@include base-transition(all);
 
 	@media screen and ($small) {
 		font-size: 1rem;
@@ -43,19 +43,19 @@
 	}
 }
 
-@mixin boxShadow {
+@mixin box-shadow {
 	box-shadow: rgba(0 0 0 / 12%) 0 1px 3px, rgba(0 0 0 / 24%) 0 1px 2px;
 }
 
-@mixin boxBottomShadow {
+@mixin box-bottom-shadow {
 	box-shadow: 0 0 10px 0 rgba(0 0 0 / 20%);
 }
 
-@mixin baseTransition($element, $time: 0.1s) {
+@mixin base-transition($element, $time: 0.1s) {
 	transition: $element $time ease-in-out;
 }
 
-@mixin fullWidth($position: relative) {
+@mixin full-width($position: relative) {
 	width: 100vw;
 	position: $position;
 	left: 50%;
@@ -64,20 +64,20 @@
 	margin-right: -50vw;
 }
 
-@mixin respImage($width, $maxWidth, $height, $objectFit) {
+@mixin resp-image($width, $maxWidth, $height, $objectFit) {
 	width: $width;
 	max-width: $maxWidth;
 	height: $height;
 	object-fit: $objectFit;
 }
 
-@mixin epWrapper {
+@mixin ep-wrapper {
 	max-width: 1800px;
 	margin: 0 auto;
 	width: 100%;
 }
 
-@mixin pageLink {
+@mixin page-link {
 	color: $tertiaryColor;
 	text-decoration: none;
 	font-weight: 600;
@@ -88,7 +88,7 @@
 	}
 }
 
-@mixin specialLabels {
+@mixin special-labels {
 	label {
 		opacity: 1;
 		top: -25px;

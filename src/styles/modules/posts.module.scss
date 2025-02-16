@@ -1,6 +1,6 @@
-@use 'sass:color';
+@use "sass:color";
 
-@use '../customs' as *;
+@use "../customs" as *;
 
 .posts-container {
 	margin: 2em 0;
@@ -41,8 +41,8 @@
 				color.scale($primaryColor, $lightness: 25%)
 			);
 
-			@include baseTransition(all, 0.5s);
-			@include boxShadow;
+			@include base-transition(all, 0.5s);
+			@include box-shadow;
 
 			@media screen and ($large) {
 				max-width: fit-content;
@@ -54,14 +54,14 @@
 				img {
 					transform: scale(1.05);
 
-					@include baseTransition(all, 0.3s);
+					@include base-transition(all, 0.3s);
 				}
 			}
 
 			&:not(:hover) img {
 				transform: scale(1);
 
-				@include baseTransition(all, 0.3s);
+				@include base-transition(all, 0.3s);
 			}
 
 			&:active {
@@ -81,7 +81,7 @@
 				object-fit: cover;
 				overflow: hidden;
 
-				@include baseTransition(all, 0.3s);
+				@include base-transition(all, 0.3s);
 			}
 
 			div {

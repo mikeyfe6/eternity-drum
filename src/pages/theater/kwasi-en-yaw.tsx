@@ -4,10 +4,11 @@ import type { HeadFC, PageProps } from "gatsby";
 
 import { StaticImage } from "gatsby-plugin-image";
 
-import Hero from "../../components/heroslider";
+import { Seo } from "../../components/seo";
+
 import Breadcrumb from "../../components/breadcrumbs";
 
-import { Seo } from "../../components/seo";
+import Hero from "../../components/heroslider";
 
 const KwasiEnYaw: React.FC<PageProps> = () => {
 	const breadcrumbs = [

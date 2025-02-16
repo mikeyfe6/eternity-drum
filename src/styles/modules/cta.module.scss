@@ -1,4 +1,4 @@
-@use '../customs' as *;
+@use "../customs" as *;
 
 .cta-container {
 	position: absolute;
@@ -9,7 +9,7 @@
 	margin-top: 10px;
 	flex-wrap: wrap;
 
-	@media screen and ($superSized) {
+	@media screen and ($super-sized) {
 		position: static;
 		width: 100%;
 		justify-content: flex-end;
@@ -50,7 +50,7 @@
 	}
 
 	a {
-		@include buttonStyle(
+		@include button-style(
 			$primaryColor,
 			$whiteColor,
 			$primaryColor,

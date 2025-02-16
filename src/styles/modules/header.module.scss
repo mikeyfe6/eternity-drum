@@ -1,6 +1,6 @@
-@use 'sass:color';
+@use "sass:color";
 
-@use '../customs' as *;
+@use "../customs" as *;
 
 .header {
 	&-container {
@@ -17,7 +17,7 @@
 		);
 		display: inline-block;
 
-		@include boxBottomShadow;
+		@include box-bottom-shadow;
 
 		&-wrapper {
 			display: flex;
@@ -25,7 +25,7 @@
 			align-items: center;
 			padding: 0.75em 2em;
 
-			@include epWrapper;
+			@include ep-wrapper;
 
 			@media screen and ($small) {
 				padding: 0.75em 1.375em;
@@ -79,7 +79,7 @@
 			height: 125px;
 			background-color: $whiteColor;
 
-			@include baseTransition(all);
+			@include base-transition(all);
 
 			@media screen and ($small) {
 				height: 80px;
@@ -93,7 +93,7 @@
 				z-index: 5;
 				transform: translateZ(0);
 
-				@include boxBottomShadow;
+				@include box-bottom-shadow;
 
 				ul > li > ul > li {
 					border-right: 1px solid color.adjust($transGrey, $alpha: -0.75);
@@ -110,27 +110,27 @@
 			}
 
 			&::before {
-				content: '·';
+				content: "·";
 				display: block;
 				margin-right: 25px;
 				padding-bottom: 5px;
 				color: $secondaryColor;
 				font-size: 5rem;
 
-				@media screen and ($ultraSized) {
+				@media screen and ($ultra-sized) {
 					display: none;
 				}
 			}
 
 			&::after {
-				content: '·';
+				content: "·";
 				display: block;
 				margin-left: 25px;
 				padding-bottom: 7px;
 				color: $secondaryColor;
 				font-size: 5rem;
 
-				@media screen and ($ultraSized) {
+				@media screen and ($ultra-sized) {
 					display: none;
 				}
 			}
@@ -145,7 +145,7 @@
 					width: 200px;
 				}
 
-				@media screen and ($ultraSmall) {
+				@media screen and ($ultra-small) {
 					width: 175px;
 				}
 			}
@@ -216,7 +216,7 @@
 					position: relative;
 
 					&::after {
-						content: '';
+						content: "";
 						height: 33%;
 						width: 1px;
 						position: absolute;
@@ -227,7 +227,7 @@
 					}
 
 					&::before {
-						content: '';
+						content: "";
 						height: 33%;
 						width: 1px;
 						position: absolute;
@@ -286,7 +286,7 @@
 						display: block;
 
 						&::after {
-							content: '▼';
+							content: "▼";
 							margin-left: 5px;
 							font-size: 0.75rem;
 							vertical-align: middle;

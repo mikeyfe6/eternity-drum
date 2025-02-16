@@ -1,8 +1,8 @@
-@use '../customs' as *;
+@use "../customs" as *;
 
 .workshop {
 	&-bg-image {
-		background-image: url('../../images/sankofa-bg.jpeg');
+		background-image: url("../../images/sankofa-bg.jpeg");
 		background-size: contain;
 		background-position: center;
 		background-repeat: no-repeat;
@@ -10,9 +10,9 @@
 		z-index: -1;
 		height: 100%;
 
-		@include fullWidth(absolute);
+		@include full-width(absolute);
 
-		@media screen and ($superSized) {
+		@media screen and ($super-sized) {
 			background-size: cover;
 		}
 	}
@@ -65,7 +65,7 @@
 			max-width: 600px;
 		}
 
-		@media screen and ($superSized) {
+		@media screen and ($super-sized) {
 			gap: 37.5px;
 		}
 
@@ -86,7 +86,7 @@
 		padding: 1.5em;
 		height: fit-content;
 
-		@include boxShadow;
+		@include box-shadow;
 
 		@media screen and ($small) {
 			padding: 1em;

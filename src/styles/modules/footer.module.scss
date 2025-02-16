@@ -1,9 +1,9 @@
-@use 'sass:color';
+@use "sass:color";
 
-@use '../customs' as *;
+@use "../customs" as *;
 
 .footer {
-	@include boxShadow;
+	@include box-shadow;
 
 	&-container {
 		background: linear-gradient(
@@ -16,7 +16,7 @@
 	&-wrapper {
 		padding: 3em 2em 0;
 
-		@include epWrapper;
+		@include ep-wrapper;
 
 		@media screen and ($medium) {
 			padding: 3em 2em 0;
@@ -26,7 +26,7 @@
 			padding: 2.5em 1.5em 0;
 		}
 
-		@media screen and ($extraSmall) {
+		@media screen and ($extra-small) {
 			padding: 2.5em 1em 0;
 		}
 	}
@@ -42,7 +42,7 @@
 		> * {
 			flex: 1;
 
-			@media screen and ($extraLarge) {
+			@media screen and ($extra-large) {
 				flex: 45%;
 			}
 		}
@@ -191,9 +191,9 @@
 		display: flex;
 		justify-content: center;
 
-		@include fullWidth;
+		@include full-width;
 
-		@include boxShadow;
+		@include box-shadow;
 
 		@media screen and ($small) {
 			padding: 0.875em 0;
@@ -208,7 +208,7 @@
 				margin-bottom: 0;
 			}
 
-			@media screen and ($superSmall) {
+			@media screen and ($super-small) {
 				font-size: 0.5rem;
 				margin-bottom: 0;
 			}
