@@ -363,7 +363,9 @@ textarea {
 }
 
 button,
-input {
+input,
+textarea,
+select {
 	overflow: visible;
 	border-style: inherit;
 }
