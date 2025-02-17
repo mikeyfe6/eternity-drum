@@ -1,4 +1,4 @@
-@mixin fluidTyping($font-min, $font-max, $screen-min: 320, $screen-max: 1400) {
+@mixin fluid-typing($font-min, $font-max, $screen-min: 320, $screen-max: 1400) {
 	font-size: #{$font-min}px;
 
 	@media only screen and (min-width: #{$screen-min}px) {

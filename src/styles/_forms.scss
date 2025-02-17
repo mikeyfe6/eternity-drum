@@ -3,15 +3,15 @@
 @use "./customs" as *;
 
 .error {
-	outline: 2px solid $redColor;
+	outline: 2px solid $red-color;
 }
 
 .approved {
-	outline: 2px solid $greenColor;
+	outline: 2px solid $green-color;
 }
 
 .reset {
-	outline: 2px solid $lightgreyColor;
+	outline: 2px solid $lightgrey-color;
 }
 
 form {
@@ -21,19 +21,19 @@ form {
 		height: 44px;
 		opacity: 0.99;
 		line-height: 1.5;
-		background: linear-gradient(45deg, #eaecf7, $whiteColor);
-		outline: 2px solid $lightgreyColor;
+		background: linear-gradient(45deg, #eaecf7, $white-color);
+		outline: 2px solid $lightgrey-color;
 
 		&:not(select) {
-			color: $primaryColor;
+			color: $primary-color;
 		}
 
 		&:not(input, textarea) {
-			color: $greyColor;
+			color: $grey-color;
 			overflow: hidden;
 
 			&.approved {
-				color: $primaryColor;
+				color: $primary-color;
 			}
 		}
 
@@ -42,7 +42,7 @@ form {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			max-width: 100%;
-			color: $greyColor;
+			color: $grey-color;
 
 			@media screen and ($small) {
 				font-size: 0.9rem;
@@ -50,7 +50,7 @@ form {
 		}
 
 		&:focus {
-			outline-color: $tertiaryColor;
+			outline-color: $tertiary-color;
 
 			&::placeholder {
 				opacity: 0;
@@ -70,7 +70,7 @@ form {
 			appearance: none;
 
 			option:disabled {
-				outline-color: $lightgreyColor;
+				outline-color: $lightgrey-color;
 			}
 
 			@media screen and ($small) {
@@ -87,12 +87,12 @@ form {
 			height: 0;
 			border-left: 7.5px solid transparent;
 			border-right: 7.5px solid transparent;
-			border-top: 7.5px solid $tertiaryColor;
+			border-top: 7.5px solid $tertiary-color;
 
 			@media screen and ($small) {
 				border-left: 6px solid transparent;
 				border-right: 6px solid transparent;
-				border-top: 6px solid $tertiaryColor;
+				border-top: 6px solid $tertiary-color;
 			}
 		}
 	}
@@ -205,7 +205,7 @@ form {
 			font-weight: 400;
 			letter-spacing: 0.5px;
 			transition: all 0.1s;
-			color: $greyColor;
+			color: $grey-color;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
@@ -220,7 +220,7 @@ form {
 				top: -25px;
 				left: 0;
 				transition: all 0.1s;
-				color: color.adjust($tertiaryColor, $lightness: 10%);
+				color: color.adjust($tertiary-color, $lightness: 10%);
 
 				@media screen and ($small) {
 					font-size: 0.75rem;

@@ -37,10 +37,10 @@
 			margin-left: auto;
 
 			@include button-style(
-				$primaryColor,
-				$whiteColor,
-				$primaryColor,
-				$secondaryColor
+				$primary-color,
+				$white-color,
+				$primary-color,
+				$secondary-color
 			);
 
 			span {
@@ -61,13 +61,13 @@
 
 			li {
 				a {
-					color: $linkColor;
+					color: $link-color;
 					text-decoration: none;
 					transition: color 0.2s;
 					font-weight: bold;
 
 					&:hover {
-						color: $primaryColor;
+						color: $primary-color;
 					}
 				}
 			}

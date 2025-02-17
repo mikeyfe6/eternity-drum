@@ -9,8 +9,8 @@
 	gap: 15px;
 	background: linear-gradient(
 		45deg,
-		$primaryColor,
-		color.scale($primaryColor, $lightness: 25%)
+		$primary-color,
+		color.scale($primary-color, $lightness: 25%)
 	);
 	border-radius: 10px 10px 0 0;
 	padding: 1em;
@@ -30,8 +30,8 @@
 	&-btns {
 		> button {
 			cursor: pointer;
-			background-color: $whiteColor;
-			color: $primaryColor;
+			background-color: $white-color;
+			color: $primary-color;
 			border-radius: 5px;
 			overflow: hidden;
 			font-weight: 700;
@@ -42,10 +42,10 @@
 			outline: 2px solid transparent;
 
 			&.active-button {
-				outline-color: $linkColor;
+				outline-color: $link-color;
 
 				> span {
-					border-right: 2px color.scale($linkColor, $lightness: 25%) solid;
+					border-right: 2px color.scale($link-color, $lightness: 25%) solid;
 				}
 			}
 
@@ -58,16 +58,16 @@
 			}
 
 			&:hover {
-				outline-color: color.scale($linkColor, $lightness: 10%);
+				outline-color: color.scale($link-color, $lightness: 10%);
 
 				> span {
-					border-right: 2px color.scale($linkColor, $lightness: 10%) solid;
+					border-right: 2px color.scale($link-color, $lightness: 10%) solid;
 				}
 			}
 
 			> span {
-				background-color: $secondaryColor;
-				border-right: 2px color.scale($primaryColor, $lightness: 25%) solid;
+				background-color: $secondary-color;
+				border-right: 2px color.scale($primary-color, $lightness: 25%) solid;
 				padding: 0.375em 1em;
 				font-weight: lighter;
 			}
@@ -118,15 +118,15 @@
 	top: 100%;
 	left: 0;
 	width: 100%;
-	border-bottom: 2px solid $primaryColor;
-	border-left: 2px solid $primaryColor;
-	border-right: 2px solid $primaryColor;
+	border-bottom: 2px solid $primary-color;
+	border-left: 2px solid $primary-color;
+	border-right: 2px solid $primary-color;
 	border-radius: 0 0 10px 10px;
-	color: $primaryColor;
+	color: $primary-color;
 	background: linear-gradient(
 		45deg,
-		$smokeColor,
-		color.scale($smokeColor, $lightness: 100%)
+		$smoke-color,
+		color.scale($smoke-color, $lightness: 100%)
 	);
 
 	> div > span {
@@ -144,10 +144,10 @@
 		margin-left: auto;
 
 		@include button-style(
-			$primaryColor,
-			$whiteColor,
-			$primaryColor,
-			$secondaryColor
+			$primary-color,
+			$white-color,
+			$primary-color,
+			$secondary-color
 		);
 	}
 

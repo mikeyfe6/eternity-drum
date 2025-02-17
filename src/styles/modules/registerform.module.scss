@@ -4,8 +4,8 @@
 
 .registerform {
 	&-wrapper {
-		background-color: $primaryColor;
-		color: $whiteColor;
+		background-color: $primary-color;
+		color: $white-color;
 		padding: 1.5em 2em;
 		border-radius: 10px;
 		max-width: 600px;
@@ -25,7 +25,7 @@
 		> h2 {
 			font-size: 2.5rem;
 			text-decoration: underline;
-			text-decoration-color: $tertiaryColor;
+			text-decoration-color: $tertiary-color;
 			text-underline-offset: 4px;
 		}
 
@@ -116,7 +116,7 @@
 			margin-top: 1.75em;
 
 			> li {
-				background-color: $redColor;
+				background-color: $red-color;
 				border-radius: 3px;
 				padding: 0.25em 0.75em;
 				font-size: 0.8rem;
@@ -125,8 +125,8 @@
 			}
 
 			&:not(:empty) {
-				border-top: solid 2px color.adjust($transGrey, $alpha: -0.9);
-				border-bottom: solid 2px color.adjust($transGrey, $alpha: -0.9);
+				border-top: solid 2px color.adjust($trans-grey, $alpha: -0.9);
+				border-bottom: solid 2px color.adjust($trans-grey, $alpha: -0.9);
 				padding: 1.5em 0.25em;
 				margin-top: 1.5em;
 			}
@@ -134,22 +134,22 @@
 
 		&-error {
 			text-decoration: underline;
-			text-decoration-color: $redColor;
+			text-decoration-color: $red-color;
 		}
 
 		&-approved {
 			text-decoration: underline;
-			text-decoration-color: $greenColor;
+			text-decoration-color: $green-color;
 		}
 
 		> div > button {
 			margin-left: auto;
 
 			@include button-style(
-				$whiteColor,
-				$primaryColor,
-				$whiteColor,
-				$tertiaryColor
+				$white-color,
+				$primary-color,
+				$white-color,
+				$tertiary-color
 			);
 
 			&:disabled {

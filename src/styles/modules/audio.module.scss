@@ -17,10 +17,10 @@
 
 		&-btn {
 			@include button-style(
-				$whiteColor,
-				$tertiaryColor,
-				$whiteColor,
-				$secondaryColor
+				$white-color,
+				$tertiary-color,
+				$white-color,
+				$secondary-color
 			);
 
 			> i {
@@ -102,18 +102,18 @@
 	.control {
 		&-button {
 			font-size: 3.25em;
-			color: $whiteColor;
+			color: $white-color;
 			background-color: transparent;
 			cursor: pointer;
 
 			@include base-transition(all);
 
 			&:hover {
-				color: color.adjust($tertiaryColor, $lightness: 10%);
+				color: color.adjust($tertiary-color, $lightness: 10%);
 			}
 
 			&:active {
-				color: color.adjust($tertiaryColor, $lightness: 2.5%);
+				color: color.adjust($tertiary-color, $lightness: 2.5%);
 			}
 		}
 
@@ -142,7 +142,7 @@
 
 				&:hover {
 					svg {
-						color: color.adjust($tertiaryColor, $lightness: 5%);
+						color: color.adjust($tertiary-color, $lightness: 10%);
 					}
 				}
 			}
@@ -160,7 +160,7 @@
 
 				> small {
 					font-size: 70%;
-					color: color.adjust($tertiaryColor, $lightness: 15%);
+					color: color.adjust($tertiary-color, $lightness: 15%);
 				}
 			}
 
@@ -177,7 +177,7 @@
 					position: relative;
 					border-radius: 2px;
 					cursor: pointer;
-					background-color: $whiteColor;
+					background-color: $white-color;
 					height: 5px;
 				}
 
@@ -186,14 +186,14 @@
 					border-radius: 50%;
 					width: 15px;
 					height: 15px;
-					background-color: color.adjust($tertiaryColor, $lightness: 15%);
+					background-color: color.adjust($tertiary-color, $lightness: 15%);
 					appearance: none;
 				}
 			}
 
 			&:hover {
 				> button {
-					color: color.adjust($tertiaryColor, $lightness: 15%);
+					color: color.adjust($tertiary-color, $lightness: 15%);
 				}
 
 				> span {
@@ -220,7 +220,7 @@
 
 		> p {
 			font-size: 0.75rem;
-			color: $whiteColor;
+			color: $white-color;
 			text-align: center;
 			margin: 1em 0;
 		}
@@ -239,14 +239,14 @@
 				height: 5px;
 				border-radius: 2px;
 				appearance: none;
-				background: color.adjust($whiteColor, $lightness: -10%);
+				background: color.adjust($white-color, $lightness: -10%);
 				cursor: pointer;
 
 				&::-webkit-slider-runnable-track {
 					z-index: 1;
 
 					&:hover {
-						outline: $tertiaryColor;
+						outline: $tertiary-color;
 					}
 				}
 
@@ -254,17 +254,17 @@
 					appearance: none;
 					width: 25px;
 					height: 25px;
-					background: color.adjust($whiteColor, $lightness: -5%);
-					outline: 1px solid rgba($lightgreyColor, 0.2);
+					background: color.adjust($white-color, $lightness: -5%);
+					outline: 1px solid rgba($lightgrey-color, 0.2);
 					border-radius: 50%;
 					z-index: 2;
 
 					&:hover {
-						background: color.adjust($tertiaryColor, $lightness: 15%);
+						background: color.adjust($tertiary-color, $lightness: 15%);
 					}
 
 					&:active {
-						background: color.adjust($tertiaryColor, $lightness: 5%);
+						background: color.adjust($tertiary-color, $lightness: 5%);
 					}
 				}
 			}

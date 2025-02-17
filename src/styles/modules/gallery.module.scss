@@ -82,7 +82,7 @@
 	&-slide {
 		&-top {
 			border-radius: 5px;
-			border: 2px solid $whiteColor;
+			border: 2px solid $white-color;
 			overflow: hidden;
 			cursor: pointer;
 
@@ -134,7 +134,7 @@
 			max-height: 120px;
 			overflow: hidden;
 			border-radius: 5px;
-			border: 2px solid $whiteColor;
+			border: 2px solid $white-color;
 			cursor: pointer;
 
 			@media screen and ($small) {
@@ -147,7 +147,7 @@
 
 			&:hover {
 				opacity: 1;
-				border-color: $linkColor;
+				border-color: $link-color;
 			}
 		}
 	}
@@ -186,7 +186,7 @@
 		border: none;
 		z-index: 10;
 		font-size: 45px;
-		color: $whiteColor;
+		color: $white-color;
 		cursor: pointer;
 		background: transparent;
 	}

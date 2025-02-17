@@ -290,7 +290,7 @@
 				overflow: hidden;
 				border-radius: 5px;
 				height: fit-content;
-				outline: 1px solid $lightgreyColor;
+				outline: 1px solid $lightgrey-color;
 
 				img {
 					width: 100%;
@@ -334,7 +334,7 @@
 				}
 
 				&:nth-of-type(2) {
-					color: $lightgreyColor;
+					color: $lightgrey-color;
 					font-size: 0.9rem;
 					margin-right: 0.125em;
 				}
@@ -360,7 +360,7 @@
 				}
 
 				li {
-					background-color: $secondaryColor;
+					background-color: $secondary-color;
 					width: fit-content;
 					padding: 0.25em 0.5em;
 					border-radius: 2.5px;
@@ -372,10 +372,10 @@
 				margin-left: auto;
 				font-size: 1rem;
 				width: fit-content;
-				background-color: $primaryColor;
+				background-color: $primary-color;
 				padding: 1em 1.25em;
 				border-radius: 7.5px;
-				color: $whiteColor;
+				color: $white-color;
 
 				@media screen and ($small) {
 					width: 100%;
@@ -422,7 +422,7 @@
 				width: 100%;
 				border-radius: 5px;
 				overflow: hidden;
-				outline: 1px solid $lightgreyColor;
+				outline: 1px solid $lightgrey-color;
 
 				@include box-shadow;
 
@@ -486,7 +486,7 @@
 				overflow: hidden;
 				border-radius: 5px;
 				height: fit-content;
-				outline: 1px solid $lightgreyColor;
+				outline: 1px solid $lightgrey-color;
 
 				img {
 					min-width: 400px;

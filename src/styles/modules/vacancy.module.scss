@@ -2,7 +2,7 @@
 
 .vacancies {
 	li {
-		background-color: $paperColor;
+		background-color: $paper-color;
 		width: fit-content;
 
 		@include box-shadow;
@@ -19,7 +19,7 @@
 
 			span {
 				font-weight: 800;
-				color: $linkColor;
+				color: $link-color;
 			}
 
 			:nth-child(2) {
@@ -27,7 +27,7 @@
 			}
 
 			&:hover {
-				outline: 2px solid $linkColor;
+				outline: 2px solid $link-color;
 			}
 		}
 	}

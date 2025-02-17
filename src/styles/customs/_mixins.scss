@@ -33,12 +33,12 @@
 	}
 
 	&.special-button {
-		background-color: $tertiaryColor;
-		color: $whiteColor;
+		background-color: $tertiary-color;
+		color: $white-color;
 
 		&:hover {
-			background-color: $tertiaryColor;
-			color: $secondaryColor;
+			background-color: $tertiary-color;
+			color: $secondary-color;
 		}
 	}
 }
@@ -78,13 +78,13 @@
 }
 
 @mixin page-link {
-	color: $tertiaryColor;
+	color: $tertiary-color;
 	text-decoration: none;
 	font-weight: 600;
 	transition: color 0.1s ease-in-out;
 
 	&:hover {
-		color: color.adjust($tertiaryColor, $lightness: -10%);
+		color: color.adjust($tertiary-color, $lightness: -10%);
 	}
 }
 
@@ -94,7 +94,7 @@
 		top: -25px;
 
 		&.visited {
-			color: color.adjust($tertiaryColor, $lightness: 10%);
+			color: color.adjust($tertiary-color, $lightness: 10%);
 		}
 	}
 }

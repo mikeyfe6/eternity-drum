@@ -61,6 +61,8 @@ import Footer from "../components/footer";
 
 import MobileMenu from "./mobileMenu";
 
+import ResponsiveTag from "./helpers/respoTag";
+
 import "../styles/layout.scss";
 
 const duration = 0.1;
@@ -134,6 +136,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 			)}
 
 			<MobileMenu isOpen={isMobileMenuOpen} closeMenu={closeMobileMenu} />
+
+			{process.env.NODE_ENV === "development" && <ResponsiveTag />}
 		</div>
 	);
 };

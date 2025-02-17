@@ -5,7 +5,7 @@
 	&-button-next {
 		color: var(--swiper-theme-color);
 		transform: scale(0.75) translateY(-50%);
-		background-color: rgba($smokeColor, 0.125);
+		background-color: rgba($smoke-color, 0.125);
 		border-radius: 10px;
 		opacity: 0.5;
 		margin-top: 0 !important;
@@ -32,49 +32,50 @@
 		}
 	}
 
-	&-pagination-bullet {
-		width: var(
-			--swiper-pagination-bullet-width,
-			var(--swiper-pagination-bullet-size, 10px)
-		) !important;
-		height: var(
-			--swiper-pagination-bullet-height,
-			var(--swiper-pagination-bullet-size, 10px)
-		) !important;
+	&-pagination {
+		section[data-main-hero] & {
+			bottom: var(--swiper-pagination-bottom, 18px);
+		}
 
-		@media screen and ($small) {
+		section[data-main-gallery] & {
+			bottom: var(--swiper-pagination-bottom, 24px) !important;
+
+			@media screen and ($small) {
+				bottom: var(--swiper-pagination-bottom, 18px) !important;
+			}
+		}
+
+		&-bullet {
 			width: var(
 				--swiper-pagination-bullet-width,
-				var(--swiper-pagination-bullet-size, 7px)
+				var(--swiper-pagination-bullet-size, 10px)
 			) !important;
 			height: var(
 				--swiper-pagination-bullet-height,
-				var(--swiper-pagination-bullet-size, 7px)
+				var(--swiper-pagination-bullet-size, 10px)
 			) !important;
-		}
 
-		&:hover {
-			background-color: var(--swiper-pagination-bullet-inactive-color-hover);
-		}
-	}
+			@media screen and ($small) {
+				width: var(
+					--swiper-pagination-bullet-width,
+					var(--swiper-pagination-bullet-size, 7px)
+				) !important;
+				height: var(
+					--swiper-pagination-bullet-height,
+					var(--swiper-pagination-bullet-size, 7px)
+				) !important;
+			}
 
-	&-pagination-bullet-active {
-		background-color: var(--swiper-pagination-color, var(--swiper-theme-color));
-	}
-}
+			&-active {
+				background-color: var(
+					--swiper-pagination-color,
+					var(--swiper-theme-color)
+				);
+			}
 
-section[data-main-hero] {
-	.swiper-pagination {
-		bottom: var(--swiper-pagination-bottom, 18px);
-	}
-}
-
-section[data-main-gallery] {
-	.swiper-pagination {
-		bottom: var(--swiper-pagination-bottom, 24px) !important;
-
-		@media screen and ($small) {
-			bottom: var(--swiper-pagination-bottom, 18px) !important;
+			&:hover {
+				background-color: var(--swiper-pagination-bullet-inactive-color-hover);
+			}
 		}
 	}
 }

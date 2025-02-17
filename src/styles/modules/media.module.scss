@@ -15,9 +15,9 @@
 	}
 
 	.music {
-		background-color: $primaryColor;
-		outline: 1px solid color.adjust($primaryColor, $lightness: 10%);
-		color: $whiteColor;
+		background-color: $primary-color;
+		outline: 1px solid color.adjust($primary-color, $lightness: 10%);
+		color: $white-color;
 		flex: 25%;
 		max-width: 450px;
 		border-radius: 5px;
@@ -91,7 +91,7 @@
 	width: 100%;
 	max-width: 1200px;
 	margin: 3em auto;
-	background: color.adjust($lightgreyColor, $lightness: 10%);
+	background-color: color.adjust($lightgrey-color, $lightness: 10%);
 	padding: 1.5em 1.5em 0.25em;
 
 	@include box-shadow;
@@ -103,7 +103,7 @@
 
 	hr {
 		margin: 3em 0 2em;
-		background-color: $whiteColor;
+		background-color: $white-color;
 
 		@media screen and ($medium) {
 			margin: 1.5em 0 1.25em;

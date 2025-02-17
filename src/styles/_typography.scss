@@ -1,7 +1,7 @@
 @use "./customs" as *;
 
 h1 {
-	font-family: $bebasNeue;
+	font-family: $bebas-neue;
 	font-size: rem-calc(44);
 
 	@include tablet {
@@ -22,7 +22,7 @@ h1 {
 }
 
 h2 {
-	font-family: $bebasNeue;
+	font-family: $bebas-neue;
 	font-size: 3rem;
 
 	@media screen and ($medium) {
@@ -35,7 +35,7 @@ h2 {
 }
 
 h3 {
-	font-family: $bebasNeue;
+	font-family: $bebas-neue;
 	font-size: 1.5rem;
 }
 

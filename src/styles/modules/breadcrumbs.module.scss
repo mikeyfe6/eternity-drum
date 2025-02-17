@@ -6,12 +6,26 @@
 	$breadcrumbs: &;
 
 	max-width: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin-left: auto;
+
+	#post-template & {
+		position: static;
+	}
+
+	@media screen and ($extra-large) {
+		position: static;
+		width: fit-content;
+		margin-bottom: 1.5em;
+	}
 
 	&-list {
 		display: flex;
 		align-items: center;
 		gap: 15px;
-		background-color: $primaryColor;
+		background-color: $primary-color;
 		width: fit-content;
 		white-space: nowrap;
 		padding: 0.5em 1em 0.6em;
@@ -31,7 +45,7 @@
 			line-height: 21.5px;
 
 			> a {
-				color: $whiteColor;
+				color: $white-color;
 				vertical-align: baseline;
 
 				@media screen and ($small) {
@@ -39,17 +53,17 @@
 				}
 
 				&:hover {
-					color: color.adjust($tertiaryColor, $lightness: 15%);
+					color: color.adjust($tertiary-color, $lightness: 15%);
 				}
 
 				#{$breadcrumbs}-home {
 					font-size: 1em;
-					color: $whiteColor;
+					color: $white-color;
 					vertical-align: -0.25px;
 					margin-right: 0.25em;
 
 					&:hover {
-						color: color.adjust($tertiaryColor, $lightness: 15%);
+						color: color.adjust($tertiary-color, $lightness: 15%);
 					}
 
 					@media screen and ($small) {
@@ -61,7 +75,7 @@
 			#{$breadcrumbs}-seperator {
 				font-size: 0.75rem;
 				margin-left: 1em;
-				color: $whiteColor;
+				color: $white-color;
 				vertical-align: baseline;
 
 				@media screen and ($small) {
@@ -72,7 +86,7 @@
 			}
 
 			#{$breadcrumbs}-page {
-				color: $secondaryColor;
+				color: $secondary-color;
 				overflow: hidden;
 				white-space: nowrap;
 				text-overflow: ellipsis;

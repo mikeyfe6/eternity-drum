@@ -2,9 +2,9 @@
 
 .succes-button {
 	@include button-style(
-		$primaryColor,
-		$whiteColor,
-		$primaryColor,
-		$secondaryColor
+		$primary-color,
+		$white-color,
+		$primary-color,
+		$secondary-color
 	);
 }
