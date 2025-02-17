@@ -91,6 +91,10 @@ h5 {
 
 p {
 	line-height: normal;
+
+	section[data-main-content] & {
+		@include fluid-typing(16, 18);
+	}
 }
 
 strong {

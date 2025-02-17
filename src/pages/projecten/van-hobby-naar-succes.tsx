@@ -22,7 +22,9 @@ const VanHobbyNaarSucces: React.FC<PageProps> = () => {
 				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>Van Hobby Naar Succes</h1>
-				<p>Pagina komt binnenkort..</p>
+				<section data-main-content className="page-content basic">
+					<p>Pagina komt binnenkort..</p>
+				</section>
 			</section>
 		</>
 	);

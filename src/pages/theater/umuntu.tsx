@@ -22,7 +22,9 @@ const Umuntu: React.FC<PageProps> = () => {
 				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>Umuntu</h1>
-				<p>Pagina komt binnenkort..</p>
+				<section data-main-content className="page-content basic">
+					<p>Pagina komt binnenkort..</p>
+				</section>
 			</section>
 		</>
 	);

@@ -21,7 +21,9 @@ const Uitwisselingen: React.FC<PageProps> = () => {
 				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>Uitwisselingen</h1>
-				<p>Pagina komt binnenkort..</p>
+				<section data-main-content className="page-content basic">
+					<p>Pagina komt binnenkort..</p>
+				</section>
 			</section>
 		</>
 	);
