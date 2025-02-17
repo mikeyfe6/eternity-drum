@@ -6,9 +6,9 @@ import { StaticImage } from "gatsby-plugin-image";
 
 import { Seo } from "../../components/seo";
 
-import Breadcrumbs from "../../components/breadcrumbs";
+import Breadcrumbs from "../../components/layout/breadcrumbs";
 
-import Hero from "../../components/heroslider";
+import Hero from "../../components/layout/heroslider";
 
 const Muziki: React.FC<PageProps> = () => {
 	const breadcrumbs = [

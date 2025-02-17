@@ -8,9 +8,9 @@ import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 import { Seo } from "../components/seo";
 
-import Breadcrumbs from "../components/breadcrumbs";
+import Breadcrumbs from "../components/layout/breadcrumbs";
 
-import Hero from "../components/heroslider";
+import Hero from "../components/layout/heroslider";
 
 const Seda: React.FC<PageProps> = () => {
 	const { email } = useSiteMetadata();

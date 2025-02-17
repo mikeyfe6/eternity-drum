@@ -8,12 +8,12 @@ import { useSiteMetadata } from "../../hooks/use-site-metadata";
 
 import { Seo } from "../../components/seo";
 
-import Breadcrumbs from "../../components/breadcrumbs";
+import Breadcrumbs from "../../components/layout/breadcrumbs";
 
-import Hero from "../../components/heroslider";
-import GoogleMaps from "../../components/maps";
+import Hero from "../../components/layout/heroslider";
+import GoogleMaps from "../../components/ui/maps";
 
-import * as styles from "../../styles/modules/contact.module.scss";
+import * as styles from "../../styles/modules/pages/contact.module.scss";
 
 const Contact: React.FC<PageProps> = () => {
 	const breadcrumbs = [

@@ -5,15 +5,15 @@ import type { HeadFC, PageProps } from "gatsby";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 import { Seo } from "../components/seo";
 
-import Hero from "../components/heroslider";
-import CtaButtons from "../components/cta";
-import Collapsible from "../components/actual";
-import Berichten from "../components/posts";
-import Courses from "../components/courses";
-import Partners from "../components/partners";
-import WhiteSpace from "../components/whitespace";
+import Hero from "../components/layout/heroslider";
+import CtaButtons from "../components/ui/cta";
+import Collapsible from "../components/ui/actual";
+import Berichten from "../components/ui/posts";
+import Courses from "../components/ui/courses";
+import Partners from "../components/ui/partners";
+import WhiteSpace from "../components/layout/whitespace";
 
-import * as styles from "../styles/modules/index.module.scss";
+import * as styles from "../styles/modules/pages/index.module.scss";
 
 const Index: React.FC<PageProps> = () => {
 	const { title } = useSiteMetadata();

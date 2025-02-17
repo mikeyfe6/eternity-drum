@@ -7,9 +7,9 @@ import { renderRichText } from "gatsby-source-contentful/rich-text";
 
 import { Seo } from "../components/seo";
 
-import Breadcrumbs from "../components/breadcrumbs";
+import Breadcrumbs from "../components/layout/breadcrumbs";
 
-import Hero from "../components/heroslider";
+import Hero from "../components/layout/heroslider";
 
 interface VacancyProps {
 	pageContext: {

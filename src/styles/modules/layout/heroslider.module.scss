@@ -1,0 +1,124 @@
+@use "../../customs" as *;
+
+.swiper {
+	&-container {
+		width: 100%;
+		margin-bottom: 1.5em;
+
+		@media screen and ($small) {
+			margin-bottom: 1em;
+
+			@include full-width;
+		}
+
+		.autoplay-progress {
+			position: absolute;
+			right: 16px;
+			bottom: 16px;
+			z-index: 1;
+			width: 48px;
+			height: 48px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: bold;
+			opacity: 0.875;
+			color: var(--swiper-theme-color-text);
+			transform: scale(0.875);
+
+			@media screen and ($small) {
+				transform: scale(0.5);
+			}
+		}
+
+		.autoplay-progress svg {
+			--progress: 0;
+
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			stroke-width: 4px;
+			stroke: var(--swiper-theme-color);
+			fill: none;
+			stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+			stroke-dasharray: 125.6;
+			transform: rotate(-90deg);
+		}
+	}
+
+	&-wrapper {
+		@include ep-wrapper;
+
+		border-radius: 10px;
+
+		@media screen and ($small) {
+			border-radius: 0;
+		}
+	}
+
+	&-image {
+		opacity: 0.75;
+
+		img {
+			max-height: 637.5px;
+			object-position: center 25%;
+
+			@media screen and ($tothemoon) {
+				max-height: 637.5px;
+			}
+
+			@media screen and ($massive) {
+				max-height: 600px;
+			}
+
+			@media screen and ($super-sized) {
+				max-height: 550px;
+			}
+
+			@media screen and ($extra-large) {
+				max-height: 450px;
+			}
+
+			@media screen and ($large) {
+				max-height: 400px;
+			}
+
+			@media screen and ($medium) {
+				max-height: 300px;
+			}
+
+			@media screen and ($small) {
+				max-height: 275px;
+				border-radius: 0;
+			}
+
+			@media screen and ($extra-small) {
+				max-height: 267.5px;
+			}
+
+			@media screen and ($super-small) {
+				max-height: 250px;
+			}
+
+			@media screen and ($heavy-small) {
+				max-height: 225px;
+			}
+
+			@media screen and ($ultra-small) {
+				max-height: 200px;
+			}
+		}
+	}
+
+	&-slide {
+		border-radius: 10px;
+		overflow: hidden;
+
+		@media screen and ($small) {
+			border-radius: 0;
+		}
+	}
+}

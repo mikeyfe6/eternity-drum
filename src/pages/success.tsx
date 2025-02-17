@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import { Link, HeadFC, PageProps } from 'gatsby';
+import { Link, HeadFC, PageProps } from "gatsby";
 
-import { Seo } from '../components/seo';
+import { Seo } from "../components/seo";
 
-import * as styles from '../styles/modules/success.module.scss';
+import * as styles from "../styles/modules/pages/success.module.scss";
 
 const Success: React.FC<PageProps> = () => {
 	return (
@@ -14,7 +14,7 @@ const Success: React.FC<PageProps> = () => {
 				Je bericht is succesvol verstuurd! We nemen zo snel mogelijk contact met
 				je op.
 				<br />
-				{process.env.NODE_ENV === 'development' ? (
+				{process.env.NODE_ENV === "development" ? (
 					<>
 						<br />
 						<code>Je bent aan 't developen!</code>
@@ -22,8 +22,8 @@ const Success: React.FC<PageProps> = () => {
 					</>
 				) : null}
 				<br />
-				<button type='button' className={styles.succesButton}>
-					<Link to='/'>Ga naar de homepagina</Link>
+				<button type="button" className={styles.succesButton}>
+					<Link to="/">Ga naar de homepagina</Link>
 				</button>
 			</p>
 		</section>
@@ -33,5 +33,5 @@ const Success: React.FC<PageProps> = () => {
 export default Success;
 
 export const Head: HeadFC = () => (
-	<Seo title='Succesvolle formulierzending!' pathname='/success/' />
+	<Seo title="Succesvolle formulierzending!" pathname="/success/" />
 );

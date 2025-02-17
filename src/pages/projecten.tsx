@@ -1,20 +1,20 @@
-import React from 'react';
+import React from "react";
 
-import type { HeadFC, PageProps } from 'gatsby';
+import type { HeadFC, PageProps } from "gatsby";
 
-import { StaticImage } from 'gatsby-plugin-image';
+import { StaticImage } from "gatsby-plugin-image";
 
-import { useSiteMetadata } from '../hooks/use-site-metadata';
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
-import { Seo } from '../components/seo';
+import { Seo } from "../components/seo";
 
-import Breadcrumbs from '../components/breadcrumbs';
+import Breadcrumbs from "../components/layout/breadcrumbs";
 
-import Hero from '../components/heroslider';
-import YouTubePlayer from '../components/youtubePlayer';
+import Hero from "../components/layout/heroslider";
+import YouTubePlayer from "../components/ui/youtubePlayer";
 
 const Projecten: React.FC<PageProps> = () => {
-	const breadcrumbs = [{ label: 'Home', link: '/' }, { label: 'Projecten' }];
+	const breadcrumbs = [{ label: "Home", link: "/" }, { label: "Projecten" }];
 
 	const { email } = useSiteMetadata();
 
@@ -24,7 +24,7 @@ const Projecten: React.FC<PageProps> = () => {
 			<section data-main-section>
 				<Breadcrumbs crumbs={breadcrumbs} />
 				<h1>Projecten</h1>
-				<section data-main-content className='page-content projects'>
+				<section data-main-content className="page-content projects">
 					<h2>Nieuwe (uitwisselings)projecten !</h2>
 					<h3>Building Strong Communities</h3>
 					<p>
@@ -45,11 +45,12 @@ const Projecten: React.FC<PageProps> = () => {
 						<b>Periode:</b> juni t/m november 2021
 					</p>
 					<p>
-						<b>Aanmelden:</b>{' '}
+						<b>Aanmelden:</b>{" "}
 						<a
 							href={`mailto:${email}`}
-							rel='noopener noreferrer'
-							target='_blank'>
+							rel="noopener noreferrer"
+							target="_blank"
+						>
 							{email}
 						</a>
 					</p>
@@ -58,11 +59,12 @@ const Projecten: React.FC<PageProps> = () => {
 					</p>
 					<br />
 					<p>
-						Mede mogelijk gemaakt door{' '}
+						Mede mogelijk gemaakt door{" "}
 						<a
-							href='https://www.europeansolidaritycorps.nl'
-							rel='noopener noreferrer'
-							target='_blank'>
+							href="https://www.europeansolidaritycorps.nl"
+							rel="noopener noreferrer"
+							target="_blank"
+						>
 							European Solidarity Corps
 						</a>
 					</p>
@@ -93,11 +95,12 @@ const Projecten: React.FC<PageProps> = () => {
 						<b>Periode:</b> juli 2020 in Amsterdam & oktober 2020 in Londen
 					</p>
 					<p>
-						<b>Aanmelden:</b>{' '}
+						<b>Aanmelden:</b>{" "}
 						<a
 							href={`mailto:${email}`}
-							rel='noopener noreferrer'
-							target='_blank'>
+							rel="noopener noreferrer"
+							target="_blank"
+						>
 							{email}
 						</a>
 					</p>
@@ -106,11 +109,12 @@ const Projecten: React.FC<PageProps> = () => {
 					</p>
 					<br />
 					<p>
-						Mede mogelijk gemaakt door{' '}
+						Mede mogelijk gemaakt door{" "}
 						<a
-							href='https://www.erasmusplus.nl'
-							rel='noopener noreferrer'
-							target='_blank'>
+							href="https://www.erasmusplus.nl"
+							rel="noopener noreferrer"
+							target="_blank"
+						>
 							Erasmus+
 						</a>
 					</p>
@@ -119,14 +123,14 @@ const Projecten: React.FC<PageProps> = () => {
 					<hr />
 					<br />
 
-					<div className='pjs-image-left'>
+					<div className="pjs-image-left">
 						<div>
 							<StaticImage
-								src='../images/projects/beats-group.jpg'
-								alt='Beats'
-								placeholder='blurred'
-								imgClassName='pjs-image'
-								style={{ width: '100%' }}
+								src="../images/projects/beats-group.jpg"
+								alt="Beats"
+								placeholder="blurred"
+								imgClassName="pjs-image"
+								style={{ width: "100%" }}
 							/>
 						</div>
 						<div>
@@ -157,7 +161,7 @@ const Projecten: React.FC<PageProps> = () => {
 					<hr />
 					<br />
 
-					<div className='pjs-image-right'>
+					<div className="pjs-image-right">
 						<div>
 							<p>
 								<u>Afgelopen uitwisselingsprojecten zijn:</u>
@@ -187,11 +191,11 @@ const Projecten: React.FC<PageProps> = () => {
 						</div>
 						<div>
 							<StaticImage
-								src='../images/projects/beats-theatre.jpg'
-								alt='Beats'
-								placeholder='blurred'
-								imgClassName='pjs-image'
-								style={{ width: '100%' }}
+								src="../images/projects/beats-theatre.jpg"
+								alt="Beats"
+								placeholder="blurred"
+								imgClassName="pjs-image"
+								style={{ width: "100%" }}
 							/>
 						</div>
 					</div>
@@ -224,74 +228,75 @@ const Projecten: React.FC<PageProps> = () => {
 					</p>
 					<br />
 					<p>
-						Mede mogelijk gemaakt door{' '}
+						Mede mogelijk gemaakt door{" "}
 						<a
-							href='https://www.erasmusplus.nl'
-							rel='noopener noreferrer'
-							target='_blank'>
+							href="https://www.erasmusplus.nl"
+							rel="noopener noreferrer"
+							target="_blank"
+						>
 							Erasmus+
 						</a>
 					</p>
 
-					<div className='pjs-image-collage-top'>
+					<div className="pjs-image-collage-top">
 						<div>
 							<div>
 								<StaticImage
-									src='../images/projects/rotp-1.jpg'
-									alt='Beats'
-									placeholder='blurred'
-									imgClassName='pjs-image'
-									style={{ width: '100%' }}
+									src="../images/projects/rotp-1.jpg"
+									alt="Beats"
+									placeholder="blurred"
+									imgClassName="pjs-image"
+									style={{ width: "100%" }}
 								/>
 							</div>
 							<div>
 								<StaticImage
-									src='../images/projects/rotp-2.jpg'
-									alt='Beats'
-									placeholder='blurred'
-									imgClassName='pjs-image'
-									style={{ width: '100%' }}
+									src="../images/projects/rotp-2.jpg"
+									alt="Beats"
+									placeholder="blurred"
+									imgClassName="pjs-image"
+									style={{ width: "100%" }}
 								/>
 							</div>
 						</div>
 						<div>
 							<StaticImage
-								src='../images/projects/rotp-3.jpg'
-								alt='Beats'
-								placeholder='blurred'
-								imgClassName='pjs-image'
-								style={{ width: '100%' }}
+								src="../images/projects/rotp-3.jpg"
+								alt="Beats"
+								placeholder="blurred"
+								imgClassName="pjs-image"
+								style={{ width: "100%" }}
 							/>
 						</div>
 					</div>
 					<br />
-					<div className='pjs-image-collage-bottom'>
+					<div className="pjs-image-collage-bottom">
 						<div>
 							<StaticImage
-								src='../images/projects/rotp-4.jpg'
-								alt='Beats'
-								placeholder='blurred'
-								imgClassName='pjs-image'
-								style={{ width: '100%' }}
+								src="../images/projects/rotp-4.jpg"
+								alt="Beats"
+								placeholder="blurred"
+								imgClassName="pjs-image"
+								style={{ width: "100%" }}
 							/>
 						</div>
 						<div>
 							<div>
 								<StaticImage
-									src='../images/projects/rotp-5.jpeg'
-									alt='Beats'
-									placeholder='blurred'
-									imgClassName='pjs-image'
-									style={{ width: '100%' }}
+									src="../images/projects/rotp-5.jpeg"
+									alt="Beats"
+									placeholder="blurred"
+									imgClassName="pjs-image"
+									style={{ width: "100%" }}
 								/>
 							</div>
 							<div>
 								<StaticImage
-									src='../images/projects/rotp-6.jpeg'
-									alt='Beats'
-									placeholder='blurred'
-									imgClassName='pjs-image'
-									style={{ width: '100%' }}
+									src="../images/projects/rotp-6.jpeg"
+									alt="Beats"
+									placeholder="blurred"
+									imgClassName="pjs-image"
+									style={{ width: "100%" }}
 								/>
 							</div>
 						</div>
@@ -301,14 +306,14 @@ const Projecten: React.FC<PageProps> = () => {
 					<hr />
 					<br />
 
-					<div className='pjs-image-over-text'>
+					<div className="pjs-image-over-text">
 						<div>
 							<StaticImage
-								src='../images/projects/umuntu-stands.jpg'
-								alt='Beats'
-								placeholder='blurred'
-								imgClassName='pjs-image'
-								style={{ width: '100%' }}
+								src="../images/projects/umuntu-stands.jpg"
+								alt="Beats"
+								placeholder="blurred"
+								imgClassName="pjs-image"
+								style={{ width: "100%" }}
 							/>
 						</div>
 						<div>
@@ -316,7 +321,7 @@ const Projecten: React.FC<PageProps> = () => {
 							<p>
 								Een groep jongeren gaat op zoek naar verschillende rituelen dat
 								leidt naar hun mannelijkheid. Ze gebruiken hun passie voor
-								muziek als middel om dit te bewerkstelligen. <b>Umuntu</b>{' '}
+								muziek als middel om dit te bewerkstelligen. <b>Umuntu</b>{" "}
 								betekent "man" in het Zuid-Afrikaans en gaat over een groep
 								jongens die hun Rite of Passage doorlopen.
 							</p>
@@ -332,10 +337,10 @@ const Projecten: React.FC<PageProps> = () => {
 								opzichte van een jongeman inneemt...
 							</p>
 							<StaticImage
-								src='../images/projects/umuntu-hands.jpg'
-								alt='Beats'
-								placeholder='blurred'
-								imgClassName='pjs-image'
+								src="../images/projects/umuntu-hands.jpg"
+								alt="Beats"
+								placeholder="blurred"
+								imgClassName="pjs-image"
 							/>
 						</div>
 					</div>
@@ -369,8 +374,8 @@ export default Projecten;
 
 export const Head: HeadFC = () => (
 	<Seo
-		title='Projecten'
-		pathname='/projecten/'
+		title="Projecten"
+		pathname="/projecten/"
 		description="Ontdek de diverse jeugdprojecten van Eternity, van educatieve sessies over de zwarte geschiedenis tot uitwisselingsprogramma's in Amsterdam en Londen. Doe mee aan initiatieven zoals 'Van Hobby naar Succes' voor een culturele en educatieve reis met drumlessen."
 	/>
 );

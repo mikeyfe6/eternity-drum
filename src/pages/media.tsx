@@ -4,12 +4,12 @@ import type { HeadFC, PageProps } from "gatsby";
 
 import { Seo } from "../components/seo";
 
-import Breadcrumbs from "../components/breadcrumbs";
+import Breadcrumbs from "../components/layout/breadcrumbs";
 
-import Hero from "../components/heroslider";
-import MusicPlayer from "../components/musicPlayer";
-import Relevance from "../components/relevance";
-import Videos from "../components/videos";
+import Hero from "../components/layout/heroslider";
+import MusicPlayer from "../components/ui/musicPlayer";
+import Relevance from "../components/ui/relevance";
+import Videos from "../components/ui/videos";
 
 import GalleryOne from "../components/galleries/galleryOne";
 import GalleryTwo from "../components/galleries/galleryTwo";
@@ -20,7 +20,7 @@ import GallerySix from "../components/galleries/gallerySix";
 import GallerySeven from "../components/galleries/gallerySeven";
 import GalleryEight from "../components/galleries/galleryEight";
 
-import * as styles from "../styles/modules/media.module.scss";
+import * as styles from "../styles/modules/pages/media.module.scss";
 
 const Media: React.FC<PageProps> = () => {
 	const breadcrumbs = [{ label: "Home", link: "/" }, { label: "Media" }];

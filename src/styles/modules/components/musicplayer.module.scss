@@ -1,0 +1,273 @@
+@use "sass:color";
+
+@use "../../customs" as *;
+
+.music-player {
+	.loading {
+		&-txt {
+			display: flex;
+			align-items: center;
+			margin-left: auto;
+			justify-content: flex-end;
+			font-family: "Bebas Neue", sans-serif;
+			font-size: 1.5rem;
+			gap: 0.5em;
+			line-height: normal;
+		}
+
+		&-btn {
+			@include button-style(
+				$white-color,
+				$tertiary-color,
+				$white-color,
+				$secondary-color
+			);
+
+			> i {
+				font-size: 1.375em;
+			}
+		}
+	}
+
+	.music-info {
+		display: flex;
+		flex-direction: column;
+
+		@media screen and ($large) {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			gap: 2em;
+			margin-bottom: 2em;
+		}
+
+		.album-cover {
+			margin-bottom: 1.5em;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			@media screen and ($large) {
+				margin-bottom: 0;
+			}
+
+			img {
+				width: 100%;
+				max-width: 250px;
+				height: auto;
+				object-fit: cover;
+				object-position: center;
+				border-radius: 5px;
+				padding: 1em 0;
+				box-shadow: 0 0 10px 0 rgba(255 255 255 / 10%);
+
+				@media screen and ($large) {
+					max-width: 100px;
+				}
+			}
+		}
+
+		.artist-info {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.title {
+			text-align: center;
+			font-size: 2rem;
+			margin-bottom: 0;
+		}
+
+		.sub-title {
+			text-align: center;
+			font-size: 1.25rem;
+		}
+	}
+
+	.controls {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 2em;
+		margin: 2em 0 0;
+
+		@media screen and ($large) {
+			margin: 0.5em 0 0;
+		}
+	}
+
+	.control {
+		&-button {
+			font-size: 3.25em;
+			color: $white-color;
+			background-color: transparent;
+			cursor: pointer;
+
+			@include base-transition(all);
+
+			&:hover {
+				color: color.adjust($tertiary-color, $lightness: 10%);
+			}
+
+			&:active {
+				color: color.adjust($tertiary-color, $lightness: 2.5%);
+			}
+		}
+
+		&-volume {
+			position: absolute;
+			right: 0;
+			bottom: 13.75em;
+			height: 0;
+
+			@media screen and ($large) {
+				display: none;
+			}
+
+			> button {
+				text-align: center;
+				margin: 0 auto;
+				font-size: 1.5em;
+				position: absolute;
+				right: 2em;
+				bottom: -3.75em;
+				padding-top: 1em;
+				width: 30px;
+				cursor: pointer;
+				color: inherit;
+				background-color: transparent;
+
+				&:hover {
+					svg {
+						color: color.adjust($tertiary-color, $lightness: 10%);
+					}
+				}
+			}
+
+			> span {
+				position: absolute;
+				right: 50%;
+				transform: translateX(50%);
+				bottom: 5.25em;
+				text-align: center;
+				opacity: 0;
+				display: inline-flex;
+				font-size: 0.9rem;
+				gap: 0.25em;
+
+				> small {
+					font-size: 70%;
+					color: color.adjust($tertiary-color, $lightness: 15%);
+				}
+			}
+
+			> input[type="range"] {
+				transform: rotate(270deg);
+				position: relative;
+				bottom: 22.5px;
+				outline: none;
+				opacity: 0;
+
+				@include base-transition(all);
+
+				&::-webkit-slider-runnable-track {
+					position: relative;
+					border-radius: 2px;
+					cursor: pointer;
+					background-color: $white-color;
+					height: 5px;
+				}
+
+				&::-webkit-slider-thumb {
+					margin-top: -5px;
+					border-radius: 50%;
+					width: 15px;
+					height: 15px;
+					background-color: color.adjust($tertiary-color, $lightness: 15%);
+					appearance: none;
+				}
+			}
+
+			&:hover {
+				> button {
+					color: color.adjust($tertiary-color, $lightness: 15%);
+				}
+
+				> span {
+					opacity: 1;
+				}
+
+				input[type="range"] {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.time {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 0.75em;
+		margin: 0.5em 0;
+
+		> span {
+			font-weight: 600;
+		}
+
+		> p {
+			font-size: 0.75rem;
+			color: $white-color;
+			text-align: center;
+			margin: 1em 0;
+		}
+
+		&line {
+			max-width: 100%;
+			padding: 0 0.5em;
+			margin-bottom: 1.5em;
+
+			@media screen and ($large) {
+				margin-bottom: 1em;
+			}
+
+			> input[type="range"] {
+				width: 100%;
+				height: 5px;
+				border-radius: 2px;
+				appearance: none;
+				background: color.adjust($white-color, $lightness: -10%);
+				cursor: pointer;
+
+				&::-webkit-slider-runnable-track {
+					z-index: 1;
+
+					&:hover {
+						outline: $tertiary-color;
+					}
+				}
+
+				&::-webkit-slider-thumb {
+					appearance: none;
+					width: 25px;
+					height: 25px;
+					background: color.adjust($white-color, $lightness: -5%);
+					outline: 1px solid rgba($lightgrey-color, 0.2);
+					border-radius: 50%;
+					z-index: 2;
+
+					&:hover {
+						background: color.adjust($tertiary-color, $lightness: 15%);
+					}
+
+					&:active {
+						background: color.adjust($tertiary-color, $lightness: 5%);
+					}
+				}
+			}
+		}
+	}
+}

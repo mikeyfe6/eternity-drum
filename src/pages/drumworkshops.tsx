@@ -6,12 +6,12 @@ import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 import { Seo } from "../components/seo";
 
-import Breadcrumbs from "../components/breadcrumbs";
+import Breadcrumbs from "../components/layout/breadcrumbs";
 
-import Hero from "../components/heroslider";
-import RegisterForm, { handleClick } from "../components/registerForm";
+import Hero from "../components/layout/heroslider";
+import RegisterForm, { handleClick } from "../components/forms/registerForm";
 
-import * as styles from "../styles/modules/workshop.module.scss";
+import * as styles from "../styles/modules/pages/workshop.module.scss";
 
 const Drumworkshops: React.FC<PageProps> = () => {
 	const { email, mobileRaw } = useSiteMetadata();

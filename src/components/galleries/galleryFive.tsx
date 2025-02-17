@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from "gatsby";
 
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { SwiperOptions } from 'swiper/types';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { SwiperOptions } from "swiper/types";
 import {
 	Navigation,
 	Pagination,
@@ -15,17 +15,17 @@ import {
 	Autoplay,
 	FreeMode,
 	Thumbs,
-} from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/thumbs';
-import 'swiper/css/free-mode';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import 'swiper/css/parallax';
-import 'swiper/css/autoplay';
+} from "swiper/modules";
+import "swiper/css";
+import "swiper/css/thumbs";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/parallax";
+import "swiper/css/autoplay";
 
-import * as styles from '../../styles/modules/gallery.module.scss';
+import * as styles from "../../styles/modules/components/gallery.module.scss";
 
 type ImageType = {
 	title: string;
@@ -71,7 +71,7 @@ const GalleryFive: React.FC = () => {
 	useEffect(() => {
 		if (data?.allS3ImageFile) {
 			const fetchedImages = data.allS3ImageFile.edges.map((edge: any) => ({
-				title: edge.node.title || '',
+				title: edge.node.title || "",
 				imageData: getImage(edge.node.file.childImageSharp),
 			}));
 			setImages(fetchedImages);
@@ -80,7 +80,7 @@ const GalleryFive: React.FC = () => {
 
 	const onAutoplayTimeLeft = (s: any, time: any, progress: any) => {
 		progressCircle.current?.style.setProperty(
-			'--progress',
+			"--progress",
 			String(1 - progress)
 		);
 		if (progressContent.current) {
@@ -90,12 +90,12 @@ const GalleryFive: React.FC = () => {
 
 	const openLightbox = (imageData: any) => {
 		setLightboxImage(imageData);
-		document.body.style.overflow = 'hidden';
+		document.body.style.overflow = "hidden";
 	};
 
 	const closeLightbox = () => {
 		setLightboxImage(null);
-		document.body.style.overflow = 'visible';
+		document.body.style.overflow = "visible";
 	};
 
 	return (
@@ -130,24 +130,26 @@ const GalleryFive: React.FC = () => {
 					draggable: true,
 				}}
 				onAutoplayTimeLeft={onAutoplayTimeLeft}
-				className={styles.swiperWrapper}>
+				className={styles.swiperWrapper}
+			>
 				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideTop}>
 						<div
 							onClick={() => openLightbox(image.imageData)}
 							onKeyDown={(event) => {
-								if (event.key === 'Enter') {
+								if (event.key === "Enter") {
 									openLightbox(image.imageData);
 								}
-							}}>
+							}}
+						>
 							<GatsbyImage image={image.imageData} alt={image.title} />
 						</div>
 					</SwiperSlide>
 				))}
 
-				<div className={styles.autoplayProgress} slot='container-end'>
-					<svg viewBox='0 0 48 48' ref={progressCircle}>
-						<circle cx='24' cy='24' r='20'></circle>
+				<div className={styles.autoplayProgress} slot="container-end">
+					<svg viewBox="0 0 48 48" ref={progressCircle}>
+						<circle cx="24" cy="24" r="20"></circle>
 					</svg>
 					<span ref={progressContent} hidden></span>
 				</div>
@@ -168,7 +170,8 @@ const GalleryFive: React.FC = () => {
 				}}
 				freeMode={true}
 				watchSlidesProgress={true}
-				modules={[FreeMode, Navigation, Thumbs]}>
+				modules={[FreeMode, Navigation, Thumbs]}
+			>
 				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideBottom}>
 						<GatsbyImage image={image.imageData} alt={image.title} />
@@ -181,7 +184,7 @@ const GalleryFive: React.FC = () => {
 					<div className={styles.lightboxContent}>
 						<GatsbyImage
 							image={lightboxImage}
-							alt='African Diaspora Performing Arts Festival - 10 November 2019'
+							alt="African Diaspora Performing Arts Festival - 10 November 2019"
 							className={styles.lightboxImage}
 							onClick={(e) => e.stopPropagation()}
 						/>

@@ -1,0 +1,7 @@
+@use "../../customs" as *;
+
+.sidebar-container {
+	background-color: $paper-color;
+	padding: 1em;
+	margin: 2em 0;
+}

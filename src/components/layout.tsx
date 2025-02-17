@@ -56,10 +56,10 @@ library.add(
 	faCaretDown
 );
 
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "../components/layout/header";
+import Footer from "../components/layout/footer";
 
-import MobileMenu from "./mobileMenu";
+import MobileMenu from "./layout/mobileMenu";
 
 import ResponsiveTag from "./helpers/respoTag";
 

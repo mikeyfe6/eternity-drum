@@ -1,0 +1,10 @@
+@use "../../customs" as *;
+
+.notfound-button {
+	@include button-style(
+		$primary-color,
+		$white-color,
+		$primary-color,
+		$secondary-color
+	);
+}

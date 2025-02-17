@@ -4,6 +4,34 @@
 @use "fonts" as *;
 @use "mediaqueries" as *;
 
+// LAYOUT
+
+@mixin ep-wrapper {
+	max-width: 1800px;
+	margin: 0 auto;
+	width: 100%;
+}
+
+// SPACING
+
+@mixin full-width($position: relative) {
+	width: 100vw;
+	position: $position;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+}
+
+@mixin resp-image($width, $maxWidth, $height, $objectFit) {
+	width: $width;
+	max-width: $maxWidth;
+	height: $height;
+	object-fit: $objectFit;
+}
+
+// COMPONENTS
+
 @mixin button-style($bgColor, $color, $hoverBgcolor, $hoverColor) {
 	background-color: $bgColor;
 	color: $color;
@@ -43,6 +71,8 @@
 	}
 }
 
+// UTILITIES
+
 @mixin box-shadow {
 	box-shadow: rgba(0 0 0 / 12%) 0 1px 3px, rgba(0 0 0 / 24%) 0 1px 2px;
 }
@@ -53,28 +83,6 @@
 
 @mixin base-transition($element, $time: 0.1s) {
 	transition: $element $time ease-in-out;
-}
-
-@mixin full-width($position: relative) {
-	width: 100vw;
-	position: $position;
-	left: 50%;
-	right: 50%;
-	margin-left: -50vw;
-	margin-right: -50vw;
-}
-
-@mixin resp-image($width, $maxWidth, $height, $objectFit) {
-	width: $width;
-	max-width: $maxWidth;
-	height: $height;
-	object-fit: $objectFit;
-}
-
-@mixin ep-wrapper {
-	max-width: 1800px;
-	margin: 0 auto;
-	width: 100%;
 }
 
 @mixin page-link {

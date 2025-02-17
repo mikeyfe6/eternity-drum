@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import { Link, HeadFC, PageProps } from 'gatsby';
+import { Link, HeadFC, PageProps } from "gatsby";
 
-import { Seo } from '../components/seo';
+import { Seo } from "../components/seo";
 
-import * as styles from '../styles/modules/notfound.module.scss';
+import * as styles from "../styles/modules/pages/notfound.module.scss";
 
 const NotFound: React.FC<PageProps> = () => {
 	return (
@@ -14,7 +14,7 @@ const NotFound: React.FC<PageProps> = () => {
 				We hebben ons best gedaan, maar het lijkt erop dat deze pagina niet
 				(meer) bestaat of misschien verhuisd is.
 				<br />
-				{process.env.NODE_ENV === 'development' ? (
+				{process.env.NODE_ENV === "development" ? (
 					<>
 						<br />
 						Try creating a page in <code>src/pages/</code>.
@@ -22,8 +22,8 @@ const NotFound: React.FC<PageProps> = () => {
 					</>
 				) : null}
 				<br />
-				<button type='button' className={styles.notfoundButton}>
-					<Link to='/'>Ga terug naar de homepagina..</Link>
+				<button type="button" className={styles.notfoundButton}>
+					<Link to="/">Ga terug naar de homepagina..</Link>
 				</button>
 			</p>
 		</section>
@@ -33,5 +33,5 @@ const NotFound: React.FC<PageProps> = () => {
 export default NotFound;
 
 export const Head: HeadFC = () => (
-	<Seo title='Pagina niet gevonden!' pathname='/404/' />
+	<Seo title="Pagina niet gevonden!" pathname="/404/" />
 );
