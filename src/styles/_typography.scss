@@ -1,24 +1,64 @@
+@use "sass:color";
+
 @use "./customs" as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: rem-calc(8);
+	letter-spacing: 0.5px;
+}
 
 h1 {
 	font-family: $bebas-neue;
-	font-size: rem-calc(44);
+	font-size: rem-calc(36);
 
-	@include tablet {
-		font-size: rem-calc(60);
+	@include mobile {
+		font-size: rem-calc(48);
 	}
 
-	// @media screen and ($massive) {
-	// 	font-size: 4.5rem;
-	// }
+	@include massive {
+		font-size: rem-calc(64);
+	}
 
-	// @media screen and ($medium) {
-	// 	font-size: 4rem;
-	// }
+	section[data-main-section] & {
+		border-radius: $border-radius-sm;
+		color: $white-color;
+		padding: 0.1em 0.5em 0;
+		background: linear-gradient(
+			45deg,
+			$primary-color,
+			color.scale($primary-color, $lightness: 5%)
+		);
+		box-shadow: -5px 5px 10px -5px rgba(0 0 0 / 10%);
+		max-width: 100%;
+		text-align: center;
+		width: 100%;
 
-	// @media screen and ($small) {
-	// 	font-size: 2.75rem;
-	// }
+		@include phablet {
+			width: fit-content;
+		}
+
+		@include laptop {
+			max-width: 30ch;
+		}
+
+		@include desktop {
+			max-width: 33ch;
+			width: fit-content;
+		}
+
+		@include massive {
+			max-width: 40ch;
+		}
+	}
+
+	#post-template & {
+		max-width: 100%;
+	}
 }
 
 h2 {
@@ -47,16 +87,6 @@ h4 {
 h5 {
 	font-size: 1.1rem;
 	font-weight: 400;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin-bottom: 0.5em;
-	letter-spacing: 0.5px;
 }
 
 p {

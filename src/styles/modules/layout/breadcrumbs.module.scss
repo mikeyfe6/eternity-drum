@@ -6,25 +6,24 @@
 	$breadcrumbs: &;
 
 	max-width: 100%;
-	position: absolute;
-	right: 0;
-	top: 0;
 	margin-left: auto;
+	position: static;
+	width: fit-content;
+	margin-bottom: rem-calc(32);
 
-	#post-template & {
-		position: static;
+	@include mobile {
+		margin-bottom: rem-calc(24);
 	}
 
-	@media screen and ($extra-large) {
-		position: static;
-		width: fit-content;
-		margin-bottom: 1.5em;
+	@include laptop {
+		position: absolute;
+		right: 0;
+		top: 0;
 	}
 
 	&-list {
 		display: flex;
 		align-items: center;
-		gap: 15px;
 		background: linear-gradient(
 			45deg,
 			$primary-color,
@@ -32,16 +31,16 @@
 		);
 		width: fit-content;
 		white-space: nowrap;
-		padding: 0.5em 1em 0.6em;
-		border-radius: 5px;
+		border-radius: $border-radius-sm;
 		margin-left: auto;
+		padding: rem-calc(8 16);
+		gap: rem-calc(10);
 
 		@include box-shadow;
 
-		@media screen and ($small) {
-			padding: 0.25em 0.75em 0.325em;
-			margin-bottom: 17.5px;
-			gap: 10px;
+		@include mobile {
+			gap: rem-calc(16);
+			padding: rem-calc(10 16);
 		}
 
 		#{$breadcrumbs}-item {
@@ -49,42 +48,33 @@
 
 			> a {
 				color: $white-color;
-				vertical-align: baseline;
 
-				@media screen and ($small) {
-					font-size: 0.75rem;
-				}
+				@include fluid-typing(14, 16);
 
 				&:hover {
 					color: color.adjust($tertiary-color, $lightness: 15%);
 				}
 
 				#{$breadcrumbs}-home {
-					font-size: 1em;
 					color: $white-color;
-					vertical-align: -0.25px;
-					margin-right: 0.25em;
+
+					@include fluid-typing(16, 20);
 
 					&:hover {
 						color: color.adjust($tertiary-color, $lightness: 15%);
-					}
-
-					@media screen and ($small) {
-						font-size: 1.125em;
 					}
 				}
 			}
 
 			#{$breadcrumbs}-seperator {
-				font-size: 0.75rem;
-				margin-left: 1em;
+				margin-left: rem-calc(16);
 				color: $white-color;
-				vertical-align: baseline;
+				vertical-align: 0;
 
-				@media screen and ($small) {
-					margin-left: 1em;
-					font-size: 0.625rem;
-					vertical-align: 0;
+				@include fluid-typing(12, 14);
+
+				@include mobile {
+					vertical-align: baseline;
 				}
 			}
 
@@ -95,9 +85,7 @@
 				text-overflow: ellipsis;
 				font-weight: 600;
 
-				@media screen and ($small) {
-					font-size: 0.75rem;
-				}
+				@include fluid-typing(14, 16);
 			}
 		}
 	}

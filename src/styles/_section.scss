@@ -6,32 +6,6 @@ section {
 	&[data-main-section] {
 		position: relative;
 
-		> h1 {
-			border-radius: 5px;
-			color: $white-color;
-			padding: 0.0875em 0.25em 0;
-			background: linear-gradient(
-				45deg,
-				$primary-color,
-				color.scale($primary-color, $lightness: 5%)
-			);
-			box-shadow: -5px 5px 10px -5px rgba(0 0 0 / 10%);
-			max-width: 25ch;
-			width: fit-content;
-
-			@media screen and ($massive) {
-				max-width: 20ch;
-			}
-
-			@media screen and ($extra-large) {
-				max-width: 20ch;
-			}
-
-			@media screen and ($extra-large) {
-				max-width: 100%;
-			}
-		}
-
 		&#post-template {
 			> h1 {
 				max-width: 100%;

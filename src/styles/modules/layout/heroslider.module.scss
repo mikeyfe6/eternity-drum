@@ -2,29 +2,33 @@
 
 .swiper {
 	&-container {
-		width: 100%;
-		margin-bottom: 1.5em;
+		margin-bottom: rem-calc(16);
 
-		@media screen and ($small) {
-			margin-bottom: 1em;
+		@include full-width;
 
-			@include full-width;
+		@include mobile {
+			margin-bottom: rem-calc(24);
+			width: 100%;
+			position: static;
+			margin-left: auto;
+			margin-right: auto;
+			left: auto;
+			right: auto;
 		}
 
 		.autoplay-progress {
 			position: absolute;
-			right: 16px;
-			bottom: 16px;
 			z-index: 1;
-			width: 48px;
-			height: 48px;
+			right: rem-calc(16);
+			bottom: rem-calc(16);
+			width: rem-calc(32);
+			height: rem-calc(32);
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			font-weight: bold;
 			opacity: 0.875;
 			color: var(--swiper-theme-color-text);
-			transform: scale(0.875);
 
 			@media screen and ($small) {
 				transform: scale(0.5);
@@ -50,12 +54,12 @@
 	}
 
 	&-wrapper {
-		border-radius: $border-radius-md;
+		border-radius: 0;
 
 		@include ep-wrapper;
 
-		@media screen and ($small) {
-			border-radius: 0;
+		@include mobile {
+			border-radius: $border-radius-md;
 		}
 	}
 
@@ -63,62 +67,55 @@
 		opacity: 0.75;
 
 		img {
-			max-height: 637.5px;
 			object-position: center 25%;
+			max-height: rem-calc(237.5);
 
-			@media screen and ($tothemoon) {
-				max-height: 637.5px;
+			@include mini {
+				max-height: rem-calc(275);
 			}
 
-			@media screen and ($massive) {
-				max-height: 600px;
+			@include compact {
+				max-height: rem-calc(325);
 			}
 
-			@media screen and ($super-sized) {
-				max-height: 550px;
+			@include mobile {
+				max-height: rem-calc(375);
 			}
 
-			@media screen and ($extra-large) {
-				max-height: 450px;
+			@include phablet {
+				max-height: rem-calc(425);
 			}
 
-			@media screen and ($large) {
-				max-height: 400px;
+			@include tablet {
+				max-height: rem-calc(475);
 			}
 
-			@media screen and ($medium) {
-				max-height: 300px;
+			@include laptop {
+				max-height: rem-calc(525);
 			}
 
-			@media screen and ($small) {
-				max-height: 275px;
-				border-radius: 0;
+			@include desktop {
+				max-height: rem-calc(575);
 			}
 
-			@media screen and ($extra-small) {
-				max-height: 267.5px;
+			@include wide {
+				max-height: rem-calc(625);
 			}
 
-			@media screen and ($super-small) {
-				max-height: 250px;
-			}
-
-			@media screen and ($heavy-small) {
-				max-height: 225px;
-			}
-
-			@media screen and ($ultra-small) {
-				max-height: 200px;
+			@include massive {
+				max-height: rem-calc(637.5);
 			}
 		}
 	}
 
 	&-slide {
-		border-radius: $border-radius-md;
 		overflow: hidden;
+		border-radius: 0;
 
-		@media screen and ($small) {
-			border-radius: 0;
+		@include ep-wrapper;
+
+		@include mobile {
+			border-radius: $border-radius-md;
 		}
 	}
 }
