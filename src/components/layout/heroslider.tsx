@@ -68,6 +68,7 @@ const Hero: React.FC = () => {
 							placeholder="blurred"
 							style={{ width: "100%" }}
 							objectPosition="50% 10%"
+							loading="eager"
 						/>
 					</div>
 				</SwiperSlide>
@@ -79,6 +80,7 @@ const Hero: React.FC = () => {
 							placeholder="blurred"
 							style={{ width: "100%" }}
 							objectPosition="50% 20%"
+							loading="eager"
 						/>
 					</div>
 				</SwiperSlide>
@@ -89,6 +91,7 @@ const Hero: React.FC = () => {
 							alt={`ADPAF 2024`}
 							placeholder="blurred"
 							style={{ width: "100%" }}
+							loading="eager"
 						/>
 					</div>
 				</SwiperSlide>
@@ -100,6 +103,7 @@ const Hero: React.FC = () => {
 							placeholder="blurred"
 							style={{ width: "100%" }}
 							objectPosition="50% 10%"
+							loading="eager"
 						/>
 					</div>
 				</SwiperSlide>
@@ -110,6 +114,7 @@ const Hero: React.FC = () => {
 							alt={`Next on Stage 2024`}
 							placeholder="blurred"
 							style={{ width: "100%" }}
+							loading="eager"
 						/>
 					</div>
 				</SwiperSlide>
@@ -121,6 +126,7 @@ const Hero: React.FC = () => {
 							placeholder="blurred"
 							style={{ width: "100%" }}
 							objectPosition="50% 15%"
+							loading="eager"
 						/>
 					</div>
 				</SwiperSlide>
@@ -131,6 +137,7 @@ const Hero: React.FC = () => {
 							alt={`Untold Drumfestival`}
 							placeholder="blurred"
 							style={{ width: "100%" }}
+							loading="eager"
 						/>
 					</div>
 				</SwiperSlide>
