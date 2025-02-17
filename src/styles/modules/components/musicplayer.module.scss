@@ -186,7 +186,8 @@
 					border-radius: 50%;
 					width: 15px;
 					height: 15px;
-					background-color: color.adjust($tertiary-color, $lightness: 15%);
+					filter: brightness(0) saturate(100%) invert(75%) sepia(47%)
+						saturate(5920%) hue-rotate(199deg) brightness(94%) contrast(94%);
 					appearance: none;
 				}
 			}

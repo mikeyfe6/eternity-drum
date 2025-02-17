@@ -4,7 +4,11 @@
 
 .registerform {
 	&-wrapper {
-		background-color: $primary-color;
+		background: linear-gradient(
+			45deg,
+			$primary-color,
+			color.scale($primary-color, $lightness: 5%)
+		);
 		color: $white-color;
 		padding: 1.5em 2em;
 		border-radius: 10px;

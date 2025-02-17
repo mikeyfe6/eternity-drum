@@ -3,11 +3,11 @@
 @use "sass:color";
 
 @use "./customs" as *;
+@use "resets";
 @use "base";
 @use "content";
 @use "forms";
 @use "globals";
-@use "resets";
 @use "section";
 @use "swiper";
 @use "typography";
