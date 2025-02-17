@@ -36,6 +36,7 @@
 			max-height: 0;
 			overflow: hidden;
 			position: absolute;
+			border: 2px solid $primary-color;
 			top: 100%;
 			left: 0;
 			width: 100%;
@@ -74,9 +75,6 @@
 
 			&.open {
 				max-height: fit-content;
-				border-bottom: 2px solid $primary-color;
-				border-left: 2px solid $primary-color;
-				border-right: 2px solid $primary-color;
 
 				&:has(iframe) {
 					padding: rem-calc(12);
