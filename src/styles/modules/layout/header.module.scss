@@ -82,14 +82,14 @@
 
 		&::before,
 		&::after {
-			content: "●";
-			display: block;
-			color: $secondary-color;
-			font-size: rem-calc(24);
-			margin-bottom: rem-calc(10);
+			display: none;
 
-			@media screen and ($ultra-sized) {
-				display: none;
+			@include massive {
+				content: "●";
+				display: block;
+				color: $secondary-color;
+				font-size: rem-calc(24);
+				margin-bottom: rem-calc(7.5);
 			}
 		}
 
@@ -178,7 +178,7 @@
 				justify-content: center;
 				padding: 0;
 				margin: 0;
-				gap: rem-calc(16);
+				gap: rem-calc(12);
 			}
 
 			> li {
@@ -195,7 +195,7 @@
 					}
 
 					&:not(.logo-wrapper) {
-						padding: rem-calc(8 16 6);
+						padding: rem-calc(10 14 8);
 					}
 
 					&:hover:not(.logo-wrapper, .active-menu-item) {

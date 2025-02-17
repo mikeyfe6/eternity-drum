@@ -17,7 +17,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 	const [isSubMenu3Open, setIsSubMenu3Open] = useState(false);
 	const [isSubMenu4Open, setIsSubMenu4Open] = useState(false);
 
-	const menuClass = isOpen
+	const mobileMenuClass = isOpen
 		? `${styles.mobileMenu} ${styles.open}`
 		: `${styles.mobileMenu} ${styles.close}`;
 
@@ -42,12 +42,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
 	};
 
 	return (
-		<nav className={menuClass}>
-			<div className={styles.closeWrapper} onClick={closeMenu}>
-				<div className={styles.closeCross}>
-					<div className={styles.crossLine} />
-					<div className={styles.crossLine} />
-				</div>
+		<nav className={mobileMenuClass}>
+			<div className={styles.closeButton} onClick={closeMenu}>
+				<div className={styles.closeButtonBar} />
+				<div className={styles.closeButtonBar} />
 			</div>
 			<ul>
 				<li>

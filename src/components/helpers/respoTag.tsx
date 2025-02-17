@@ -14,7 +14,7 @@ const ResponsiveTag: FC = () => {
 		{ size: 64, label: "Tablet View" },
 		{ size: 76, label: "Laptop View" },
 		{ size: 90, label: "Desktop View" },
-		{ size: 120, label: "Wide View" },
+		{ size: 100, label: "Wide View" },
 		{ size: Infinity, label: "Massive View" },
 	];
 

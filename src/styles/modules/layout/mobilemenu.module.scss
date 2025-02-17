@@ -1,11 +1,11 @@
 @use "../../customs" as *;
 
 .mobile-menu {
-	width: 400px;
 	position: fixed;
 	top: 0;
-	left: -400px;
 	height: 100%;
+	width: rem-calc(325);
+	left: rem-calc(-325);
 	background-color: rgba($primary-color, 75%);
 	border-right: 3px solid rgba($tertiary-color, 0.3);
 	overflow-x: hidden;
@@ -13,47 +13,46 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: rem-calc(64 32);
 
 	@include box-shadow;
 
-	@media screen and ($small) {
-		width: 325px;
-		left: -325px;
+	@include mobile {
+		width: rem-calc(400);
+		left: rem-calc(-400);
 	}
 
 	.close {
-		&-wrapper {
+		&-button {
 			position: absolute;
-			width: 35px;
-			height: 35px;
-			top: 20px;
-			right: 20px;
-			padding: 1em;
+			width: rem-calc(35);
+			height: rem-calc(35);
+			top: rem-calc(20);
+			right: rem-calc(20);
+			padding: rem-calc(16);
 			background-color: $white-color;
-			border-radius: 3px;
+			border-radius: $border-radius-sm;
 			z-index: 7;
 			cursor: pointer;
 
 			@media screen and ($small) {
 				transform: scale(0.875);
 			}
-		}
 
-		&-cross {
-			.cross-line {
-				top: 5px;
-				right: 16px;
-				width: 3px;
-				height: 25px;
+			&-bar {
+				top: rem-calc(5);
+				right: rem-calc(16);
+				width: rem-calc(3);
+				height: rem-calc(25);
 				position: absolute;
 				background-color: $primary-color;
-				border-radius: 25px;
+				border-radius: $border-radius-3xl;
 				transform: rotate(45deg);
 				transition: transform 0.3s ease-in-out;
-			}
 
-			.cross-line:first-child {
-				transform: rotate(-45deg);
+				&:first-child {
+					transform: rotate(-45deg);
+				}
 			}
 		}
 	}
@@ -65,68 +64,61 @@
 		width: 100%;
 
 		> li {
-			padding: 1em 0;
+			padding: rem-calc(12 0);
 			font-family: $bebas-neue;
 			position: relative;
 
-			@media screen and ($landscape) and ($large) {
-				padding: 0.375em 0;
-			}
-
-			@media screen and ($small) {
-				padding: 0.75em 0;
+			@include mobile {
+				padding: rem-calc(16 0);
 			}
 
 			> a {
 				text-decoration: none;
 				color: $white-color;
-				font-size: 1.5rem;
+				font-size: rem-calc(20);
 				letter-spacing: 1px;
+
+				@include mobile {
+					font-size: rem-calc(24);
+				}
 
 				&.special {
 					color: $white-color;
 					background-color: $tertiary-color;
-					padding: 0.375em 0.5em;
-					margin-left: -0.125em;
+					padding: rem-calc(6 8);
+					margin-left: rem-calc(-2);
 
 					&.active-menu-item {
 						color: $secondary-color;
 						background-color: $tertiary-color;
 					}
 				}
-
-				@media screen and ($landscape) and ($large) {
-					font-size: 1.125rem;
-				}
-
-				@media screen and ($small) {
-					font-size: 1.25rem;
-					left: -300px;
-				}
 			}
 
 			> button {
-				font-size: 1.25rem;
+				font-size: rem-calc(16);
 				background-color: $white-color;
-				color: $tertiary-color;
-				width: 25px;
-				height: 25px;
+				color: rgba($primary-color, 75%);
+				width: rem-calc(20);
+				height: rem-calc(20);
 				text-align: center;
-				border-radius: 50%;
+				border-radius: $border-radius-xs;
 				position: absolute;
-				top: 21px;
+				top: rem-calc(16);
+				padding: 0;
 				right: 0;
 				cursor: pointer;
 
-				@media screen and ($landscape) and ($large) {
-					top: 7px;
+				svg {
+					vertical-align: unset;
+					height: -webkit-fill-available;
 				}
 
-				@media screen and ($small) {
-					top: 15px;
-					width: 20px;
-					height: 20px;
-					padding: 0;
+				@include mobile {
+					border-radius: $border-radius-sm;
+					top: rem-calc(20);
+					width: rem-calc(24);
+					height: rem-calc(24);
 				}
 			}
 
@@ -139,42 +131,33 @@
 
 				> ul {
 					width: 100%;
-					margin-top: 0.5em;
-					transition: all 0.3s ease-in-out;
+					margin-top: rem-calc(4);
 					list-style-type: square;
 					list-style-position: inside;
 
-					@media screen and ($small) {
-						margin-top: 0.25em;
+					@include mobile {
+						margin-top: rem-calc(8);
 					}
 
 					> li {
-						padding: 0.5em;
+						padding: rem-calc(8 0 2);
+
+						@include mobile {
+							padding: rem-calc(8);
+						}
 
 						&::marker {
 							color: $tertiary-color;
 						}
 
-						@media screen and ($landscape) and ($large) {
-							padding: 0.25em;
-						}
-
-						@media screen and ($small) {
-							padding: 1em 0 0.25em;
-						}
-
 						> a {
 							text-decoration: none;
 							color: $white-color;
-							font-size: 1.3rem;
+							font-size: rem-calc(20);
 							letter-spacing: 0.5px;
 
-							@media screen and ($small) {
-								font-size: 1.125rem;
-							}
-
-							@media screen and ($landscape) and ($large) {
-								font-size: 1.125rem;
+							@include mobile {
+								font-size: rem-calc(24);
 							}
 						}
 					}
@@ -185,21 +168,20 @@
 
 	&.open {
 		left: 0;
-		padding: 2em;
-		transition: left 0.5s ease;
+		transition: left 0.3s ease;
 	}
 
 	&.close {
-		left: -400px;
-		transition: left 0.5s ease;
+		transition: left 0.3s ease;
+		left: rem-calc(-325);
 
-		@media screen and ($small) {
-			left: -325px;
+		@include mobile {
+			left: rem-calc(-400);
 		}
 
-		> ul > li > i {
+		.close-button,
+		> ul {
 			display: none;
-			transition: display 0.3s ease;
 		}
 	}
 }
