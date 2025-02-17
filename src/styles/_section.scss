@@ -8,17 +8,17 @@ section {
 
 		> h1 {
 			border-radius: 5px;
-			color: $primary-color;
+			color: $white-color;
 			padding: 0.0875em 0.25em 0;
 			background: linear-gradient(
-				45deg,
-				color.scale($secondary-color, $lightness: 12.5%),
-				color.scale($secondary-color, $lightness: 50%),
-				color.scale($secondary-color, $lightness: 87.5%),
-				$white-color
+				-45deg,
+				color.scale($primary-color, $lightness: 0%),
+				color.scale($primary-color, $lightness: 12.5%),
+				color.scale($primary-color, $lightness: 15%)
 			);
 			box-shadow: -5px 5px 10px -5px rgba(0 0 0 / 10%);
 			max-width: 25ch;
+			width: fit-content;
 
 			@media screen and ($massive) {
 				max-width: 20ch;

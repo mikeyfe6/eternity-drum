@@ -95,17 +95,8 @@
 
 				@include box-bottom-shadow;
 
-				ul > li > ul > li {
-					border-right: 1px solid color.adjust($trans-grey, $alpha: -0.75);
-					border-left: 1px solid color.adjust($trans-grey, $alpha: -0.75);
-
-					&:last-child {
-						border-bottom: 1px solid color.adjust($trans-grey, $alpha: -0.75);
-					}
-				}
-
 				ul > li > ul {
-					padding-top: 20px;
+					padding-top: 24px;
 				}
 			}
 
@@ -309,6 +300,9 @@
 						box-shadow: rgba(17 17 26 / 10%) 0 1px 0;
 						min-width: 100%;
 						white-space: nowrap;
+						border-right: 8px solid $white-color;
+						border-bottom: 8px solid $white-color;
+						border-left: 8px solid $white-color;
 
 						> li {
 							> a {
