@@ -80,6 +80,10 @@
 	padding: 1.5em;
 	text-align: center;
 
+	> iframe:not(:last-child) {
+		margin-bottom: rem-calc(16);
+	}
+
 	@include box-shadow;
 
 	@media screen and ($small) {

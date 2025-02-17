@@ -12,41 +12,40 @@ const Actualiteiten: React.FC = () => {
 	const [activeButton, setActiveButton] = useState<number>(0);
 	const openContentRef = useRef<HTMLDivElement | null>(null);
 
-	const { sankofaB, sankofaF, rotpF, rotpB, wijkImpOne, wijkImpTwo } =
-		useStaticQuery(graphql`
-			query {
-				sankofaB: file(relativePath: { eq: "sankofa-2.jpg" }) {
-					childImageSharp {
-						gatsbyImageData
-					}
+	const { sankofaB, sankofaF, rotpF, rotpB } = useStaticQuery(graphql`
+		query {
+			sankofaB: file(relativePath: { eq: "sankofa-2.jpg" }) {
+				childImageSharp {
+					gatsbyImageData
 				}
-				sankofaF: file(relativePath: { eq: "sankofa-1.jpg" }) {
-					childImageSharp {
-						gatsbyImageData
-					}
-				}
-				rotpF: file(relativePath: { eq: "rotp-front.jpeg" }) {
-					childImageSharp {
-						gatsbyImageData
-					}
-				}
-				rotpB: file(relativePath: { eq: "rotp-back.jpeg" }) {
-					childImageSharp {
-						gatsbyImageData
-					}
-				}
-				# wijkImpOne: file(relativePath: { eq: "wijkimpuls-190424.jpg" }) {
-				# 	childImageSharp {
-				# 		gatsbyImageData
-				# 	}
-				# }
-				# wijkImpTwo: file(relativePath: { eq: "wijkimpuls-260424.jpg" }) {
-				# 	childImageSharp {
-				# 		gatsbyImageData
-				# 	}
-				# }
 			}
-		`);
+			sankofaF: file(relativePath: { eq: "sankofa-1.jpg" }) {
+				childImageSharp {
+					gatsbyImageData
+				}
+			}
+			rotpF: file(relativePath: { eq: "rotp-front.jpeg" }) {
+				childImageSharp {
+					gatsbyImageData
+				}
+			}
+			rotpB: file(relativePath: { eq: "rotp-back.jpeg" }) {
+				childImageSharp {
+					gatsbyImageData
+				}
+			}
+			# wijkImpOne: file(relativePath: { eq: "wijkimpuls-190424.jpg" }) {
+			# 	childImageSharp {
+			# 		gatsbyImageData
+			# 	}
+			# }
+			# wijkImpTwo: file(relativePath: { eq: "wijkimpuls-260424.jpg" }) {
+			# 	childImageSharp {
+			# 		gatsbyImageData
+			# 	}
+			# }
+		}
+	`);
 
 	const sankofaBack = sankofaB.childImageSharp.gatsbyImageData;
 	const sankofaFront = sankofaF.childImageSharp.gatsbyImageData;
@@ -57,45 +56,40 @@ const Actualiteiten: React.FC = () => {
 	// const wijkImpulsOne = wijkImpOne.childImageSharp.gatsbyImageData;
 	// const wijkImpulsTwo = wijkImpTwo.childImageSharp.gatsbyImageData;
 
-	const updateHeight = () => {
+	const setCollapsibleMarginBottom = () => {
 		const element = openContentRef.current;
 		if (element) {
 			const height = element.clientHeight;
-			const collapsibleDivs = document.querySelectorAll(
+			const collapsibleContainers = document.querySelectorAll(
 				`.${styles.collapsible}`
 			);
-			collapsibleDivs.forEach((collapsibleDiv) => {
-				const div = collapsibleDiv as HTMLElement;
-				div.style.marginBottom = `${height}px`;
+
+			collapsibleContainers.forEach((container) => {
+				const containerDiv = container as HTMLElement;
+				containerDiv.style.marginBottom = `${height}px`;
 			});
 		}
 	};
 
 	useEffect(() => {
-		updateHeight();
+		setCollapsibleMarginBottom();
 
-		const resizeListener = () => {
-			updateHeight();
+		const handleResize = () => {
+			setCollapsibleMarginBottom();
 		};
 
-		const observer = new MutationObserver(resizeListener);
-		observer.observe(document.body, { subtree: true, childList: true });
-
-		window.addEventListener("resize", resizeListener);
-		window.addEventListener("DOMContentLoaded", resizeListener);
-		window.addEventListener("load", resizeListener);
-		document.addEventListener("readystatechange", resizeListener);
-
+		window.addEventListener("resize", handleResize);
 		return () => {
-			window.removeEventListener("resize", resizeListener);
-			window.removeEventListener("DOMContentLoaded", resizeListener);
-			window.removeEventListener("load", resizeListener);
-			document.removeEventListener("readystatechange", resizeListener);
+			window.removeEventListener("resize", handleResize);
 		};
 	}, []);
 
 	const toggleCollapsible = (index: number) => {
 		setActiveButton((prevIndex) => (prevIndex === index ? prevIndex : index));
+
+		setTimeout(() => {
+			setCollapsibleMarginBottom();
+		}, 100);
 	};
 
 	const buttons = [
@@ -236,8 +230,8 @@ const Actualiteiten: React.FC = () => {
 	];
 
 	return (
-		<section>
-			<h2 style={{ textAlign: "center" }}>Actualiteiten</h2>
+		<section className={styles.actual}>
+			<h2>Actualiteiten</h2>
 			<div className={styles.collapsible}>
 				{buttons.map((button, index) => {
 					const isButtonActive = activeButton === index;
@@ -248,11 +242,9 @@ const Actualiteiten: React.FC = () => {
 							key={`button-${index}`}
 							className={styles.collapsibleContainer}
 						>
-							<div className={styles.collapsibleBtns}>
+							<div className={styles.collapsibleButton}>
 								<button
-									onClick={(e: MouseEvent<HTMLButtonElement>) =>
-										toggleCollapsible(index)
-									}
+									onClick={() => toggleCollapsible(index)}
 									className={isButtonActive ? styles.activeButton : ""}
 									style={{ cursor: "pointer" }}
 								>
@@ -260,7 +252,7 @@ const Actualiteiten: React.FC = () => {
 								</button>
 							</div>
 							<div
-								className={`${styles.content} ${
+								className={`${styles.collapsibleItem} ${
 									isButtonActive ? styles.open : ""
 								}`}
 								ref={(el) => {

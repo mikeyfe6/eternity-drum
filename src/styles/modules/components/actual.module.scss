@@ -2,183 +2,193 @@
 
 @use "../../customs" as *;
 
-.collapsible {
-	position: relative;
-	display: flex;
-	justify-content: space-evenly;
-	gap: rem-calc(15);
-	background: linear-gradient(
-		45deg,
-		$primary-color,
-		color.scale($primary-color, $lightness: 25%)
-	);
-	border-radius: 10px 10px 0 0;
-	padding: 1em;
-	flex-wrap: wrap;
-	max-width: 1000px;
-	margin: 0 auto;
-
-	&-container {
-		display: flex;
-		flex-direction: column;
-
-		@media screen and ($small) {
-			max-width: 100%;
-		}
+.actual {
+	h2 {
+		text-align: center;
 	}
 
-	&-btns {
-		> button {
-			cursor: pointer;
-			background-color: $white-color;
-			color: $primary-color;
-			border-radius: 5px;
-			overflow: hidden;
-			font-weight: 700;
+	.collapsible {
+		position: relative;
+		display: flex;
+		justify-content: space-evenly;
+		gap: rem-calc(16);
+		border-radius: rem-calc(8 8 0 0);
+		padding: rem-calc(16);
+		flex-wrap: wrap;
+		max-width: rem-calc(1000);
+		margin: 0 auto;
+		background: linear-gradient(
+			45deg,
+			$primary-color,
+			color.scale($primary-color, $lightness: 25%)
+		);
+
+		&-container {
 			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 1em;
-			outline: 2px solid transparent;
-
-			&.active-button {
-				outline-color: $link-color;
-
-				> span {
-					border-right: 2px color.scale($link-color, $lightness: 25%) solid;
-				}
-			}
-
-			&:not(.active-button) {
-				opacity: 0.725;
-			}
-
-			&:not(.active-button):hover {
-				opacity: 1;
-			}
-
-			&:hover {
-				outline-color: color.scale($link-color, $lightness: 10%);
-
-				> span {
-					border-right: 2px color.scale($link-color, $lightness: 10%) solid;
-				}
-			}
-
-			> span {
-				background-color: $secondary-color;
-				border-right: 2px color.scale($primary-color, $lightness: 25%) solid;
-				padding: 0.375em 1em;
-				font-weight: lighter;
-			}
-
-			> p {
-				padding: 0.375em 1em 0.375em 0;
-				font-weight: lighter;
-				font-size: 1rem;
-			}
+			flex-direction: column;
 
 			@media screen and ($small) {
-				white-space: nowrap;
 				max-width: 100%;
+			}
+		}
 
+		&-item {
+			max-height: 0;
+			overflow: hidden;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			width: 100%;
+			border-radius: rem-calc(0 0 8 8);
+			color: $primary-color;
+			background: linear-gradient(
+				45deg,
+				$smoke-color,
+				color.scale($smoke-color, $lightness: 100%)
+			);
+
+			> div {
 				> span {
-					font-size: 0.9rem;
+					display: block;
 				}
 
 				> p {
-					font-size: 0.9rem;
+					margin-bottom: rem-calc(28);
+
+					@include fluid-typing(16, 18);
+				}
+
+				> a {
+					width: fit-content;
+					margin-top: rem-calc(32);
+					margin-left: auto;
+
+					@include button-style(
+						$primary-color,
+						$white-color,
+						$primary-color,
+						$secondary-color
+					);
+				}
+			}
+
+			&.open {
+				max-height: fit-content;
+				border-bottom: 2px solid $primary-color;
+				border-left: 2px solid $primary-color;
+				border-right: 2px solid $primary-color;
+
+				&:has(iframe) {
+					padding: rem-calc(12);
+				}
+
+				&:has(img) {
+					padding: rem-calc(16);
+
+					@include mobile {
+						padding: rem-calc(24);
+					}
+				}
+
+				&:has(div > p) {
+					padding: rem-calc(16);
+
+					@include mobile {
+						padding: rem-calc(24);
+					}
+				}
+			}
+		}
+
+		&-button {
+			> button {
+				cursor: pointer;
+				background-color: $white-color;
+				color: $primary-color;
+				border-radius: $border-radius-sm;
+				overflow: hidden;
+				font-weight: 700;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: rem-calc(16);
+				outline: 2px solid $primary-color;
+				white-space: nowrap;
+				max-width: 100%;
+				height: 100%;
+
+				@include mobile {
+					white-space: normal;
+					max-width: unset;
+				}
+
+				> span {
+					background-color: $secondary-color;
+					border-right: 2px color.scale($primary-color, $lightness: 25%) solid;
+					padding: rem-calc(6 16);
+					font-weight: 600;
+					height: 100%;
+
+					@include fluid-typing(14, 16);
+				}
+
+				> p {
+					padding: rem-calc(6 16 6 0);
+					font-weight: lighter;
+					font-size: rem-calc(14);
+					height: 100%;
 					display: block;
 					overflow: hidden;
 					white-space: nowrap;
 					text-overflow: ellipsis;
+
+					@include fluid-typing(14, 16);
+
+					@include mobile {
+						display: inline;
+						overflow: visible;
+						white-space: normal;
+						text-overflow: clip;
+					}
+				}
+
+				&:hover {
+					outline-color: color.scale($link-color, $lightness: 10%);
+
+					> span {
+						border-right: 2px color.scale($link-color, $lightness: 10%) solid;
+					}
+				}
+
+				&.active-button {
+					outline-color: $link-color;
+
+					> span {
+						border-right: 2px color.scale($link-color, $lightness: 25%) solid;
+					}
+				}
+
+				&:not(.active-button) {
+					opacity: 0.725;
+
+					&:hover {
+						opacity: 1;
+					}
 				}
 			}
 		}
-	}
 
-	&-images {
-		display: flex;
-		justify-content: center;
-		gap: 0.75em;
+		&-images {
+			display: flex;
+			justify-content: center;
+			gap: rem-calc(12);
 
-		> div:not([data-main-modal]) {
-			img {
-				border-radius: 5px;
-				overflow: hidden;
+			> div:not([data-main-modal]) {
+				img {
+					border-radius: $border-radius-sm;
+					overflow: hidden;
+				}
 			}
 		}
-	}
-}
-
-.content {
-	max-height: 0;
-	overflow: hidden;
-	position: absolute;
-	top: 100%;
-	left: 0;
-	width: 100%;
-	border-bottom: 2px solid $primary-color;
-	border-left: 2px solid $primary-color;
-	border-right: 2px solid $primary-color;
-	border-radius: 0 0 10px 10px;
-	color: $primary-color;
-	background: linear-gradient(
-		45deg,
-		$smoke-color,
-		color.scale($smoke-color, $lightness: 100%)
-	);
-
-	> div > span {
-		display: block;
-		margin-top: 1em;
-	}
-
-	> div > p {
-		margin-bottom: 1em;
-	}
-
-	> div > a {
-		width: fit-content;
-		margin-top: 2em;
-		margin-left: auto;
-
-		@include button-style(
-			$primary-color,
-			$white-color,
-			$primary-color,
-			$secondary-color
-		);
-	}
-
-	@media screen and ($extra-small) {
-		> div > p {
-			font-size: 0.95rem;
-		}
-
-		> div > span {
-			font-size: 0.95rem;
-		}
-	}
-}
-
-.open {
-	max-height: fit-content;
-	padding: 1em;
-
-	&:has(iframe) {
-		padding: 0.5em 0.375em 0;
-	}
-
-	&:has(div > p) {
-		padding: 1.25em;
-
-		@media screen and ($small) {
-			padding: 1em;
-		}
-	}
-
-	@media screen and ($small) {
-		padding: 0.75em;
 	}
 }

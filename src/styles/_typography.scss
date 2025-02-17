@@ -10,24 +10,18 @@ h5,
 h6 {
 	margin-bottom: rem-calc(8);
 	letter-spacing: 0.5px;
+	line-height: normal;
 }
 
 h1 {
 	font-family: $bebas-neue;
-	font-size: rem-calc(36);
 
-	@include mobile {
-		font-size: rem-calc(48);
-	}
-
-	@include massive {
-		font-size: rem-calc(64);
-	}
+	@include fluid-typing(36, 64);
 
 	section[data-main-section] & {
 		border-radius: $border-radius-sm;
 		color: $white-color;
-		padding: 0.1em 0.5em 0;
+		padding: rem-calc(8 16 4);
 		background: linear-gradient(
 			45deg,
 			$primary-color,
@@ -63,35 +57,33 @@ h1 {
 
 h2 {
 	font-family: $bebas-neue;
-	font-size: 3rem;
+	font-size: rem-calc(48);
 
 	@media screen and ($medium) {
-		font-size: 2.75rem;
+		font-size: rem-calc(44);
 	}
 
 	@media screen and ($small) {
-		font-size: 2rem;
+		font-size: rem-calc(32);
 	}
 }
 
 h3 {
 	font-family: $bebas-neue;
-	font-size: 1.5rem;
+	font-size: rem-calc(24);
 }
 
 h4 {
-	font-size: 1.25rem;
+	font-size: rem-calc(20);
 	font-weight: 600;
 }
 
 h5 {
-	font-size: 1.1rem;
+	font-size: rem-calc(18);
 	font-weight: 400;
 }
 
 p {
-	line-height: normal;
-
 	section[data-main-content] & {
 		@include fluid-typing(16, 18);
 	}
