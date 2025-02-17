@@ -17,23 +17,14 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 	const [isHeaderFixed, setIsHeaderFixed] = useState(false);
 	const [, setScrollY] = useState(0);
 
-	const {
-		title,
-		facebookUrl,
-		instagramUrl,
-		// linkedinUrl,
-		youtubeUrl,
-		mobileRaw,
-		slogan,
-	} = useSiteMetadata();
+	const { title, facebookUrl, instagramUrl, youtubeUrl, mobileRaw, slogan } =
+		useSiteMetadata();
 
 	useEffect(() => {
 		const handleScroll = () => {
 			const currentScrollY = window.scrollY;
-			const headerTopBannerWrapper = document.querySelector(
-				`.${styles.headerTopBannerWrapper}`
-			);
-			const headerMenuWrapper = document.querySelector(
+			const headerBanner = document.querySelector(`.${styles.headerBanner}`);
+			const headerMenu = document.querySelector(
 				`.${styles.headerMenu}`
 			) as HTMLElement;
 			const mainContent = document.querySelector(
@@ -42,14 +33,13 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 
 			setScrollY(currentScrollY);
 
-			if (headerTopBannerWrapper) {
-				const headerTopBannerHeight = (headerTopBannerWrapper as HTMLElement)
-					.offsetHeight;
+			if (headerBanner) {
+				const headerBannerHeight = (headerBanner as HTMLElement).offsetHeight;
 
-				if (currentScrollY > headerTopBannerHeight) {
+				if (currentScrollY > headerBannerHeight) {
 					if (mainContent) {
 						mainContent.style.marginTop =
-							window.innerWidth > 576 ? "125px" : "90px";
+							window.innerWidth > 640 ? "125px" : "90px";
 					}
 
 					setIsHeaderFixed(true);
@@ -60,13 +50,11 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 					setIsHeaderFixed(false);
 				}
 
-				if (currentScrollY > headerTopBannerHeight + 25) {
-					if (headerMenuWrapper) {
-						headerMenuWrapper.style.height = "90px";
-					}
-				} else {
-					if (headerMenuWrapper && window.innerWidth > 576) {
-						headerMenuWrapper.style.height = "125px";
+				if (headerMenu) {
+					if (currentScrollY > headerBannerHeight + 125) {
+						headerMenu.classList.add(styles.shrinked);
+					} else {
+						headerMenu.classList.remove(styles.shrinked);
 					}
 				}
 			}
@@ -86,256 +74,251 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 		: styles.headerMenu;
 
 	return (
-		<header className={styles.headerContainer}>
-			<div className={styles.headerWrapper}>
-				<div className={styles.headerTopBanner}>
-					<div className={styles.headerTopBannerWrapper}>
-						<p>{slogan}</p>
-						<ul>
-							<li>
-								<a href={facebookUrl} rel="noopener noreferrer" target="_blank">
-									<FontAwesomeIcon icon={["fab", "facebook"]} />
-								</a>
-							</li>
-							<li>
-								<a
-									href={instagramUrl}
-									rel="noopener noreferrer"
-									target="_blank"
-								>
-									<FontAwesomeIcon icon={["fab", "instagram"]} />
-								</a>
-							</li>
-							<li>
-								<a href={youtubeUrl} rel="noopener noreferrer" target="_blank">
-									<FontAwesomeIcon icon={["fab", "youtube"]} />
-								</a>
-							</li>
-							<li>
-								<a
-									href={`https://wa.me/${mobileRaw}`}
-									rel="noopener noreferrer"
-									target="_blank"
-								>
-									<FontAwesomeIcon icon={["fab", "whatsapp"]} />
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-
-				<nav className={menuSwitchClass}>
-					<div className={styles.mobileMenuContainer}>
-						<div className={styles.mobileLogo}>
-							<Link to="/">
-								<StaticImage
-									src="../../images/logo/ep-logo.png"
-									alt={`${title} Logo`}
-									placeholder="blurred"
-								/>
-							</Link>
-						</div>
-
-						<button
-							type="button"
-							name="menu"
-							onClick={openMobileMenu}
-							className={styles.hamburgerButton}
-						>
-							<div className={styles.hamburgerIcon}>
-								<div className={styles.bar} />
-								<div className={styles.bar} />
-								<div className={styles.bar} />
-							</div>
-						</button>
-					</div>
-
-					<ul className={styles.menuItems}>
+		<header className={styles.header}>
+			<div className={styles.headerBanner}>
+				<div className={styles.headerBannerWrapper}>
+					<p>{slogan}</p>
+					<ul>
 						<li>
-							<Link to="/" activeClassName={styles.activeMenuItem}>
-								Home
-							</Link>
+							<a href={facebookUrl} rel="noopener noreferrer" target="_blank">
+								<FontAwesomeIcon icon={["fab", "facebook"]} />
+							</a>
 						</li>
 						<li>
-							<Link to="/boeken/" activeClassName={styles.activeMenuItem}>
-								Boeken
-							</Link>
+							<a href={instagramUrl} rel="noopener noreferrer" target="_blank">
+								<FontAwesomeIcon icon={["fab", "instagram"]} />
+							</a>
 						</li>
 						<li>
-							<Link
-								to="/drumworkshops/"
-								activeClassName={styles.activeMenuItem}
-								partiallyActive={true}
+							<a href={youtubeUrl} rel="noopener noreferrer" target="_blank">
+								<FontAwesomeIcon icon={["fab", "youtube"]} />
+							</a>
+						</li>
+						<li>
+							<a
+								href={`https://wa.me/${mobileRaw}`}
+								rel="noopener noreferrer"
+								target="_blank"
 							>
-								Drumworkshops
-							</Link>
-							<ul>
-								<li>
-									<Link
-										to="/drumworkshops/summerschool-2020/"
-										activeClassName={styles.activeMenuItem}
-									>
-										Eternity Summerschool 2020
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="/drumworkshops/summerschool-2021/"
-										activeClassName={styles.activeMenuItem}
-									>
-										Eternity Summerschool 2021
-									</Link>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<Link
-								to="/cultuureducatie/"
-								activeClassName={styles.activeMenuItem}
-							>
-								Cultuureducatie
-							</Link>
-						</li>
-						<li>
-							<Link
-								to="/theater/"
-								activeClassName={styles.activeMenuItem}
-								partiallyActive={true}
-							>
-								Theater
-							</Link>
-							<ul>
-								<li>
-									<Link
-										to="/theater/kwasi-en-yaw/"
-										activeClassName={styles.activeMenuItem}
-									>
-										Kwasi & Yaw
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="/theater/muziki/"
-										activeClassName={styles.activeMenuItem}
-									>
-										Muziki
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="/theater/umuntu/"
-										activeClassName={styles.activeMenuItem}
-									>
-										Umuntu
-									</Link>
-								</li>
-							</ul>
-						</li>
-						<li className={styles.logo}>
-							<Link to="/" className={styles.logoWrapper}>
-								<StaticImage
-									src="../../images/logo/ep-logo.png"
-									alt={`${title} Logo`}
-									placeholder="blurred"
-								/>
-							</Link>
-						</li>
-						<li>
-							<Link
-								to="/uitwisselingen/"
-								activeClassName={styles.activeMenuItem}
-							>
-								Uitwisselingen
-							</Link>
-						</li>
-						<li>
-							<Link
-								to="/projecten/"
-								activeClassName={styles.activeMenuItem}
-								partiallyActive={true}
-							>
-								Projecten
-							</Link>
-							<ul>
-								<li>
-									<Link
-										to="/projecten/sankofa-academy/"
-										activeClassName={styles.activeMenuItem}
-									>
-										Sankofa Academy
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="/projecten/bijlmer-drum-festival/"
-										activeClassName={styles.activeMenuItem}
-									>
-										Bijlmer Drum Festival
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="/projecten/van-hobby-naar-succes/"
-										activeClassName={styles.activeMenuItem}
-									>
-										Van Hobby Naar Succes
-									</Link>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<Link to="/media/" activeClassName={styles.activeMenuItem}>
-								Media
-							</Link>
-						</li>
-						<li>
-							<Link
-								to="/seda/"
-								className={styles.special}
-								activeClassName={styles.activeMenuItem}
-							>
-								Seda
-							</Link>
-						</li>
-						<li>
-							<Link
-								to="/over-ons/"
-								activeClassName={styles.activeMenuItem}
-								partiallyActive={true}
-							>
-								Over ons
-							</Link>
-							<ul>
-								<li>
-									<Link
-										to="/over-ons/contact/"
-										activeClassName={styles.activeMenuItem}
-									>
-										Contact
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="/over-ons/vacatures/"
-										activeClassName={styles.activeMenuItem}
-										partiallyActive={true}
-									>
-										Vacatures
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="/over-ons/anbi/"
-										activeClassName={styles.activeMenuItem}
-									>
-										ANBI
-									</Link>
-								</li>
-							</ul>
+								<FontAwesomeIcon icon={["fab", "whatsapp"]} />
+							</a>
 						</li>
 					</ul>
-				</nav>
+				</div>
 			</div>
+
+			<nav className={menuSwitchClass}>
+				<div className={styles.mobileMenu}>
+					<div className={styles.mobileLogo}>
+						<Link to="/">
+							<StaticImage
+								src="../../images/logo/ep-logo.png"
+								alt={`${title} Logo`}
+								placeholder="blurred"
+							/>
+						</Link>
+					</div>
+
+					<button
+						type="button"
+						name="menu"
+						onClick={openMobileMenu}
+						className={styles.hamburgerButton}
+					>
+						<div className={styles.hamburgerIcon}>
+							<div className={styles.hamburgerIconBar} />
+							<div className={styles.hamburgerIconBar} />
+							<div className={styles.hamburgerIconBar} />
+						</div>
+					</button>
+				</div>
+
+				<ul className={styles.desktopMenu}>
+					<li>
+						<Link to="/" activeClassName={styles.activeMenuItem}>
+							Home
+						</Link>
+					</li>
+					<li>
+						<Link to="/boeken/" activeClassName={styles.activeMenuItem}>
+							Boeken
+						</Link>
+					</li>
+					<li>
+						<Link
+							to="/drumworkshops/"
+							className={styles.parent}
+							activeClassName={styles.activeMenuItem}
+							partiallyActive={true}
+						>
+							Drumworkshops
+						</Link>
+						<ul className={styles.children}>
+							<li>
+								<Link
+									to="/drumworkshops/summerschool-2020/"
+									activeClassName={styles.activeMenuItem}
+								>
+									Eternity Summerschool 2020
+								</Link>
+							</li>
+							<li>
+								<Link
+									to="/drumworkshops/summerschool-2021/"
+									activeClassName={styles.activeMenuItem}
+								>
+									Eternity Summerschool 2021
+								</Link>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<Link
+							to="/cultuureducatie/"
+							activeClassName={styles.activeMenuItem}
+						>
+							Cultuureducatie
+						</Link>
+					</li>
+					<li>
+						<Link
+							to="/theater/"
+							className={styles.parent}
+							activeClassName={styles.activeMenuItem}
+							partiallyActive={true}
+						>
+							Theater
+						</Link>
+						<ul className={styles.children}>
+							<li>
+								<Link
+									to="/theater/kwasi-en-yaw/"
+									activeClassName={styles.activeMenuItem}
+								>
+									Kwasi & Yaw
+								</Link>
+							</li>
+							<li>
+								<Link
+									to="/theater/muziki/"
+									activeClassName={styles.activeMenuItem}
+								>
+									Muziki
+								</Link>
+							</li>
+							<li>
+								<Link
+									to="/theater/umuntu/"
+									activeClassName={styles.activeMenuItem}
+								>
+									Umuntu
+								</Link>
+							</li>
+						</ul>
+					</li>
+					<li className={styles.logo}>
+						<Link to="/" className={styles.logoWrapper}>
+							<StaticImage
+								src="../../images/logo/ep-logo.png"
+								alt={`${title} Logo`}
+								placeholder="blurred"
+							/>
+						</Link>
+					</li>
+					<li>
+						<Link to="/uitwisselingen/" activeClassName={styles.activeMenuItem}>
+							Uitwisselingen
+						</Link>
+					</li>
+					<li>
+						<Link
+							to="/projecten/"
+							className={styles.parent}
+							activeClassName={styles.activeMenuItem}
+							partiallyActive={true}
+						>
+							Projecten
+						</Link>
+						<ul className={styles.children}>
+							<li>
+								<Link
+									to="/projecten/sankofa-academy/"
+									activeClassName={styles.activeMenuItem}
+								>
+									Sankofa Academy
+								</Link>
+							</li>
+							<li>
+								<Link
+									to="/projecten/bijlmer-drum-festival/"
+									activeClassName={styles.activeMenuItem}
+								>
+									Bijlmer Drum Festival
+								</Link>
+							</li>
+							<li>
+								<Link
+									to="/projecten/van-hobby-naar-succes/"
+									activeClassName={styles.activeMenuItem}
+								>
+									Van Hobby Naar Succes
+								</Link>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<Link to="/media/" activeClassName={styles.activeMenuItem}>
+							Media
+						</Link>
+					</li>
+					<li>
+						<Link
+							to="/seda/"
+							className={styles.special}
+							activeClassName={styles.activeMenuItem}
+						>
+							Seda
+						</Link>
+					</li>
+					<li>
+						<Link
+							to="/over-ons/"
+							className={styles.parent}
+							activeClassName={styles.activeMenuItem}
+							partiallyActive={true}
+						>
+							Over ons
+						</Link>
+						<ul className={styles.children}>
+							<li>
+								<Link
+									to="/over-ons/contact/"
+									activeClassName={styles.activeMenuItem}
+								>
+									Contact
+								</Link>
+							</li>
+							<li>
+								<Link
+									to="/over-ons/vacatures/"
+									activeClassName={styles.activeMenuItem}
+									partiallyActive={true}
+								>
+									Vacatures
+								</Link>
+							</li>
+							<li>
+								<Link
+									to="/over-ons/anbi/"
+									activeClassName={styles.activeMenuItem}
+								>
+									ANBI
+								</Link>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
 		</header>
 	);
 };

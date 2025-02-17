@@ -50,9 +50,9 @@
 	}
 
 	&-wrapper {
-		@include ep-wrapper;
+		border-radius: $border-radius-md;
 
-		border-radius: 10px;
+		@include ep-wrapper;
 
 		@media screen and ($small) {
 			border-radius: 0;
@@ -114,7 +114,7 @@
 	}
 
 	&-slide {
-		border-radius: 10px;
+		border-radius: $border-radius-md;
 		overflow: hidden;
 
 		@media screen and ($small) {

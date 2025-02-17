@@ -35,16 +35,16 @@ const Actualiteiten: React.FC = () => {
 						gatsbyImageData
 					}
 				}
-				wijkImpOne: file(relativePath: { eq: "wijkimpuls-190424.jpg" }) {
-					childImageSharp {
-						gatsbyImageData
-					}
-				}
-				wijkImpTwo: file(relativePath: { eq: "wijkimpuls-260424.jpg" }) {
-					childImageSharp {
-						gatsbyImageData
-					}
-				}
+				# wijkImpOne: file(relativePath: { eq: "wijkimpuls-190424.jpg" }) {
+				# 	childImageSharp {
+				# 		gatsbyImageData
+				# 	}
+				# }
+				# wijkImpTwo: file(relativePath: { eq: "wijkimpuls-260424.jpg" }) {
+				# 	childImageSharp {
+				# 		gatsbyImageData
+				# 	}
+				# }
 			}
 		`);
 
@@ -54,8 +54,8 @@ const Actualiteiten: React.FC = () => {
 	const rotpFront = rotpF.childImageSharp.gatsbyImageData;
 	const rotpBack = rotpB.childImageSharp.gatsbyImageData;
 
-	const wijkImpulsOne = wijkImpOne.childImageSharp.gatsbyImageData;
-	const wijkImpulsTwo = wijkImpTwo.childImageSharp.gatsbyImageData;
+	// const wijkImpulsOne = wijkImpOne.childImageSharp.gatsbyImageData;
+	// const wijkImpulsTwo = wijkImpTwo.childImageSharp.gatsbyImageData;
 
 	const updateHeight = () => {
 		const element = openContentRef.current;

@@ -6,7 +6,7 @@
 	position: relative;
 	display: flex;
 	justify-content: space-evenly;
-	gap: 15px;
+	gap: rem-calc(15);
 	background: linear-gradient(
 		45deg,
 		$primary-color,
