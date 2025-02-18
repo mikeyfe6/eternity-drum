@@ -1,0 +1,147 @@
+@use "sass:color";
+
+@use "../../customs" as *;
+
+.posts {
+	margin: rem-calc(32 0);
+
+	> h2 {
+		text-align: center;
+	}
+
+	> ul {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: rem-calc(32);
+
+		> li {
+			outline: 2px solid $primary-color;
+			border-radius: $border-radius-md;
+			overflow: hidden;
+			max-width: rem-calc(375);
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			background: linear-gradient(
+				45deg,
+				$primary-color,
+				color.scale($primary-color, $lightness: 25%)
+			);
+
+			@include base-transition(all);
+			@include box-shadow;
+
+			&:hover {
+				outline-color: $secondary-color;
+
+				.post-link {
+					color: $secondary-color;
+				}
+
+				.post-image {
+					transform: scale(1.05);
+
+					@include base-transition(all, 0.2s);
+				}
+			}
+
+			&:not(:hover) img {
+				transform: scale(1);
+
+				@include base-transition(all, 0.2s);
+			}
+
+			&:active {
+				outline-color: $link-color;
+			}
+
+			> a {
+				display: block;
+				height: rem-calc(300);
+				overflow: hidden;
+
+				img.post-image {
+					width: 100%;
+					height: 100%;
+					border-bottom: 1px solid color.adjust($trans-grey, $alpha: -0.75);
+					object-fit: cover;
+					overflow: hidden;
+
+					@include base-transition(all, 0.3s);
+				}
+			}
+
+			> div {
+				padding: rem-calc(16);
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+
+				> h3 {
+					a.post-link {
+						color: $white-color;
+						display: -webkit-box;
+						-webkit-line-clamp: 2;
+						-webkit-box-orient: vertical;
+						text-overflow: ellipsis;
+						overflow: hidden;
+
+						&:hover {
+							color: color.adjust($link-color, $lightness: 10%);
+						}
+					}
+				}
+
+				> span {
+					position: absolute;
+					top: rem-calc(16);
+					right: rem-calc(16);
+					background-color: $primary-color;
+					color: $white-color;
+					padding: rem-calc(4 8);
+					border-radius: $border-radius-sm;
+				}
+
+				> p {
+					display: -webkit-box;
+					max-width: 95%;
+					-webkit-line-clamp: 3;
+					-webkit-box-orient: vertical;
+					overflow: hidden;
+					margin: rem-calc(12 0 32);
+					color: $white-color;
+
+					@include fluid-typing(16, 18);
+				}
+
+				> hr {
+					height: 3px;
+					border-width: 0;
+					color: color.adjust($trans-grey, $alpha: -0.9);
+					background-color: color.adjust($trans-grey, $alpha: -0.9);
+					margin: auto 0 rem-calc(16);
+				}
+
+				> div {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+
+					> time {
+						font-size: rem-calc(14);
+						color: color.adjust($white-color, $lightness: -25%);
+					}
+
+					> a {
+						color: color.adjust($tertiary-color, $lightness: 10%);
+
+						&:hover {
+							color: color.adjust($link-color, $lightness: 10%);
+						}
+					}
+				}
+			}
+		}
+	}
+}
