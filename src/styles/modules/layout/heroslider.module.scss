@@ -2,7 +2,8 @@
 
 .swiper {
 	&-container {
-		margin-bottom: rem-calc(8);
+		// bloaty
+		margin-bottom: 0;
 
 		@include full-width;
 

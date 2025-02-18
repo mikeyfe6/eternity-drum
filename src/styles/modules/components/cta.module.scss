@@ -1,54 +1,28 @@
 @use "../../customs" as *;
 
-.cta-container {
-	position: absolute;
-	right: 0;
-	top: 0;
+.cta {
+	$cta: &;
+
 	display: flex;
-	gap: 15px;
+	gap: rem-calc(16);
 	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: center;
+	margin-top: rem-calc(28);
+	margin-bottom: rem-calc(32);
+	width: 100%;
 
-	@media screen and ($super-sized) {
-		position: static;
-		width: 100%;
-		justify-content: flex-end;
-		margin-bottom: 2em;
+	@include laptop {
+		margin-top: auto;
 	}
 
-	@media screen and ($medium) {
-		margin-top: 0;
-
-		> :nth-child(1) {
-			order: 1;
-		}
-
-		> :nth-child(2) {
-			order: 3;
-		}
-
-		> :nth-child(3) {
-			order: 2;
-		}
+	@include desktop {
+		position: absolute;
+		right: 0;
+		top: 0;
 	}
 
-	@media screen and ($small) {
-		align-items: flex-end;
-		margin-left: initial;
-
-		> :nth-child(1) {
-			order: 2;
-		}
-
-		> :nth-child(2) {
-			order: 3;
-		}
-
-		> :nth-child(3) {
-			order: 1;
-		}
-	}
-
-	a {
+	> a {
 		@include button-style(
 			$primary-color,
 			$white-color,
@@ -56,8 +30,37 @@
 			$secondary-color
 		);
 
-		@media screen and ($small) {
-			width: fit-content;
+		&#{$cta}-special {
+			@include button-style(
+				$tertiary-color,
+				$white-color,
+				$tertiary-color,
+				$secondary-color
+			);
+		}
+
+		&:nth-child(1) {
+			@include mobile {
+				order: 1;
+			}
+		}
+
+		&:nth-child(2) {
+			@include mobile {
+				order: 3;
+			}
+		}
+
+		&:nth-child(3) {
+			@include mobile {
+				order: 2;
+			}
+		}
+
+		&:nth-child(4) {
+			@include mobile {
+				order: 4;
+			}
 		}
 	}
 }

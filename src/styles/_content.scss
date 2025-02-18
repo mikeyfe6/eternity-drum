@@ -25,7 +25,8 @@
 		}
 
 		@media screen and ($small) {
-			margin: 1em auto;
+			// bloaty
+			margin: 2.5em auto 1em;
 		}
 	}
 
@@ -39,7 +40,8 @@
 
 		@media screen and ($small) {
 			padding: 1em;
-			margin: 1em auto;
+			margin: 2.5em auto 1em;
+			// bloaty
 
 			h2 {
 				font-size: 1.75rem;
@@ -220,7 +222,8 @@
 		}
 
 		@media screen and ($small) {
-			margin: 1em auto;
+			margin: 2em auto 1em;
+			// bloaty
 
 			h2 {
 				font-size: 1.75rem;
@@ -247,7 +250,8 @@
 		}
 
 		@media screen and ($small) {
-			margin: 1em auto 1.25em;
+			// bloaty
+			margin: 2.5em auto 1.25em;
 			gap: 50px;
 		}
 
@@ -445,7 +449,8 @@
 		}
 
 		@media screen and ($small) {
-			margin: 1em auto 1.25em;
+			// bloaty
+			margin: 2.5em auto 1.25em;
 			gap: 50px;
 		}
 

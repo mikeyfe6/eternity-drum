@@ -77,7 +77,8 @@
 		}
 
 		@media screen and ($small) {
-			margin: 1em auto;
+			// bloaty
+			margin: 2em auto 1em;
 		}
 	}
 

@@ -59,16 +59,6 @@
 		background-color: $hoverBgcolor;
 		color: $hoverColor;
 	}
-
-	&.special-button {
-		background-color: $tertiary-color;
-		color: $white-color;
-
-		&:hover {
-			background-color: $tertiary-color;
-			color: $secondary-color;
-		}
-	}
 }
 
 // TEXT

@@ -64,8 +64,10 @@ const Vacatures: React.FC<PageProps> = () => {
 
 				<h1>Vacatures</h1>
 
+				<br />
 				<hr />
 				<br />
+				{/* // bloaty af! */}
 
 				{vacancies.length > 0 ? (
 					<ul className={styles.vacancies}>

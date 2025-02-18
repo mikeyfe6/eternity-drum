@@ -18,7 +18,7 @@
   },
   "license": "0BSD",
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.749.0",
+    "@aws-sdk/client-s3": "^3.750.0",
     "@contentful/rich-text-react-renderer": "^16.0.1",
     "@contentful/rich-text-types": "^17.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -49,7 +49,7 @@
     "gatsby-transformer-sharp": "^5.14.0",
     "google-map-react": "^2.2.1",
     "react": "^18.3.1",
-    "react-datepicker": "^8.0.0",
+    "react-datepicker": "^8.1.0",
     "react-dom": "^18.3.1",
     "sass": "^1.85.0",
     "swiper": "^11.2.4"
@@ -59,8 +59,8 @@
     "@types/react": "^19.0.10",
     "@types/react-datepicker": "^7.0.0",
     "@types/react-dom": "^19.0.4",
-    "@typescript-eslint/eslint-plugin": "^8.24.0",
-    "@typescript-eslint/parser": "^8.24.0",
+    "@typescript-eslint/eslint-plugin": "^8.24.1",
+    "@typescript-eslint/parser": "^8.24.1",
     "eslint": "^9.20.1",
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-plugin-react": "^7.37.4",
