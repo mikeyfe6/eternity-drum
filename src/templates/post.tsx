@@ -78,23 +78,21 @@ const Post = ({
 	};
 
 	return (
-		<>
+		<article data-main-section id="post-template">
+			<h1>{title}</h1>
 			<Breadcrumbs crumbs={breadcrumbs} />
 
-			<article data-main-section id="post-template">
-				<h1>{title}</h1>
+			<div data-main-content className="page-content singlepost">
+				<div>
+					<h2>{excerpt}</h2>
 
-				<div data-main-content className="page-content singlepost">
-					<div>
-						<h2>{excerpt}</h2>
+					<div>{renderRichText(content, renderOptions)}</div>
+				</div>
 
-						<div>{renderRichText(content, renderOptions)}</div>
-					</div>
+				<div>
+					<img src={featuredImage.url} alt={featuredImage.title} />
 
-					<div>
-						<img src={featuredImage.url} alt={featuredImage.title} />
-
-						{/* <div className='singlepost sidebar'>
+					{/* <div className='singlepost sidebar'>
 						<ul>
                             {tags.map((tag, index) => (
                                 <li key={index}>{tag}</li>
@@ -109,10 +107,9 @@ const Post = ({
 							</p>
 						)}
 					</div> */}
-					</div>
 				</div>
-			</article>
-		</>
+			</div>
+		</article>
 	);
 };
 
