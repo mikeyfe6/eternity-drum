@@ -101,7 +101,7 @@ const GallerySeven: React.FC = () => {
 	};
 
 	return (
-		<section className={styles.swiperContainer} data-main-gallery>
+		<div className={styles.swiperContainer} data-main-gallery>
 			<h3>
 				Pulse and Beat <span>(collab. w/ ACE Dance & Music)</span>
 			</h3>
@@ -196,7 +196,7 @@ const GallerySeven: React.FC = () => {
 					</button>
 				</div>
 			)}
-		</section>
+		</div>
 	);
 };
 

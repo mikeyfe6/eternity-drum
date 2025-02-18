@@ -99,7 +99,7 @@ const GalleryFive: React.FC = () => {
 	};
 
 	return (
-		<section className={styles.swiperContainer} data-main-gallery>
+		<div className={styles.swiperContainer} data-main-gallery>
 			<h3>
 				African Diaspora Performing Arts Festival <span>10 November 2019</span>
 			</h3>
@@ -194,7 +194,7 @@ const GalleryFive: React.FC = () => {
 					</button>
 				</div>
 			)}
-		</section>
+		</div>
 	);
 };
 

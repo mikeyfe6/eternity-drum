@@ -101,7 +101,7 @@ const GalleryEight: React.FC = () => {
 	};
 
 	return (
-		<section className={styles.swiperContainer} data-main-gallery>
+		<div className={styles.swiperContainer} data-main-gallery>
 			<h3>
 				Beat It <span>(collab. w/ Ebony Steelband)</span>
 			</h3>
@@ -196,7 +196,7 @@ const GalleryEight: React.FC = () => {
 					</button>
 				</div>
 			)}
-		</section>
+		</div>
 	);
 };
 

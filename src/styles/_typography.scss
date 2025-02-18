@@ -18,7 +18,7 @@ h1 {
 
 	@include fluid-typing(36, 64);
 
-	section[data-main-section] & {
+	[data-main-section] & {
 		color: $white-color;
 		padding: rem-calc(16 16 10);
 		background: linear-gradient(

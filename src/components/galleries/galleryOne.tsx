@@ -101,7 +101,7 @@ const GalleryOne: React.FC = () => {
 	};
 
 	return (
-		<section className={styles.swiperContainer} data-main-gallery>
+		<div className={styles.swiperContainer} data-main-gallery>
 			<h3>
 				Swazoom Live <span>8 Juli 2023</span>
 			</h3>
@@ -193,7 +193,7 @@ const GalleryOne: React.FC = () => {
 					</button>
 				</div>
 			)}
-		</section>
+		</div>
 	);
 };
 

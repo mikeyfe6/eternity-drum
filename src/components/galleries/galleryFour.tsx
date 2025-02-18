@@ -99,7 +99,7 @@ const GalleryFour: React.FC = () => {
 	};
 
 	return (
-		<section className={styles.swiperContainer} data-main-gallery>
+		<div className={styles.swiperContainer} data-main-gallery>
 			<h3>
 				Eternity in UK 2023 <span>(collab. w/ ACE Dance & Music)</span>
 			</h3>
@@ -194,7 +194,7 @@ const GalleryFour: React.FC = () => {
 					</button>
 				</div>
 			)}
-		</section>
+		</div>
 	);
 };
 

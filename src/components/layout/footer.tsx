@@ -39,8 +39,8 @@ const Footer = () => {
 		<footer className={styles.footerContainer}>
 			<div className={styles.footerWrapper}>
 				<div className={styles.footerUpperBanner}>
-					<section>
-						<section className={styles.footerColumn}>
+					<div>
+						<div className={styles.footerColumn}>
 							<h4>Contactgegevens</h4>
 							<br />
 							<strong>{companyName}</strong>
@@ -120,10 +120,10 @@ const Footer = () => {
 									<strong>BTW:</strong> {btw}
 								</li>
 							</ul>
-						</section>
-					</section>
-					<section>
-						<section className={styles.footerColumn}>
+						</div>
+					</div>
+					<div>
+						<div className={styles.footerColumn}>
 							<h4>Recente Posts</h4>
 							<ul>
 								<li>
@@ -140,18 +140,18 @@ const Footer = () => {
 									</Link>
 								</li>
 							</ul>
-						</section>
+						</div>
 
-						<section className={styles.footerColumn}>
+						<div className={styles.footerColumn}>
 							<h4>Aankomende Evenementen</h4>
 							<ul>
 								<li>Binnenkort meer..</li>
 							</ul>
-						</section>
-					</section>
+						</div>
+					</div>
 
-					<section className={styles.footerSpecialRow}>
-						<section className={styles.footerColumn}>
+					<div className={styles.footerSpecialRow}>
+						<div className={styles.footerColumn}>
 							<h4>De stichting</h4>
 							<ul>
 								<li>
@@ -173,9 +173,9 @@ const Footer = () => {
 									<Link to="/seda/">SEDA</Link>
 								</li>
 							</ul>
-						</section>
+						</div>
 
-						<section className={styles.footerLogoSocial}>
+						<div className={styles.footerLogoSocial}>
 							<div className={styles.footerLogo}>
 								<Link to="/">
 									<StaticImage
@@ -227,8 +227,8 @@ const Footer = () => {
 									</li>
 								</ul>
 							</div>
-						</section>
-					</section>
+						</div>
+					</div>
 
 					<NewsletterForm />
 				</div>

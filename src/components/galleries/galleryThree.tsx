@@ -101,7 +101,7 @@ const GalleryThree: React.FC = () => {
 	};
 
 	return (
-		<section className={styles.swiperContainer} data-main-gallery>
+		<div className={styles.swiperContainer} data-main-gallery>
 			<h3>
 				Bijlmer on Stage <span>18 December 2022</span>
 			</h3>
@@ -194,7 +194,7 @@ const GalleryThree: React.FC = () => {
 					</button>
 				</div>
 			)}
-		</section>
+		</div>
 	);
 };
 

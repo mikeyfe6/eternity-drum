@@ -99,7 +99,7 @@ const GallerySix: React.FC = () => {
 	};
 
 	return (
-		<section className={styles.swiperContainer} data-main-gallery>
+		<div className={styles.swiperContainer} data-main-gallery>
 			<h3>
 				African Diaspora Performing Arts Festival <span>14 November 2021</span>
 			</h3>
@@ -194,7 +194,7 @@ const GallerySix: React.FC = () => {
 					</button>
 				</div>
 			)}
-		</section>
+		</div>
 	);
 };
 

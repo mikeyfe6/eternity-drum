@@ -49,7 +49,7 @@ const SummerschoolFirst: React.FC<PageProps> = () => {
 						<LightBox image={summerSchoolFlyer} alt="Summerschool 2020 Flyer" />
 						<LightBox image={midzomerLogo} alt="Sankofa Flyer Voorkant" />
 					</div>
-					<section data-main-content className={styles.workshopInfo}>
+					<div data-main-content className={styles.workshopInfo}>
 						<h3>
 							PERCUSSIONBAND ETERNITY, UNTOLD EMPOWERMENT EN BLACK HARMONY GEVEN
 							GRATIS WORKSHOPS!
@@ -160,7 +160,7 @@ const SummerschoolFirst: React.FC<PageProps> = () => {
 						<p style={{ fontWeight: "200" }}>
 							Nog vragen of opmerkingen? Neem gerust contact met ons op.
 						</p>
-					</section>
+					</div>
 				</div>
 			</section>
 		</>
