@@ -105,7 +105,6 @@
 				color: $primary-color;
 				border-radius: $border-radius-sm;
 				overflow: hidden;
-				font-weight: 700;
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -132,13 +131,11 @@
 
 				> p {
 					padding: rem-calc(6 16 6 0);
-					font-weight: lighter;
+					font-weight: normal;
 					font-size: rem-calc(14);
 					height: 100%;
-					display: block;
-					overflow: hidden;
-					white-space: nowrap;
-					text-overflow: ellipsis;
+
+					@include ellipsis;
 
 					@include fluid-typing(14, 16);
 

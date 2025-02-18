@@ -18,9 +18,9 @@ const Theater: React.FC<PageProps> = () => {
 				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>Theater</h1>
-				<section data-main-content className="page-content basic">
+				<div data-main-content className="page-content basic">
 					<p>Pagina komt binnenkort..</p>
-				</section>
+				</div>
 			</section>
 		</>
 	);

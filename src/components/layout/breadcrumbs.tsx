@@ -41,7 +41,7 @@ const Breadcrumbs: React.FC<BreadcrumbProps> = ({ crumbs }) => {
 	}, []);
 
 	return (
-		<nav data-main-breadcrumbs className={styles.breadcrumbs}>
+		<nav className={styles.breadcrumbs} data-main-breadcrumbs>
 			<ul
 				ref={breadcrumbRef}
 				className={styles.breadcrumbsList}

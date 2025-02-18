@@ -24,7 +24,7 @@ const Muziki: React.FC<PageProps> = () => {
 				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>Muziki</h1>
-				<section data-main-content className="page-content basic">
+				<div data-main-content className="page-content basic">
 					<div>
 						<h2>Theatervoorstelling: "MUZIKI"</h2>
 						<p>
@@ -69,7 +69,7 @@ const Muziki: React.FC<PageProps> = () => {
 							}}
 						/>
 					</div>
-				</section>
+				</div>
 			</section>
 		</>
 	);

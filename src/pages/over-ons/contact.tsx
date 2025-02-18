@@ -47,8 +47,8 @@ const Contact: React.FC<PageProps> = () => {
 				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>Contact</h1>
-				<section data-main-content className="page-content maps">
-					<section className={styles.contactWrapper}>
+				<div data-main-content className="page-content maps">
+					<div className={styles.contactWrapper}>
 						<h3>{companyName}</h3>
 						<ul>
 							<li>
@@ -154,9 +154,9 @@ const Contact: React.FC<PageProps> = () => {
 								<FontAwesomeIcon icon={["fab", "whatsapp"]} />
 							</a>
 						</p>
-					</section>
+					</div>
 					<GoogleMaps />
-				</section>
+				</div>
 			</section>
 		</>
 	);

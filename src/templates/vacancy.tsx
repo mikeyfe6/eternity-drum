@@ -82,7 +82,7 @@ const Vacancy = ({
 			<section data-main-section>
 				<Breadcrumbs crumbs={breadcrumbs} />
 				<h1>Vacature: {jobTitle}</h1>
-				<section data-main-content className="page-content image-right">
+				<div data-main-content className="page-content image-right">
 					<div>
 						<h3>betreft vacature:</h3>
 						{renderRichText(jobDescription)}
@@ -106,7 +106,7 @@ const Vacancy = ({
 							<GatsbyImage image={image!} alt={jobImage.description} />
 						</div>
 					</div>
-				</section>
+				</div>
 			</section>
 		</>
 	);

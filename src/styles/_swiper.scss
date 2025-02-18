@@ -9,20 +9,24 @@
 		border-radius: 10px;
 		opacity: 0.5;
 		margin-top: 0 !important;
-		width: 75px !important;
-		height: 75px !important;
+		width: rem-calc(67.5) !important;
+		height: rem-calc(67.5) !important;
+
+		@include mobile {
+			width: rem-calc(75) !important;
+			height: rem-calc(75) !important;
+		}
+
+		&::after {
+			transform: scale(0.75);
+
+			@include mobile {
+				transform: scale(1);
+			}
+		}
 
 		&:hover {
 			opacity: 1;
-		}
-
-		@media screen and ($medium) {
-			width: 67.5px !important;
-			height: 67.5px !important;
-
-			&::after {
-				transform: scale(0.75);
-			}
 		}
 	}
 
@@ -33,36 +37,36 @@
 	}
 
 	&-pagination {
-		section[data-main-hero] & {
-			bottom: var(--swiper-pagination-bottom, 18px);
+		[data-main-hero] & {
+			bottom: var(--swiper-pagination-bottom, rem-calc(18)) !important;
 		}
 
-		section[data-main-gallery] & {
-			bottom: var(--swiper-pagination-bottom, 24px) !important;
+		[data-main-gallery] & {
+			bottom: var(--swiper-pagination-bottom, rem-calc(18)) !important;
 
-			@media screen and ($small) {
-				bottom: var(--swiper-pagination-bottom, 18px) !important;
+			@include mobile {
+				bottom: var(--swiper-pagination-bottom, rem-calc(24)) !important;
 			}
 		}
 
 		&-bullet {
 			width: var(
 				--swiper-pagination-bullet-width,
-				var(--swiper-pagination-bullet-size, 10px)
+				var(--swiper-pagination-bullet-size, rem-calc(7))
 			) !important;
 			height: var(
 				--swiper-pagination-bullet-height,
-				var(--swiper-pagination-bullet-size, 10px)
+				var(--swiper-pagination-bullet-size, rem-calc(7))
 			) !important;
 
-			@media screen and ($small) {
+			@include mobile {
 				width: var(
 					--swiper-pagination-bullet-width,
-					var(--swiper-pagination-bullet-size, 7px)
+					var(--swiper-pagination-bullet-size, rem-calc(10))
 				) !important;
 				height: var(
 					--swiper-pagination-bullet-height,
-					var(--swiper-pagination-bullet-size, 7px)
+					var(--swiper-pagination-bullet-size, rem-calc(10))
 				) !important;
 			}
 

@@ -2,47 +2,39 @@
 
 @use "./customs" as *;
 
-section {
-	&[data-main-section] {
-		position: relative;
+[data-main-section] {
+	position: relative;
+}
 
-		&#post-template {
-			> h1 {
-				max-width: 100%;
-			}
-		}
+[data-main-content] {
+	h3 {
+		margin-bottom: 0.75em;
 	}
 
-	&[data-main-content] {
-		h3 {
-			margin-bottom: 0.75em;
-		}
+	p:not(:last-child) {
+		margin-bottom: 1em;
+	}
 
-		p:not(:last-child) {
-			margin-bottom: 1em;
-		}
+	ul:not(.page-content.maps ul, .page-content.singlepost .sidebar ul) {
+		margin-bottom: 1em;
+		list-style: square;
+		list-style-position: inside;
+		padding-left: 0.125em;
+	}
 
-		ul:not(.page-content.maps ul, .page-content.singlepost .sidebar ul) {
-			margin-bottom: 1em;
-			list-style: square;
-			list-style-position: inside;
-			padding-left: 0.125em;
-		}
+	a {
+		@include page-link;
+	}
 
-		a {
-			@include page-link;
-		}
+	i:not(.fab) {
+		font-style: italic;
+	}
 
-		i:not(.fab) {
-			font-style: italic;
-		}
-
-		hr {
-			color: $primary-color;
-			background-color: $primary-color;
-			opacity: 0.25;
-			border-radius: 50%;
-			margin: 2em 0;
-		}
+	hr {
+		color: $primary-color;
+		background-color: $primary-color;
+		opacity: 0.25;
+		border-radius: 50%;
+		margin: 2em 0;
 	}
 }

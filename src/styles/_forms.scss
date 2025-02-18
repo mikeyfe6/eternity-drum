@@ -38,11 +38,10 @@ form {
 		}
 
 		&::placeholder {
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
 			max-width: 100%;
 			color: $grey-color;
+
+			@include ellipsis;
 
 			@media screen and ($small) {
 				font-size: 0.9rem;
@@ -202,14 +201,13 @@ form {
 			top: 10px;
 			left: 0;
 			font-size: 0.8rem;
-			font-weight: 400;
+			font-weight: normal;
 			letter-spacing: 0.5px;
 			transition: all 0.1s;
 			color: $grey-color;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
 			max-width: 90%;
+
+			@include ellipsis;
 
 			@media screen and ($small) {
 				font-size: 0.75rem;

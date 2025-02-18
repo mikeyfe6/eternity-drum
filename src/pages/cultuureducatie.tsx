@@ -21,7 +21,7 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>Cultuureducatie</h1>
-				<section data-main-content className="page-content center">
+				<div data-main-content className="page-content center">
 					<p>
 						<strong>Eternity</strong> heeft de ambitie de komende jaren te
 						groeien en een instituut te worden voor Caribische drumbands.
@@ -58,7 +58,7 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 						</a>{" "}
 						in Amsterdam Zuidoost.
 					</p>
-				</section>
+				</div>
 			</section>
 		</>
 	);

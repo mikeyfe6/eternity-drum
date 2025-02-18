@@ -82,7 +82,7 @@ const Post = ({
 			<h1>{title}</h1>
 			<Breadcrumbs crumbs={breadcrumbs} />
 
-			<section data-main-content className="page-content singlepost">
+			<div data-main-content className="page-content singlepost">
 				<div>
 					<h2>{excerpt}</h2>
 
@@ -108,7 +108,7 @@ const Post = ({
 						)}
 					</div> */}
 				</div>
-			</section>
+			</div>
 		</section>
 	);
 };

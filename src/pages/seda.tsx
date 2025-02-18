@@ -24,7 +24,7 @@ const Seda: React.FC<PageProps> = () => {
 				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>Seda</h1>
-				<section data-main-content className="page-content basic">
+				<div data-main-content className="page-content basic">
 					<div>
 						<h2>Ontdek de Magie van Ritme bij de Southeast Drum Academy!</h2>
 						<p>
@@ -86,7 +86,7 @@ const Seda: React.FC<PageProps> = () => {
 							}}
 						/>
 					</div>
-				</section>
+				</div>
 			</section>
 		</>
 	);

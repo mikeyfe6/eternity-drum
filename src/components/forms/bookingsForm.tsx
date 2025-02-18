@@ -186,7 +186,7 @@ const BookingsForm: React.FC = () => {
 	return (
 		<section>
 			<div className={styles.bookingsformContainer}>
-				<section className={styles.bookingsformWrapper}>
+				<div className={styles.bookingsformWrapper}>
 					<h2>Online boekingsformulier</h2>
 					<form
 						onSubmit={(event) =>
@@ -465,8 +465,8 @@ const BookingsForm: React.FC = () => {
 							)}
 						</div>
 					</form>
-				</section>
-				<section data-main-content className={styles.bookingsformInfo}>
+				</div>
+				<div data-main-content className={styles.bookingsformInfo}>
 					<p>
 						<strong>
 							Drumband Eternity Percussion treedt op in zowel binnen- als
@@ -512,7 +512,7 @@ const BookingsForm: React.FC = () => {
 						</a>
 						.{" "}
 					</p>
-				</section>
+				</div>
 			</div>
 		</section>
 	);

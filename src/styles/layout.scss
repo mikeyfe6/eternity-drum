@@ -15,13 +15,13 @@
 @import "https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap";
 
 :root {
-	--swiper-theme-color: #f6ce0e !important;
-	--swiper-theme-color-hover: #4169e1 !important;
-	--swiper-scrollbar-drag-bg-color: #f6ce0e !important;
-	--swiper-pagination-color: #f6ce0e !important;
+	--swiper-theme-color: #{$secondary-color} !important;
+	--swiper-theme-color-hover: #{$tertiary-color} !important;
+	--swiper-scrollbar-drag-bg-color: #{$secondary-color} !important;
+	--swiper-pagination-color: #{$secondary-color} !important;
 	--swiper-scrollbar-bg-color: #181a3730 !important;
-	--swiper-pagination-bullet-inactive-color: #fff !important;
-	--swiper-pagination-bullet-inactive-color-hover: #f6ce0e !important;
+	--swiper-pagination-bullet-inactive-color: #{$white-color} !important;
+	--swiper-pagination-bullet-inactive-color-hover: #{$secondary-color} !important;
 	--swiper-pagination-bullet-inactive-opacity: 0.125 !important;
 	--swiper-scrollbar-bottom: 3px !important;
 }

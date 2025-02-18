@@ -45,9 +45,8 @@
 
 			span {
 				display: block;
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
+
+				@include ellipsis;
 			}
 
 			@media screen and ($small) {
@@ -64,7 +63,7 @@
 					color: $link-color;
 					text-decoration: none;
 					transition: color 0.2s;
-					font-weight: bold;
+					font-weight: 600;
 
 					&:hover {
 						color: $primary-color;

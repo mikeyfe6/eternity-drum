@@ -2,7 +2,7 @@
 
 .swiper {
 	&-container {
-		margin-bottom: rem-calc(16);
+		margin-bottom: rem-calc(8);
 
 		@include full-width;
 
@@ -10,10 +10,8 @@
 			margin-bottom: rem-calc(24);
 			width: 100%;
 			position: static;
-			margin-left: auto;
-			margin-right: auto;
-			left: auto;
-			right: auto;
+			margin-left: unset;
+			margin-right: unset;
 		}
 
 		.autoplay-progress {

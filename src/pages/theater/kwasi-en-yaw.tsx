@@ -24,7 +24,7 @@ const KwasiEnYaw: React.FC<PageProps> = () => {
 				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>Kwasi & Yaw</h1>
-				<section data-main-content className="page-content basic">
+				<div data-main-content className="page-content basic">
 					<div>
 						<h2>Theatervoorstelling: "Kwasi & Yaw"</h2>
 						<p>
@@ -88,7 +88,7 @@ const KwasiEnYaw: React.FC<PageProps> = () => {
 							}}
 						/>
 					</div>
-				</section>
+				</div>
 			</section>
 		</>
 	);

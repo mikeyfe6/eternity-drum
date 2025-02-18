@@ -24,7 +24,7 @@ const Anbi: React.FC<PageProps> = () => {
 				<Breadcrumbs crumbs={breadcrumbs} />
 
 				<h1>ANBI</h1>
-				<section data-main-content className="page-content center">
+				<div data-main-content className="page-content center">
 					<h2>Doelstelling: Eternity Percussion</h2>
 
 					<p>
@@ -148,7 +148,7 @@ const Anbi: React.FC<PageProps> = () => {
 					<p>
 						Op te vragen via: <i>Your Accountants & Adviseurs B.V.</i>
 					</p>
-				</section>
+				</div>
 			</section>
 		</>
 	);

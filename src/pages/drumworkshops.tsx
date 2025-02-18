@@ -32,7 +32,7 @@ const Drumworkshops: React.FC<PageProps> = () => {
 				<h1>Drumworkshops</h1>
 				<div className={styles.workshopContainer}>
 					<RegisterForm inputRef={inputRef} />
-					<section data-main-content className={styles.workshopInfo}>
+					<div data-main-content className={styles.workshopInfo}>
 						<p>
 							<strong>
 								Muziekeducatie vormt een goede basis voor de ontwikkeling van
@@ -141,7 +141,7 @@ const Drumworkshops: React.FC<PageProps> = () => {
 							Voor vragen omtrent deze regeling kan je telefonisch contact met
 							ons opnemen.
 						</p>
-					</section>
+					</div>
 				</div>
 			</section>
 		</>

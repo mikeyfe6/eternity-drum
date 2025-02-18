@@ -6,13 +6,21 @@
 	$breadcrumbs: &;
 
 	max-width: 100%;
-	margin-left: auto;
+	margin-left: unset;
 	position: static;
 	width: fit-content;
-	margin-bottom: rem-calc(32);
+	margin-bottom: rem-calc(8);
+
+	#post-template & {
+		margin-top: rem-calc(32);
+	}
 
 	@include mobile {
 		margin-bottom: rem-calc(24);
+	}
+
+	@include phablet {
+		margin-left: auto;
 	}
 
 	@include laptop {
@@ -24,41 +32,54 @@
 	&-list {
 		display: flex;
 		align-items: center;
-		background: linear-gradient(
-			45deg,
-			$primary-color,
-			color.scale($primary-color, $lightness: 5%)
-		);
 		width: fit-content;
 		white-space: nowrap;
 		border-radius: $border-radius-sm;
 		margin-left: auto;
-		padding: rem-calc(8 16);
+		padding: rem-calc(8 16 10 4);
 		gap: rem-calc(10);
-
-		@include box-shadow;
 
 		@include mobile {
 			gap: rem-calc(16);
-			padding: rem-calc(10 16);
+			padding: rem-calc(10 16 10);
+		}
+
+		@include phablet {
+			color: $white-color;
+			background: linear-gradient(
+				45deg,
+				$primary-color,
+				color.scale($primary-color, $lightness: 5%)
+			);
+
+			@include box-shadow;
 		}
 
 		#{$breadcrumbs}-item {
-			display: block;
+			display: flex;
+			align-items: center;
 
 			> a {
-				color: $white-color;
+				font-weight: 600;
 
 				@include fluid-typing(14, 16);
+
+				@include mobile {
+					color: $white-color;
+				}
 
 				&:hover {
 					color: color.adjust($tertiary-color, $lightness: 15%);
 				}
 
 				#{$breadcrumbs}-home {
-					color: $white-color;
+					color: $primary-color;
 
 					@include fluid-typing(16, 20);
+
+					@include phablet {
+						color: $white-color;
+					}
 
 					&:hover {
 						color: color.adjust($tertiary-color, $lightness: 15%);
@@ -67,25 +88,31 @@
 			}
 
 			#{$breadcrumbs}-seperator {
-				margin-left: rem-calc(16);
-				color: $white-color;
-				vertical-align: 0;
+				margin-left: rem-calc(10);
+				padding-top: 2px;
 
-				@include fluid-typing(12, 14);
+				@include fluid-typing(16, 18);
 
 				@include mobile {
-					vertical-align: baseline;
+					margin-left: rem-calc(16);
+				}
+
+				@include phablet {
+					color: $white-color;
 				}
 			}
 
 			#{$breadcrumbs}-page {
-				color: $secondary-color;
-				overflow: hidden;
-				white-space: nowrap;
-				text-overflow: ellipsis;
+				color: $grey-color;
 				font-weight: 600;
 
+				@include ellipsis;
+
 				@include fluid-typing(14, 16);
+
+				@include phablet {
+					color: $secondary-color;
+				}
 			}
 		}
 	}

@@ -56,7 +56,7 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 
 				<div className={styles.workshopContainer}>
 					<RegisterForm inputRef={inputRef} />
-					<section data-main-content className={styles.workshopInfo}>
+					<div data-main-content className={styles.workshopInfo}>
 						<p>
 							<strong>Sankofa Academy</strong> is een educatief programma in het
 							kader van een gedeelde geschiedenis om mensen van Afrikaanse
@@ -167,7 +167,7 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 							Ben je niet ouder dan 18 jaar? Vraag dan even toestemming aan jouw
 							ouders.
 						</p>
-					</section>
+					</div>
 				</div>
 			</section>
 		</>

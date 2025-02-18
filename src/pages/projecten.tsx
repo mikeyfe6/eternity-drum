@@ -24,7 +24,7 @@ const Projecten: React.FC<PageProps> = () => {
 			<section data-main-section>
 				<Breadcrumbs crumbs={breadcrumbs} />
 				<h1>Projecten</h1>
-				<section data-main-content className="page-content projects">
+				<div data-main-content className="page-content projects">
 					<h2>Nieuwe (uitwisselings)projecten !</h2>
 					<h3>Building Strong Communities</h3>
 					<p>
@@ -364,7 +364,7 @@ const Projecten: React.FC<PageProps> = () => {
 							</p>
 						</div>
 					</div> */}
-				</section>
+				</div>
 			</section>
 		</>
 	);

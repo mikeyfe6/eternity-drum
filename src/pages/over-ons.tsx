@@ -19,7 +19,7 @@ const OverOns: React.FC<PageProps> = () => {
 			<section data-main-section>
 				<Breadcrumbs crumbs={breadcrumbs} />
 				<h1>Over Ons</h1>
-				<section data-main-content className="page-content image-right">
+				<div data-main-content className="page-content image-right">
 					<div>
 						<p>
 							<b>Eternity</b> wilt als culturele instelling een bijdrage leveren
@@ -102,7 +102,7 @@ const OverOns: React.FC<PageProps> = () => {
 							}}
 						/>
 					</div>
-				</section>
+				</div>
 			</section>
 		</>
 	);
