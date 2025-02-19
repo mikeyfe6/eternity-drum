@@ -8,7 +8,11 @@
 		justify-content: space-between;
 		flex-flow: column wrap;
 		gap: rem-calc(16);
-		margin-top: rem-calc(16);
+		margin-top: rem-calc(8);
+
+		@include mobile {
+			margin-top: rem-calc(16);
+		}
 
 		@include phablet {
 			flex-direction: row;
@@ -21,10 +25,11 @@
 
 		&.post-intro {
 			max-width: 1300px;
-			gap: rem-calc(16);
+			gap: rem-calc(8);
 
 			@include mobile {
 				margin: auto;
+				gap: rem-calc(16);
 			}
 
 			@include phablet {
