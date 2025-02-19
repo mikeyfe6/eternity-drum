@@ -7,11 +7,12 @@
 		display: flex;
 		justify-content: space-between;
 		flex-flow: column wrap;
-		gap: rem-calc(16);
+		gap: rem-calc(8);
 		margin-top: rem-calc(8);
 
 		@include mobile {
 			margin-top: rem-calc(16);
+			gap: rem-calc(16);
 		}
 
 		@include phablet {
