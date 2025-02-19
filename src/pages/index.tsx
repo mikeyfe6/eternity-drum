@@ -16,14 +16,17 @@ import WhiteSpace from "../components/layout/whitespace";
 import * as styles from "../styles/modules/pages/index.module.scss";
 
 const Index: React.FC<PageProps> = () => {
-	const { title } = useSiteMetadata();
+	const { companyName } = useSiteMetadata();
 
 	return (
 		<>
 			<Hero />
-			<section className={styles.homepage} data-main-section>
+			<section className="page-intro home-intro">
+				<h1 className="page-title">{companyName}</h1>
 				<CtaButtons />
-				<h1>{title}</h1>
+			</section>
+
+			<section className={styles.homepage} data-main-section>
 				<p>
 					Eternity wilt als culturele instelling een bijdrage leveren aan
 					talentontwikkeling, cultuurparticipatie en visieverbreding van
@@ -38,13 +41,17 @@ const Index: React.FC<PageProps> = () => {
 					bekwamen.
 				</p>
 			</section>
-			<WhiteSpace />
+
 			<Collapsible />
+
 			<WhiteSpace />
+
 			<Berichten />
+
 			<WhiteSpace />
+
 			<Courses />
-			<WhiteSpace />
+
 			<Partners />
 		</>
 	);

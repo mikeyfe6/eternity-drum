@@ -3,14 +3,14 @@
 @use "../../customs" as *;
 
 .footer {
-	@include box-shadow;
-
 	&-container {
 		background: linear-gradient(
 			45deg,
 			$secondary-color,
 			color.scale($secondary-color, $lightness: 25%)
 		);
+
+		@include box-shadow;
 	}
 
 	&-wrapper {

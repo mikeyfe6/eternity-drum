@@ -125,7 +125,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 						animate="animate"
 						exit="exit"
 					>
-						<main>{children}</main>
+						{children}
 					</motion.main>
 				</AnimatePresence>
 			</div>

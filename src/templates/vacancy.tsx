@@ -79,9 +79,11 @@ const Vacancy = ({
 	return (
 		<>
 			<Hero />
-			<section data-main-section>
+			<section className="page-intro post-intro">
 				<Breadcrumbs crumbs={breadcrumbs} />
-				<h1>Vacature: {jobTitle}</h1>
+				<h1 className="page-title">Vacature: {jobTitle}</h1>
+			</section>
+			<section data-main-section>
 				<div data-main-content className="page-content image-right">
 					<div>
 						<h3>betreft vacature:</h3>

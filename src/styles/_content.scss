@@ -1,273 +1,262 @@
 @use "./customs" as *;
 
-.page-content {
-	li > p {
-		display: inline;
-	}
+.page {
+	$page: &;
 
-	a {
-		display: inline-block;
-	}
-
-	&.maps {
+	&-intro {
 		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 87.5px;
-		margin: 3em auto;
+		justify-content: space-between;
+		flex-flow: column wrap;
+		gap: rem-calc(16);
+		margin-top: rem-calc(16);
 
-		@media screen and ($extra-large) {
-			flex-direction: column-reverse;
+		@include phablet {
+			flex-direction: row;
+			margin-top: rem-calc(24);
 		}
 
-		@media screen and ($large) {
-			gap: 50px;
+		#{$page}-title {
+			height: fit-content;
 		}
 
-		@media screen and ($small) {
-			// bloaty
-			margin: 2.5em auto 1em;
+		&.post-intro {
+			max-width: 1300px;
+			gap: rem-calc(16);
+
+			@include mobile {
+				margin: auto;
+			}
+
+			@include phablet {
+				gap: rem-calc(32 16);
+			}
+
+			#{$page}-title {
+				@include phablet {
+					align-self: center;
+				}
+			}
+		}
+
+		&.home-intro {
+			margin-top: auto;
+			margin-bottom: rem-calc(32);
+
+			@include mobile {
+				margin-top: rem-calc(24);
+			}
+
+			#{$page}-title {
+				@include mobile {
+					white-space: nowrap;
+				}
+			}
 		}
 	}
 
-	&.center {
-		max-width: 1250px;
-		margin: 3em auto;
-		background-color: #80808010;
-		padding: 2.5em 2em;
+	&-content {
+		li > p {
+			display: inline;
+		}
 
-		@include box-shadow;
+		a {
+			display: inline-block;
+		}
 
-		@media screen and ($small) {
-			padding: 1em;
-			margin: 2.5em auto 1em;
-			// bloaty
+		&.maps {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 87.5px;
 
-			h2 {
-				font-size: 1.75rem;
+			@media screen and ($extra-large) {
+				flex-direction: column-reverse;
 			}
 
-			h4 {
-				font-size: 1.1rem;
+			@media screen and ($large) {
+				gap: 50px;
 			}
+
+			@media screen and ($small) {
+				// bloaty
+				margin: 2.5em auto 1em;
+			}
+		}
+
+		&.center {
+			max-width: 1250px;
+			margin: 0 auto;
+
+			@include box;
+		}
+
+		&.projects {
+			max-width: 1250px;
+			margin: 0 auto;
 
 			p {
-				font-size: 1rem;
+				max-width: 90ch;
 			}
-		}
-	}
 
-	&.projects {
-		max-width: 1250px;
-		margin: 3em auto;
+			.pjs {
+				&-image {
+					border-radius: 5px;
+					overflow: hidden;
 
-		p {
-			max-width: 90ch;
-		}
-
-		.pjs {
-			&-image {
-				border-radius: 5px;
-				overflow: hidden;
-
-				&-left {
-					display: flex;
-					align-items: center;
-					gap: 3em;
-
-					@media screen and ($extra-large) {
-						flex-direction: column;
-						align-items: initial;
-						gap: 2em;
-					}
-
-					> div {
-						flex: 1;
-					}
-				}
-
-				&-right {
-					display: flex;
-					align-items: center;
-					gap: 3em;
-
-					@media screen and ($extra-large) {
-						flex-direction: column;
-						align-items: initial;
-						gap: 1.5em;
-					}
-
-					> div:nth-child(1) {
-						flex: 0.55;
-
-						ul li:not(:last-child) {
-							margin-bottom: 1em;
-						}
-					}
-
-					> div:nth-child(2) {
-						flex: 0.45;
-					}
-				}
-
-				&-collage {
-					&-top {
+					&-left {
 						display: flex;
-						gap: 2em;
+						align-items: center;
+						gap: 3em;
 
-						@media screen and ($medium) {
+						@media screen and ($extra-large) {
 							flex-direction: column;
 							align-items: initial;
-						}
-
-						> div:nth-child(1) {
-							flex: 0.325;
-							display: flex;
-							flex-direction: column;
-							justify-content: center;
 							gap: 2em;
 						}
 
-						> div:nth-child(2) {
-							flex: 0.675;
+						> div {
+							flex: 1;
 						}
 					}
 
-					&-bottom {
+					&-right {
 						display: flex;
-						gap: 2em;
+						align-items: center;
+						gap: 3em;
 
-						@media screen and ($medium) {
+						@media screen and ($extra-large) {
 							flex-direction: column;
 							align-items: initial;
+							gap: 1.5em;
 						}
 
 						> div:nth-child(1) {
-							flex: 0.65;
+							flex: 0.55;
+
+							ul li:not(:last-child) {
+								margin-bottom: 1em;
+							}
 						}
 
 						> div:nth-child(2) {
-							flex: 0.35;
+							flex: 0.45;
+						}
+					}
+
+					&-collage {
+						&-top {
+							display: flex;
+							gap: 2em;
+
+							@media screen and ($medium) {
+								flex-direction: column;
+								align-items: initial;
+							}
+
+							> div:nth-child(1) {
+								flex: 0.325;
+								display: flex;
+								flex-direction: column;
+								justify-content: center;
+								gap: 2em;
+							}
+
+							> div:nth-child(2) {
+								flex: 0.675;
+							}
+						}
+
+						&-bottom {
+							display: flex;
+							gap: 2em;
+
+							@media screen and ($medium) {
+								flex-direction: column;
+								align-items: initial;
+							}
+
+							> div:nth-child(1) {
+								flex: 0.65;
+							}
+
+							> div:nth-child(2) {
+								flex: 0.35;
+								display: flex;
+								flex-direction: column;
+								justify-content: center;
+								gap: 2em;
+							}
+						}
+					}
+
+					&-over-text {
+						display: flex;
+						gap: 3em;
+
+						@media screen and ($large) {
+							flex-direction: column;
+							align-items: initial;
+							gap: 2em;
+						}
+
+						> div:nth-child(1) {
+							flex: 0.525;
+						}
+
+						> div:nth-child(2) {
+							flex: 0.475;
 							display: flex;
 							flex-direction: column;
 							justify-content: center;
-							gap: 2em;
+							gap: 1em;
+
+							@media screen and ($large) {
+								gap: 1em;
+							}
 						}
 					}
 				}
 
-				&-over-text {
+				&-vids {
 					display: flex;
-					gap: 3em;
+					flex-wrap: wrap;
+					gap: 2em;
 
 					@media screen and ($large) {
 						flex-direction: column;
 						align-items: initial;
-						gap: 2em;
 					}
 
-					> div:nth-child(1) {
-						flex: 0.525;
-					}
+					div {
+						flex: 1;
 
-					> div:nth-child(2) {
-						flex: 0.475;
-						display: flex;
-						flex-direction: column;
-						justify-content: center;
-						gap: 1em;
+						> iframe {
+							@media screen and ($large) {
+								aspect-ratio: auto;
+								height: 450px;
+							}
 
-						@media screen and ($large) {
-							gap: 1em;
+							@media screen and ($medium) {
+								height: 350px;
+							}
+
+							@media screen and ($small) {
+								height: 225px;
+							}
+						}
+
+						> p {
+							text-align: center;
+							font-size: 0.9rem;
+							max-width: none;
 						}
 					}
 				}
-			}
-
-			&-vids {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2em;
-
-				@media screen and ($large) {
-					flex-direction: column;
-					align-items: initial;
-				}
-
-				div {
-					flex: 1;
-
-					> iframe {
-						@media screen and ($large) {
-							aspect-ratio: auto;
-							height: 450px;
-						}
-
-						@media screen and ($medium) {
-							height: 350px;
-						}
-
-						@media screen and ($small) {
-							height: 225px;
-						}
-					}
-
-					> p {
-						text-align: center;
-						font-size: 0.9rem;
-						max-width: none;
-					}
-				}
-			}
-		}
-
-		@media screen and ($small) {
-			margin: 2em auto 1em;
-			// bloaty
-
-			h2 {
-				font-size: 1.75rem;
-			}
-
-			h4 {
-				font-size: 1.1rem;
-			}
-
-			p {
-				font-size: 1rem;
-			}
-		}
-	}
-
-	&.image-right {
-		display: flex;
-		justify-content: center;
-		gap: 87.5px;
-		margin: 3em auto;
-
-		@media screen and ($large) {
-			flex-direction: column;
-		}
-
-		@media screen and ($small) {
-			// bloaty
-			margin: 2.5em auto 1.25em;
-			gap: 50px;
-		}
-
-		> :nth-child(1) {
-			max-width: 600px;
-			background-color: #80808010;
-			padding: 2.5em 2em;
-
-			@include box-shadow;
-
-			@media screen and ($large) {
-				max-width: 100%;
 			}
 
 			@media screen and ($small) {
-				padding: 1em;
+				// margin: 2em auto 1em;
+				// // bloaty
 
 				h2 {
 					font-size: 1.75rem;
@@ -283,224 +272,245 @@
 			}
 		}
 
-		> :nth-child(2) {
-			max-width: 600px;
-
-			@media screen and ($large) {
-				max-width: 100%;
-			}
-
-			> div {
-				overflow: hidden;
-				border-radius: 5px;
-				height: fit-content;
-				outline: 1px solid $lightgrey-color;
-
-				img {
-					width: 100%;
-
-					@include box-shadow;
-				}
-			}
-		}
-	}
-
-	&.singlepost {
-		display: flex;
-		justify-content: center;
-		gap: 87.5px;
-		margin: 3em auto;
-
-		@media screen and ($extra-large) {
-			gap: 50px;
-		}
-
-		@media screen and ($large) {
-			flex-direction: column-reverse;
-			gap: 25px;
-		}
-
-		@media screen and ($small) {
-			margin: 0 auto 1.25em;
-			gap: 15px;
-		}
-
-		.images {
-			margin: 2em 0;
-
-			span {
-				text-align: right;
-				display: block;
-
-				&:nth-of-type(1) {
-					margin-top: 0.5em;
-					font-size: 0.95rem;
-				}
-
-				&:nth-of-type(2) {
-					color: $lightgrey-color;
-					font-size: 0.9rem;
-					margin-right: 0.125em;
-				}
-			}
-		}
-
-		.sidebar {
-			margin: 1em 0;
+		&.image-right {
 			display: flex;
-			flex-wrap: wrap;
-			gap: 20px;
+			justify-content: center;
+			gap: 87.5px;
 
-			ul {
-				margin-left: auto;
-				list-style: none;
-				display: flex;
-				gap: 10px;
-				justify-content: flex-end;
-				flex-wrap: wrap;
+			@media screen and ($large) {
+				flex-direction: column;
+			}
+
+			@media screen and ($small) {
+				gap: 50px;
+			}
+
+			> :nth-child(1) {
+				max-width: 600px;
+
+				@include box;
 
 				@media screen and ($large) {
-					margin-left: initial;
+					max-width: 100%;
+				}
+			}
+
+			> :nth-child(2) {
+				max-width: 600px;
+
+				@media screen and ($large) {
+					max-width: 100%;
 				}
 
-				li {
-					background-color: $secondary-color;
-					width: fit-content;
-					padding: 0.25em 0.5em;
-					border-radius: 2.5px;
+				> div {
+					overflow: hidden;
+					border-radius: 5px;
 					height: fit-content;
+					outline: 1px solid $lightgrey-color;
+
+					img {
+						width: 100%;
+
+						@include box-shadow;
+					}
 				}
 			}
+		}
 
-			p {
-				margin-left: auto;
-				font-size: 1rem;
-				width: fit-content;
-				background-color: $primary-color;
-				padding: 1em 1.25em;
-				border-radius: 7.5px;
-				color: $white-color;
+		&.singlepost {
+			display: flex;
+			justify-content: center;
+			gap: 87.5px;
 
-				@media screen and ($small) {
-					width: 100%;
-				}
+			@media screen and ($extra-large) {
+				gap: 50px;
+			}
 
-				u {
+			@media screen and ($large) {
+				flex-direction: column-reverse;
+				gap: 25px;
+			}
+
+			@media screen and ($small) {
+				margin: 2em auto 1.25em;
+				gap: 15px;
+			}
+
+			.images {
+				margin: 2em 0;
+
+				span {
+					text-align: right;
 					display: block;
-					margin-bottom: 0.5em;
+
+					&:nth-of-type(1) {
+						margin-top: 0.5em;
+						font-size: 0.95rem;
+					}
+
+					&:nth-of-type(2) {
+						color: $lightgrey-color;
+						font-size: 0.9rem;
+						margin-right: 0.125em;
+					}
 				}
 			}
-		}
 
-		> :nth-child(1) {
-			max-width: 600px;
+			.sidebar {
+				margin: 1em 0;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 20px;
 
-			@media screen and ($large) {
-				max-width: 100%;
-			}
+				ul {
+					margin-left: auto;
+					list-style: none;
+					display: flex;
+					gap: 10px;
+					justify-content: flex-end;
+					flex-wrap: wrap;
 
-			@media screen and ($small) {
-				h2 {
-					font-size: 1.75rem;
-				}
+					@media screen and ($large) {
+						margin-left: initial;
+					}
 
-				h4 {
-					font-size: 1.1rem;
+					li {
+						background-color: $secondary-color;
+						width: fit-content;
+						padding: 0.25em 0.5em;
+						border-radius: 2.5px;
+						height: fit-content;
+					}
 				}
 
 				p {
+					margin-left: auto;
 					font-size: 1rem;
+					width: fit-content;
+					background-color: $primary-color;
+					padding: 1em 1.25em;
+					border-radius: 7.5px;
+					color: $white-color;
+
+					@media screen and ($small) {
+						width: 100%;
+					}
+
+					u {
+						display: block;
+						margin-bottom: 0.5em;
+					}
 				}
 			}
-		}
 
-		> :nth-child(2) {
-			max-width: 600px;
+			> :nth-child(1) {
+				max-width: 600px;
 
-			@media screen and ($large) {
-				max-width: 100%;
-			}
-
-			img {
-				min-width: 400px;
-				width: 100%;
-				border-radius: 5px;
-				overflow: hidden;
-				outline: 1px solid $lightgrey-color;
-
-				@include box-shadow;
+				@media screen and ($large) {
+					max-width: 100%;
+				}
 
 				@media screen and ($small) {
-					min-width: 100%;
+					h2 {
+						font-size: 1.75rem;
+					}
+
+					h4 {
+						font-size: 1.1rem;
+					}
+
+					p {
+						font-size: 1rem;
+					}
 				}
 			}
-		}
-	}
 
-	&.basic {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 87.5px;
-		margin: 3em auto;
+			> :nth-child(2) {
+				max-width: 600px;
 
-		@media screen and ($large) {
-			flex-direction: column;
-		}
-
-		@media screen and ($small) {
-			// bloaty
-			margin: 2.5em auto 1.25em;
-			gap: 50px;
-		}
-
-		> :nth-child(1) {
-			max-width: 600px;
-
-			li {
-				font-size: 1.1rem;
-			}
-
-			@media screen and ($large) {
-				max-width: 100%;
-			}
-
-			@media screen and ($small) {
-				h2 {
-					font-size: 1.75rem;
+				@media screen and ($large) {
+					max-width: 100%;
 				}
-
-				h4 {
-					font-size: 1.1rem;
-				}
-
-				p {
-					font-size: 1rem;
-				}
-			}
-		}
-
-		> :nth-child(2) {
-			max-width: 550px;
-
-			@media screen and ($small) {
-				max-width: 100%;
-			}
-
-			> div {
-				overflow: hidden;
-				border-radius: 5px;
-				height: fit-content;
-				outline: 1px solid $lightgrey-color;
 
 				img {
 					min-width: 400px;
 					width: 100%;
+					border-radius: 5px;
+					overflow: hidden;
+					outline: 1px solid $lightgrey-color;
 
 					@include box-shadow;
 
 					@media screen and ($small) {
 						min-width: 100%;
+					}
+				}
+			}
+		}
+
+		&.basic {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 87.5px;
+
+			@media screen and ($large) {
+				flex-direction: column;
+			}
+
+			@media screen and ($small) {
+				// bloaty
+				gap: 50px;
+			}
+
+			> :nth-child(1) {
+				max-width: 600px;
+
+				li {
+					font-size: 1.1rem;
+				}
+
+				@media screen and ($large) {
+					max-width: 100%;
+				}
+
+				@media screen and ($small) {
+					h2 {
+						font-size: 1.75rem;
+					}
+
+					h4 {
+						font-size: 1.1rem;
+					}
+
+					p {
+						font-size: 1rem;
+					}
+				}
+			}
+
+			> :nth-child(2) {
+				max-width: 550px;
+
+				@media screen and ($small) {
+					max-width: 100%;
+				}
+
+				> div {
+					overflow: hidden;
+					border-radius: 5px;
+					height: fit-content;
+					outline: 1px solid $lightgrey-color;
+
+					img {
+						min-width: 400px;
+						width: 100%;
+
+						@include box-shadow;
+
+						@media screen and ($small) {
+							min-width: 100%;
+						}
 					}
 				}
 			}

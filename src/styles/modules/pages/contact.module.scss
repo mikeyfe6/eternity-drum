@@ -1,17 +1,9 @@
 @use "../../customs" as *;
 
 .contact-wrapper {
-	background-color: #80808010;
-	padding: 1.5em;
-	height: fit-content;
 	max-width: 500px;
-	width: 100%;
 
-	@include box-shadow;
-
-	@media screen and ($small) {
-		padding: 1em;
-	}
+	@include box;
 
 	> h3:nth-of-type(2) {
 		font-size: 1.25rem;

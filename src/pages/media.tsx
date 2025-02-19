@@ -20,6 +20,8 @@ import GallerySix from "../components/galleries/gallerySix";
 import GallerySeven from "../components/galleries/gallerySeven";
 import GalleryEight from "../components/galleries/galleryEight";
 
+import WhiteSpace from "../components/layout/whitespace";
+
 import * as styles from "../styles/modules/pages/media.module.scss";
 
 const Media: React.FC<PageProps> = () => {
@@ -28,10 +30,11 @@ const Media: React.FC<PageProps> = () => {
 	return (
 		<>
 			<Hero />
-			<section data-main-section>
+			<section className="page-intro">
 				<Breadcrumbs crumbs={breadcrumbs} />
-				<h1>Media</h1>
-
+				<h1 className="page-title">Media</h1>
+			</section>
+			<section data-main-section>
 				<div className={styles.mediaContOne}>
 					<section className={styles.music}>
 						<h2>Muziek</h2>
@@ -65,6 +68,8 @@ const Media: React.FC<PageProps> = () => {
 					<hr />
 					<GalleryEight />
 				</section>
+
+				<WhiteSpace />
 
 				<section className={styles.videos}>
 					<h2>Video's</h2>

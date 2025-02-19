@@ -43,10 +43,11 @@ const Contact: React.FC<PageProps> = () => {
 	return (
 		<>
 			<Hero />
-			<section data-main-section>
+			<section className="page-intro">
 				<Breadcrumbs crumbs={breadcrumbs} />
-
-				<h1>Contact</h1>
+				<h1 className="page-title">Contact</h1>
+			</section>
+			<section data-main-section>
 				<div data-main-content className="page-content maps">
 					<div className={styles.contactWrapper}>
 						<h3>{companyName}</h3>

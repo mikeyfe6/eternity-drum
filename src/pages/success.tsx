@@ -10,9 +10,10 @@ const Success: React.FC<PageProps> = () => {
 	return (
 		<section data-main-section>
 			<h1>Bedankt!</h1>
-			<p>
+			<br />
+			<p style={{ fontSize: "1.125rem" }}>
 				Je bericht is succesvol verstuurd! We nemen zo snel mogelijk contact met
-				je op.
+				jou op.
 				<br />
 				{process.env.NODE_ENV === "development" ? (
 					<>
@@ -22,10 +23,11 @@ const Success: React.FC<PageProps> = () => {
 					</>
 				) : null}
 				<br />
-				<button type="button" className={styles.succesButton}>
-					<Link to="/">Ga naar de homepagina</Link>
-				</button>
 			</p>
+
+			<button type="button" className={styles.succesButton}>
+				<Link to="/">Ga naar de homepagina</Link>
+			</button>
 		</section>
 	);
 };

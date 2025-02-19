@@ -1,3 +1,5 @@
+@use "./customs" as *;
+
 .overlay {
 	position: fixed;
 	top: 0;
@@ -9,8 +11,12 @@
 }
 
 .space-divider {
-	height: 50px;
+	height: rem-calc(64);
 	width: 100%;
+
+	@include mobile {
+		height: rem-calc(96);
+	}
 }
 
 .new-amsterdam-regular {

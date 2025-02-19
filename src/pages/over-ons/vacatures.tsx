@@ -59,14 +59,15 @@ const Vacatures: React.FC<PageProps> = () => {
 	return (
 		<>
 			<Hero />
-			<section data-main-section>
+			<section className="page-intro">
 				<Breadcrumbs crumbs={breadcrumbs} />
-
-				<h1>Vacatures</h1>
-
-				<br />
+				<h1 className="page-title">Vacatures</h1>
+			</section>
+			<section data-main-section>
 				<hr />
 				<br />
+				<br />
+
 				{/* // bloaty af! */}
 
 				{vacancies.length > 0 ? (

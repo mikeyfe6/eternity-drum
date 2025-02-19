@@ -78,21 +78,26 @@ const Post = ({
 	};
 
 	return (
-		<article data-main-section id="post-template">
-			<h1>{title}</h1>
-			<Breadcrumbs crumbs={breadcrumbs} />
+		<>
+			<hr className="fullwidth" />
 
-			<div data-main-content className="page-content singlepost">
-				<div>
-					<h2>{excerpt}</h2>
+			<section className="page-intro post-intro">
+				<Breadcrumbs crumbs={breadcrumbs} />
+				<h1 className="page-title">{title}</h1>
+			</section>
 
-					<div>{renderRichText(content, renderOptions)}</div>
-				</div>
+			<article data-main-section id="post-template">
+				<div data-main-content className="page-content singlepost">
+					<div>
+						<h2>{excerpt}</h2>
 
-				<div>
-					<img src={featuredImage.url} alt={featuredImage.title} />
+						<div>{renderRichText(content, renderOptions)}</div>
+					</div>
 
-					{/* <div className='singlepost sidebar'>
+					<div>
+						<img src={featuredImage.url} alt={featuredImage.title} />
+
+						{/* <div className='singlepost sidebar'>
 						<ul>
                             {tags.map((tag, index) => (
                                 <li key={index}>{tag}</li>
@@ -107,9 +112,10 @@ const Post = ({
 							</p>
 						)}
 					</div> */}
+					</div>
 				</div>
-			</div>
-		</article>
+			</article>
+		</>
 	);
 };
 

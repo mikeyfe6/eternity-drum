@@ -4,6 +4,11 @@
 
 [data-main-section] {
 	position: relative;
+	margin-top: rem-calc(32);
+
+	@include mobile {
+		margin-top: rem-calc(48);
+	}
 }
 
 [data-main-content] {

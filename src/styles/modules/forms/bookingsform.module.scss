@@ -7,7 +7,6 @@
 		display: flex;
 		justify-content: center;
 		gap: 100px;
-		margin: 3em auto;
 
 		> * {
 			flex: 1;
@@ -38,11 +37,6 @@
 				max-width: 600px;
 			}
 		}
-
-		@media screen and ($small) {
-			// bloaty
-			margin: 2em auto 1em;
-		}
 	}
 
 	&-wrapper {
@@ -52,13 +46,13 @@
 			color.scale($primary-color, $lightness: 5%)
 		);
 		color: $white-color;
-		padding: 1.5em 2em;
 		border-radius: 10px;
+
+		@include box;
 
 		@media screen and ($small) {
 			display: block;
 			width: 100%;
-			padding: 1.5em 1.25em;
 		}
 
 		> h2 {
@@ -157,8 +151,8 @@
 			}
 
 			&:not(:empty) {
-				border-top: solid 2px color.adjust($trans-grey, $alpha: -0.9);
-				border-bottom: solid 2px color.adjust($trans-grey, $alpha: -0.9);
+				border-top: solid 2px color.adjust($dark-grey, $alpha: -0.9);
+				border-bottom: solid 2px color.adjust($dark-grey, $alpha: -0.9);
 				padding: 1.5em 0.25em;
 				margin-top: 1.5em;
 			}
@@ -192,26 +186,6 @@
 	}
 
 	&-info {
-		background-color: #80808010;
-		padding: 1.5em;
-		height: fit-content;
-
-		@include box-shadow;
-
-		@media screen and ($small) {
-			padding: 1em;
-
-			h2 {
-				font-size: 1.75rem;
-			}
-
-			h4 {
-				font-size: 1.1rem;
-			}
-
-			p {
-				font-size: 1rem;
-			}
-		}
+		@include box;
 	}
 }

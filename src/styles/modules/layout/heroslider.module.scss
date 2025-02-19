@@ -3,12 +3,10 @@
 .swiper {
 	&-container {
 		// bloaty
-		margin-bottom: 0;
 
 		@include full-width;
 
 		@include mobile {
-			margin-bottom: rem-calc(24);
 			width: 100%;
 			position: static;
 			margin-left: unset;

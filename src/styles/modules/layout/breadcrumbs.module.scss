@@ -6,11 +6,7 @@
 	$breadcrumbs: &;
 
 	max-width: 100%;
-	margin-left: unset;
-	position: static;
 	width: fit-content;
-	margin-bottom: rem-calc(8);
-	margin-top: rem-calc(8);
 
 	// bloaty
 
@@ -18,21 +14,8 @@
 		margin-top: rem-calc(32);
 	}
 
-	@include mobile {
-		margin-bottom: rem-calc(24);
-	}
-
 	@include phablet {
-		margin-left: auto;
-	}
-
-	@include laptop {
-		position: absolute;
-		right: 0;
-		top: 0;
-		margin-top: auto;
-
-		// bloaty
+		margin: unset;
 	}
 
 	&-list {
@@ -51,7 +34,6 @@
 
 		@include phablet {
 			// bloaty
-			color: $white-color;
 			padding: rem-calc(10 16 10);
 			background: linear-gradient(
 				45deg,
@@ -71,7 +53,7 @@
 
 				@include fluid-typing(14, 16);
 
-				@include mobile {
+				@include phablet {
 					color: $white-color;
 				}
 

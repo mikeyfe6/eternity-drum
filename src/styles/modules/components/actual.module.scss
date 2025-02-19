@@ -3,8 +3,11 @@
 @use "../../customs" as *;
 
 .actual {
+	@include space;
+
 	h2 {
 		text-align: center;
+		margin-bottom: rem-calc(20);
 	}
 
 	.collapsible {

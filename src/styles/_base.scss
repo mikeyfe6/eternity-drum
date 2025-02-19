@@ -1,11 +1,21 @@
 @use "./customs" as *;
 
 hr {
-	height: 3px;
+	height: rem-calc(3);
 	border-width: 0;
-	color: rgba($trans-grey, 0.1);
-	background-color: rgba(54 30 30 / 10%);
-	margin: 1em 0;
+	background-color: rgba($dark-grey, 0.1);
+	margin: rem-calc(8 0);
+
+	&.fullwidth {
+		margin: 0;
+		height: rem-calc(1);
+
+		@include full-width;
+
+		@include mobile {
+			display: none;
+		}
+	}
 }
 
 iframe {

@@ -10,7 +10,8 @@ const NotFound: React.FC<PageProps> = () => {
 	return (
 		<section data-main-section>
 			<h1>Ojee.. Pagina niet gevonden</h1>
-			<p>
+			<br />
+			<p style={{ fontSize: "1.125rem" }}>
 				We hebben ons best gedaan, maar het lijkt erop dat deze pagina niet
 				(meer) bestaat of misschien verhuisd is.
 				<br />
@@ -22,10 +23,11 @@ const NotFound: React.FC<PageProps> = () => {
 					</>
 				) : null}
 				<br />
-				<button type="button" className={styles.notfoundButton}>
-					<Link to="/">Ga terug naar de homepagina..</Link>
-				</button>
 			</p>
+
+			<button type="button" className={styles.notfoundButton}>
+				<Link to="/">Ga terug naar de homepagina..</Link>
+			</button>
 		</section>
 	);
 };

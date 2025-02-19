@@ -18,44 +18,34 @@ h1 {
 
 	@include fluid-typing(36, 64);
 
+	&.page-title,
 	[data-main-section] & {
-		color: $white-color;
 		padding: rem-calc(16 16 10);
+		text-align: center;
+		color: $white-color;
 		background: linear-gradient(
 			45deg,
 			$primary-color,
 			color.scale($primary-color, $lightness: 5%)
 		);
-		box-shadow: -5px 5px 10px -5px rgba(0 0 0 / 10%);
-		text-align: center;
 
 		@include full-width;
 
 		@include mobile {
 			padding: rem-calc(16 24 8);
 			border-radius: $border-radius-sm;
-			width: 100%;
+			width: fit-content;
 			max-width: 100%;
 			position: static;
 			margin-left: unset;
 			margin-right: unset;
-		}
-
-		@include phablet {
-			width: fit-content;
-		}
-
-		@include laptop {
-			max-width: 30ch;
-		}
-
-		@include desktop {
-			max-width: 33ch;
-			width: fit-content;
-		}
-
-		@include massive {
-			max-width: 40ch;
+			margin-bottom: unset;
+			color: $primary-color;
+			background: linear-gradient(
+				45deg,
+				$secondary-color,
+				color.scale($secondary-color, $lightness: 5%)
+			);
 		}
 	}
 }

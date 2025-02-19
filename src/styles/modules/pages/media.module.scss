@@ -40,11 +40,8 @@
 	.news {
 		flex: 30%;
 		max-width: 600px;
-		height: fit-content;
-		padding: 1.5em;
-		background-color: #80808010;
 
-		@include box-shadow;
+		@include box;
 
 		a {
 			@include page-link;
@@ -54,12 +51,6 @@
 				font-size: 0.75rem;
 				vertical-align: super;
 			}
-		}
-
-		@media screen and ($small) {
-			// bloaty
-			padding: 1em;
-			margin-top: 1.5em;
 		}
 
 		iframe {
@@ -77,35 +68,23 @@
 .videos {
 	width: 100%;
 	max-width: 900px;
-	margin: 3em auto;
+	margin: 0 auto;
 	background-color: #80808010;
-	padding: 1.5em;
 	text-align: center;
+
+	@include box;
 
 	> iframe:not(:last-child) {
 		margin-bottom: rem-calc(16);
 	}
-
-	@include box-shadow;
-
-	@media screen and ($small) {
-		padding: 1em;
-	}
 }
 
 .photos {
-	width: 100%;
 	max-width: 1200px;
-	margin: 3em auto;
+	margin: 0 auto;
 	background-color: color.adjust($lightgrey-color, $lightness: 10%);
-	padding: 1.5em 1.5em 0.25em;
 
-	@include box-shadow;
-
-	@media screen and ($small) {
-		padding: 1em 1em 0.25em;
-		margin: 3em auto 0.25em;
-	}
+	@include box;
 
 	hr {
 		margin: 3em 0 2em;

@@ -26,10 +26,11 @@ const Drumworkshops: React.FC<PageProps> = () => {
 	return (
 		<>
 			<Hero />
-			<section data-main-section>
+			<section className="page-intro">
 				<Breadcrumbs crumbs={breadcrumbs} />
-
-				<h1>Drumworkshops</h1>
+				<h1 className="page-title">Drumworkshops</h1>
+			</section>
+			<section data-main-section>
 				<div className={styles.workshopContainer}>
 					<RegisterForm inputRef={inputRef} />
 					<div data-main-content className={styles.workshopInfo}>

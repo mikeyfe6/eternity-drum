@@ -41,9 +41,11 @@ const SummerschoolSecond: React.FC<PageProps> = () => {
 	return (
 		<>
 			<Hero />
-			<section data-main-section>
+			<section className="page-intro">
 				<Breadcrumbs crumbs={breadcrumbs} />
-				<h1>Summerschool 2021</h1>
+				<h1 className="page-title">Summerschool 2021</h1>
+			</section>
+			<section data-main-section>
 				<div className={styles.workshopContainer}>
 					<div className={styles.workshopVisuals}>
 						<LightBox image={summerSchoolFlyer} alt="Summerschool 2021 Flyer" />

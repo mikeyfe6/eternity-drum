@@ -3,72 +3,59 @@
 .courses {
 	$courses: &;
 
-	> h2 {
-		text-align: center;
+	max-width: rem-calc(1000);
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: rem-calc(24);
+
+	@include box;
+
+	#{$courses}-icon {
+		font-size: 2em;
+		margin-left: rem-calc(24);
+		margin-bottom: rem-calc(16);
+		float: right;
+
+		@include mobile {
+			margin-left: rem-calc(48);
+			margin-bottom: rem-calc(32);
+		}
 	}
 
-	> div {
-		font-size: 0.95rem;
-		max-width: 1000px;
-		margin: 0 auto;
-		background-color: #80808010;
-		padding: 2.25em 2em;
-		display: flex;
-		flex-direction: column;
-		gap: 1.5em;
+	> p {
+		@include fluid-typing(16, 18);
+	}
 
-		@media screen and ($small) {
-			padding: 1em;
+	button {
+		max-width: 100%;
+		width: fit-content;
+		margin-left: auto;
+		margin-top: rem-calc(32);
+
+		@include button-style(
+			$primary-color,
+			$white-color,
+			$primary-color,
+			$secondary-color
+		);
+
+		@include mobile {
+			margin-top: unset;
 		}
 
-		#{$courses}-icon {
-			font-size: 2em;
-			margin: 0 0 0.875em 0.875em;
-			float: right;
-
-			&:hover {
-				@include box-shadow;
-			}
+		span {
+			@include ellipsis;
 		}
+	}
 
-		button {
-			max-width: 100%;
-			width: fit-content;
-			margin-left: auto;
+	ul {
+		list-style-type: square;
+		list-style-position: inside;
 
-			@include button-style(
-				$primary-color,
-				$white-color,
-				$primary-color,
-				$secondary-color
-			);
-
-			span {
-				display: block;
-
-				@include ellipsis;
-			}
-
-			@media screen and ($small) {
-				margin-top: 1em;
-			}
-		}
-
-		ul {
-			list-style-type: square;
-			list-style-position: inside;
-
-			li {
-				a {
-					color: $link-color;
-					text-decoration: none;
-					transition: color 0.2s;
-					font-weight: 600;
-
-					&:hover {
-						color: $primary-color;
-					}
-				}
+		li {
+			a {
+				@include page-link;
 			}
 		}
 	}

@@ -49,10 +49,12 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 	return (
 		<>
 			<Hero />
+			<section className="page-intro">
+				<Breadcrumbs crumbs={breadcrumbs} />
+				<h1 className="page-title">Projecten</h1>
+			</section>
 			<section data-main-section>
 				<div className={styles.workshopBgImage} />
-				<Breadcrumbs crumbs={breadcrumbs} />
-				<h1>Sankofa Academy</h1>
 
 				<div className={styles.workshopContainer}>
 					<RegisterForm inputRef={inputRef} />

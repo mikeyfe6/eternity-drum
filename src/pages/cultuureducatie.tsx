@@ -17,10 +17,11 @@ const CultuurEducatie: React.FC<PageProps> = () => {
 	return (
 		<>
 			<Hero />
-			<section data-main-section>
+			<section className="page-intro">
 				<Breadcrumbs crumbs={breadcrumbs} />
-
-				<h1>Cultuureducatie</h1>
+				<h1 className="page-title">Cultuureducatie</h1>
+			</section>
+			<section data-main-section>
 				<div data-main-content className="page-content center">
 					<p>
 						<strong>Eternity</strong> heeft de ambitie de komende jaren te

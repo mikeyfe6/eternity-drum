@@ -16,9 +16,11 @@ const OverOns: React.FC<PageProps> = () => {
 	return (
 		<>
 			<Hero />
-			<section data-main-section>
+			<section className="page-intro">
 				<Breadcrumbs crumbs={breadcrumbs} />
-				<h1>Over Ons</h1>
+				<h1 className="page-title">Over Ons</h1>
+			</section>
+			<section data-main-section>
 				<div data-main-content className="page-content image-right">
 					<div>
 						<p>

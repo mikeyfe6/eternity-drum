@@ -20,10 +20,11 @@ const Anbi: React.FC<PageProps> = () => {
 	return (
 		<>
 			<Hero />
-			<section data-main-section>
+			<section className="page-intro">
 				<Breadcrumbs crumbs={breadcrumbs} />
-
-				<h1>ANBI</h1>
+				<h1 className="page-title">ANBI</h1>
+			</section>
+			<section data-main-section>
 				<div data-main-content className="page-content center">
 					<h2>Doelstelling: Eternity Percussion</h2>
 

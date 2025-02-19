@@ -15,10 +15,11 @@ const Boeken: React.FC<PageProps> = () => {
 	return (
 		<>
 			<Hero />
-			<section data-main-section>
+			<div className="page-intro">
 				<Breadcrumbs crumbs={breadcrumbs} />
-
-				<h1>Boeken</h1>
+				<h1 className="page-title">Boeken</h1>
+			</div>
+			<section data-main-section>
 				<BookingsForm />
 			</section>
 		</>

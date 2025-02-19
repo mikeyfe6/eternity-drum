@@ -129,8 +129,8 @@
 			}
 
 			&:not(:empty) {
-				border-top: solid 2px color.adjust($trans-grey, $alpha: -0.9);
-				border-bottom: solid 2px color.adjust($trans-grey, $alpha: -0.9);
+				border-top: solid 2px color.adjust($dark-grey, $alpha: -0.9);
+				border-bottom: solid 2px color.adjust($dark-grey, $alpha: -0.9);
 				padding: 1.5em 0.25em;
 				margin-top: 1.5em;
 			}

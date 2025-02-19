@@ -2,12 +2,15 @@
 
 @use "colors" as *;
 @use "fonts" as *;
+@use "functions" as *;
 @use "mediaqueries" as *;
+@use "utils" as *;
+@use "variables" as *;
 
 // LAYOUT
 
 @mixin ep-wrapper {
-	max-width: 1800px;
+	max-width: rem-calc(1800);
 	margin: 0 auto;
 	width: 100%;
 }
@@ -30,18 +33,53 @@
 	object-fit: $objectFit;
 }
 
+@mixin space($type: "top") {
+	@if $type == "top" {
+		margin-top: rem-calc(64);
+
+		@include mobile {
+			margin-top: rem-calc(96);
+		}
+	} @else if $type == "bottom" {
+		margin-bottom: rem-calc(64);
+
+		@include mobile {
+			margin-bottom: rem-calc(96);
+		}
+	}
+}
+
 // COMPONENTS
+
+@mixin box($type: "spaced") {
+	height: fit-content;
+	width: 100%;
+	border: 2px solid $primary-color;
+
+	@if $type == "spaced" {
+		padding: rem-calc(20 18);
+
+		@include mobile {
+			padding: rem-calc(36 32);
+		}
+	} @else if $type == "side" {
+		padding: rem-calc(16);
+
+		@include mobile {
+			padding: rem-calc(24);
+		}
+	}
+}
 
 @mixin button-style($bgColor, $color, $hoverBgcolor, $hoverColor) {
 	background-color: $bgColor;
 	color: $color;
-	font-size: 1.125rem;
-	border-radius: 5px;
+	border-radius: $border-radius-sm;
 	font-weight: 600;
-	padding: 0.5em 1em;
+	padding: rem-calc(8 16);
 	border: none;
 	text-transform: uppercase;
-	min-height: 44px;
+	min-height: rem-calc(44);
 	box-shadow: 0 4px 6px rgba(0 0 0 / 10%);
 	text-wrap: nowrap;
 	display: block;
@@ -49,10 +87,10 @@
 
 	@include box-shadow;
 	@include base-transition(all);
+	@include fluid-typing(16, 18);
 
-	@media screen and ($small) {
-		font-size: 1rem;
-		padding: 0.75em 1.25em;
+	@include mobile {
+		padding: rem-calc(12 20);
 	}
 
 	&:hover {
@@ -104,7 +142,7 @@
 @mixin special-labels {
 	label {
 		opacity: 1;
-		top: -25px;
+		top: rem-calc(-25);
 
 		&.visited {
 			color: color.adjust($tertiary-color, $lightness: 10%);

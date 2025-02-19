@@ -1,45 +1,46 @@
 @use "../../customs" as *;
 
-.partners-container {
-	margin: 2em 0;
+.partners {
 	float: right;
+
+	@include space;
 
 	> h2 {
 		text-align: right;
+		margin-bottom: rem-calc(20);
 	}
 
 	ul {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 30px;
+		gap: rem-calc(32);
 		direction: rtl;
 		margin-left: auto;
-		width: 80%;
+		width: 100%;
 
-		@media screen and ($large) {
+		@include mobile {
 			width: 90%;
 		}
 
-		@media screen and ($small) {
-			width: 100%;
+		@include tablet {
+			width: 80%;
 		}
 
 		li {
-			outline: 1px rgba(128 128 128 / 12.5%) solid;
-			width: 150px;
-			height: 150px;
+			outline: 2px $lightgrey-color solid;
+			width: rem-calc(100);
+			height: rem-calc(100);
 
 			@include base-transition(all);
-			@include box-shadow;
 
-			@media screen and ($large) {
-				width: 125px;
-				height: 125px;
+			@include mobile {
+				width: rem-calc(125);
+				height: rem-calc(125);
 			}
 
-			@media screen and ($small) {
-				width: 100px;
-				height: 100px;
+			@include tablet {
+				width: rem-calc(150);
+				height: rem-calc(150);
 			}
 
 			&:hover {

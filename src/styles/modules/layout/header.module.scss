@@ -230,7 +230,7 @@
 						right: 0;
 						top: 50%;
 						transform: translateY(-50%);
-						background-color: color.adjust($trans-grey, $alpha: -0.75);
+						background-color: color.adjust($dark-grey, $alpha: -0.75);
 					}
 
 					&::before {
@@ -241,7 +241,7 @@
 						left: 0;
 						top: 50%;
 						transform: translateY(-50%);
-						background-color: color.adjust($trans-grey, $alpha: -0.75);
+						background-color: color.adjust($dark-grey, $alpha: -0.75);
 					}
 				}
 
@@ -290,6 +290,10 @@
 								display: flex;
 								justify-content: center;
 								text-align: center;
+
+								&.active-menu-item {
+									background-color: $secondary-color;
+								}
 
 								&:hover {
 									color: $white-color;

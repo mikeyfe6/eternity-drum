@@ -97,7 +97,7 @@ const Partners: React.FC = () => {
 	}, []);
 
 	return (
-		<section className={styles.partnersContainer}>
+		<section className={styles.partners}>
 			<h2>Partners</h2>
 			<ul>
 				{shuffledPartners.map((partner, index) => {

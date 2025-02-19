@@ -14,10 +14,11 @@ const Theater: React.FC<PageProps> = () => {
 	return (
 		<>
 			<Hero />
-			<section data-main-section>
+			<section className="page-intro">
 				<Breadcrumbs crumbs={breadcrumbs} />
-
-				<h1>Theater</h1>
+				<h1 className="page-title">Theater</h1>
+			</section>
+			<section data-main-section>
 				<div data-main-content className="page-content basic">
 					<p>Pagina komt binnenkort..</p>
 				</div>

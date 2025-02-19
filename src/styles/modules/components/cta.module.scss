@@ -6,21 +6,9 @@
 	display: flex;
 	gap: rem-calc(16);
 	flex-wrap: wrap;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	align-items: center;
-	margin-top: rem-calc(28);
-	margin-bottom: rem-calc(32);
-	width: 100%;
-
-	@include laptop {
-		margin-top: auto;
-	}
-
-	@include desktop {
-		position: absolute;
-		right: 0;
-		top: 0;
-	}
+	height: fit-content;
 
 	> a {
 		@include button-style(
