@@ -21,7 +21,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({
 
 	return (
 		<iframe
-			id='ep-yt-player'
+			className='ep-yt-player'
 			title='Vanaf nu ook online lessen voor jongeren STVS JOURNAAL 9 april 2020'
 			width={width}
 			height={height}

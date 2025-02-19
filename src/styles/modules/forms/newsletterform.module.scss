@@ -3,86 +3,58 @@
 @use "../../customs" as *;
 
 .newsletter {
-	&-wrapper {
-		min-width: 400px;
-		max-width: 650px;
+	display: block;
+	margin: 0 auto;
+	min-width: 100%;
+	width: 100%;
+	margin-top: rem-calc(16);
 
-		@media screen and ($extra-large) {
-			min-width: 462.5px;
-		}
+	@include mobile {
+		min-width: rem-calc(425);
+		max-width: rem-calc(550);
+	}
+
+	@include phablet {
+		margin-top: unset;
+	}
+
+	form {
+		background: linear-gradient(
+			45deg,
+			$primary-color,
+			color.scale($primary-color, $lightness: 5%)
+		);
+		color: $white-color;
+		padding: rem-calc(24 32);
+		border-radius: $border-radius-md;
+
+		@include box-shadow;
 
 		@media screen and ($small) {
-			display: block;
-			min-width: 100%;
-			width: 100%;
-			margin-top: 2em;
+			padding: rem-calc(24 20);
 		}
 
-		form {
-			background: linear-gradient(
-				45deg,
-				$primary-color,
-				color.scale($primary-color, $lightness: 5%)
-			);
-			color: $white-color;
+		> fieldset {
 			display: flex;
 			flex-direction: column;
-			padding: 1.5em 2em;
-			border-radius: 10px;
 
-			@include box-shadow;
-
-			@media screen and ($small) {
-				padding: 1.5em 1.25em;
+			&:nth-of-type(2) {
+				margin: rem-calc(32 0);
 			}
 
-			> span {
-				font-size: 1.125rem;
+			> legend {
 				font-weight: 600;
-				margin-top: 1.5em;
+				margin-bottom: rem-calc(32);
+
+				@include fluid-typing(18, 20);
 			}
 
-			> fieldset {
-				display: flex;
-				flex-direction: column;
+			input {
+				padding: rem-calc(8 10 10);
+				width: 100%;
+				border-radius: $border-radius-sm;
 
-				&:nth-of-type(2) {
-					margin-top: 2em;
-				}
-
-				> legend {
-					font-size: 1.125rem;
-					font-weight: 600;
-					margin-bottom: 2em;
-				}
-
-				input {
-					border-radius: 5px;
-					padding: 0.5em 0.5em 0.6em 0.6em;
-					width: 100%;
-
-					@include base-transition(outline-color);
-
-					@media screen and ($small) {
-						border-radius: 3px;
-					}
-				}
-
-				textarea {
-					border-radius: 5px;
-					padding: 0.5em 0.75em 0.6em;
-					width: 100%;
-					min-height: 7.5em;
-
-					@media screen and ($medium) {
-						min-width: auto;
-						width: 100%;
-					}
-
-					@media screen and ($small) {
-						border-radius: 3px;
-					}
-				}
+				@include base-transition(outline-color);
 			}
 		}
 	}
@@ -90,41 +62,53 @@
 	&form-submit {
 		display: flex;
 		flex-direction: column;
-		margin: 2em 0 1em;
+		margin: rem-calc(32 0 16);
 
-		> :nth-child(1) {
+		> div {
 			display: flex;
 			justify-content: space-between;
-			align-items: flex-end;
-		}
+			align-items: flex-start;
 
-		> div > span {
-			font-size: 0.95rem;
-			text-underline-offset: 4px;
-			text-decoration-thickness: 2px;
-			padding-left: 0.25em;
+			> span {
+				font-size: rem-calc(14);
+				text-underline-offset: 4px;
+				text-decoration-thickness: 2px;
+				padding-left: rem-calc(4);
+			}
+
+			> button {
+				margin-left: auto;
+
+				@include button-style(
+					$white-color,
+					$primary-color,
+					$white-color,
+					$tertiary-color
+				);
+
+				&:disabled {
+					opacity: 0.5;
+					cursor: not-allowed;
+				}
+			}
 		}
 
 		> ul {
 			display: flex;
 			flex-direction: column;
-			gap: 10px;
-			margin-top: 1.75em;
+			gap: rem-calc(12);
+			margin-top: rem-calc(16);
+			padding: rem-calc(24 4);
+			border-top: solid 2px color.adjust($dark-grey, $alpha: -0.9);
+			border-bottom: solid 2px color.adjust($dark-grey, $alpha: -0.9);
 
 			> li {
 				background-color: $red-color;
-				border-radius: 3px;
-				padding: 0.25em 0.75em;
-				font-size: 0.8rem;
+				border-radius: $border-radius-xs;
+				padding: rem-calc(4 12);
+				font-size: rem-calc(12);
 				width: fit-content;
 				outline: 1px rgba(255 255 255 / 75%) solid;
-			}
-
-			&:not(:empty) {
-				border-top: solid 2px color.adjust($dark-grey, $alpha: -0.9);
-				border-bottom: solid 2px color.adjust($dark-grey, $alpha: -0.9);
-				padding: 1.5em 0.25em;
-				margin-top: 1.5em;
 			}
 		}
 
@@ -136,22 +120,6 @@
 		&-approved {
 			text-decoration: underline;
 			text-decoration-color: $green-color;
-		}
-
-		> div > button {
-			margin-left: auto;
-
-			@include button-style(
-				$white-color,
-				$primary-color,
-				$white-color,
-				$tertiary-color
-			);
-
-			&:disabled {
-				opacity: 0.5;
-				cursor: not-allowed;
-			}
 		}
 	}
 }

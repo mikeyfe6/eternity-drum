@@ -153,7 +153,7 @@ const NewsletterForm: React.FC = () => {
 	};
 
 	return (
-		<div className={styles.newsletterWrapper}>
+		<div className={styles.newsletter}>
 			<form
 				onSubmit={(event) =>
 					handleSubmit(event, document.querySelector("form"))
