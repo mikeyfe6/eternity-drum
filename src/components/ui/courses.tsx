@@ -40,7 +40,7 @@ const Courses: React.FC = () => {
 						rel="noopener noreferrer"
 						target="_blank"
 					>
-						ga naar website <FontAwesomeIcon icon={"up-right-from-square"} />
+						website <FontAwesomeIcon icon={"up-right-from-square"} />
 					</a>
 				</li>
 				<li>
@@ -50,7 +50,7 @@ const Courses: React.FC = () => {
 						rel="noopener noreferrer"
 						target="_blank"
 					>
-						download de app <FontAwesomeIcon icon={"up-right-from-square"} />
+						download <FontAwesomeIcon icon={"up-right-from-square"} />
 					</a>
 				</li>
 				<li>
@@ -60,7 +60,7 @@ const Courses: React.FC = () => {
 						rel="noopener noreferrer"
 						target="_blank"
 					>
-						download de app <FontAwesomeIcon icon={"up-right-from-square"} />
+						download <FontAwesomeIcon icon={"up-right-from-square"} />
 					</a>
 				</li>
 			</ul>
