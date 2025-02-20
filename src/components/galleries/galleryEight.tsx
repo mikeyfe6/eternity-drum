@@ -10,20 +10,10 @@ import {
 	Navigation,
 	Pagination,
 	Scrollbar,
-	A11y,
-	Parallax,
 	Autoplay,
 	FreeMode,
 	Thumbs,
 } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/thumbs";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import "swiper/css/parallax";
-import "swiper/css/autoplay";
 
 import * as styles from "../../styles/modules/components/gallery.module.scss";
 
@@ -41,6 +31,7 @@ type ThumbsSwiperType = {
 
 const GalleryEight: React.FC = () => {
 	const [images, setImages] = useState<ImageType[]>([]);
+	const [imageCount, setImageCount] = useState(0);
 	const [thumbsSwiper, setThumbsSwiper] = useState<ThumbsSwiperType | null>(
 		null
 	);
@@ -69,12 +60,15 @@ const GalleryEight: React.FC = () => {
 	`);
 
 	useEffect(() => {
-		if (data?.allS3ImageFile) {
+		if (data?.allS3ImageFile?.edges) {
 			const fetchedImages = data.allS3ImageFile.edges.map((edge: any) => ({
 				title: edge.node.title || "",
 				imageData: getImage(edge.node.file.childImageSharp),
 			}));
 			setImages(fetchedImages);
+			setImageCount(fetchedImages.length);
+		} else {
+			console.error("No images found or query failed.");
 		}
 	}, [data]);
 
@@ -100,6 +94,8 @@ const GalleryEight: React.FC = () => {
 		document.body.style.overflow = "visible";
 	};
 
+	const shouldLoop = imageCount > 2;
+
 	return (
 		<div className={styles.swiperContainer} data-main-gallery>
 			<h3>
@@ -110,17 +106,13 @@ const GalleryEight: React.FC = () => {
 					Navigation,
 					Pagination,
 					Scrollbar,
-					A11y,
-					Parallax,
 					Autoplay,
 					FreeMode,
 					Thumbs,
 				]}
 				spaceBetween={5}
 				slidesPerView={1}
-				centeredSlides={true}
-				loop={true}
-				parallax={true}
+				loop={shouldLoop}
 				navigation
 				thumbs={{ swiper: thumbsSwiper as any }}
 				pagination={{
@@ -157,12 +149,12 @@ const GalleryEight: React.FC = () => {
 				</div>
 			</Swiper>
 			<Swiper
-				onSwiper={(swiper) => {
+				onSwiper={(swiper: ThumbsSwiperType) => {
 					if (swiper) {
-						setThumbsSwiper(swiper as any);
+						setThumbsSwiper(swiper);
 					}
 				}}
-				loop
+				loop={shouldLoop}
 				spaceBetween={10}
 				slidesPerView={3}
 				breakpoints={{

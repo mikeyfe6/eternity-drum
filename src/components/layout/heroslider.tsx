@@ -1,30 +1,26 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 import { StaticImage } from "gatsby-plugin-image";
 
-import {
-	Navigation,
-	Pagination,
-	Scrollbar,
-	A11y,
-	Parallax,
-	Autoplay,
-} from "swiper/modules";
+import { Navigation, Pagination, Scrollbar, Autoplay } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import "swiper/css/parallax";
-import "swiper/css/autoplay";
 
 import * as styles from "../../styles/modules/layout/heroslider.module.scss";
 
 const Hero: React.FC = () => {
+	const swiperRef = useRef<HTMLDivElement | null>(null);
 	const progressCircle = useRef<SVGSVGElement | null>(null);
 	const progressContent = useRef<HTMLSpanElement | null>(null);
+	const [slideCount, setSlideCount] = useState(0);
+
+	useEffect(() => {
+		if (swiperRef.current) {
+			const slides = swiperRef.current.querySelectorAll(".hero-slide");
+
+			setSlideCount(slides.length);
+		}
+	}, []);
 
 	const onAutoplayTimeLeft = (s: any, time: any, progress: any) => {
 		progressCircle.current?.style.setProperty(
@@ -37,15 +33,15 @@ const Hero: React.FC = () => {
 		}
 	};
 
+	const shouldLoop = slideCount > 2;
+
 	return (
-		<section className={styles.swiperContainer} data-main-hero>
+		<section className={styles.swiperContainer} data-main-hero ref={swiperRef}>
 			<Swiper
-				modules={[Navigation, Pagination, Scrollbar, A11y, Parallax, Autoplay]}
+				modules={[Navigation, Pagination, Scrollbar, Autoplay]}
 				spaceBetween={10}
 				slidesPerView={1}
-				centeredSlides={true}
-				loop={true}
-				parallax={true}
+				loop={shouldLoop}
 				navigation
 				pagination={{
 					clickable: true,
@@ -69,6 +65,7 @@ const Hero: React.FC = () => {
 							style={{ width: "100%" }}
 							objectPosition="50% 10%"
 							loading="eager"
+							className="hero-slide"
 						/>
 					</div>
 				</SwiperSlide>
@@ -81,6 +78,7 @@ const Hero: React.FC = () => {
 							style={{ width: "100%" }}
 							objectPosition="50% 20%"
 							loading="eager"
+							className="hero-slide"
 						/>
 					</div>
 				</SwiperSlide>
@@ -92,6 +90,7 @@ const Hero: React.FC = () => {
 							placeholder="blurred"
 							style={{ width: "100%" }}
 							loading="eager"
+							className="hero-slide"
 						/>
 					</div>
 				</SwiperSlide>
@@ -104,6 +103,7 @@ const Hero: React.FC = () => {
 							style={{ width: "100%" }}
 							objectPosition="50% 10%"
 							loading="eager"
+							className="hero-slide"
 						/>
 					</div>
 				</SwiperSlide>
@@ -115,6 +115,7 @@ const Hero: React.FC = () => {
 							placeholder="blurred"
 							style={{ width: "100%" }}
 							loading="eager"
+							className="hero-slide"
 						/>
 					</div>
 				</SwiperSlide>
@@ -127,6 +128,7 @@ const Hero: React.FC = () => {
 							style={{ width: "100%" }}
 							objectPosition="50% 15%"
 							loading="eager"
+							className="hero-slide"
 						/>
 					</div>
 				</SwiperSlide>
@@ -138,6 +140,7 @@ const Hero: React.FC = () => {
 							placeholder="blurred"
 							style={{ width: "100%" }}
 							loading="eager"
+							className="hero-slide"
 						/>
 					</div>
 				</SwiperSlide>

@@ -6,7 +6,7 @@
 		color: var(--swiper-theme-color);
 		transform: scale(0.75) translateY(-50%);
 		background-color: rgba($smoke-color, 0.125);
-		border-radius: 10px;
+		border-radius: $border-radius-md;
 		opacity: 0.5;
 		margin-top: 0 !important;
 		width: rem-calc(67.5) !important;
