@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
 				spaceBetween={10}
 				slidesPerView={1}
 				loop={shouldLoop}
-				navigation
+				navigation={true}
 				pagination={{
 					clickable: true,
 				}}

@@ -10,7 +10,6 @@ import {
 	Navigation,
 	Pagination,
 	Scrollbar,
-	Autoplay,
 	FreeMode,
 	Thumbs,
 } from "swiper/modules";
@@ -37,9 +36,6 @@ const GalleryOne: React.FC = () => {
 	);
 
 	const [lightboxImage, setLightboxImage] = useState<any>(null);
-
-	const progressCircle = useRef<SVGSVGElement | null>(null);
-	const progressContent = useRef<HTMLSpanElement | null>(null);
 
 	const data = useStaticQuery(graphql`
 		query {
@@ -74,16 +70,6 @@ const GalleryOne: React.FC = () => {
 		}
 	}, [data]);
 
-	const onAutoplayTimeLeft = (s: any, time: any, progress: any) => {
-		progressCircle.current?.style.setProperty(
-			"--progress",
-			String(1 - progress)
-		);
-		if (progressContent.current) {
-			progressContent.current.textContent = `${Math.ceil(time / 1000)}`;
-		}
-	};
-
 	const openLightbox = (imageData: any) => {
 		setLightboxImage(imageData);
 		document.body.style.overflow = "hidden";
@@ -102,18 +88,10 @@ const GalleryOne: React.FC = () => {
 				Swazoom Live <span>8 Juli 2023</span>
 			</h3>
 			<Swiper
-				modules={[
-					Navigation,
-					Pagination,
-					Scrollbar,
-					Autoplay,
-					FreeMode,
-					Thumbs,
-				]}
+				modules={[Navigation, Pagination, Scrollbar, FreeMode, Thumbs]}
 				spaceBetween={5}
 				slidesPerView={1}
 				loop={shouldLoop}
-				navigation
 				thumbs={{ swiper: thumbsSwiper as any }}
 				pagination={{
 					clickable: true,
@@ -121,8 +99,8 @@ const GalleryOne: React.FC = () => {
 					dynamicMainBullets: 7,
 				}}
 				scrollbar={{ draggable: true }}
-				onAutoplayTimeLeft={onAutoplayTimeLeft}
 				className={styles.swiperWrapper}
+				navigation={true}
 			>
 				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideTop}>
@@ -138,12 +116,6 @@ const GalleryOne: React.FC = () => {
 						</div>
 					</SwiperSlide>
 				))}
-				<div className={styles.autoplayProgress} slot="container-end">
-					<svg viewBox="0 0 48 48" ref={progressCircle}>
-						<circle cx="24" cy="24" r="20"></circle>
-					</svg>
-					<span ref={progressContent} hidden></span>
-				</div>
 			</Swiper>
 			<Swiper
 				onSwiper={(swiper: ThumbsSwiperType) => {
@@ -161,7 +133,7 @@ const GalleryOne: React.FC = () => {
 				}}
 				freeMode={true}
 				watchSlidesProgress={true}
-				modules={[FreeMode, Navigation, Thumbs]}
+				modules={[FreeMode, Thumbs]}
 			>
 				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideBottom}>
@@ -169,6 +141,7 @@ const GalleryOne: React.FC = () => {
 					</SwiperSlide>
 				))}
 			</Swiper>
+
 			{lightboxImage && (
 				<div className={styles.lightboxContainer} onClick={closeLightbox}>
 					<div className={styles.lightboxContent}>

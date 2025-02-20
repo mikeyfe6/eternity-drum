@@ -10,7 +10,6 @@ import {
 	Navigation,
 	Pagination,
 	Scrollbar,
-	Autoplay,
 	FreeMode,
 	Thumbs,
 } from "swiper/modules";
@@ -37,9 +36,6 @@ const GalleryFive: React.FC = () => {
 	);
 
 	const [lightboxImage, setLightboxImage] = useState<any>(null);
-
-	const progressCircle = useRef<SVGSVGElement | null>(null);
-	const progressContent = useRef<HTMLSpanElement | null>(null);
 
 	const data = useStaticQuery(graphql`
 		query {
@@ -72,16 +68,6 @@ const GalleryFive: React.FC = () => {
 		}
 	}, [data]);
 
-	const onAutoplayTimeLeft = (s: any, time: any, progress: any) => {
-		progressCircle.current?.style.setProperty(
-			"--progress",
-			String(1 - progress)
-		);
-		if (progressContent.current) {
-			progressContent.current.textContent = `${Math.ceil(time / 1000)}`;
-		}
-	};
-
 	const openLightbox = (imageData: any) => {
 		setLightboxImage(imageData);
 		document.body.style.overflow = "hidden";
@@ -100,29 +86,19 @@ const GalleryFive: React.FC = () => {
 				African Diaspora Performing Arts Festival <span>10 November 2019</span>
 			</h3>
 			<Swiper
-				modules={[
-					Navigation,
-					Pagination,
-					Scrollbar,
-					Autoplay,
-					FreeMode,
-					Thumbs,
-				]}
+				modules={[Navigation, Pagination, Scrollbar, FreeMode, Thumbs]}
 				spaceBetween={5}
 				slidesPerView={1}
 				loop={shouldLoop}
-				navigation
 				thumbs={{ swiper: thumbsSwiper as any }}
 				pagination={{
 					clickable: true,
 					dynamicBullets: true,
 					dynamicMainBullets: 7,
 				}}
-				scrollbar={{
-					draggable: true,
-				}}
-				onAutoplayTimeLeft={onAutoplayTimeLeft}
+				scrollbar={{ draggable: true }}
 				className={styles.swiperWrapper}
+				navigation={true}
 			>
 				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideTop}>
@@ -138,13 +114,6 @@ const GalleryFive: React.FC = () => {
 						</div>
 					</SwiperSlide>
 				))}
-
-				<div className={styles.autoplayProgress} slot="container-end">
-					<svg viewBox="0 0 48 48" ref={progressCircle}>
-						<circle cx="24" cy="24" r="20"></circle>
-					</svg>
-					<span ref={progressContent} hidden></span>
-				</div>
 			</Swiper>
 			<Swiper
 				onSwiper={(swiper: ThumbsSwiperType) => {
@@ -162,7 +131,7 @@ const GalleryFive: React.FC = () => {
 				}}
 				freeMode={true}
 				watchSlidesProgress={true}
-				modules={[FreeMode, Navigation, Thumbs]}
+				modules={[FreeMode, Thumbs]}
 			>
 				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideBottom}>
@@ -179,6 +148,7 @@ const GalleryFive: React.FC = () => {
 							alt="African Diaspora Performing Arts Festival - 10 November 2019"
 							className={styles.lightboxImage}
 							onClick={(e) => e.stopPropagation()}
+							objectFit="contain"
 						/>
 					</div>
 					<button className={styles.lightboxClose} onClick={closeLightbox}>
