@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface YouTubePlayerProps {
 	videoId: string;
@@ -9,24 +9,23 @@ interface YouTubePlayerProps {
 
 const YouTubePlayer: React.FC<YouTubePlayerProps> = ({
 	videoId,
-	width = '720',
-	height = '405',
+	width = "720",
+	height = "405",
 	additionalParams = false,
 }) => {
 	let embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
 	if (additionalParams) {
-		embedUrl += '?origin=https://eternitydrum.com&color=white&rel=0';
+		embedUrl += "?origin=https://eternitydrum.com&color=white&rel=0";
 	}
 
 	return (
 		<iframe
-			className='ep-yt-player'
-			title='Vanaf nu ook online lessen voor jongeren STVS JOURNAAL 9 april 2020'
+			className="ep-yt-player"
 			width={width}
 			height={height}
 			src={embedUrl}
-			allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 			allowFullScreen
 		></iframe>
 	);
