@@ -23,10 +23,10 @@ iframe {
 	border-radius: $border-radius-xs;
 	outline: 2px solid $primary-color;
 	border: 0 solid rgba($lightgrey-color, 1);
-	height: auto;
 	overflow: hidden;
 
 	&.ep-yt-player {
 		aspect-ratio: 16 / 9;
+		height: 100%;
 	}
 }
