@@ -80,10 +80,8 @@
 				max-height: fit-content;
 
 				&:has(iframe) {
-					margin-bottom: rem-calc(-8);
-
 					iframe {
-						margin-bottom: -7.5px;
+						margin-bottom: rem-calc(-7.5);
 					}
 				}
 
