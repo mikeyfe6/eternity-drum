@@ -22,8 +22,10 @@ declare global {
 const Footer = () => {
 	const {
 		companyName,
-		address,
-		postalCode,
+		visitingAddress,
+		visitingPostalCode,
+		mailingAddress,
+		mailingPostalCode,
 		city,
 		telephoneBpt,
 		telephoneSeda,
@@ -65,7 +67,7 @@ const Footer = () => {
 					<div className={styles.footerColumn}>
 						<h4>Contactgegevens</h4>
 						<br />
-						<strong>{companyName}</strong>
+						<b>{companyName}</b>
 						<h5>Bezoekadres:</h5>
 						<ul>
 							<li>
@@ -74,10 +76,10 @@ const Footer = () => {
 									rel="noopener noreferrer"
 									target="_blank"
 								>
-									Kruitbergstraat 18
+									{visitingAddress}
 								</a>
 							</li>
-							<li>{`1104 CH ${city}`}</li>
+							<li>{`${visitingPostalCode} ${city}`}</li>
 						</ul>
 						<h5>Postadres:</h5>
 						<ul>
@@ -87,10 +89,10 @@ const Footer = () => {
 									rel="noopener noreferrer"
 									target="_blank"
 								>
-									{address}
+									{mailingAddress}
 								</a>
 							</li>
-							<li>{`${postalCode} ${city}`}</li>
+							<li>{`${mailingPostalCode} ${city}`}</li>
 						</ul>
 						<ul>
 							<li>
@@ -100,7 +102,7 @@ const Footer = () => {
 									rel="noopener noreferrer"
 									target="_blank"
 								>
-									<strong>{email}</strong>
+									<b>{email}</b>
 								</a>
 							</li>
 							<li>
@@ -110,7 +112,7 @@ const Footer = () => {
 									rel="noopener noreferrer"
 									target="_blank"
 								>
-									<strong>{telephoneSeda}</strong> (SEDA)
+									<b>{telephoneSeda}</b> (SEDA)
 								</a>
 							</li>
 							<li>
@@ -120,7 +122,7 @@ const Footer = () => {
 									rel="noopener noreferrer"
 									target="_blank"
 								>
-									<strong>{telephoneBpt}</strong> (BPT)
+									<b>{telephoneBpt}</b> (BPT)
 								</a>
 							</li>
 							<li>
@@ -130,16 +132,16 @@ const Footer = () => {
 									rel="noopener noreferrer"
 									target="_blank"
 								>
-									<strong>{mobile}</strong> (BPT)
+									<b>{mobile}</b> (BPT)
 								</a>
 							</li>
 						</ul>
 						<ul>
 							<li>
-								<strong>KvK:</strong> {kvk}
+								<b>KvK:</b> {kvk}
 							</li>
 							<li>
-								<strong>BTW:</strong> {btw}
+								<b>BTW:</b> {btw}
 							</li>
 						</ul>
 					</div>
@@ -292,7 +294,7 @@ const Footer = () => {
 					<p>
 						© 2002 – {new Date().getFullYear()} · <strong>{companyName}</strong>{" "}
 						| Powered by{" "}
-						<strong>
+						<b>
 							<a
 								href="https://menefex.nl"
 								rel="noopener noreferrer"
@@ -301,7 +303,7 @@ const Footer = () => {
 								Menefex
 								<img src={menefexLogo} alt="" />
 							</a>
-						</strong>
+						</b>
 					</p>
 				</div>
 			</div>
