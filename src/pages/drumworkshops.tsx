@@ -61,10 +61,10 @@ const Drumworkshops: React.FC<PageProps> = () => {
 						</p>
 
 						<p>
-							<strong>
+							<b>
 								Voor slechts 45,- euro per maand kan je 1x in de week bij ons
 								drumlessen volgen.
-							</strong>{" "}
+							</b>{" "}
 							Je leert bij ons niet alleen het spelen van Afrikaanse,
 							Afro-Caribische en Afro-Surinaamse ritmes, maar ook het lezen van
 							muzieknoten voor percussie instrumenten. Per drumles zijn er 2
@@ -123,7 +123,7 @@ const Drumworkshops: React.FC<PageProps> = () => {
 						</p>
 
 						<p>
-							Wij zijn nu <strong>intermediair</strong> van het{" "}
+							Wij zijn nu <b>intermediair</b> van het{" "}
 							<a
 								href="https://jeugdfondssportencultuur.nl/"
 								rel="noopener noreferrer"

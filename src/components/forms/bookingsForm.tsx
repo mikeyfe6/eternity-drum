@@ -185,7 +185,7 @@ const BookingsForm: React.FC = () => {
 	};
 
 	return (
-		<div className={styles.bookingsformContainer}>
+		<div className={styles.bookingsformContainer} data-main-form>
 			<div className={styles.bookingsformWrapper}>
 				<h2>Online boekingsformulier</h2>
 				<form
@@ -486,9 +486,7 @@ const BookingsForm: React.FC = () => {
 				</p>
 				<p>
 					Wij leveren formaties van{" "}
-					<strong>
-						minimaal 6 en maximaal 15 drummers inclusief de blazerssectie
-					</strong>{" "}
+					<b>minimaal 6 en maximaal 15 drummers inclusief de blazerssectie</b>{" "}
 					voor setjes van 10 tot maximaal 30 min (Je kunt ook meerdere setjes
 					boeken).
 				</p>

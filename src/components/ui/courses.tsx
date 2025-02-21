@@ -14,7 +14,7 @@ const Courses: React.FC = () => {
 	};
 
 	return (
-		<section className={styles.courses}>
+		<section className={styles.courses} data-main-content>
 			<p>
 				<FontAwesomeIcon
 					icon={"circle-exclamation"}

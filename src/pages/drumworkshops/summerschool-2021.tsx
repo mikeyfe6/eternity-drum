@@ -82,44 +82,44 @@ const SummerschoolSecond: React.FC<PageProps> = () => {
 						</p>
 
 						<p>
-							<strong>Maandag 19 juli 2021:</strong> <br /> 12:00 – 13:15 uur ・
+							<b>Maandag 19 juli 2021:</b> <br /> 12:00 – 13:15 uur ・ kinderen:
+							8 – 12 jaar <br />
+							12:00 – 13:15 uur ・ kinderen: 13 – 17 jaar <br /> 15:00 – 16:15
+							uur ・ kinderen: 18 – 23 jaar
+						</p>
+						<p>
+							<b>Dinsdag 20 juli 2021:</b> <br /> 12:00 – 13:15 uur ・ kinderen:
+							8 – 12 jaar <br />
+							12:00 – 13:15 uur ・ kinderen: 13 – 17 jaar <br /> 15:00 – 16:15
+							uur ・ kinderen: 18 – 23 jaar
+						</p>
+						<p>
+							<b>Donderdag 22 juli 2021:</b> <br /> 12:00 – 13:15 uur ・
 							kinderen: 8 – 12 jaar <br />
 							12:00 – 13:15 uur ・ kinderen: 13 – 17 jaar <br /> 15:00 – 16:15
 							uur ・ kinderen: 18 – 23 jaar
 						</p>
 						<p>
-							<strong>Dinsdag 20 juli 2021:</strong> <br /> 12:00 – 13:15 uur ・
+							<b>Maandag 26 juli 2021:</b> <br /> 12:00 – 13:15 uur ・ kinderen:
+							8 – 12 jaar <br />
+							12:00 – 13:15 uur ・ kinderen: 13 – 17 jaar <br /> 15:00 – 16:15
+							uur ・ kinderen: 18 – 23 jaar
+						</p>
+						<p>
+							<b>Dinsdag 27 juli 2021:</b> <br /> 12:00 – 13:15 uur ・ kinderen:
+							8 – 12 jaar <br />
+							12:00 – 13:15 uur ・ kinderen: 13 – 17 jaar <br /> 15:00 – 16:15
+							uur ・ kinderen: 18 – 23 jaar
+						</p>
+						<p>
+							<b>Donderdag 29 juli 2021:</b> <br /> 12:00 – 13:15 uur ・
 							kinderen: 8 – 12 jaar <br />
-							12:00 – 13:15 uur ・ kinderen: 13 – 17 jaar <br /> 15:00 – 16:15
-							uur ・ kinderen: 18 – 23 jaar
-						</p>
-						<p>
-							<strong>Donderdag 22 juli 2021:</strong> <br /> 12:00 – 13:15 uur
-							・ kinderen: 8 – 12 jaar <br />
-							12:00 – 13:15 uur ・ kinderen: 13 – 17 jaar <br /> 15:00 – 16:15
-							uur ・ kinderen: 18 – 23 jaar
-						</p>
-						<p>
-							<strong>Maandag 26 juli 2021:</strong> <br /> 12:00 – 13:15 uur ・
-							kinderen: 8 – 12 jaar <br />
-							12:00 – 13:15 uur ・ kinderen: 13 – 17 jaar <br /> 15:00 – 16:15
-							uur ・ kinderen: 18 – 23 jaar
-						</p>
-						<p>
-							<strong>Dinsdag 27 juli 2021:</strong> <br /> 12:00 – 13:15 uur ・
-							kinderen: 8 – 12 jaar <br />
-							12:00 – 13:15 uur ・ kinderen: 13 – 17 jaar <br /> 15:00 – 16:15
-							uur ・ kinderen: 18 – 23 jaar
-						</p>
-						<p>
-							<strong>Donderdag 29 juli 2021:</strong> <br /> 12:00 – 13:15 uur
-							・ kinderen: 8 – 12 jaar <br />
 							12:00 – 13:15 uur ・ kinderen: 13 – 17 jaar <br /> 15:00 – 16:15
 							uur ・ kinderen: 18 – 23 jaar
 						</p>
 
 						<p>
-							<strong>LOCATIE workshops:</strong> <u>South East Drumacademy</u>,
+							<b>LOCATIE workshops:</b> <u>South East Drumacademy</u>,
 							Kruitbergstraat 18, 1104 CH in Amsterdam (nieuw gebouw onder het
 							station Kraaiennest)
 						</p>

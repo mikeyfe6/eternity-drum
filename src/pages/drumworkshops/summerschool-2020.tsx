@@ -80,70 +80,70 @@ const SummerschoolFirst: React.FC<PageProps> = () => {
 						</p>
 
 						<p>
-							<strong>Maandag 6 juli 2020:</strong> <br /> 12:30 - 13:45
+							<b>Maandag 6 juli 2020:</b> <br /> 12:30 - 13:45
 							workshop(s): Eternity <br />
 							13:45 - 15:00 workshop(s): Eternity <br /> 15:30 - 17:00
 							workshop(s): Black Harmony / Untold
 						</p>
 						<p>
-							<strong>Woensdag 8 juli 2020:</strong> <br />
+							<b>Woensdag 8 juli 2020:</b> <br />
 							13:00 – 14:15 workshop(s): Eternity <br />
 							14:15 – 15:30 workshop(s): Eternity
 							<br /> 16:00 – 17:30 workshop(s): Black Harmony / Untold
 						</p>
 						<p>
-							<strong>Maandag 13 juli 2020:</strong> <br /> 12:30 – 13:45
+							<b>Maandag 13 juli 2020:</b> <br /> 12:30 – 13:45
 							workshop(s): Eternity
 							<br />
 							13:45 – 15:00 workshop(s): Eternity
 							<br /> 15:30 – 17:00 workshop(s): Black Harmony / Untold
 						</p>
 						<p>
-							<strong>Woensdag 15 juli 2020:</strong> <br /> 13:00 – 14:15
+							<b>Woensdag 15 juli 2020:</b> <br /> 13:00 – 14:15
 							workshop(s): Eternity
 							<br />
 							14:15 – 15:30 workshop(s): Eternity
 							<br /> 16:00 – 17:30 workshop(s): Black Harmony / Untold
 						</p>
 						<p>
-							<strong>Maandag 20 juli 2020:</strong> <br /> 12:30 - 13:45
+							<b>Maandag 20 juli 2020:</b> <br /> 12:30 - 13:45
 							workshop(s): Eternity <br />
 							13:45 - 15:00 workshop(s): Eternity <br /> 15:30 - 17:00
 							workshop(s): Black Harmony / Untold
 						</p>
 						<p>
-							<strong>Woensdag 22 juli 2020:</strong> <br /> 12:30 - 13:45
+							<b>Woensdag 22 juli 2020:</b> <br /> 12:30 - 13:45
 							workshop(s): Eternity <br />
 							13:45 - 15:00 workshop(s): Eternity
 							<br /> 15:30 - 17:00 workshop(s): Black Harmony / Untold
 						</p>
 						<p>
-							<strong>Dinsdag 28 juli 2020:</strong> <br /> 13:00 – 14:15
+							<b>Dinsdag 28 juli 2020:</b> <br /> 13:00 – 14:15
 							workshop(s): Eternity
 							<br />
 							14:15 – 15:30 workshop(s): Eternity <br /> 16:00 – 17:30
 							workshop(s): Black Harmony / Untold
 						</p>
 						<p>
-							<strong>Maandag 3 augustus 2020:</strong> <br /> 12:30 - 13:45
+							<b>Maandag 3 augustus 2020:</b> <br /> 12:30 - 13:45
 							workshop(s): Eternity <br />
 							13:45 - 15:00 workshop(s): Eternity <br /> 15:30 - 17:00
 							workshop(s): Black Harmony / Untold
 						</p>
 						<p>
-							<strong>Woensdag 5 augustus 2020:</strong> <br /> 13:00 – 14:15
+							<b>Woensdag 5 augustus 2020:</b> <br /> 13:00 – 14:15
 							workshop(s): Eternity <br />
 							14:15 – 15:30 workshop(s): Eternity <br /> 16:00 – 17:30
 							workshop(s): Black Harmony / Untold
 						</p>
 						<p>
-							<strong>Maandag 10 augustus 2020:</strong> <br /> 12:30 - 13:45
+							<b>Maandag 10 augustus 2020:</b> <br /> 12:30 - 13:45
 							workshop(s): Eternity <br />
 							13:45 - 15:00 workshop(s): Eternity <br /> 15:30 - 17:00
 							workshop(s): Black Harmony / Untold
 						</p>
 						<p>
-							<strong>Woensdag 12 augustus 2020:</strong> <br /> 13:00 – 14:15
+							<b>Woensdag 12 augustus 2020:</b> <br /> 13:00 – 14:15
 							workshop(s): Eternity
 							<br />
 							14:15 – 15:30 workshop(s): Eternity
@@ -151,7 +151,7 @@ const SummerschoolFirst: React.FC<PageProps> = () => {
 						</p>
 
 						<p>
-							<strong>LOCATIE workshops:</strong> <u>IAMJONG</u>, Hoogoorddreef
+							<b>LOCATIE workshops:</b> <u>IAMJONG</u>, Hoogoorddreef
 							2, 1102 CP in Amsterdam (oud-postkantoor in het Amsterdamse Poort)
 						</p>
 

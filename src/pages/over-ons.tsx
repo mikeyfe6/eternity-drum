@@ -34,14 +34,14 @@ const OverOns: React.FC<PageProps> = () => {
 							ontwikkelen en zich als artiest bekwamen.
 						</p>
 						<p>
-							<strong>Doelstellingen:</strong>
+							<b>Doelstellingen:</b>
 							<br />
 							Eternity is een culturele instelling die zich bezighoudt met
 							activiteiten, projecten en evenementen op het gebied van muzikale
 							vorming en performance.
 						</p>
 						<p>
-							<strong>De organisatie heeft als doel:</strong>
+							<b>De organisatie heeft als doel:</b>
 						</p>
 						<ul>
 							<li>
@@ -65,7 +65,7 @@ const OverOns: React.FC<PageProps> = () => {
 							</li>
 						</ul>
 						<p>
-							<strong>Doelgroepen:</strong>
+							<b>Doelgroepen:</b>
 						</p>
 						<ul>
 							<li>
@@ -74,10 +74,10 @@ const OverOns: React.FC<PageProps> = () => {
 							</li>
 						</ul>
 						<p>
-							<strong>
+							<b>
 								Daarnaast richt Eternity zich op de volgende afgeleide
 								doelgroepen:
-							</strong>
+							</b>
 						</p>
 						<ul>
 							<li>

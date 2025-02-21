@@ -24,8 +24,8 @@ const Contact: React.FC<PageProps> = () => {
 
 	const {
 		companyName,
-		address,
-		postalCode,
+		visitingAddress,
+		visitingPostalCode,
 		city,
 		phoneRawSeda,
 		phoneRawBpt,
@@ -53,10 +53,10 @@ const Contact: React.FC<PageProps> = () => {
 						<h3>{companyName}</h3>
 						<ul>
 							<li>
-								<span>Adres</span> <span>{address}</span>
+								<span>Adres</span> <span>{visitingAddress}</span>
 							</li>
 							<li>
-								<span>Postcode</span> <span>{postalCode}</span>
+								<span>Postcode</span> <span>{visitingPostalCode}</span>
 							</li>
 							<li>
 								<span>Plaats</span> <span>{city}</span>

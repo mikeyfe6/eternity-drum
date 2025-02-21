@@ -62,6 +62,6 @@ export const Head: HeadFC = () => (
 	<Seo
 		title="Cultuureducatie"
 		pathname="/cultuureducatie/"
-		description="Ontdek Eternity's Cultuureducatie: educatieve en naschoolse drumworkshops in Amsterdam. Talentontwikkeling en optredens met professionele drumband."
+		description="Ontdek Eternity's cultuureducatie: educatieve en naschoolse drumworkshops in Amsterdam. Talentontwikkeling en optredens met professionele drumband."
 	/>
 );

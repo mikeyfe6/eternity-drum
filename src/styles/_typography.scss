@@ -52,15 +52,8 @@ h1 {
 
 h2 {
 	font-family: $bebas-neue;
-	font-size: rem-calc(48);
 
-	@media screen and ($medium) {
-		font-size: rem-calc(44);
-	}
-
-	@media screen and ($small) {
-		font-size: rem-calc(32);
-	}
+	@include fluid-typing(36, 48);
 }
 
 h3 {
@@ -78,13 +71,8 @@ h5 {
 	font-weight: normal;
 }
 
-p {
-	[data-main-content] & {
-		@include fluid-typing(16, 18);
-	}
-}
-
-strong {
+strong,
+b {
 	font-weight: 600;
 }
 

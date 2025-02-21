@@ -9,8 +9,8 @@
 
 // LAYOUT
 
-@mixin ep-wrapper {
-	max-width: rem-calc(1800);
+@mixin ep-wrapper($size: 1800) {
+	max-width: rem-calc($size);
 	margin: 0 auto;
 	width: 100%;
 }

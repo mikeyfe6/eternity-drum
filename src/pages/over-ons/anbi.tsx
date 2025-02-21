@@ -4,12 +4,23 @@ import type { HeadFC, PageProps } from "gatsby";
 
 import { Link } from "gatsby";
 
+import { useSiteMetadata } from "../../hooks/use-site-metadata";
+
 import { Seo } from "../../components/seo";
 
 import Breadcrumbs from "../../components/layout/breadcrumbs";
 import Hero from "../../components/layout/heroslider";
 
 const Anbi: React.FC<PageProps> = () => {
+	const {
+		email,
+		mailingAddress,
+		mailingPostalCode,
+		visitingAddress,
+		visitingPostalCode,
+		kvk,
+	} = useSiteMetadata();
+
 	const breadcrumbs = [
 		{ label: "Home", link: "/" },
 		{ label: "Over Ons", link: "/over-ons/" },
@@ -34,7 +45,7 @@ const Anbi: React.FC<PageProps> = () => {
 					</p>
 
 					<p>
-						<strong>De organisatie heeft als doel:</strong>
+						<b>De organisatie heeft als doel:</b>
 					</p>
 
 					<ul>
@@ -60,33 +71,33 @@ const Anbi: React.FC<PageProps> = () => {
 						<u>Algemene gegevens</u>
 					</h4>
 					<p>
-						<strong>Naam ANBI:</strong> STICHTING ETERNITY PERCUSSION
+						<b>Naam ANBI:</b> STICHTING ETERNITY PERCUSSION
 						<br />
-						<strong>Telefoonnummer:</strong> 020 – 22 17 675
+						<b>Telefoonnummer:</b> 020 22 17 675
 						<br />
-						<strong>K.v.K:</strong> 34284743
+						<b>K.v.K:</b> {kvk}
 						<br />
-						<strong>RSIN:</strong> 8185.56.286
+						<b>RSIN:</b> 8185.56.286
 						<br />
-						<strong>E-mail:</strong> info@eternitydrum.com
+						<b>E-mail:</b> {email}
 						<br />
 					</p>
 
 					<p>
-						<strong>Bezoekadres:</strong> Anton De Komplein 240
+						<b>Bezoekadres:</b> {visitingAddress}
 						<br />
-						<strong>Postcode:</strong> 1102 DR
+						<b>Postcode:</b> {visitingPostalCode}
 						<br />
-						<strong>Plaats:</strong> Amsterdam
+						<b>Plaats:</b> Amsterdam
 					</p>
 
 					<p>
 						<i>
-							<strong>Postadres:</strong> Anton De Komplein 240
+							<b>Postadres:</b> {mailingAddress}
 							<br />
-							<strong>Postcode: </strong> 1102 DR
+							<b>Postcode: </b> {mailingPostalCode}
 							<br />
-							<strong>Plaats:</strong> Amsterdam
+							<b>Plaats:</b> Amsterdam
 						</i>
 					</p>
 
@@ -94,11 +105,11 @@ const Anbi: React.FC<PageProps> = () => {
 						<u>Bestuur</u>
 					</h4>
 					<p>
-						<strong>Voorzitter:</strong> Kenneth Zschuschen
+						<b>Voorzitter:</b> Kenneth Zschuschen
 						<br />
-						<strong>Secretaris:</strong> Otmar Watson
+						<b>Secretaris:</b> Otmar Watson
 						<br />
-						<strong>Penningmeester:</strong> Ulrich Entingh
+						<b>Penningmeester:</b> Ulrich Entingh
 					</p>
 
 					<h4>
@@ -124,10 +135,10 @@ const Anbi: React.FC<PageProps> = () => {
 						<u>Beloningsbeleid</u>
 					</h4>
 					<p>
-						<strong>Bestuur:</strong> alleen onkostenvergoeding; reis- en
-						parkeerkosten. Geen vakantiegeld.
+						<b>Bestuur:</b> alleen onkostenvergoeding; reis- en parkeerkosten.
+						Geen vakantiegeld.
 						<br />
-						<strong>Volgens CAO Nederlandse Podia:</strong> vrijwilligers, geen
+						<b>Volgens CAO Nederlandse Podia:</b> vrijwilligers, geen
 						beloningsbeleid
 					</p>
 

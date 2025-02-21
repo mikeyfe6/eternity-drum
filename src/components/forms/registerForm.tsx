@@ -321,7 +321,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 	const { pathname } = useLocation();
 
 	return (
-		<div className={styles.registerformWrapper}>
+		<div className={styles.registerformWrapper} data-main-form>
 			<h2>Online inschrijfformulier</h2>
 			<span>
 				Vul hieronder jouw gegevens in en wij nemen zo spoedig mogelijk contact
@@ -1108,7 +1108,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
 			<div className={styles.registerformConditions}>
 				<p>
-					<strong>Voorwaarden:</strong>
+					<b>Voorwaarden:</b>
 				</p>
 				<ul>
 					<li>

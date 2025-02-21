@@ -67,10 +67,10 @@
 
 .videos {
 	width: 100%;
-	max-width: 900px;
-	margin: 0 auto;
 	background-color: #80808010;
 	text-align: center;
+
+	@include ep-wrapper(900);
 
 	@include box;
 
@@ -80,10 +80,9 @@
 }
 
 .photos {
-	max-width: 1200px;
-	margin: 0 auto;
 	background-color: color.adjust($lightgrey-color, $lightness: 10%);
 
+	@include ep-wrapper(1250);
 	@include box;
 
 	hr {

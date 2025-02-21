@@ -97,4 +97,5 @@ export default KwasiEnYaw;
 
 export const Head: HeadFC = () => (
 	<Seo title="Kwasi & Yaw" pathname="/theater/kwasi-en-yaw/" />
+	// TODO: Add description
 );

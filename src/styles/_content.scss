@@ -25,7 +25,7 @@
 		}
 
 		&.post-intro {
-			max-width: 1300px;
+			max-width: rem-calc(1300);
 			gap: rem-calc(8);
 
 			@include mobile {
@@ -90,15 +90,12 @@
 		}
 
 		&.center {
-			max-width: 1250px;
-			margin: 0 auto;
-
+			@include ep-wrapper(1250);
 			@include box;
 		}
 
 		&.projects {
-			max-width: 1250px;
-			margin: 0 auto;
+			@include ep-wrapper(1250);
 
 			p {
 				max-width: 90ch;

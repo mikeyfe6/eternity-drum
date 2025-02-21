@@ -183,7 +183,7 @@ const Projecten: React.FC<PageProps> = () => {
 								</li>
 								<li>
 									<p>
-										<strong>"Pass The Stick" </strong>, een uitwisselingsproject
+										<strong>"Pass The Stick"</strong>, een uitwisselingsproject
 										tussen Eternity en Ebony Steelband in Amsterdam (juli 2012)
 									</p>
 								</li>
@@ -340,6 +340,7 @@ const Projecten: React.FC<PageProps> = () => {
 								src="../images/projects/umuntu-hands.jpg"
 								alt="Beats"
 								placeholder="blurred"
+								style={{ marginTop: "auto" }}
 								imgClassName="pjs-image"
 							/>
 						</div>

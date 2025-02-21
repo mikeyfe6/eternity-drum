@@ -22,11 +22,12 @@ iframe {
 	width: 100%;
 	border-radius: $border-radius-xs;
 	outline: 2px solid $primary-color;
-	border: 0 solid rgba($lightgrey-color, 1);
+	border: none;
 	overflow: hidden;
 
 	&.ep-yt-player {
 		aspect-ratio: 16 / 9;
 		height: 100%;
+		outline-color: $primary-color;
 	}
 }

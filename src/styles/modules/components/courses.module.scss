@@ -7,7 +7,6 @@
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
-	gap: rem-calc(24);
 
 	@include box;
 
@@ -23,15 +22,11 @@
 		}
 	}
 
-	> p {
-		@include fluid-typing(16, 18);
-	}
-
 	button {
 		max-width: 100%;
 		width: fit-content;
 		margin-left: auto;
-		margin-top: rem-calc(32);
+		margin-top: rem-calc(24);
 
 		@include button-style(
 			$primary-color,
@@ -39,10 +34,6 @@
 			$primary-color,
 			$secondary-color
 		);
-
-		@include mobile {
-			margin-top: unset;
-		}
 
 		span {
 			@include ellipsis;

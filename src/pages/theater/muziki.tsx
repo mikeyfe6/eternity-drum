@@ -79,4 +79,5 @@ export default Muziki;
 
 export const Head: HeadFC = () => (
 	<Seo title="Muziki" pathname="/theater/muziki/" />
+	// TODO: Add description
 );

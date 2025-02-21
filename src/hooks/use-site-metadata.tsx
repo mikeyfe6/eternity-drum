@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from "gatsby";
 
 interface SiteMetadata {
 	title: string;
@@ -22,8 +22,10 @@ interface SiteMetadata {
 	mobileRaw: string;
 
 	email: string;
-	address: string;
-	postalCode: string;
+	visitingAddress: string;
+	visitingPostalCode: string;
+	mailingAddress: string;
+	mailingPostalCode: string;
 	city: string;
 
 	companyName: string;
@@ -61,8 +63,10 @@ export const useSiteMetadata = (): SiteMetadata => {
 					mobileRaw
 
 					email
-					address
-					postalCode
+					visitingAddress
+					visitingPostalCode
+					mailingAddress
+					mailingPostalCode
 					city
 
 					companyName
