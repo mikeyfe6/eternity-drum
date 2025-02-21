@@ -321,7 +321,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 	const { pathname } = useLocation();
 
 	return (
-		<div className={styles.registerformWrapper} data-main-form>
+		<div className={styles.registerWrapper} data-main-form>
 			<h2>Online inschrijfformulier</h2>
 			<span>
 				Vul hieronder jouw gegevens in en wij nemen zo spoedig mogelijk contact
@@ -712,17 +712,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									}
 									onBlur={handleInputBlur}
 									onFocus={() => handleInputFocus("dayOfBirth")}
-									className={
-										fieldErrors.dayOfBirth && fieldErrors.dayOfBirth.length > 0
-											? "error"
-											: (formData.dayOfBirth &&
-													fieldErrors.dayOfBirth &&
-													fieldErrors.dayOfBirth.length === 0) ||
-											  (fieldErrors.dayOfBirth === undefined &&
-													isFormSubmitted === true)
-											? "approved"
-											: ""
-									}
+									className={`
+										${formData.dayOfBirth ? "visited" : ""}
+										${fieldErrors.dayOfBirth && fieldErrors.dayOfBirth.length > 0 ? "error" : ""}
+										${
+											(formData.dayOfBirth &&
+												fieldErrors.dayOfBirth?.length === 0) ||
+											(fieldErrors.dayOfBirth === undefined && isFormSubmitted)
+												? "approved"
+												: ""
+										}
+									  `.trim()}
 								>
 									<option value="" disabled>
 										Dag
@@ -745,18 +745,23 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									}
 									onBlur={handleInputBlur}
 									onFocus={() => handleInputFocus("monthOfBirth")}
-									className={
-										fieldErrors.monthOfBirth &&
-										fieldErrors.monthOfBirth.length > 0
-											? "error"
-											: (formData.monthOfBirth &&
-													fieldErrors.monthOfBirth &&
-													fieldErrors.monthOfBirth.length === 0) ||
-											  (fieldErrors.monthOfBirth === undefined &&
-													isFormSubmitted === true)
-											? "approved"
-											: ""
-									}
+									className={`
+										${formData.monthOfBirth ? "visited" : ""}
+										${
+											fieldErrors.monthOfBirth &&
+											fieldErrors.monthOfBirth.length > 0
+												? "error"
+												: ""
+										}
+										${
+											(formData.monthOfBirth &&
+												fieldErrors.monthOfBirth?.length === 0) ||
+											(fieldErrors.monthOfBirth === undefined &&
+												isFormSubmitted)
+												? "approved"
+												: ""
+										}
+									  `.trim()}
 								>
 									<option value="" disabled>
 										Maand
@@ -792,18 +797,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									}
 									onBlur={handleInputBlur}
 									onFocus={() => handleInputFocus("yearOfBirth")}
-									className={
-										fieldErrors.yearOfBirth &&
-										fieldErrors.yearOfBirth.length > 0
-											? "error"
-											: (formData.yearOfBirth &&
-													fieldErrors.yearOfBirth &&
-													fieldErrors.yearOfBirth.length === 0) ||
-											  (fieldErrors.yearOfBirth === undefined &&
-													isFormSubmitted === true)
-											? "approved"
-											: ""
-									}
+									className={`
+										${formData.yearOfBirth ? "visited" : ""}
+										${fieldErrors.yearOfBirth && fieldErrors.yearOfBirth.length > 0 ? "error" : ""}
+										${
+											(formData.yearOfBirth &&
+												fieldErrors.yearOfBirth?.length === 0) ||
+											(fieldErrors.yearOfBirth === undefined && isFormSubmitted)
+												? "approved"
+												: ""
+										}
+									  `.trim()}
 								>
 									<option value="" disabled>
 										Jaar
@@ -1070,18 +1074,16 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 					</div>
 				</fieldset>
 
-				<div className={styles.registerformSubmit}>
+				<div className={styles.registerSubmit}>
 					<div>
 						{isFormValid() && (
-							<span className={styles.registerformSubmitApproved}>
+							<span className={styles.registerSubmitApproved}>
 								Formulier is juist ingevuld!
 							</span>
 						)}
 
 						{Object.values(fieldErrors).flat().length > 0 && (
-							<span className={styles.registerformSubmitError}>
-								Actie vereist!
-							</span>
+							<span className={styles.registerSubmitError}>Actie vereist!</span>
 						)}
 
 						<button
@@ -1106,7 +1108,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 				</div>
 			</form>
 
-			<div className={styles.registerformConditions}>
+			<div className={styles.registerConditions}>
 				<p>
 					<b>Voorwaarden:</b>
 				</p>

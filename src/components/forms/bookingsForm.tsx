@@ -185,8 +185,8 @@ const BookingsForm: React.FC = () => {
 	};
 
 	return (
-		<div className={styles.bookingsformContainer} data-main-form>
-			<div className={styles.bookingsformWrapper}>
+		<div className={styles.bookingsContainer} data-main-form>
+			<div className={styles.bookingsWrapper}>
 				<h2>Online boekingsformulier</h2>
 				<form
 					onSubmit={(event) =>
@@ -425,16 +425,16 @@ const BookingsForm: React.FC = () => {
 						</div>
 					</fieldset>
 
-					<div className={styles.bookingsformSubmit}>
+					<div className={styles.bookingsSubmit}>
 						<div>
 							{isFormValid() && (
-								<span className={styles.bookingsformSubmitApproved}>
+								<span className={styles.bookingsSubmitApproved}>
 									Formulier is juist ingevuld..
 								</span>
 							)}
 
 							{Object.values(fieldErrors).flat().length > 0 && (
-								<span className={styles.bookingsformSubmitError}>
+								<span className={styles.bookingsSubmitError}>
 									Actie vereist!
 								</span>
 							)}
@@ -461,7 +461,7 @@ const BookingsForm: React.FC = () => {
 					</div>
 				</form>
 			</div>
-			<div data-main-content className={styles.bookingsformInfo}>
+			<div data-main-content className={styles.bookingsInfo}>
 				<p>
 					<strong>
 						Drumband Eternity Percussion treedt op in zowel binnen- als

@@ -1,3 +1,11 @@
+@use "sass:color";
+
+@use "colors" as *;
+@use "functions" as *;
+@use "mediaqueries" as *;
+@use "mixins" as *;
+@use "variables" as *;
+
 %example {
 	width: 100%;
 	position: static;
@@ -5,4 +13,82 @@
 	margin-right: auto;
 	left: auto;
 	right: auto;
+}
+
+%form-style {
+	background: linear-gradient(
+		45deg,
+		$primary-color,
+		color.scale($primary-color, $lightness: 5%)
+	);
+	color: $white-color;
+	border-radius: $border-radius-md;
+	padding: rem-calc(24 20);
+
+	@include box-shadow;
+
+	@include mobile {
+		padding: rem-calc(36 32);
+	}
+}
+
+%form-submit {
+	display: flex;
+	flex-direction: column;
+	margin: rem-calc(32 0 16);
+
+	> div {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+
+		> span {
+			font-size: rem-calc(14);
+			text-underline-offset: 4px;
+			text-decoration-thickness: 2px;
+			padding-left: rem-calc(4);
+		}
+	}
+}
+
+%form-page {
+	display: flex;
+	justify-content: center;
+	gap: rem-calc(37.5);
+	align-items: center;
+	flex-direction: column-reverse;
+
+	@include phablet {
+		gap: rem-calc(50);
+	}
+
+	@include tablet {
+		align-items: flex-start;
+		flex-direction: row;
+	}
+
+	@include desktop {
+		gap: rem-calc(75);
+	}
+
+	> * {
+		flex: 1;
+	}
+
+	> :nth-child(1),
+	> :nth-child(2) {
+		max-width: rem-calc(600);
+	}
+
+	> :nth-child(1) {
+		@include laptop {
+			max-width: rem-calc(600);
+		}
+	}
+
+	> :nth-child(2) {
+		@include laptop {
+			max-width: rem-calc(650);
+		}
+	}
 }

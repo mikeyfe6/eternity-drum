@@ -154,7 +154,7 @@ const NewsletterForm: React.FC = () => {
 	};
 
 	return (
-		<div className={styles.newsletter}>
+		<div className={styles.newsletter} data-main-form>
 			<form
 				onSubmit={(event) =>
 					handleSubmit(event, document.querySelector("form"))
@@ -276,16 +276,16 @@ const NewsletterForm: React.FC = () => {
 					</div>
 				</fieldset>
 
-				<div className={styles.newsletterformSubmit}>
+				<div className={styles.newsletterSubmit}>
 					<div>
 						{isFormValid() && (
-							<span className={styles.newsletterformSubmitApproved}>
+							<span className={styles.newsletterSubmitApproved}>
 								Formulier is juist ingevuld!
 							</span>
 						)}
 
 						{Object.values(fieldErrors).flat().length > 0 && (
-							<span className={styles.newsletterformSubmitError}>
+							<span className={styles.newsletterSubmitError}>
 								Actie vereist!
 							</span>
 						)}

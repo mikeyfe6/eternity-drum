@@ -41,23 +41,15 @@ const Drumworkshops: React.FC<PageProps> = () => {
 							</strong>{" "}
 							Momenteel verzorgen wij drumlessen op het{" "}
 							<a
-								href="https://www.bindelmeercollege.nl"
+								href="https://www.orioncollegezuidoost.nl"
 								rel="noopener noreferrer"
 								target="_blank"
 							>
-								Bindelmeer College{" "}
-							</a>
-							en de{" "}
-							<a
-								href="https://www.bredeschoolzuidoost.nl"
-								rel="noopener noreferrer"
-								target="_blank"
-							>
-								Bredeschool Zuidoost{" "}
+								Orion College
 							</a>{" "}
-							als vast onderdeel van het onderwijspakket. Speciaal voor kinderen
-							en jongeren verzorgen wij ook drumworkshops na schooltijd in
-							Amsterdam Zuidoost.
+							in Amsterdam Zuidoost, als vast onderdeel van het onderwijspakket.
+							Speciaal voor kinderen en jongeren verzorgen wij ook drumworkshops
+							na schooltijd in Amsterdam Zuidoost.
 						</p>
 
 						<p>

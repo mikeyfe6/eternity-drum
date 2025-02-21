@@ -3,77 +3,46 @@
 .workshop {
 	&-bg-image {
 		background-image: url("../../../images/sankofa-bg.jpeg");
-		background-size: contain;
+		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
-		opacity: 0.0525;
+		opacity: 0.05;
 		z-index: -1;
 		height: 100%;
 
 		@include full-width(absolute);
 
-		@media screen and ($super-sized) {
-			background-size: cover;
+		@include desktop {
+			background-size: contain;
+		}
+	}
+
+	&-visuals,
+	&-images {
+		display: flex;
+
+		> div:not([data-main-modal]) {
+			margin: 0 auto;
+
+			img {
+				border-radius: $border-radius-sm;
+				overflow: hidden;
+			}
 		}
 	}
 
 	&-images {
-		display: flex;
 		justify-content: center;
-		gap: 15px;
-
-		> div:not([data-main-modal]) {
-			img {
-				border-radius: 5px;
-				overflow: hidden;
-			}
-		}
+		gap: rem-calc(16);
 	}
 
 	&-visuals {
-		display: flex;
 		flex-direction: column;
-		gap: 75px;
-
-		> div:not([data-main-modal]) {
-			max-width: 450px;
-			margin: 0 auto;
-
-			img {
-				border-radius: 5px;
-				overflow: hidden;
-			}
-		}
+		gap: rem-calc(75);
 	}
 
 	&-container {
-		display: flex;
-		justify-content: center;
-		align-items: flex-start;
-		gap: 87.5px;
-
-		> * {
-			flex: 1;
-		}
-
-		> :nth-child(1) {
-			max-width: 600px;
-		}
-
-		> :nth-child(2) {
-			max-width: 600px;
-		}
-
-		@media screen and ($super-sized) {
-			gap: 37.5px;
-		}
-
-		@media screen and ($large) {
-			align-items: center;
-			flex-direction: column-reverse;
-			width: 100%;
-			gap: 50px;
-		}
+		@extend %form-page;
 	}
 
 	&-info {
