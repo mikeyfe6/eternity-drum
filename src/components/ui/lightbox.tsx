@@ -15,11 +15,9 @@ const LightBox = ({
 
 	const openModal = () => {
 		setIsModalOpen(true);
-		document.body.style.overflow = "hidden";
 	};
 	const closeModal = () => {
 		setIsModalOpen(false);
-		document.body.style.overflow = "visible";
 	};
 
 	const imageData = image ? getImage(image) : null;

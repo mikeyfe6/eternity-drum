@@ -63,12 +63,10 @@ const GalleryFive: React.FC = () => {
 
 	const openLightbox = (imageData: any) => {
 		setLightboxImage(imageData);
-		document.body.style.overflow = "hidden";
 	};
 
 	const closeLightbox = () => {
 		setLightboxImage(null);
-		document.body.style.overflow = "visible";
 	};
 
 	const shouldLoop = imageCount > 2;
@@ -134,7 +132,10 @@ const GalleryFive: React.FC = () => {
 			</Swiper>
 
 			{lightboxImage && (
-				<div className={styles.lightboxContainer} onClick={closeLightbox}>
+				<div
+					className={`${styles.lightboxContainer} lightbox-modal`}
+					onClick={closeLightbox}
+				>
 					<div className={styles.lightboxContent}>
 						<GatsbyImage
 							image={lightboxImage}

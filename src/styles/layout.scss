@@ -40,6 +40,10 @@ body,
 html {
 	scroll-behavior: smooth;
 	overflow: hidden scroll;
+
+	&:has(.lightbox-modal, .overlay-modal) {
+		overflow: hidden;
+	}
 }
 
 body {
