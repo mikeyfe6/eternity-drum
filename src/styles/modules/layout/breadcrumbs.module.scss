@@ -8,8 +8,6 @@
 	max-width: 100%;
 	width: fit-content;
 
-	// bloaty
-
 	#post-template & {
 		margin-top: rem-calc(32);
 	}
@@ -33,7 +31,6 @@
 		}
 
 		@include phablet {
-			// bloaty
 			padding: rem-calc(10 16 10);
 			background: linear-gradient(
 				45deg,
@@ -78,7 +75,7 @@
 
 			#{$breadcrumbs}-seperator {
 				margin-left: rem-calc(10);
-				padding-top: 2px;
+				padding-top: rem-calc(2);
 
 				@include fluid-typing(16, 18);
 

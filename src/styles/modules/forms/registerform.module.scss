@@ -4,7 +4,7 @@
 
 .register {
 	&-wrapper {
-		max-width: 600px;
+		max-width: rem-calc(600);
 
 		@extend %form-style;
 
@@ -17,14 +17,14 @@
 		}
 
 		> span {
-			font-size: 1.125rem;
+			font-size: rem-calc(18);
 			font-weight: 600;
-			margin-bottom: 1.5em;
+			margin-bottom: rem-calc(24);
 			display: block;
 		}
 
-		form {
-			margin-bottom: 1.5rem;
+		> form {
+			margin-bottom: rem-calc(24);
 		}
 	}
 
@@ -43,27 +43,30 @@
 	}
 
 	&-conditions {
-		ul {
+		> ul {
 			list-style-type: disc;
-			margin-left: 1.5em;
+			margin-left: rem-calc(24);
+			margin-bottom: rem-calc(16);
+			font-size: rem-calc(16);
 
 			li:not(:last-child) {
-				padding-bottom: 0.5em;
+				padding-bottom: rem-calc(8);
 			}
 		}
 
-		> * {
-			font-size: 0.95rem;
-			padding-bottom: 1em;
-		}
+		> p {
+			font-size: rem-calc(16);
+			margin-bottom: rem-calc(16);
 
-		> p:not(:first-child) {
-			padding-top: 1em;
-		}
+			&:nth-of-type(2) {
+				margin-top: rem-calc(32);
+			}
 
-		> p:last-child {
-			font-size: 0.9rem;
-			text-align: center;
+			&:last-child {
+				font-size: rem-calc(14);
+				text-align: center;
+				margin-top: rem-calc(32);
+			}
 		}
 	}
 }

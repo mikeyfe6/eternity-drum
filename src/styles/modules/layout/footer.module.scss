@@ -74,9 +74,9 @@
 						> svg {
 							color: $primary-color;
 							font-size: rem-calc(24);
-							vertical-align: middle;
 							padding-right: rem-calc(8);
 							min-width: rem-calc(20);
+							vertical-align: middle;
 						}
 
 						&:has(i) {
@@ -90,8 +90,8 @@
 				&-one {
 					display: flex;
 					flex-direction: column;
-					gap: rem-calc(32);
 					align-items: flex-start;
+					gap: rem-calc(32);
 
 					@include phablet {
 						flex-direction: row;

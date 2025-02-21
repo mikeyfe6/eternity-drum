@@ -2,6 +2,6 @@
 
 .sidebar-container {
 	background-color: $paper-color;
-	padding: 1em;
-	margin: 2em 0;
+	padding: rem-calc(16);
+	margin: rem-calc(32 0);
 }
