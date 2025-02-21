@@ -24,9 +24,10 @@
 			font-weight: bold;
 			opacity: 0.875;
 			color: var(--swiper-theme-color-text);
+			transform: scale(0.75);
 
-			@media screen and ($small) {
-				transform: scale(0.5);
+			@include mobile {
+				transform: scale(1);
 			}
 		}
 
@@ -61,44 +62,21 @@
 	&-image {
 		opacity: 0.75;
 
-		img {
-			object-position: center 25%;
-			max-height: rem-calc(237.5);
-
-			@include mini {
-				max-height: rem-calc(275);
-			}
-
-			@include compact {
-				max-height: rem-calc(325);
-			}
+		[data-gatsby-image-wrapper] {
+			aspect-ratio: 16 / 9;
+			height: 100%;
+			width: 100%;
 
 			@include mobile {
-				max-height: rem-calc(375);
-			}
-
-			@include phablet {
-				max-height: rem-calc(425);
+				aspect-ratio: 16 / 7.5;
 			}
 
 			@include tablet {
-				max-height: rem-calc(475);
+				aspect-ratio: 16 / 6;
 			}
 
-			@include laptop {
-				max-height: rem-calc(525);
-			}
-
-			@include desktop {
-				max-height: rem-calc(575);
-			}
-
-			@include wide {
-				max-height: rem-calc(625);
-			}
-
-			@include massive {
-				max-height: rem-calc(637.5);
+			img {
+				object-position: center 25%;
 			}
 		}
 	}
