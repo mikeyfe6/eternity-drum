@@ -113,10 +113,10 @@ const Actualiteiten: React.FC = () => {
 			<span>Workshops</span>
 			<p>Eternity Summerschool 2021</p>
 		</>,
-		<>
-			<span>Vacature</span>
-			<p>Meewerkend Coördinator Productie</p>
-		</>,
+		// <>
+		// 	<span>Vacature</span>
+		// 	<p>Meewerkend Coördinator Productie</p>
+		// </>,
 		<>
 			<span>Nieuws</span>
 			<p>Building Strong Communities</p>
@@ -173,15 +173,15 @@ const Actualiteiten: React.FC = () => {
 			<Link to="/drumworkshops/summerschool-2021/">Lees meer</Link>
 		</div>,
 		/* 6 */
-		<div key={`content-5`}>
-			<p>
-				We zijn voor de organisaties Untold en Eternity op zoek naar een
-				coördinator productie die graag de handen uit de mouwen steekt!
-			</p>
-			<Link to="/over-ons/vacatures/meewerkend-coordinator-productie/">
-				Ga naar vacature
-			</Link>
-		</div>,
+		// <div key={`content-5`}>
+		// 	<p>
+		// 		We zijn voor de organisaties Untold en Eternity op zoek naar een
+		// 		coördinator productie die graag de handen uit de mouwen steekt!
+		// 	</p>
+		// 	<Link to="/over-ons/vacatures/meewerkend-coordinator-productie/">
+		// 		Ga naar vacature
+		// 	</Link>
+		// </div>,
 		/* 7 */
 		<div key={`content-6`}>
 			<p>"Building Strong Communities: op zoek naar het verleden."</p>
