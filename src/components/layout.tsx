@@ -29,6 +29,7 @@ import {
 	faInstagram,
 	faYoutube,
 	faWhatsapp,
+	faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
