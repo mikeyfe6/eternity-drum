@@ -304,17 +304,19 @@ const MusicPlayer: React.FC = () => {
 				</>
 			)}
 
-			{isLoaded &&
+			{/* {isLoaded &&
 				songs.map((song: any, index: number) => (
 					<audio
 						key={index}
-						ref={(el) => (audioElementRefs.current[index] = el)}
+						ref={(el) => {
+							audioElementRefs.current[index] = el;
+						}}
 						src={song.src}
 						onEnded={switchToNextSong}
 					>
 						<track kind="captions" />
 					</audio>
-				))}
+				))} */}
 		</div>
 	);
 };

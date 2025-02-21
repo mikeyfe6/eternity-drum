@@ -31,6 +31,7 @@
 	.music-info {
 		display: flex;
 		flex-direction: column;
+		margin-top: 1.5em;
 
 		@media screen and ($large) {
 			display: flex;
@@ -187,7 +188,6 @@
 					height: 15px;
 					filter: brightness(0) saturate(100%) invert(75%) sepia(47%)
 						saturate(5920%) hue-rotate(199deg) brightness(94%) contrast(94%);
-					appearance: none;
 				}
 			}
 

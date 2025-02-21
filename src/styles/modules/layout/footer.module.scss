@@ -44,10 +44,7 @@
 			#{$footer}-column {
 				> h5 {
 					font-weight: 600;
-				}
-
-				> h5 {
-					margin: rem-calc(20 0 -12);
+					margin: rem-calc(20 0 -8);
 					font-size: rem-calc(16);
 					font-style: italic;
 					opacity: 0.75;

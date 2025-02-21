@@ -6,13 +6,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SwiperOptions } from "swiper/types";
-import {
-	Navigation,
-	Pagination,
-	Scrollbar,
-	FreeMode,
-	Thumbs,
-} from "swiper/modules";
+import { Navigation, Pagination, Scrollbar, Thumbs } from "swiper/modules";
 
 import * as styles from "../../styles/modules/components/gallery.module.scss";
 
@@ -88,7 +82,7 @@ const GalleryOne: React.FC = () => {
 				Swazoom Live <span>8 Juli 2023</span>
 			</h3>
 			<Swiper
-				modules={[Navigation, Pagination, Scrollbar, FreeMode, Thumbs]}
+				modules={[Navigation, Pagination, Scrollbar, Thumbs]}
 				spaceBetween={5}
 				slidesPerView={1}
 				loop={shouldLoop}
@@ -133,7 +127,7 @@ const GalleryOne: React.FC = () => {
 				}}
 				freeMode={true}
 				watchSlidesProgress={true}
-				modules={[FreeMode, Thumbs]}
+				modules={[Thumbs]}
 			>
 				{images.map((image, index) => (
 					<SwiperSlide key={index} className={styles.swiperSlideBottom}>
