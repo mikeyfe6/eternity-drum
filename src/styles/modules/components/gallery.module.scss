@@ -4,126 +4,37 @@
 
 .swiper {
 	&-container {
-		width: 100%;
-		margin-bottom: 1.5em;
-
 		h3 {
+			@include fluid-typing(20, 24);
+
 			> span {
-				font-size: 1.125rem;
-				margin-left: 0.125em;
+				margin-left: rem-calc(2);
 				opacity: 0.75;
+
+				@include fluid-typing(16, 18);
 			}
-		}
-
-		@media screen and ($small) {
-			margin-bottom: 1em;
-
-			h3 {
-				font-size: 1.25rem;
-
-				> span {
-					font-size: 1rem;
-					margin-left: 0;
-					display: block;
-				}
-			}
-		}
-
-		.autoplay-progress {
-			position: absolute;
-			right: 16px;
-			bottom: 16px;
-			z-index: 1;
-			width: 48px;
-			height: 48px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-weight: bold;
-			opacity: 0.875;
-			color: var(--swiper-theme-color-text);
-			transform: scale(0.875);
-
-			@media screen and ($small) {
-				transform: scale(0.5);
-				right: 10px;
-				bottom: 10px;
-			}
-		}
-
-		.autoplay-progress svg {
-			--progress: 0;
-
-			position: absolute;
-			left: 0;
-			top: 0;
-			z-index: 1;
-			width: 100%;
-			height: 100%;
-			stroke-width: 4px;
-			stroke: var(--swiper-theme-color);
-			fill: none;
-			stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
-			stroke-dasharray: 125.6;
-			transform: rotate(-90deg);
 		}
 	}
 
 	&-wrapper {
 		overflow: hidden;
-		border-radius: 5px;
-		margin-bottom: 0.75em;
-
-		@media screen and ($small) {
-			border-radius: 3px;
-		}
+		border-radius: $border-radius-sm;
+		margin-bottom: rem-calc(12);
 	}
 
 	&-slide {
 		&-top {
-			border-radius: 5px;
+			border-radius: $border-radius-sm;
 			border: 2px solid $white-color;
 			overflow: hidden;
 			cursor: pointer;
 
-			div[data-gatsby-image-wrapper] {
+			[data-gatsby-image-wrapper] {
+				aspect-ratio: 16 / 9;
 				width: 100%;
+				height: 100%;
 
-				> div {
-					max-width: 100% !important;
-					max-height: 600px;
-
-					@media screen and ($super-sized) {
-						max-height: 600px;
-					}
-
-					@media screen and ($extra-large) {
-						max-height: 500px;
-					}
-
-					@media screen and ($large) {
-						max-height: 400px;
-					}
-
-					@media screen and ($medium) {
-						max-height: 300px;
-					}
-
-					@media screen and ($small) {
-						max-height: 267.5px;
-						border-radius: 3px;
-					}
-
-					@media screen and ($extra-small) {
-						max-height: 225px;
-					}
-
-					@media screen and ($super-small) {
-						max-height: 175px;
-					}
-				}
-
-				img[data-main-image] {
+				img {
 					object-position: center 25%;
 				}
 			}
@@ -131,18 +42,14 @@
 
 		&-bottom {
 			opacity: 0.75;
-			max-height: 120px;
 			overflow: hidden;
-			border-radius: 5px;
+			border-radius: $border-radius-sm;
 			border: 2px solid $white-color;
 			cursor: pointer;
 
-			@media screen and ($small) {
-				max-height: 100px;
-			}
-
-			@media screen and ($extra-small) {
-				max-height: 80px;
+			[data-gatsby-image-wrapper] {
+				aspect-ratio: 16 / 10;
+				height: 100%;
 			}
 
 			&:hover {
@@ -181,13 +88,13 @@
 
 	&-close {
 		position: fixed;
-		top: 15px;
-		right: 30px;
+		top: rem-calc(15);
+		right: rem-calc(30);
 		border: none;
 		z-index: 10;
-		font-size: 45px;
+		font-size: rem-calc(45);
 		color: $white-color;
-		cursor: pointer;
 		background: transparent;
+		cursor: pointer;
 	}
 }

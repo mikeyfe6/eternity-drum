@@ -86,11 +86,11 @@
 	@include box;
 
 	hr {
-		margin: 3em 0 2em;
+		margin: rem-calc(24 0);
 		background-color: $white-color;
 
-		@media screen and ($medium) {
-			margin: 1.5em 0 1.25em;
+		@include phablet {
+			margin: rem-calc(32 0);
 		}
 	}
 }

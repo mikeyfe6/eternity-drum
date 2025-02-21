@@ -2,8 +2,6 @@
 
 .swiper {
 	&-container {
-		// bloaty
-
 		@include full-width;
 
 		@include mobile {
