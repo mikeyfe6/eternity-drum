@@ -72,6 +72,9 @@
 }
 
 @mixin button-style($bgColor, $color, $hoverBgcolor, $hoverColor) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-color: $bgColor;
 	color: $color;
 	border-radius: $border-radius-sm;
@@ -82,7 +85,6 @@
 	min-height: rem-calc(44);
 	box-shadow: 0 4px 6px rgba(0 0 0 / 10%);
 	text-wrap: nowrap;
-	display: block;
 	font-size: rem-calc(18);
 	cursor: pointer;
 

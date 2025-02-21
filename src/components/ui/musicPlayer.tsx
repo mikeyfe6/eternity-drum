@@ -195,7 +195,7 @@ const MusicPlayer: React.FC = () => {
 
 					<div className={styles.artistInfo}>
 						<h3 className={styles.title}>{songs[currentSong]?.title}</h3>
-						<p className={styles.subTitle}>{songs[currentSong]?.artist}</p>
+						<p className={styles.track}>{songs[currentSong]?.artist}</p>
 					</div>
 				</div>
 			)}

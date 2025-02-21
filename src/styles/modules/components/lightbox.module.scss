@@ -26,9 +26,9 @@
 
 	&-close {
 		position: fixed;
-		top: 7.5px;
-		right: 30px;
-		font-size: 45px;
+		top: rem-calc(7.5);
+		right: rem-calc(30);
+		font-size: rem-calc(45);
 		color: $white-color;
 		cursor: pointer;
 	}
