@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import YoutubePlayer from "./youtubePlayer";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import YoutubePlayer from "./youtubePlayer";
 
 import * as styles from "../../styles/modules/components/courses.module.scss";
 

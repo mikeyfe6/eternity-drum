@@ -3,15 +3,17 @@ import React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 
 import { useSiteMetadata } from "../hooks/use-site-metadata";
+
 import { Seo } from "../components/seo";
 
 import Hero from "../components/layout/heroslider";
+import WhiteSpace from "../components/layout/whitespace";
+
 import CtaButtons from "../components/ui/cta";
 import Collapsible from "../components/ui/actual";
 import Berichten from "../components/ui/posts";
 import Courses from "../components/ui/courses";
 import Partners from "../components/ui/partners";
-import WhiteSpace from "../components/layout/whitespace";
 
 import * as styles from "../styles/modules/pages/index.module.scss";
 

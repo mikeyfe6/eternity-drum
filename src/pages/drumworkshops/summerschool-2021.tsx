@@ -7,8 +7,8 @@ import type { HeadFC, PageProps } from "gatsby";
 import { Seo } from "../../components/seo";
 
 import Breadcrumbs from "../../components/layout/breadcrumbs";
-
 import Hero from "../../components/layout/heroslider";
+
 import LightBox from "../../components/ui/lightbox";
 
 import * as styles from "../../styles/modules/pages/workshop.module.scss";

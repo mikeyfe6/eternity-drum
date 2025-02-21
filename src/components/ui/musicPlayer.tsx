@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
+
 import { graphql, useStaticQuery } from "gatsby";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import * as styles from "../../styles/modules/components/musicplayer.module.scss";
-
 import albumCover from "../../images/logo/ep-logo-small.png";
+
+import * as styles from "../../styles/modules/components/musicplayer.module.scss";
 
 const MusicPlayer: React.FC = () => {
 	const [isPlaying, setIsPlaying] = useState(false);

@@ -42,6 +42,7 @@ library.add(
 	faMobile,
 	faFacebook,
 	faInstagram,
+	faLinkedin,
 	faYoutube,
 	faWhatsapp,
 	faPowerOff,
@@ -56,9 +57,8 @@ library.add(
 	faCaretDown
 );
 
-import Header from "../components/layout/header";
-import Footer from "../components/layout/footer";
-
+import Header from "./layout/header";
+import Footer from "./layout/footer";
 import MobileMenu from "./layout/mobileMenu";
 
 import ResponsiveTag from "./helpers/respoTag";

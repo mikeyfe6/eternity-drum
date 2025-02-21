@@ -3,7 +3,6 @@ import React, { useRef, useEffect, useState } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 
 import { Navigation, Pagination, Scrollbar, Autoplay } from "swiper/modules";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import * as styles from "../../styles/modules/layout/heroslider.module.scss";

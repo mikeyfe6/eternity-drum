@@ -2,7 +2,6 @@
 import React from "react";
 
 import type { HeadProps } from "gatsby";
-
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 import { BLOCKS } from "@contentful/rich-text-types";

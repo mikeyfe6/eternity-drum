@@ -5,7 +5,6 @@ import type { HeadFC, PageProps } from "gatsby";
 import { Seo } from "../../components/seo";
 
 import Breadcrumbs from "../../components/layout/breadcrumbs";
-
 import Hero from "../../components/layout/heroslider";
 
 const Umuntu: React.FC<PageProps> = () => {

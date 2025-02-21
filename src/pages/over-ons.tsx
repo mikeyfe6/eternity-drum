@@ -7,7 +7,6 @@ import { StaticImage } from "gatsby-plugin-image";
 import { Seo } from "../components/seo";
 
 import Breadcrumbs from "../components/layout/breadcrumbs";
-
 import Hero from "../components/layout/heroslider";
 
 const OverOns: React.FC<PageProps> = () => {

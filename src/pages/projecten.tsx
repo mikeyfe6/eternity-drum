@@ -1,7 +1,6 @@
 import React from "react";
 
 import type { HeadFC, PageProps } from "gatsby";
-
 import { StaticImage } from "gatsby-plugin-image";
 
 import { useSiteMetadata } from "../hooks/use-site-metadata";
@@ -9,9 +8,8 @@ import { useSiteMetadata } from "../hooks/use-site-metadata";
 import { Seo } from "../components/seo";
 
 import Breadcrumbs from "../components/layout/breadcrumbs";
-
 import Hero from "../components/layout/heroslider";
-import YouTubePlayer from "../components/ui/youtubePlayer";
+// import YouTubePlayer from "../components/ui/youtubePlayer";
 
 const Projecten: React.FC<PageProps> = () => {
 	const breadcrumbs = [{ label: "Home", link: "/" }, { label: "Projecten" }];

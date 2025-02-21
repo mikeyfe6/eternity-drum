@@ -1,4 +1,5 @@
 import React from "react";
+
 import GoogleMapReact from "google-map-react";
 
 import epLogo from "../../images/logo/ep-logo-small.png";

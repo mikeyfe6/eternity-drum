@@ -1,13 +1,14 @@
 import React, { useState, useRef } from "react";
 
 import { navigate } from "gatsby";
+
 import axios from "axios";
 
 import { useSiteMetadata } from "../../hooks/use-site-metadata";
 
-import * as styles from "../../styles/modules/forms/bookingsform.module.scss";
-
 import { validateBookingsForm, BookingsFormData } from "../auth/validation";
+
+import * as styles from "../../styles/modules/forms/bookingsform.module.scss";
 
 type FieldErrors = {
 	[key: string]: string[];

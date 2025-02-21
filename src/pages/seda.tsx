@@ -1,7 +1,6 @@
 import React from "react";
 
 import type { HeadFC, PageProps } from "gatsby";
-
 import { StaticImage } from "gatsby-plugin-image";
 
 import { useSiteMetadata } from "../hooks/use-site-metadata";
@@ -9,7 +8,6 @@ import { useSiteMetadata } from "../hooks/use-site-metadata";
 import { Seo } from "../components/seo";
 
 import Breadcrumbs from "../components/layout/breadcrumbs";
-
 import Hero from "../components/layout/heroslider";
 
 const Seda: React.FC<PageProps> = () => {

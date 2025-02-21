@@ -1,4 +1,5 @@
 import React, { useState, useLayoutEffect, useRef } from "react";
+
 import { Link } from "gatsby";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

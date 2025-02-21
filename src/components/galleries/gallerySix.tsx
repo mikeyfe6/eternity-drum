@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 import { graphql, useStaticQuery } from "gatsby";
-
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import { Swiper, SwiperSlide } from "swiper/react";

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 import { navigate } from "gatsby";
-import { useLocation } from "@reach/router";
-import axios from "axios";
 
-import "react-datepicker/dist/react-datepicker.css";
+import { useLocation } from "@reach/router";
+
+import axios from "axios";
 
 import { validateRegisterForm, RegisterFormData } from "../auth/validation";
 

@@ -1,16 +1,14 @@
 import React, { useRef } from "react";
 
-import { graphql, useStaticQuery } from "gatsby";
-
-import type { HeadFC, PageProps } from "gatsby";
+import { graphql, useStaticQuery, HeadFC, PageProps } from "gatsby";
 
 import { useSiteMetadata } from "../../hooks/use-site-metadata";
 
 import { Seo } from "../../components/seo";
 
 import Breadcrumbs from "../../components/layout/breadcrumbs";
-
 import Hero from "../../components/layout/heroslider";
+
 import RegisterForm, { handleClick } from "../../components/forms/registerForm";
 
 import LightBox from "../../components/ui/lightbox";

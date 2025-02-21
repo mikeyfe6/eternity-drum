@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 import { navigate } from "gatsby";
+
 import axios from "axios";
 
-import * as styles from "../../styles/modules/forms/newsletterform.module.scss";
-
 import { validateNewsletterForm, NewsletterFormData } from "../auth/validation";
+
+import * as styles from "../../styles/modules/forms/newsletterform.module.scss";
 
 type FieldErrors = {
 	[key: string]: string[];
