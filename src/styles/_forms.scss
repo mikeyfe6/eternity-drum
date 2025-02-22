@@ -162,7 +162,7 @@
 		&.collapse-six {
 			flex-direction: column;
 
-			@include compact {
+			@include mobile {
 				flex-direction: row;
 			}
 		}
@@ -173,10 +173,18 @@
 			// -------------------------- column 1
 			&.first-name {
 				flex: 50%;
+
+				&-parent {
+					flex: 50%;
+				}
 			}
 
 			&.last-name {
 				flex: 50%;
+
+				&-parent {
+					flex: 50%;
+				}
 			}
 
 			// -------------------------- column 2
@@ -212,6 +220,14 @@
 				&.booking {
 					flex: 67.5%;
 				}
+
+				&-parent {
+					flex: 1;
+
+					@include mobile {
+						flex: 50%;
+					}
+				}
 			}
 
 			&.gender {
@@ -220,15 +236,14 @@
 
 			// -------------------------- column 5
 			&.phone {
-				flex: 60%;
-				max-width: rem-calc(175);
+				flex: 100%;
 
-				@include mobile {
-					max-width: 100%;
-				}
+				&-parent {
+					flex: 1;
 
-				&.booking {
-					flex: 100%;
+					@include mobile {
+						min-width: rem-calc(175);
+					}
 				}
 			}
 
@@ -258,39 +273,6 @@
 					&.visited {
 						top: rem-calc(-25);
 					}
-				}
-			}
-
-			// -------------------------- column 8
-
-			// -------------------------- column 9
-			&.first-name-parent {
-				flex: 50%;
-			}
-
-			&.last-name-parent {
-				flex: 50%;
-			}
-
-			// -------------------------- column 10
-
-			&.email-parent {
-				flex: 1;
-
-				@include mobile {
-					flex: 50%;
-				}
-			}
-
-			&.phone-parent {
-				flex: 1;
-
-				@include compact {
-					max-width: rem-calc(150);
-				}
-
-				@include mobile {
-					flex: 50%;
 				}
 			}
 

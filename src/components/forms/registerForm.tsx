@@ -948,7 +948,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 								type="text"
 								id="firstNameParent"
 								name="firstNameParent"
-								placeholder="Voornaam (ouders/voogd)"
+								placeholder="Voornaam"
 								value={formData.firstNameParent}
 								onChange={handleInputChange}
 								onBlur={handleInputBlur}
@@ -983,7 +983,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 								type="text"
 								id="lastNameParent"
 								name="lastNameParent"
-								placeholder="Achternaam (ouders/voogd)"
+								placeholder="Achternaam"
 								value={formData.lastNameParent}
 								onChange={handleInputChange}
 								onBlur={handleInputBlur}
@@ -1020,7 +1020,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 								id="emailParent"
 								type="email"
 								name="emailParent"
-								placeholder="E-mailadres (ouders/voogd)"
+								placeholder="E-mailadres"
 								value={formData.emailParent}
 								onChange={handleInputChange}
 								onBlur={handleInputBlur}
@@ -1054,7 +1054,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 								type="tel"
 								id="phoneParent"
 								name="phoneParent"
-								placeholder="Telefoonnummer (ouders/voogd)"
+								placeholder="Telefoonnummer"
 								value={formData.phoneParent}
 								onChange={handleInputChange}
 								onBlur={handleInputBlur}
