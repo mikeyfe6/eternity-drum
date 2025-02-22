@@ -5,10 +5,7 @@
 		@include full-width;
 
 		@include mobile {
-			width: 100%;
-			position: static;
-			margin-left: unset;
-			margin-right: unset;
+			@include full-width-reset;
 		}
 
 		.autoplay-progress {

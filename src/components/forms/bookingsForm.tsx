@@ -197,6 +197,7 @@ const BookingsForm: React.FC = () => {
 					data-netlify="true"
 					data-netlify-honeypot="bot-field"
 					noValidate
+					className="form"
 				>
 					<input type="hidden" name="form-name" value="bookings-form" />
 					<input type="hidden" name="bot-field" />
@@ -278,7 +279,7 @@ const BookingsForm: React.FC = () => {
 							</div>
 						</div>
 
-						<div className="form-column collapse-four">
+						<div className="form-column collapse-five">
 							<div className="form-group email booking">
 								<label
 									htmlFor="email"
@@ -425,18 +426,16 @@ const BookingsForm: React.FC = () => {
 						</div>
 					</fieldset>
 
-					<div className={styles.bookingsSubmit}>
+					<div className="form-submit">
 						<div>
 							{isFormValid() && (
-								<span className={styles.bookingsSubmitApproved}>
+								<span className="form-submit-approved">
 									Formulier is juist ingevuld..
 								</span>
 							)}
 
 							{Object.values(fieldErrors).flat().length > 0 && (
-								<span className={styles.bookingsSubmitError}>
-									Actie vereist!
-								</span>
+								<span className="form-submit-error">Actie vereist!</span>
 							)}
 
 							<button

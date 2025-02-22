@@ -4,78 +4,56 @@
 
 .media-cont-one {
 	align-items: center;
-	margin-top: 3em;
-	margin-bottom: 3em;
 	display: flex;
 	justify-content: center;
-	gap: 50px;
+	flex-direction: column-reverse;
+	gap: rem-calc(37.5);
+	margin-bottom: rem-calc(37.5);
 
-	@media screen and ($small) {
-		margin-top: 1em;
+	@include tablet {
+		gap: rem-calc(50);
+		margin-bottom: rem-calc(50);
+		flex-direction: row;
+	}
+
+	@include desktop {
+		gap: rem-calc(75);
+		margin-bottom: rem-calc(75);
 	}
 
 	.music {
 		background-color: color.scale($primary-color, $lightness: 2.5%);
-		outline: 1px solid color.adjust($primary-color, $lightness: 10%);
+		outline: 5px solid color.adjust($primary-color, $lightness: 10%);
 		color: $white-color;
-		flex: 25%;
-		max-width: 450px;
-		border-radius: 5px;
+		width: 100%;
+		max-width: rem-calc(450);
+		border-radius: $border-radius-md;
 		position: relative;
-		padding: 1.5em 1.5em 2.5em;
+		padding: rem-calc(16 16 32);
 
 		@include box-shadow;
 
-		@media screen and ($large) {
-			width: 450px;
-			max-width: 100%;
-			flex: 100%;
-		}
-
-		@media screen and ($small) {
-			padding: 1em;
+		@include mobile {
+			padding: rem-calc(24 24 40);
 		}
 	}
 
 	.news {
-		flex: 30%;
-		max-width: 600px;
+		max-width: rem-calc(600);
 
 		@include box;
 
 		a {
-			@include page-link;
-
 			svg {
-				margin-left: 0.5em;
-				font-size: 0.75rem;
+				margin-left: rem-calc(8);
+				font-size: rem-calc(12);
 				vertical-align: super;
 			}
 		}
 
-		iframe {
-			@media screen and ($small) {
-				height: 225px;
-			}
+		hr {
+			margin: rem-calc(16 0);
 		}
-	}
-
-	@media screen and ($large) {
-		flex-direction: column-reverse;
-	}
-}
-
-.videos {
-	width: 100%;
-	background-color: #80808010;
-	text-align: center;
-
-	@include ep-container(900);
-
-	@include box;
-
-	> iframe:not(:last-child) {
-		margin-bottom: rem-calc(16);
 	}
 }
 
@@ -85,12 +63,28 @@
 	@include ep-container(1250);
 	@include box;
 
+	/* stylelint-disable-next-line no-descending-specificity */
 	hr {
 		margin: rem-calc(24 0);
 		background-color: $white-color;
 
 		@include phablet {
 			margin: rem-calc(32 0);
+		}
+	}
+}
+
+.videos {
+	background-color: #80808010;
+	text-align: center;
+
+	@include ep-container(900);
+
+	@include box;
+
+	> iframe {
+		&:not(:last-child, :first-of-type) {
+			margin-bottom: rem-calc(16);
 		}
 	}
 }

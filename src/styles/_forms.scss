@@ -2,14 +2,17 @@
 
 @use "./customs" as *;
 
-form {
+.form {
+	$form: &;
+
 	display: flex;
 	flex-direction: column;
+	height: fit-content;
 
 	> span {
-		font-size: 1.125rem;
+		font-size: rem-calc(18);
 		font-weight: 600;
-		margin-top: 1.5em;
+		margin-top: rem-calc(24);
 	}
 
 	> fieldset {
@@ -63,7 +66,7 @@ form {
 		input,
 		textarea,
 		select {
-			height: 44px;
+			height: rem-calc(44);
 			opacity: 0.99;
 			line-height: 1.5;
 			background: linear-gradient(45deg, #eaecf7, $white-color);
@@ -79,10 +82,10 @@ form {
 				color: $grey-color;
 
 				@include ellipsis;
+			}
 
-				@media screen and ($small) {
-					font-size: 0.9rem;
-				}
+			option {
+				@include ellipsis;
 			}
 
 			&:not(select) {
@@ -112,393 +115,298 @@ form {
 		}
 
 		&:nth-of-type(2) {
-			margin: rem-calc(32 0 16);
-		}
-	}
-
-	button {
-		margin-left: auto;
-
-		@include button-style(
-			$white-color,
-			$primary-color,
-			$white-color,
-			$tertiary-color
-		);
-
-		&:disabled {
-			opacity: 0.5;
-			cursor: not-allowed;
-		}
-	}
-
-
-
-	ul {
-		display: flex;
-		flex-direction: column;
-		gap: rem-calc(12);
-		margin-top: rem-calc(24);
-		padding: rem-calc(24 4);
-		border-top: solid 2px color.adjust($dark-grey, $alpha: -0.9);
-		border-bottom: solid 2px color.adjust($dark-grey, $alpha: -0.9);
-
-		> li {
-			background-color: $red-color;
-			border-radius: $border-radius-xs;
-			padding: rem-calc(4 12);
-			font-size: rem-calc(12);
-			width: fit-content;
-			outline: 1px rgba(255 255 255 / 75%) solid;
-		}
-	}
-}
-
-.form {
-	&-select {
-		position: relative;
-
-		> select {
-			width: 100%;
-			padding: 0.65em 2em 0.75em 0.75em;
-			border-radius: 5px;
-			appearance: none;
-
-			option:disabled {
-				outline-color: $lightgrey-color;
-			}
-
-			@media screen and ($small) {
-				border-radius: 3px;
-			}
-		}
-
-		> .arrow {
-			position: absolute;
-			top: 50%;
-			right: 10px;
-			transform: translateY(-50%);
-			width: 0;
-			height: 0;
-			border-left: 7.5px solid transparent;
-			border-right: 7.5px solid transparent;
-			border-top: 7.5px solid $tertiary-color;
-
-			@media screen and ($small) {
-				border-left: 6px solid transparent;
-				border-right: 6px solid transparent;
-				border-top: 6px solid $tertiary-color;
-			}
+			margin-top: rem-calc(32);
 		}
 	}
 
 	&-column {
 		display: flex;
-		justify-content: space-between;
-		gap: 15px;
+		gap: rem-calc(35 16);
 
 		&:not(:last-child) {
-			margin-bottom: 2.25em;
+			margin-bottom: rem-calc(36);
 		}
 
 		&.collapse-one {
-			@media screen and ($extra-large) {
-				flex-wrap: wrap;
-				row-gap: 35px;
-				justify-content: flex-start;
-			}
-
-			@media screen and ($large) {
-				flex-wrap: nowrap;
-			}
-
-			@media screen and ($small) {
-				flex-wrap: nowrap;
-			}
-
-			@media screen and ($extra-small) {
-				flex-wrap: wrap;
-				row-gap: 35px;
-				justify-content: flex-start;
-			}
+			flex-wrap: wrap;
 		}
 
 		&.collapse-two {
-			@media screen and ($extra-large) {
-				flex-wrap: wrap;
-				row-gap: 35px;
-				justify-content: flex-start;
-			}
+			flex-wrap: wrap;
 
-			@media screen and ($small) {
+			@include mobile {
 				flex-wrap: nowrap;
-			}
-
-			@media screen and ($extra-small) {
-				flex-wrap: wrap;
-				row-gap: 35px;
-				justify-content: flex-start;
 			}
 		}
 
 		&.collapse-three {
-			@media screen and ($extra-small) {
-				flex-direction: column;
-				gap: 35px;
+			// empty
+		}
 
-				.date-inputs {
-					justify-content: flex-start;
-					gap: 15px;
+		&.collapse-four {
+			flex-wrap: wrap;
+
+			@include mobile {
+				flex-wrap: nowrap;
+			}
+		}
+
+		&.collapse-five {
+			flex-direction: column;
+
+			@include compact {
+				flex-direction: row;
+			}
+		}
+
+		&.collapse-six {
+			flex-direction: column;
+
+			@include compact {
+				flex-direction: row;
+			}
+		}
+
+		#{$form}-group {
+			position: relative;
+
+			// -------------------------- column 1
+			&.first-name {
+				flex: 50%;
+			}
+
+			&.last-name {
+				flex: 50%;
+			}
+
+			// -------------------------- column 2
+			&.street-name {
+				flex: 100%;
+
+				@include mobile {
+					flex: 1;
+				}
+			}
+
+			&.house-number {
+				max-width: rem-calc(100);
+			}
+
+			&.zip-code {
+				max-width: rem-calc(90);
+			}
+
+			// -------------------------- column 3
+			&.city {
+				flex: 50%;
+			}
+
+			&.province {
+				flex: 50%;
+			}
+
+			// -------------------------- column 4
+			&.email {
+				flex: 75%;
+
+				&.booking {
+					flex: 67.5%;
+				}
+			}
+
+			&.gender {
+				min-width: rem-calc(112.5);
+			}
+
+			// -------------------------- column 5
+			&.phone {
+				flex: 60%;
+				max-width: rem-calc(175);
+
+				@include mobile {
+					max-width: 100%;
+				}
+
+				&.booking {
+					flex: 100%;
+				}
+			}
+
+			&.date-of-birth {
+				@include special-labels;
+			}
+
+			// -------------------------- column 6
+			&.discover,
+			&.topic {
+				flex: 100%;
+			}
+
+			// -------------------------- column 7 (optional)
+			&.other {
+				flex: 100%;
+			}
+
+			// -------------------------- column 7
+			&.comments,
+			&.message {
+				flex: 100%;
+
+				label {
+					top: rem-calc(17.5);
+
+					&.visited {
+						top: rem-calc(-25);
+					}
+				}
+			}
+
+			// -------------------------- column 8
+
+			// -------------------------- column 9
+			&.first-name-parent {
+				flex: 50%;
+			}
+
+			&.last-name-parent {
+				flex: 50%;
+			}
+
+			// -------------------------- column 10
+
+			&.email-parent {
+				flex: 1;
+
+				@include mobile {
+					flex: 50%;
+				}
+			}
+
+			&.phone-parent {
+				flex: 1;
+
+				@include compact {
+					max-width: rem-calc(150);
+				}
+
+				@include mobile {
+					flex: 50%;
+				}
+			}
+
+			#{$form}-dates {
+				display: flex;
+				justify-content: flex-start;
+				gap: rem-calc(12);
+
+				@include mobile {
+					justify-content: space-between;
+				}
+
+				#day-of-birth,
+				#month-of-birth,
+				#year-of-birth {
+					padding: rem-calc(10 8);
+					border-radius: $border-radius-sm;
+					text-align: center;
+					text-align-last: center;
+					width: fit-content;
+				}
+
+				#day-of-birth {
+					min-width: rem-calc(45);
+				}
+
+				#month-of-birth {
+					min-width: rem-calc(100);
+				}
+
+				#year-of-birth {
+					min-width: rem-calc(60);
 				}
 			}
 		}
 
-		&.collapse-four {
-			@media screen and ($small) {
-				flex-direction: column;
-				gap: 35px;
+		#{$form}-select {
+			position: relative;
 
-				.date-inputs {
-					justify-content: flex-start;
-					gap: 15px;
+			> select {
+				width: 100%;
+				padding: rem-calc(10 32 12 12);
+				border-radius: $border-radius-sm;
+				appearance: none;
+
+				option:disabled {
+					outline-color: $lightgrey-color;
+				}
+			}
+
+			> .arrow {
+				position: absolute;
+				top: 50%;
+				right: rem-calc(10);
+				transform: translateY(-50%);
+				width: 0;
+				height: 0;
+				border-left: 6px solid transparent;
+				border-right: 6px solid transparent;
+				border-top: 6px solid $tertiary-color;
+
+				@include mobile {
+					border-left: 7.5px solid transparent;
+					border-right: 7.5px solid transparent;
+					border-top: 7.5px solid $tertiary-color;
 				}
 			}
 		}
 	}
 
-	&-group {
-		position: relative;
+	&-submit {
+		@extend %form-submit;
 
-		.date-inputs {
+		button {
+			margin-left: auto;
+
+			@include button-style(
+				$white-color,
+				$primary-color,
+				$white-color,
+				$tertiary-color
+			);
+
+			&:disabled {
+				opacity: 0.5;
+				cursor: not-allowed;
+			}
+		}
+
+		ul {
 			display: flex;
-			justify-content: space-between;
-			gap: 10px;
+			flex-direction: column;
+			gap: rem-calc(12);
+			margin-top: rem-calc(24);
+			padding: rem-calc(24 4);
+			border-top: solid 2px color.adjust($dark-grey, $alpha: -0.9);
+			border-bottom: solid 2px color.adjust($dark-grey, $alpha: -0.9);
 
-			#day-of-birth,
-			#month-of-birth,
-			#year-of-birth {
-				padding: 0.625em 0.5em;
-				border-radius: 5px;
-				text-align: center;
-				text-align-last: center;
-
-				@media screen and ($small) {
-					padding: 0.75em;
-					border-radius: 3px;
-					font-size: 0.9rem;
-				}
+			> li {
+				background-color: $red-color;
+				border-radius: $border-radius-xs;
+				padding: rem-calc(4 12);
+				font-size: rem-calc(12);
+				width: fit-content;
+				outline: 1px rgba(255 255 255 / 75%) solid;
 			}
 		}
 
-		// -------------------------- column 1
-		&.first-name {
-			flex: 50%;
+		&-error {
+			text-decoration: underline;
+			text-decoration-color: $red-color;
 		}
 
-		&.last-name {
-			flex: 50%;
-		}
-
-		// -------------------------- column 2
-		&.street-name {
-			flex: 65%;
-
-			@media screen and ($super-sized) {
-				flex: 60%;
-			}
-
-			@media screen and ($extra-large) {
-				flex: 100%;
-			}
-
-			@media screen and ($large) {
-				flex: 65%;
-			}
-
-			@media screen and ($small) {
-				flex: 72.5%;
-			}
-		}
-
-		&.house-number {
-			flex: 17.5%;
-
-			@media screen and ($super-sized) {
-				flex: 20%;
-			}
-
-			@media screen and ($extra-large) {
-				width: 25%;
-				flex: initial;
-			}
-
-			@media screen and ($large) {
-				width: 20%;
-				flex: initial;
-			}
-
-			@media screen and ($small) {
-				width: 25%;
-				flex: initial;
-			}
-		}
-
-		&.zip-code {
-			flex: 17.5%;
-
-			@media screen and ($super-sized) {
-				flex: 20%;
-			}
-
-			@media screen and ($extra-large) {
-				width: 25%;
-				flex: initial;
-			}
-
-			@media screen and ($large) {
-				width: 20%;
-				flex: initial;
-			}
-
-			@media screen and ($small) {
-				width: 25%;
-				flex: initial;
-			}
-		}
-
-		// -------------------------- column 3
-		&.city {
-			flex: 50%;
-		}
-
-		&.province {
-			flex: 50%;
-		}
-
-		// -------------------------- column 4
-		&.email {
-			flex: 75%;
-
-			@media screen and ($extra-large) {
-				flex: 60%;
-			}
-
-			@media screen and ($small) {
-				flex: 70%;
-			}
-
-			&.booking {
-				flex: 65%;
-
-				@media screen and ($small) {
-					width: 75%;
-					flex: initial;
-				}
-			}
-		}
-
-		&.gender {
-			flex: 25%;
-
-			@media screen and ($small) {
-				flex: 30%;
-			}
-
-			@media screen and ($extra-small) {
-				width: 35%;
-				flex: initial;
-			}
-		}
-
-		// -------------------------- column 5
-		&.phone {
-			flex: 60%;
-
-			@media screen and ($small) {
-				width: 75%;
-				flex: initial;
-			}
-
-			@media screen and ($extra-small) {
-				width: 55%;
-				flex: initial;
-			}
-
-			&.booking {
-				flex: 35%;
-
-				@media screen and ($small) {
-					width: 55%;
-					flex: initial;
-				}
-			}
-		}
-
-		&.date-of-birth {
-			flex: 40%;
-
-			@include special-labels;
-
-			@media screen and ($small) {
-				flex: 35%;
-				gap: 15px;
-			}
-		}
-
-		// -------------------------- column 6
-		&.discover,
-		&.topic {
-			flex: 100%;
-		}
-
-		// -------------------------- column 7 (optional)
-		&.other {
-			flex: 100%;
-		}
-
-		// -------------------------- column 7
-		&.comments,
-		&.message {
-			flex: 100%;
-
-			label {
-				top: 17.5px;
-
-				&.visited {
-					top: -25px;
-				}
-			}
-		}
-
-		// -------------------------- column 8
-
-		// -------------------------- column 9
-		&.first-name-parent {
-			flex: 50%;
-		}
-
-		&.last-name-parent {
-			flex: 50%;
-		}
-
-		// -------------------------- column 10
-
-		&.email-parent {
-			flex: 67.5%;
-
-			@media screen and ($extra-small) {
-				width: 87.5%;
-				flex: initial;
-			}
-		}
-
-		&.phone-parent {
-			flex: 37.5%;
-
-			@media screen and ($extra-small) {
-				width: 75%;
-				flex: initial;
-			}
+		&-approved {
+			text-decoration: underline;
+			text-decoration-color: $green-color;
 		}
 	}
 }

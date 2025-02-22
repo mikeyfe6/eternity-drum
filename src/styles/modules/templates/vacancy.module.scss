@@ -2,32 +2,27 @@
 
 .vacancies {
 	li {
-		background-color: $paper-color;
-		width: fit-content;
-
-		@include box-shadow;
-
 		a {
 			display: flex;
-			gap: 1em;
-			padding: 1.5em 2.5em;
 			align-items: center;
+			gap: rem-calc(16);
+			outline: 2px solid $primary-color;
+			width: 100%;
+			padding: rem-calc(20 32);
 
-			@media screen and ($small) {
-				padding: 1em;
+			@include fluid-typing(17, 18);
+
+			@include mobile {
+				width: fit-content;
 			}
 
 			span {
-				font-weight: bold;
 				color: $link-color;
-			}
-
-			:nth-child(2) {
-				font-size: 0.875rem;
+				font-size: rem-calc(24);
 			}
 
 			&:hover {
-				outline: 2px solid $link-color;
+				outline-color: $link-color;
 			}
 		}
 	}

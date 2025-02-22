@@ -70,7 +70,7 @@
 		}
 
 		&.maps {
-			@include ep-layout("normal", center);
+			@include ep-layout("reverse", center);
 		}
 
 		&.center {

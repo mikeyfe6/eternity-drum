@@ -33,47 +33,43 @@ const Media: React.FC<PageProps> = () => {
 				<Breadcrumbs crumbs={breadcrumbs} />
 				<h1 className="page-title">Media</h1>
 			</section>
-			<section data-main-section>
-				<div className={styles.mediaContOne}>
-					<section className={styles.music}>
-						<h2>Muziek</h2>
-						<MusicPlayer />
-					</section>
 
-					<section className={styles.news}>
-						<h2>In het nieuws</h2>
-						<Relevance />
-					</section>
-				</div>
-				{/* <section className={styles.videos}>
-					<h2>Video's</h2>
-				</section> */}
-
-				<section className={styles.photos}>
-					<h2>Foto's</h2>
-					<GalleryOne />
-					<hr />
-					<GalleryFour />
-					<hr />
-					<GalleryThree />
-					<hr />
-					<GalleryTwo />
-					<hr />
-					<GallerySix />
-					<hr />
-					<GalleryFive />
-					<hr />
-					<GallerySeven />
-					<hr />
-					<GalleryEight />
+			<div className={styles.mediaContOne} data-main-section>
+				<section className={styles.music}>
+					<h2>Muziek</h2>
+					<MusicPlayer />
 				</section>
 
-				<WhiteSpace />
-
-				<section className={styles.videos}>
-					<h2>Video's</h2>
-					<Videos />
+				<section className={styles.news} data-main-content>
+					<h2>In het nieuws</h2>
+					<Relevance />
 				</section>
+			</div>
+
+			<section className={styles.photos} data-main-content>
+				<h2>Foto's</h2>
+				<GalleryOne />
+				<hr />
+				<GalleryFour />
+				<hr />
+				<GalleryThree />
+				<hr />
+				<GalleryTwo />
+				<hr />
+				<GallerySix />
+				<hr />
+				<GalleryFive />
+				<hr />
+				<GallerySeven />
+				<hr />
+				<GalleryEight />
+			</section>
+
+			<WhiteSpace />
+
+			<section className={styles.videos} data-main-content>
+				<h2>Video's</h2>
+				<Videos />
 			</section>
 		</>
 	);

@@ -41,7 +41,9 @@
 	}
 
 	> * {
-		flex: 1;
+		@include tablet {
+			flex: 1;
+		}
 	}
 }
 
@@ -54,6 +56,19 @@
 	right: 50%;
 	margin-left: -50vw;
 	margin-right: -50vw;
+}
+
+@mixin full-width-reset($type: "width") {
+	position: static;
+	margin-left: unset;
+	margin-right: unset;
+
+	@if $type == "width" {
+		width: 100%;
+	} @else if $type == "max-width" {
+		max-width: 100%;
+		width: fit-content;
+	}
 }
 
 @mixin resp-image($width, $maxWidth, $height, $objectFit) {

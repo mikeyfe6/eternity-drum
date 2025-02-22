@@ -185,7 +185,7 @@ const Actualiteiten: React.FC = () => {
 		/* 7 */
 		<div key={`content-6`}>
 			<p>"Building Strong Communities: op zoek naar het verleden."</p>
-			<span> Bron: Salto PI</span>
+			<span>- Bron: Salto PI</span>
 			<a
 				href="https://participationpool.eu/project/discover-black-history-building-strong-communities/"
 				rel="noopener noreferrer"
@@ -197,7 +197,7 @@ const Actualiteiten: React.FC = () => {
 		/* 8 */
 		<div key={`content-7`}>
 			<p>"Drum Academy: eindelijk kunnen drumbands weer decibellen maken."</p>
-			<span> Bron: Parool, door Patrick Meershoek</span>
+			<span>- Bron: Parool, door Patrick Meershoek</span>
 			<a
 				href="https://www.parool.nl/ps/drum-academy-eindelijk-kunnen-drumbands-weer-decibellen-maken~b48470e0b/"
 				rel="noopener noreferrer"

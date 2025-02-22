@@ -18,10 +18,16 @@
 	h3,
 	h4,
 	h5 {
-		margin-bottom: rem-calc(12);
+		margin-bottom: rem-calc(16);
 
-		&:not(:first-of-type) {
+		&:not(:first-child) {
 			margin-top: rem-calc(16);
+		}
+	}
+
+	h5 {
+		.maps & {
+			margin-top: rem-calc(32);
 		}
 	}
 
@@ -33,13 +39,23 @@
 		}
 	}
 
-	ul:not(.page-content.maps ul, .page-content.singlepost .sidebar ul) {
-		list-style: square;
-		list-style-position: inside;
-		padding-left: rem-calc(2);
-
+	ul {
 		&:not(:last-child) {
 			margin-bottom: rem-calc(16);
+		}
+
+		&:not(:first-of-type) {
+			margin-top: rem-calc(16);
+		}
+
+		&:not(.page-content.maps ul, .page-content.singlepost .sidebar ul) {
+			list-style: square;
+			list-style-position: inside;
+			padding-left: rem-calc(1);
+		}
+
+		li {
+			@include fluid-typing(16, 18);
 		}
 	}
 

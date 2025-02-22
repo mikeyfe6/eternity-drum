@@ -13,20 +13,6 @@
 		@extend %form-style;
 	}
 
-	&-submit {
-		@extend %form-submit;
-
-		&-error {
-			text-decoration: underline;
-			text-decoration-color: $red-color;
-		}
-
-		&-approved {
-			text-decoration: underline;
-			text-decoration-color: $green-color;
-		}
-	}
-
 	&-info {
 		@include box;
 	}

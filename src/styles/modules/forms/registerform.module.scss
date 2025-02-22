@@ -10,6 +10,10 @@
 
 		@include box-shadow;
 
+		@include mobile {
+			min-width: rem-calc(500);
+		}
+
 		> h2 {
 			text-decoration: underline;
 			text-decoration-color: $tertiary-color;
@@ -25,20 +29,6 @@
 
 		> form {
 			margin-bottom: rem-calc(24);
-		}
-	}
-
-	&-submit {
-		@extend %form-submit;
-
-		&-error {
-			text-decoration: underline;
-			text-decoration-color: $red-color;
-		}
-
-		&-approved {
-			text-decoration: underline;
-			text-decoration-color: $green-color;
 		}
 	}
 

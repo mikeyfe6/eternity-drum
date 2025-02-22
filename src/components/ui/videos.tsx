@@ -8,7 +8,6 @@ const Videos: React.FC = () => {
 			<h3>15 Jaar Eternity & Untold!</h3>
 			<YouTubePlayer videoId="dav38cHRAM0" />
 			<hr />
-			<br />
 			<h3>ETERNITY @ Notting Hill Carnival (UK)</h3>
 			<YouTubePlayer videoId="czwOwdNREgU" />
 			<YouTubePlayer videoId="6u3690Hc7EI" />

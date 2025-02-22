@@ -34,11 +34,6 @@ h1 {
 		@include mobile {
 			padding: rem-calc(16 24 8);
 			border-radius: $border-radius-sm;
-			width: fit-content;
-			max-width: 100%;
-			position: static;
-			margin-left: unset;
-			margin-right: unset;
 			margin-bottom: unset;
 			color: $primary-color;
 			background: linear-gradient(
@@ -46,6 +41,8 @@ h1 {
 				$secondary-color,
 				color.scale($secondary-color, $lightness: 5%)
 			);
+
+			@include full-width-reset("max-width");
 		}
 	}
 }
@@ -65,12 +62,13 @@ h3 {
 h4 {
 	font-weight: 700;
 
-	@include fluid-typing(18, 24);
+	@include fluid-typing(20, 24);
 }
 
 h5 {
-	font-size: rem-calc(18);
-	font-weight: normal;
+	font-weight: 700;
+
+	@include fluid-typing(18, 20);
 }
 
 strong,

@@ -1,7 +1,7 @@
 @use "../../customs" as *;
 
 .maps-container {
-	height: rem-calc(250);
+	height: rem-calc(225);
 	width: 100%;
 	max-width: rem-calc(600);
 	border-radius: $border-radius-sm;
@@ -9,7 +9,7 @@
 	overflow: hidden;
 	filter: grayscale(75%);
 
-	@include mobile {
+	@include phablet {
 		height: rem-calc(275);
 	}
 

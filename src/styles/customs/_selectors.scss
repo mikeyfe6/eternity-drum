@@ -6,15 +6,6 @@
 @use "mixins" as *;
 @use "variables" as *;
 
-%example {
-	width: 100%;
-	position: static;
-	margin-left: auto;
-	margin-right: auto;
-	left: auto;
-	right: auto;
-}
-
 %form-style {
 	background: linear-gradient(
 		45deg,

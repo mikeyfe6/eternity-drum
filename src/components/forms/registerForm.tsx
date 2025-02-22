@@ -336,6 +336,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 				data-netlify="true"
 				data-netlify-honeypot="bot-field"
 				noValidate
+				className="form"
 			>
 				<input type="hidden" name="form-name" value="register-form" />
 
@@ -517,7 +518,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 						</div>
 					</div>
 
-					<div className="form-column">
+					<div className="form-column collapse-two">
 						<div className="form-group city">
 							<label
 								htmlFor="city"
@@ -585,7 +586,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 						</div>
 					</div>
 
-					<div className="form-column collapse-two">
+					<div className="form-column collapse-three">
 						<div className="form-group email">
 							<label
 								htmlFor="email"
@@ -651,7 +652,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 						</div>
 					</div>
 
-					<div className="form-column collapse-three">
+					<div className="form-column collapse-four">
 						<div className="form-group phone">
 							<label
 								htmlFor="phone"
@@ -699,7 +700,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 							>
 								Geboortedatum
 							</label>
-							<div className="date-inputs">
+							<div className="form-dates">
 								<label htmlFor="dayOfBirth" hidden>
 									Geboortedag
 								</label>
@@ -1003,7 +1004,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 						</div>
 					</div>
 
-					<div className="form-column">
+					<div className="form-column collapse-six">
 						<div className="form-group email-parent">
 							<label
 								htmlFor="emailParent"
@@ -1074,16 +1075,16 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 					</div>
 				</fieldset>
 
-				<div className={styles.registerSubmit}>
+				<div className="form-submit">
 					<div>
 						{isFormValid() && (
-							<span className={styles.registerSubmitApproved}>
+							<span className="form-submit-approved">
 								Formulier is juist ingevuld!
 							</span>
 						)}
 
 						{Object.values(fieldErrors).flat().length > 0 && (
-							<span className={styles.registerSubmitError}>Actie vereist!</span>
+							<span className="form-submit-error">Actie vereist!</span>
 						)}
 
 						<button

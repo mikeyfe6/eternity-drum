@@ -164,6 +164,7 @@ const NewsletterForm: React.FC = () => {
 				data-netlify="true"
 				data-netlify-honeypot="bot-field"
 				noValidate
+				className="form"
 			>
 				<input type="hidden" name="form-name" value="newsletter-form" />
 				<fieldset>
@@ -276,18 +277,16 @@ const NewsletterForm: React.FC = () => {
 					</div>
 				</fieldset>
 
-				<div className={styles.newsletterSubmit}>
+				<div className="form-submit">
 					<div>
 						{isFormValid() && (
-							<span className={styles.newsletterSubmitApproved}>
+							<span className="form-submit-approved">
 								Formulier is juist ingevuld!
 							</span>
 						)}
 
 						{Object.values(fieldErrors).flat().length > 0 && (
-							<span className={styles.newsletterSubmitError}>
-								Actie vereist!
-							</span>
+							<span className="form-submit-error">Actie vereist!</span>
 						)}
 
 						<button
