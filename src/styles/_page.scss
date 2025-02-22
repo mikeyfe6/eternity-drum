@@ -70,32 +70,16 @@
 		}
 
 		&.maps {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			gap: 87.5px;
-
-			@media screen and ($extra-large) {
-				flex-direction: column-reverse;
-			}
-
-			@media screen and ($large) {
-				gap: 50px;
-			}
-
-			@media screen and ($small) {
-				// bloaty
-				margin: 2.5em auto 1em;
-			}
+			@include ep-layout("normal", center);
 		}
 
 		&.center {
-			@include ep-wrapper(1250);
+			@include ep-container(1250);
 			@include box;
 		}
 
 		&.projects {
-			@include ep-wrapper(1250);
+			@include ep-container(1250);
 
 			p {
 				max-width: 90ch;
@@ -261,9 +245,9 @@
 				// margin: 2em auto 1em;
 				// // bloaty
 
-				h2 {
-					font-size: 1.75rem;
-				}
+				// h2 {
+				// 	font-size: 1.75rem;
+				// }
 
 				h4 {
 					font-size: 1.1rem;
@@ -414,9 +398,9 @@
 				}
 
 				@media screen and ($small) {
-					h2 {
-						font-size: 1.75rem;
-					}
+					// h2 {
+					// 	font-size: 1.75rem;
+					// }
 
 					h4 {
 						font-size: 1.1rem;
@@ -452,19 +436,7 @@
 		}
 
 		&.basic {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			gap: 87.5px;
-
-			@media screen and ($large) {
-				flex-direction: column;
-			}
-
-			@media screen and ($small) {
-				// bloaty
-				gap: 50px;
-			}
+			@include ep-layout("normal", center);
 
 			> :nth-child(1) {
 				max-width: 600px;
@@ -478,9 +450,9 @@
 				}
 
 				@media screen and ($small) {
-					h2 {
-						font-size: 1.75rem;
-					}
+					// h2 {
+					// 	font-size: 1.75rem;
+					// }
 
 					h4 {
 						font-size: 1.1rem;

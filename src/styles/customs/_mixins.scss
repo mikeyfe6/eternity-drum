@@ -9,10 +9,40 @@
 
 // LAYOUT
 
-@mixin ep-wrapper($size: 1800) {
+@mixin ep-container($size: 1800) {
 	max-width: rem-calc($size);
 	margin: 0 auto;
 	width: 100%;
+}
+
+@mixin ep-layout($type: "normal", $align: flex-start) {
+	display: flex;
+	justify-content: center;
+	gap: rem-calc(37.5);
+	align-items: center;
+
+	@if $type == "normal" {
+		flex-direction: column;
+	} @else if $type == "reverse" {
+		flex-direction: column-reverse;
+	}
+
+	@include phablet {
+		gap: rem-calc(50);
+	}
+
+	@include tablet {
+		align-items: $align;
+		flex-direction: row;
+	}
+
+	@include desktop {
+		gap: rem-calc(75);
+	}
+
+	> * {
+		flex: 1;
+	}
 }
 
 // SPACING

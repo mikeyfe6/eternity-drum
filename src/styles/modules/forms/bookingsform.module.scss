@@ -4,6 +4,8 @@
 
 .bookings {
 	&-container {
+		@include ep-layout("reverse", flex-start);
+
 		@extend %form-page;
 	}
 

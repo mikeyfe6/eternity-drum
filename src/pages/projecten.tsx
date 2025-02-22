@@ -163,9 +163,9 @@ const Projecten: React.FC<PageProps> = () => {
 
 					<div className="pjs-image-right">
 						<div>
-							<p>
+							<h5>
 								<u>Afgelopen uitwisselingsprojecten zijn:</u>
-							</p>
+							</h5>
 							<ul>
 								<li>
 									<p>

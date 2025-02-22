@@ -16,7 +16,7 @@
 	&-container {
 		padding: rem-calc(48 16 0);
 
-		@include ep-wrapper;
+		@include ep-container;
 
 		@include mobile {
 			padding: rem-calc(64 24 0);

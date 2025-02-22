@@ -43,7 +43,7 @@ const KwasiEnYaw: React.FC<PageProps> = () => {
 							gebied van muzikale vorming en performance.
 						</p>
 
-						<h4> Extra info</h4>
+						<h4>Extra info</h4>
 						<p>
 							Uit onderzoek is gebleken, dat veel van de Afrikaanse Surinaamse
 							slaafgemaakten zijn geëxporteerd vanaf het West-Afrikaanse gebied

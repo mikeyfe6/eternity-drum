@@ -33,10 +33,11 @@
 			background-color: $white-color;
 			border-radius: $border-radius-sm;
 			z-index: 7;
+			transform: scale(0.875);
 			cursor: pointer;
 
-			@media screen and ($small) {
-				transform: scale(0.875);
+			@include mobile {
+				transform: scale(1);
 			}
 
 			&-bar {

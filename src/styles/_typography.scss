@@ -58,12 +58,14 @@ h2 {
 
 h3 {
 	font-family: $bebas-neue;
-	font-size: rem-calc(24);
+
+	@include fluid-typing(24, 36);
 }
 
 h4 {
-	font-size: rem-calc(20);
-	font-weight: 600;
+	font-weight: 700;
+
+	@include fluid-typing(18, 24);
 }
 
 h5 {

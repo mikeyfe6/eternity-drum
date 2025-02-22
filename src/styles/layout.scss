@@ -3,10 +3,10 @@
 @use "./customs" as *;
 @use "resets";
 @use "base";
-@use "content";
+@use "page";
 @use "forms";
 @use "globals";
-@use "section";
+@use "main";
 @use "swiper";
 @use "typography";
 
@@ -63,7 +63,7 @@ body {
 	flex: 1;
 	padding: rem-calc(0 16 64);
 
-	@include ep-wrapper;
+	@include ep-container;
 
 	@include mobile {
 		padding: rem-calc(0 24 80);
