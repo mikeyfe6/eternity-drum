@@ -44,7 +44,7 @@
 			#{$footer}-column {
 				> h5 {
 					font-weight: 600;
-					margin-bottom: rem-calc(-8);
+					margin-bottom: rem-calc(-4);
 					font-size: rem-calc(16);
 					font-style: italic;
 					opacity: 0.75;
@@ -65,9 +65,15 @@
 
 					> li {
 						padding: rem-calc(8 0);
-						display: block;
+						display: flex;
+						align-items: center;
+						gap: rem-calc(8);
 
 						@include fluid-typing(16, 18);
+
+						&:has(svg) {
+							gap: rem-calc(16);
+						}
 
 						> a {
 							font-weight: 400;
@@ -77,16 +83,18 @@
 							}
 						}
 
-						> svg {
-							color: $primary-color;
-							font-size: rem-calc(24);
-							padding-right: rem-calc(8);
-							min-width: rem-calc(20);
-							vertical-align: middle;
-						}
+						> div {
+							min-width: rem-calc(30);
+							display: flex;
+							align-items: center;
+							justify-content: center;
 
-						&:has(i) {
-							padding: rem-calc(8 0);
+							> svg {
+								color: $primary-color;
+								font-size: rem-calc(24);
+								vertical-align: middle;
+								align-self: flex-start;
+							}
 						}
 					}
 				}
@@ -158,7 +166,7 @@
 
 								> li {
 									> a {
-										> svg {
+										> div > svg {
 											color: $primary-color;
 											font-size: rem-calc(28);
 
