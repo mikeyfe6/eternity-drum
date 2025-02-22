@@ -44,10 +44,16 @@
 			#{$footer}-column {
 				> h5 {
 					font-weight: 600;
-					margin: rem-calc(20 0 -8);
+					margin-bottom: rem-calc(-8);
 					font-size: rem-calc(16);
 					font-style: italic;
 					opacity: 0.75;
+				}
+
+				> p {
+					margin-bottom: rem-calc(32);
+
+					@include fluid-typing(16, 18);
 				}
 
 				> ul {
