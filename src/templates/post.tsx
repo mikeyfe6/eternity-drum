@@ -56,7 +56,6 @@ const Post = ({
 							<GatsbyImage
 								image={gatsbyImageData as IGatsbyImageData}
 								alt={nodeTitle}
-								imgStyle={{ borderRadius: "5px", overflow: "hidden" }}
 							/>
 							<span>{nodeTitle}</span>
 							<span>{nodeDescription}</span>

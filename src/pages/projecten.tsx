@@ -16,6 +16,8 @@ const Projecten: React.FC<PageProps> = () => {
 
 	const { email } = useSiteMetadata();
 
+	// TODO: add alt text for images...
+
 	return (
 		<>
 			<Hero />
@@ -131,7 +133,6 @@ const Projecten: React.FC<PageProps> = () => {
 								src="../images/projects/beats-group.jpg"
 								alt="Beats"
 								imgClassName="pjs-image"
-								style={{ width: "100%" }}
 							/>
 						</div>
 						<div>
@@ -191,7 +192,6 @@ const Projecten: React.FC<PageProps> = () => {
 								src="../images/projects/beats-theatre.jpg"
 								alt="Beats"
 								imgClassName="pjs-image"
-								style={{ width: "100%" }}
 							/>
 						</div>
 					</div>
@@ -242,7 +242,6 @@ const Projecten: React.FC<PageProps> = () => {
 										src="../images/projects/rotp-1.jpg"
 										alt="Beats"
 										imgClassName="pjs-image"
-										style={{ width: "100%" }}
 									/>
 								</div>
 								<div>
@@ -250,7 +249,6 @@ const Projecten: React.FC<PageProps> = () => {
 										src="../images/projects/rotp-2.jpg"
 										alt="Beats"
 										imgClassName="pjs-image"
-										style={{ width: "100%" }}
 									/>
 								</div>
 							</div>
@@ -259,7 +257,6 @@ const Projecten: React.FC<PageProps> = () => {
 									src="../images/projects/rotp-3.jpg"
 									alt="Beats"
 									imgClassName="pjs-image"
-									style={{ width: "100%" }}
 								/>
 							</div>
 						</div>
@@ -269,7 +266,6 @@ const Projecten: React.FC<PageProps> = () => {
 									src="../images/projects/rotp-4.jpg"
 									alt="Beats"
 									imgClassName="pjs-image"
-									style={{ width: "100%" }}
 								/>
 							</div>
 							<div>
@@ -278,7 +274,6 @@ const Projecten: React.FC<PageProps> = () => {
 										src="../images/projects/rotp-5.jpeg"
 										alt="Beats"
 										imgClassName="pjs-image"
-										style={{ width: "100%" }}
 									/>
 								</div>
 								<div>
@@ -286,7 +281,6 @@ const Projecten: React.FC<PageProps> = () => {
 										src="../images/projects/rotp-6.jpeg"
 										alt="Beats"
 										imgClassName="pjs-image"
-										style={{ width: "100%" }}
 									/>
 								</div>
 							</div>
@@ -301,7 +295,6 @@ const Projecten: React.FC<PageProps> = () => {
 								src="../images/projects/umuntu-stands.jpg"
 								alt="Beats"
 								imgClassName="pjs-image"
-								style={{ width: "100%" }}
 							/>
 						</div>
 						<div>

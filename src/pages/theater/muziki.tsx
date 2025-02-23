@@ -58,16 +58,7 @@ const Muziki: React.FC<PageProps> = () => {
 						</p>
 					</div>
 					<div>
-						<StaticImage
-							src="../../images/theater/muziki.jpg"
-							alt={`Logo`}
-							placeholder="dominantColor"
-							style={{
-								width: "100%",
-								objectPosition: "center",
-								objectFit: "cover",
-							}}
-						/>
+						<StaticImage src="../../images/theater/muziki.jpg" alt={`Muziki`} />
 					</div>
 				</div>
 			</section>

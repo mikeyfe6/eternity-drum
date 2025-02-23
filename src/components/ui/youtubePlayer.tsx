@@ -13,7 +13,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({
 	height = "405",
 	additionalParams = false,
 }) => {
-	let embedUrl = `https://www.youtube.com/embed/${videoId}`;
+	let embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}`;
 
 	if (additionalParams) {
 		embedUrl += "?origin=https://eternitydrum.com&color=white&rel=0";
@@ -27,6 +27,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({
 			src={embedUrl}
 			title="Youtube Video"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			loading="lazy"
 			allowFullScreen
 		></iframe>
 	);

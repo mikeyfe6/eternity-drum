@@ -48,7 +48,6 @@ const Hero: React.FC = () => {
 						<StaticImage
 							src="../../images/hero/ep-210924-1.jpg"
 							alt={`The Leaders of Tomorrow`}
-							style={{ width: "100%" }}
 							objectPosition="50% 10%"
 							loading="eager"
 							width={1750}
@@ -60,7 +59,6 @@ const Hero: React.FC = () => {
 						<StaticImage
 							src="../../images/hero/adpaf-161124-1.jpg"
 							alt={`ADPAF 2024`}
-							style={{ width: "100%" }}
 							objectPosition="50% 20%"
 							loading="eager"
 							width={1750}
@@ -72,7 +70,6 @@ const Hero: React.FC = () => {
 						<StaticImage
 							src="../../images/hero/adpaf-161124-2.jpg"
 							alt={`ADPAF 2024`}
-							style={{ width: "100%" }}
 							loading="eager"
 							width={1750}
 						/>
@@ -83,7 +80,6 @@ const Hero: React.FC = () => {
 						<StaticImage
 							src="../../images/hero/ep-210924-2.jpg"
 							alt={`The Leaders of Tomorrow`}
-							style={{ width: "100%" }}
 							objectPosition="50% 10%"
 							loading="eager"
 							width={1750}
@@ -95,7 +91,6 @@ const Hero: React.FC = () => {
 						<StaticImage
 							src="../../images/hero/next-on-stage-131224.jpg"
 							alt={`Next on Stage 2024`}
-							style={{ width: "100%" }}
 							loading="eager"
 							width={1750}
 						/>
@@ -106,7 +101,6 @@ const Hero: React.FC = () => {
 						<StaticImage
 							src="../../images/hero/ep-210924-3.jpg"
 							alt={`The Leaders of Tomorrow`}
-							style={{ width: "100%" }}
 							objectPosition="50% 15%"
 							loading="eager"
 							width={1750}
@@ -118,7 +112,6 @@ const Hero: React.FC = () => {
 						<StaticImage
 							src="../../images/hero/untold-drumfestival-011224.jpg"
 							alt={`Untold Drumfestival`}
-							style={{ width: "100%" }}
 							loading="eager"
 							width={1750}
 						/>

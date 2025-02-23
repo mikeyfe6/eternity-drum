@@ -80,13 +80,7 @@ const KwasiEnYaw: React.FC<PageProps> = () => {
 					<div>
 						<StaticImage
 							src="../../images/theater/kwasi-en-yaw.jpg"
-							alt={`Logo`}
-							placeholder="dominantColor"
-							style={{
-								width: "100%",
-								objectPosition: "center",
-								objectFit: "cover",
-							}}
+							alt={`Kwasi & Yaw`}
 						/>
 					</div>
 				</div>

@@ -224,7 +224,7 @@ const Footer = () => {
 									<StaticImage
 										src="../../images/logo/ep-logo-small.png"
 										alt={`${title} Logo`}
-										style={{ width: "100%" }}
+										width={150}
 									/>
 								</Link>
 							</div>

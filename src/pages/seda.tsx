@@ -75,16 +75,7 @@ const Seda: React.FC<PageProps> = () => {
 						</p>
 					</div>
 					<div>
-						<StaticImage
-							src="../images/seda-logo.jpg"
-							alt={`Logo`}
-							placeholder="dominantColor"
-							style={{
-								width: "100%",
-								objectPosition: "center",
-								objectFit: "cover",
-							}}
-						/>
+						<StaticImage src="../images/seda-logo.jpg" alt={`Seda`} />
 					</div>
 				</div>
 			</section>

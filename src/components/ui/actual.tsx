@@ -215,7 +215,6 @@ const Actualiteiten: React.FC = () => {
 								<button
 									onClick={() => toggleCollapsible(index)}
 									className={isButtonActive ? styles.activeButton : ""}
-									style={{ cursor: "pointer" }}
 								>
 									{button}
 								</button>
