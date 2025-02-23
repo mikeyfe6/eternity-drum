@@ -31,7 +31,7 @@ const LightBox = ({
 			)}
 
 			{isModalOpen && imageData && (
-				<div className={styles.modal} data-main-modal>
+				<div className={`${styles.modal} lightbox-modal`} data-main-modal>
 					<div className={styles.modalContent}>
 						<span className={styles.modalClose} onClick={closeModal}>
 							&times;

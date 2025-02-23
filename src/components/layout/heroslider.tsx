@@ -52,6 +52,7 @@ const Hero: React.FC = () => {
 							style={{ width: "100%" }}
 							objectPosition="50% 10%"
 							loading="eager"
+							width={1750}
 						/>
 					</div>
 				</SwiperSlide>
@@ -64,6 +65,7 @@ const Hero: React.FC = () => {
 							style={{ width: "100%" }}
 							objectPosition="50% 20%"
 							loading="eager"
+							width={1750}
 						/>
 					</div>
 				</SwiperSlide>
@@ -75,6 +77,7 @@ const Hero: React.FC = () => {
 							placeholder="blurred"
 							style={{ width: "100%" }}
 							loading="eager"
+							width={1750}
 						/>
 					</div>
 				</SwiperSlide>
@@ -87,6 +90,7 @@ const Hero: React.FC = () => {
 							style={{ width: "100%" }}
 							objectPosition="50% 10%"
 							loading="eager"
+							width={1750}
 						/>
 					</div>
 				</SwiperSlide>
@@ -98,6 +102,7 @@ const Hero: React.FC = () => {
 							placeholder="blurred"
 							style={{ width: "100%" }}
 							loading="eager"
+							width={1750}
 						/>
 					</div>
 				</SwiperSlide>
@@ -110,6 +115,7 @@ const Hero: React.FC = () => {
 							style={{ width: "100%" }}
 							objectPosition="50% 15%"
 							loading="eager"
+							width={1750}
 						/>
 					</div>
 				</SwiperSlide>
@@ -121,6 +127,7 @@ const Hero: React.FC = () => {
 							placeholder="blurred"
 							style={{ width: "100%" }}
 							loading="eager"
+							width={1750}
 						/>
 					</div>
 				</SwiperSlide>

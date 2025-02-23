@@ -41,7 +41,7 @@ html {
 	scroll-behavior: smooth;
 	overflow: hidden scroll;
 
-	&:has(.lightbox-modal, .overlay-modal) {
+	&:has(.lightbox-modal, .menu-modal) {
 		overflow: hidden;
 	}
 }

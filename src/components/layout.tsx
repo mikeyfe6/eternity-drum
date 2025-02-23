@@ -138,7 +138,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 			<Footer />
 
 			{isMobileMenuOpen && (
-				<div className="overlay-modal" onClick={handleOverlayClick} />
+				<div className="menu-modal" onClick={handleOverlayClick} />
 			)}
 
 			<MobileMenu isOpen={isMobileMenuOpen} closeMenu={closeMobileMenu} />

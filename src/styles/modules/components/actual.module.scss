@@ -178,6 +178,7 @@
 		&-images {
 			display: flex;
 			justify-content: center;
+			align-items: center;
 			gap: rem-calc(12);
 
 			> div:not([data-main-modal]) {

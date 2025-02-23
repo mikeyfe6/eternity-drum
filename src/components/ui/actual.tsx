@@ -16,22 +16,22 @@ const Actualiteiten: React.FC = () => {
 		query {
 			sankofaB: file(relativePath: { eq: "sankofa-2.jpg" }) {
 				childImageSharp {
-					gatsbyImageData
+					gatsbyImageData(width: 1000)
 				}
 			}
 			sankofaF: file(relativePath: { eq: "sankofa-1.jpg" }) {
 				childImageSharp {
-					gatsbyImageData
+					gatsbyImageData(width: 1000)
 				}
 			}
 			rotpF: file(relativePath: { eq: "rotp-front.jpeg" }) {
 				childImageSharp {
-					gatsbyImageData
+					gatsbyImageData(width: 1000)
 				}
 			}
 			rotpB: file(relativePath: { eq: "rotp-back.jpeg" }) {
 				childImageSharp {
-					gatsbyImageData
+					gatsbyImageData(width: 1000)
 				}
 			}
 			# wijkImpOne: file(relativePath: { eq: "wijkimpuls-190424.jpg" }) {
