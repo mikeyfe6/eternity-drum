@@ -119,7 +119,7 @@
 					border-width: 0;
 					color: color.adjust($dark-grey, $alpha: -0.9);
 					background-color: color.adjust($dark-grey, $alpha: -0.9);
-					margin: auto 0 rem-calc(16);
+					margin: auto rem-calc(0 16);
 				}
 
 				> div {

@@ -26,102 +26,104 @@ const Projecten: React.FC<PageProps> = () => {
 			<section data-main-section>
 				<div data-main-content className="page-content projects">
 					<h2>Nieuwe (uitwisselings)projecten !</h2>
-					<h3>Building Strong Communities</h3>
-					<p>
-						Met het project "Building Strong Communities" organiseert Eternity
-						maandelijkse bijeenkomsten voor jongeren uit Amsterdam Zuidoost die
-						gaan over identiteit, de bijdragen die zwarte mensen hebben geleverd
-						aan de samenleving en informatie over het Nederlands
-						slavernijverleden. Elke maand vind er een bijeenkomst plaats voor 15
-						t/m 20 jongeren waarbij ze op interactieve wijze kennis maken met
-						verschillende facetten over de zwarte geschiedenis,
-						Trans-Atlantische slavernij en empowerment. Een aantal bijeenkomsten
-						zullen ook in Amsterdam Oost plaatsvinden en in de binnenstad van
-						Amsterdam. Reden hiervoor is dat daar allerlei belangrijke plekken
-						zijn die illustratief zijn voor het slavernijverleden.
-					</p>
-					<br />
-					<p>
-						<b>Periode:</b> juni t/m november 2021
-					</p>
-					<p>
-						<b>Aanmelden:</b>{" "}
-						<a
-							href={`mailto:${email}`}
-							rel="noopener noreferrer"
-							target="_blank"
-						>
-							{email}
-						</a>
-					</p>
-					<p>
-						<b>Projectleider:</b> Revelino Pinas
-					</p>
-					<br />
-					<p>
-						Mede mogelijk gemaakt door{" "}
-						<a
-							href="https://www.europeansolidaritycorps.nl"
-							rel="noopener noreferrer"
-							target="_blank"
-						>
-							European Solidarity Corps
-						</a>
-					</p>
 
-					<br />
+					<div>
+						<h3>Building Strong Communities</h3>
+						<p>
+							Met het project "Building Strong Communities" organiseert Eternity
+							maandelijkse bijeenkomsten voor jongeren uit Amsterdam Zuidoost
+							die gaan over identiteit, de bijdragen die zwarte mensen hebben
+							geleverd aan de samenleving en informatie over het Nederlands
+							slavernijverleden. Elke maand vind er een bijeenkomst plaats voor
+							15 t/m 20 jongeren waarbij ze op interactieve wijze kennis maken
+							met verschillende facetten over de zwarte geschiedenis,
+							Trans-Atlantische slavernij en empowerment. Een aantal
+							bijeenkomsten zullen ook in Amsterdam Oost plaatsvinden en in de
+							binnenstad van Amsterdam. Reden hiervoor is dat daar allerlei
+							belangrijke plekken zijn die illustratief zijn voor het
+							slavernijverleden.
+						</p>
+						<br />
+						<p>
+							<b>Periode:</b> juni t/m november 2021
+						</p>
+						<p>
+							<b>Aanmelden:</b>{" "}
+							<a
+								href={`mailto:${email}`}
+								rel="noopener noreferrer"
+								target="_blank"
+							>
+								{email}
+							</a>
+						</p>
+						<p>
+							<b>Projectleider:</b> Revelino Pinas
+						</p>
+						<br />
+						<p>
+							Mede mogelijk gemaakt door{" "}
+							<a
+								href="https://www.europeansolidaritycorps.nl"
+								rel="noopener noreferrer"
+								target="_blank"
+							>
+								European Solidarity Corps
+							</a>
+						</p>
+					</div>
+
 					<hr />
-					<br />
 
-					<h3>Get Up Stand Up</h3>
-					<p>
-						"Get Up Stand Up" is een Europese uitwisselingsprogramma tussen
-						Eternity en Ebony Steelband dat zal plaatsvinden in Amsterdam en
-						Londen. Doelstelling is om jongeren weerbaar te maken tegen
-						onderling geweld en criminaliteit. Jongeren worden in de gelegenheid
-						gesteld om deel te nemen aan verschillende workshops met betrekking
-						tot het thema geweld. Denk hierbij aan workshops weerbaarheid met
-						betrekking tot criminaliteit en drill muziek. Hiernaast zullen er
-						ook excursies worden gemaakt naar een aantal historische
-						bezienswaardigheden zowel in Amsterdam als in Londen. Deelnemende
-						jongeren kunnen dan ook historische kennis opdoen en hun visie
-						verbreden over de achtergrond van de bezochte plekken. Ook worden er
-						in Amsterdam en Londen wijken bezocht waar de jongeren wonen. Dit
-						geeft beide groepen deelnemers meer kennis over de
-						leefomstandigheden van hun leeftijdsgenoten.
-					</p>
-					<br />
-					<p>
-						<b>Periode:</b> juli 2020 in Amsterdam & oktober 2020 in Londen
-					</p>
-					<p>
-						<b>Aanmelden:</b>{" "}
-						<a
-							href={`mailto:${email}`}
-							rel="noopener noreferrer"
-							target="_blank"
-						>
-							{email}
-						</a>
-					</p>
-					<p>
-						<b>Projectleider:</b> Derillio Alexander
-					</p>
-					<br />
-					<p>
-						Mede mogelijk gemaakt door{" "}
-						<a
-							href="https://www.erasmusplus.nl"
-							rel="noopener noreferrer"
-							target="_blank"
-						>
-							Erasmus+
-						</a>
-					</p>
+					<div>
+						<h3>Get Up Stand Up</h3>
+						<p>
+							"Get Up Stand Up" is een Europese uitwisselingsprogramma tussen
+							Eternity en Ebony Steelband dat zal plaatsvinden in Amsterdam en
+							Londen. Doelstelling is om jongeren weerbaar te maken tegen
+							onderling geweld en criminaliteit. Jongeren worden in de
+							gelegenheid gesteld om deel te nemen aan verschillende workshops
+							met betrekking tot het thema geweld. Denk hierbij aan workshops
+							weerbaarheid met betrekking tot criminaliteit en drill muziek.
+							Hiernaast zullen er ook excursies worden gemaakt naar een aantal
+							historische bezienswaardigheden zowel in Amsterdam als in Londen.
+							Deelnemende jongeren kunnen dan ook historische kennis opdoen en
+							hun visie verbreden over de achtergrond van de bezochte plekken.
+							Ook worden er in Amsterdam en Londen wijken bezocht waar de
+							jongeren wonen. Dit geeft beide groepen deelnemers meer kennis
+							over de leefomstandigheden van hun leeftijdsgenoten.
+						</p>
+						<br />
+						<p>
+							<b>Periode:</b> juli 2020 in Amsterdam & oktober 2020 in Londen
+						</p>
+						<p>
+							<b>Aanmelden:</b>{" "}
+							<a
+								href={`mailto:${email}`}
+								rel="noopener noreferrer"
+								target="_blank"
+							>
+								{email}
+							</a>
+						</p>
+						<p>
+							<b>Projectleider:</b> Derillio Alexander
+						</p>
+						<br />
+						<p>
+							Mede mogelijk gemaakt door{" "}
+							<a
+								href="https://www.erasmusplus.nl"
+								rel="noopener noreferrer"
+								target="_blank"
+							>
+								Erasmus+
+							</a>
+						</p>
+					</div>
 
-					<br />
 					<hr />
-					<br />
 
 					<div className="pjs-image-left">
 						<div>
@@ -136,19 +138,17 @@ const Projecten: React.FC<PageProps> = () => {
 						<div>
 							<h3>Van Hobby naar Succes</h3>
 							<p>
-								Is een cultureel-educatief traject waarin drumlessen worden
+								Een cultureel-educatief traject waarin drumlessen worden
 								aangeboden aan jongeren in zowel het onderwijs als het
 								naschoolse aanbod. Een doorlopende leerlijn staat hier in
 								centraal. Jongeren kunnen intern de opleiding doorlopen als
 								Caribische percussionist.
 							</p>
-							<br />
 							<h3>Beats</h3>
 							<p>
 								Eerste theatervoorstelling dat op zaterdag 23 november 2014 in
 								première ging in het Bijlmer Parktheater.
 							</p>
-							<br />
 							<h3>Ardennen Zomerkampen</h3>
 							<p>
 								Eternity organiseert elk jaar een sportieve activiteitenweek in
@@ -157,15 +157,13 @@ const Projecten: React.FC<PageProps> = () => {
 						</div>
 					</div>
 
-					<br />
 					<hr />
-					<br />
 
 					<div className="pjs-image-right">
 						<div>
-							<h5>
+							<h4>
 								<u>Afgelopen uitwisselingsprojecten zijn:</u>
-							</h5>
+							</h4>
 							<ul>
 								<li>
 									<p>
@@ -200,58 +198,69 @@ const Projecten: React.FC<PageProps> = () => {
 						</div>
 					</div>
 
-					<br />
 					<hr />
-					<br />
 
-					<h3>"Rite of The passage"</h3>
-					<p>
-						In 2019 hebben Eternity en The Manhood Academy de
-						uitwisselingsprogramma Rite The Passage succesvol georganiseerd voor
-						jongeren uit beide organisaties. Doelstelling was om beide groepen
-						jongeren bij elkaar te brengen en middels verschillende activiteiten
-						elkaars leefwerelden te vergelijken. Het uitgangspunt gedurende dit
-						uitwisselingsprogramma waren de overgangsrituelen vanuit een
-						Afrikaans perspectief toespitsen op de deelnemende jongeren. Rite of
-						Passage staat voor de reis die een jonge zwarte man ondergaat
-						tijdens zijn adolescentie. Het empowerment aspect staat hierin
-						centraal. De jongeren werden bewust gemaakt van hun eigen kunnen.
-						Door middel van een programma bestaande uit o.a. verschillende
-						workshops, culturele excursies en dialogen, worden beide
-						jongerengroepen gezamenlijk getraind in verschillende sociale
-						vaardigheden, sociale competenties en kennis bijgebracht over de
-						Afrikaanse geschiedenis.
-					</p>
-					<br />
-					<p>
-						<b>Projectleider:</b> Jamal Bijnoe
-					</p>
-					<br />
-					<p>
-						Mede mogelijk gemaakt door{" "}
-						<a
-							href="https://www.erasmusplus.nl"
-							rel="noopener noreferrer"
-							target="_blank"
-						>
-							Erasmus+
-						</a>
-					</p>
+					<div>
+						<h3>"Rite of The passage"</h3>
+						<p>
+							In 2019 hebben Eternity en The Manhood Academy de
+							uitwisselingsprogramma Rite The Passage succesvol georganiseerd
+							voor jongeren uit beide organisaties. Doelstelling was om beide
+							groepen jongeren bij elkaar te brengen en middels verschillende
+							activiteiten elkaars leefwerelden te vergelijken. Het uitgangspunt
+							gedurende dit uitwisselingsprogramma waren de overgangsrituelen
+							vanuit een Afrikaans perspectief toespitsen op de deelnemende
+							jongeren. Rite of Passage staat voor de reis die een jonge zwarte
+							man ondergaat tijdens zijn adolescentie. Het empowerment aspect
+							staat hierin centraal. De jongeren werden bewust gemaakt van hun
+							eigen kunnen. Door middel van een programma bestaande uit o.a.
+							verschillende workshops, culturele excursies en dialogen, worden
+							beide jongerengroepen gezamenlijk getraind in verschillende
+							sociale vaardigheden, sociale competenties en kennis bijgebracht
+							over de Afrikaanse geschiedenis.
+						</p>
+						<br />
+						<p>
+							<b>Projectleider:</b> Jamal Bijnoe
+						</p>
+						<br />
+						<p>
+							Mede mogelijk gemaakt door{" "}
+							<a
+								href="https://www.erasmusplus.nl"
+								rel="noopener noreferrer"
+								target="_blank"
+							>
+								Erasmus+
+							</a>
+						</p>
 
-					<div className="pjs-image-collage-top">
-						<div>
+						<br />
+
+						<div className="pjs-image-collage-top">
 							<div>
-								<StaticImage
-									src="../images/projects/rotp-1.jpg"
-									alt="Beats"
-									placeholder="blurred"
-									imgClassName="pjs-image"
-									style={{ width: "100%" }}
-								/>
+								<div>
+									<StaticImage
+										src="../images/projects/rotp-1.jpg"
+										alt="Beats"
+										placeholder="blurred"
+										imgClassName="pjs-image"
+										style={{ width: "100%" }}
+									/>
+								</div>
+								<div>
+									<StaticImage
+										src="../images/projects/rotp-2.jpg"
+										alt="Beats"
+										placeholder="blurred"
+										imgClassName="pjs-image"
+										style={{ width: "100%" }}
+									/>
+								</div>
 							</div>
 							<div>
 								<StaticImage
-									src="../images/projects/rotp-2.jpg"
+									src="../images/projects/rotp-3.jpg"
 									alt="Beats"
 									placeholder="blurred"
 									imgClassName="pjs-image"
@@ -259,52 +268,40 @@ const Projecten: React.FC<PageProps> = () => {
 								/>
 							</div>
 						</div>
-						<div>
-							<StaticImage
-								src="../images/projects/rotp-3.jpg"
-								alt="Beats"
-								placeholder="blurred"
-								imgClassName="pjs-image"
-								style={{ width: "100%" }}
-							/>
+						<div className="pjs-image-collage-bottom">
+							<div>
+								<StaticImage
+									src="../images/projects/rotp-4.jpg"
+									alt="Beats"
+									placeholder="blurred"
+									imgClassName="pjs-image"
+									style={{ width: "100%" }}
+								/>
+							</div>
+							<div>
+								<div>
+									<StaticImage
+										src="../images/projects/rotp-5.jpeg"
+										alt="Beats"
+										placeholder="blurred"
+										imgClassName="pjs-image"
+										style={{ width: "100%" }}
+									/>
+								</div>
+								<div>
+									<StaticImage
+										src="../images/projects/rotp-6.jpeg"
+										alt="Beats"
+										placeholder="blurred"
+										imgClassName="pjs-image"
+										style={{ width: "100%" }}
+									/>
+								</div>
+							</div>
 						</div>
 					</div>
-					<br />
-					<div className="pjs-image-collage-bottom">
-						<div>
-							<StaticImage
-								src="../images/projects/rotp-4.jpg"
-								alt="Beats"
-								placeholder="blurred"
-								imgClassName="pjs-image"
-								style={{ width: "100%" }}
-							/>
-						</div>
-						<div>
-							<div>
-								<StaticImage
-									src="../images/projects/rotp-5.jpeg"
-									alt="Beats"
-									placeholder="blurred"
-									imgClassName="pjs-image"
-									style={{ width: "100%" }}
-								/>
-							</div>
-							<div>
-								<StaticImage
-									src="../images/projects/rotp-6.jpeg"
-									alt="Beats"
-									placeholder="blurred"
-									imgClassName="pjs-image"
-									style={{ width: "100%" }}
-								/>
-							</div>
-						</div>
-					</div>
 
-					<br />
 					<hr />
-					<br />
 
 					<div className="pjs-image-over-text">
 						<div>

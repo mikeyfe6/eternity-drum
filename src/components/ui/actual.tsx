@@ -231,7 +231,7 @@ const Actualiteiten: React.FC = () => {
 
 	return (
 		<section className={styles.actual}>
-			<h2>Actualiteiten</h2>
+			<h2 className="page-subtitle">Actualiteiten</h2>
 			<div className={styles.collapsible}>
 				{buttons.map((button, index) => {
 					const isButtonActive = activeButton === index;

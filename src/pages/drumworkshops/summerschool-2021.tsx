@@ -52,10 +52,10 @@ const SummerschoolSecond: React.FC<PageProps> = () => {
 						<LightBox image={midzomerLogo} alt="Sankofa Flyer Voorkant" />
 					</div>
 					<div data-main-content className={styles.workshopInfo}>
-						<h3>
+						<h2>
 							PERCUSSIONBAND ETERNITY, UNTOLD EMPOWERMENT EN BLACK HARMONY GEVEN
 							GRATIS WORKSHOPS!
-						</h3>
+						</h2>
 						<p>
 							<strong>
 								Brassbandworkshops, Drumworkshops en Afro-Caribische

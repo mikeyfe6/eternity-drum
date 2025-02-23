@@ -15,18 +15,25 @@
 		margin-bottom: rem-calc(16);
 	}
 
-	h3,
+	h3 {
+		margin-bottom: rem-calc(16);
+
+		&:not(:first-of-type) {
+			margin-top: rem-calc(32);
+		}
+	}
+
 	h4,
 	h5 {
 		margin-bottom: rem-calc(16);
 
 		&:not(:first-child) {
-			margin-top: rem-calc(16);
+			margin-top: rem-calc(28);
 		}
 	}
 
 	h5 {
-		.maps & {
+		.contact & {
 			margin-top: rem-calc(32);
 		}
 	}
@@ -48,7 +55,7 @@
 			margin-top: rem-calc(16);
 		}
 
-		&:not(.page-content.maps ul, .page-content.singlepost .sidebar ul) {
+		&:not(.contact &, .singlepost .sidebar ul &) {
 			list-style: square;
 			list-style-position: inside;
 			padding-left: rem-calc(1);
@@ -56,10 +63,16 @@
 
 		li {
 			@include fluid-typing(16, 18);
+
+			p {
+				display: inline;
+			}
 		}
 	}
 
 	a {
+		display: inline-block;
+
 		@include page-link;
 	}
 

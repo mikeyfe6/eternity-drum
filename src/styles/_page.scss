@@ -61,15 +61,7 @@
 	}
 
 	&-content {
-		li > p {
-			display: inline;
-		}
-
-		a {
-			display: inline-block;
-		}
-
-		&.maps {
+		&.contact {
 			@include ep-layout("reverse", center);
 		}
 
@@ -82,23 +74,31 @@
 			@include ep-container(1250);
 
 			p {
-				max-width: 90ch;
+				max-width: 80ch;
+			}
+
+			hr {
+				margin: rem-calc(48) auto;
+			}
+
+			h4 {
+				margin-bottom: rem-calc(24);
 			}
 
 			.pjs {
 				&-image {
-					border-radius: 5px;
+					border-radius: $border-radius-sm;
 					overflow: hidden;
 
 					&-left {
 						display: flex;
-						align-items: center;
-						gap: 3em;
+						align-items: flex-start;
+						flex-direction: column;
+						gap: rem-calc(48);
 
-						@media screen and ($extra-large) {
-							flex-direction: column;
-							align-items: initial;
-							gap: 2em;
+						@include tablet {
+							flex-direction: row;
+							align-items: center;
 						}
 
 						> div {
@@ -108,44 +108,48 @@
 
 					&-right {
 						display: flex;
-						align-items: center;
-						gap: 3em;
+						align-items: flex-start;
+						flex-direction: column;
+						gap: rem-calc(48);
 
-						@media screen and ($extra-large) {
-							flex-direction: column;
-							align-items: initial;
-							gap: 1.5em;
+						@include tablet {
+							flex-direction: row;
+							align-items: center;
 						}
 
-						> div:nth-child(1) {
-							flex: 0.55;
+						> div {
+							flex: 1;
 
-							ul li:not(:last-child) {
-								margin-bottom: 1em;
+							ul {
+								display: flex;
+								flex-direction: column;
+								gap: rem-calc(16);
 							}
-						}
-
-						> div:nth-child(2) {
-							flex: 0.45;
 						}
 					}
 
 					&-collage {
-						&-top {
+						&-top,
+						&-bottom {
 							display: flex;
-							gap: 2em;
+							gap: rem-calc(32);
+							flex-direction: column;
+							align-items: center;
 
-							@media screen and ($medium) {
-								flex-direction: column;
-								align-items: initial;
+							@include tablet {
+								flex-direction: row;
 							}
+						}
+
+						&-top {
+							margin-bottom: rem-calc(32);
 
 							> div:nth-child(1) {
 								flex: 0.325;
 								display: flex;
 								flex-direction: column;
 								justify-content: center;
-								gap: 2em;
+								gap: rem-calc(32);
 							}
 
 							> div:nth-child(2) {
@@ -154,14 +158,6 @@
 						}
 
 						&-bottom {
-							display: flex;
-							gap: 2em;
-
-							@media screen and ($medium) {
-								flex-direction: column;
-								align-items: initial;
-							}
-
 							> div:nth-child(1) {
 								flex: 0.65;
 							}
@@ -171,19 +167,18 @@
 								display: flex;
 								flex-direction: column;
 								justify-content: center;
-								gap: 2em;
+								gap: rem-calc(32);
 							}
 						}
 					}
 
 					&-over-text {
 						display: flex;
-						gap: 3em;
+						flex-direction: column;
+						gap: rem-calc(48);
 
-						@media screen and ($large) {
-							flex-direction: column;
-							align-items: initial;
-							gap: 2em;
+						@include tablet {
+							flex-direction: row;
 						}
 
 						> div:nth-child(1) {
@@ -195,242 +190,165 @@
 							display: flex;
 							flex-direction: column;
 							justify-content: center;
-							gap: 1em;
 
-							@media screen and ($large) {
-								gap: 1em;
+							> p:last-of-type {
+								margin-bottom: rem-calc(48);
 							}
 						}
 					}
 				}
 
-				&-vids {
-					display: flex;
-					flex-wrap: wrap;
-					gap: 2em;
+				// &-vids {
+				// 	display: flex;
+				// 	flex-wrap: wrap;
+				// 	gap: 2em;
 
-					@media screen and ($large) {
-						flex-direction: column;
-						align-items: initial;
-					}
+				// 	@media screen and ($large) {
+				// 		flex-direction: column;
+				// 		align-items: initial;
+				// 	}
 
-					div {
-						flex: 1;
+				// 	div {
+				// 		flex: 1;
 
-						> iframe {
-							@media screen and ($large) {
-								aspect-ratio: auto;
-								height: 450px;
-							}
+				// 		> iframe {
+				// 			@media screen and ($large) {
+				// 				aspect-ratio: auto;
+				// 				height: 450px;
+				// 			}
 
-							@media screen and ($medium) {
-								height: 350px;
-							}
+				// 			@media screen and ($medium) {
+				// 				height: 350px;
+				// 			}
 
-							@media screen and ($small) {
-								height: 225px;
-							}
-						}
+				// 			@media screen and ($small) {
+				// 				height: 225px;
+				// 			}
+				// 		}
 
-						> p {
-							text-align: center;
-							font-size: 0.9rem;
-							max-width: none;
-						}
-					}
-				}
-			}
-
-			@media screen and ($small) {
-				// margin: 2em auto 1em;
-				// // bloaty
-
-				// h2 {
-				// 	font-size: 1.75rem;
+				// 		> p {
+				// 			text-align: center;
+				// 			font-size: 0.9rem;
+				// 			max-width: none;
+				// 		}
+				// 	}
 				// }
-
-				h4 {
-					font-size: 1.1rem;
-				}
-
-				p {
-					font-size: 1rem;
-				}
 			}
 		}
 
 		&.image-right {
-			display: flex;
-			justify-content: center;
-			gap: 87.5px;
-
-			@media screen and ($large) {
-				flex-direction: column;
-			}
-
-			@media screen and ($small) {
-				gap: 50px;
-			}
+			@include ep-layout("normal", flex-start);
 
 			> :nth-child(1) {
-				max-width: 600px;
+				max-width: 100%;
 
 				@include box;
 
-				@media screen and ($large) {
-					max-width: 100%;
+				@include mobile {
+					max-width: rem-calc(600);
 				}
 			}
 
 			> :nth-child(2) {
-				max-width: 600px;
+				max-width: 100%;
+				overflow: hidden;
+				border-radius: $border-radius-sm;
+				height: fit-content;
+				outline: 2px solid $lightgrey-color;
 
-				@media screen and ($large) {
-					max-width: 100%;
-				}
-
-				> div {
-					overflow: hidden;
-					border-radius: 5px;
-					height: fit-content;
-					outline: 1px solid $lightgrey-color;
-
-					img {
-						width: 100%;
-
-						@include box-shadow;
-					}
+				@include mobile {
+					max-width: rem-calc(600);
 				}
 			}
 		}
 
 		&.singlepost {
-			display: flex;
-			justify-content: center;
-			gap: 87.5px;
-
-			@media screen and ($extra-large) {
-				gap: 50px;
-			}
-
-			@media screen and ($large) {
-				flex-direction: column-reverse;
-				gap: 25px;
-			}
-
-			@media screen and ($small) {
-				margin: 2em auto 1.25em;
-				gap: 15px;
-			}
+			@include ep-layout("reverse", flex-start);
 
 			.images {
-				margin: 2em 0;
+				margin: rem-calc(32 0);
 
 				span {
 					text-align: right;
 					display: block;
 
 					&:nth-of-type(1) {
-						margin-top: 0.5em;
-						font-size: 0.95rem;
+						margin-top: rem-calc(8);
+						font-size: rem-calc(14);
 					}
 
 					&:nth-of-type(2) {
 						color: $lightgrey-color;
-						font-size: 0.9rem;
-						margin-right: 0.125em;
+						font-size: rem-calc(12);
+						margin-right: rem-calc(2);
 					}
 				}
 			}
 
 			.sidebar {
-				margin: 1em 0;
+				margin: rem-calc(16 0);
 				display: flex;
 				flex-wrap: wrap;
-				gap: 20px;
+				gap: rem-calc(24);
 
 				ul {
-					margin-left: auto;
 					list-style: none;
 					display: flex;
-					gap: 10px;
+					gap: rem-calc(12);
 					justify-content: flex-end;
 					flex-wrap: wrap;
+					margin-left: initial;
 
-					@media screen and ($large) {
-						margin-left: initial;
+					@include phablet {
+						margin-left: auto;
 					}
 
 					li {
 						background-color: $secondary-color;
 						width: fit-content;
-						padding: 0.25em 0.5em;
-						border-radius: 2.5px;
+						padding: rem-calc(4 8);
+						border-radius: $border-radius-xs;
 						height: fit-content;
 					}
 				}
 
 				p {
 					margin-left: auto;
-					font-size: 1rem;
-					width: fit-content;
+					font-size: rem-calc(16);
+					width: 100%;
 					background-color: $primary-color;
-					padding: 1em 1.25em;
-					border-radius: 7.5px;
+					padding: rem-calc(16 20);
+					border-radius: $border-radius-md;
 					color: $white-color;
 
-					@media screen and ($small) {
-						width: 100%;
+					@include mobile {
+						width: fit-content;
 					}
 
 					u {
 						display: block;
-						margin-bottom: 0.5em;
+						margin-bottom: rem-calc(8);
 					}
 				}
 			}
 
 			> :nth-child(1) {
-				max-width: 600px;
+				max-width: 100%;
 
-				@media screen and ($large) {
-					max-width: 100%;
-				}
-
-				@media screen and ($small) {
-					// h2 {
-					// 	font-size: 1.75rem;
-					// }
-
-					h4 {
-						font-size: 1.1rem;
-					}
-
-					p {
-						font-size: 1rem;
-					}
+				@include phablet {
+					max-width: rem-calc(600);
 				}
 			}
 
 			> :nth-child(2) {
-				max-width: 600px;
+				max-width: 100%;
+				overflow: hidden;
+				border-radius: $border-radius-sm;
+				height: fit-content;
+				outline: 2px solid $lightgrey-color;
 
-				@media screen and ($large) {
-					max-width: 100%;
-				}
-
-				img {
-					min-width: 400px;
-					width: 100%;
-					border-radius: 5px;
-					overflow: hidden;
-					outline: 1px solid $lightgrey-color;
-
-					@include box-shadow;
-
-					@media screen and ($small) {
-						min-width: 100%;
-					}
+				@include phablet {
+					max-width: rem-calc(600);
 				}
 			}
 		}
@@ -439,53 +357,29 @@
 			@include ep-layout("normal", center);
 
 			> :nth-child(1) {
-				max-width: 600px;
+				max-width: 100%;
 
-				li {
-					font-size: 1.1rem;
-				}
-
-				@media screen and ($large) {
-					max-width: 100%;
-				}
-
-				@media screen and ($small) {
-					// h2 {
-					// 	font-size: 1.75rem;
-					// }
-
-					h4 {
-						font-size: 1.1rem;
-					}
-
-					p {
-						font-size: 1rem;
-					}
+				@include mobile {
+					max-width: rem-calc(600);
 				}
 			}
 
 			> :nth-child(2) {
-				max-width: 550px;
+				overflow: hidden;
+				border-radius: $border-radius-sm;
+				height: fit-content;
+				outline: 2px solid $lightgrey-color;
+				max-width: 100%;
 
-				@media screen and ($small) {
-					max-width: 100%;
+				@include mobile {
+					max-width: rem-calc(550);
 				}
+			}
 
-				> div {
-					overflow: hidden;
-					border-radius: 5px;
-					height: fit-content;
-					outline: 1px solid $lightgrey-color;
-
-					img {
-						min-width: 400px;
-						width: 100%;
-
-						@include box-shadow;
-
-						@media screen and ($small) {
-							min-width: 100%;
-						}
+			&.seda {
+				> :nth-child(2) {
+					@include mobile {
+						max-width: rem-calc(450);
 					}
 				}
 			}

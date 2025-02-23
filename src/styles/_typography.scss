@@ -50,7 +50,21 @@ h1 {
 h2 {
 	font-family: $bebas-neue;
 
-	@include fluid-typing(36, 48);
+	@include fluid-typing(32, 44);
+
+	&.page-subtitle {
+		@include fluid-typing(32, 48);
+	}
+
+	.contact & {
+		margin-bottom: rem-calc(28);
+
+		@include fluid-typing(28, 36);
+	}
+
+	.projects & {
+		margin-bottom: rem-calc(48);
+	}
 }
 
 h3 {

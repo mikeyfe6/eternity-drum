@@ -99,7 +99,7 @@ const Partners: React.FC = () => {
 
 	return (
 		<section className={styles.partners}>
-			<h2>Partners</h2>
+			<h2 className="page-subtitle">Partners</h2>
 			<ul>
 				{shuffledPartners.map((partner, index) => {
 					const partnerImage = partnerImages.find(

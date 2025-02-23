@@ -66,7 +66,7 @@ const Berichten: React.FC = () => {
 
 	return (
 		<section className={styles.posts}>
-			<h2>Berichten</h2>
+			<h2 className="page-subtitle">Berichten</h2>
 
 			{posts.length > 0 ? (
 				<ul>
