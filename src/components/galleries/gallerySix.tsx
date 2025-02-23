@@ -39,7 +39,7 @@ const GallerySix: React.FC = () => {
 						title
 						file {
 							childImageSharp {
-								gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+								gatsbyImageData
 							}
 						}
 					}

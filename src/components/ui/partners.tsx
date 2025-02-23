@@ -1,25 +1,15 @@
 import React, { useEffect, useState } from "react";
 
-import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
+
+import { useSrcImages } from "../../hooks/use-src-image";
 
 import * as styles from "../../styles/modules/components/partners.module.scss";
 
 const Partners: React.FC = () => {
-	const data = useStaticQuery(graphql`
-		query {
-			allFile(filter: { relativeDirectory: { eq: "partners" } }) {
-				nodes {
-					relativePath
-					childImageSharp {
-						gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
-					}
-				}
-			}
-		}
-	`);
+	const { allPartners } = useSrcImages();
 
-	const partnerImages = data.allFile.nodes;
+	const partnerImages = allPartners;
 
 	const partners = [
 		{

@@ -130,7 +130,6 @@ const Projecten: React.FC<PageProps> = () => {
 							<StaticImage
 								src="../images/projects/beats-group.jpg"
 								alt="Beats"
-								placeholder="blurred"
 								imgClassName="pjs-image"
 								style={{ width: "100%" }}
 							/>
@@ -191,7 +190,6 @@ const Projecten: React.FC<PageProps> = () => {
 							<StaticImage
 								src="../images/projects/beats-theatre.jpg"
 								alt="Beats"
-								placeholder="blurred"
 								imgClassName="pjs-image"
 								style={{ width: "100%" }}
 							/>
@@ -243,7 +241,6 @@ const Projecten: React.FC<PageProps> = () => {
 									<StaticImage
 										src="../images/projects/rotp-1.jpg"
 										alt="Beats"
-										placeholder="blurred"
 										imgClassName="pjs-image"
 										style={{ width: "100%" }}
 									/>
@@ -252,7 +249,6 @@ const Projecten: React.FC<PageProps> = () => {
 									<StaticImage
 										src="../images/projects/rotp-2.jpg"
 										alt="Beats"
-										placeholder="blurred"
 										imgClassName="pjs-image"
 										style={{ width: "100%" }}
 									/>
@@ -262,7 +258,6 @@ const Projecten: React.FC<PageProps> = () => {
 								<StaticImage
 									src="../images/projects/rotp-3.jpg"
 									alt="Beats"
-									placeholder="blurred"
 									imgClassName="pjs-image"
 									style={{ width: "100%" }}
 								/>
@@ -273,7 +268,6 @@ const Projecten: React.FC<PageProps> = () => {
 								<StaticImage
 									src="../images/projects/rotp-4.jpg"
 									alt="Beats"
-									placeholder="blurred"
 									imgClassName="pjs-image"
 									style={{ width: "100%" }}
 								/>
@@ -283,7 +277,6 @@ const Projecten: React.FC<PageProps> = () => {
 									<StaticImage
 										src="../images/projects/rotp-5.jpeg"
 										alt="Beats"
-										placeholder="blurred"
 										imgClassName="pjs-image"
 										style={{ width: "100%" }}
 									/>
@@ -292,7 +285,6 @@ const Projecten: React.FC<PageProps> = () => {
 									<StaticImage
 										src="../images/projects/rotp-6.jpeg"
 										alt="Beats"
-										placeholder="blurred"
 										imgClassName="pjs-image"
 										style={{ width: "100%" }}
 									/>
@@ -308,7 +300,6 @@ const Projecten: React.FC<PageProps> = () => {
 							<StaticImage
 								src="../images/projects/umuntu-stands.jpg"
 								alt="Beats"
-								placeholder="blurred"
 								imgClassName="pjs-image"
 								style={{ width: "100%" }}
 							/>
@@ -336,7 +327,6 @@ const Projecten: React.FC<PageProps> = () => {
 							<StaticImage
 								src="../images/projects/umuntu-hands.jpg"
 								alt="Beats"
-								placeholder="blurred"
 								style={{ marginTop: "auto" }}
 								imgClassName="pjs-image"
 							/>

@@ -1,6 +1,8 @@
-import React, { useState, useRef, MouseEvent, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
-import { graphql, useStaticQuery, Link } from "gatsby";
+import { Link } from "gatsby";
+
+import { useSrcImages } from "../../hooks/use-src-image";
 
 import YouTubePlayer from "./youtubePlayer";
 
@@ -9,49 +11,16 @@ import LightBox from "./lightbox";
 import * as styles from "../../styles/modules/components/actual.module.scss";
 
 const Actualiteiten: React.FC = () => {
+	const { sankofaB, sankofaF, rotpF, rotpB } = useSrcImages();
+
 	const [activeButton, setActiveButton] = useState<number>(0);
 	const openContentRef = useRef<HTMLDivElement | null>(null);
 
-	const { sankofaB, sankofaF, rotpF, rotpB } = useStaticQuery(graphql`
-		query {
-			sankofaB: file(relativePath: { eq: "sankofa-2.jpg" }) {
-				childImageSharp {
-					gatsbyImageData(width: 1000)
-				}
-			}
-			sankofaF: file(relativePath: { eq: "sankofa-1.jpg" }) {
-				childImageSharp {
-					gatsbyImageData(width: 1000)
-				}
-			}
-			rotpF: file(relativePath: { eq: "rotp-front.jpeg" }) {
-				childImageSharp {
-					gatsbyImageData(width: 1000)
-				}
-			}
-			rotpB: file(relativePath: { eq: "rotp-back.jpeg" }) {
-				childImageSharp {
-					gatsbyImageData(width: 1000)
-				}
-			}
-			# wijkImpOne: file(relativePath: { eq: "wijkimpuls-190424.jpg" }) {
-			# 	childImageSharp {
-			# 		gatsbyImageData
-			# 	}
-			# }
-			# wijkImpTwo: file(relativePath: { eq: "wijkimpuls-260424.jpg" }) {
-			# 	childImageSharp {
-			# 		gatsbyImageData
-			# 	}
-			# }
-		}
-	`);
+	const sankofaBack = sankofaB;
+	const sankofaFront = sankofaF;
 
-	const sankofaBack = sankofaB.childImageSharp.gatsbyImageData;
-	const sankofaFront = sankofaF.childImageSharp.gatsbyImageData;
-
-	const rotpFront = rotpF.childImageSharp.gatsbyImageData;
-	const rotpBack = rotpB.childImageSharp.gatsbyImageData;
+	const rotpFront = rotpF;
+	const rotpBack = rotpB;
 
 	// const wijkImpulsOne = wijkImpOne.childImageSharp.gatsbyImageData;
 	// const wijkImpulsTwo = wijkImpTwo.childImageSharp.gatsbyImageData;

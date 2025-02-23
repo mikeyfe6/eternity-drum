@@ -142,7 +142,6 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							<StaticImage
 								src="../../images/logo/ep-logo.png"
 								alt={`${title} Logo`}
-								placeholder="blurred"
 							/>
 						</Link>
 					</div>
@@ -250,7 +249,6 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							<StaticImage
 								src="../../images/logo/ep-logo.png"
 								alt={`${title} Logo`}
-								placeholder="blurred"
 							/>
 						</Link>
 					</li>

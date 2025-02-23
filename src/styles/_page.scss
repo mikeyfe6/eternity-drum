@@ -293,7 +293,8 @@
 				flex-wrap: wrap;
 				gap: rem-calc(24);
 
-				ul {
+				/* stylelint-disable-next-line no-descending-specificity */
+				> ul {
 					list-style: none;
 					display: flex;
 					gap: rem-calc(12);
@@ -314,6 +315,7 @@
 					}
 				}
 
+				/* stylelint-disable-next-line no-descending-specificity */
 				p {
 					margin-left: auto;
 					font-size: rem-calc(16);
@@ -382,6 +384,14 @@
 				> :nth-child(2) {
 					@include mobile {
 						max-width: rem-calc(450);
+					}
+				}
+			}
+
+			&.big-image {
+				> :nth-child(2) {
+					@include mobile {
+						max-width: rem-calc(700);
 					}
 				}
 			}

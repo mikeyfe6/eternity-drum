@@ -1,9 +1,10 @@
 import React from "react";
 
 import type { HeadFC, PageProps } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage, getSrc } from "gatsby-plugin-image";
 
 import { useSiteMetadata } from "../hooks/use-site-metadata";
+import { useSrcImages } from "../hooks/use-src-image";
 
 import { Seo } from "../components/seo";
 
@@ -93,10 +94,17 @@ const Seda: React.FC<PageProps> = () => {
 
 export default Seda;
 
-export const Head: HeadFC = () => (
-	<Seo
-		title="Seda"
-		pathname="/seda/"
-		description="Ontdek de inspirerende oefenruimtes van Southeast Drum Academy (SEDA), een plek voor drumgroepen op hun muzikale reis. Onder artistiek directeur Orlando Ceder bloeit samenwerking en gemeenschap op. Gevestigd onder metrostation Kraaiennest in Amsterdam Zuidoost, op Kruitbergstraat 18, 1104 CH."
-	/>
-);
+export const Head: HeadFC = () => {
+	const { seda } = useSrcImages();
+
+	const imageUrl = getSrc(seda);
+
+	return (
+		<Seo
+			title="Seda"
+			pathname="/seda/"
+			image={imageUrl}
+			description="Ontdek de inspirerende oefenruimtes van Southeast Drum Academy (SEDA), een plek voor drumgroepen op hun muzikale reis. Onder artistiek directeur Orlando Ceder bloeit samenwerking en gemeenschap op. Gevestigd onder metrostation Kraaiennest in Amsterdam Zuidoost, op Kruitbergstraat 18, 1104 CH."
+		/>
+	);
+};

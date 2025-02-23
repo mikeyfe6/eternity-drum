@@ -1,8 +1,9 @@
 import React from "react";
 
-import { graphql, useStaticQuery } from "gatsby";
-
 import type { HeadFC, PageProps } from "gatsby";
+import { getSrc } from "gatsby-plugin-image";
+
+import { useSrcImages } from "../../hooks/use-src-image";
 
 import { Seo } from "../../components/seo";
 
@@ -14,29 +15,13 @@ import LightBox from "../../components/ui/lightbox";
 import * as styles from "../../styles/modules/pages/workshop.module.scss";
 
 const SummerschoolSecond: React.FC<PageProps> = () => {
+	const { summerschool2021, midzomerlatest } = useSrcImages();
+
 	const breadcrumbs = [
 		{ label: "Home", link: "/" },
 		{ label: "Drumworkshops", link: "/drumworkshops/" },
 		{ label: "Summerschool 2021" },
 	];
-
-	const { flyer, midzomer } = useStaticQuery(graphql`
-		query {
-			flyer: file(relativePath: { eq: "summerschool-2021.jpg" }) {
-				childImageSharp {
-					gatsbyImageData
-				}
-			}
-			midzomer: file(relativePath: { eq: "midzomerlogo-latest.jpeg" }) {
-				childImageSharp {
-					gatsbyImageData
-				}
-			}
-		}
-	`);
-
-	const summerSchoolFlyer = flyer.childImageSharp.gatsbyImageData;
-	const midzomerLogo = midzomer.childImageSharp.gatsbyImageData;
 
 	return (
 		<>
@@ -48,8 +33,8 @@ const SummerschoolSecond: React.FC<PageProps> = () => {
 			<section data-main-section>
 				<div className={styles.workshopContainer}>
 					<div className={styles.workshopVisuals}>
-						<LightBox image={summerSchoolFlyer} alt="Summerschool 2021 Flyer" />
-						<LightBox image={midzomerLogo} alt="Sankofa Flyer Voorkant" />
+						<LightBox image={summerschool2021} alt="Summerschool 2021 Flyer" />
+						<LightBox image={midzomerlatest} alt="Sankofa Flyer Voorkant" />
 					</div>
 					<div data-main-content className={styles.workshopInfo}>
 						<h2>
@@ -138,10 +123,17 @@ const SummerschoolSecond: React.FC<PageProps> = () => {
 
 export default SummerschoolSecond;
 
-export const Head: HeadFC = () => (
-	<Seo
-		title="Summerschool 2021"
-		pathname="/drumworkshops/summerschool-2021/"
-		description="Ontdek onze zinderende Summerschool 2021! Gratis muziekworkshops voor kinderen, tieners en jongeren in Amsterdam Zuidoost. Lid worden van Eternity, Untold of Black Harmony? Bekijk onze workshops en sluit je aan!"
-	/>
-);
+export const Head: HeadFC = () => {
+	const { summerschool2021 } = useSrcImages();
+
+	const imageUrl = getSrc(summerschool2021);
+
+	return (
+		<Seo
+			title="Summerschool 2021"
+			pathname="/drumworkshops/summerschool-2021/"
+			image={imageUrl}
+			description="Ontdek onze zinderende Summerschool 2021! Gratis muziekworkshops voor kinderen, tieners en jongeren in Amsterdam Zuidoost. Lid worden van Eternity, Untold of Black Harmony? Bekijk onze workshops en sluit je aan!"
+		/>
+	);
+};

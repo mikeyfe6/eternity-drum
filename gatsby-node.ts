@@ -352,7 +352,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                             email
                         }
                         featuredImage {
-                            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+                            gatsbyImageData(layout: FULL_WIDTH)
                             title
                         }
                     }

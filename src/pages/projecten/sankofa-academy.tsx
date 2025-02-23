@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 
-import { graphql, useStaticQuery, HeadFC, PageProps } from "gatsby";
+import type { HeadFC, PageProps } from "gatsby";
+import { getSrc } from "gatsby-plugin-image";
 
 import { useSiteMetadata } from "../../hooks/use-site-metadata";
+import { useSrcImages } from "../../hooks/use-src-image";
 
 import { Seo } from "../../components/seo";
 
@@ -17,6 +19,7 @@ import * as styles from "../../styles/modules/pages/workshop.module.scss";
 
 const SankofaAcademy: React.FC<PageProps> = () => {
 	const { email, mobileRaw } = useSiteMetadata();
+	const { sankofaB, sankofaF } = useSrcImages();
 
 	const breadcrumbs = [
 		{ label: "Home", link: "/" },
@@ -24,25 +27,10 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 		{ label: "Sankofa Academy" },
 	];
 
-	const { sankofaB, sankofaF } = useStaticQuery(graphql`
-		query {
-			sankofaB: file(relativePath: { eq: "sankofa-2.jpg" }) {
-				childImageSharp {
-					gatsbyImageData
-				}
-			}
-			sankofaF: file(relativePath: { eq: "sankofa-1.jpg" }) {
-				childImageSharp {
-					gatsbyImageData
-				}
-			}
-		}
-	`);
-
 	const inputRef = useRef<HTMLInputElement>(null);
 
-	const sankofaBack = sankofaB.childImageSharp.gatsbyImageData;
-	const sankofaFront = sankofaF.childImageSharp.gatsbyImageData;
+	const sankofaBack = sankofaB;
+	const sankofaFront = sankofaF;
 
 	return (
 		<>
@@ -176,10 +164,17 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 
 export default SankofaAcademy;
 
-export const Head: HeadFC = () => (
-	<Seo
-		title="Sankofa Academy"
-		pathname="/projecten/sankofa-academy/"
-		description="Ontdek Sankofa Academy: empower en emancipeer mensen van Afrikaanse afkomst. Leer over gedeelde geschiedenis, identiteit en bewustzijn."
-	/>
-);
+export const Head: HeadFC = () => {
+	const { sankofaF } = useSrcImages();
+
+	const imageUrl = getSrc(sankofaF);
+
+	return (
+		<Seo
+			title="Sankofa Academy"
+			pathname="/projecten/sankofa-academy/"
+			image={imageUrl}
+			description="Ontdek Sankofa Academy: empower en emancipeer mensen van Afrikaanse afkomst. Leer over gedeelde geschiedenis, identiteit en bewustzijn."
+		/>
+	);
+};

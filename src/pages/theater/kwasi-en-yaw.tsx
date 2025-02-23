@@ -1,7 +1,9 @@
 import React from "react";
 
 import type { HeadFC, PageProps } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage, getSrc } from "gatsby-plugin-image";
+
+import { useSrcImages } from "../../hooks/use-src-image";
 
 import { Seo } from "../../components/seo";
 
@@ -95,7 +97,17 @@ const KwasiEnYaw: React.FC<PageProps> = () => {
 
 export default KwasiEnYaw;
 
-export const Head: HeadFC = () => (
-	<Seo title="Kwasi & Yaw" pathname="/theater/kwasi-en-yaw/" />
-	// TODO: Add description
-);
+export const Head: HeadFC = () => {
+	const { kwasiAndYaw } = useSrcImages();
+
+	const imageUrl = getSrc(kwasiAndYaw);
+
+	return (
+		<Seo
+			title="Kwasi & Yaw"
+			pathname="/theater/kwasi-en-yaw/"
+			image={imageUrl}
+			description="Ontdek 'Kwasi & Yaw', een krachtige theatervoorstelling over de zoektocht naar Afrikaanse roots en spirituele erfenis, ondersteund door betoverende dans en percussie."
+		/>
+	);
+};
