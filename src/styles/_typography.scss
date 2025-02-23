@@ -52,6 +52,10 @@ h2 {
 
 	@include fluid-typing(32, 44);
 
+	[data-main-content] & {
+		@include fluid-typing(28, 44);
+	}
+
 	&.page-subtitle {
 		@include fluid-typing(32, 48);
 	}
