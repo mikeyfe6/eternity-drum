@@ -17,8 +17,15 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 	const [isHeaderFixed, setIsHeaderFixed] = useState(false);
 	const [, setScrollY] = useState(0);
 
-	const { title, facebookUrl, instagramUrl, youtubeUrl, mobileRaw, slogan } =
-		useSiteMetadata();
+	const {
+		title,
+		facebookUrl,
+		instagramUrl,
+		linkedinUrl,
+		youtubeUrl,
+		mobileRaw,
+		slogan,
+	} = useSiteMetadata();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -87,6 +94,11 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 						<li>
 							<a href={instagramUrl} rel="noopener noreferrer" target="_blank">
 								<FontAwesomeIcon icon={["fab", "instagram"]} />
+							</a>
+						</li>
+						<li>
+							<a href={linkedinUrl} rel="noopener noreferrer" target="_blank">
+								<FontAwesomeIcon icon={["fab", "linkedin"]} />
 							</a>
 						</li>
 						<li>

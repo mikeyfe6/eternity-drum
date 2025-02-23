@@ -48,9 +48,9 @@ const Contact: React.FC<PageProps> = () => {
 				<h1 className="page-title">Contact</h1>
 			</section>
 			<section data-main-section>
-				<div data-main-content className="page-content maps">
-					<div className={styles.contactWrapper}>
-						<h3>{companyName}</h3>
+				<div className="page-content contact">
+					<div className={styles.contactWrapper} data-main-content>
+						<h2>{companyName}</h2>
 						<ul>
 							<li>
 								<span>Adres</span> <span>{visitingAddress}</span>
@@ -119,7 +119,7 @@ const Contact: React.FC<PageProps> = () => {
 								<span>Rekeningnummer</span> <span>{bank}</span>
 							</li>
 						</ul>
-						<h3>Social Media Kanalen</h3>
+						<h5>Social Media:</h5>
 						<ul>
 							<li>
 								<a href={facebookUrl} rel="noopener noreferrer" target="_blank">

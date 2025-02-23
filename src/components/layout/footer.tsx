@@ -67,7 +67,9 @@ const Footer = () => {
 					<div className={styles.footerColumn}>
 						<h4>Contactgegevens</h4>
 						<br />
-						<b>{companyName}</b>
+						<p>
+							<b>{companyName}</b>
+						</p>
 						<h5>Bezoekadres:</h5>
 						<ul>
 							<li>
@@ -96,7 +98,9 @@ const Footer = () => {
 						</ul>
 						<ul>
 							<li>
-								<FontAwesomeIcon icon={"envelope"} />
+								<div>
+									<FontAwesomeIcon icon={"envelope"} />
+								</div>
 								<a
 									href={`mailto:${email}`}
 									rel="noopener noreferrer"
@@ -106,7 +110,10 @@ const Footer = () => {
 								</a>
 							</li>
 							<li>
-								<FontAwesomeIcon icon={"drum"} />
+								<div>
+									<FontAwesomeIcon icon={"drum"} />
+								</div>
+
 								<a
 									href={`tel:+${phoneRawSeda}`}
 									rel="noopener noreferrer"
@@ -116,7 +123,9 @@ const Footer = () => {
 								</a>
 							</li>
 							<li>
-								<FontAwesomeIcon icon={"phone"} />
+								<div>
+									<FontAwesomeIcon icon={"phone"} />
+								</div>
 								<a
 									href={`tel:+${phoneRawBpt}`}
 									rel="noopener noreferrer"
@@ -126,7 +135,9 @@ const Footer = () => {
 								</a>
 							</li>
 							<li>
-								<FontAwesomeIcon icon={"mobile"} />
+								<div>
+									<FontAwesomeIcon icon={"mobile"} />
+								</div>
 								<a
 									href={`tel:+${mobileRaw}`}
 									rel="noopener noreferrer"
