@@ -38,6 +38,7 @@ const Footer = () => {
 		btw,
 		facebookUrl,
 		instagramUrl,
+		// linkedinUrl,
 		youtubeUrl,
 		title,
 	} = useSiteMetadata();
@@ -249,6 +250,15 @@ const Footer = () => {
 											<FontAwesomeIcon icon={["fab", "instagram"]} />
 										</a>
 									</li>
+									{/* <li>
+										<a
+											href={linkedinUrl}
+											rel="noopener noreferrer"
+											target="_blank"
+										>
+											<FontAwesomeIcon icon={["fab", "linkedin"]} />
+										</a>
+									</li> */}
 									<li>
 										<a
 											href={youtubeUrl}

@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 		title,
 		facebookUrl,
 		instagramUrl,
-		linkedinUrl,
+		// linkedinUrl,
 		youtubeUrl,
 		mobileRaw,
 		slogan,
@@ -96,11 +96,11 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 								<FontAwesomeIcon icon={["fab", "instagram"]} />
 							</a>
 						</li>
-						<li>
+						{/* <li>
 							<a href={linkedinUrl} rel="noopener noreferrer" target="_blank">
 								<FontAwesomeIcon icon={["fab", "linkedin"]} />
 							</a>
-						</li>
+						</li> */}
 						<li>
 							<a href={youtubeUrl} rel="noopener noreferrer" target="_blank">
 								<FontAwesomeIcon icon={["fab", "youtube"]} />

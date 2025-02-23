@@ -137,6 +137,12 @@ const Contact: React.FC<PageProps> = () => {
 									<FontAwesomeIcon icon={["fab", "instagram"]} />
 								</a>
 							</li>
+							{/* <li>
+								<a href={linkedinUrl} rel="noopener noreferrer" target="_blank">
+									<span>LinkedIn</span>
+									<FontAwesomeIcon icon={["fab", "linkedin"]} />
+								</a>
+							</li> */}
 							<li>
 								<a href={youtubeUrl} rel="noopener noreferrer" target="_blank">
 									<span>Youtube</span>
