@@ -122,7 +122,12 @@ const Contact: React.FC<PageProps> = () => {
 						<h5>Social Media:</h5>
 						<ul>
 							<li>
-								<a href={facebookUrl} rel="noopener noreferrer" target="_blank">
+								<a
+									href={facebookUrl}
+									rel="noopener noreferrer"
+									target="_blank"
+									aria-label="Facebook"
+								>
 									<span>Facebook</span>
 									<FontAwesomeIcon icon={["fab", "facebook"]} />
 								</a>
@@ -132,6 +137,7 @@ const Contact: React.FC<PageProps> = () => {
 									href={instagramUrl}
 									rel="noopener noreferrer"
 									target="_blank"
+									aria-label="Instagram"
 								>
 									<span>Instagram</span>
 									<FontAwesomeIcon icon={["fab", "instagram"]} />
@@ -144,7 +150,12 @@ const Contact: React.FC<PageProps> = () => {
 								</a>
 							</li> */}
 							<li>
-								<a href={youtubeUrl} rel="noopener noreferrer" target="_blank">
+								<a
+									href={youtubeUrl}
+									rel="noopener noreferrer"
+									target="_blank"
+									aria-label="Youtube"
+								>
 									<span>Youtube</span>
 									<FontAwesomeIcon icon={["fab", "youtube"]} />
 								</a>
@@ -156,6 +167,7 @@ const Contact: React.FC<PageProps> = () => {
 								href={`https://wa.me/${mobileRaw}`}
 								rel="noopener noreferrer"
 								target="_blank"
+								aria-label="WhatsApp"
 							>
 								<span>Whatsapp</span>{" "}
 								<FontAwesomeIcon icon={["fab", "whatsapp"]} />

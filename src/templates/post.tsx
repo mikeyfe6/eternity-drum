@@ -2,7 +2,7 @@
 import React from "react";
 
 import type { HeadProps } from "gatsby";
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 import { BLOCKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
@@ -26,7 +26,7 @@ interface PostProps {
 		};
 
 		featuredImage: {
-			url: string;
+			gatsbyImageData: IGatsbyImageData;
 			title: string;
 		};
 	};
@@ -76,6 +76,10 @@ const Post = ({
 		},
 	};
 
+	const image = featuredImage?.gatsbyImageData
+		? getImage(featuredImage.gatsbyImageData)
+		: null;
+
 	return (
 		<>
 			<hr className="fullwidth" />
@@ -94,7 +98,7 @@ const Post = ({
 					</div>
 
 					<div>
-						<img src={featuredImage.url} alt={featuredImage.title} />
+						<GatsbyImage image={image!} alt={featuredImage.title} />
 
 						{/* <div className='singlepost sidebar'>
 						<ul>

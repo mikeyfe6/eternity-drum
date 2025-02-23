@@ -2,6 +2,8 @@ import React from "react";
 
 import { graphql, useStaticQuery, Link } from "gatsby";
 
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+
 import * as styles from "../../styles/modules/components/posts.module.scss";
 
 interface Post {
@@ -15,8 +17,7 @@ interface Post {
 	];
 	publishedDate: string;
 	featuredImage: {
-		// description: string;
-		url: string;
+		gatsbyImageData: IGatsbyImageData;
 		title: string;
 	};
 	content: {
@@ -36,7 +37,12 @@ const Berichten: React.FC = () => {
 						raw
 					}
 					featuredImage {
-						url
+						gatsbyImageData(
+							layout: FULL_WIDTH
+							placeholder: BLURRED
+							height: 275
+							width: 375
+						)
 						title
 					}
 					postType {
@@ -87,14 +93,19 @@ const Berichten: React.FC = () => {
 								options
 							);
 
+							const image = featuredImage?.gatsbyImageData
+								? getImage(featuredImage.gatsbyImageData)
+								: null;
+
 							return (
 								<li key={id}>
 									<Link to={`${slug}/`}>
-										{/* TODO: StaticImage */}
-										<img
-											src={featuredImage.url}
+										<GatsbyImage
+											image={image!}
 											alt={featuredImage.title}
 											className={styles.postImage}
+											objectFit="cover"
+											objectPosition="50% 25%"
 										/>
 									</Link>
 									<div>

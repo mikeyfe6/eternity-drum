@@ -43,7 +43,7 @@ interface Post {
         }
     ];
     featuredImage: {
-        url: string;
+        gatsbyImageData: IGatsbyImageData;
         title: string;
     };
     id: string;
@@ -352,7 +352,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                             email
                         }
                         featuredImage {
-                            url
+                            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
                             title
                         }
                     }

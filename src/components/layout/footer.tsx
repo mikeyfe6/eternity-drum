@@ -237,6 +237,7 @@ const Footer = () => {
 											href={facebookUrl}
 											rel="noopener noreferrer"
 											target="_blank"
+											aria-label="Facebook"
 										>
 											<FontAwesomeIcon icon={["fab", "facebook"]} />
 										</a>
@@ -246,6 +247,7 @@ const Footer = () => {
 											href={instagramUrl}
 											rel="noopener noreferrer"
 											target="_blank"
+											aria-label="Instagram"
 										>
 											<FontAwesomeIcon icon={["fab", "instagram"]} />
 										</a>
@@ -264,6 +266,7 @@ const Footer = () => {
 											href={youtubeUrl}
 											rel="noopener noreferrer"
 											target="_blank"
+											aria-label="Youtube"
 										>
 											<FontAwesomeIcon icon={["fab", "youtube"]} />
 										</a>
@@ -273,6 +276,7 @@ const Footer = () => {
 											href={`https://wa.me/${mobileRaw}`}
 											rel="noopener noreferrer"
 											target="_blank"
+											aria-label="WhatsApp"
 										>
 											<FontAwesomeIcon icon={["fab", "whatsapp"]} />
 										</a>

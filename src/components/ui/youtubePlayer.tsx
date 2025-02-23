@@ -25,6 +25,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({
 			width={width}
 			height={height}
 			src={embedUrl}
+			title="Youtube Video"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 			allowFullScreen
 		></iframe>

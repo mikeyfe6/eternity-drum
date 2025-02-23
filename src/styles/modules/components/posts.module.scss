@@ -31,7 +31,7 @@
 			@include box-shadow;
 
 			@include compact {
-				max-width: rem-calc(350);
+				max-width: rem-calc(375);
 			}
 
 			&:hover {
@@ -44,16 +44,8 @@
 
 					&-image {
 						transform: scale(1.05);
-
-						@include base-transition(all, 0.2s);
 					}
 				}
-			}
-
-			&:not(:hover) img {
-				transform: scale(1);
-
-				@include base-transition(all, 0.2s);
 			}
 
 			&:active {
@@ -61,18 +53,10 @@
 			}
 
 			> a {
-				display: block;
-				height: rem-calc(325);
 				overflow: hidden;
 
-				img.post-image {
-					width: 100%;
-					height: 100%;
-					border-bottom: 1px solid color.adjust($dark-grey, $alpha: -0.75);
-					object-fit: cover;
-					overflow: hidden;
-
-					@include base-transition(all, 0.3s);
+				.post-image {
+					@include base-transition(transform, 0.2s);
 				}
 			}
 
@@ -82,11 +66,17 @@
 				flex-direction: column;
 				flex-grow: 1;
 
+				@include mobile {
+					min-height: 275px;
+				}
+
 				> h3 {
 					a.post-link {
 						color: $white-color;
 
 						@include clamp(2);
+
+						@include fluid-typing(24, 28);
 
 						&:hover {
 							color: color.adjust($link-color, $lightness: 10%);

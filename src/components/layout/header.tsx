@@ -87,12 +87,22 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 					<p>{slogan}</p>
 					<ul>
 						<li>
-							<a href={facebookUrl} rel="noopener noreferrer" target="_blank">
+							<a
+								href={facebookUrl}
+								rel="noopener noreferrer"
+								target="_blank"
+								aria-label="Facebook"
+							>
 								<FontAwesomeIcon icon={["fab", "facebook"]} />
 							</a>
 						</li>
 						<li>
-							<a href={instagramUrl} rel="noopener noreferrer" target="_blank">
+							<a
+								href={instagramUrl}
+								rel="noopener noreferrer"
+								target="_blank"
+								aria-label="Instagram"
+							>
 								<FontAwesomeIcon icon={["fab", "instagram"]} />
 							</a>
 						</li>
@@ -102,7 +112,12 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							</a>
 						</li> */}
 						<li>
-							<a href={youtubeUrl} rel="noopener noreferrer" target="_blank">
+							<a
+								href={youtubeUrl}
+								rel="noopener noreferrer"
+								target="_blank"
+								aria-label="Youtube"
+							>
 								<FontAwesomeIcon icon={["fab", "youtube"]} />
 							</a>
 						</li>
@@ -111,6 +126,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 								href={`https://wa.me/${mobileRaw}`}
 								rel="noopener noreferrer"
 								target="_blank"
+								aria-label="WhatsApp"
 							>
 								<FontAwesomeIcon icon={["fab", "whatsapp"]} />
 							</a>
@@ -136,6 +152,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 						name="menu"
 						onClick={openMobileMenu}
 						className={styles.hamburgerButton}
+						aria-label="Menu"
 					>
 						<div className={styles.hamburgerIcon}>
 							<div className={styles.hamburgerIconBar} />
