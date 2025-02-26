@@ -35,7 +35,8 @@ const OverOns: React.FC<PageProps> = () => {
 						</p>
 						<p>
 							<b>Doelstellingen:</b>
-							<br />
+						</p>
+						<p>
 							Eternity is een culturele instelling die zich bezighoudt met
 							activiteiten, projecten en evenementen op het gebied van muzikale
 							vorming en performance.

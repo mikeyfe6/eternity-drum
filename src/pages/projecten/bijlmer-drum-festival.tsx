@@ -22,7 +22,7 @@ const BijlmerDrumFestival: React.FC<PageProps> = () => {
 				<h1 className="page-title">Bijlmer Drum Festival</h1>
 			</section>
 			<section data-main-section>
-				<div data-main-content className="page-content basic">
+				<div data-main-content className="page-content coming-soon">
 					<p>Pagina komt binnenkort..</p>
 				</div>
 			</section>

@@ -66,16 +66,12 @@
 		}
 
 		&.center {
-			@include ep-container(1250);
+			@include ep-container(1000);
 			@include box;
 		}
 
 		&.projects {
 			@include ep-container(1250);
-
-			p {
-				max-width: 80ch;
-			}
 
 			hr {
 				margin: rem-calc(48) auto;
@@ -395,6 +391,13 @@
 					}
 				}
 			}
+		}
+
+		&.coming-soon {
+			text-align: center;
+
+			@include ep-container(350);
+			@include box;
 		}
 	}
 }

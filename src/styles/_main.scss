@@ -5,6 +5,10 @@
 [data-main-section] {
 	margin-top: rem-calc(32);
 
+	&:has(.not-ready) {
+		margin-top: rem-calc(48);
+	}
+
 	@include mobile {
 		margin-top: rem-calc(48);
 	}
@@ -39,6 +43,8 @@
 	}
 
 	p {
+		max-width: 80ch;
+
 		@include fluid-typing(16, 18);
 
 		&:not(:last-child) {
@@ -62,6 +68,8 @@
 		}
 
 		li {
+			max-width: 80ch;
+
 			@include fluid-typing(16, 18);
 
 			p {

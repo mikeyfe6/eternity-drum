@@ -7,11 +7,11 @@ import { Seo } from "../../components/seo";
 import Breadcrumbs from "../../components/layout/breadcrumbs";
 import Hero from "../../components/layout/heroslider";
 
-const Umuntu: React.FC<PageProps> = () => {
+const SankofaSchool: React.FC<PageProps> = () => {
 	const breadcrumbs = [
 		{ label: "Home", link: "/" },
-		{ label: "Theater", link: "/theater/" },
-		{ label: "Umuntu" },
+		{ label: "Projecten", link: "/projecten/" },
+		{ label: "Sankofa School" },
 	];
 
 	return (
@@ -19,7 +19,7 @@ const Umuntu: React.FC<PageProps> = () => {
 			<Hero />
 			<section className="page-intro">
 				<Breadcrumbs crumbs={breadcrumbs} />
-				<h1 className="page-title">Umuntu</h1>
+				<h1 className="page-title">Sankofa School</h1>
 			</section>
 			<section data-main-section>
 				<div data-main-content className="page-content coming-soon">
@@ -30,8 +30,8 @@ const Umuntu: React.FC<PageProps> = () => {
 	);
 };
 
-export default Umuntu;
+export default SankofaSchool;
 
 export const Head: HeadFC = () => (
-	<Seo title="Umuntu" pathname="/theater/umuntu/" />
+	<Seo title="Sankofa School" pathname="/projecten/sankofa-school/" />
 );

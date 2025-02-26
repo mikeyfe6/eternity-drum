@@ -21,7 +21,7 @@ const Uitwisselingen: React.FC<PageProps> = () => {
 				<h1 className="page-title">Uitwisselingen</h1>
 			</section>
 			<section data-main-section>
-				<div data-main-content className="page-content basic">
+				<div data-main-content className="page-content coming-soon">
 					<p>Pagina komt binnenkort..</p>
 				</div>
 			</section>
