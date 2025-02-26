@@ -86,7 +86,7 @@ const NewsletterForm: React.FC = () => {
 		);
 
 		if (!allRequiredFieldsFilled) {
-			alert("Vul aub alle verplichte velden in. Geen workarounds!");
+			alert("Vul aub alle verplichte velden in!");
 			return;
 		}
 
@@ -163,10 +163,12 @@ const NewsletterForm: React.FC = () => {
 				method="post"
 				data-netlify="true"
 				data-netlify-honeypot="bot-field"
-				noValidate
+				data-netlify-recaptcha="true"
 				className="form"
+				noValidate
 			>
-				<input type="hidden" name="form-name" value="newsletter-form" />
+				<input name="bot-field" hidden />
+				<input type="hidden" name="form-name" value="newsletter-form" hidden />
 				<fieldset>
 					<legend>Schrijf je in voor onze nieuwsbrief</legend>
 					<div className="form-column">
@@ -276,6 +278,8 @@ const NewsletterForm: React.FC = () => {
 						</div>
 					</div>
 				</fieldset>
+
+				<div data-netlify-recaptcha="true" />
 
 				<div className="form-submit">
 					<div>

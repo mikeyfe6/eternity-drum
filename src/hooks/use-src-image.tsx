@@ -70,12 +70,12 @@ export const useSrcImages = () => {
 				relativePath: { eq: "drumworkshops/summerschool-2021.jpg" }
 			) {
 				childImageSharp {
-					gatsbyImageData(layout: FULL_WIDTH)
+					gatsbyImageData
 				}
 			}
 			midzomerlatest: file(relativePath: { eq: "midzomerlogo-latest.jpeg" }) {
 				childImageSharp {
-					gatsbyImageData(layout: FULL_WIDTH)
+					gatsbyImageData
 				}
 			}
 

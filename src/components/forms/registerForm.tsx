@@ -179,7 +179,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 		);
 
 		if (!allRequiredFieldsFilled) {
-			alert("Vul aub alle verplichte velden in. Geen workarounds!");
+			alert("Vul aub alle verplichte velden in!");
 			return;
 		}
 
@@ -335,11 +335,12 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 				method="post"
 				data-netlify="true"
 				data-netlify-honeypot="bot-field"
-				noValidate
+				data-netlify-recaptcha="true"
 				className="form"
+				noValidate
 			>
-				<input type="hidden" name="form-name" value="register-form" />
-
+				<input name="bot-field" hidden />
+				<input type="hidden" name="form-name" value="register-form" hidden />
 				<fieldset>
 					<legend>Gegevens cursist:</legend>
 
@@ -1074,6 +1075,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 						</div>
 					</div>
 				</fieldset>
+
+				<div data-netlify-recaptcha="true" />
 
 				<div className="form-submit">
 					<div>

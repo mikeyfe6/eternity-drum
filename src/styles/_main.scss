@@ -41,7 +41,7 @@
 	p {
 		@include fluid-typing(16, 18);
 
-		&:not(:last-of-type) {
+		&:not(:last-child) {
 			margin-bottom: rem-calc(16);
 		}
 	}

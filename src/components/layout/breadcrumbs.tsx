@@ -31,7 +31,7 @@ const Breadcrumbs: React.FC<BreadcrumbProps> = ({ crumbs }) => {
 						{index === 0 ? (
 							<>
 								<FontAwesomeIcon
-									icon={"caret-left"}
+									icon={"long-arrow-alt-left"}
 									className={styles.breadcrumbsSeperatorMobile}
 								/>
 								<Link to="/">
@@ -42,19 +42,19 @@ const Breadcrumbs: React.FC<BreadcrumbProps> = ({ crumbs }) => {
 									<span className={styles.breadcrumbsHome}>Home</span>
 								</Link>
 								<FontAwesomeIcon
-									icon={"caret-right"}
+									icon={"long-arrow-alt-right"}
 									className={styles.breadcrumbsSeperator}
 								/>
 							</>
 						) : crumb.link ? (
 							<>
 								<FontAwesomeIcon
-									icon={"caret-left"}
+									icon={"long-arrow-alt-left"}
 									className={styles.breadcrumbsSeperatorMobile}
 								/>
 								<Link to={crumb.link}>{crumb.label}</Link>
 								<FontAwesomeIcon
-									icon={"caret-right"}
+									icon={"long-arrow-alt-right"}
 									className={styles.breadcrumbsSeperator}
 								/>
 							</>

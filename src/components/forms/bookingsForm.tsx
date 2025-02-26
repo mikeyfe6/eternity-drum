@@ -95,7 +95,7 @@ const BookingsForm: React.FC = () => {
 		);
 
 		if (!allRequiredFieldsFilled) {
-			alert("Vul aub alle verplichte velden in. Geen workarounds!");
+			alert("Vul aub alle verplichte velden in!");
 			return;
 		}
 
@@ -196,11 +196,12 @@ const BookingsForm: React.FC = () => {
 					method="post"
 					data-netlify="true"
 					data-netlify-honeypot="bot-field"
-					noValidate
+					data-netlify-recaptcha="true"
 					className="form"
+					noValidate
 				>
-					<input type="hidden" name="form-name" value="bookings-form" />
-					<input type="hidden" name="bot-field" />
+					<input name="bot-field" hidden />
+					<input type="hidden" name="form-name" value="bookings-form" hidden />
 					<fieldset>
 						<legend>
 							Vul hieronder je gegevens in en wij nemen zo spoedig mogelijk
@@ -425,6 +426,8 @@ const BookingsForm: React.FC = () => {
 							</div>
 						</div>
 					</fieldset>
+
+					<div data-netlify-recaptcha="true" />
 
 					<div className="form-submit">
 						<div>
