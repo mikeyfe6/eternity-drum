@@ -99,7 +99,7 @@
 					margin: rem-calc(12 0 32);
 					color: $white-color;
 
-					@include clamp(3);
+					@include clamp(4);
 
 					@include fluid-typing(16, 18);
 				}

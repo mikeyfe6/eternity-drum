@@ -22,6 +22,7 @@ import {
 	faVolumeHigh,
 	faCaretUp,
 	faCaretDown,
+	faCaretLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -55,7 +56,8 @@ library.add(
 	faVolumeLow,
 	faVolumeHigh,
 	faCaretUp,
-	faCaretDown
+	faCaretDown,
+	faCaretLeft
 );
 
 import Header from "./layout/header";

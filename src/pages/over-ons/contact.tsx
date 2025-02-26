@@ -16,12 +16,6 @@ import GoogleMaps from "../../components/ui/maps";
 import * as styles from "../../styles/modules/pages/contact.module.scss";
 
 const Contact: React.FC<PageProps> = () => {
-	const breadcrumbs = [
-		{ label: "Home", link: "/" },
-		{ label: "Over Ons", link: "/over-ons/" },
-		{ label: "Contact" },
-	];
-
 	const {
 		companyName,
 		visitingAddress,
@@ -39,6 +33,12 @@ const Contact: React.FC<PageProps> = () => {
 		// linkedinUrl,
 		youtubeUrl,
 	} = useSiteMetadata();
+
+	const breadcrumbs = [
+		{ label: "Home", link: "/" },
+		{ label: "Over Ons", link: "/over-ons/" },
+		{ label: "Contact" },
+	];
 
 	return (
 		<>

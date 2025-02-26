@@ -331,9 +331,16 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							</li>
 							<li>
 								<Link
+									to="/over-ons/nieuws/"
+									activeClassName={styles.activeMenuItem}
+								>
+									Nieuws
+								</Link>
+							</li>
+							<li>
+								<Link
 									to="/over-ons/vacatures/"
 									activeClassName={styles.activeMenuItem}
-									partiallyActive={true}
 								>
 									Vacatures
 								</Link>

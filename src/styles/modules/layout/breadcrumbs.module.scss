@@ -5,9 +5,6 @@
 .breadcrumbs {
 	$breadcrumbs: &;
 
-	max-width: 100%;
-	width: fit-content;
-
 	#post-template & {
 		margin-top: rem-calc(32);
 	}
@@ -19,19 +16,17 @@
 	&-list {
 		display: flex;
 		align-items: center;
-		width: fit-content;
 		white-space: nowrap;
 		border-radius: $border-radius-sm;
-		margin-left: auto;
-		padding: rem-calc(8 16 10 4);
-		gap: rem-calc(10);
+		padding: rem-calc(8);
+		gap: rem-calc(12);
 
 		@include mobile {
 			gap: rem-calc(16);
 		}
 
 		@include phablet {
-			padding: rem-calc(10 16 10);
+			padding: rem-calc(10 16);
 			background: linear-gradient(
 				45deg,
 				$primary-color,
@@ -44,11 +39,31 @@
 		#{$breadcrumbs}-item {
 			display: flex;
 			align-items: center;
+			gap: rem-calc(12);
+
+			@include mobile {
+				gap: rem-calc(16);
+			}
+
+			&:not(#{$breadcrumbs}-item-mobile) {
+				display: none;
+
+				@include mobile {
+					display: inherit;
+				}
+			}
 
 			> a {
 				font-weight: 600;
+				display: flex;
+				align-items: center;
+				gap: rem-calc(12);
 
 				@include fluid-typing(14, 16);
+
+				@include mobile {
+					gap: rem-calc(16);
+				}
 
 				@include phablet {
 					color: $white-color;
@@ -59,40 +74,54 @@
 				}
 
 				#{$breadcrumbs}-home {
-					color: $primary-color;
+					display: block;
 
-					@include fluid-typing(16, 20);
-
-					@include phablet {
-						color: $white-color;
+					@include mobile {
+						display: none;
 					}
 
-					&:hover {
-						color: color.adjust($tertiary-color, $lightness: 15%);
+					&-icon {
+						color: $primary-color;
+
+						@include fluid-typing(16, 20);
+
+						@include phablet {
+							color: $white-color;
+						}
+
+						&:hover {
+							color: color.adjust($tertiary-color, $lightness: 15%);
+						}
 					}
 				}
 			}
 
 			#{$breadcrumbs}-seperator {
-				margin-left: rem-calc(10);
 				padding-top: rem-calc(2);
+				display: none;
 
 				@include fluid-typing(16, 18);
 
 				@include mobile {
-					margin-left: rem-calc(16);
+					display: block;
 				}
 
 				@include phablet {
 					color: $white-color;
+				}
+
+				&-mobile {
+					display: block;
+
+					@include mobile {
+						display: none;
+					}
 				}
 			}
 
 			#{$breadcrumbs}-page {
 				color: $grey-color;
 				font-weight: 600;
-
-				@include ellipsis;
 
 				@include fluid-typing(14, 16);
 

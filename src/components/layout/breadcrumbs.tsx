@@ -17,46 +17,29 @@ interface BreadcrumbProps {
 
 const Breadcrumbs: React.FC<BreadcrumbProps> = ({ crumbs }) => {
 	const breadcrumbRef = useRef<HTMLUListElement>(null);
-	const [ulWidth, setUlWidth] = useState<number | null>(null);
-
-	useLayoutEffect(() => {
-		const handleResize = () => {
-			if (breadcrumbRef.current) {
-				const availableSpace =
-					document.body.clientWidth -
-					(breadcrumbRef.current.getBoundingClientRect().left || 0);
-
-				setUlWidth(availableSpace);
-			}
-		};
-
-		handleResize();
-
-		window.addEventListener("resize", handleResize);
-		window.addEventListener("load", handleResize);
-
-		return () => {
-			window.removeEventListener("resize", handleResize);
-			window.removeEventListener("load", handleResize);
-		};
-	}, []);
 
 	return (
 		<nav className={styles.breadcrumbs} data-main-breadcrumbs>
-			<ul
-				ref={breadcrumbRef}
-				className={styles.breadcrumbsList}
-				style={{ maxWidth: ulWidth ? `${ulWidth}px` : "100%" }}
-			>
+			<ul ref={breadcrumbRef} className={styles.breadcrumbsList}>
 				{crumbs.map((crumb, index) => (
-					<li key={index} className={styles.breadcrumbsItem}>
+					<li
+						key={index}
+						className={`${styles.breadcrumbsItem} ${
+							index === crumbs.length - 2 ? styles.breadcrumbsItemMobile : ""
+						}`}
+					>
 						{index === 0 ? (
 							<>
+								<FontAwesomeIcon
+									icon={"caret-left"}
+									className={styles.breadcrumbsSeperatorMobile}
+								/>
 								<Link to="/">
 									<FontAwesomeIcon
 										icon={"house-chimney"}
-										className={styles.breadcrumbsHome}
+										className={styles.breadcrumbsHomeIcon}
 									/>
+									<span className={styles.breadcrumbsHome}>Home</span>
 								</Link>
 								<FontAwesomeIcon
 									icon={"caret-right"}
@@ -65,6 +48,10 @@ const Breadcrumbs: React.FC<BreadcrumbProps> = ({ crumbs }) => {
 							</>
 						) : crumb.link ? (
 							<>
+								<FontAwesomeIcon
+									icon={"caret-left"}
+									className={styles.breadcrumbsSeperatorMobile}
+								/>
 								<Link to={crumb.link}>{crumb.label}</Link>
 								<FontAwesomeIcon
 									icon={"caret-right"}
