@@ -200,8 +200,8 @@ const BookingsForm: React.FC = () => {
 					className="form"
 					noValidate
 				>
-					<input name="bot-field" hidden />
-					<input type="hidden" name="form-name" value="bookings-form" hidden />
+					<input type="hidden" name="bot-field" />
+					<input type="hidden" name="form-name" value="bookings-form" />
 					<fieldset>
 						<legend>
 							Vul hieronder je gegevens in en wij nemen zo spoedig mogelijk

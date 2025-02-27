@@ -167,8 +167,8 @@ const NewsletterForm: React.FC = () => {
 				className="form"
 				noValidate
 			>
-				<input name="bot-field" hidden />
-				<input type="hidden" name="form-name" value="newsletter-form" hidden />
+				<input type="hidden" name="bot-field" />
+				<input type="hidden" name="form-name" value="newsletter-form" />
 				<fieldset>
 					<legend>Schrijf je in voor onze nieuwsbrief</legend>
 					<div className="form-column">
