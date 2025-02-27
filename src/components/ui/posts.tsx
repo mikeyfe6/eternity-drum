@@ -31,7 +31,7 @@ interface Post {
 const Berichten: React.FC = () => {
 	const data = useStaticQuery(graphql`
 		query {
-			allContentfulPost {
+			allContentfulPost(sort: { publishedDate: DESC }) {
 				nodes {
 					content {
 						raw

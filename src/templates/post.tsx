@@ -35,7 +35,12 @@ interface PostProps {
 const Post = ({
 	pageContext: { tags, title, excerpt, content, writer, featuredImage },
 }: PostProps) => {
-	const breadcrumbs = [{ label: "Home", link: "/" }, { label: title }];
+	const breadcrumbs = [
+		{ label: "Home", link: "/" },
+		{ label: "Over Ons", link: "/over-ons/" },
+		{ label: "Nieuws", link: "/over-ons/nieuws/" },
+		{ label: title },
+	];
 
 	const renderOptions = {
 		renderNode: {

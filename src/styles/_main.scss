@@ -50,6 +50,10 @@
 		&:not(:last-child) {
 			margin-bottom: rem-calc(16);
 		}
+
+		i {
+			font-style: italic;
+		}
 	}
 
 	ul {
@@ -72,6 +76,7 @@
 
 			@include fluid-typing(16, 18);
 
+			/* stylelint-disable-next-line no-descending-specificity */
 			p {
 				display: inline;
 			}

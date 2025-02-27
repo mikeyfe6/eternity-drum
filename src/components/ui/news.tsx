@@ -31,7 +31,7 @@ interface Post {
 const News: React.FC = () => {
 	const data = useStaticQuery(graphql`
 		query {
-			allContentfulPost {
+			allContentfulPost(sort: { publishedDate: DESC }) {
 				nodes {
 					content {
 						raw
@@ -102,7 +102,6 @@ const News: React.FC = () => {
 										/>
 									</Link>
 
-									{/* {slug} */}
 									<div>
 										<h3>
 											<Link to={slug} className={styles.postLink}>

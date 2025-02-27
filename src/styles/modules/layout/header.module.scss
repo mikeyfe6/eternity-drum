@@ -51,11 +51,8 @@
 					> a {
 						> svg {
 							color: $white-color;
-							font-size: rem-calc(18);
 
-							@include mobile {
-								font-size: rem-calc(22);
-							}
+							@include fluid-typing(18, 22);
 
 							&:hover {
 								color: $secondary-color;
@@ -187,7 +184,7 @@
 					letter-spacing: 1px;
 					display: flex;
 
-					@include fluid-typing(18, 21);
+					@include fluid-typing(18, 22);
 
 					&.logo-wrapper {
 						margin: rem-calc(0 28);

@@ -251,7 +251,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							<StaticImage
 								src="../../images/logo/ep-logo.png"
 								alt={`${title} Logo`}
-								width={250}
+								width={275}
 								loading="eager"
 							/>
 						</Link>

@@ -6,8 +6,8 @@
 	height: 100%;
 	width: rem-calc(325);
 	left: rem-calc(-325);
-	background-color: rgba($primary-color, 75%);
-	border-right: 3px solid rgba($tertiary-color, 0.3);
+	background-color: rgba($primary-color, 62.5%);
+	border-right: 3px solid rgba($tertiary-color, 0.1);
 	overflow-x: hidden;
 	z-index: 6;
 	display: flex;
@@ -76,12 +76,9 @@
 			> a {
 				text-decoration: none;
 				color: $white-color;
-				font-size: rem-calc(20);
 				letter-spacing: 1px;
 
-				@include mobile {
-					font-size: rem-calc(24);
-				}
+				@include fluid-typing(22, 26);
 
 				&.special {
 					color: $white-color;
@@ -110,16 +107,16 @@
 				right: 0;
 				cursor: pointer;
 
-				svg {
-					vertical-align: unset;
-					height: -webkit-fill-available;
-				}
-
 				@include mobile {
 					border-radius: $border-radius-sm;
 					top: rem-calc(20);
 					width: rem-calc(24);
 					height: rem-calc(24);
+				}
+
+				svg {
+					vertical-align: unset;
+					height: -webkit-fill-available;
 				}
 			}
 
@@ -141,7 +138,7 @@
 					}
 
 					> li {
-						padding: rem-calc(8 0 2);
+						padding: rem-calc(12 0 2);
 
 						@include mobile {
 							padding: rem-calc(8);
@@ -154,12 +151,9 @@
 						> a {
 							text-decoration: none;
 							color: $white-color;
-							font-size: rem-calc(20);
 							letter-spacing: 0.5px;
 
-							@include mobile {
-								font-size: rem-calc(24);
-							}
+							@include fluid-typing(20, 24);
 						}
 					}
 				}
