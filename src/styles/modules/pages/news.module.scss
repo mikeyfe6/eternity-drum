@@ -45,7 +45,15 @@
 				max-width: 100%;
 				width: 100%;
 
+				@include compact {
+					max-width: 100%;
+				}
+
 				@include mobile {
+					max-width: 250px;
+				}
+
+				@include phablet {
 					max-width: 350px;
 				}
 
