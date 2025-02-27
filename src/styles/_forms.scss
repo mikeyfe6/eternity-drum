@@ -238,6 +238,10 @@
 			&.phone {
 				flex: 100%;
 
+				&.booking {
+					flex: 32.5%;
+				}
+
 				&-parent {
 					flex: 1;
 
