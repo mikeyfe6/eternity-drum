@@ -34,7 +34,6 @@ export const Seo: React.FC<SEOProps> = ({
 		title: title ? `${title} · ${siteTitle}` : `${siteTitle} · ${slogan}`,
 		description: description ?? defaultDescription,
 		image: article ? `${image}` : `${siteUrl}${image ?? defaultImage}`,
-
 		url: `${siteUrl}${pathname ?? ""}`,
 		twitterUsername,
 	};

@@ -50,11 +50,11 @@
 				}
 
 				@include mobile {
-					max-width: 250px;
+					max-width: rem-calc(250);
 				}
 
 				@include phablet {
-					max-width: 350px;
+					max-width: rem-calc(350);
 				}
 
 				.post-image {

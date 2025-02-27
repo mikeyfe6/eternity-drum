@@ -94,7 +94,7 @@ const Berichten: React.FC = () => {
 
 							return (
 								<li key={id}>
-									<Link to={`${slug}/`}>
+									<Link to={`/over-ons/nieuws/${slug}/`}>
 										<GatsbyImage
 											image={image!}
 											alt={featuredImage.title}
@@ -105,7 +105,10 @@ const Berichten: React.FC = () => {
 									</Link>
 									<div>
 										<h3>
-											<Link to={`${slug}/`} className={styles.postLink}>
+											<Link
+												to={`/over-ons/nieuws/${slug}/`}
+												className={styles.postLink}
+											>
 												{title}
 											</Link>
 										</h3>
@@ -117,7 +120,7 @@ const Berichten: React.FC = () => {
 											<time dateTime={formattedDate.toISOString()}>
 												{formattedDateString}
 											</time>
-											<Link to={`${slug}/`}>Lees meer...</Link>
+											<Link to={`/over-ons/nieuws/${slug}/`}>Lees meer...</Link>
 										</div>
 									</div>
 								</li>
