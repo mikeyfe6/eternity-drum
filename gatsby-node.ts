@@ -354,6 +354,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                         featuredImage {
                             gatsbyImageData(layout: FULL_WIDTH)
                             title
+                            url
                         }
                     }
                 }

@@ -44,7 +44,6 @@ const LightBox = ({
 									image={imageData}
 									alt={alt}
 									className={styles.modalImage}
-									objectFit="contain"
 								/>
 							</div>
 						)}

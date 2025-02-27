@@ -142,7 +142,6 @@ const GalleryFour: React.FC = () => {
 							alt="Eternity in UK 2023 (collab. w/ ACE Dance & Music)"
 							className={styles.lightboxImage}
 							onClick={(e) => e.stopPropagation()}
-							objectFit="contain"
 						/>
 					</div>
 					<button className={styles.lightboxClose} onClick={closeLightbox}>

@@ -144,7 +144,6 @@ const GalleryThree: React.FC = () => {
 							alt="Bijlmer on Stage - 18 December 2022"
 							className={styles.lightboxImage}
 							onClick={(e) => e.stopPropagation()}
-							objectFit="contain"
 						/>
 					</div>
 					<button className={styles.lightboxClose} onClick={closeLightbox}>

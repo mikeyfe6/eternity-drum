@@ -142,7 +142,6 @@ const GalleryFive: React.FC = () => {
 							alt="African Diaspora Performing Arts Festival - 10 November 2019"
 							className={styles.lightboxImage}
 							onClick={(e) => e.stopPropagation()}
-							objectFit="contain"
 						/>
 					</div>
 					<button className={styles.lightboxClose} onClick={closeLightbox}>

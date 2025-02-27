@@ -35,5 +35,5 @@ const Success: React.FC<PageProps> = () => {
 export default Success;
 
 export const Head: HeadFC = () => (
-	<Seo title="Succesvolle formulierzending!" pathname="/success/" />
+	<Seo title="Succesvolle formulierzending!" pathname="/success/" noindex />
 );

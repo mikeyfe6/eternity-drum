@@ -156,7 +156,7 @@ export const Head: React.FC<HeadProps> = ({ pageContext }) => {
 			description={pageDescription}
 			pathname={"/" + pageSlug + "/"}
 			image={pageImage}
-			article={true}
+			article
 		/>
 	);
 };

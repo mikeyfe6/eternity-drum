@@ -142,7 +142,6 @@ const GallerySeven: React.FC = () => {
 							alt="Pulse and Beat (collab. w/ ACE Dance & Music)"
 							className={styles.lightboxImage}
 							onClick={(e) => e.stopPropagation()}
-							objectFit="contain"
 						/>
 					</div>
 					<button className={styles.lightboxClose} onClick={closeLightbox}>

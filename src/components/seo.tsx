@@ -10,6 +10,7 @@ interface SEOProps {
 	children?: ReactNode;
 	image?: string;
 	article?: boolean;
+	noindex?: boolean;
 }
 
 export const Seo: React.FC<SEOProps> = ({
@@ -20,6 +21,7 @@ export const Seo: React.FC<SEOProps> = ({
 	image,
 	children,
 	article = false,
+	noindex = false,
 }: SEOProps) => {
 	const {
 		title: siteTitle,
@@ -71,6 +73,9 @@ export const Seo: React.FC<SEOProps> = ({
 			{seo.twitterUsername && (
 				<meta name="twitter:creator" content={seo.twitterUsername} />
 			)}
+
+			{/* ROBOTS META TAG */}
+			{noindex && <meta name="robots" content="noindex" />}
 
 			{/* FONTS */}
 			<link rel="preconnect" href="https://fonts.googleapis.com" />

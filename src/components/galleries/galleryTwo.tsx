@@ -144,7 +144,6 @@ const GalleryTwo: React.FC = () => {
 							alt="Swazoom Live - 3 December 2022"
 							className={styles.lightboxImage}
 							onClick={(e) => e.stopPropagation()}
-							objectFit="contain"
 						/>
 					</div>
 					<button className={styles.lightboxClose} onClick={closeLightbox}>

@@ -109,7 +109,6 @@ const Partners: React.FC = () => {
 									image={image}
 									alt={partner.name}
 									className={styles.partnersLogo}
-									objectFit="contain"
 								/>
 							</a>
 						</li>

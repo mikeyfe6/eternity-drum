@@ -142,7 +142,6 @@ const GalleryEight: React.FC = () => {
 							alt="Beat It (collab. w/ Ebony Steelband)"
 							className={styles.lightboxImage}
 							onClick={(e) => e.stopPropagation()}
-							objectFit="contain"
 						/>
 					</div>
 					<button className={styles.lightboxClose} onClick={closeLightbox}>

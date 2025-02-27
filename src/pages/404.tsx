@@ -35,5 +35,5 @@ const NotFound: React.FC<PageProps> = () => {
 export default NotFound;
 
 export const Head: HeadFC = () => (
-	<Seo title="Pagina niet gevonden!" pathname="/404/" />
+	<Seo title="Pagina niet gevonden!" pathname="/404/" noindex />
 );

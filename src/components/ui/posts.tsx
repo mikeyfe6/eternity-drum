@@ -99,7 +99,6 @@ const Berichten: React.FC = () => {
 											image={image!}
 											alt={featuredImage.title}
 											className={styles.postImage}
-											objectFit="cover"
 											objectPosition="50% 25%"
 										/>
 									</Link>
