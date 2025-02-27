@@ -22,6 +22,8 @@ const LightBox = ({
 
 	const imageData = image ? getImage(image) : null;
 
+	// TODO: sizes implementeren in parameter
+
 	return (
 		<>
 			{imageData && (

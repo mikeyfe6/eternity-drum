@@ -7,6 +7,8 @@ import { Seo } from "../../components/seo";
 import Breadcrumbs from "../../components/layout/breadcrumbs";
 import Hero from "../../components/layout/heroslider";
 
+import News from "../../components/ui/news";
+
 const Nieuws: React.FC<PageProps> = () => {
 	const breadcrumbs = [
 		{ label: "Home", link: "/" },
@@ -22,9 +24,7 @@ const Nieuws: React.FC<PageProps> = () => {
 				<h1 className="page-title">Nieuws</h1>
 			</section>
 			<section data-main-section>
-				<div data-main-content className="page-content coming-soon">
-					<p>Pagina komt binnenkort..</p>
-				</div>
+				<News />
 			</section>
 		</>
 	);
