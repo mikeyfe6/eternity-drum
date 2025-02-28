@@ -8,98 +8,98 @@ h3,
 h4,
 h5,
 h6 {
-	margin-bottom: rem-calc(8);
-	letter-spacing: 0.5px;
-	line-height: normal;
+    margin-bottom: rem-calc(8);
+    letter-spacing: 0.5px;
+    line-height: normal;
 }
 
 h1 {
-	font-family: $bebas-neue;
+    font-family: $bebas-neue;
 
-	@include fluid-typing(36, 64);
+    @include fluid-typing(36, 64);
 
-	&.page-title,
-	[data-main-section] & {
-		padding: rem-calc(16 16 10);
-		text-align: center;
-		color: $white-color;
-		background: linear-gradient(
-			45deg,
-			$primary-color,
-			color.scale($primary-color, $lightness: 5%)
-		);
+    &.page-title,
+    [data-main-section] & {
+        padding: rem-calc(16 16 10);
+        text-align: center;
+        color: $white-color;
+        background: linear-gradient(
+            45deg,
+            $primary-color,
+            color.scale($primary-color, $lightness: 5%)
+        );
 
-		@include full-width;
+        @include full-width;
 
-		@include mobile {
-			padding: rem-calc(16 24 8);
-			border-radius: $border-radius-sm;
-			margin-bottom: unset;
-			color: $primary-color;
-			background: linear-gradient(
-				45deg,
-				$secondary-color,
-				color.scale($secondary-color, $lightness: 5%)
-			);
+        @include mobile {
+            padding: rem-calc(16 24 8);
+            border-radius: $border-radius-sm;
+            margin-bottom: unset;
+            color: $primary-color;
+            background: linear-gradient(
+                45deg,
+                $secondary-color,
+                color.scale($secondary-color, $lightness: 5%)
+            );
 
-			@include full-width-reset("max-width");
-		}
-	}
+            @include full-width-reset("max-width");
+        }
+    }
 }
 
 h2 {
-	font-family: $bebas-neue;
+    font-family: $bebas-neue;
 
-	@include fluid-typing(32, 44);
+    @include fluid-typing(32, 44);
 
-	[data-main-content] & {
-		@include fluid-typing(28, 36);
-	}
+    [data-main-content] & {
+        @include fluid-typing(28, 36);
+    }
 
-	&.page-subtitle {
-		@include fluid-typing(32, 48);
-	}
+    &.page-subtitle {
+        @include fluid-typing(32, 48);
+    }
 
-	.contact & {
-		margin-bottom: rem-calc(28);
+    .contact & {
+        margin-bottom: rem-calc(28);
 
-		@include fluid-typing(28, 36);
-	}
+        @include fluid-typing(28, 36);
+    }
 
-	.projects & {
-		margin-bottom: rem-calc(48);
-	}
+    .projects & {
+        margin-bottom: rem-calc(48);
+    }
 }
 
 h3 {
-	font-family: $bebas-neue;
+    font-family: $bebas-neue;
 
-	@include fluid-typing(24, 36);
+    @include fluid-typing(24, 36);
 }
 
 h4 {
-	font-weight: 700;
+    font-weight: 700;
 
-	@include fluid-typing(20, 24);
+    @include fluid-typing(20, 24);
 }
 
 h5 {
-	font-weight: 700;
+    font-weight: 700;
 
-	@include fluid-typing(18, 20);
+    @include fluid-typing(18, 20);
 }
 
 strong,
 b {
-	font-weight: 600;
+    font-weight: 600;
 }
 
 u {
-	text-decoration: underline;
-	text-underline-offset: 3px;
-	text-decoration-thickness: 2px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
 }
 
 a {
-	color: inherit;
+    color: inherit;
 }

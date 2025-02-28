@@ -22,6 +22,30 @@
     --swiper-scrollbar-bottom: 3px !important;
 }
 
+@font-face {
+    font-family: "Bebas Neue";
+    font-style: normal;
+    src: url("../fonts/BebasNeue-Regular.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 300 800;
+    src: url("../fonts/OpenSans-VariableFont_wdth,wght.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-style: italic;
+    font-weight: 300 800;
+    src: url("../fonts/OpenSans-Italic-VariableFont_wdth,wght.woff2")
+        format("woff2");
+    font-display: swap;
+}
+
 :where([hidden]) {
     visibility: hidden;
 }
