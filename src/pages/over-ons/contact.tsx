@@ -6,12 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { useSiteMetadata } from "../../hooks/use-site-metadata";
 
-import { Seo } from "../../components/seo";
-
 import Breadcrumbs from "../../components/layout/breadcrumbs";
 import Hero from "../../components/layout/heroslider";
 
 import GoogleMaps from "../../components/ui/maps";
+
+import { Seo } from "../../components/seo";
 
 import * as styles from "../../styles/modules/pages/contact.module.scss";
 

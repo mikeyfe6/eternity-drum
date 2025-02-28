@@ -6,10 +6,10 @@ import { Link } from "gatsby";
 
 import { useSiteMetadata } from "../../hooks/use-site-metadata";
 
-import { Seo } from "../../components/seo";
-
 import Breadcrumbs from "../../components/layout/breadcrumbs";
 import Hero from "../../components/layout/heroslider";
+
+import { Seo } from "../../components/seo";
 
 const Anbi: React.FC<PageProps> = () => {
     const {

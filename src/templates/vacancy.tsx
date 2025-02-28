@@ -5,9 +5,9 @@ import type { HeadProps } from "gatsby";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 
-import { Seo } from "../components/seo";
-
 import Breadcrumbs from "../components/layout/breadcrumbs";
+
+import { Seo } from "../components/seo";
 
 interface VacancyProps {
     pageContext: {

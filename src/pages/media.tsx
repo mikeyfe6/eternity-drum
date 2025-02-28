@@ -2,8 +2,6 @@ import * as React from "react";
 
 import type { HeadFC, PageProps } from "gatsby";
 
-import { Seo } from "../components/seo";
-
 import Breadcrumbs from "../components/layout/breadcrumbs";
 import Hero from "../components/layout/heroslider";
 import WhiteSpace from "../components/layout/whitespace";
@@ -20,6 +18,8 @@ import GalleryFive from "../components/galleries/galleryFive";
 import GallerySix from "../components/galleries/gallerySix";
 import GallerySeven from "../components/galleries/gallerySeven";
 import GalleryEight from "../components/galleries/galleryEight";
+
+import { Seo } from "../components/seo";
 
 import * as styles from "../styles/modules/pages/media.module.scss";
 

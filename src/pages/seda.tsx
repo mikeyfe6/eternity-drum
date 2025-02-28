@@ -6,10 +6,10 @@ import { StaticImage, getSrc } from "gatsby-plugin-image";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 import { useSrcImages } from "../hooks/use-src-image";
 
-import { Seo } from "../components/seo";
-
 import Breadcrumbs from "../components/layout/breadcrumbs";
 import Hero from "../components/layout/heroslider";
+
+import { Seo } from "../components/seo";
 
 const Seda: React.FC<PageProps> = () => {
     const { email, visitingAddress, visitingPostalCode } = useSiteMetadata();

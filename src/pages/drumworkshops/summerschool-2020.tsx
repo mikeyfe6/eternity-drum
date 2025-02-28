@@ -5,12 +5,12 @@ import { getSrc } from "gatsby-plugin-image";
 
 import { useSrcImages } from "../../hooks/use-src-image";
 
-import { Seo } from "../../components/seo";
-
 import Breadcrumbs from "../../components/layout/breadcrumbs";
 import Hero from "../../components/layout/heroslider";
 
 import LightBox from "../../components/plugins/lightbox";
+
+import { Seo } from "../../components/seo";
 
 import * as styles from "../../styles/modules/pages/workshop.module.scss";
 

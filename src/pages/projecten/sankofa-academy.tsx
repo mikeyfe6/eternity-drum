@@ -6,14 +6,14 @@ import { getSrc } from "gatsby-plugin-image";
 import { useSiteMetadata } from "../../hooks/use-site-metadata";
 import { useSrcImages } from "../../hooks/use-src-image";
 
-import { Seo } from "../../components/seo";
-
 import Breadcrumbs from "../../components/layout/breadcrumbs";
 import Hero from "../../components/layout/heroslider";
 
 import RegisterForm, { handleClick } from "../../components/forms/registerForm";
 
 import LightBox from "../../components/plugins/lightbox";
+
+import { Seo } from "../../components/seo";
 
 import * as styles from "../../styles/modules/pages/workshop.module.scss";
 

@@ -2,12 +2,12 @@ import * as React from "react";
 
 import type { HeadFC, PageProps } from "gatsby";
 
-import { Seo } from "../components/seo";
-
 import Breadcrumbs from "../components/layout/breadcrumbs";
 import Hero from "../components/layout/heroslider";
 
 import BookingsForm from "../components/forms/bookingsForm";
+
+import { Seo } from "../components/seo";
 
 const Boeken: React.FC<PageProps> = () => {
     const breadcrumbs = [{ label: "Home", link: "/" }, { label: "Boeken" }];

@@ -4,10 +4,10 @@ import type { HeadFC, PageProps } from "gatsby";
 
 import { StaticImage } from "gatsby-plugin-image";
 
-import { Seo } from "../../components/seo";
-
 import Breadcrumbs from "../../components/layout/breadcrumbs";
 import Hero from "../../components/layout/heroslider";
+
+import { Seo } from "../../components/seo";
 
 const Muziki: React.FC<PageProps> = () => {
     const breadcrumbs = [
