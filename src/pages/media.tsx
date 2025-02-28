@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 
 import type { HeadFC, PageProps } from "gatsby";
 
@@ -24,63 +24,63 @@ import GalleryEight from "../components/galleries/galleryEight";
 import * as styles from "../styles/modules/pages/media.module.scss";
 
 const Media: React.FC<PageProps> = () => {
-	const breadcrumbs = [{ label: "Home", link: "/" }, { label: "Media" }];
+    const breadcrumbs = [{ label: "Home", link: "/" }, { label: "Media" }];
 
-	return (
-		<>
-			<Hero />
-			<section className="page-intro">
-				<Breadcrumbs crumbs={breadcrumbs} />
-				<h1 className="page-title">Media</h1>
-			</section>
+    return (
+        <>
+            <Hero />
+            <section className="page-intro">
+                <Breadcrumbs crumbs={breadcrumbs} />
+                <h1 className="page-title">Media</h1>
+            </section>
 
-			<div className={styles.mediaContOne} data-main-section>
-				<section className={styles.music}>
-					<h2>Muziek</h2>
-					<MusicPlayer />
-				</section>
+            <div className={styles.mediaContOne} data-main-section>
+                <section className={styles.music}>
+                    <h2>Muziek</h2>
+                    <MusicPlayer />
+                </section>
 
-				<section className={styles.news} data-main-content>
-					<h2>In het nieuws</h2>
-					<Relevance />
-				</section>
-			</div>
+                <section className={styles.news} data-main-content>
+                    <h2>In het nieuws</h2>
+                    <Relevance />
+                </section>
+            </div>
 
-			<section className={styles.photos} data-main-content>
-				<h2>Foto's</h2>
-				<GalleryOne />
-				<hr />
-				<GalleryFour />
-				<hr />
-				<GalleryThree />
-				<hr />
-				<GalleryTwo />
-				<hr />
-				<GallerySix />
-				<hr />
-				<GalleryFive />
-				<hr />
-				<GallerySeven />
-				<hr />
-				<GalleryEight />
-			</section>
+            <section className={styles.photos} data-main-content>
+                <h2>Foto's</h2>
+                <GalleryOne />
+                <hr />
+                <GalleryFour />
+                <hr />
+                <GalleryThree />
+                <hr />
+                <GalleryTwo />
+                <hr />
+                <GallerySix />
+                <hr />
+                <GalleryFive />
+                <hr />
+                <GallerySeven />
+                <hr />
+                <GalleryEight />
+            </section>
 
-			<WhiteSpace />
+            <WhiteSpace />
 
-			<section className={styles.videos} data-main-content>
-				<h2>Video's</h2>
-				<Videos />
-			</section>
-		</>
-	);
+            <section className={styles.videos} data-main-content>
+                <h2>Video's</h2>
+                <Videos />
+            </section>
+        </>
+    );
 };
 
 export default Media;
 
 export const Head: HeadFC = () => (
-	<Seo
-		title="Media"
-		pathname="/media/"
-		description="Ontdek onze multimedia op onze deze pagina. Luister naar onze muziek, bekijk nieuwsartikelen en ontdek onze fotogalerij en video's."
-	/>
+    <Seo
+        title="Media"
+        pathname="/media/"
+        description="Ontdek onze multimedia op onze deze pagina. Luister naar onze muziek, bekijk nieuwsartikelen en ontdek onze fotogalerij en video's."
+    />
 );
