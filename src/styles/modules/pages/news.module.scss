@@ -3,157 +3,159 @@
 @use "../../customs" as *;
 
 .posts {
-	> ul {
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
-		align-items: center;
-		gap: rem-calc(32);
+    > ul {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: rem-calc(32);
 
-		@include mobile {
-			align-items: flex-start;
-		}
+        @include mobile {
+            align-items: flex-start;
+        }
 
-		> li {
-			outline: 2px solid $primary-color;
-			border-radius: $border-radius-md;
-			overflow: hidden;
-			position: relative;
-			flex-direction: column;
-			display: flex;
-			background: linear-gradient(
-				45deg,
-				$primary-color,
-				color.scale($primary-color, $lightness: 25%)
-			);
+        > li {
+            outline: 2px solid $primary-color;
+            border-radius: $border-radius-md;
+            overflow: hidden;
+            position: relative;
+            flex-direction: column;
+            display: flex;
+            background: linear-gradient(
+                45deg,
+                $primary-color,
+                color.scale($primary-color, $lightness: 25%)
+            );
 
-			@include base-transition(all);
-			@include box-shadow;
+            @include base-transition(all);
+            @include box-shadow;
 
-			@include compact {
-				max-width: rem-calc(375);
-			}
+            @include compact {
+                max-width: rem-calc(375);
+            }
 
-			@include mobile {
-				flex-direction: row;
-				width: 100%;
-				max-width: 100%;
-			}
+            @include mobile {
+                flex-direction: row;
+                width: 100%;
+                max-width: 100%;
+                max-height: rem-calc(275);
+            }
 
-			> a {
-				overflow: hidden;
-				max-width: 100%;
-				width: 100%;
+            > a {
+                overflow: hidden;
+                max-width: 100%;
+                width: 100%;
+                max-height: rem-calc(300);
 
-				@include compact {
-					max-width: 100%;
-				}
+                @include compact {
+                    max-width: 100%;
+                }
 
-				@include mobile {
-					max-width: rem-calc(250);
-				}
+                @include mobile {
+                    max-width: rem-calc(250);
+                }
 
-				@include phablet {
-					max-width: rem-calc(350);
-				}
+                @include phablet {
+                    max-width: rem-calc(350);
+                }
 
-				.post-image {
-					height: 100%;
+                .post-image {
+                    height: 100%;
 
-					@include base-transition(transform, 0.2s);
-				}
-			}
+                    @include base-transition(transform, 0.2s);
+                }
+            }
 
-			&:hover {
-				outline-color: $secondary-color;
+            &:hover {
+                outline-color: $secondary-color;
 
-				.post {
-					&-link {
-						color: $secondary-color;
-					}
+                .post {
+                    &-link {
+                        color: $secondary-color;
+                    }
 
-					&-image {
-						transform: scale(1.05);
-					}
-				}
-			}
+                    &-image {
+                        transform: scale(1.05);
+                    }
+                }
+            }
 
-			&:active {
-				outline-color: $link-color;
-			}
+            &:active {
+                outline-color: $link-color;
+            }
 
-			> div {
-				padding: rem-calc(16);
-				display: flex;
-				flex-direction: column;
-				flex-grow: 1;
+            > div {
+                padding: rem-calc(16);
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
 
-				> h3 {
-					a.post-link {
-						color: $white-color;
+                > h3 {
+                    a.post-link {
+                        color: $white-color;
 
-						@include clamp(2);
+                        @include clamp(2);
 
-						@include fluid-typing(24, 36);
+                        @include fluid-typing(24, 36);
 
-						&:hover {
-							color: color.adjust($link-color, $lightness: 10%);
-						}
-					}
-				}
+                        &:hover {
+                            color: color.adjust($link-color, $lightness: 10%);
+                        }
+                    }
+                }
 
-				> span {
-					position: absolute;
-					top: rem-calc(16);
-					right: rem-calc(16);
-					background-color: $primary-color;
-					color: $white-color;
-					padding: rem-calc(4 8);
-					border-radius: $border-radius-sm;
-					width: fit-content;
+                > span {
+                    position: absolute;
+                    top: rem-calc(16);
+                    right: rem-calc(16);
+                    background-color: $primary-color;
+                    color: $white-color;
+                    padding: rem-calc(4 8);
+                    border-radius: $border-radius-sm;
+                    width: fit-content;
 
-					@include mobile {
-						position: static;
-						background-color: $white-color;
-						color: $primary-color;
-						margin-top: rem-calc(8);
-						margin-bottom: rem-calc(16);
-					}
-				}
+                    @include mobile {
+                        position: static;
+                        background-color: $white-color;
+                        color: $primary-color;
+                        margin-top: rem-calc(8);
+                        margin-bottom: rem-calc(16);
+                    }
+                }
 
-				> p {
-					max-width: 80ch;
-					margin: rem-calc(12 0 32);
-					color: $white-color;
+                > p {
+                    max-width: 80ch;
+                    margin: rem-calc(12 0 32);
+                    color: $white-color;
 
-					@include clamp(4);
+                    @include clamp(4);
 
-					@include fluid-typing(16, 18);
-				}
+                    @include fluid-typing(16, 18);
+                }
 
-				> hr {
-					height: rem-calc(3);
-					border-width: 0;
-					color: color.adjust($dark-grey, $alpha: -0.9);
-					background-color: color.adjust($dark-grey, $alpha: -0.9);
-					margin: auto rem-calc(0 16);
-				}
+                > hr {
+                    height: rem-calc(3);
+                    border-width: 0;
+                    color: color.adjust($dark-grey, $alpha: -0.9);
+                    background-color: color.adjust($dark-grey, $alpha: -0.9);
+                    margin: auto rem-calc(0 16);
+                }
 
-				> div {
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
+                > div {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
 
-					> time {
-						font-size: rem-calc(14);
-						color: color.adjust($white-color, $lightness: -25%);
-					}
+                    > time {
+                        font-size: rem-calc(14);
+                        color: color.adjust($white-color, $lightness: -25%);
+                    }
 
-					> a {
-						@include page-link;
-					}
-				}
-			}
-		}
-	}
+                    > a {
+                        @include page-link;
+                    }
+                }
+            }
+        }
+    }
 }

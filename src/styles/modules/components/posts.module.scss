@@ -3,131 +3,138 @@
 @use "../../customs" as *;
 
 .posts {
-	@include ep-container(1189);
+    @include ep-container(1189);
 
-	> h2 {
-		text-align: center;
-		margin-bottom: rem-calc(20);
-	}
+    > h2 {
+        text-align: center;
+        margin-bottom: rem-calc(20);
+    }
 
-	> ul {
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-		gap: rem-calc(32);
+    > ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: rem-calc(32);
 
-		> li {
-			outline: 2px solid $primary-color;
-			border-radius: $border-radius-md;
-			overflow: hidden;
-			position: relative;
-			display: flex;
-			flex-direction: column;
-			background: linear-gradient(
-				45deg,
-				$primary-color,
-				color.scale($primary-color, $lightness: 25%)
-			);
+        > li {
+            outline: 2px solid $primary-color;
+            border-radius: $border-radius-md;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(
+                45deg,
+                $primary-color,
+                color.scale($primary-color, $lightness: 25%)
+            );
 
-			@include base-transition(all);
-			@include box-shadow;
+            @include base-transition(all);
+            @include box-shadow;
 
-			@include compact {
-				max-width: rem-calc(375);
-			}
+            @include compact {
+                max-width: rem-calc(375);
+            }
 
-			&:hover {
-				outline-color: $secondary-color;
+            &:hover {
+                outline-color: $secondary-color;
 
-				.post {
-					&-link {
-						color: $secondary-color;
-					}
+                .post {
+                    &-link {
+                        color: $secondary-color;
+                    }
 
-					&-image {
-						transform: scale(1.05);
-					}
-				}
-			}
+                    &-image {
+                        transform: scale(1.05);
+                    }
+                }
+            }
 
-			&:active {
-				outline-color: $link-color;
-			}
+            &:active {
+                outline-color: $link-color;
+            }
 
-			> a {
-				overflow: hidden;
+            > a {
+                overflow: hidden;
 
-				.post-image {
-					@include base-transition(transform, 0.2s);
-				}
-			}
+                /* stylelint-disable-next-line no-descending-specificity */
+                .post-image {
+                    max-height: rem-calc(300);
 
-			> div {
-				padding: rem-calc(16);
-				display: flex;
-				flex-direction: column;
-				flex-grow: 1;
+                    img {
+                        min-height: rem-calc(300);
+                    }
 
-				@include mobile {
-					min-height: 275px;
-				}
+                    @include base-transition(transform, 0.2s);
+                }
+            }
 
-				> h3 {
-					a.post-link {
-						color: $white-color;
+            > div {
+                padding: rem-calc(16);
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
 
-						@include clamp(2);
+                @include mobile {
+                    min-height: 275px;
+                }
 
-						@include fluid-typing(24, 28);
+                > h3 {
+                    a.post-link {
+                        color: $white-color;
 
-						&:hover {
-							color: color.adjust($link-color, $lightness: 10%);
-						}
-					}
-				}
+                        @include clamp(2);
 
-				> span {
-					position: absolute;
-					top: rem-calc(16);
-					right: rem-calc(16);
-					background-color: $primary-color;
-					color: $white-color;
-					padding: rem-calc(4 8);
-					border-radius: $border-radius-sm;
-				}
+                        @include fluid-typing(24, 28);
 
-				> p {
-					margin: rem-calc(12 0 32);
-					color: $white-color;
+                        &:hover {
+                            color: color.adjust($link-color, $lightness: 10%);
+                        }
+                    }
+                }
 
-					@include clamp(4);
+                > span {
+                    position: absolute;
+                    top: rem-calc(16);
+                    right: rem-calc(16);
+                    background-color: $primary-color;
+                    color: $white-color;
+                    padding: rem-calc(4 8);
+                    border-radius: $border-radius-sm;
+                }
 
-					@include fluid-typing(16, 18);
-				}
+                > p {
+                    margin: rem-calc(12 0 32);
+                    color: $white-color;
 
-				> hr {
-					height: rem-calc(3);
-					border-width: 0;
-					color: color.adjust($dark-grey, $alpha: -0.9);
-					background-color: color.adjust($dark-grey, $alpha: -0.9);
-					margin: auto rem-calc(0 16);
-				}
+                    @include clamp(4);
 
-				> div {
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
+                    @include fluid-typing(16, 18);
+                }
 
-					> time {
-						font-size: rem-calc(14);
-						color: color.adjust($white-color, $lightness: -25%);
-					}
+                > hr {
+                    height: rem-calc(3);
+                    border-width: 0;
+                    color: color.adjust($dark-grey, $alpha: -0.9);
+                    background-color: color.adjust($dark-grey, $alpha: -0.9);
+                    margin: auto rem-calc(0 16);
+                }
 
-					> a {
-						@include page-link;
-					}
-				}
-			}
-		}
-	}
+                > div {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    > time {
+                        font-size: rem-calc(14);
+                        color: color.adjust($white-color, $lightness: -25%);
+                    }
+
+                    > a {
+                        @include page-link;
+                    }
+                }
+            }
+        }
+    }
 }

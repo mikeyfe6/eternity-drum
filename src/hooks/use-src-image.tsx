@@ -124,7 +124,7 @@ export const useSrcImages = () => {
                 nodes {
                     relativePath
                     childImageSharp {
-                        gatsbyImageData(width: 150, height: 150)
+                        gatsbyImageData(width: 150)
                     }
                 }
             }
@@ -141,7 +141,7 @@ export const useSrcImages = () => {
             # // seda
             seda: file(relativePath: { eq: "seda-logo.jpg" }) {
                 childImageSharp {
-                    gatsbyImageData(width: 475)
+                    gatsbyImageData
                 }
             }
         }

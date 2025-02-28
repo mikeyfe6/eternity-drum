@@ -37,7 +37,7 @@ const News: React.FC = () => {
                         raw
                     }
                     featuredImage {
-                        gatsbyImageData(height: 325, width: 425)
+                        gatsbyImageData(width: 425)
                         title
                     }
                     postType {
@@ -98,7 +98,7 @@ const News: React.FC = () => {
                                             image={image!}
                                             alt={featuredImage.title}
                                             className={styles.postImage}
-                                            objectPosition="50% 25%"
+                                            objectPosition="top"
                                         />
                                     </Link>
 
