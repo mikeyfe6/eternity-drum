@@ -37,7 +37,7 @@ const Berichten: React.FC = () => {
                         raw
                     }
                     featuredImage {
-                        gatsbyImageData(width: 375)
+                        gatsbyImageData(width: 480)
                         title
                     }
                     postType {

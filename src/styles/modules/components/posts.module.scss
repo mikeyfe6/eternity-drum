@@ -59,11 +59,7 @@
 
                 /* stylelint-disable-next-line no-descending-specificity */
                 .post-image {
-                    max-height: rem-calc(300);
-
-                    img {
-                        min-height: rem-calc(300);
-                    }
+                    height: rem-calc(300);
 
                     @include base-transition(transform, 0.2s);
                 }
