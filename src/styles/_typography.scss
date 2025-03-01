@@ -13,7 +13,8 @@ h6 {
     line-height: normal;
 }
 
-h1 {
+h1,
+.as-h1 {
     font-family: $bebas-neue;
 
     @include fluid-typing(36, 64);
@@ -47,7 +48,8 @@ h1 {
     }
 }
 
-h2 {
+h2,
+.as-h2 {
     font-family: $bebas-neue;
 
     @include fluid-typing(32, 44);
@@ -71,20 +73,29 @@ h2 {
     }
 }
 
-h3 {
+h3,
+.as-h3 {
     font-family: $bebas-neue;
 
     @include fluid-typing(24, 36);
 }
 
-h4 {
+h4,
+.as-h4 {
     font-weight: 700;
+    font-family: $open-sans;
 
-    @include fluid-typing(20, 24);
+    @include fluid-typing(18, 22);
+
+    .projects & {
+        margin-bottom: rem-calc(28);
+    }
 }
 
-h5 {
+h5,
+.as-h5 {
     font-weight: 700;
+    font-family: $open-sans;
 
     @include fluid-typing(18, 20);
 }
@@ -102,4 +113,8 @@ u {
 
 a {
     color: inherit;
+}
+
+em {
+    font-style: italic;
 }

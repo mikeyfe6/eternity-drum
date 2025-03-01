@@ -3,234 +3,244 @@
 @use "../../customs" as *;
 
 .footer {
-	$footer: &;
+    $footer: &;
 
-	background: linear-gradient(
-		45deg,
-		$secondary-color,
-		color.scale($secondary-color, $lightness: 25%)
-	);
+    background: linear-gradient(
+        45deg,
+        $secondary-color,
+        color.scale($secondary-color, $lightness: 25%)
+    );
 
-	@include box-shadow;
+    @include box-shadow;
 
-	&-container {
-		padding: rem-calc(48 16 0);
+    &-container {
+        padding: rem-calc(48 16 0);
 
-		@include ep-container;
+        @include ep-container;
 
-		@include mobile {
-			padding: rem-calc(64 24 0);
-		}
+        @include mobile {
+            padding: rem-calc(64 24 0);
+        }
 
-		#{$footer}-top {
-			display: flex;
-			justify-content: space-evenly;
-			flex-wrap: wrap;
-			gap: rem-calc(32);
-			margin-bottom: rem-calc(64);
+        #{$footer}-top {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: rem-calc(32);
+            margin-bottom: rem-calc(64);
 
-			> * {
-				flex: 1 1 100%;
+            > * {
+                flex: 1 1 100%;
 
-				@include phablet {
-					flex: 1 1 calc(50% - 16px);
-				}
+                @include phablet {
+                    flex: 1 1 calc(50% - 16px);
+                }
 
-				@include desktop {
-					flex: 1;
-				}
-			}
+                @include desktop {
+                    flex: 1;
+                }
+            }
 
-			#{$footer}-column {
-				> h5 {
-					font-weight: 600;
-					margin-bottom: rem-calc(-4);
-					font-size: rem-calc(16);
-					font-style: italic;
-					opacity: 0.75;
-				}
+            #{$footer}-column {
+                min-width: rem-calc(300);
 
-				> p {
-					margin-bottom: rem-calc(32);
+                > span {
+                    display: block;
+                    margin-bottom: rem-calc(8);
+                }
 
-					@include fluid-typing(18, 20);
-				}
+                > small {
+                    display: block;
+                    font-weight: 600;
+                    font-size: rem-calc(16);
+                    font-style: italic;
+                    opacity: 0.75;
+                }
 
-				> ul {
-					margin: rem-calc(16 0 28);
+                > p {
+                    margin: rem-calc(20 0 32);
 
-					&:last-of-type {
-						margin-bottom: 0;
-					}
+                    @include fluid-typing(18, 20);
+                }
 
-					> li {
-						padding: rem-calc(8 0);
-						display: flex;
-						align-items: center;
-						gap: rem-calc(8);
+                > ul {
+                    margin: rem-calc(10 0 24);
 
-						@include fluid-typing(16, 18);
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
 
-						&:has(svg) {
-							gap: rem-calc(16);
-						}
+                    > li {
+                        padding: rem-calc(8 0);
+                        display: flex;
+                        align-items: center;
+                        gap: rem-calc(8);
 
-						> a {
-							font-weight: 400;
+                        @include fluid-typing(16, 18);
 
-							&:hover {
-								color: color.adjust($tertiary-color, $lightness: -10%);
-							}
-						}
+                        &:has(svg) {
+                            gap: rem-calc(16);
+                        }
 
-						> div {
-							min-width: rem-calc(30);
-							display: flex;
-							align-items: center;
-							justify-content: center;
+                        > a {
+                            font-weight: 400;
 
-							> svg {
-								color: $primary-color;
-								font-size: rem-calc(24);
-								vertical-align: middle;
-								align-self: flex-start;
-							}
-						}
-					}
-				}
-			}
+                            &:hover {
+                                color: color.adjust(
+                                    $tertiary-color,
+                                    $lightness: -10%
+                                );
+                            }
+                        }
 
-			#{$footer}-row {
-				&-one {
-					display: flex;
-					flex-direction: column;
-					align-items: flex-start;
-					gap: rem-calc(32);
+                        > div {
+                            min-width: rem-calc(30);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
 
-					@include phablet {
-						flex-direction: row;
-					}
+                            > svg {
+                                color: $primary-color;
+                                font-size: rem-calc(24);
+                                vertical-align: middle;
+                                align-self: flex-start;
+                            }
+                        }
+                    }
+                }
+            }
 
-					@include tablet {
-						flex-direction: column;
-					}
+            #{$footer}-row {
+                &-one {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: rem-calc(32);
 
-					@include desktop {
-						gap: rem-calc(48);
-					}
+                    @include phablet {
+                        flex-direction: row;
+                    }
 
-					> div {
-						@include phablet {
-							flex: 1;
-						}
+                    @include tablet {
+                        flex-direction: column;
+                    }
 
-						@include desktop {
-							flex: unset;
-						}
-					}
+                    @include desktop {
+                        gap: rem-calc(48);
+                    }
 
-					#{$footer}-logo {
-						width: rem-calc(125);
+                    > div {
+                        @include phablet {
+                            flex: 1;
+                        }
 
-						@include mobile {
-							width: rem-calc(150);
-						}
+                        @include desktop {
+                            flex: unset;
+                        }
+                    }
 
-						&-social {
-							display: flex;
-							justify-content: center;
-							align-items: center;
-							gap: rem-calc(32);
-							margin: 0 auto;
+                    #{$footer}-logo {
+                        width: rem-calc(125);
 
-							@include phablet {
-								margin: unset;
-								flex-direction: column;
-								align-items: flex-start;
-							}
+                        @include mobile {
+                            width: rem-calc(150);
+                        }
 
-							@include tablet {
-								justify-content: center;
-							}
+                        &-social {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: rem-calc(32);
+                            margin: 0 auto;
 
-							@include desktop {
-								justify-content: normal;
-								flex-direction: column;
-								gap: rem-calc(48);
-							}
+                            @include phablet {
+                                margin: unset;
+                                flex-direction: column;
+                                align-items: flex-start;
+                            }
 
-							#{$footer}-social-icons {
-								display: flex;
-								margin-top: rem-calc(16);
-								gap: rem-calc(16);
+                            @include tablet {
+                                justify-content: center;
+                            }
 
-								> li {
-									> a {
-										> svg {
-											color: $primary-color;
+                            @include desktop {
+                                justify-content: normal;
+                                flex-direction: column;
+                                gap: rem-calc(48);
+                            }
 
-											@include fluid-typing(24, 28);
+                            #{$footer}-social-icons {
+                                display: flex;
+                                margin-top: rem-calc(16);
+                                gap: rem-calc(16);
 
-											&:hover {
-												color: $tertiary-color;
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
+                                > li {
+                                    > a {
+                                        > svg {
+                                            color: $primary-color;
 
-			#{$footer}-fb-plugin {
-				text-align: center;
-				margin-top: rem-calc(48);
-				display: block;
-			}
-		}
-	}
+                                            @include fluid-typing(24, 28);
 
-	&-bottom {
-		background: linear-gradient(
-			45deg,
-			$primary-color,
-			color.scale($primary-color, $lightness: 5%)
-		);
-		color: $white-color;
-		padding: rem-calc(12 0);
-		display: flex;
-		justify-content: center;
+                                            &:hover {
+                                                color: $tertiary-color;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
-		@include full-width;
+            #{$footer}-fb-plugin {
+                text-align: center;
+                margin-top: rem-calc(48);
+                display: block;
+            }
+        }
+    }
 
-		@include box-shadow;
+    &-bottom {
+        background: linear-gradient(
+            45deg,
+            $primary-color,
+            color.scale($primary-color, $lightness: 5%)
+        );
+        color: $white-color;
+        padding: rem-calc(12 0);
+        display: flex;
+        justify-content: center;
 
-		@include mobile {
-			padding: rem-calc(16 0);
-		}
+        @include full-width;
 
-		> p {
-			text-align: center;
+        @include box-shadow;
 
-			@include fluid-typing(10, 14);
-		}
+        @include mobile {
+            padding: rem-calc(16 0);
+        }
 
-		a {
-			display: inline-flex;
-			align-items: center;
-			color: $secondary-color;
-			filter: grayscale(100%);
+        > p {
+            text-align: center;
 
-			&:hover {
-				filter: grayscale(0%);
-			}
+            @include fluid-typing(10, 14);
+        }
 
-			img {
-				max-width: rem-calc(20);
-				max-height: rem-calc(20);
-				margin-left: rem-calc(6);
-			}
-		}
-	}
+        a {
+            display: inline-flex;
+            align-items: center;
+            color: $secondary-color;
+            filter: grayscale(100%);
+
+            &:hover {
+                filter: grayscale(0%);
+            }
+
+            img {
+                max-width: rem-calc(20);
+                max-height: rem-calc(20);
+                margin-left: rem-calc(6);
+            }
+        }
+    }
 }

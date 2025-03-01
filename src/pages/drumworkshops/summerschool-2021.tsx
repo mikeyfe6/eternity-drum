@@ -5,8 +5,6 @@ import { getSrc } from "gatsby-plugin-image";
 
 import { useSrcImages } from "../../hooks/use-src-image";
 
-
-
 import Breadcrumbs from "../../components/layout/breadcrumbs";
 import Hero from "../../components/layout/heroslider";
 
@@ -46,8 +44,8 @@ const SummerschoolSecond: React.FC<PageProps> = () => {
                     </div>
                     <div data-main-content className={styles.workshopInfo}>
                         <h2>
-                            PERCUSSIONBAND ETERNITY, UNTOLD EMPOWERMENT EN BLACK
-                            HARMONY GEVEN GRATIS WORKSHOPS!
+                            Percussionband Eternity, Untold Empowerment en Black
+                            Harmony geven gratis workshops!
                         </h2>
                         <p>
                             <strong>

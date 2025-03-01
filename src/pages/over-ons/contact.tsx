@@ -121,7 +121,7 @@ const Contact: React.FC<PageProps> = () => {
                                 <span>Rekeningnummer</span> <span>{bank}</span>
                             </li>
                         </ul>
-                        <h5>Social Media:</h5>
+                        <h3 className="as-h5">Social Media:</h3>
                         <ul>
                             <li>
                                 <a

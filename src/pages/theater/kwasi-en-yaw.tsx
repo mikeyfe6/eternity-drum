@@ -49,7 +49,7 @@ const KwasiEnYaw: React.FC<PageProps> = () => {
                             van muzikale vorming en performance.
                         </p>
 
-                        <h4>Extra info</h4>
+                        <h3 className="as-h4">Extra info</h3>
                         <p>
                             Uit onderzoek is gebleken, dat veel van de
                             Afrikaanse Surinaamse slaafgemaakten zijn
@@ -62,7 +62,7 @@ const KwasiEnYaw: React.FC<PageProps> = () => {
                             bij zondag als geboortedag en Yaw bij de donderdag.
                         </p>
 
-                        <h4>Credits</h4>
+                        <h3 className="as-h4">Credits</h3>
                         <ul>
                             <li>
                                 <b>Makers:</b> Derillio Alexander en Revelino

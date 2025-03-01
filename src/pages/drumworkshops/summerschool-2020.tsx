@@ -44,8 +44,8 @@ const SummerschoolFirst: React.FC<PageProps> = () => {
                     </div>
                     <div data-main-content className={styles.workshopInfo}>
                         <h2>
-                            PERCUSSIONBAND ETERNITY, UNTOLD EMPOWERMENT EN BLACK
-                            HARMONY GEVEN GRATIS WORKSHOPS!
+                            Percussionband Eternity, Untold Empowerment en Black
+                            Harmony geven gratis workshops!
                         </h2>
                         <p>
                             <strong>

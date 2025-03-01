@@ -77,12 +77,6 @@
                 margin: rem-calc(48) auto;
             }
 
-            h4 {
-                margin-bottom: rem-calc(24);
-
-                @include fluid-typing(17, 22);
-            }
-
             .pjs {
                 &-image {
                     border-radius: $border-radius-sm;

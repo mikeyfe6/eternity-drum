@@ -103,14 +103,14 @@ const News: React.FC = () => {
                                     </Link>
 
                                     <div>
-                                        <h3>
+                                        <h2 className="as-h3">
                                             <Link
                                                 to={slug}
                                                 className={styles.postLink}
                                             >
                                                 {title}
                                             </Link>
-                                        </h3>
+                                        </h2>
 
                                         <span>
                                             {postType.map((cato) => cato.name)}

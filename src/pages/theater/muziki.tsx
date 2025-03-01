@@ -38,7 +38,7 @@ const Muziki: React.FC<PageProps> = () => {
                             populair is.
                         </p>
                         <p>
-                            <h4>Credits</h4>
+                            <h3 className="as-h4">Credits</h3>
                             <ul>
                                 <li>
                                     <b>Makers:</b> Derillio Alexander en

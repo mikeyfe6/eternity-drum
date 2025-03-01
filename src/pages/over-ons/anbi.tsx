@@ -69,9 +69,9 @@ const Anbi: React.FC<PageProps> = () => {
                         </li>
                     </ul>
 
-                    <h4>
+                    <h3 className="as-h4">
                         <u>Algemene gegevens</u>
-                    </h4>
+                    </h3>
                     <p>
                         <b>Naam ANBI:</b> STICHTING ETERNITY PERCUSSION
                         <br />
@@ -103,9 +103,9 @@ const Anbi: React.FC<PageProps> = () => {
                         </i>
                     </p>
 
-                    <h4>
+                    <h3 className="as-h4">
                         <u>Bestuur</u>
-                    </h4>
+                    </h3>
                     <p>
                         <b>Voorzitter:</b> Kenneth Zschuschen
                         <br />
@@ -114,18 +114,18 @@ const Anbi: React.FC<PageProps> = () => {
                         <b>Penningmeester:</b> Ulrich Entingh
                     </p>
 
-                    <h4>
+                    <h3 className="as-h4">
                         <u>Beleidsplan</u>
-                    </h4>
+                    </h3>
                     <p>
                         <Link to="/beleidsplan-2021.pdf">
                             Klik hier voor een overzicht van ons beleidsplan
                         </Link>
                     </p>
 
-                    <h4>
+                    <h3 className="as-h4">
                         <u>De balans en staat van baten en lasten</u>
-                    </h4>
+                    </h3>
                     <p>
                         <Link to="/baat-lasten-2019.pdf">
                             Klik hier voor een overzicht van de balans en staat
@@ -133,9 +133,9 @@ const Anbi: React.FC<PageProps> = () => {
                         </Link>
                     </p>
 
-                    <h4>
+                    <h3 className="as-h4">
                         <u>Beloningsbeleid</u>
-                    </h4>
+                    </h3>
                     <p>
                         <b>Bestuur:</b> alleen onkostenvergoeding; reis- en
                         parkeerkosten. Geen vakantiegeld.
@@ -144,9 +144,9 @@ const Anbi: React.FC<PageProps> = () => {
                         geen beloningsbeleid
                     </p>
 
-                    <h4>
+                    <h3 className="as-h4">
                         <u>Activiteiten</u>
-                    </h4>
+                    </h3>
                     <ul>
                         <li>Uitwisselingsprogramma’s</li>
                         <li>Theaterproducties</li>
@@ -154,9 +154,9 @@ const Anbi: React.FC<PageProps> = () => {
                         <li>Drumworkshops </li>
                     </ul>
 
-                    <h4>
+                    <h3 className="as-h4">
                         <u>Financiële verantwoording</u>
-                    </h4>
+                    </h3>
 
                     <p>
                         Op te vragen via:{" "}

@@ -66,12 +66,13 @@ const Footer = () => {
             <div className={styles.footerContainer}>
                 <div className={styles.footerTop}>
                     <div className={styles.footerColumn}>
-                        <h4>Contactgegevens</h4>
-                        <br />
+                        <span className="as-h4">Contactgegevens</span>
                         <p>
-                            <b>{companyName}</b>
+                            <em>
+                                <b>{companyName}</b>
+                            </em>
                         </p>
-                        <h5>Bezoekadres:</h5>
+                        <small>Bezoekadres:</small>
                         <ul>
                             <li>
                                 <a
@@ -84,7 +85,7 @@ const Footer = () => {
                             </li>
                             <li>{`${visitingPostalCode} ${city}`}</li>
                         </ul>
-                        <h5>Postadres:</h5>
+                        <small>Postadres:</small>
                         <ul>
                             <li>
                                 <a
@@ -159,7 +160,7 @@ const Footer = () => {
                     </div>
 
                     <div className={styles.footerColumn}>
-                        <h4>Recente Posts</h4>
+                        <span className="as-h4">Recente Posts</span>
                         <ul>
                             <li>
                                 <Link to="/over-ons/nieuws/kwasi-en-yaw/">
@@ -193,7 +194,7 @@ const Footer = () => {
                             </li>
                         </ul>
 
-                        <h4>Aankomende Evenementen</h4>
+                        <span className="as-h4">Aankomende Evenementen</span>
                         <ul>
                             <li>Binnenkort meer..</li>
                         </ul>
@@ -201,7 +202,7 @@ const Footer = () => {
 
                     <div className={styles.footerRowOne}>
                         <div className={styles.footerColumn}>
-                            <h4>De stichting</h4>
+                            <span className="as-h4">De stichting</span>
                             <ul>
                                 <li>
                                     <Link to="/over-ons/">Ons verhaal</Link>
@@ -241,7 +242,7 @@ const Footer = () => {
                                 </Link>
                             </div>
                             <div>
-                                <h4>Social Media:</h4>
+                                <span className="as-h4">Social Media:</span>
                                 <ul className={styles.footerSocialIcons}>
                                     <li>
                                         <a
