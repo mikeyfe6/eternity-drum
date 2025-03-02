@@ -35,7 +35,13 @@ const Muziki: React.FC<PageProps> = () => {
                             De reis start in West-Afrika, via Noord en
                             Zuid-Amerika, het Caribische gebied en eindigend in
                             Nederland waar de Caribische marching percussie nu
-                            populair is.
+                            populair is. De voorstelling Muziki is geproduceerd
+                            in de periode van September 2021 tot December 2022.{" "}
+                            <b>
+                                De voorstelling is mede mogelijk gemaakt door
+                                het Fonds Podiumkunsten en Fonds voor
+                                Cultuurparticipatie.
+                            </b>
                         </p>
                         <p>
                             <h3 className="as-h4">Credits</h3>
@@ -43,6 +49,9 @@ const Muziki: React.FC<PageProps> = () => {
                                 <li>
                                     <b>Makers:</b> Derillio Alexander en
                                     Revelino Pinas
+                                </li>
+                                <li>
+                                    <b>Regie:</b> Tati Wirahadiraksa
                                 </li>
                                 <li>
                                     <b>Cast:</b> Derillio Alexander, Revelino
@@ -53,11 +62,7 @@ const Muziki: React.FC<PageProps> = () => {
                                     <b>Decorontwerper:</b> Michael Deekman
                                 </li>
                                 <li>
-                                    <b>Coach muzikaal arrangeur:</b> Orlando
-                                    Ceder
-                                </li>
-                                <li>
-                                    <b>Regie:</b> Tati Wirahadiraksa
+                                    <b>Coach muziek:</b> Orlando Ceder
                                 </li>
                             </ul>
                         </p>

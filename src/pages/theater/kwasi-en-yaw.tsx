@@ -42,11 +42,14 @@ const KwasiEnYaw: React.FC<PageProps> = () => {
                             rol spelen.
                         </p>
                         <p>
-                            De voorstelling Kwasi en Yaw wordt geproduceerd door
-                            stichting Eternity Percussion. Eternity is een
-                            culturele instelling die zich bezighoudt met
-                            activiteiten, projecten en evenementen op het gebied
-                            van muzikale vorming en performance.
+                            De voorstelling Kwasi en Yaw is geproduceerd door
+                            stichting Eternity Percussion in de periode van
+                            Januari tot December 2024.{" "}
+                            <b>
+                                Mede mogelijk gemaakt door Amsterdams Fonds voor
+                                de Kunst, Gemeente Amsterdam, Mondriaan Fonds,
+                                Het cultuurfonds en Fonds Podiumkunsten.
+                            </b>
                         </p>
 
                         <h3 className="as-h4">Extra info</h3>
@@ -69,6 +72,9 @@ const KwasiEnYaw: React.FC<PageProps> = () => {
                                 Pinas
                             </li>
                             <li>
+                                <b>Regie:</b> Tati Wirahadiraksa
+                            </li>
+                            <li>
                                 <b>Cast:</b> Derillio Alexander, Revelino Pinas,
                                 Denzil Tromp, Miquel Nelom, Pape Matar Fall en
                                 Yeshua
@@ -79,10 +85,7 @@ const KwasiEnYaw: React.FC<PageProps> = () => {
                                 Jaleesa Gefferie
                             </li>
                             <li>
-                                <b>Coach muzikaal arrangeur:</b> Orlando Ceder
-                            </li>
-                            <li>
-                                <b>Regie:</b> Tati Wirahadiraksa
+                                <b>Coach muziek:</b> Orlando Ceder
                             </li>
                         </ul>
                     </div>
