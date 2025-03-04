@@ -12,7 +12,7 @@ import { Seo } from "../../components/seo";
 const Nieuws: React.FC<PageProps> = () => {
     const breadcrumbs = [
         { label: "Home", link: "/" },
-        { label: "Over Ons", link: "/nieuws/" },
+        { label: "Over Ons", link: "/over-ons/" },
         { label: "Nieuws" },
     ];
 
