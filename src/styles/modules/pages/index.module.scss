@@ -17,7 +17,7 @@
         }
     }
 
-    @include phablet {s
+    @include phablet {
         margin-top: rem-calc(24);
     }
 }
