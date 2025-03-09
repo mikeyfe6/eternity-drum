@@ -127,7 +127,7 @@ const NewsletterForm: React.FC = () => {
 				}
 			);
 
-			navigate("/success");
+			navigate("/success/");
 
 			setFormData({
 				firstName: "",
