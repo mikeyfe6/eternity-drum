@@ -1,23 +1,23 @@
 @use "../../customs" as *;
 
 .homepage {
-	> p {
-		max-width: 75ch;
-		line-height: rem-calc(28);
+    > p {
+        max-width: 75ch;
+        line-height: rem-calc(28);
 
-		@include fluid-typing(18, 22);
+        @include fluid-typing(18, 22);
 
-		@include mobile {
-			line-height: rem-calc(32);
-		}
+        @include mobile {
+            line-height: rem-calc(32);
+        }
 
-		&:first-of-type {
-			margin-bottom: rem-calc(32);
-			font-weight: 600;
-		}
-	}
+        &:first-of-type {
+            margin-bottom: rem-calc(32);
+            font-weight: 600;
+        }
+    }
 
-	@include phablet {
-		margin-top: rem-calc(24);
-	}
+    @include phablet {s
+        margin-top: rem-calc(24);
+    }
 }

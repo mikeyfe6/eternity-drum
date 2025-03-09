@@ -214,7 +214,7 @@ const config: GatsbyConfig = {
 				lang: 'nl',
 				theme_color: bgWebColor,
 				display: 'standalone',
-				icon: 'src/images/logo/ep-logo-yellow.png',
+				icon: 'src/images/favicon/icon.png',
 				icon_options: {
 					purpose: 'any maskable',
 				},
