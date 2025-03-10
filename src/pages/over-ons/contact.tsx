@@ -64,7 +64,7 @@ const Contact: React.FC<PageProps> = () => {
                                 <span>Plaats</span> <span>{city}</span>
                             </li>
                             <li>
-                                <span>Telefoon (SEDA)</span>
+                                <span>Telefoon (SEDA)</span>{" "}
                                 <span>
                                     <a
                                         href={`tel:+${phoneRawSeda}`}
@@ -76,7 +76,7 @@ const Contact: React.FC<PageProps> = () => {
                                 </span>
                             </li>
                             <li>
-                                <span>Telefoon (BPT)</span>
+                                <span>Telefoon (BPT)</span>{" "}
                                 <span>
                                     <a
                                         href={`tel:+${phoneRawBpt}`}
@@ -88,7 +88,7 @@ const Contact: React.FC<PageProps> = () => {
                                 </span>
                             </li>
                             <li>
-                                <span>Mobiel</span>
+                                <span>Mobiel</span>{" "}
                                 <span>
                                     <a
                                         href={`tel:+${mobileRaw}`}
