@@ -94,7 +94,6 @@ const config: GatsbyConfig = {
 			options: {
 				color: bgThemeColor,
 				showSpinner: true,
-				minimum: 0.1,
 			},
 		},
 		'gatsby-plugin-image',
