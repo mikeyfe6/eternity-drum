@@ -60,12 +60,16 @@
         opacity: 0.75;
 
         [data-gatsby-image-wrapper] {
-            aspect-ratio: 16 / 6;
+            aspect-ratio: 16 / 7;
             height: 100%;
             width: 100%;
 
             @include mobile {
-                aspect-ratio: 16 / 4.5;
+                aspect-ratio: 16 / 5.5;
+            }
+
+            @include tablet {
+                aspect-ratio: 16 / 4.75;
             }
         }
     }
