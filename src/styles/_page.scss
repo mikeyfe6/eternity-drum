@@ -366,6 +366,7 @@
                 height: fit-content;
                 outline: 2px solid $lightgrey-color;
                 max-width: 100%;
+                display: flex;
 
                 @include mobile {
                     max-width: rem-calc(550);
@@ -384,6 +385,50 @@
                 > :nth-child(2) {
                     @include mobile {
                         max-width: rem-calc(700);
+                    }
+                }
+            }
+        }
+
+        &.list {
+            ul {
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap;
+                gap: rem-calc(24);
+
+                li {
+                    display: flex;
+                    width: 100%;
+
+                    @include phablet {
+                        width: calc(49% - 1em);
+                    }
+
+                    > a {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        outline: 2px solid $primary-color;
+                        padding: rem-calc(16);
+                        height: 100%;
+                        gap: rem-calc(24);
+
+                        em {
+                            svg {
+                                width: rem-calc(12);
+                                height: rem-calc(12);
+                                vertical-align: 5px;
+                                margin-left: rem-calc(8);
+                            }
+                        }
+
+                        span {
+                            align-self: flex-end;
+                            color: $grey-color;
+                            font-size: rem-calc(14);
+                        }
                     }
                 }
             }

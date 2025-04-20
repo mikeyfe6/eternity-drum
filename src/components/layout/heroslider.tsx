@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
                         <StaticImage
                             src="../../images/hero/adpaf-161124-1.jpg"
                             alt={`ADPAF 2024`}
-                            objectPosition="50% 20%"
+                            objectPosition="50% 15%"
                             loading="eager"
                             width={1750}
                         />
@@ -70,6 +70,7 @@ const Hero: React.FC = () => {
                         <StaticImage
                             src="../../images/hero/adpaf-161124-2.jpg"
                             alt={`ADPAF 2024`}
+                            objectPosition="50% 20%"
                             loading="eager"
                             width={1750}
                         />
@@ -91,6 +92,7 @@ const Hero: React.FC = () => {
                         <StaticImage
                             src="../../images/hero/next-on-stage-131224.jpg"
                             alt={`Next on Stage 2024`}
+                            objectPosition="50% 15%"
                             loading="eager"
                             width={1750}
                         />

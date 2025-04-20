@@ -17,7 +17,7 @@ Deze website is gebouwd door [Michael Fransman](https://www.linkedin.com/in/mich
 
 Eternity is een culturele instelling die zich bezighoudt met activiteiten, projecten en evenementen op het gebied van muzikale vorming en performance.
 
-- _Meer weten? Bekijk de website / check the website: [Eternity Percussion](https://eternitydrum.com)_
+-   _Meer weten? Bekijk de website / check the website: [Eternity Percussion](https://eternitydrum.com)_
 
 <br>
 

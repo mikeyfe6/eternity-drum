@@ -60,6 +60,16 @@ interface SrcImagesQuery {
             gatsbyImageData: IGatsbyImageData;
         };
     };
+    umuntuF: {
+        childImageSharp: {
+            gatsbyImageData: IGatsbyImageData;
+        };
+    };
+    umuntuB: {
+        childImageSharp: {
+            gatsbyImageData: IGatsbyImageData;
+        };
+    };
 }
 
 export const useSrcImages = () => {
@@ -144,6 +154,18 @@ export const useSrcImages = () => {
                     gatsbyImageData
                 }
             }
+
+            # // umuntu
+            umuntuF: file(relativePath: { eq: "theater/umuntu-front.jpg" }) {
+                childImageSharp {
+                    gatsbyImageData
+                }
+            }
+            umuntuB: file(relativePath: { eq: "theater/umuntu-back.jpg" }) {
+                childImageSharp {
+                    gatsbyImageData
+                }
+            }
         }
     `);
 
@@ -159,5 +181,7 @@ export const useSrcImages = () => {
         allPartners: data.allPartners.nodes,
         kwasiAndYaw: data.kwasiAndYaw.childImageSharp.gatsbyImageData,
         seda: data.seda.childImageSharp.gatsbyImageData,
+        umuntuF: data.umuntuF.childImageSharp.gatsbyImageData,
+        umuntuB: data.umuntuB.childImageSharp.gatsbyImageData,
     };
 };
