@@ -1,57 +1,57 @@
 @use "../../customs" as *;
 
 .courses {
-	$courses: &;
+    $courses: &;
 
-	max-width: rem-calc(1000);
-	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
+    max-width: rem-calc(1000);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 
-	@include box;
+    @include box;
 
-	#{$courses}-icon {
-		font-size: 2em;
-		margin-left: rem-calc(24);
-		margin-bottom: rem-calc(16);
-		float: right;
+    #{$courses}-icon {
+        font-size: 2em;
+        margin-left: rem-calc(24);
+        margin-bottom: rem-calc(16);
+        float: right;
 
-		@include mobile {
-			margin-left: rem-calc(48);
-			margin-bottom: rem-calc(32);
-		}
-	}
+        @include mobile {
+            margin-left: rem-calc(48);
+            margin-bottom: rem-calc(32);
+        }
+    }
 
-	button {
-		max-width: 100%;
-		width: fit-content;
-		margin-left: auto;
-		margin-top: rem-calc(24);
+    button {
+        max-width: 100%;
+        width: fit-content;
+        margin-left: auto;
+        margin-top: rem-calc(24);
 
-		@include button-style(
-			$primary-color,
-			$white-color,
-			$primary-color,
-			$secondary-color
-		);
+        @include button(
+            $primary-color,
+            $white-color,
+            $primary-color,
+            $secondary-color
+        );
 
-		span {
-			@include ellipsis;
-		}
-	}
+        span {
+            @include ellipsis;
+        }
+    }
 
-	ul {
-		list-style-type: square;
-		list-style-position: inside;
+    ul {
+        list-style-type: square;
+        list-style-position: inside;
 
-		li {
-			a {
-				@include page-link;
+        li {
+            a {
+                @include link;
 
-				svg {
-					margin-left: rem-calc(3);
-				}
-			}
-		}
-	}
+                svg {
+                    margin-left: rem-calc(3);
+                }
+            }
+        }
+    }
 }

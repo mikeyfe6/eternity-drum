@@ -33,7 +33,7 @@
             width: rem-calc(100);
             height: rem-calc(100);
 
-            @include base-transition(all);
+            @include smooth-trans(all);
 
             @include mobile {
                 width: rem-calc(125);

@@ -84,7 +84,7 @@
                         }
 
                         > a {
-                            font-weight: 500;
+                            @include smooth-trans(color);
 
                             &:hover {
                                 color: color.adjust(

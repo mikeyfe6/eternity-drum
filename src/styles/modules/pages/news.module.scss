@@ -27,7 +27,7 @@
                 color.scale($primary-color, $lightness: 25%)
             );
 
-            @include base-transition(all);
+            @include smooth-trans(all);
             @include box-shadow;
 
             @include compact {
@@ -62,7 +62,7 @@
                 .post-image {
                     height: 100%;
 
-                    @include base-transition(transform, 0.2s);
+                    @include smooth-trans(transform, 0.2s);
                 }
             }
 
@@ -152,7 +152,7 @@
                     }
 
                     > a {
-                        @include page-link;
+                        @include link;
                     }
                 }
             }

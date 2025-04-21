@@ -83,7 +83,7 @@
     a {
         display: inline-block;
 
-        @include page-link;
+        @include link;
     }
 
     hr {

@@ -116,7 +116,7 @@
     }
 }
 
-@mixin button-style($bgColor, $color, $hoverBgcolor, $hoverColor) {
+@mixin button($bgColor, $color, $hoverBgcolor, $hoverColor) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -135,7 +135,7 @@
     cursor: pointer;
 
     @include box-shadow;
-    @include base-transition(all);
+    @include smooth-trans(all);
 
     @include mobile {
         padding: rem-calc(10 20);
@@ -165,19 +165,19 @@
 
 // UTILITIES
 
-@mixin box-shadow {
-    box-shadow: rgba(0 0 0 / 12%) 0 1px 3px, rgba(0 0 0 / 24%) 0 1px 2px;
+@mixin box-shadow($type: "normal") {
+    @if $type == "normal" {
+        box-shadow: rgba(0 0 0 / 12%) 0 1px 3px, rgba(0 0 0 / 24%) 0 1px 2px;
+    } @else if $type == "boxed" {
+        box-shadow: 0 0 10px 0 rgba(0 0 0 / 20%);
+    }
 }
 
-@mixin box-bottom-shadow {
-    box-shadow: 0 0 10px 0 rgba(0 0 0 / 20%);
-}
-
-@mixin base-transition($element, $time: 0.1s) {
+@mixin smooth-trans($element, $time: 0.1s) {
     transition: $element $time ease-in-out;
 }
 
-@mixin page-link {
+@mixin link {
     color: $tertiary-color;
     text-decoration: none;
     font-weight: 600;

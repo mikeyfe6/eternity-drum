@@ -1,54 +1,54 @@
 @use "../../customs" as *;
 
 .cta {
-	$cta: &;
+    $cta: &;
 
-	display: flex;
-	gap: rem-calc(16);
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: center;
-	height: fit-content;
+    display: flex;
+    gap: rem-calc(16);
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    height: fit-content;
 
-	> a {
-		@include button-style(
-			$primary-color,
-			$white-color,
-			$primary-color,
-			$secondary-color
-		);
+    > a {
+        @include button(
+            $primary-color,
+            $white-color,
+            $primary-color,
+            $secondary-color
+        );
 
-		&#{$cta}-special {
-			@include button-style(
-				$tertiary-color,
-				$white-color,
-				$tertiary-color,
-				$secondary-color
-			);
-		}
+        &#{$cta}-special {
+            @include button(
+                $tertiary-color,
+                $white-color,
+                $tertiary-color,
+                $secondary-color
+            );
+        }
 
-		&:nth-child(1) {
-			@include mobile {
-				order: 1;
-			}
-		}
+        &:nth-child(1) {
+            @include mobile {
+                order: 1;
+            }
+        }
 
-		&:nth-child(2) {
-			@include mobile {
-				order: 3;
-			}
-		}
+        &:nth-child(2) {
+            @include mobile {
+                order: 3;
+            }
+        }
 
-		&:nth-child(3) {
-			@include mobile {
-				order: 2;
-			}
-		}
+        &:nth-child(3) {
+            @include mobile {
+                order: 2;
+            }
+        }
 
-		&:nth-child(4) {
-			@include mobile {
-				order: 4;
-			}
-		}
-	}
+        &:nth-child(4) {
+            @include mobile {
+                order: 4;
+            }
+        }
+    }
 }

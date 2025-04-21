@@ -3,190 +3,193 @@
 @use "../../customs" as *;
 
 .actual {
-	@include space;
+    @include space;
 
-	h2 {
-		text-align: center;
-		margin-bottom: rem-calc(20);
-	}
+    h2 {
+        text-align: center;
+        margin-bottom: rem-calc(20);
+    }
 
-	.collapsible {
-		position: relative;
-		display: flex;
-		justify-content: space-evenly;
-		gap: rem-calc(16);
-		border-radius: rem-calc(8 8 0 0);
-		padding: rem-calc(16);
-		flex-wrap: wrap;
-		max-width: rem-calc(950);
-		margin: 0 auto;
-		background: linear-gradient(
-			45deg,
-			$primary-color,
-			color.scale($primary-color, $lightness: 25%)
-		);
+    .collapsible {
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        gap: rem-calc(16);
+        border-radius: rem-calc(8 8 0 0);
+        padding: rem-calc(16);
+        flex-wrap: wrap;
+        max-width: rem-calc(950);
+        margin: 0 auto;
+        background: linear-gradient(
+            45deg,
+            $primary-color,
+            color.scale($primary-color, $lightness: 25%)
+        );
 
-		&-container {
-			display: flex;
-			flex-direction: column;
-			max-width: 100%;
-		}
+        &-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 100%;
+        }
 
-		&-item {
-			max-height: 0;
-			overflow: hidden;
-			position: absolute;
-			border: 2px solid $primary-color;
-			top: 100%;
-			left: 0;
-			width: 100%;
-			border-radius: rem-calc(0 0 8 8);
-			color: $primary-color;
-			background: linear-gradient(
-				45deg,
-				$smoke-color,
-				color.scale($smoke-color, $lightness: 100%)
-			);
+        &-item {
+            max-height: 0;
+            overflow: hidden;
+            position: absolute;
+            border: 2px solid $primary-color;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            border-radius: rem-calc(0 0 8 8);
+            color: $primary-color;
+            background: linear-gradient(
+                45deg,
+                $smoke-color,
+                color.scale($smoke-color, $lightness: 100%)
+            );
 
-			> div {
-				> span {
-					display: block;
-				}
+            > div {
+                > span {
+                    display: block;
+                }
 
-				> p {
-					margin-bottom: rem-calc(28);
+                > p {
+                    margin-bottom: rem-calc(28);
 
-					@include fluid-typing(17, 20);
-				}
+                    @include fluid-typing(17, 20);
+                }
 
-				> a {
-					width: fit-content;
-					margin-top: rem-calc(32);
-					margin-left: auto;
+                > a {
+                    width: fit-content;
+                    margin-top: rem-calc(32);
+                    margin-left: auto;
 
-					@include button-style(
-						$primary-color,
-						$white-color,
-						$primary-color,
-						$secondary-color
-					);
-				}
-			}
+                    @include button(
+                        $primary-color,
+                        $white-color,
+                        $primary-color,
+                        $secondary-color
+                    );
+                }
+            }
 
-			&.open {
-				max-height: fit-content;
+            &.open {
+                max-height: fit-content;
 
-				&:has(iframe) {
-					iframe {
-						margin-bottom: rem-calc(-7.5);
-					}
-				}
+                &:has(iframe) {
+                    iframe {
+                        margin-bottom: rem-calc(-7.5);
+                    }
+                }
 
-				&:has(img) {
-					padding: rem-calc(16);
+                &:has(img) {
+                    padding: rem-calc(16);
 
-					@include mobile {
-						padding: rem-calc(24);
-					}
-				}
+                    @include mobile {
+                        padding: rem-calc(24);
+                    }
+                }
 
-				&:has(div > p) {
-					padding: rem-calc(16);
+                &:has(div > p) {
+                    padding: rem-calc(16);
 
-					@include mobile {
-						padding: rem-calc(24);
-					}
-				}
-			}
-		}
+                    @include mobile {
+                        padding: rem-calc(24);
+                    }
+                }
+            }
+        }
 
-		&-button {
-			> button {
-				cursor: pointer;
-				background-color: $white-color;
-				color: $primary-color;
-				border-radius: $border-radius-sm;
-				overflow: hidden;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				gap: rem-calc(16);
-				outline: 2px solid $primary-color;
-				white-space: nowrap;
-				max-width: 100%;
-				height: 100%;
+        &-button {
+            > button {
+                cursor: pointer;
+                background-color: $white-color;
+                color: $primary-color;
+                border-radius: $border-radius-sm;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: rem-calc(16);
+                outline: 2px solid $primary-color;
+                white-space: nowrap;
+                max-width: 100%;
+                height: 100%;
 
-				@include mobile {
-					white-space: normal;
-					max-width: unset;
-				}
+                @include mobile {
+                    white-space: normal;
+                    max-width: unset;
+                }
 
-				> span {
-					background-color: $secondary-color;
-					border-right: 2px color.scale($primary-color, $lightness: 25%) solid;
-					padding: rem-calc(6 16);
-					font-weight: 600;
-					height: 100%;
+                > span {
+                    background-color: $secondary-color;
+                    border-right: 2px
+                        color.scale($primary-color, $lightness: 25%) solid;
+                    padding: rem-calc(6 16);
+                    font-weight: 600;
+                    height: 100%;
 
-					@include fluid-typing(14, 16);
-				}
+                    @include fluid-typing(14, 16);
+                }
 
-				> p {
-					padding: rem-calc(6 16 6 0);
-					font-weight: normal;
-					font-size: rem-calc(14);
-					height: 100%;
+                > p {
+                    padding: rem-calc(6 16 6 0);
+                    font-weight: normal;
+                    font-size: rem-calc(14);
+                    height: 100%;
 
-					@include ellipsis;
+                    @include ellipsis;
 
-					@include fluid-typing(14, 16);
+                    @include fluid-typing(14, 16);
 
-					@include mobile {
-						display: inline;
-						overflow: visible;
-						white-space: normal;
-						text-overflow: clip;
-					}
-				}
+                    @include mobile {
+                        display: inline;
+                        overflow: visible;
+                        white-space: normal;
+                        text-overflow: clip;
+                    }
+                }
 
-				&:hover {
-					outline-color: color.scale($link-color, $lightness: 10%);
+                &:hover {
+                    outline-color: color.scale($link-color, $lightness: 10%);
 
-					> span {
-						border-right: 2px color.scale($link-color, $lightness: 10%) solid;
-					}
-				}
+                    > span {
+                        border-right: 2px
+                            color.scale($link-color, $lightness: 10%) solid;
+                    }
+                }
 
-				&.active-button {
-					outline-color: $link-color;
+                &.active-button {
+                    outline-color: $link-color;
 
-					> span {
-						border-right: 2px color.scale($link-color, $lightness: 25%) solid;
-					}
-				}
+                    > span {
+                        border-right: 2px
+                            color.scale($link-color, $lightness: 25%) solid;
+                    }
+                }
 
-				&:not(.active-button) {
-					opacity: 0.725;
+                &:not(.active-button) {
+                    opacity: 0.725;
 
-					&:hover {
-						opacity: 1;
-					}
-				}
-			}
-		}
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
 
-		&-images {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			gap: rem-calc(12);
+        &-images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: rem-calc(12);
 
-			> div:not([data-main-modal]) {
-				img {
-					border-radius: $border-radius-sm;
-					overflow: hidden;
-				}
-			}
-		}
-	}
+            > div:not([data-main-modal]) {
+                img {
+                    border-radius: $border-radius-sm;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
 }

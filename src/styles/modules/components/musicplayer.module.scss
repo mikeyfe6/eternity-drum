@@ -3,256 +3,263 @@
 @use "../../customs" as *;
 
 .music-player {
-	.loading {
-		&-txt {
-			display: flex;
-			align-items: center;
-			margin-left: auto;
-			justify-content: flex-end;
-			font-family: "Bebas Neue", sans-serif;
-			font-size: rem-calc(24);
-			gap: rem-calc(16);
-		}
+    .loading {
+        &-txt {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            justify-content: flex-end;
+            font-family: "Bebas Neue", sans-serif;
+            font-size: rem-calc(24);
+            gap: rem-calc(16);
+        }
 
-		&-btn {
-			@include button-style(
-				$white-color,
-				$tertiary-color,
-				$white-color,
-				$secondary-color
-			);
+        &-btn {
+            @include button(
+                $white-color,
+                $tertiary-color,
+                $white-color,
+                $secondary-color
+            );
 
-			> svg {
-				font-size: rem-calc(24);
-			}
-		}
-	}
+            > svg {
+                font-size: rem-calc(24);
+            }
+        }
+    }
 
-	.music-info {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-evenly;
-		margin-top: rem-calc(24);
-		margin-bottom: rem-calc(32);
-		gap: rem-calc(32);
+    .music-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: rem-calc(24);
+        margin-bottom: rem-calc(32);
+        gap: rem-calc(32);
 
-		@include tablet {
-			flex-direction: column;
-		}
+        @include tablet {
+            flex-direction: column;
+        }
 
-		.album-cover {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
+        .album-cover {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
-			img {
-				width: 100%;
-				max-width: rem-calc(100);
-				height: auto;
-				object-fit: cover;
-				object-position: center;
-				border-radius: $border-radius-sm;
-				padding: rem-calc(16 0);
-				box-shadow: 0 0 10px 0 rgba(255 255 255 / 10%);
+            img {
+                width: 100%;
+                max-width: rem-calc(100);
+                height: auto;
+                object-fit: cover;
+                object-position: center;
+                border-radius: $border-radius-sm;
+                padding: rem-calc(16 0);
+                box-shadow: 0 0 10px 0 rgba(255 255 255 / 10%);
 
-				@include tablet {
-					max-width: rem-calc(200);
-				}
-			}
-		}
+                @include tablet {
+                    max-width: rem-calc(200);
+                }
+            }
+        }
 
-		.artist-info {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-		}
+        .artist-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-		.title {
-			text-align: center;
-			font-size: rem-calc(32);
-			margin-bottom: rem-calc(4);
-		}
+        .title {
+            text-align: center;
+            font-size: rem-calc(32);
+            margin-bottom: rem-calc(4);
+        }
 
-		.track {
-			text-align: center;
-			font-size: rem-calc(20);
-		}
-	}
+        .track {
+            text-align: center;
+            font-size: rem-calc(20);
+        }
+    }
 
-	.controls {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: rem-calc(32);
-	}
+    .controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: rem-calc(32);
+    }
 
-	.control {
-		&-button {
-			font-size: rem-calc(56);
-			color: $white-color;
-			background-color: transparent;
-			cursor: pointer;
+    .control {
+        &-button {
+            font-size: rem-calc(56);
+            color: $white-color;
+            background-color: transparent;
+            cursor: pointer;
 
-			@include base-transition(all);
+            @include smooth-trans(all);
 
-			&:hover {
-				color: color.adjust($tertiary-color, $lightness: 10%);
-			}
+            &:hover {
+                color: color.adjust($tertiary-color, $lightness: 10%);
+            }
 
-			&:active {
-				color: color.adjust($tertiary-color, $lightness: 2.5%);
-			}
-		}
+            &:active {
+                color: color.adjust($tertiary-color, $lightness: 2.5%);
+            }
+        }
 
-		&-volume {
-			position: absolute;
-			height: 0;
-			right: 0;
-			bottom: rem-calc(220);
-			display: none;
+        &-volume {
+            position: absolute;
+            height: 0;
+            right: 0;
+            bottom: rem-calc(220);
+            display: none;
 
-			@include tablet {
-				display: block;
-			}
+            @include tablet {
+                display: block;
+            }
 
-			> button {
-				font-size: rem-calc(24);
-				position: absolute;
-				right: rem-calc(48);
-				bottom: rem-calc(-92);
-				padding-top: rem-calc(16);
-				width: rem-calc(32);
-				cursor: pointer;
+            > button {
+                font-size: rem-calc(24);
+                position: absolute;
+                right: rem-calc(48);
+                bottom: rem-calc(-92);
+                padding-top: rem-calc(16);
+                width: rem-calc(32);
+                cursor: pointer;
 
-				&:hover {
-					svg {
-						color: color.adjust($tertiary-color, $lightness: 10%);
-					}
-				}
-			}
+                &:hover {
+                    svg {
+                        color: color.adjust($tertiary-color, $lightness: 10%);
+                    }
+                }
+            }
 
-			> span {
-				position: absolute;
-				right: 47.5%;
-				transform: translateX(50%);
-				bottom: rem-calc(82);
-				text-align: center;
-				opacity: 0;
-				display: inline-flex;
-				font-size: rem-calc(14);
-				gap: rem-calc(2);
+            > span {
+                position: absolute;
+                right: 47.5%;
+                transform: translateX(50%);
+                bottom: rem-calc(82);
+                text-align: center;
+                opacity: 0;
+                display: inline-flex;
+                font-size: rem-calc(14);
+                gap: rem-calc(2);
 
-				> small {
-					font-size: 70%;
-					color: color.adjust($tertiary-color, $lightness: 15%);
-				}
-			}
+                > small {
+                    font-size: 70%;
+                    color: color.adjust($tertiary-color, $lightness: 15%);
+                }
+            }
 
-			> input[type="range"] {
-				transform: rotate(270deg);
-				position: relative;
-				bottom: rem-calc(28);
-				outline: none;
-				opacity: 0;
+            > input[type="range"] {
+                transform: rotate(270deg);
+                position: relative;
+                bottom: rem-calc(28);
+                outline: none;
+                opacity: 0;
 
-				@include base-transition(all);
+                @include smooth-trans(all);
 
-				&::-webkit-slider-runnable-track {
-					position: relative;
-					border-radius: $border-radius-xs;
-					background-color: $white-color;
-					height: rem-calc(5);
-					cursor: pointer;
-				}
+                &::-webkit-slider-runnable-track {
+                    position: relative;
+                    border-radius: $border-radius-xs;
+                    background-color: $white-color;
+                    height: rem-calc(5);
+                    cursor: pointer;
+                }
 
-				&::-webkit-slider-thumb {
-					margin-top: rem-calc(-5);
-					border-radius: 50%;
-					width: rem-calc(15);
-					height: rem-calc(15);
-					filter: brightness(0) saturate(100%) invert(75%) sepia(47%)
-						saturate(5920%) hue-rotate(199deg) brightness(94%) contrast(94%);
-				}
-			}
+                &::-webkit-slider-thumb {
+                    margin-top: rem-calc(-5);
+                    border-radius: 50%;
+                    width: rem-calc(15);
+                    height: rem-calc(15);
+                    filter: brightness(0) saturate(100%) invert(75%) sepia(47%)
+                        saturate(5920%) hue-rotate(199deg) brightness(94%)
+                        contrast(94%);
+                }
+            }
 
-			&:hover {
-				> button {
-					color: color.adjust($tertiary-color, $lightness: 15%);
-				}
+            &:hover {
+                > button {
+                    color: color.adjust($tertiary-color, $lightness: 15%);
+                }
 
-				> span {
-					opacity: 1;
-				}
+                > span {
+                    opacity: 1;
+                }
 
-				> input[type="range"] {
-					opacity: 0.825;
-				}
-			}
-		}
-	}
+                > input[type="range"] {
+                    opacity: 0.825;
+                }
+            }
+        }
+    }
 
-	.time {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: rem-calc(0 12);
-		margin: rem-calc(8 0);
+    .time {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: rem-calc(0 12);
+        margin: rem-calc(8 0);
 
-		/* stylelint-disable-next-line no-descending-specificity */
-		> span {
-			font-weight: 600;
-		}
+        /* stylelint-disable-next-line no-descending-specificity */
+        > span {
+            font-weight: 600;
+        }
 
-		> p {
-			font-size: rem-calc(12);
-			color: $white-color;
-			text-align: center;
-			margin: rem-calc(16 0);
-		}
+        > p {
+            font-size: rem-calc(12);
+            color: $white-color;
+            text-align: center;
+            margin: rem-calc(16 0);
+        }
 
-		&line {
-			max-width: 100%;
-			padding: rem-calc(0 8);
+        &line {
+            max-width: 100%;
+            padding: rem-calc(0 8);
 
-			/* stylelint-disable-next-line no-descending-specificity */
-			> input[type="range"] {
-				width: 100%;
-				height: rem-calc(5);
-				border-radius: $border-radius-xs;
-				appearance: none;
-				background: color.adjust($white-color, $lightness: -10%);
-				cursor: pointer;
+            /* stylelint-disable-next-line no-descending-specificity */
+            > input[type="range"] {
+                width: 100%;
+                height: rem-calc(5);
+                border-radius: $border-radius-xs;
+                appearance: none;
+                background: color.adjust($white-color, $lightness: -10%);
+                cursor: pointer;
 
-				&::-webkit-slider-runnable-track {
-					z-index: 1;
+                &::-webkit-slider-runnable-track {
+                    z-index: 1;
 
-					&:hover {
-						outline: $tertiary-color;
-					}
-				}
+                    &:hover {
+                        outline: $tertiary-color;
+                    }
+                }
 
-				&::-webkit-slider-thumb {
-					appearance: none;
-					width: rem-calc(24);
-					height: rem-calc(24);
-					background: color.adjust($white-color, $lightness: -5%);
-					outline: 1px solid rgba($lightgrey-color, 0.2);
-					border-radius: 50%;
-					z-index: 2;
+                &::-webkit-slider-thumb {
+                    appearance: none;
+                    width: rem-calc(24);
+                    height: rem-calc(24);
+                    background: color.adjust($white-color, $lightness: -5%);
+                    outline: 1px solid rgba($lightgrey-color, 0.2);
+                    border-radius: 50%;
+                    z-index: 2;
 
-					@include box-shadow;
+                    @include box-shadow;
 
-					&:hover {
-						background: color.adjust($tertiary-color, $lightness: 15%);
-					}
+                    &:hover {
+                        background: color.adjust(
+                            $tertiary-color,
+                            $lightness: 15%
+                        );
+                    }
 
-					&:active {
-						background: color.adjust($tertiary-color, $lightness: 5%);
-					}
-				}
-			}
-		}
-	}
+                    &:active {
+                        background: color.adjust(
+                            $tertiary-color,
+                            $lightness: 5%
+                        );
+                    }
+                }
+            }
+        }
+    }
 }

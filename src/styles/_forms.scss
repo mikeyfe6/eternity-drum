@@ -75,7 +75,7 @@
             width: 100%;
             border-radius: $border-radius-sm;
 
-            @include base-transition(outline-color);
+            @include smooth-trans(outline-color);
 
             &::placeholder {
                 max-width: 100%;
@@ -353,7 +353,7 @@
         button {
             margin-left: auto;
 
-            @include button-style(
+            @include button(
                 $white-color,
                 $primary-color,
                 $white-color,
