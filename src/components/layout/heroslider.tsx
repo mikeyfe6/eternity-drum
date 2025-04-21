@@ -33,9 +33,6 @@ const Hero: React.FC = () => {
                 pagination={{
                     clickable: true,
                 }}
-                scrollbar={{
-                    draggable: true,
-                }}
                 autoplay={{
                     delay: 5000,
                     disableOnInteraction: false,

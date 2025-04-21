@@ -75,6 +75,9 @@ const Footer = () => {
                         <small>Bezoekadres:</small>
                         <ul>
                             <li>
+                                <b>SEDA</b>
+                            </li>
+                            <li>
                                 <a
                                     href="https://maps.app.goo.gl/MGox9UBh15DWsfLg8"
                                     rel="noopener noreferrer"
@@ -87,6 +90,9 @@ const Footer = () => {
                         </ul>
                         <small>Postadres:</small>
                         <ul>
+                            <li>
+                                <b>Bijlmer Parktheater</b>
+                            </li>
                             <li>
                                 <a
                                     href="https://maps.app.goo.gl/exZZFm9LkUFDrsEH7"
@@ -145,7 +151,7 @@ const Footer = () => {
                                     rel="noopener noreferrer"
                                     target="_blank"
                                 >
-                                    <b>{mobile}</b> (BPT)
+                                    <b>{mobile}</b> (Mobiel)
                                 </a>
                             </li>
                         </ul>

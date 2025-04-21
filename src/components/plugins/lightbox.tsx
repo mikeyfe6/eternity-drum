@@ -45,7 +45,7 @@ const LightBox = ({
                             &times;
                         </span>
                         {imageData && (
-                            <div onClick={openModal}>
+                            <div>
                                 <GatsbyImage
                                     image={imageData}
                                     alt={alt}

@@ -36,9 +36,7 @@ const BijlmerDrumFestival: React.FC<PageProps> = () => {
                                         icon={"up-right-from-square"}
                                     />
                                 </em>
-                                <span>
-                                    - Al het nieuws uit Amsterdam Zuidoost
-                                </span>
+                                <span>- ZUIDOOST&Meer</span>
                             </a>
                         </li>
                         <li>
