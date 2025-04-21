@@ -28,6 +28,14 @@
         &:hover {
             opacity: 1;
         }
+
+        #hero & {
+            display: none;
+
+            @include mobile {
+                display: flex;
+            }
+        }
     }
 
     &-scrollbar {

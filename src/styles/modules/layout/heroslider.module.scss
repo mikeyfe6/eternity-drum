@@ -74,15 +74,6 @@
         }
     }
 
-    &-button-prev,
-    &-button-next {
-        display: none;
-
-        @include mobile {
-            display: flex;
-        }
-    }
-
     &-slide {
         overflow: hidden;
         border-radius: 0;
