@@ -10,189 +10,191 @@
 // LAYOUT
 
 @mixin ep-container($size: 1800) {
-	max-width: rem-calc($size);
-	margin: 0 auto;
-	width: 100%;
+    max-width: rem-calc($size);
+    margin: 0 auto;
+    width: 100%;
 }
 
 @mixin ep-layout($type: "normal", $align: flex-start) {
-	display: flex;
-	justify-content: center;
-	gap: rem-calc(37.5);
-	align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: rem-calc(37.5);
+    align-items: center;
 
-	@if $type == "normal" {
-		flex-direction: column;
-	} @else if $type == "reverse" {
-		flex-direction: column-reverse;
-	}
+    @if $type == "normal" {
+        flex-direction: column;
+    } @else if $type == "reverse" {
+        flex-direction: column-reverse;
+    }
 
-	@include phablet {
-		gap: rem-calc(50);
-	}
+    @include phablet {
+        gap: rem-calc(50);
+    }
 
-	@include tablet {
-		align-items: $align;
-		flex-direction: row;
-	}
+    @include tablet {
+        align-items: $align;
+        flex-direction: row;
+    }
 
-	@include desktop {
-		gap: rem-calc(75);
-	}
+    @include desktop {
+        gap: rem-calc(75);
+    }
 
-	> * {
-		@include tablet {
-			flex: 1;
-		}
-	}
+    > * {
+        @include tablet {
+            flex: 1;
+        }
+    }
 }
 
 // SPACING
 
 @mixin full-width($position: relative) {
-	width: 100vw;
-	position: $position;
-	left: 50%;
-	right: 50%;
-	margin-left: -50vw;
-	margin-right: -50vw;
+    width: 100vw;
+    position: $position;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
 @mixin full-width-reset($type: "width") {
-	position: static;
-	margin-left: unset;
-	margin-right: unset;
+    position: static;
+    margin-left: unset;
+    margin-right: unset;
 
-	@if $type == "width" {
-		width: 100%;
-	} @else if $type == "max-width" {
-		max-width: 100%;
-		width: fit-content;
-	}
+    @if $type == "width" {
+        width: 100%;
+    } @else if $type == "max-width" {
+        max-width: 100%;
+        width: fit-content;
+    }
 }
 
 @mixin resp-image($width, $maxWidth, $height, $objectFit) {
-	width: $width;
-	max-width: $maxWidth;
-	height: $height;
-	object-fit: $objectFit;
+    width: $width;
+    max-width: $maxWidth;
+    height: $height;
+    object-fit: $objectFit;
 }
 
 @mixin space($type: "top") {
-	@if $type == "top" {
-		margin-top: rem-calc(64);
+    @if $type == "top" {
+        margin-top: rem-calc(64);
 
-		@include mobile {
-			margin-top: rem-calc(96);
-		}
-	} @else if $type == "bottom" {
-		margin-bottom: rem-calc(64);
+        @include mobile {
+            margin-top: rem-calc(96);
+        }
+    } @else if $type == "bottom" {
+        margin-bottom: rem-calc(64);
 
-		@include mobile {
-			margin-bottom: rem-calc(96);
-		}
-	}
+        @include mobile {
+            margin-bottom: rem-calc(96);
+        }
+    }
 }
 
 // COMPONENTS
 
 @mixin box($type: "spaced") {
-	height: fit-content;
-	width: 100%;
-	border: 2px solid $primary-color;
+    height: fit-content;
+    width: 100%;
+    border: 2px solid $primary-color;
 
-	@if $type == "spaced" {
-		padding: rem-calc(20 18);
+    @if $type == "spaced" {
+        padding: rem-calc(20 18);
 
-		@include mobile {
-			padding: rem-calc(36 32);
-		}
-	} @else if $type == "side" {
-		padding: rem-calc(16);
+        @include mobile {
+            padding: rem-calc(36 32);
+        }
+    } @else if $type == "side" {
+        padding: rem-calc(16);
 
-		@include mobile {
-			padding: rem-calc(24);
-		}
-	}
+        @include mobile {
+            padding: rem-calc(24);
+        }
+    }
 }
 
 @mixin button-style($bgColor, $color, $hoverBgcolor, $hoverColor) {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: $bgColor;
-	color: $color;
-	border-radius: $border-radius-sm;
-	font-weight: 600;
-	padding: rem-calc(8 16);
-	border: none;
-	text-transform: uppercase;
-	min-height: rem-calc(44);
-	box-shadow: 0 4px 6px rgba(0 0 0 / 10%);
-	text-wrap: nowrap;
-	font-size: rem-calc(18);
-	cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $bgColor;
+    color: $color;
+    border-radius: $border-radius-sm;
+    font-weight: 600;
+    padding: rem-calc(8 16);
+    border: none;
+    text-transform: uppercase;
+    min-height: rem-calc(44);
+    box-shadow: 0 4px 6px rgba(0 0 0 / 10%);
+    text-wrap: nowrap;
+    font-size: rem-calc(16);
+    letter-spacing: 1px;
+    cursor: pointer;
 
-	@include box-shadow;
-	@include base-transition(all);
+    @include box-shadow;
+    @include base-transition(all);
 
-	@include mobile {
-		padding: rem-calc(12 20);
-	}
+    @include mobile {
+        padding: rem-calc(10 20);
+    }
 
-	&:hover {
-		background-color: $hoverBgcolor;
-		color: $hoverColor;
-	}
+    &:hover {
+        background-color: $hoverBgcolor;
+        color: $hoverColor;
+        outline: 3px solid $lightgrey-color;
+    }
 }
 
 // TEXT
 
 @mixin clamp($lines: 2) {
-	display: -webkit-box;
-	-webkit-line-clamp: $lines;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 @mixin ellipsis {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 // UTILITIES
 
 @mixin box-shadow {
-	box-shadow: rgba(0 0 0 / 12%) 0 1px 3px, rgba(0 0 0 / 24%) 0 1px 2px;
+    box-shadow: rgba(0 0 0 / 12%) 0 1px 3px, rgba(0 0 0 / 24%) 0 1px 2px;
 }
 
 @mixin box-bottom-shadow {
-	box-shadow: 0 0 10px 0 rgba(0 0 0 / 20%);
+    box-shadow: 0 0 10px 0 rgba(0 0 0 / 20%);
 }
 
 @mixin base-transition($element, $time: 0.1s) {
-	transition: $element $time ease-in-out;
+    transition: $element $time ease-in-out;
 }
 
 @mixin page-link {
-	color: $tertiary-color;
-	text-decoration: none;
-	font-weight: 600;
-	transition: color 0.1s ease-in-out;
+    color: $tertiary-color;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.1s ease-in-out;
 
-	&:hover {
-		color: color.adjust($tertiary-color, $lightness: -10%);
-	}
+    &:hover {
+        color: color.adjust($tertiary-color, $lightness: -10%);
+    }
 }
 
 @mixin special-labels {
-	label {
-		opacity: 1;
-		top: rem-calc(-25);
+    label {
+        opacity: 1;
+        top: rem-calc(-25);
 
-		&.visited {
-			color: color.adjust($tertiary-color, $lightness: 10%);
-		}
-	}
+        &.visited {
+            color: color.adjust($tertiary-color, $lightness: 10%);
+        }
+    }
 }

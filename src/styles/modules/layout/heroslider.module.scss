@@ -49,6 +49,7 @@
     &-wrapper {
         border-radius: 0;
 
+        @include box-bottom-shadow;
         @include ep-container;
 
         @include mobile {
@@ -71,6 +72,15 @@
             @include tablet {
                 aspect-ratio: 16 / 4.75;
             }
+        }
+    }
+
+    &-button-prev,
+    &-button-next {
+        display: none;
+
+        @include mobile {
+            display: flex;
         }
     }
 

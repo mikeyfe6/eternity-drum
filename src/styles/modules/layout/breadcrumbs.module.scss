@@ -3,132 +3,135 @@
 @use "../../customs" as *;
 
 .breadcrumbs {
-	$breadcrumbs: &;
+    $breadcrumbs: &;
 
-	#post-template & {
-		margin-top: rem-calc(32);
-	}
+    #post-template & {
+        margin-top: rem-calc(32);
+    }
 
-	@include phablet {
-		margin: unset;
-	}
+    @include phablet {
+        margin: unset;
+    }
 
-	&-list {
-		display: flex;
-		align-items: center;
-		white-space: nowrap;
-		border-radius: $border-radius-sm;
-		padding: rem-calc(8);
-		gap: rem-calc(12);
+    &-list {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        border-radius: $border-radius-sm;
+        padding: rem-calc(8);
+        gap: rem-calc(12);
 
-		@include mobile {
-			gap: rem-calc(16);
-		}
+        @include mobile {
+            gap: rem-calc(16);
+        }
 
-		@include phablet {
-			padding: rem-calc(10 16);
-			background: linear-gradient(
-				45deg,
-				$primary-color,
-				color.scale($primary-color, $lightness: 5%)
-			);
+        @include phablet {
+            padding: rem-calc(8 16);
+            background: linear-gradient(
+                45deg,
+                $primary-color,
+                color.scale($primary-color, $lightness: 5%)
+            );
 
-			@include box-shadow;
-		}
+            @include box-shadow;
+        }
 
-		#{$breadcrumbs}-item {
-			display: flex;
-			align-items: center;
-			gap: rem-calc(12);
+        #{$breadcrumbs}-item {
+            display: flex;
+            align-items: center;
+            gap: rem-calc(12);
 
-			@include mobile {
-				gap: rem-calc(16);
-			}
+            @include mobile {
+                gap: rem-calc(16);
+            }
 
-			&:not(#{$breadcrumbs}-item-mobile) {
-				display: none;
+            &:not(#{$breadcrumbs}-item-mobile) {
+                display: none;
 
-				@include mobile {
-					display: inherit;
-				}
-			}
+                @include mobile {
+                    display: inherit;
+                }
+            }
 
-			> a {
-				font-weight: 600;
-				display: flex;
-				align-items: center;
-				gap: rem-calc(12);
+            > a {
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: rem-calc(12);
 
-				@include fluid-typing(14, 16);
+                @include fluid-typing(14, 16);
 
-				@include mobile {
-					gap: rem-calc(16);
-				}
+                @include mobile {
+                    gap: rem-calc(16);
+                }
 
-				@include phablet {
-					color: $white-color;
-				}
+                @include phablet {
+                    color: $white-color;
+                }
 
-				&:hover {
-					color: color.adjust($tertiary-color, $lightness: 15%);
-				}
+                &:hover {
+                    color: color.adjust($tertiary-color, $lightness: 15%);
+                }
 
-				#{$breadcrumbs}-home {
-					display: block;
+                #{$breadcrumbs}-home {
+                    display: block;
 
-					@include mobile {
-						display: none;
-					}
+                    @include mobile {
+                        display: none;
+                    }
 
-					&-icon {
-						color: $primary-color;
+                    &-icon {
+                        color: $primary-color;
 
-						@include fluid-typing(16, 20);
+                        @include fluid-typing(16, 20);
 
-						@include phablet {
-							color: $white-color;
-						}
+                        @include phablet {
+                            color: $white-color;
+                        }
 
-						&:hover {
-							color: color.adjust($tertiary-color, $lightness: 15%);
-						}
-					}
-				}
-			}
+                        &:hover {
+                            color: color.adjust(
+                                $tertiary-color,
+                                $lightness: 15%
+                            );
+                        }
+                    }
+                }
+            }
 
-			#{$breadcrumbs}-seperator {
-				padding-top: rem-calc(2);
-				display: none;
+            #{$breadcrumbs}-seperator {
+                padding-top: rem-calc(2);
+                display: none;
 
-				@include fluid-typing(16, 18);
+                @include fluid-typing(16, 18);
 
-				@include mobile {
-					display: block;
-				}
+                @include mobile {
+                    display: block;
+                }
 
-				@include phablet {
-					color: $white-color;
-				}
+                @include phablet {
+                    color: $white-color;
+                }
 
-				&-mobile {
-					display: block;
+                &-mobile {
+                    display: block;
 
-					@include mobile {
-						display: none;
-					}
-				}
-			}
+                    @include mobile {
+                        display: none;
+                    }
+                }
+            }
 
-			#{$breadcrumbs}-page {
-				color: $grey-color;
-				font-weight: 600;
+            #{$breadcrumbs}-page {
+                color: $grey-color;
+                font-weight: 600;
 
-				@include fluid-typing(14, 16);
+                @include fluid-typing(14, 16);
 
-				@include phablet {
-					color: $secondary-color;
-				}
-			}
-		}
-	}
+                @include phablet {
+                    color: $secondary-color;
+                }
+            }
+        }
+    }
 }

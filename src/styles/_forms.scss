@@ -3,396 +3,396 @@
 @use "./customs" as *;
 
 .form {
-	$form: &;
-
-	display: flex;
-	flex-direction: column;
-	height: fit-content;
-
-	> span {
-		font-size: rem-calc(18);
-		font-weight: 600;
-		margin-top: rem-calc(24);
-	}
-
-	> fieldset {
-		display: flex;
-		flex-direction: column;
-
-		> legend {
-			font-weight: 600;
-			margin-bottom: rem-calc(40);
-
-			@include fluid-typing(19, 20);
-		}
-
-		label {
-			opacity: 0;
-			position: absolute;
-			top: rem-calc(10);
-			left: 0;
-			font-weight: normal;
-			letter-spacing: 0.5px;
-			transition: all 0.1s;
-			color: $grey-color;
-			max-width: 90%;
-
-			@include ellipsis;
-
-			@include fluid-typing(12, 13);
-
-			&.visited {
-				opacity: 1;
-				top: rem-calc(-25);
-				left: 0;
-				transition: all 0.1s;
-				color: color.adjust($tertiary-color, $lightness: 10%);
-			}
-		}
-
-		textarea {
-			min-height: rem-calc(120);
-		}
-
-		select {
-			color: $grey-color;
-			overflow: hidden;
-
-			&.approved {
-				color: $primary-color;
-			}
-		}
-
-		input,
-		textarea,
-		select {
-			height: rem-calc(44);
-			opacity: 0.99;
-			line-height: 1.5;
-			background: linear-gradient(45deg, #eaecf7, $white-color);
-			outline: 2px solid $lightgrey-color;
-			padding: rem-calc(8 10 10);
-			width: 100%;
-			border-radius: $border-radius-sm;
-
-			@include base-transition(outline-color);
-
-			&::placeholder {
-				max-width: 100%;
-				color: $grey-color;
-
-				@include ellipsis;
-			}
-
-			option {
-				@include ellipsis;
-			}
-
-			&:not(select) {
-				color: $primary-color;
-			}
-
-			&.error {
-				outline: 2px solid $red-color;
-			}
-
-			&.approved,
-			&.visited {
-				outline: 2px solid $green-color;
-			}
-
-			&.visited {
-				color: $primary-color;
-			}
-
-			&:focus {
-				outline-color: $tertiary-color;
-
-				&::placeholder {
-					opacity: 0;
-				}
-			}
-		}
-
-		&:nth-of-type(2) {
-			margin-top: rem-calc(32);
-		}
-	}
-
-	&-column {
-		display: flex;
-		gap: rem-calc(35 16);
-
-		&:not(:last-child) {
-			margin-bottom: rem-calc(36);
-		}
-
-		&.collapse-one {
-			flex-wrap: wrap;
-		}
-
-		&.collapse-two {
-			flex-wrap: wrap;
-
-			@include mobile {
-				flex-wrap: nowrap;
-			}
-		}
-
-		&.collapse-three {
-			// empty
-		}
-
-		&.collapse-four {
-			flex-wrap: wrap;
-
-			@include mobile {
-				flex-wrap: nowrap;
-			}
-		}
-
-		&.collapse-five {
-			flex-direction: column;
-
-			@include compact {
-				flex-direction: row;
-			}
-		}
-
-		&.collapse-six {
-			flex-direction: column;
-
-			@include mobile {
-				flex-direction: row;
-			}
-		}
-
-		#{$form}-group {
-			position: relative;
-
-			// -------------------------- column 1
-			&.first-name {
-				flex: 50%;
-
-				&-parent {
-					flex: 50%;
-				}
-			}
-
-			&.last-name {
-				flex: 50%;
-
-				&-parent {
-					flex: 50%;
-				}
-			}
-
-			// -------------------------- column 2
-			&.street-name {
-				flex: 100%;
-
-				@include mobile {
-					flex: 1;
-				}
-			}
-
-			&.house-number {
-				max-width: rem-calc(100);
-			}
-
-			&.zip-code {
-				max-width: rem-calc(90);
-			}
-
-			// -------------------------- column 3
-			&.city {
-				flex: 50%;
-			}
-
-			&.province {
-				flex: 50%;
-			}
-
-			// -------------------------- column 4
-			&.email {
-				flex: 75%;
-
-				&.booking {
-					flex: 67.5%;
-				}
-
-				&-parent {
-					flex: 1;
-
-					@include mobile {
-						flex: 50%;
-					}
-				}
-			}
-
-			&.gender {
-				min-width: rem-calc(112.5);
-			}
-
-			// -------------------------- column 5
-			&.phone {
-				flex: 100%;
-
-				&.booking {
-					flex: 32.5%;
-				}
-
-				&-parent {
-					flex: 1;
-
-					@include mobile {
-						min-width: rem-calc(175);
-					}
-				}
-			}
-
-			&.date-of-birth {
-				@include special-labels;
-			}
-
-			// -------------------------- column 6
-			&.discover,
-			&.topic {
-				flex: 100%;
-			}
-
-			// -------------------------- column 7 (optional)
-			&.other {
-				flex: 100%;
-			}
-
-			// -------------------------- column 7
-			&.comments,
-			&.message {
-				flex: 100%;
-
-				label {
-					top: rem-calc(17.5);
-
-					&.visited {
-						top: rem-calc(-25);
-					}
-				}
-			}
-
-			#{$form}-dates {
-				display: flex;
-				justify-content: flex-start;
-				gap: rem-calc(12);
-
-				@include mobile {
-					justify-content: space-between;
-				}
-
-				#day-of-birth,
-				#month-of-birth,
-				#year-of-birth {
-					padding: rem-calc(10 8);
-					border-radius: $border-radius-sm;
-					text-align: center;
-					text-align-last: center;
-					width: fit-content;
-				}
-
-				#day-of-birth {
-					min-width: rem-calc(45);
-				}
-
-				#month-of-birth {
-					min-width: rem-calc(100);
-				}
-
-				#year-of-birth {
-					min-width: rem-calc(60);
-				}
-			}
-		}
-
-		#{$form}-select {
-			position: relative;
-
-			> select {
-				width: 100%;
-				padding: rem-calc(10 32 12 12);
-				border-radius: $border-radius-sm;
-				appearance: none;
-
-				option:disabled {
-					outline-color: $lightgrey-color;
-				}
-			}
-
-			> .arrow {
-				position: absolute;
-				top: 50%;
-				right: rem-calc(10);
-				transform: translateY(-50%);
-				width: 0;
-				height: 0;
-				border-left: 6px solid transparent;
-				border-right: 6px solid transparent;
-				border-top: 6px solid $tertiary-color;
-
-				@include mobile {
-					border-left: 7.5px solid transparent;
-					border-right: 7.5px solid transparent;
-					border-top: 7.5px solid $tertiary-color;
-				}
-			}
-		}
-	}
-
-	&-submit {
-		@extend %form-submit;
-
-		button {
-			margin-left: auto;
-
-			@include button-style(
-				$white-color,
-				$primary-color,
-				$white-color,
-				$tertiary-color
-			);
-
-			&:disabled {
-				opacity: 0.5;
-				cursor: not-allowed;
-			}
-		}
-
-		ul {
-			display: flex;
-			flex-direction: column;
-			gap: rem-calc(12);
-			margin-top: rem-calc(24);
-			padding: rem-calc(24 4);
-			border-top: solid 2px color.adjust($dark-grey, $alpha: -0.9);
-			border-bottom: solid 2px color.adjust($dark-grey, $alpha: -0.9);
-
-			> li {
-				background-color: $red-color;
-				border-radius: $border-radius-xs;
-				padding: rem-calc(4 12);
-				font-size: rem-calc(12);
-				width: fit-content;
-				outline: 1px rgba(255 255 255 / 75%) solid;
-			}
-		}
-
-		&-error {
-			text-decoration: underline;
-			text-decoration-color: $red-color;
-		}
-
-		&-approved {
-			text-decoration: underline;
-			text-decoration-color: $green-color;
-		}
-	}
+    $form: &;
+
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+
+    > span {
+        font-size: rem-calc(18);
+        font-weight: 600;
+        margin-top: rem-calc(24);
+    }
+
+    > fieldset {
+        display: flex;
+        flex-direction: column;
+
+        > legend {
+            font-weight: 600;
+            margin-bottom: rem-calc(40);
+
+            @include fluid-typing(19, 20);
+        }
+
+        label {
+            opacity: 0;
+            position: absolute;
+            top: rem-calc(10);
+            left: 0;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+            transition: all 0.1s;
+            color: $grey-color;
+            max-width: 90%;
+
+            @include ellipsis;
+
+            @include fluid-typing(12, 13);
+
+            &.visited {
+                opacity: 1;
+                top: rem-calc(-25);
+                left: 0;
+                transition: all 0.1s;
+                color: color.adjust($tertiary-color, $lightness: 10%);
+            }
+        }
+
+        textarea {
+            min-height: rem-calc(120);
+        }
+
+        select {
+            color: $grey-color;
+            overflow: hidden;
+
+            &.approved {
+                color: $primary-color;
+            }
+        }
+
+        input,
+        textarea,
+        select {
+            height: rem-calc(44);
+            opacity: 0.99;
+            line-height: 1.5;
+            background: linear-gradient(45deg, #eaecf7, $white-color);
+            outline: 2px solid $lightgrey-color;
+            padding: rem-calc(8 10 10);
+            width: 100%;
+            border-radius: $border-radius-sm;
+
+            @include base-transition(outline-color);
+
+            &::placeholder {
+                max-width: 100%;
+                color: $grey-color;
+
+                @include ellipsis;
+            }
+
+            option {
+                @include ellipsis;
+            }
+
+            &:not(select) {
+                color: $primary-color;
+            }
+
+            &.error {
+                outline: 2px solid $red-color;
+            }
+
+            &.approved,
+            &.visited {
+                outline: 2px solid $green-color;
+            }
+
+            &.visited {
+                color: $primary-color;
+            }
+
+            &:focus {
+                outline-color: $tertiary-color;
+
+                &::placeholder {
+                    opacity: 0;
+                }
+            }
+        }
+
+        &:nth-of-type(2) {
+            margin-top: rem-calc(32);
+        }
+    }
+
+    &-column {
+        display: flex;
+        gap: rem-calc(35 16);
+
+        &:not(:last-child) {
+            margin-bottom: rem-calc(36);
+        }
+
+        &.collapse-one {
+            flex-wrap: wrap;
+        }
+
+        &.collapse-two {
+            flex-wrap: wrap;
+
+            @include mobile {
+                flex-wrap: nowrap;
+            }
+        }
+
+        &.collapse-three {
+            // empty
+        }
+
+        &.collapse-four {
+            flex-wrap: wrap;
+
+            @include mobile {
+                flex-wrap: nowrap;
+            }
+        }
+
+        &.collapse-five {
+            flex-direction: column;
+
+            @include compact {
+                flex-direction: row;
+            }
+        }
+
+        &.collapse-six {
+            flex-direction: column;
+
+            @include mobile {
+                flex-direction: row;
+            }
+        }
+
+        #{$form}-group {
+            position: relative;
+
+            // -------------------------- column 1
+            &.first-name {
+                flex: 50%;
+
+                &-parent {
+                    flex: 50%;
+                }
+            }
+
+            &.last-name {
+                flex: 50%;
+
+                &-parent {
+                    flex: 50%;
+                }
+            }
+
+            // -------------------------- column 2
+            &.street-name {
+                flex: 100%;
+
+                @include mobile {
+                    flex: 1;
+                }
+            }
+
+            &.house-number {
+                max-width: rem-calc(100);
+            }
+
+            &.zip-code {
+                max-width: rem-calc(90);
+            }
+
+            // -------------------------- column 3
+            &.city {
+                flex: 50%;
+            }
+
+            &.province {
+                flex: 50%;
+            }
+
+            // -------------------------- column 4
+            &.email {
+                flex: 75%;
+
+                &.booking {
+                    flex: 67.5%;
+                }
+
+                &-parent {
+                    flex: 1;
+
+                    @include mobile {
+                        flex: 50%;
+                    }
+                }
+            }
+
+            &.gender {
+                min-width: rem-calc(112.5);
+            }
+
+            // -------------------------- column 5
+            &.phone {
+                flex: 100%;
+
+                &.booking {
+                    flex: 32.5%;
+                }
+
+                &-parent {
+                    flex: 1;
+
+                    @include mobile {
+                        min-width: rem-calc(175);
+                    }
+                }
+            }
+
+            &.date-of-birth {
+                @include special-labels;
+            }
+
+            // -------------------------- column 6
+            &.discover,
+            &.topic {
+                flex: 100%;
+            }
+
+            // -------------------------- column 7 (optional)
+            &.other {
+                flex: 100%;
+            }
+
+            // -------------------------- column 7
+            &.comments,
+            &.message {
+                flex: 100%;
+
+                label {
+                    top: rem-calc(17.5);
+
+                    &.visited {
+                        top: rem-calc(-25);
+                    }
+                }
+            }
+
+            #{$form}-dates {
+                display: flex;
+                justify-content: flex-start;
+                gap: rem-calc(12);
+
+                @include mobile {
+                    justify-content: space-between;
+                }
+
+                #day-of-birth,
+                #month-of-birth,
+                #year-of-birth {
+                    padding: rem-calc(10 8);
+                    border-radius: $border-radius-sm;
+                    text-align: center;
+                    text-align-last: center;
+                    width: fit-content;
+                }
+
+                #day-of-birth {
+                    min-width: rem-calc(45);
+                }
+
+                #month-of-birth {
+                    min-width: rem-calc(100);
+                }
+
+                #year-of-birth {
+                    min-width: rem-calc(60);
+                }
+            }
+        }
+
+        #{$form}-select {
+            position: relative;
+
+            > select {
+                width: 100%;
+                padding: rem-calc(10 32 12 12);
+                border-radius: $border-radius-sm;
+                appearance: none;
+
+                option:disabled {
+                    outline-color: $lightgrey-color;
+                }
+            }
+
+            > .arrow {
+                position: absolute;
+                top: 50%;
+                right: rem-calc(10);
+                transform: translateY(-50%);
+                width: 0;
+                height: 0;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-top: 6px solid $tertiary-color;
+
+                @include mobile {
+                    border-left: 7.5px solid transparent;
+                    border-right: 7.5px solid transparent;
+                    border-top: 7.5px solid $tertiary-color;
+                }
+            }
+        }
+    }
+
+    &-submit {
+        @extend %form-submit;
+
+        button {
+            margin-left: auto;
+
+            @include button-style(
+                $white-color,
+                $primary-color,
+                $white-color,
+                $tertiary-color
+            );
+
+            &:disabled {
+                opacity: 0.5;
+                pointer-events: none;
+            }
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: rem-calc(12);
+            margin-top: rem-calc(24);
+            padding: rem-calc(24 4);
+            border-top: solid 2px color.adjust($dark-grey, $alpha: -0.9);
+            border-bottom: solid 2px color.adjust($dark-grey, $alpha: -0.9);
+
+            > li {
+                background-color: $red-color;
+                border-radius: $border-radius-xs;
+                padding: rem-calc(4 12);
+                font-size: rem-calc(12);
+                width: fit-content;
+                outline: 1px rgba(255 255 255 / 75%) solid;
+            }
+        }
+
+        &-error {
+            text-decoration: underline;
+            text-decoration-color: $red-color;
+        }
+
+        &-approved {
+            text-decoration: underline;
+            text-decoration-color: $green-color;
+        }
+    }
 }

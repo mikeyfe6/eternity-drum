@@ -1,85 +1,90 @@
 @use "./customs" as *;
 
 .swiper {
-	&-button-prev,
-	&-button-next {
-		color: var(--swiper-theme-color);
-		transform: scale(0.75) translateY(-50%);
-		background-color: rgba($smoke-color, 0.125);
-		border-radius: $border-radius-md;
-		opacity: 0.5;
-		margin-top: 0 !important;
-		width: rem-calc(67.5) !important;
-		height: rem-calc(67.5) !important;
+    &-button-prev,
+    &-button-next {
+        color: var(--swiper-theme-color);
+        transform: scale(0.75) translateY(-50%);
+        background-color: rgba($smoke-color, 0.125);
+        border-radius: $border-radius-md;
+        opacity: 0.5;
+        margin-top: 0 !important;
+        width: rem-calc(67.5) !important;
+        height: rem-calc(67.5) !important;
 
-		@include mobile {
-			width: rem-calc(75) !important;
-			height: rem-calc(75) !important;
-		}
+        @include mobile {
+            width: rem-calc(75) !important;
+            height: rem-calc(75) !important;
+        }
 
-		&::after {
-			transform: scale(0.75);
+        &::after {
+            transform: scale(0.75);
 
-			@include mobile {
-				transform: scale(1);
-			}
-		}
+            @include mobile {
+                transform: scale(1);
+            }
+        }
 
-		&:hover {
-			opacity: 1;
-		}
-	}
+        &:hover {
+            opacity: 1;
+        }
+    }
 
-	&-scrollbar {
-		&-drag {
-			background-color: var(--swiper-theme-color);
-		}
-	}
+    &-scrollbar {
+        &-drag {
+            background-color: var(--swiper-theme-color);
+        }
+    }
 
-	&-pagination {
-		[data-main-hero] & {
-			bottom: var(--swiper-pagination-bottom, rem-calc(18)) !important;
-		}
+    &-pagination {
+        [data-main-hero] & {
+            bottom: var(--swiper-pagination-bottom, rem-calc(18)) !important;
+        }
 
-		[data-main-gallery] & {
-			bottom: var(--swiper-pagination-bottom, rem-calc(18)) !important;
+        [data-main-gallery] & {
+            bottom: var(--swiper-pagination-bottom, rem-calc(18)) !important;
 
-			@include mobile {
-				bottom: var(--swiper-pagination-bottom, rem-calc(24)) !important;
-			}
-		}
+            @include mobile {
+                bottom: var(
+                    --swiper-pagination-bottom,
+                    rem-calc(24)
+                ) !important;
+            }
+        }
 
-		&-bullet {
-			width: var(
-				--swiper-pagination-bullet-width,
-				var(--swiper-pagination-bullet-size, rem-calc(7))
-			) !important;
-			height: var(
-				--swiper-pagination-bullet-height,
-				var(--swiper-pagination-bullet-size, rem-calc(7))
-			) !important;
+        &-bullet {
+            width: var(
+                --swiper-pagination-bullet-width,
+                var(--swiper-pagination-bullet-size, rem-calc(7))
+            ) !important;
+            height: var(
+                --swiper-pagination-bullet-height,
+                var(--swiper-pagination-bullet-size, rem-calc(7))
+            ) !important;
 
-			@include mobile {
-				width: var(
-					--swiper-pagination-bullet-width,
-					var(--swiper-pagination-bullet-size, rem-calc(10))
-				) !important;
-				height: var(
-					--swiper-pagination-bullet-height,
-					var(--swiper-pagination-bullet-size, rem-calc(10))
-				) !important;
-			}
+            @include mobile {
+                width: var(
+                    --swiper-pagination-bullet-width,
+                    var(--swiper-pagination-bullet-size, rem-calc(10))
+                ) !important;
+                height: var(
+                    --swiper-pagination-bullet-height,
+                    var(--swiper-pagination-bullet-size, rem-calc(10))
+                ) !important;
+            }
 
-			&-active {
-				background-color: var(
-					--swiper-pagination-color,
-					var(--swiper-theme-color)
-				);
-			}
+            &-active {
+                background-color: var(
+                    --swiper-pagination-color,
+                    var(--swiper-theme-color)
+                );
+            }
 
-			&:hover {
-				background-color: var(--swiper-pagination-bullet-inactive-color-hover);
-			}
-		}
-	}
+            &:hover {
+                background-color: var(
+                    --swiper-pagination-bullet-inactive-color-hover
+                );
+            }
+        }
+    }
 }
