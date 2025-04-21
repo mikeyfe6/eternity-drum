@@ -49,7 +49,6 @@
     &-wrapper {
         border-radius: 0;
 
-        @include box-bottom-shadow;
         @include ep-container;
 
         @include mobile {
