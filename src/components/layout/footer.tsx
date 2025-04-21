@@ -179,7 +179,7 @@ const Footer = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/over-ons/nieuws/bijlmer-drumfestival-2024/">
+                                <Link to="/over-ons/nieuws/bijlmer-drum-festival-2024/">
                                     Bijlmer Drum Festival 2024
                                 </Link>
                             </li>
