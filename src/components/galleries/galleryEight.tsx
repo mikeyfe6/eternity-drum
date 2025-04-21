@@ -10,147 +10,164 @@ import { Navigation, Pagination, Scrollbar, Thumbs } from "swiper/modules";
 import * as styles from "../../styles/modules/components/gallery.module.scss";
 
 type ImageType = {
-	title: string;
-	imageData: any;
+    title: string;
+    imageData: any;
 };
 
 type ThumbsSwiperType = {
-	params: SwiperOptions;
-	originalParams: SwiperOptions;
-	el: HTMLElement | null;
-	wrapperEl: HTMLElement | null;
+    params: SwiperOptions;
+    originalParams: SwiperOptions;
+    el: HTMLElement | null;
+    wrapperEl: HTMLElement | null;
 };
 
 const GalleryEight: React.FC = () => {
-	const [images, setImages] = useState<ImageType[]>([]);
-	const [imageCount, setImageCount] = useState(0);
-	const [thumbsSwiper, setThumbsSwiper] = useState<ThumbsSwiperType | null>(
-		null
-	);
+    const [images, setImages] = useState<ImageType[]>([]);
+    const [imageCount, setImageCount] = useState(0);
+    const [thumbsSwiper, setThumbsSwiper] = useState<ThumbsSwiperType | null>(
+        null
+    );
 
-	const [lightboxImage, setLightboxImage] = useState<any>(null);
+    const [lightboxImage, setLightboxImage] = useState<any>(null);
 
-	const data = useStaticQuery(graphql`
-		query {
-			allS3ImageFile(filter: { folderName: { regex: "/beatit-01/" } }) {
-				edges {
-					node {
-						id
-						title
-						file {
-							childImageSharp {
-								gatsbyImageData
-							}
-						}
-					}
-				}
-			}
-		}
-	`);
+    const data = useStaticQuery(graphql`
+        query {
+            allS3ImageFile(filter: { folderName: { regex: "/beatit-01/" } }) {
+                edges {
+                    node {
+                        id
+                        title
+                        file {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `);
 
-	useEffect(() => {
-		if (data?.allS3ImageFile?.edges) {
-			const fetchedImages = data.allS3ImageFile.edges.map((edge: any) => ({
-				title: edge.node.title || "",
-				imageData: getImage(edge.node.file.childImageSharp),
-			}));
-			setImages(fetchedImages);
-			setImageCount(fetchedImages.length);
-		} else {
-			console.error("No images found or query failed.");
-		}
-	}, [data]);
+    useEffect(() => {
+        if (data?.allS3ImageFile?.edges) {
+            const fetchedImages = data.allS3ImageFile.edges.map(
+                (edge: any) => ({
+                    title: edge.node.title || "",
+                    imageData: getImage(edge.node.file.childImageSharp),
+                })
+            );
+            setImages(fetchedImages);
+            setImageCount(fetchedImages.length);
+        } else {
+            console.error("No images found or query failed.");
+        }
+    }, [data]);
 
-	const openLightbox = (imageData: any) => {
-		setLightboxImage(imageData);
-	};
+    const openLightbox = (imageData: any) => {
+        setLightboxImage(imageData);
+    };
 
-	const closeLightbox = () => {
-		setLightboxImage(null);
-	};
+    const closeLightbox = () => {
+        setLightboxImage(null);
+    };
 
-	const shouldLoop = imageCount > 2;
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape" || event.key === "Enter") {
+                closeLightbox();
+            }
+        };
 
-	return (
-		<div className={styles.swiperContainer} data-main-gallery>
-			<h3>
-				Beat It <span>(collab. w/ Ebony Steelband)</span>
-			</h3>
-			<Swiper
-				modules={[Navigation, Pagination, Scrollbar, Thumbs]}
-				spaceBetween={5}
-				slidesPerView={1}
-				loop={shouldLoop}
-				thumbs={{ swiper: thumbsSwiper as any }}
-				pagination={{
-					clickable: true,
-					dynamicBullets: true,
-					dynamicMainBullets: 7,
-				}}
-				scrollbar={{ draggable: true }}
-				className={styles.swiperWrapper}
-				navigation={true}
-			>
-				{images.map((image, index) => (
-					<SwiperSlide key={index} className={styles.swiperSlideTop}>
-						<div
-							onClick={() => openLightbox(image.imageData)}
-							onKeyDown={(event) => {
-								if (event.key === "Enter") {
-									openLightbox(image.imageData);
-								}
-							}}
-						>
-							<GatsbyImage image={image.imageData} alt={image.title} />
-						</div>
-					</SwiperSlide>
-				))}
-			</Swiper>
-			<Swiper
-				onSwiper={(swiper: ThumbsSwiperType) => {
-					if (swiper) {
-						setThumbsSwiper(swiper);
-					}
-				}}
-				loop={shouldLoop}
-				spaceBetween={10}
-				slidesPerView={3}
-				breakpoints={{
-					640: { slidesPerView: 4 },
-					768: { slidesPerView: 5 },
-					1024: { slidesPerView: 6 },
-				}}
-				freeMode={true}
-				watchSlidesProgress={true}
-				modules={[Thumbs]}
-			>
-				{images.map((image, index) => (
-					<SwiperSlide key={index} className={styles.swiperSlideBottom}>
-						<GatsbyImage image={image.imageData} alt={image.title} />
-					</SwiperSlide>
-				))}
-			</Swiper>
+        if (lightboxImage) {
+            document.addEventListener("keydown", handleKeyDown);
+        }
 
-			{lightboxImage && (
-				<div
-					className={`${styles.lightboxContainer} lightbox-modal`}
-					onClick={closeLightbox}
-				>
-					<div className={styles.lightboxContent}>
-						<GatsbyImage
-							image={lightboxImage}
-							alt="Beat It (collab. w/ Ebony Steelband)"
-							className={styles.lightboxImage}
-							onClick={(e) => e.stopPropagation()}
-						/>
-					</div>
-					<button className={styles.lightboxClose} onClick={closeLightbox}>
-						&times;
-					</button>
-				</div>
-			)}
-		</div>
-	);
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [lightboxImage]);
+
+    const shouldLoop = imageCount > 2;
+
+    return (
+        <div className={styles.swiperContainer} data-main-gallery>
+            <h3>
+                Beat It <span>(collab. w/ Ebony Steelband)</span>
+            </h3>
+            <Swiper
+                modules={[Navigation, Pagination, Scrollbar, Thumbs]}
+                spaceBetween={5}
+                slidesPerView={1}
+                loop={shouldLoop}
+                thumbs={{ swiper: thumbsSwiper as any }}
+                pagination={{
+                    clickable: true,
+                    dynamicBullets: true,
+                    dynamicMainBullets: 7,
+                }}
+                scrollbar={{ draggable: true }}
+                className={styles.swiperWrapper}
+                navigation={true}
+            >
+                {images.map((image, index) => (
+                    <SwiperSlide key={index} className={styles.swiperSlideTop}>
+                        <div onClick={() => openLightbox(image.imageData)}>
+                            <GatsbyImage
+                                image={image.imageData}
+                                alt={image.title}
+                            />
+                        </div>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+            <Swiper
+                onSwiper={(swiper: ThumbsSwiperType) => {
+                    if (swiper) {
+                        setThumbsSwiper(swiper);
+                    }
+                }}
+                loop={shouldLoop}
+                spaceBetween={10}
+                slidesPerView={3}
+                breakpoints={{
+                    640: { slidesPerView: 4 },
+                    768: { slidesPerView: 5 },
+                    1024: { slidesPerView: 6 },
+                }}
+                modules={[Thumbs]}
+            >
+                {images.map((image, index) => (
+                    <SwiperSlide
+                        key={index}
+                        className={styles.swiperSlideBottom}
+                    >
+                        <GatsbyImage
+                            image={image.imageData}
+                            alt={image.title}
+                        />
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+
+            {lightboxImage && (
+                <div className={`${styles.lightboxContainer} lightbox-modal`}>
+                    <div className={styles.lightboxContent}>
+                        <GatsbyImage
+                            image={lightboxImage}
+                            alt="Beat It (collab. w/ Ebony Steelband)"
+                            className={styles.lightboxImage}
+                        />
+                    </div>
+                    <button
+                        className={styles.lightboxClose}
+                        onClick={closeLightbox}
+                    >
+                        &times;
+                    </button>
+                </div>
+            )}
+        </div>
+    );
 };
 
 export default GalleryEight;

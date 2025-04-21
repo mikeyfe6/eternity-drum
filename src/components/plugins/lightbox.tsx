@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 
@@ -22,6 +22,22 @@ const LightBox = ({
 
     const imageData = image ? getImage(image) : null;
 
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape" || event.key === "Enter") {
+                closeModal();
+            }
+        };
+
+        if (isModalOpen) {
+            document.addEventListener("keydown", handleKeyDown);
+        }
+
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [isModalOpen]);
+
     // TODO: sizes implementeren in parameter
 
     return (
@@ -38,12 +54,12 @@ const LightBox = ({
                     data-main-modal
                 >
                     <div className={styles.modalContent}>
-                        <span
+                        <button
                             className={styles.modalClose}
                             onClick={closeModal}
                         >
                             &times;
-                        </span>
+                        </button>
                         {imageData && (
                             <div>
                                 <GatsbyImage

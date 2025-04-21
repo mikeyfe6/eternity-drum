@@ -24,7 +24,7 @@ const Muziki: React.FC<PageProps> = () => {
                 <h1 className="page-title">Muziki</h1>
             </section>
             <section data-main-section>
-                <div data-main-content className="page-content basic big-image">
+                <div data-main-content className="page-content basic">
                     <div>
                         <h2>Theatervoorstelling: "MUZIKI"</h2>
                         <p>
