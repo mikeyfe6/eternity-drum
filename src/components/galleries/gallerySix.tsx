@@ -159,6 +159,7 @@ const GallerySix: React.FC = () => {
                             image={lightboxImage}
                             alt="African Diaspora Performing Arts Festival - 14 November 2021"
                             className={styles.lightboxImage}
+                            objectFit="contain"
                         />
                     </div>
                     <button

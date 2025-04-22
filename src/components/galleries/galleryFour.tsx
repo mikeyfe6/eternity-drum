@@ -156,6 +156,7 @@ const GalleryFour: React.FC = () => {
                             image={lightboxImage}
                             alt="Eternity in UK 2023 (collab. w/ ACE Dance & Music)"
                             className={styles.lightboxImage}
+                            objectFit="contain"
                         />
                     </div>
                     <button

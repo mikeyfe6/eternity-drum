@@ -158,6 +158,7 @@ const GalleryThree: React.FC = () => {
                             image={lightboxImage}
                             alt="Bijlmer on Stage - 18 December 2022"
                             className={styles.lightboxImage}
+                            objectFit="contain"
                         />
                     </div>
                     <button

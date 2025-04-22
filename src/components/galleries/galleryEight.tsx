@@ -156,6 +156,7 @@ const GalleryEight: React.FC = () => {
                             image={lightboxImage}
                             alt="Beat It (collab. w/ Ebony Steelband)"
                             className={styles.lightboxImage}
+                            objectFit="contain"
                         />
                     </div>
                     <button

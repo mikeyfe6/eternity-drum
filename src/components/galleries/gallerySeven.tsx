@@ -158,6 +158,7 @@ const GallerySeven: React.FC = () => {
                             image={lightboxImage}
                             alt="Pulse and Beat (collab. w/ ACE Dance & Music)"
                             className={styles.lightboxImage}
+                            objectFit="contain"
                         />
                     </div>
                     <button

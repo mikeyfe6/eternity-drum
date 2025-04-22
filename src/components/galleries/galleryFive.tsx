@@ -159,6 +159,7 @@ const GalleryFive: React.FC = () => {
                             image={lightboxImage}
                             alt="African Diaspora Performing Arts Festival - 10 November 2019"
                             className={styles.lightboxImage}
+                            objectFit="contain"
                         />
                     </div>
                     <button

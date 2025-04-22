@@ -158,6 +158,7 @@ const GalleryTwo: React.FC = () => {
                             image={lightboxImage}
                             alt="Swazoom Live - 3 December 2022"
                             className={styles.lightboxImage}
+                            objectFit="contain"
                         />
                     </div>
                     <button
