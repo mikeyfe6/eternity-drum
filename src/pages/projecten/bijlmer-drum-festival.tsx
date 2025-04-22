@@ -28,7 +28,11 @@ const BijlmerDrumFestival: React.FC<PageProps> = () => {
                     <h2>Verwante artikelen:</h2>
                     <ul>
                         <li>
-                            <a href="https://www.zuidoostenmeer.nl/nieuws/algemeen/16258/bijlmer-drum-festival-2025-viering-van-ritme-en-cultuur-in-am">
+                            <a
+                                href="https://www.zuidoostenmeer.nl/nieuws/algemeen/16258/bijlmer-drum-festival-2025-viering-van-ritme-en-cultuur-in-am"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
                                 <em>
                                     Bijlmer Drum Festival 2025: Viering van
                                     Ritme en cultuur in Amsterdam Zuidoost
@@ -40,7 +44,11 @@ const BijlmerDrumFestival: React.FC<PageProps> = () => {
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.at5.nl/nieuws/229721/bijlmer-drum-festival-amsterdam-zuidoost">
+                            <a
+                                href="https://www.at5.nl/nieuws/229721/bijlmer-drum-festival-amsterdam-zuidoost"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
                                 <em>
                                     Organisator Bijlmer Drum Festival: "We laten
                                     de diversiteit van Amsterdam zien met
@@ -53,7 +61,11 @@ const BijlmerDrumFestival: React.FC<PageProps> = () => {
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.funx.nl/fragmenten/the-block-amsterdam/9da4dd81-39ee-4d8c-9b36-471af63efe92/2024-12-04-tijdens-het-bijlmer-drum-festival-maak-je-kennis-met-alle-stijlen-drums">
+                            <a
+                                href="https://www.funx.nl/fragmenten/the-block-amsterdam/9da4dd81-39ee-4d8c-9b36-471af63efe92/2024-12-04-tijdens-het-bijlmer-drum-festival-maak-je-kennis-met-alle-stijlen-drums"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
                                 <em>
                                     Tijdens het Bijlmer Drum Festival maak je
                                     kennis met alle stijlen drums
@@ -65,7 +77,11 @@ const BijlmerDrumFestival: React.FC<PageProps> = () => {
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.events.nl/nieuws/licht-amsterdam">
+                            <a
+                                href="https://www.events.nl/nieuws/licht-amsterdam"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
                                 <em>
                                     Licht in Amsterdam
                                     <FontAwesomeIcon

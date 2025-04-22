@@ -5,7 +5,7 @@
 .footer {
     $footer: &;
 
-    border-top: 2px solid $primary-color;
+    border-top: 1px solid $lightgrey-color;
     background: linear-gradient(
         145deg,
         $secondary-color,

@@ -333,7 +333,11 @@ const Footer = () => {
                                     className="fb-xfbml-parse-ignore"
                                     hidden
                                 >
-                                    <a href="https://www.facebook.com/EternityDrum">
+                                    <a
+                                        href="https://www.facebook.com/EternityDrum"
+                                        rel="noopener noreferrer"
+                                        target="_blank"
+                                    >
                                         Percussionband Eternity
                                     </a>
                                 </blockquote>
