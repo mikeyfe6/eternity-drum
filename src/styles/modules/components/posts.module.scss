@@ -37,7 +37,7 @@
             }
 
             &:hover {
-                outline-color: $secondary-color;
+                outline-color: $link-color;
 
                 .post {
                     &-link {
@@ -48,10 +48,6 @@
                         transform: scale(1.05);
                     }
                 }
-            }
-
-            &:active {
-                outline-color: $link-color;
             }
 
             > a {
