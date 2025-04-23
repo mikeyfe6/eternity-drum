@@ -81,6 +81,6 @@ export const Head: HeadFC = () => (
     <Seo
         title="Media"
         pathname="/media/"
-        description="Ontdek onze multimedia op onze deze pagina. Luister naar onze muziek, bekijk nieuwsartikelen en ontdek onze fotogalerij en video's."
+        description="Ontdek onze multimedia. Luister naar onze muziek, bekijk nieuwsartikelen en ontdek onze fotogalerijen en video's."
     />
 );
