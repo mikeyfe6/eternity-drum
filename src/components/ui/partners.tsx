@@ -62,6 +62,16 @@ const Partners: React.FC = () => {
             img: "izavybe.jpg",
             name: "Izavybe (Barbados)",
         },
+        {
+            url: "https://www.conservatoriumvanamsterdam.nl",
+            img: "conservatorium-amsterdam.jpg",
+            name: "Conservatorium Van Amsterdam",
+        },
+        {
+            url: "https://vivell.nl",
+            img: "vivell.png",
+            name: "Vivell",
+        },
     ];
 
     const shuffleArray = (array: any[]) => {
