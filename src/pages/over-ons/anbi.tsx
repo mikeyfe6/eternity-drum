@@ -109,7 +109,7 @@ const Anbi: React.FC<PageProps> = () => {
                     <p>
                         <b>Voorzitter:</b> Kenneth Zschuschen
                         <br />
-                        <b>Secretaris:</b> Otmar Watson
+                        <b>Secretaris:</b> Fabian Oudsten
                         <br />
                         <b>Penningmeester:</b> Ulrich Entingh
                     </p>
