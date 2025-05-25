@@ -158,7 +158,7 @@ const config: GatsbyConfig = {
 				}) => {
 					const postsMap = allContentfulPost.nodes.reduce((acc: Record<string, any>, post) => {
 						const { slug, updatedAt } = post;
-						acc[`/over-ons/nieuws/${slug}/`] = { path: `/over-ons/nieuws/${slug}/`, updatedAt };
+						acc[`/nieuws/${slug}/`] = { path: `/nieuws/${slug}/`, updatedAt };
 						return acc;
 					}, {});
 

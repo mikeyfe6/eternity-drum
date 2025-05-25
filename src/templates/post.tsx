@@ -37,7 +37,7 @@ const Post = ({
 }: PostProps) => {
     const breadcrumbs = [
         { label: "Home", link: "/" },
-        { label: "Over Ons", link: "/over-ons/" },
+        { label: "Nieuws", link: "/nieuws/" },
         { label: "Nieuws", link: "/over-ons/nieuws/" },
         { label: title },
     ];

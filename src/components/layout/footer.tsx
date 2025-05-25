@@ -169,17 +169,17 @@ const Footer = () => {
                         <span className="as-h4">Recente Posts</span>
                         <ul>
                             <li>
-                                <Link to="/over-ons/nieuws/kwasi-en-yaw/">
+                                <Link to="/nieuws/kwasi-en-yaw/">
                                     Kwasi & Yaw
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/over-ons/nieuws/wijkimpuls/">
+                                <Link to="/nieuws/wijkimpuls/">
                                     Wijk Impuls
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/over-ons/nieuws/bijlmer-drum-festival-2024/">
+                                <Link to="/nieuws/bijlmer-drum-festival-2024/">
                                     Bijlmer Drum Festival 2024
                                 </Link>
                             </li>

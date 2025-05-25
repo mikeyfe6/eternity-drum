@@ -2,18 +2,17 @@ import * as React from "react";
 
 import type { HeadFC, PageProps } from "gatsby";
 
-import Breadcrumbs from "../../components/layout/breadcrumbs";
-import Hero from "../../components/layout/heroslider";
+import Breadcrumbs from "../components/layout/breadcrumbs";
+import Hero from "../components/layout/heroslider";
 
-import News from "../../components/ui/news";
+import News from "../components/ui/news";
 
-import { Seo } from "../../components/seo";
+import { Seo } from "../components/seo";
 
 const Nieuws: React.FC<PageProps> = () => {
     const breadcrumbs = [
         { label: "Home", link: "/" },
-        { label: "Over Ons", link: "/over-ons/" },
-        { label: "Nieuws" },
+        { label: "Nieuws", link: "/nieuws/" },
     ];
 
     return (
@@ -32,6 +31,4 @@ const Nieuws: React.FC<PageProps> = () => {
 
 export default Nieuws;
 
-export const Head: HeadFC = () => (
-    <Seo title="Nieuws" pathname="/over-ons/nieuws/" />
-);
+export const Head: HeadFC = () => <Seo title="Nieuws" pathname="/nieuws/" />;
