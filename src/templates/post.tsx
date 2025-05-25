@@ -38,7 +38,6 @@ const Post = ({
     const breadcrumbs = [
         { label: "Home", link: "/" },
         { label: "Nieuws", link: "/nieuws/" },
-        { label: "Nieuws", link: "/over-ons/nieuws/" },
         { label: title },
     ];
 
