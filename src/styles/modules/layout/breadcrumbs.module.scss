@@ -104,7 +104,7 @@
                 padding-top: rem-calc(2);
                 display: none;
 
-                @include fluid-typing(16, 18);
+                @include fluid-typing(12, 14);
 
                 @include mobile {
                     display: block;
