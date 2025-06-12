@@ -97,7 +97,7 @@ const Anbi: React.FC<PageProps> = () => {
                         <i>
                             <b>Postadres:</b> {mailingAddress}
                             <br />
-                            <b>Postcode: </b> {mailingPostalCode}
+                            <b>Postcode:</b> {mailingPostalCode}
                             <br />
                             <b>Plaats:</b> Amsterdam
                         </i>
@@ -151,7 +151,7 @@ const Anbi: React.FC<PageProps> = () => {
                         <li>Uitwisselingsprogramma’s</li>
                         <li>Theaterproducties</li>
                         <li>Openbare optredens</li>
-                        <li>Drumworkshops </li>
+                        <li>Drumworkshops</li>
                     </ul>
 
                     <h3 className="as-h4">
