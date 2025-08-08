@@ -97,6 +97,10 @@
 
                 @include smooth-trans(all);
 
+                path {
+                    pointer-events: none;
+                }
+
                 &:hover {
                     color: color.adjust($tertiary-color, $lightness: 10%);
                 }
