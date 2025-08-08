@@ -54,7 +54,7 @@
                 object-position: center;
                 border-radius: $border-radius-sm;
                 padding: rem-calc(16 0);
-                box-shadow: 0 0 10px 0 rgba(255 255 255 / 10%);
+                box-shadow: 0 0 10px 0 rgb(255 255 255 / 10%);
 
                 @include tablet {
                     max-width: rem-calc(200);
@@ -85,24 +85,35 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: rem-calc(32);
+        gap: rem-calc(36);
     }
 
     .control {
         &-button {
-            font-size: rem-calc(56);
-            color: $white-color;
-            background-color: transparent;
-            cursor: pointer;
+            svg {
+                color: $white-color;
+                background-color: transparent;
+                width: auto;
 
-            @include smooth-trans(all);
+                @include smooth-trans(all);
 
-            &:hover {
-                color: color.adjust($tertiary-color, $lightness: 10%);
-            }
+                &:hover {
+                    color: color.adjust($tertiary-color, $lightness: 10%);
+                }
 
-            &:active {
-                color: color.adjust($tertiary-color, $lightness: 2.5%);
+                &:active {
+                    color: color.adjust($tertiary-color, $lightness: 2.5%);
+                }
+
+                &[data-icon="circle-play"],
+                &[data-icon="circle-pause"] {
+                    @include fluid-typing(52, 56);
+                }
+
+                &[data-icon="forward-step"],
+                &[data-icon="backward-step"] {
+                    @include fluid-typing(32, 36);
+                }
             }
         }
 
