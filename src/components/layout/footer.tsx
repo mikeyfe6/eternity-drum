@@ -348,7 +348,7 @@ const Footer = () => {
                 <div className={styles.footerBottom}>
                     <p>
                         © 2002 – {new Date().getFullYear()} ·{" "}
-                        <strong>{companyName}</strong> | Webcrafted by{" "}
+                        <strong>{companyName}</strong> | {"</>"} by{" "}
                         <b>
                             <a
                                 href="https://menefex.nl"
