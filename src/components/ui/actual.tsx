@@ -22,9 +22,6 @@ const Actualiteiten: React.FC = () => {
     const rotpFront = rotpF;
     const rotpBack = rotpB;
 
-    // const wijkImpulsOne = wijkImpOne.childImageSharp.gatsbyImageData;
-    // const wijkImpulsTwo = wijkImpTwo.childImageSharp.gatsbyImageData;
-
     const setCollapsibleMarginBottom = () => {
         const element = openContentRef.current;
         if (element) {
@@ -64,42 +61,42 @@ const Actualiteiten: React.FC = () => {
     };
 
     const buttons = [
-        // <>
-        // 	<span>Masterclass</span>
-        // 	<p>Wijkimpuls - 26/04/24</p>
-        // </>,
-        // <>
-        // 	<span>Presentatie</span>
-        // 	<p>Wijkimpuls - 19/04/24</p>
-        // </>,
+        /* 1 */
+        <>
+            <span>Artikel</span>
+            <p>Notting Hill Carnival 2025</p>
+        </>,
+        /* 2 */
         <>
             <span>Media</span>
             <p>Sankofa Academy</p>
         </>,
+        /* 3 */
         <>
             <span>Workshops</span>
             <p>Sankofa Academy</p>
         </>,
+        /* 4 */
         <>
             <span>Workshops</span>
             <p>Eternity Summerschool 2021</p>
         </>,
-        // <>
-        // 	<span>Vacature</span>
-        // 	<p>Meewerkend Coördinator Productie</p>
-        // </>,
+        /* 5 */
         <>
-            <span>Nieuws</span>
+            <span>Artikel</span>
             <p>Building Strong Communities</p>
         </>,
+        /* 6 */
         <>
-            <span>Nieuws</span>
+            <span>Artikel</span>
             <p>Drum Academy</p>
         </>,
+        /* 7 */
         <>
             <span>Workshops</span>
             <p>Eternity Summerschool 2020</p>
         </>,
+        /* 8 */
         <>
             <span>Artikel</span>
             <p>Rite Of Passage</p>
@@ -107,21 +104,37 @@ const Actualiteiten: React.FC = () => {
     ];
 
     const contents: (React.ReactNode | string)[] = [
-        // /* 1 */
-        // <div key={`content-1`}>
-        // 	<div className={styles.collapsibleImages}>
-        // 		<LightBox image={wijkImpulsTwo} alt='Wijkimpuls - 26/04/24' />
-        // 	</div>
-        // </div>,
-        // /* 2 */
-        // <div key={`content-0`}>
-        // 	<div className={styles.collapsibleImages}>
-        // 		<LightBox image={wijkImpulsOne} alt='Wijkimpuls - 19/04/24' />
-        // 	</div>
-        // </div>,
-        /* 3 */
+        /* 1 */
+        <div key={`content-1`}>
+            <img
+                src="https://ichef.bbci.co.uk/ace/standard/800/cpsprodpb/vivo/live/images/2025/8/25/e5012a3c-c294-4476-a55a-0de97a8ce6a4.jpg.webp"
+                alt="BBC Thumbnail"
+            />
+            <br />
+            <br />
+            <p>
+                Eternity Percussion &{" "}
+                <a
+                    href="https://www.originals-entertainment.com/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                >
+                    The Originals Entertainment
+                </a>{" "}
+                tijdens het <b>Notting Hill Carnival 2025!</b>
+            </p>
+            <span>- Bron: BBC, door Harry Low</span>
+            <a
+                href="https://www.bbc.com/news/live/c3dpz3755d3t?post=asset%3A338cddae-6618-4298-b40f-6cec1513e2e7#post"
+                rel="noopener noreferrer"
+                target="_blank"
+            >
+                Lees het artikel
+            </a>
+        </div>,
+        /* 2 */
         <YouTubePlayer key={`content-2`} videoId="5lMEV6HLFQQ" />,
-        /* 4 */
+        /* 3 */
         <div key={`content-3`}>
             <p>
                 Sankofa Academy is een educatief programma in het kader van een
@@ -131,33 +144,33 @@ const Actualiteiten: React.FC = () => {
                 gevolgen hiervan.
             </p>
             <div className={styles.collapsibleImages}>
-                <LightBox image={sankofaBack} alt="Sankofa Flyer Achterkant" />
-                <LightBox image={sankofaFront} alt="Sankofa Flyer Voorkant" />
+                {sankofaBack && (
+                    <LightBox
+                        image={sankofaBack}
+                        alt="Sankofa Flyer Achterkant"
+                    />
+                )}
+                {sankofaFront && (
+                    <LightBox
+                        image={sankofaFront}
+                        alt="Sankofa Flyer Voorkant"
+                    />
+                )}
             </div>
-            <Link to="/projecten/sankofa-academy/">Lees meer</Link>
+            <Link to="/projecten/sankofa-academy/">Leer meer</Link>
         </div>,
-        /* 5 */
+        /* 4 */
         <div key={`content-4`}>
             <p>
                 Percussionband Eternity, Untold Empowerment & Black Harmony
                 geven dit jaar na groot succes OPNIEUW gratis workshops!
             </p>
-            <Link to="/drumworkshops/summerschool-2021/">Lees meer</Link>
+            <Link to="/drumworkshops/summerschool-2021/">Leer meer</Link>
         </div>,
-        /* 6 */
-        // <div key={`content-5`}>
-        // 	<p>
-        // 		We zijn voor de organisaties Untold en Eternity op zoek naar een
-        // 		coördinator productie die graag de handen uit de mouwen steekt!
-        // 	</p>
-        // 	<Link to="/over-ons/vacatures/meewerkend-coordinator-productie/">
-        // 		Ga naar vacature
-        // 	</Link>
-        // </div>,
-        /* 7 */
-        <div key={`content-6`}>
+        /* 5 */
+        <div key={`content-5`}>
             <p>"Building Strong Communities: op zoek naar het verleden."</p>
-            <span>- Bron: Salto PI</span>
+            <span>- Bron: Salto PI, door Lilla Gősi</span>
             <a
                 href="https://participationpool.eu/project/discover-black-history-building-strong-communities/"
                 rel="noopener noreferrer"
@@ -166,8 +179,8 @@ const Actualiteiten: React.FC = () => {
                 Lees het artikel
             </a>
         </div>,
-        /* 8 */
-        <div key={`content-7`}>
+        /* 6 */
+        <div key={`content-6`}>
             <p>
                 "Drum Academy: eindelijk kunnen drumbands weer decibellen
                 maken."
@@ -181,25 +194,29 @@ const Actualiteiten: React.FC = () => {
                 Lees het artikel
             </a>
         </div>,
-        /* 9 */
-        <div key={`content-8`}>
+        /* 7 */
+        <div key={`content-7`}>
             <p>
                 Percussionband Eternity, Untold Empowerment & Black Harmony
                 geven gratis workshops!
             </p>
             <Link to="/drumworkshops/summerschool-2020/">Lees meer</Link>
         </div>,
-        /* 10 */
-        <div key={`content-9`}>
+        /* 8 */
+        <div key={`content-8`}>
             <div className={styles.collapsibleImages}>
-                <LightBox
-                    image={rotpFront}
-                    alt="Rite Of The Passage Artikel (voorkant)"
-                />
-                <LightBox
-                    image={rotpBack}
-                    alt="Rite Of The Passage Artikel (achterkant)"
-                />
+                {rotpFront && (
+                    <LightBox
+                        image={rotpFront}
+                        alt="Rite Of The Passage Artikel (voorkant)"
+                    />
+                )}
+                {rotpBack && (
+                    <LightBox
+                        image={rotpBack}
+                        alt="Rite Of The Passage Artikel (achterkant)"
+                    />
+                )}
             </div>
         </div>,
     ];

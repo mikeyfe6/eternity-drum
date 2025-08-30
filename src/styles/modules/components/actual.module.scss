@@ -56,6 +56,10 @@
                 > p {
                     margin-bottom: rem-calc(28);
 
+                    > a {
+                        @include link;
+                    }
+
                     @include fluid-typing(17, 20);
                 }
 
@@ -70,6 +74,15 @@
                         $primary-color,
                         $secondary-color
                     );
+                }
+
+                > img {
+                    width: 100%;
+                    border-radius: $border-radius-sm;
+                    object-fit: cover;
+                    object-position: top;
+                    overflow: hidden;
+                    aspect-ratio: 16 / 11;
                 }
             }
 
