@@ -58,6 +58,11 @@ const Berichten: React.FC = () => {
 
     const posts: Post[] = data.allContentfulPost.nodes;
 
+    // hiding certian posts, but keep them on the overview
+    const visiblePosts = posts.filter(
+        (post) => post.slug !== "bijlmer-drum-festival-2024"
+    );
+
     const options: Intl.DateTimeFormatOptions = {
         weekday: "short",
         day: "numeric",
@@ -69,9 +74,9 @@ const Berichten: React.FC = () => {
         <section className={styles.posts}>
             <h2 className="page-subtitle">Berichten</h2>
 
-            {posts.length > 0 ? (
+            {visiblePosts.length > 0 ? (
                 <ul>
-                    {posts.map(
+                    {visiblePosts.map(
                         ({
                             title,
                             id,
@@ -124,9 +129,7 @@ const Berichten: React.FC = () => {
                                             >
                                                 {formattedDateString}
                                             </time>
-                                            <Link
-                                                to={`/nieuws/${slug}/`}
-                                            >
+                                            <Link to={`/nieuws/${slug}/`}>
                                                 Lees meer...
                                             </Link>
                                         </div>
