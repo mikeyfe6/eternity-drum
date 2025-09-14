@@ -123,7 +123,7 @@ const Actualiteiten: React.FC = () => {
                 </a>{" "}
                 tijdens het <b>Notting Hill Carnival 2025!</b>
             </p>
-            <span>- Bron: BBC, door Harry Low</span>
+            <span>- Bron: BBC News, door Harry Low</span>
             <a
                 href="https://www.bbc.com/news/live/c3dpz3755d3t?post=asset%3A338cddae-6618-4298-b40f-6cec1513e2e7#post"
                 rel="noopener noreferrer"
