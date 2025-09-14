@@ -25,6 +25,16 @@
             }
         }
 
+        svg {
+            width: rem-calc(24);
+            height: rem-calc(24);
+
+            @include mobile {
+                width: rem-calc(32);
+                height: rem-calc(32);
+            }
+        }
+
         &:hover {
             opacity: 1;
         }
