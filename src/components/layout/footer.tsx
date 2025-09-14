@@ -169,6 +169,11 @@ const Footer = () => {
                         <span className="as-h4">Recente Posts</span>
                         <ul>
                             <li>
+                                <Link to="/nieuws/bijlmer-drumfestival-2025/">
+                                    Bijlmer Drum Festival 2025
+                                </Link>
+                            </li>
+                            <li>
                                 <Link to="/nieuws/kwasi-en-yaw/">
                                     Kwasi & Yaw
                                 </Link>
