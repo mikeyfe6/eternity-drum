@@ -391,12 +391,14 @@
         }
 
         &.list {
+            /* stylelint-disable-next-line no-descending-specificity */
             ul {
                 list-style: none;
                 display: flex;
                 flex-wrap: wrap;
                 gap: rem-calc(24);
 
+                /* stylelint-disable-next-line no-descending-specificity */
                 li {
                     display: flex;
                     width: 100%;
@@ -424,6 +426,7 @@
                             }
                         }
 
+                        /* stylelint-disable-next-line no-descending-specificity */
                         span {
                             align-self: flex-end;
                             color: $grey-color;

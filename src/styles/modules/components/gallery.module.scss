@@ -3,99 +3,99 @@
 @use "../../customs" as *;
 
 .swiper {
-	&-container {
-		h3 {
-			@include fluid-typing(20, 24);
+    &-container {
+        h3 {
+            @include fluid-typing(20, 24);
 
-			> span {
-				margin-left: rem-calc(2);
-				opacity: 0.75;
+            > span {
+                margin-left: rem-calc(2);
+                opacity: 0.75;
 
-				@include fluid-typing(16, 18);
-			}
-		}
-	}
+                @include fluid-typing(16, 18);
+            }
+        }
+    }
 
-	&-wrapper {
-		overflow: hidden;
-		border-radius: $border-radius-sm;
-		margin-bottom: rem-calc(12);
-	}
+    &-wrapper {
+        overflow: hidden;
+        border-radius: $border-radius-sm;
+        margin-bottom: rem-calc(12);
+    }
 
-	&-slide {
-		&-top {
-			border-radius: $border-radius-sm;
-			border: 2px solid $white-color;
-			overflow: hidden;
-			cursor: pointer;
+    &-slide {
+        &-top {
+            border-radius: $border-radius-sm;
+            border: 2px solid $white-color;
+            overflow: hidden;
+            cursor: pointer;
 
-			[data-gatsby-image-wrapper] {
-				aspect-ratio: 16 / 9;
-				width: 100%;
-				height: 100%;
+            [data-gatsby-image-wrapper] {
+                aspect-ratio: 16 / 9;
+                width: 100%;
+                height: 100%;
 
-				img {
-					object-position: center 25%;
-				}
-			}
-		}
+                img {
+                    object-position: center 25%;
+                }
+            }
+        }
 
-		&-bottom {
-			opacity: 0.75;
-			overflow: hidden;
-			border-radius: $border-radius-sm;
-			border: 2px solid $white-color;
-			cursor: pointer;
+        &-bottom {
+            opacity: 0.75;
+            overflow: hidden;
+            border-radius: $border-radius-sm;
+            border: 2px solid $white-color;
+            cursor: pointer;
 
-			[data-gatsby-image-wrapper] {
-				aspect-ratio: 16 / 10;
-				height: 100%;
-				width: 100%;
-			}
+            [data-gatsby-image-wrapper] {
+                aspect-ratio: 16 / 10;
+                height: 100%;
+                width: 100%;
+            }
 
-			&:hover {
-				opacity: 1;
-				border-color: $link-color;
-			}
-		}
-	}
+            &:hover {
+                opacity: 1;
+                border-color: $link-color;
+            }
+        }
+    }
 }
 
 .lightbox {
-	&-container {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background-color: rgba(0 0 0 / 87.5%);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		z-index: 9;
-	}
+    &-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0 0 0 / 87.5%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9;
+    }
 
-	&-content {
-		position: relative;
-		text-align: center;
-		max-width: 90%;
-	}
+    &-content {
+        position: relative;
+        text-align: center;
+        max-width: 90%;
+    }
 
-	&-image {
-		max-height: calc(100vh - 5em);
-		object-fit: contain;
-		display: block;
-	}
+    &-image {
+        max-height: calc(100vh - 5em);
+        object-fit: contain;
+        display: block;
+    }
 
-	&-close {
-		position: fixed;
-		top: rem-calc(15);
-		right: rem-calc(30);
-		font-size: rem-calc(45);
-		border: none;
-		z-index: 10;
-		color: $white-color;
-		background: transparent;
-		cursor: pointer;
-	}
+    &-close {
+        position: fixed;
+        top: rem-calc(15);
+        right: rem-calc(30);
+        font-size: rem-calc(45);
+        border: none;
+        z-index: 10;
+        color: $white-color;
+        background: transparent;
+        cursor: pointer;
+    }
 }
