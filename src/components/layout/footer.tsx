@@ -169,7 +169,7 @@ const Footer = () => {
                         <span className="as-h4">Recente Posts</span>
                         <ul>
                             <li>
-                                <Link to="/nieuws/bijlmer-drumfestival-2025/">
+                                <Link to="/nieuws/bijlmer-drum-festival-2025/">
                                     Bijlmer Drum Festival 2025
                                 </Link>
                             </li>
@@ -361,7 +361,7 @@ const Footer = () => {
                                 target="_blank"
                             >
                                 Menefex
-                                <img src={menefexLogo} alt="" />
+                                <img src={menefexLogo} alt="Menefex Logo" />
                             </a>
                         </b>
                     </p>
