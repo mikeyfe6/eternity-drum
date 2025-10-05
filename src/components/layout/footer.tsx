@@ -183,11 +183,11 @@ const Footer = () => {
                                     Wijk Impuls
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link to="/nieuws/bijlmer-drum-festival-2024/">
                                     Bijlmer Drum Festival 2024
                                 </Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link to="/projecten/sankofa-academy/">
                                     Sankofa Academy
@@ -198,11 +198,11 @@ const Footer = () => {
                                     Summerschool 2021
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link to="/drumworkshops/summerschool-2020/">
                                     Summerschool 2020
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
 
                         <span className="as-h4">Aankomende Evenementen</span>
