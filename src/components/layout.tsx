@@ -118,7 +118,35 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         if (typeof window !== "undefined") {
             setPathname(window.location.pathname);
         }
+    }, []);
 
+    useEffect(() => {
+        const updatePathname = () => {
+            if (typeof window !== "undefined") {
+                setPathname(window.location.pathname);
+            }
+        };
+
+        if (typeof window !== "undefined") {
+            window.addEventListener("popstate", updatePathname);
+
+            const observer = new MutationObserver(() => {
+                updatePathname();
+            });
+
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true,
+            });
+
+            return () => {
+                window.removeEventListener("popstate", updatePathname);
+                observer.disconnect();
+            };
+        }
+    }, []);
+
+    useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth > 1600 && isMobileMenuOpen) {
                 closeMobileMenu();
