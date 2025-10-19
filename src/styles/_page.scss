@@ -45,7 +45,9 @@
         }
 
         &:not(.home-intro) {
-            @include container(1500);
+            max-width: rem-calc(1500);
+            margin-left: auto;
+            margin-right: auto;
         }
 
         &.home-intro {
@@ -395,7 +397,9 @@
         }
 
         &.list {
-            @include container(1500);
+            max-width: rem-calc(1500);
+            margin-left: auto;
+            margin-right: auto;
 
             /* stylelint-disable-next-line no-descending-specificity */
             ul {
