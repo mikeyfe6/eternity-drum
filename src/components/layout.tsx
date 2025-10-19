@@ -1,5 +1,7 @@
 import React, { ReactNode, useState, useEffect } from "react";
 
+import { useLocation } from "@reach/router";
+
 import { AnimatePresence, motion } from "framer-motion";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -91,14 +93,12 @@ const variants = {
 
 interface LayoutProps {
     children: ReactNode;
-    location: {
-        pathname: string;
-    };
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [pathname, setPathname] = useState("");
+
+    const { pathname } = useLocation();
 
     const openMobileMenu = () => {
         setIsMobileMenuOpen(true);
@@ -115,38 +115,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     };
 
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            setPathname(window.location.pathname);
-        }
-    }, []);
-
-    useEffect(() => {
-        const updatePathname = () => {
-            if (typeof window !== "undefined") {
-                setPathname(window.location.pathname);
-            }
-        };
-
-        if (typeof window !== "undefined") {
-            window.addEventListener("popstate", updatePathname);
-
-            const observer = new MutationObserver(() => {
-                updatePathname();
-            });
-
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true,
-            });
-
-            return () => {
-                window.removeEventListener("popstate", updatePathname);
-                observer.disconnect();
-            };
-        }
-    }, []);
-
-    useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth > 1600 && isMobileMenuOpen) {
                 closeMobileMenu();
@@ -160,8 +128,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         };
     }, [isMobileMenuOpen]);
 
-    const key = typeof window !== "undefined" ? window.location.pathname : "";
-
     return (
         <div className="eternity-container">
             <Header openMobileMenu={openMobileMenu} />
@@ -169,7 +135,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="eternity-wrapper">
                 <AnimatePresence mode="wait">
                     <motion.main
-                        key={key}
+                        key={pathname || ""}
                         variants={variants}
                         initial="initial"
                         animate="animate"
