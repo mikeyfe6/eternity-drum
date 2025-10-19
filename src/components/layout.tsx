@@ -98,7 +98,9 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    const { pathname } = useLocation();
+    const location = useLocation();
+
+    const pathname = location?.pathname || "";
 
     const openMobileMenu = () => {
         setIsMobileMenuOpen(true);
@@ -131,11 +133,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     return (
         <div className="eternity-container">
             <Header openMobileMenu={openMobileMenu} />
-            {pathname !== "/" && <hr className="fullwidth" />}
+            {pathname && pathname !== "/" && <hr className="fullwidth" />}
             <div className="eternity-wrapper">
                 <AnimatePresence mode="wait">
                     <motion.main
-                        key={pathname || ""}
+                        key={pathname}
                         variants={variants}
                         initial="initial"
                         animate="animate"
