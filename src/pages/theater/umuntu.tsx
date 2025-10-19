@@ -22,7 +22,6 @@ const Umuntu: React.FC<PageProps> = () => {
 
     return (
         <>
-            <Hero />
             <section className="page-intro">
                 <Breadcrumbs crumbs={breadcrumbs} />
                 <h1 className="page-title">Umuntu</h1>

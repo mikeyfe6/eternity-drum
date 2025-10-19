@@ -1,53 +1,53 @@
 @use "../../customs" as *;
 
 .workshop {
-	&-bg-image {
-		background-image: url("../../../images/sankofa-bg.jpeg");
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		opacity: 0.05;
-		z-index: -1;
-		height: 100%;
+    &-bg-image {
+        background-image: url("../../../images/sankofa-bg.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.05;
+        z-index: -1;
+        height: 100%;
 
-		@include full-width(absolute);
+        @include full-width(absolute);
 
-		@include desktop {
-			background-size: contain;
-		}
-	}
+        @include desktop {
+            background-size: contain;
+        }
+    }
 
-	&-visuals,
-	&-images {
-		display: flex;
+    &-visuals,
+    &-images {
+        display: flex;
 
-		> div:not([data-main-modal]) {
-			margin: 0 auto;
+        > div:not([data-main-modal]) {
+            margin: 0 auto;
 
-			img {
-				border-radius: $border-radius-sm;
-				overflow: hidden;
-			}
-		}
-	}
+            img {
+                border-radius: $border-radius-sm;
+                overflow: hidden;
+            }
+        }
+    }
 
-	&-images {
-		justify-content: center;
-		gap: rem-calc(16);
-	}
+    &-images {
+        justify-content: center;
+        gap: rem-calc(16);
+    }
 
-	&-visuals {
-		flex-direction: column;
-		gap: rem-calc(75);
-	}
+    &-visuals {
+        flex-direction: column;
+        gap: rem-calc(75);
+    }
 
-	&-container {
-		@include ep-layout("reverse", flex-start);
+    &-container {
+        @include layout("reverse", flex-start);
 
-		@extend %form-page;
-	}
+        @extend %form-page;
+    }
 
-	&-info {
-		@include box;
-	}
+    &-info {
+        @include box;
+    }
 }

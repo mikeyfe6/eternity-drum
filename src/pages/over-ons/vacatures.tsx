@@ -57,18 +57,11 @@ const Vacatures: React.FC<PageProps> = () => {
 
     return (
         <>
-            <Hero />
             <section className="page-intro">
                 <Breadcrumbs crumbs={breadcrumbs} />
                 <h1 className="page-title">Vacatures</h1>
             </section>
             <section data-main-section>
-                <hr />
-                <br />
-                <br />
-
-                {/* // bloaty af! */}
-
                 {vacancies.length > 0 ? (
                     <ul className={styles.vacancies}>
                         {vacancies.map(({ slug, jobTitle, id }) => {

@@ -49,7 +49,7 @@
     &-wrapper {
         border-radius: 0;
 
-        @include ep-container;
+        @include container;
 
         @include mobile {
             border-radius: $border-radius-md;
@@ -78,7 +78,7 @@
         overflow: hidden;
         border-radius: 0;
 
-        @include ep-container;
+        @include container;
 
         @include mobile {
             border-radius: $border-radius-md;

@@ -89,8 +89,6 @@ const Post = ({
 
     return (
         <>
-            <hr className="fullwidth" />
-
             <section className="page-intro post-intro">
                 <Breadcrumbs crumbs={breadcrumbs} />
                 <h1 className="page-title">{title}</h1>

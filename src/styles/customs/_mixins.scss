@@ -9,13 +9,13 @@
 
 // LAYOUT
 
-@mixin ep-container($size: 1800) {
+@mixin container($size: 1800) {
     max-width: rem-calc($size);
     margin: 0 auto;
     width: 100%;
 }
 
-@mixin ep-layout($type: "normal", $align: flex-start) {
+@mixin layout($type: "normal", $align: flex-start) {
     display: flex;
     justify-content: center;
     gap: rem-calc(37.5);

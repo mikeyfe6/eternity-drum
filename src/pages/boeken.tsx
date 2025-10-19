@@ -14,7 +14,6 @@ const Boeken: React.FC<PageProps> = () => {
 
     return (
         <>
-            <Hero />
             <div className="page-intro">
                 <Breadcrumbs crumbs={breadcrumbs} />
                 <h1 className="page-title">Boeken</h1>

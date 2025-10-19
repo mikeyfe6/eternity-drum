@@ -85,7 +85,7 @@ body {
     flex: 1;
     padding: rem-calc(0 16 64);
 
-    @include ep-container;
+    @include container;
 
     @include mobile {
         padding: rem-calc(0 24 80);

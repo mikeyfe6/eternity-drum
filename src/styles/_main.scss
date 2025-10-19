@@ -5,12 +5,12 @@
 [data-main-section] {
     margin-top: rem-calc(32);
 
-    &:has(.not-ready) {
-        margin-top: rem-calc(48);
-    }
-
     @include mobile {
         margin-top: rem-calc(64);
+    }
+
+    &:has(.not-ready) {
+        margin-top: rem-calc(48);
     }
 }
 

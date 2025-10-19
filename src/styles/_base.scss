@@ -1,34 +1,30 @@
 @use "./customs" as *;
 
 hr {
-	height: 3px;
-	border-width: 0;
-	background-color: rgba($dark-grey, 0.1);
-	margin: rem-calc(8 0);
+    height: 3px;
+    border-width: 0;
+    background-color: rgba($dark-grey, 0.1);
+    margin: rem-calc(8 0);
 
-	&.fullwidth {
-		margin: 0;
-		height: 1px;
+    &.fullwidth {
+        margin: 0;
+        height: 1px;
 
-		@include full-width;
-
-		@include mobile {
-			display: none;
-		}
-	}
+        @include full-width;
+    }
 }
 
 iframe {
-	width: 100%;
-	border-radius: $border-radius-xs;
-	outline: 2px solid $primary-color;
-	border: none;
-	overflow: hidden;
+    width: 100%;
+    border-radius: $border-radius-xs;
+    outline: 2px solid $primary-color;
+    border: none;
+    overflow: hidden;
 
-	&.ep-yt-player {
-		aspect-ratio: 16 / 9;
-		height: 100%;
-		width: 100%;
-		outline-color: $lightgrey-color;
-	}
+    &.ep-yt-player {
+        aspect-ratio: 16 / 9;
+        height: 100%;
+        width: 100%;
+        outline-color: $lightgrey-color;
+    }
 }

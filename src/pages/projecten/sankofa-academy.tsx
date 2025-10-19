@@ -34,7 +34,6 @@ const SankofaAcademy: React.FC<PageProps> = () => {
 
     return (
         <>
-            <Hero />
             <section className="page-intro">
                 <Breadcrumbs crumbs={breadcrumbs} />
                 <h1 className="page-title">Projecten</h1>

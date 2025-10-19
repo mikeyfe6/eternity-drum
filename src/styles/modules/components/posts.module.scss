@@ -3,7 +3,7 @@
 @use "../../customs" as *;
 
 .posts {
-    @include ep-container(1189);
+    @include container(1189);
 
     > h2 {
         text-align: center;

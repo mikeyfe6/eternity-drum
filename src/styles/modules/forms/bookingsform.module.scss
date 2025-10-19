@@ -3,17 +3,17 @@
 @use "../../customs" as *;
 
 .bookings {
-	&-container {
-		@include ep-layout("reverse", flex-start);
+    &-container {
+        @include layout("reverse", flex-start);
 
-		@extend %form-page;
-	}
+        @extend %form-page;
+    }
 
-	&-wrapper {
-		@extend %form-style;
-	}
+    &-wrapper {
+        @extend %form-style;
+    }
 
-	&-info {
-		@include box;
-	}
+    &-info {
+        @include box;
+    }
 }

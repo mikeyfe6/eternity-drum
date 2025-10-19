@@ -3,88 +3,88 @@
 @use "../../customs" as *;
 
 .media-cont-one {
-	align-items: center;
-	display: flex;
-	justify-content: center;
-	flex-direction: column-reverse;
-	gap: rem-calc(37.5);
-	margin-bottom: rem-calc(37.5);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+    gap: rem-calc(37.5);
+    margin-bottom: rem-calc(37.5);
 
-	@include tablet {
-		gap: rem-calc(50);
-		margin-bottom: rem-calc(50);
-		flex-direction: row;
-	}
+    @include tablet {
+        gap: rem-calc(50);
+        margin-bottom: rem-calc(50);
+        flex-direction: row;
+    }
 
-	@include desktop {
-		gap: rem-calc(75);
-		margin-bottom: rem-calc(75);
-	}
+    @include desktop {
+        gap: rem-calc(75);
+        margin-bottom: rem-calc(75);
+    }
 
-	.music {
-		background-color: color.scale($primary-color, $lightness: 2.5%);
-		outline: 5px solid color.adjust($primary-color, $lightness: 10%);
-		color: $white-color;
-		width: 100%;
-		max-width: rem-calc(450);
-		border-radius: $border-radius-md;
-		position: relative;
-		padding: rem-calc(16 16 32);
+    .music {
+        background-color: color.scale($primary-color, $lightness: 2.5%);
+        outline: 5px solid color.adjust($primary-color, $lightness: 10%);
+        color: $white-color;
+        width: 100%;
+        max-width: rem-calc(450);
+        border-radius: $border-radius-md;
+        position: relative;
+        padding: rem-calc(16 16 32);
 
-		@include box-shadow;
+        @include box-shadow;
 
-		@include mobile {
-			padding: rem-calc(24 24 40);
-		}
-	}
+        @include mobile {
+            padding: rem-calc(24 24 40);
+        }
+    }
 
-	.news {
-		max-width: rem-calc(600);
+    .news {
+        max-width: rem-calc(600);
 
-		@include box;
+        @include box;
 
-		a {
-			svg {
-				margin-left: rem-calc(8);
-				font-size: rem-calc(12);
-				vertical-align: super;
-			}
-		}
+        a {
+            svg {
+                margin-left: rem-calc(8);
+                font-size: rem-calc(12);
+                vertical-align: super;
+            }
+        }
 
-		hr {
-			margin: rem-calc(16 0);
-		}
-	}
+        hr {
+            margin: rem-calc(16 0);
+        }
+    }
 }
 
 .photos {
-	background-color: color.adjust($lightgrey-color, $lightness: 10%);
+    background-color: color.adjust($lightgrey-color, $lightness: 10%);
 
-	@include ep-container(1250);
-	@include box;
+    @include container(1250);
+    @include box;
 
-	/* stylelint-disable-next-line no-descending-specificity */
-	hr {
-		margin: rem-calc(24 0);
-		background-color: $white-color;
+    /* stylelint-disable-next-line no-descending-specificity */
+    hr {
+        margin: rem-calc(24 0);
+        background-color: $white-color;
 
-		@include phablet {
-			margin: rem-calc(32 0);
-		}
-	}
+        @include phablet {
+            margin: rem-calc(32 0);
+        }
+    }
 }
 
 .videos {
-	background-color: #80808010;
-	text-align: center;
+    background-color: #80808010;
+    text-align: center;
 
-	@include ep-container(900);
+    @include container(900);
 
-	@include box;
+    @include box;
 
-	> iframe {
-		&:not(:last-child, :first-of-type) {
-			margin-bottom: rem-calc(16);
-		}
-	}
+    > iframe {
+        &:not(:last-child, :first-of-type) {
+            margin-bottom: rem-calc(16);
+        }
+    }
 }

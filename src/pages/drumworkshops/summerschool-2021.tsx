@@ -25,7 +25,6 @@ const SummerschoolSecond: React.FC<PageProps> = () => {
 
     return (
         <>
-            <Hero />
             <section className="page-intro">
                 <Breadcrumbs crumbs={breadcrumbs} />
                 <h1 className="page-title">Summerschool 2021</h1>

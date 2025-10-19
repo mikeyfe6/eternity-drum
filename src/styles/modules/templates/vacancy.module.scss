@@ -1,29 +1,31 @@
 @use "../../customs" as *;
 
 .vacancies {
-	li {
-		a {
-			display: flex;
-			align-items: center;
-			gap: rem-calc(16);
-			outline: 2px solid $primary-color;
-			width: 100%;
-			padding: rem-calc(20 32);
+    @include container(1500);
 
-			@include fluid-typing(17, 18);
+    li {
+        a {
+            display: flex;
+            align-items: center;
+            gap: rem-calc(16);
+            outline: 2px solid $primary-color;
+            width: 100%;
+            padding: rem-calc(20 32);
 
-			@include mobile {
-				width: fit-content;
-			}
+            @include fluid-typing(17, 18);
 
-			span {
-				color: $link-color;
-				font-size: rem-calc(24);
-			}
+            @include mobile {
+                width: fit-content;
+            }
 
-			&:hover {
-				outline-color: $link-color;
-			}
-		}
-	}
+            span {
+                color: $link-color;
+                font-size: rem-calc(24);
+            }
+
+            &:hover {
+                outline-color: $link-color;
+            }
+        }
+    }
 }

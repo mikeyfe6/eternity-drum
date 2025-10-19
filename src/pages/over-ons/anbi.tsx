@@ -29,7 +29,6 @@ const Anbi: React.FC<PageProps> = () => {
 
     return (
         <>
-            <Hero />
             <section className="page-intro">
                 <Breadcrumbs crumbs={breadcrumbs} />
                 <h1 className="page-title">ANBI</h1>

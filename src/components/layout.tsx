@@ -1,5 +1,7 @@
 import React, { ReactNode, useState, useEffect } from "react";
 
+import { useLocation } from "@reach/router";
+
 import { AnimatePresence, motion } from "framer-motion";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -95,6 +97,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { pathname } = useLocation();
 
     const openMobileMenu = () => {
         setIsMobileMenuOpen(true);
@@ -124,16 +127,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         };
     }, [isMobileMenuOpen]);
 
-    const pathname =
-        typeof window !== "undefined" ? window.location.pathname : "";
+    const key = typeof window !== "undefined" ? window.location.pathname : "";
 
     return (
         <div className="eternity-container">
             <Header openMobileMenu={openMobileMenu} />
+            {pathname !== "/" && <hr className="fullwidth" />}
             <div className="eternity-wrapper">
                 <AnimatePresence mode="wait">
                     <motion.main
-                        key={pathname}
+                        key={key}
                         variants={variants}
                         initial="initial"
                         animate="animate"

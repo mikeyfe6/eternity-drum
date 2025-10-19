@@ -3,6 +3,8 @@
 @use "../../customs" as *;
 
 .posts {
+    @include container(1500);
+
     > ul {
         display: flex;
         justify-content: center;
