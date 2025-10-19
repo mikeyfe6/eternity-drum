@@ -89,7 +89,7 @@ const Post = ({
 
     return (
         <>
-            <section className="page-intro post-intro">
+            <section className="page-intro">
                 <Breadcrumbs crumbs={breadcrumbs} />
                 <h1 className="page-title">{title}</h1>
             </section>

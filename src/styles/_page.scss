@@ -24,26 +24,6 @@
             height: fit-content;
         }
 
-        &.post-intro {
-            max-width: rem-calc(1300);
-            gap: rem-calc(8);
-
-            @include mobile {
-                margin: auto;
-                gap: rem-calc(16);
-            }
-
-            @include phablet {
-                gap: rem-calc(32 16);
-            }
-
-            #{$page}-title {
-                @include phablet {
-                    align-self: center;
-                }
-            }
-        }
-
         &:not(.home-intro) {
             max-width: rem-calc(1500);
             margin-left: auto;

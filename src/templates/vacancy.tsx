@@ -76,7 +76,7 @@ const Vacancy = ({
 
     return (
         <>
-            <section className="page-intro post-intro">
+            <section className="page-intro">
                 <Breadcrumbs crumbs={breadcrumbs} />
                 <h1 className="page-title">Vacature: {jobTitle}</h1>
             </section>
