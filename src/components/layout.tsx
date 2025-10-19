@@ -96,8 +96,9 @@ interface LayoutProps {
     };
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, location }) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [pathname, setPathname] = useState("");
 
     const openMobileMenu = () => {
         setIsMobileMenuOpen(true);
@@ -114,6 +115,10 @@ const Layout: React.FC<LayoutProps> = ({ children, location }) => {
     };
 
     useEffect(() => {
+        if (typeof window !== "undefined") {
+            setPathname(window.location.pathname);
+        }
+
         const handleResize = () => {
             if (window.innerWidth > 1600 && isMobileMenuOpen) {
                 closeMobileMenu();
@@ -132,7 +137,7 @@ const Layout: React.FC<LayoutProps> = ({ children, location }) => {
     return (
         <div className="eternity-container">
             <Header openMobileMenu={openMobileMenu} />
-            {location.pathname !== "/" && <hr className="fullwidth" />}
+            {pathname !== "/" && <hr className="fullwidth" />}
             <div className="eternity-wrapper">
                 <AnimatePresence mode="wait">
                     <motion.main
