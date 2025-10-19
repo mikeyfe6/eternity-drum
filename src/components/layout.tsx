@@ -99,6 +99,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { pathname } = useLocation();
 
+    const key = pathname || "";
+
     const openMobileMenu = () => {
         setIsMobileMenuOpen(true);
     };
@@ -126,8 +128,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             window.removeEventListener("resize", handleResize);
         };
     }, [isMobileMenuOpen]);
-
-    const key = typeof window !== "undefined" ? window.location.pathname : "";
 
     return (
         <div className="eternity-container">
