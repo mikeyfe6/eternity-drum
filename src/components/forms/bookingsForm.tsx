@@ -35,6 +35,7 @@ const BookingsForm: React.FC = () => {
         "firstName",
         "lastName",
         "email",
+        "phone",
         "topic",
         "message",
     ];
@@ -360,14 +361,14 @@ const BookingsForm: React.FC = () => {
                                             : ""
                                     }
                                 >
-                                    Telefoonnummer
+                                    Telefoonnummer <span>*</span>
                                 </label>
                                 <input
                                     type="tel"
                                     id="phone"
                                     name="phone"
                                     autoComplete="tel"
-                                    placeholder="Telefoon"
+                                    placeholder="Telefoonnummer *"
                                     value={formData.phone}
                                     onChange={handleInputChange}
                                     onBlur={handleInputBlur}
