@@ -3,60 +3,69 @@
 @use "../../customs" as *;
 
 .register {
-	&-wrapper {
-		max-width: rem-calc(600);
+    &-wrapper {
+        max-width: rem-calc(600);
 
-		@extend %form-style;
+        @extend %form-style;
 
-		@include box-shadow;
+        @include box-shadow;
 
-		@include mobile {
-			min-width: rem-calc(500);
-		}
+        @include mobile {
+            min-width: rem-calc(500);
+        }
 
-		> h2 {
-			text-decoration: underline;
-			text-decoration-color: $tertiary-color;
-			text-underline-offset: 4px;
-		}
+        > h2 {
+            text-decoration: underline;
+            text-decoration-color: $tertiary-color;
+            text-underline-offset: 4px;
+        }
 
-		> span {
-			font-size: rem-calc(18);
-			font-weight: 600;
-			margin-bottom: rem-calc(24);
-			display: block;
-		}
+        > span {
+            font-size: rem-calc(18);
+            font-weight: 600;
+            margin-bottom: rem-calc(24);
+            display: block;
+        }
 
-		> form {
-			margin-bottom: rem-calc(24);
-		}
-	}
+        > small {
+            display: block;
+            margin-bottom: rem-calc(24);
 
-	&-conditions {
-		> ul {
-			list-style-type: disc;
-			margin-left: rem-calc(24);
-			margin-bottom: rem-calc(16);
-			font-size: rem-calc(16);
+            > span {
+                color: $red-color;
+            }
+        }
 
-			li:not(:last-child) {
-				padding-bottom: rem-calc(8);
-			}
-		}
+        > form {
+            margin-bottom: rem-calc(24);
+        }
+    }
 
-		> p {
-			font-size: rem-calc(16);
-			margin-bottom: rem-calc(16);
+    &-conditions {
+        > ul {
+            list-style-type: disc;
+            margin-left: rem-calc(24);
+            margin-bottom: rem-calc(16);
+            font-size: rem-calc(16);
 
-			&:nth-of-type(2) {
-				margin-top: rem-calc(32);
-			}
+            li:not(:last-child) {
+                padding-bottom: rem-calc(8);
+            }
+        }
 
-			&:last-child {
-				font-size: rem-calc(14);
-				text-align: center;
-				margin-top: rem-calc(32);
-			}
-		}
-	}
+        > p {
+            font-size: rem-calc(16);
+            margin-bottom: rem-calc(16);
+
+            &:nth-of-type(2) {
+                margin-top: rem-calc(32);
+            }
+
+            &:last-child {
+                font-size: rem-calc(14);
+                text-align: center;
+                margin-top: rem-calc(32);
+            }
+        }
+    }
 }

@@ -76,10 +76,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
         "city",
         "province",
 
-        "email",
-
-        "phone",
-
         "dayOfBirth",
         "monthOfBirth",
         "yearOfBirth",
@@ -340,6 +336,11 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                 Vul hieronder jouw gegevens in en wij nemen zo spoedig mogelijk
                 contact met je op.
             </span>
+
+            <small>
+                Velden aangegeven met een <span>*</span> zijn verplicht
+            </small>
+
             <form
                 onSubmit={(event) =>
                     handleSubmit(event, document.querySelector("form"))
@@ -367,13 +368,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         : ""
                                 }
                             >
-                                Voornaam
+                                Voornaam <span>*</span>
                             </label>
                             <input
                                 type="text"
                                 id="firstName"
                                 name="firstName"
-                                placeholder="Voornaam"
+                                placeholder="Voornaam *"
                                 ref={inputRef}
                                 value={formData.firstName}
                                 onChange={handleInputChange}
@@ -406,13 +407,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         : ""
                                 }
                             >
-                                Achternaam
+                                Achternaam <span>*</span>
                             </label>
                             <input
                                 type="text"
                                 id="lastName"
                                 name="lastName"
-                                placeholder="Achternaam"
+                                placeholder="Achternaam *"
                                 value={formData.lastName}
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}
@@ -445,13 +446,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         : ""
                                 }
                             >
-                                Straatnaam
+                                Straatnaam <span>*</span>
                             </label>
                             <input
                                 type="text"
                                 id="streetName"
                                 name="streetName"
-                                placeholder="Straatnaam"
+                                placeholder="Straatnaam *"
                                 autoComplete="street-address"
                                 value={formData.streetName}
                                 onChange={handleInputChange}
@@ -484,13 +485,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         : ""
                                 }
                             >
-                                Huisnr.
+                                Huisnr. <span>*</span>
                             </label>
                             <input
                                 type="text"
                                 id="houseNumber"
                                 name="houseNumber"
-                                placeholder="Huisnr."
+                                placeholder="Huisnr. *"
                                 value={formData.houseNumber}
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}
@@ -521,13 +522,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         : ""
                                 }
                             >
-                                Postcode
+                                Postcode <span>*</span>
                             </label>
                             <input
                                 type="text"
                                 id="zipCode"
                                 name="zipCode"
-                                placeholder="Postcode"
+                                placeholder="Postcode *"
                                 value={formData.zipCode}
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}
@@ -559,13 +560,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         : ""
                                 }
                             >
-                                Woonplaats
+                                Woonplaats <span>*</span>
                             </label>
                             <input
                                 type="text"
                                 id="city"
                                 name="city"
-                                placeholder="Woonplaats"
+                                placeholder="Woonplaats *"
                                 value={formData.city}
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}
@@ -595,13 +596,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         : ""
                                 }
                             >
-                                Provincie
+                                Provincie <span>*</span>
                             </label>
                             <input
                                 type="text"
                                 id="province"
                                 name="province"
-                                placeholder="Provincie"
+                                placeholder="Provincie *"
                                 value={formData.province}
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}
@@ -703,14 +704,14 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         : ""
                                 }
                             >
-                                Telefoon
+                                Telefoonnummer
                             </label>
                             <input
                                 type="tel"
                                 id="phone"
                                 name="phone"
                                 autoComplete="tel"
-                                placeholder="Telefoon"
+                                placeholder="Telefoonnummer"
                                 value={formData.phone}
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}
@@ -732,7 +733,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
                         <div className="form-group date-of-birth">
                             <label
-                                htmlFor="dateOfBirth"
                                 className={
                                     focusedInput === "dateOfBirth" ||
                                     formData.dayOfBirth ||
@@ -742,12 +742,12 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         : ""
                                 }
                             >
-                                Geboortedatum
+                                Geboortedatum <span>*</span>
                             </label>
                             <div className="form-dates">
-                                <label htmlFor="dayOfBirth" hidden>
+                                {/* <label htmlFor="dayOfBirth" hidden>
                                     Geboortedag
-                                </label>
+                                </label> */}
                                 <select
                                     id="day-of-birth"
                                     name="dayOfBirth"
@@ -778,7 +778,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									  `.trim()}
                                 >
                                     <option value="" disabled>
-                                        Dag
+                                        Dag *
                                     </option>
                                     {Array.from({ length: 31 }, (_, i) => (
                                         <option key={i} value={i + 1}>
@@ -786,9 +786,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         </option>
                                     ))}
                                 </select>
-                                <label htmlFor="monthOfBirth" hidden>
+                                {/* <label htmlFor="monthOfBirth" hidden>
                                     Geboortemaand
-                                </label>
+                                </label> */}
                                 <select
                                     id="month-of-birth"
                                     name="monthOfBirth"
@@ -824,7 +824,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									  `.trim()}
                                 >
                                     <option value="" disabled>
-                                        Maand
+                                        Maand *
                                     </option>
                                     {[
                                         "Januari",
@@ -845,9 +845,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         </option>
                                     ))}
                                 </select>
-                                <label htmlFor="yearOfBirth" hidden>
+                                {/* <label htmlFor="yearOfBirth" hidden>
                                     Geboortejaar
-                                </label>
+                                </label> */}
                                 <select
                                     id="year-of-birth"
                                     name="yearOfBirth"
@@ -878,7 +878,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 									  `.trim()}
                                 >
                                     <option value="" disabled>
-                                        Jaar
+                                        Jaar *
                                     </option>
                                     {Array.from({ length: 100 }, (_, i) => (
                                         <option
@@ -1027,13 +1027,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         : ""
                                 }
                             >
-                                Voornaam (ouders/voogd)
+                                Voornaam (ouders/voogd) <span>*</span>
                             </label>
                             <input
                                 type="text"
                                 id="firstNameParent"
                                 name="firstNameParent"
-                                placeholder="Voornaam"
+                                placeholder="Voornaam *"
                                 value={formData.firstNameParent}
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}
@@ -1067,13 +1067,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         : ""
                                 }
                             >
-                                Achternaam (ouders/voogd)
+                                Achternaam (ouders/voogd) <span>*</span>
                             </label>
                             <input
                                 type="text"
                                 id="lastNameParent"
                                 name="lastNameParent"
-                                placeholder="Achternaam"
+                                placeholder="Achternaam *"
                                 value={formData.lastNameParent}
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}
@@ -1109,13 +1109,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         : ""
                                 }
                             >
-                                E-mailadres (ouders/voogd)
+                                E-mailadres (ouders/voogd) <span>*</span>
                             </label>
                             <input
                                 id="emailParent"
                                 type="email"
                                 name="emailParent"
-                                placeholder="E-mailadres"
+                                placeholder="E-mailadres *"
                                 value={formData.emailParent}
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}
@@ -1147,13 +1147,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         : ""
                                 }
                             >
-                                Telefoonnummer (ouders/voogd)
+                                Telefoonnummer (ouders/voogd) <span>*</span>
                             </label>
                             <input
                                 type="tel"
                                 id="phoneParent"
                                 name="phoneParent"
-                                placeholder="Telefoonnummer"
+                                placeholder="Telefoonnummer *"
                                 value={formData.phoneParent}
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}

@@ -177,6 +177,9 @@ const NewsletterForm: React.FC = () => {
                 <input type="hidden" name="form-name" value="newsletter-form" />
                 <fieldset>
                     <legend>Schrijf je in voor onze nieuwsbrief</legend>
+                    <small>
+                        Velden aangegeven met een <span>*</span> zijn verplicht
+                    </small>
                     <div className="form-column">
                         <div className="form-group first-name">
                             <label
@@ -188,13 +191,13 @@ const NewsletterForm: React.FC = () => {
                                         : ""
                                 }
                             >
-                                Voornaam
+                                Voornaam <span>*</span>
                             </label>
                             <input
                                 type="text"
                                 id="firstName"
                                 name="firstName"
-                                placeholder="Voornaam"
+                                placeholder="Voornaam *"
                                 autoComplete="given-name"
                                 value={formData.firstName}
                                 onChange={handleInputChange}
@@ -227,13 +230,13 @@ const NewsletterForm: React.FC = () => {
                                         : ""
                                 }
                             >
-                                Achternaam
+                                Achternaam <span>*</span>
                             </label>
                             <input
                                 type="text"
                                 id="lastName"
                                 name="lastName"
-                                placeholder="Achternaam"
+                                placeholder="Achternaam *"
                                 autoComplete="family-name"
                                 value={formData.lastName}
                                 onChange={handleInputChange}
@@ -266,13 +269,13 @@ const NewsletterForm: React.FC = () => {
                                         : ""
                                 }
                             >
-                                E-mailadres
+                                E-mailadres <span>*</span>
                             </label>
                             <input
                                 type="text"
                                 id="email"
                                 name="email"
-                                placeholder="E-mailadres"
+                                placeholder="E-mailadres *"
                                 autoComplete="email"
                                 value={formData.email}
                                 onChange={handleInputChange}

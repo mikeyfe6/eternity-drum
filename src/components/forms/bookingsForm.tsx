@@ -223,6 +223,10 @@ const BookingsForm: React.FC = () => {
                             Vul hieronder je gegevens in en wij nemen zo spoedig
                             mogelijk contact met je op.
                         </legend>
+                        <small>
+                            Velden aangegeven met een <span>*</span> zijn
+                            verplicht
+                        </small>
                         <div className="form-column">
                             <div className="form-group first-name">
                                 <label
@@ -234,13 +238,13 @@ const BookingsForm: React.FC = () => {
                                             : ""
                                     }
                                 >
-                                    Voornaam
+                                    Voornaam <span>*</span>
                                 </label>
                                 <input
                                     type="text"
                                     id="firstName"
                                     name="firstName"
-                                    placeholder="Voornaam"
+                                    placeholder="Voornaam *"
                                     value={formData.firstName}
                                     onChange={handleInputChange}
                                     onBlur={handleInputBlur}
@@ -276,14 +280,14 @@ const BookingsForm: React.FC = () => {
                                             : ""
                                     }
                                 >
-                                    Achternaam
+                                    Achternaam <span>*</span>
                                 </label>
                                 <input
                                     type="text"
                                     id="lastName"
                                     name="lastName"
                                     value={formData.lastName}
-                                    placeholder="Achternaam"
+                                    placeholder="Achternaam *"
                                     onChange={handleInputChange}
                                     onBlur={handleInputBlur}
                                     onFocus={() => handleInputFocus("lastName")}
@@ -317,14 +321,14 @@ const BookingsForm: React.FC = () => {
                                             : ""
                                     }
                                 >
-                                    E-mailadres
+                                    E-mailadres <span>*</span>
                                 </label>
                                 <input
                                     type="text"
                                     id="email"
                                     name="email"
                                     value={formData.email}
-                                    placeholder="E-mailadres"
+                                    placeholder="E-mailadres *"
                                     onChange={handleInputChange}
                                     onBlur={handleInputBlur}
                                     onFocus={() => handleInputFocus("email")}
@@ -356,7 +360,7 @@ const BookingsForm: React.FC = () => {
                                             : ""
                                     }
                                 >
-                                    Telefoon
+                                    Telefoonnummer
                                 </label>
                                 <input
                                     type="tel"
@@ -398,7 +402,7 @@ const BookingsForm: React.FC = () => {
                                                 : ""
                                         }
                                     >
-                                        Kies onderwerp
+                                        Kies onderwerp <span>*</span>
                                     </label>
                                     <select
                                         id="topic"
@@ -425,7 +429,7 @@ const BookingsForm: React.FC = () => {
                                         }
                                     >
                                         <option value="" disabled>
-                                            Kies onderwerp
+                                            Kies onderwerp *
                                         </option>
                                         <option value="boeking">
                                             Boeking / Offerte
@@ -450,12 +454,12 @@ const BookingsForm: React.FC = () => {
                                             : ""
                                     }
                                 >
-                                    Bericht
+                                    Bericht <span>*</span>
                                 </label>
                                 <textarea
                                     id="message"
                                     name="message"
-                                    placeholder="Bericht"
+                                    placeholder="Bericht *"
                                     value={formData.message}
                                     onChange={handleInputChange}
                                     onBlur={handleInputBlur}

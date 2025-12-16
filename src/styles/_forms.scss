@@ -26,6 +26,20 @@
             @include fluid-typing(19, 20);
         }
 
+        > small {
+            margin-bottom: rem-calc(48);
+
+            > span {
+                color: $red-color;
+            }
+        }
+
+        &:has(> small) {
+            > legend {
+                margin-bottom: rem-calc(24);
+            }
+        }
+
         label {
             opacity: 0;
             position: absolute;
@@ -47,6 +61,10 @@
                 left: 0;
                 transition: all 0.1s;
                 color: color.adjust($tertiary-color, $lightness: 10%);
+            }
+
+            > span {
+                color: $red-color;
             }
         }
 
@@ -121,7 +139,7 @@
 
     &-column {
         display: flex;
-        gap: rem-calc(35 16);
+        gap: rem-calc(38 16);
 
         &:not(:last-child) {
             margin-bottom: rem-calc(36);
@@ -197,11 +215,11 @@
             }
 
             &.house-number {
-                max-width: rem-calc(100);
+                max-width: rem-calc(90);
             }
 
             &.zip-code {
-                max-width: rem-calc(90);
+                max-width: rem-calc(110);
             }
 
             // -------------------------- column 3
@@ -246,7 +264,7 @@
                     flex: 1;
 
                     @include mobile {
-                        min-width: rem-calc(175);
+                        flex: 50%;
                     }
                 }
             }
@@ -308,7 +326,7 @@
                 }
 
                 #year-of-birth {
-                    min-width: rem-calc(60);
+                    min-width: rem-calc(80);
                 }
             }
         }
