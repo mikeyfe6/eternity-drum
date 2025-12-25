@@ -178,7 +178,7 @@ const NewsletterForm: React.FC = () => {
                 <fieldset>
                     <legend>Schrijf je in voor onze nieuwsbrief</legend>
                     <small>
-                        Velden aangegeven met een <span>*</span> zijn verplicht
+                        (Velden aangegeven met een <span>*</span> zijn verplicht)
                     </small>
                     <div className="form-column">
                         <div className="form-group first-name">

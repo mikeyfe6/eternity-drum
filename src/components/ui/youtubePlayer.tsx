@@ -26,10 +26,11 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({
             height={height}
             src={embedUrl}
             title="Youtube Video"
+            referrerPolicy="strict-origin-when-cross-origin"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             loading="lazy"
             allowFullScreen
-        ></iframe>
+        />
     );
 };
 

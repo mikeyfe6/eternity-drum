@@ -338,7 +338,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
             </span>
 
             <small>
-                Velden aangegeven met een <span>*</span> zijn verplicht
+                (Velden aangegeven met een <span>*</span> zijn verplicht)
             </small>
 
             <form
