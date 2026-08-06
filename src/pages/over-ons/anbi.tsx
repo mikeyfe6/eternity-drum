@@ -78,6 +78,22 @@ const Anbi: React.FC<PageProps> = () => {
                     </p>
 
                     <h3 className="as-h4">
+                        <u>Bestuur</u>
+                    </h3>
+                    <p>Het bestuur van Stichting Eternity Percussion bestaat uit:</p>
+                    <ul>
+                        <li>
+                            Clyde Wartes - <b>Voorzitter</b>
+                        </li>
+                        <li>
+                            Fabian Oudsten - <b>Secretaris</b>
+                        </li>
+                        <li>
+                            Zamaney Menso - <b>Penningmeester</b>
+                        </li>
+                    </ul>
+
+                    <h3 className="as-h4">
                         <u>Dagelijkse leiding</u>
                     </h3>
                     <p>De dagelijkse leiding van Stichting Eternity Percussion is in handen van:</p>
@@ -93,22 +109,6 @@ const Anbi: React.FC<PageProps> = () => {
                         De directie is verantwoordelijk voor de dagelijkse aansturing van de organisatie en legt
                         hierover periodiek verantwoording af aan het bestuur.
                     </p>
-
-                    <h3 className="as-h4">
-                        <u>Bestuur</u>
-                    </h3>
-                    <p>Het bestuur van Stichting Eternity Percussion bestaat uit:</p>
-                    <ul>
-                        <li>
-                            Clyde Wartes - <b>Voorzitter</b>
-                        </li>
-                        <li>
-                            Fabian Oudsten - <b>Secretaris</b>
-                        </li>
-                        <li>
-                            Zamaney Menso - <b>Penningmeester</b>
-                        </li>
-                    </ul>
 
                     <h3 className="as-h4">
                         <u>Beleidsplan</u>
