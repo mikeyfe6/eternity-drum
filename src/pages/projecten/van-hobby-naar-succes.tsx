@@ -3,7 +3,6 @@ import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 
 import Breadcrumbs from "../../components/layout/breadcrumbs";
-import Hero from "../../components/layout/heroslider";
 
 import { Seo } from "../../components/seo";
 
@@ -31,9 +30,4 @@ const VanHobbyNaarSucces: React.FC<PageProps> = () => {
 
 export default VanHobbyNaarSucces;
 
-export const Head: HeadFC = () => (
-    <Seo
-        title="Van Hobby Naar Succes"
-        pathname="/projecten/van-hobby-naar-succes/"
-    />
-);
+export const Head: HeadFC = () => <Seo title="Van Hobby Naar Succes" pathname="/projecten/van-hobby-naar-succes/" />;

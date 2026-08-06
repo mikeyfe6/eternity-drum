@@ -50,10 +50,7 @@ export type FieldErrors = {
     [key: string]: string[];
 };
 
-export const validateRegisterForm = (
-    formData: RegisterFormData,
-    isOlderThan18: boolean
-): FieldErrors => {
+export const validateRegisterForm = (formData: RegisterFormData, isOlderThan18: boolean): FieldErrors => {
     const errors: FieldErrors = {};
 
     if (formData.firstName.trim() === "") {
@@ -116,27 +113,19 @@ export const validateRegisterForm = (
 
     if (!isOlderThan18) {
         if (formData.firstNameParent.trim() === "") {
-            errors["firstNameParent"] = [
-                "Vul de naam van jouw ouder/verzorger in.",
-            ];
+            errors["firstNameParent"] = ["Vul de naam van jouw ouder/verzorger in."];
         }
 
         if (formData.lastNameParent.trim() === "") {
-            errors["lastNameParent"] = [
-                "Vul de achternaam van jouw ouder/verzorger in.",
-            ];
+            errors["lastNameParent"] = ["Vul de achternaam van jouw ouder/verzorger in."];
         }
 
         if (formData.emailParent.trim() === "") {
-            errors["emailParent"] = [
-                "Vul het e-mailadres van jouw ouder/verzorger in.",
-            ];
+            errors["emailParent"] = ["Vul het e-mailadres van jouw ouder/verzorger in."];
         }
 
         if (formData.phoneParent.trim() === "") {
-            errors["phoneParent"] = [
-                "Vul het telefoonnummer van jouw ouder/verzorger in.",
-            ];
+            errors["phoneParent"] = ["Vul het telefoonnummer van jouw ouder/verzorger in."];
         }
     }
 
@@ -175,9 +164,7 @@ export function validateBookingsForm(formData: BookingsFormData): FieldErrors {
     return errors;
 }
 
-export function validateNewsletterForm(
-    formData: NewsletterFormData
-): FieldErrors {
+export function validateNewsletterForm(formData: NewsletterFormData): FieldErrors {
     const errors: FieldErrors = {};
 
     if (formData.firstName.trim() === "") {

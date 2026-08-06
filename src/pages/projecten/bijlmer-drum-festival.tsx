@@ -5,7 +5,6 @@ import type { HeadFC, PageProps } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Breadcrumbs from "../../components/layout/breadcrumbs";
-import Hero from "../../components/layout/heroslider";
 
 import { Seo } from "../../components/seo";
 
@@ -33,11 +32,8 @@ const BijlmerDrumFestival: React.FC<PageProps> = () => {
                                 target="_blank"
                             >
                                 <em>
-                                    Bijlmer Drum Festival 2025: Viering van
-                                    Ritme en cultuur in Amsterdam Zuidoost
-                                    <FontAwesomeIcon
-                                        icon={"up-right-from-square"}
-                                    />
+                                    Bijlmer Drum Festival 2025: Viering van Ritme en cultuur in Amsterdam Zuidoost
+                                    <FontAwesomeIcon icon={"up-right-from-square"} />
                                 </em>
                                 <span>- ZUIDOOST&Meer</span>
                             </a>
@@ -49,12 +45,9 @@ const BijlmerDrumFestival: React.FC<PageProps> = () => {
                                 target="_blank"
                             >
                                 <em>
-                                    Organisator Bijlmer Drum Festival: "We laten
-                                    de diversiteit van Amsterdam zien met
+                                    Organisator Bijlmer Drum Festival: "We laten de diversiteit van Amsterdam zien met
                                     muziek"
-                                    <FontAwesomeIcon
-                                        icon={"up-right-from-square"}
-                                    />
+                                    <FontAwesomeIcon icon={"up-right-from-square"} />
                                 </em>
                                 <span>- AT5</span>
                             </a>
@@ -66,11 +59,8 @@ const BijlmerDrumFestival: React.FC<PageProps> = () => {
                                 target="_blank"
                             >
                                 <em>
-                                    Tijdens het Bijlmer Drum Festival maak je
-                                    kennis met alle stijlen drums
-                                    <FontAwesomeIcon
-                                        icon={"up-right-from-square"}
-                                    />
+                                    Tijdens het Bijlmer Drum Festival maak je kennis met alle stijlen drums
+                                    <FontAwesomeIcon icon={"up-right-from-square"} />
                                 </em>
                                 <span>- FunX</span>
                             </a>
@@ -83,9 +73,7 @@ const BijlmerDrumFestival: React.FC<PageProps> = () => {
                             >
                                 <em>
                                     Licht in Amsterdam
-                                    <FontAwesomeIcon
-                                        icon={"up-right-from-square"}
-                                    />
+                                    <FontAwesomeIcon icon={"up-right-from-square"} />
                                 </em>
                                 <span>- Events.nl</span>
                             </a>
@@ -99,9 +87,4 @@ const BijlmerDrumFestival: React.FC<PageProps> = () => {
 
 export default BijlmerDrumFestival;
 
-export const Head: HeadFC = () => (
-    <Seo
-        title="Bijlmer Drum Festival"
-        pathname="/projecten/bijlmer-drum-festival/"
-    />
-);
+export const Head: HeadFC = () => <Seo title="Bijlmer Drum Festival" pathname="/projecten/bijlmer-drum-festival/" />;

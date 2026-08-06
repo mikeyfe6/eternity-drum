@@ -12,10 +12,7 @@ const Hero: React.FC = () => {
     const progressContent = useRef<HTMLSpanElement | null>(null);
 
     const onAutoplayTimeLeft = (s: any, time: any, progress: any) => {
-        progressCircle.current?.style.setProperty(
-            "--progress",
-            String(1 - progress)
-        );
+        progressCircle.current?.style.setProperty("--progress", String(1 - progress));
 
         if (progressContent.current) {
             progressContent.current.textContent = `${Math.ceil(time / 1000)}`;

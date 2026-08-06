@@ -70,9 +70,7 @@ const Vacancy = ({
         { label: jobTitle },
     ];
 
-    const image = jobImage?.gatsbyImageData
-        ? getImage(jobImage.gatsbyImageData)
-        : null;
+    const image = jobImage?.gatsbyImageData ? getImage(jobImage.gatsbyImageData) : null;
 
     return (
         <>
@@ -102,10 +100,7 @@ const Vacancy = ({
                     </div>
                     <div>
                         <div>
-                            <GatsbyImage
-                                image={image!}
-                                alt={jobImage.description}
-                            />
+                            <GatsbyImage image={image!} alt={jobImage.description} />
                         </div>
                     </div>
                 </div>

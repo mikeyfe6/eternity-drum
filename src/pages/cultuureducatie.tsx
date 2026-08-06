@@ -3,15 +3,11 @@ import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 
 import Breadcrumbs from "../components/layout/breadcrumbs";
-import Hero from "../components/layout/heroslider";
 
 import { Seo } from "../components/seo";
 
 const CultuurEducatie: React.FC<PageProps> = () => {
-    const breadcrumbs = [
-        { label: "Home", link: "/" },
-        { label: "Cultuureducatie" },
-    ];
+    const breadcrumbs = [{ label: "Home", link: "/" }, { label: "Cultuureducatie" }];
 
     return (
         <>
@@ -22,32 +18,22 @@ const CultuurEducatie: React.FC<PageProps> = () => {
             <section data-main-section>
                 <div data-main-content className="page-content center">
                     <p>
-                        <strong>Eternity</strong> heeft de ambitie de komende
-                        jaren te groeien en een instituut te worden voor
-                        Caribische drumbands. Eternity wil met haar aanbod
-                        cultuureducatie zoveel mogelijk kinderen en jongeren
-                        bereiken, zowel met een onderwijs- als een
-                        naschoolsprogramma.
+                        <strong>Eternity</strong> heeft de ambitie de komende jaren te groeien en een instituut te
+                        worden voor Caribische drumbands. Eternity wil met haar aanbod cultuureducatie zoveel mogelijk
+                        kinderen en jongeren bereiken, zowel met een onderwijs- als een naschoolsprogramma.
                     </p>
 
                     <p>
-                        <strong>Eternity</strong> verzorgt vooral in Amsterdam
-                        drumworkshops aan verschillende instellingen en
-                        organisaties. Jongeren doorlopen binnen Eternity een
-                        educatief traject, waarbij ze worden klaargestoomd tot
-                        artiest om uiteindelijk met de professionele drumband
-                        optredens te verzorgen. Hierbij vindt selectie plaats op
-                        basis van talent, houding en samenwerking binnen de
+                        <strong>Eternity</strong> verzorgt vooral in Amsterdam drumworkshops aan verschillende
+                        instellingen en organisaties. Jongeren doorlopen binnen Eternity een educatief traject, waarbij
+                        ze worden klaargestoomd tot artiest om uiteindelijk met de professionele drumband optredens te
+                        verzorgen. Hierbij vindt selectie plaats op basis van talent, houding en samenwerking binnen de
                         band.
                     </p>
 
                     <p>
                         Momenteel verzorgen wij drumlessen o.a. op het{" "}
-                        <a
-                            href="https://www.orioncollegezuidoost.nl"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                        >
+                        <a href="https://www.orioncollegezuidoost.nl" rel="noopener noreferrer" target="_blank">
                             Orion College
                         </a>{" "}
                         in Amsterdam Zuidoost.

@@ -13,7 +13,7 @@ interface Post {
     postType: [
         {
             name?: string;
-        }
+        },
     ];
     publishedDate: string;
     featuredImage: {
@@ -67,73 +67,46 @@ const News: React.FC = () => {
 
     return (
         <section className={styles.posts}>
-            {posts.length > 0 ? (
+            {posts.length > 0 ?
                 <ul>
-                    {posts.map(
-                        ({
-                            title,
-                            id,
-                            postType,
-                            publishedDate,
-                            featuredImage,
-                            excerpt,
-                            slug,
-                        }) => {
-                            const formattedDate = new Date(publishedDate);
+                    {posts.map(({ title, id, postType, publishedDate, featuredImage, excerpt, slug }) => {
+                        const formattedDate = new Date(publishedDate);
 
-                            const formattedDateString =
-                                formattedDate.toLocaleDateString(
-                                    "nl-NL",
-                                    options
-                                );
+                        const formattedDateString = formattedDate.toLocaleDateString("nl-NL", options);
 
-                            const image = featuredImage?.gatsbyImageData
-                                ? getImage(featuredImage.gatsbyImageData)
-                                : null;
+                        const image = featuredImage?.gatsbyImageData ? getImage(featuredImage.gatsbyImageData) : null;
 
-                            return (
-                                <li key={id}>
-                                    <Link to={slug}>
-                                        <GatsbyImage
-                                            image={image!}
-                                            alt={featuredImage.title}
-                                            className={styles.postImage}
-                                            objectPosition="top"
-                                        />
-                                    </Link>
+                        return (
+                            <li key={id}>
+                                <Link to={slug}>
+                                    <GatsbyImage
+                                        image={image!}
+                                        alt={featuredImage.title}
+                                        className={styles.postImage}
+                                        objectPosition="top"
+                                    />
+                                </Link>
 
+                                <div>
+                                    <h2 className="as-h3">
+                                        <Link to={slug} className={styles.postLink}>
+                                            {title}
+                                        </Link>
+                                    </h2>
+
+                                    <span>{postType.map((cato) => cato.name)}</span>
+                                    <p>{excerpt.excerptText}</p>
+                                    <hr />
                                     <div>
-                                        <h2 className="as-h3">
-                                            <Link
-                                                to={slug}
-                                                className={styles.postLink}
-                                            >
-                                                {title}
-                                            </Link>
-                                        </h2>
-
-                                        <span>
-                                            {postType.map((cato) => cato.name)}
-                                        </span>
-                                        <p>{excerpt.excerptText}</p>
-                                        <hr />
-                                        <div>
-                                            <time
-                                                dateTime={formattedDate.toISOString()}
-                                            >
-                                                {formattedDateString}
-                                            </time>
-                                            <Link to={slug}>Lees meer...</Link>
-                                        </div>
+                                        <time dateTime={formattedDate.toISOString()}>{formattedDateString}</time>
+                                        <Link to={slug}>Lees meer...</Link>
                                     </div>
-                                </li>
-                            );
-                        }
-                    )}
+                                </div>
+                            </li>
+                        );
+                    })}
                 </ul>
-            ) : (
-                <p>(Nog) geen berichten...</p>
-            )}
+            :   <p>(Nog) geen berichten...</p>}
         </section>
     );
 };

@@ -5,7 +5,6 @@ import { graphql, useStaticQuery, Link } from "gatsby";
 import type { HeadFC, PageProps } from "gatsby";
 
 import Breadcrumbs from "../../components/layout/breadcrumbs";
-import Hero from "../../components/layout/heroslider";
 
 import { Seo } from "../../components/seo";
 
@@ -62,22 +61,19 @@ const Vacatures: React.FC<PageProps> = () => {
                 <h1 className="page-title">Vacatures</h1>
             </section>
             <section data-main-section>
-                {vacancies.length > 0 ? (
+                {vacancies.length > 0 ?
                     <ul className={styles.vacancies}>
                         {vacancies.map(({ slug, jobTitle, id }) => {
                             return (
                                 <li key={id}>
                                     <Link to={`${slug}/`}>
-                                        <strong>{jobTitle}</strong>{" "}
-                                        <span>&#8594;</span>
+                                        <strong>{jobTitle}</strong> <span>&#8594;</span>
                                     </Link>
                                 </li>
                             );
                         })}
                     </ul>
-                ) : (
-                    <p>Momenteel geen vacatures...</p>
-                )}
+                :   <p>Momenteel geen vacatures...</p>}
             </section>
         </>
     );

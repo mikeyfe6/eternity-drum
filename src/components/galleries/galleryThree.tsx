@@ -24,17 +24,13 @@ type ThumbsSwiperType = {
 const GalleryThree: React.FC = () => {
     const [images, setImages] = useState<ImageType[]>([]);
     const [imageCount, setImageCount] = useState(0);
-    const [thumbsSwiper, setThumbsSwiper] = useState<ThumbsSwiperType | null>(
-        null
-    );
+    const [thumbsSwiper, setThumbsSwiper] = useState<ThumbsSwiperType | null>(null);
 
     const [lightboxImage, setLightboxImage] = useState<any>(null);
 
     const data = useStaticQuery(graphql`
         query {
-            allS3ImageFile(
-                filter: { folderName: { regex: "/bijlmeronstage-181222/" } }
-            ) {
+            allS3ImageFile(filter: { folderName: { regex: "/bijlmeronstage-181222/" } }) {
                 edges {
                     node {
                         id
@@ -52,12 +48,10 @@ const GalleryThree: React.FC = () => {
 
     useEffect(() => {
         if (data?.allS3ImageFile?.edges) {
-            const fetchedImages = data.allS3ImageFile.edges.map(
-                (edge: any) => ({
-                    title: edge.node.title || "",
-                    imageData: getImage(edge.node.file.childImageSharp),
-                })
-            );
+            const fetchedImages = data.allS3ImageFile.edges.map((edge: any) => ({
+                title: edge.node.title || "",
+                imageData: getImage(edge.node.file.childImageSharp),
+            }));
             setImages(fetchedImages);
             setImageCount(fetchedImages.length);
         } else {
@@ -114,10 +108,7 @@ const GalleryThree: React.FC = () => {
                 {images.map((image, index) => (
                     <SwiperSlide key={index} className={styles.swiperSlideTop}>
                         <div onClick={() => openLightbox(image.imageData)}>
-                            <GatsbyImage
-                                image={image.imageData}
-                                alt={image.title}
-                            />
+                            <GatsbyImage image={image.imageData} alt={image.title} />
                         </div>
                     </SwiperSlide>
                 ))}
@@ -139,14 +130,8 @@ const GalleryThree: React.FC = () => {
                 modules={[Thumbs]}
             >
                 {images.map((image, index) => (
-                    <SwiperSlide
-                        key={index}
-                        className={styles.swiperSlideBottom}
-                    >
-                        <GatsbyImage
-                            image={image.imageData}
-                            alt={image.title}
-                        />
+                    <SwiperSlide key={index} className={styles.swiperSlideBottom}>
+                        <GatsbyImage image={image.imageData} alt={image.title} />
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -161,10 +146,7 @@ const GalleryThree: React.FC = () => {
                             objectFit="contain"
                         />
                     </div>
-                    <button
-                        className={styles.lightboxClose}
-                        onClick={closeLightbox}
-                    >
+                    <button className={styles.lightboxClose} onClick={closeLightbox}>
                         &times;
                     </button>
                 </div>

@@ -52,8 +52,7 @@ const Footer = () => {
                 script.async = true;
                 script.defer = true;
                 script.crossOrigin = "anonymous";
-                script.src =
-                    "https://connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v22.0";
+                script.src = "https://connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v22.0";
                 document.body.appendChild(script);
             }
         };
@@ -109,11 +108,7 @@ const Footer = () => {
                                 <div>
                                     <FontAwesomeIcon icon={"envelope"} />
                                 </div>
-                                <a
-                                    href={`mailto:${email}`}
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                >
+                                <a href={`mailto:${email}`} rel="noopener noreferrer" target="_blank">
                                     <b>{email}</b>
                                 </a>
                             </li>
@@ -122,11 +117,7 @@ const Footer = () => {
                                     <FontAwesomeIcon icon={"drum"} />
                                 </div>
 
-                                <a
-                                    href={`tel:+${phoneRawSeda}`}
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                >
+                                <a href={`tel:+${phoneRawSeda}`} rel="noopener noreferrer" target="_blank">
                                     <b>{telephoneSeda}</b> (SEDA)
                                 </a>
                             </li>
@@ -134,11 +125,7 @@ const Footer = () => {
                                 <div>
                                     <FontAwesomeIcon icon={"phone"} />
                                 </div>
-                                <a
-                                    href={`tel:+${phoneRawBpt}`}
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                >
+                                <a href={`tel:+${phoneRawBpt}`} rel="noopener noreferrer" target="_blank">
                                     <b>{telephoneBpt}</b> (BPT)
                                 </a>
                             </li>
@@ -146,11 +133,7 @@ const Footer = () => {
                                 <div>
                                     <FontAwesomeIcon icon={"mobile"} />
                                 </div>
-                                <a
-                                    href={`tel:+${mobileRaw}`}
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                >
+                                <a href={`tel:+${mobileRaw}`} rel="noopener noreferrer" target="_blank">
                                     <b>{mobile}</b> (Mobiel)
                                 </a>
                             </li>
@@ -169,19 +152,13 @@ const Footer = () => {
                         <span className="as-h4">Recente Posts</span>
                         <ul>
                             <li>
-                                <Link to="/nieuws/bijlmer-drum-festival-2025/">
-                                    Bijlmer Drum Festival 2025
-                                </Link>
+                                <Link to="/nieuws/bijlmer-drum-festival-2025/">Bijlmer Drum Festival 2025</Link>
                             </li>
                             <li>
-                                <Link to="/nieuws/kwasi-en-yaw/">
-                                    Kwasi & Yaw
-                                </Link>
+                                <Link to="/nieuws/kwasi-en-yaw/">Kwasi & Yaw</Link>
                             </li>
                             <li>
-                                <Link to="/nieuws/wijkimpuls/">
-                                    Wijk Impuls
-                                </Link>
+                                <Link to="/nieuws/wijkimpuls/">Wijk Impuls</Link>
                             </li>
                             {/* <li>
                                 <Link to="/nieuws/bijlmer-drum-festival-2024/">
@@ -189,14 +166,10 @@ const Footer = () => {
                                 </Link>
                             </li> */}
                             <li>
-                                <Link to="/projecten/sankofa-academy/">
-                                    Sankofa Academy
-                                </Link>
+                                <Link to="/projecten/sankofa-academy/">Sankofa Academy</Link>
                             </li>
                             <li>
-                                <Link to="/drumworkshops/summerschool-2021/">
-                                    Summerschool 2021
-                                </Link>
+                                <Link to="/drumworkshops/summerschool-2021/">Summerschool 2021</Link>
                             </li>
                             {/* <li>
                                 <Link to="/drumworkshops/summerschool-2020/">
@@ -219,19 +192,13 @@ const Footer = () => {
                                     <Link to="/over-ons/">Ons verhaal</Link>
                                 </li>
                                 <li>
-                                    <Link to="/drumworkshops/">
-                                        Drumworkshops
-                                    </Link>
+                                    <Link to="/drumworkshops/">Drumworkshops</Link>
                                 </li>
                                 <li>
-                                    <Link to="/cultuureducatie/">
-                                        Cultuureducatie
-                                    </Link>
+                                    <Link to="/cultuureducatie/">Cultuureducatie</Link>
                                 </li>
                                 <li>
-                                    <Link to="/over-ons/vacatures/">
-                                        Vacatures
-                                    </Link>
+                                    <Link to="/over-ons/vacatures/">Vacatures</Link>
                                 </li>
                                 <li>
                                     <Link to="/over-ons/contact/">Contact</Link>
@@ -262,9 +229,7 @@ const Footer = () => {
                                             target="_blank"
                                             aria-label="Facebook"
                                         >
-                                            <FontAwesomeIcon
-                                                icon={["fab", "facebook"]}
-                                            />
+                                            <FontAwesomeIcon icon={["fab", "facebook"]} />
                                         </a>
                                     </li>
                                     <li>
@@ -274,9 +239,7 @@ const Footer = () => {
                                             target="_blank"
                                             aria-label="Instagram"
                                         >
-                                            <FontAwesomeIcon
-                                                icon={["fab", "instagram"]}
-                                            />
+                                            <FontAwesomeIcon icon={["fab", "instagram"]} />
                                         </a>
                                     </li>
                                     {/* <li>
@@ -295,9 +258,7 @@ const Footer = () => {
                                             target="_blank"
                                             aria-label="Youtube"
                                         >
-                                            <FontAwesomeIcon
-                                                icon={["fab", "youtube"]}
-                                            />
+                                            <FontAwesomeIcon icon={["fab", "youtube"]} />
                                         </a>
                                     </li>
                                     <li>
@@ -307,9 +268,7 @@ const Footer = () => {
                                             target="_blank"
                                             aria-label="WhatsApp"
                                         >
-                                            <FontAwesomeIcon
-                                                icon={["fab", "whatsapp"]}
-                                            />
+                                            <FontAwesomeIcon icon={["fab", "whatsapp"]} />
                                         </a>
                                     </li>
                                 </ul>
@@ -352,14 +311,9 @@ const Footer = () => {
                 </div>
                 <div className={styles.footerBottom}>
                     <p>
-                        © 2002 – {new Date().getFullYear()} ·{" "}
-                        <strong>{companyName}</strong> | {"</>"} by{" "}
+                        © 2002 – {new Date().getFullYear()} · <strong>{companyName}</strong> | {"</>"} by{" "}
                         <b>
-                            <a
-                                href="https://menefex.nl"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
+                            <a href="https://menefex.nl" rel="noopener noreferrer" target="_blank">
                                 Menefex
                                 <img src={menefexLogo} alt="Menefex Logo" />
                             </a>

@@ -6,7 +6,6 @@ import { StaticImage, getSrc } from "gatsby-plugin-image";
 import { useSrcImages } from "../../hooks/use-src-image";
 
 import Breadcrumbs from "../../components/layout/breadcrumbs";
-import Hero from "../../components/layout/heroslider";
 
 import { Seo } from "../../components/seo";
 
@@ -28,60 +27,46 @@ const KwasiEnYaw: React.FC<PageProps> = () => {
                     <div>
                         <h2>Theatervoorstelling: "Kwasi & Yaw"</h2>
                         <p>
-                            <strong>Kwasi en Yaw</strong> gaat over het zoeken
-                            naar voorouderlijke krachten. Yaw komt vanuit Afrika
-                            door slavernij in het heden, maar ontkent zijn
-                            achtergrond. In de nacht wordt hij geplaagd door
-                            beelden uit het verleden, maar hij ziet niet hoe hij
-                            in reine kan komen met zichzelf. Lukt het Yaw om
-                            zich te openen voor de waarheid over zijn culturele
-                            wortels en zijn achtergrond te omarmen? Een
-                            voorstelling over de kracht van spiritualiteit,
-                            waarbij Afrikaanse dans en percussie een belangrijke
-                            rol spelen.
+                            <strong>Kwasi en Yaw</strong> gaat over het zoeken naar voorouderlijke krachten. Yaw komt
+                            vanuit Afrika door slavernij in het heden, maar ontkent zijn achtergrond. In de nacht wordt
+                            hij geplaagd door beelden uit het verleden, maar hij ziet niet hoe hij in reine kan komen
+                            met zichzelf. Lukt het Yaw om zich te openen voor de waarheid over zijn culturele wortels en
+                            zijn achtergrond te omarmen? Een voorstelling over de kracht van spiritualiteit, waarbij
+                            Afrikaanse dans en percussie een belangrijke rol spelen.
                         </p>
                         <p>
-                            De voorstelling Kwasi en Yaw is geproduceerd door
-                            stichting Eternity Percussion in de periode van
-                            Januari tot December 2024.{" "}
+                            De voorstelling Kwasi en Yaw is geproduceerd door stichting Eternity Percussion in de
+                            periode van Januari tot December 2024.{" "}
                             <b>
-                                Mede mogelijk gemaakt door Amsterdams Fonds voor
-                                de Kunst, Gemeente Amsterdam, Mondriaan Fonds,
-                                Het cultuurfonds en Fonds Podiumkunsten.
+                                Mede mogelijk gemaakt door Amsterdams Fonds voor de Kunst, Gemeente Amsterdam, Mondriaan
+                                Fonds, Het cultuurfonds en Fonds Podiumkunsten.
                             </b>
                         </p>
 
                         <h3 className="as-h4">Extra info</h3>
                         <p>
-                            Uit onderzoek is gebleken, dat veel van de
-                            Afrikaanse Surinaamse slaafgemaakten zijn
-                            geëxporteerd vanaf het West-Afrikaanse gebied van de
-                            Akan, dat tegenwoordig bekend is onder de namen
-                            zoals Ghana, Benin, Ivoorkust, Togo etc. De
-                            slaafgemaakten hadden de gewoonte om hun kinderen
-                            namen te geven, die afhankelijk zijn van de dag
-                            waarop ze zijn geboren. Kwasi is de naam die hoort
-                            bij zondag als geboortedag en Yaw bij de donderdag.
+                            Uit onderzoek is gebleken, dat veel van de Afrikaanse Surinaamse slaafgemaakten zijn
+                            geëxporteerd vanaf het West-Afrikaanse gebied van de Akan, dat tegenwoordig bekend is onder
+                            de namen zoals Ghana, Benin, Ivoorkust, Togo etc. De slaafgemaakten hadden de gewoonte om
+                            hun kinderen namen te geven, die afhankelijk zijn van de dag waarop ze zijn geboren. Kwasi
+                            is de naam die hoort bij zondag als geboortedag en Yaw bij de donderdag.
                         </p>
 
                         <h3 className="as-h4">Credits</h3>
                         <ul>
                             <li>
-                                <b>Makers:</b> Derillio Alexander en Revelino
-                                Pinas
+                                <b>Makers:</b> Derillio Alexander en Revelino Pinas
                             </li>
                             <li>
                                 <b>Regie:</b> Tati Wirahadiraksa
                             </li>
                             <li>
-                                <b>Cast:</b> Derillio Alexander, Revelino Pinas,
-                                Denzil Tromp, Miquel Nelom, Pape Matar Fall en
-                                Yeshua
+                                <b>Cast:</b> Derillio Alexander, Revelino Pinas, Denzil Tromp, Miquel Nelom, Pape Matar
+                                Fall en Yeshua
                             </li>
                             <li>
-                                <b>Dans (Untold):</b> Kleber Pique, Daphne
-                                Scheerlink, Nerissa Macnack, Esperanza Anches en
-                                Jaleesa Gefferie
+                                <b>Dans (Untold):</b> Kleber Pique, Daphne Scheerlink, Nerissa Macnack, Esperanza Anches
+                                en Jaleesa Gefferie
                             </li>
                             <li>
                                 <b>Coach muziek:</b> Orlando Ceder
@@ -89,10 +74,7 @@ const KwasiEnYaw: React.FC<PageProps> = () => {
                         </ul>
                     </div>
                     <div>
-                        <StaticImage
-                            src="../../images/theater/kwasi-en-yaw.jpg"
-                            alt={`Kwasi & Yaw`}
-                        />
+                        <StaticImage src="../../images/theater/kwasi-en-yaw.jpg" alt={`Kwasi & Yaw`} />
                     </div>
                 </div>
             </section>

@@ -361,6 +361,17 @@
 
             &.seda {
                 > :nth-child(2) {
+                    border-radius: unset;
+                    display: flex;
+                    gap: 24px;
+                    flex-direction: column;
+                    outline: none;
+
+                    > div {
+                        border: 2px solid $lightgrey-color;
+                        border-radius: $border-radius-sm;
+                    }
+
                     @include mobile {
                         max-width: rem-calc(475);
                     }

@@ -3,7 +3,6 @@ import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 
 import Breadcrumbs from "../components/layout/breadcrumbs";
-import Hero from "../components/layout/heroslider";
 
 import News from "../components/ui/news";
 

@@ -25,11 +25,7 @@ const Relevance: React.FC = () => {
                 <FontAwesomeIcon icon={"up-right-from-square"} />
             </a>
             <hr />
-            <a
-                href="https://www.nrc.nl/nieuws/2020/02/13/vrij-a3990200"
-                rel="noopener noreferrer"
-                target="_blank"
-            >
+            <a href="https://www.nrc.nl/nieuws/2020/02/13/vrij-a3990200" rel="noopener noreferrer" target="_blank">
                 Eternity in het NRC Handelsblad
                 <FontAwesomeIcon icon={"up-right-from-square"} />
             </a>

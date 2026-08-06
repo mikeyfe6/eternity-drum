@@ -7,7 +7,6 @@ import { useSiteMetadata } from "../hooks/use-site-metadata";
 import { useSrcImages } from "../hooks/use-src-image";
 
 import Breadcrumbs from "../components/layout/breadcrumbs";
-import Hero from "../components/layout/heroslider";
 
 import { Seo } from "../components/seo";
 
@@ -20,74 +19,79 @@ const Seda: React.FC<PageProps> = () => {
         <>
             <section className="page-intro">
                 <Breadcrumbs crumbs={breadcrumbs} />
-                <h1 className="page-title">Seda</h1>
+                <h1 className="page-title">SEDA</h1>
             </section>
             <section data-main-section>
                 <div data-main-content className="page-content basic seda">
                     <div>
-                        <h2>
-                            Ontdek de Magie van Ritme bij de Southeast Drum
-                            Academy!
-                        </h2>
+                        <h2>De culturele voorziening voor Afro-Caribische drumbandcultuur in Amsterdam Zuidoost</h2>
                         <p>
-                            Welkom bij de <u>Southeast Drum Academy</u> (SEDA),
-                            waar we met trots onze oefenruimte en kleedkamers
-                            presenteren. De magische klanken van Eternity
-                            nodigen alle drumgroepen uit, die op zoek zijn naar
-                            een inspirerende repetitieruimte voor hun wekelijkse
-                            muziekavonturen.
+                            Southeast Drum Academy (SEDA) is een unieke culturele voorziening in Amsterdam Zuidoost waar
+                            Afro-Caribische drumbandgroepen samenkomen om te repeteren, talent te ontwikkelen en kennis
+                            en cultuur met elkaar te delen. SEDA is ontstaan vanuit een gezamenlijk initiatief van
+                            verschillende drumbandgroepen die al jarenlang behoefte hadden aan een kwalitatieve en
+                            permanente repetitieruimte. Door het ontbreken van geschikte oefenlocaties dreigde een
+                            belangrijk onderdeel van de Afro-Caribische muziekcultuur onder druk te komen staan.
                         </p>
                         <p>
-                            <strong>
-                                Samen Groeien - Een Nieuwe Wereld van
-                                Samenwerking
-                            </strong>
+                            Om deze behoefte te vervullen is de huidige, tijdelijke accommodatie gerealiseerd als eerste
+                            stap naar een duurzame culturele voorziening voor de Afro-Caribische drumbandcultuur in
+                            Amsterdam. Stichting Eternity Percussion is verantwoordelijk voor het beheer en de
+                            exploitatie van SEDA en zorgt ervoor dat de locatie optimaal wordt ingezet als repetitie-,
+                            ontwikkel- en ontmoetingsplek voor meerdere drumbandgroepen, culturele organisaties en
+                            muzikanten.
                         </p>
                         <p>
-                            SEDA is een broedplaats van samenwerking en
-                            gemeenschap. We zijn verheugd om nieuwe
-                            partnerschappen te verwelkomen en onze positie als
-                            sprankelend merk in de muzikale wereld te
-                            versterken. Of je nu een bestaande muziekgroep leidt
-                            of deel uitmaakt van een percussiegroep, bij SEDA
-                            ben je van harte welkom om te genieten van onze
-                            uitstekende faciliteiten. Onder het gepassioneerde
-                            leiderschap van de artistiek directeur, Orlando
-                            Ceder, werken we hard om deze creatieve hub te laten
-                            floreren.
+                            SEDA is echter méér dan een repetitielocatie. De ambitie is om SEDA de komende jaren verder
+                            te ontwikkelen tot een landelijk expertisecentrum voor Afro-Caribische percussie,
+                            talentontwikkeling en immaterieel erfgoed. Vanuit deze visie worden drumlessen, workshops,
+                            talentontwikkelingstrajecten, cultuureducatieve programma's, artistieke producties en
+                            kennisuitwisseling georganiseerd. Hiermee levert SEDA een belangrijke bijdrage aan het
+                            behoud, de ontwikkeling en de overdracht van Afro-Caribische muziek- en cultuurtradities aan
+                            nieuwe generaties.
                         </p>
                         <p>
-                            Onze locatie is niet te missen:{" "}
+                            De huidige locatie vormt een belangrijke tussenfase in deze ontwikkeling. In 2030 staat de
+                            realisatie van een permanente, grotere accommodatie gepland. Daarmee ontstaat ruimte om de
+                            ambities van SEDA verder te verwezenlijken en uit te groeien tot hét nationale kennis-,
+                            ontwikkel- en ontmoetingscentrum voor Afro-Caribische drumbandcultuur, waar artistieke
+                            kwaliteit, talentontwikkeling, cultureel erfgoed en maatschappelijke verbinding samenkomen.
+                        </p>
+                        <h3>Repetitieruimte huren?</h3>
+                        <p>
+                            SEDA biedt verschillende Afro-Caribische drumbandgroepen de mogelijkheid om gebruik te maken
+                            van de repetitieruimtes. Ben je op zoek naar een geschikte locatie voor jouw drumband of wil
+                            je meer informatie over de mogelijkheden? Neem dan gerust contact met ons op via{" "}
+                            <a href={`mailto:${email}`} rel="noopener noreferrer" target="_blank">
+                                {email}
+                            </a>
+                            .
+                        </p>
+                        <p>
+                            SEDA is niet te missen:{" "}
                             <a
                                 href="https://maps.app.goo.gl/MGox9UBh15DWsfLg8"
                                 rel="noopener noreferrer"
                                 target="_blank"
                             >
-                                {visitingAddress}
+                                {visitingAddress}, {visitingPostalCode}
                             </a>
-                            , {visitingPostalCode}, gelegen in een opvallende
-                            paarse container onder het metrostation Kraaiennest
-                            in Amsterdam Zuidoost.
-                        </p>
-                        <p>
-                            Wil je meer weten over de verhuurmogelijkheden? Neem
-                            dan contact met ons op via onze e-mail;{" "}
-                            <a
-                                href={`mailto:${email}`}
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
-                                {email}
-                            </a>
-                            .
+                            , gelegen in een opvallende paarse container onder het metrostation Kraaiennest in Amsterdam
+                            Zuidoost.
                         </p>
                     </div>
                     <div>
                         <StaticImage
-                            src="../images/seda-logo.jpg"
-                            alt={`Seda`}
+                            src="../images/seda/feestelijke-opening-seda.jpg"
+                            alt={`Feestelijke opening SEDA`}
                             width={475}
                         />
+                        <StaticImage
+                            src="../images/seda/jonge-seda-huurders.jpeg"
+                            alt={`Jonge SEDA huurders`}
+                            width={475}
+                        />
+                        <StaticImage src="../images/seda-logo.jpg" alt={`SEDA Logo`} width={375} />
                     </div>
                 </div>
             </section>
@@ -104,7 +108,7 @@ export const Head: HeadFC = () => {
 
     return (
         <Seo
-            title="Seda"
+            title="SEDA (Southeast Drum Academy)"
             pathname="/seda/"
             image={imageUrl}
             description="Ontdek de inspirerende oefenruimtes van Southeast Drum Academy (SEDA), een plek voor drumgroepen op hun muzikale reis. Onder artistiek directeur Orlando Ceder bloeit samenwerking en gemeenschap op. Gevestigd onder metrostation Kraaiennest in Amsterdam Zuidoost, op Kruitbergstraat 18, 1104 CH."

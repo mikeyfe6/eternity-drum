@@ -13,7 +13,7 @@ interface Post {
     postType: [
         {
             name?: string;
-        }
+        },
     ];
     publishedDate: string;
     featuredImage: {
@@ -59,9 +59,7 @@ const Berichten: React.FC = () => {
     const posts: Post[] = data.allContentfulPost.nodes;
 
     // hiding certian posts, but keep them on the overview
-    const visiblePosts = posts.filter(
-        (post) => post.slug !== "bijlmer-drum-festival-2024"
-    );
+    const visiblePosts = posts.filter((post) => post.slug !== "bijlmer-drum-festival-2024");
 
     const options: Intl.DateTimeFormatOptions = {
         weekday: "short",
@@ -74,74 +72,45 @@ const Berichten: React.FC = () => {
         <section className={styles.posts}>
             <h2 className="page-subtitle">Berichten</h2>
 
-            {visiblePosts.length > 0 ? (
+            {visiblePosts.length > 0 ?
                 <ul>
-                    {visiblePosts.map(
-                        ({
-                            title,
-                            id,
-                            postType,
-                            publishedDate,
-                            featuredImage,
-                            excerpt,
-                            slug,
-                        }) => {
-                            const formattedDate = new Date(publishedDate);
+                    {visiblePosts.map(({ title, id, postType, publishedDate, featuredImage, excerpt, slug }) => {
+                        const formattedDate = new Date(publishedDate);
 
-                            const formattedDateString =
-                                formattedDate.toLocaleDateString(
-                                    "nl-NL",
-                                    options
-                                );
+                        const formattedDateString = formattedDate.toLocaleDateString("nl-NL", options);
 
-                            const image = featuredImage?.gatsbyImageData
-                                ? getImage(featuredImage.gatsbyImageData)
-                                : null;
+                        const image = featuredImage?.gatsbyImageData ? getImage(featuredImage.gatsbyImageData) : null;
 
-                            return (
-                                <li key={id}>
-                                    <Link to={`/nieuws/${slug}/`}>
-                                        <GatsbyImage
-                                            image={image!}
-                                            alt={featuredImage.title}
-                                            className={styles.postImage}
-                                            objectPosition="top"
-                                        />
-                                    </Link>
+                        return (
+                            <li key={id}>
+                                <Link to={`/nieuws/${slug}/`}>
+                                    <GatsbyImage
+                                        image={image!}
+                                        alt={featuredImage.title}
+                                        className={styles.postImage}
+                                        objectPosition="top"
+                                    />
+                                </Link>
+                                <div>
+                                    <h3>
+                                        <Link to={`/nieuws/${slug}/`} className={styles.postLink}>
+                                            {title}
+                                        </Link>
+                                    </h3>
+
+                                    <span>{postType.map((cato) => cato.name)}</span>
+                                    <p>{excerpt.excerptText}</p>
+                                    <hr />
                                     <div>
-                                        <h3>
-                                            <Link
-                                                to={`/nieuws/${slug}/`}
-                                                className={styles.postLink}
-                                            >
-                                                {title}
-                                            </Link>
-                                        </h3>
-
-                                        <span>
-                                            {postType.map((cato) => cato.name)}
-                                        </span>
-                                        <p>{excerpt.excerptText}</p>
-                                        <hr />
-                                        <div>
-                                            <time
-                                                dateTime={formattedDate.toISOString()}
-                                            >
-                                                {formattedDateString}
-                                            </time>
-                                            <Link to={`/nieuws/${slug}/`}>
-                                                Lees meer...
-                                            </Link>
-                                        </div>
+                                        <time dateTime={formattedDate.toISOString()}>{formattedDateString}</time>
+                                        <Link to={`/nieuws/${slug}/`}>Lees meer...</Link>
                                     </div>
-                                </li>
-                            );
-                        }
-                    )}
+                                </div>
+                            </li>
+                        );
+                    })}
                 </ul>
-            ) : (
-                <p>(Nog) geen berichten...</p>
-            )}
+            :   <p>(Nog) geen berichten...</p>}
         </section>
     );
 };

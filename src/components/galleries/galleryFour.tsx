@@ -24,9 +24,7 @@ type ThumbsSwiperType = {
 const GalleryFour: React.FC = () => {
     const [images, setImages] = useState<ImageType[]>([]);
     const [imageCount, setImageCount] = useState(0);
-    const [thumbsSwiper, setThumbsSwiper] = useState<ThumbsSwiperType | null>(
-        null
-    );
+    const [thumbsSwiper, setThumbsSwiper] = useState<ThumbsSwiperType | null>(null);
 
     const [lightboxImage, setLightboxImage] = useState<any>(null);
 
@@ -50,12 +48,10 @@ const GalleryFour: React.FC = () => {
 
     useEffect(() => {
         if (data?.allS3ImageFile?.edges) {
-            const fetchedImages = data.allS3ImageFile.edges.map(
-                (edge: any) => ({
-                    title: edge.node.title || "",
-                    imageData: getImage(edge.node.file.childImageSharp),
-                })
-            );
+            const fetchedImages = data.allS3ImageFile.edges.map((edge: any) => ({
+                title: edge.node.title || "",
+                imageData: getImage(edge.node.file.childImageSharp),
+            }));
             setImages(fetchedImages);
             setImageCount(fetchedImages.length);
         } else {
@@ -112,10 +108,7 @@ const GalleryFour: React.FC = () => {
                 {images.map((image, index) => (
                     <SwiperSlide key={index} className={styles.swiperSlideTop}>
                         <div onClick={() => openLightbox(image.imageData)}>
-                            <GatsbyImage
-                                image={image.imageData}
-                                alt={image.title}
-                            />
+                            <GatsbyImage image={image.imageData} alt={image.title} />
                         </div>
                     </SwiperSlide>
                 ))}
@@ -137,14 +130,8 @@ const GalleryFour: React.FC = () => {
                 modules={[Thumbs]}
             >
                 {images.map((image, index) => (
-                    <SwiperSlide
-                        key={index}
-                        className={styles.swiperSlideBottom}
-                    >
-                        <GatsbyImage
-                            image={image.imageData}
-                            alt={image.title}
-                        />
+                    <SwiperSlide key={index} className={styles.swiperSlideBottom}>
+                        <GatsbyImage image={image.imageData} alt={image.title} />
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -159,10 +146,7 @@ const GalleryFour: React.FC = () => {
                             objectFit="contain"
                         />
                     </div>
-                    <button
-                        className={styles.lightboxClose}
-                        onClick={closeLightbox}
-                    >
+                    <button className={styles.lightboxClose} onClick={closeLightbox}>
                         &times;
                     </button>
                 </div>

@@ -5,16 +5,11 @@ import type { HeadFC, PageProps } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 
 import Breadcrumbs from "../../components/layout/breadcrumbs";
-import Hero from "../../components/layout/heroslider";
 
 import { Seo } from "../../components/seo";
 
 const Muziki: React.FC<PageProps> = () => {
-    const breadcrumbs = [
-        { label: "Home", link: "/" },
-        { label: "Theater", link: "/theater/" },
-        { label: "Muziki" },
-    ];
+    const breadcrumbs = [{ label: "Home", link: "/" }, { label: "Theater", link: "/theater/" }, { label: "Muziki" }];
 
     return (
         <>
@@ -27,18 +22,14 @@ const Muziki: React.FC<PageProps> = () => {
                     <div>
                         <h2>Theatervoorstelling: "MUZIKI"</h2>
                         <p>
-                            In de muziekvoorstelling ‘<strong>Muziki</strong>’
-                            laten de muzikanten van Eternity Percussion de
-                            evolutie zien van traditionele Afrikaanse percussie
-                            tot aan de hedendaagse Afro-Caribische marchingdrum.
-                            De reis start in West-Afrika, via Noord en
-                            Zuid-Amerika, het Caribische gebied en eindigend in
-                            Nederland waar de Caribische marching percussie nu
-                            populair is. De voorstelling Muziki is geproduceerd
-                            in de periode van September 2021 tot December 2022.{" "}
+                            In de muziekvoorstelling ‘<strong>Muziki</strong>’ laten de muzikanten van Eternity
+                            Percussion de evolutie zien van traditionele Afrikaanse percussie tot aan de hedendaagse
+                            Afro-Caribische marchingdrum. De reis start in West-Afrika, via Noord en Zuid-Amerika, het
+                            Caribische gebied en eindigend in Nederland waar de Caribische marching percussie nu
+                            populair is. De voorstelling Muziki is geproduceerd in de periode van September 2021 tot
+                            December 2022.{" "}
                             <b>
-                                De voorstelling is mede mogelijk gemaakt door
-                                het Fonds Podiumkunsten en Fonds voor
+                                De voorstelling is mede mogelijk gemaakt door het Fonds Podiumkunsten en Fonds voor
                                 Cultuurparticipatie.
                             </b>
                         </p>
@@ -46,16 +37,14 @@ const Muziki: React.FC<PageProps> = () => {
                             <h3 className="as-h4">Credits</h3>
                             <ul>
                                 <li>
-                                    <b>Makers:</b> Derillio Alexander en
-                                    Revelino Pinas
+                                    <b>Makers:</b> Derillio Alexander en Revelino Pinas
                                 </li>
                                 <li>
                                     <b>Regie:</b> Tati Wirahadiraksa
                                 </li>
                                 <li>
-                                    <b>Cast:</b> Derillio Alexander, Revelino
-                                    Pinas, Ulrich Entingh, Derek Simpey, Michael
-                                    Fransman en Jamal Bijnoe.
+                                    <b>Cast:</b> Derillio Alexander, Revelino Pinas, Ulrich Entingh, Derek Simpey,
+                                    Michael Fransman en Jamal Bijnoe.
                                 </li>
                                 <li>
                                     <b>Decorontwerper:</b> Michael Deekman
@@ -67,10 +56,7 @@ const Muziki: React.FC<PageProps> = () => {
                         </p>
                     </div>
                     <div>
-                        <StaticImage
-                            src="../../images/theater/muziki.jpg"
-                            alt={`Muziki`}
-                        />
+                        <StaticImage src="../../images/theater/muziki.jpg" alt={`Muziki`} />
                     </div>
                 </div>
             </section>
@@ -80,6 +66,4 @@ const Muziki: React.FC<PageProps> = () => {
 
 export default Muziki;
 
-export const Head: HeadFC = () => (
-    <Seo title="Muziki" pathname="/theater/muziki/" />
-);
+export const Head: HeadFC = () => <Seo title="Muziki" pathname="/theater/muziki/" />;

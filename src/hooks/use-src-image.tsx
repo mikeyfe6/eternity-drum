@@ -76,25 +76,19 @@ export const useSrcImages = () => {
     const data = useStaticQuery<SrcImagesQuery>(graphql`
         query {
             # // summerschool 2021
-            summerschool2021: file(
-                relativePath: { eq: "drumworkshops/summerschool-2021.jpg" }
-            ) {
+            summerschool2021: file(relativePath: { eq: "drumworkshops/summerschool-2021.jpg" }) {
                 childImageSharp {
                     gatsbyImageData
                 }
             }
-            midzomerlatest: file(
-                relativePath: { eq: "midzomerlogo-latest.jpeg" }
-            ) {
+            midzomerlatest: file(relativePath: { eq: "midzomerlogo-latest.jpeg" }) {
                 childImageSharp {
                     gatsbyImageData
                 }
             }
 
             # // summerschool 2020
-            summerschool2020: file(
-                relativePath: { eq: "drumworkshops/summerschool-2020.jpg" }
-            ) {
+            summerschool2020: file(relativePath: { eq: "drumworkshops/summerschool-2020.jpg" }) {
                 childImageSharp {
                     gatsbyImageData
                 }
@@ -128,9 +122,7 @@ export const useSrcImages = () => {
             }
 
             # // all partners
-            allPartners: allFile(
-                filter: { relativeDirectory: { eq: "partners" } }
-            ) {
+            allPartners: allFile(filter: { relativeDirectory: { eq: "partners" } }) {
                 nodes {
                     relativePath
                     childImageSharp {
@@ -140,9 +132,7 @@ export const useSrcImages = () => {
             }
 
             # // kwasi & yaw
-            kwasiAndYaw: file(
-                relativePath: { eq: "theater/kwasi-en-yaw.jpg" }
-            ) {
+            kwasiAndYaw: file(relativePath: { eq: "theater/kwasi-en-yaw.jpg" }) {
                 childImageSharp {
                     gatsbyImageData
                 }

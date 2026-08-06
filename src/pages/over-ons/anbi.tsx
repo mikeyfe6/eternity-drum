@@ -7,25 +7,14 @@ import { Link } from "gatsby";
 import { useSiteMetadata } from "../../hooks/use-site-metadata";
 
 import Breadcrumbs from "../../components/layout/breadcrumbs";
-import Hero from "../../components/layout/heroslider";
 
 import { Seo } from "../../components/seo";
 
 const Anbi: React.FC<PageProps> = () => {
-    const {
-        email,
-        mailingAddress,
-        mailingPostalCode,
-        visitingAddress,
-        visitingPostalCode,
-        kvk,
-    } = useSiteMetadata();
+    const { email, mailingAddress, mailingPostalCode, visitingAddress, visitingPostalCode, kvk, siteUrl } =
+        useSiteMetadata();
 
-    const breadcrumbs = [
-        { label: "Home", link: "/" },
-        { label: "Over Ons", link: "/over-ons/" },
-        { label: "ANBI" },
-    ];
+    const breadcrumbs = [{ label: "Home", link: "/" }, { label: "Over Ons", link: "/over-ons/" }, { label: "ANBI" }];
 
     return (
         <>
@@ -35,52 +24,38 @@ const Anbi: React.FC<PageProps> = () => {
             </section>
             <section data-main-section>
                 <div data-main-content className="page-content center">
-                    <h2>Doelstelling: Eternity Percussion</h2>
+                    <h2>Over onze ANBI Status</h2>
 
                     <p>
-                        Eternity is een culturele instelling die zich bezighoudt
-                        met het organiseren van activiteiten, evenementen en
-                        projecten op het gebied van muzikale vorming en
-                        performance.
+                        Stichting Eternity Percussion is door de Belastingdienst erkend als een Culturele Algemeen Nut
+                        Beogende Instelling (ANBI). Als professionele culturele organisatie zet Eternity zich in voor de
+                        ontwikkeling, productie en presentatie van muziek- en podiumkunstprojecten, talentontwikkeling,
+                        cultuureducatie en het behoud van Afro-Caribisch cultureel erfgoed. Transparantie, goed bestuur
+                        en maatschappelijke verantwoordelijkheid staan hierbij centraal.
                     </p>
 
                     <p>
-                        <b>De organisatie heeft als doel:</b>
+                        Code en de Code Diversiteit & Inclusie. De organisatie investeert in professioneel bestuur,
+                        transparantie en een duurzame culturele bedrijfsvoering.
                     </p>
-
-                    <ul>
-                        <li>
-                            Het bieden van een platform voor drummers die bezig
-                            zijn met Caribische muziekstijlen.
-                        </li>
-                        <li>
-                            Het ontwikkelen van trajecten ter bevordering van
-                            muzikale vaardigheden.
-                        </li>
-                        <li>
-                            Het programmeren van drumshows bij (semi)
-                            professionele podia.
-                        </li>
-                        <li>
-                            Bevorderen van samenwerking tussen zelforganisaties
-                            en gevestigde instellingen voor de nodige
-                            doorstroming van getalenteerde jongeren.
-                        </li>
-                    </ul>
 
                     <h3 className="as-h4">
                         <u>Algemene gegevens</u>
                     </h3>
                     <p>
-                        <b>Naam ANBI:</b> STICHTING ETERNITY PERCUSSION
+                        <b>Naam organisatie:</b> Stichting Eternity Percussion
                         <br />
-                        <b>Telefoonnummer:</b> 020 22 17 675
+                        <b>ANBI-status:</b> Culturele Algemeen Nut Beogende Instelling (ANBI)
                         <br />
-                        <b>K.v.K:</b> {kvk}
+                        <b>KvK:</b> {kvk}
                         <br />
                         <b>RSIN:</b> 8185.56.286
                         <br />
+                        <b>Telefoon:</b> 020 22 17 675
+                        <br />
                         <b>E-mail:</b> {email}
+                        <br />
+                        <b>Website:</b> {siteUrl}
                         <br />
                     </p>
 
@@ -103,64 +78,85 @@ const Anbi: React.FC<PageProps> = () => {
                     </p>
 
                     <h3 className="as-h4">
+                        <u>Dagelijkse leiding</u>
+                    </h3>
+                    <p>De dagelijkse leiding van Stichting Eternity Percussion is in handen van:</p>
+                    <ul>
+                        <li>
+                            Orlando Ceder - <b>Artistiek directeur</b>
+                        </li>
+                        <li>
+                            Otmar Watson - <b>Zakelijk leider</b>
+                        </li>
+                    </ul>
+                    <p>
+                        De directie is verantwoordelijk voor de dagelijkse aansturing van de organisatie en legt
+                        hierover periodiek verantwoording af aan het bestuur.
+                    </p>
+
+                    <h3 className="as-h4">
                         <u>Bestuur</u>
                     </h3>
-                    <p>
-                        <b>Voorzitter:</b> Kenneth Zschuschen
-                        <br />
-                        <b>Secretaris:</b> Fabian Oudsten
-                        <br />
-                        <b>Penningmeester:</b> Ulrich Entingh
-                    </p>
+                    <p>Het bestuur van Stichting Eternity Percussion bestaat uit:</p>
+                    <ul>
+                        <li>
+                            Clyde Wartes - <b>Voorzitter</b>
+                        </li>
+                        <li>
+                            Fabian Oudsten - <b>Secretaris</b>
+                        </li>
+                        <li>
+                            Zamaney Menso - <b>Penningmeester</b>
+                        </li>
+                    </ul>
 
                     <h3 className="as-h4">
                         <u>Beleidsplan</u>
                     </h3>
                     <p>
-                        <Link to="/beleidsplan-2021.pdf">
-                            Klik hier voor een overzicht van ons beleidsplan
-                        </Link>
+                        Stichting Eternity Percussion beschikt over een actueel beleidsplan waarin de missie, visie,
+                        strategische doelstellingen en activiteiten voor de beleidsperiode zijn vastgelegd. De
+                        hoofdlijnen van het beleid zijn verwerkt in de informatie op deze website. Het volledige
+                        beleidsplan is op aanvraag beschikbaar.
                     </p>
 
                     <h3 className="as-h4">
-                        <u>De balans en staat van baten en lasten</u>
+                        <u>Jaarrekening</u>
                     </h3>
                     <p>
-                        <Link to="/baat-lasten-2019.pdf">
-                            Klik hier voor een overzicht van de balans en staat
-                            van baten en lasten{" "}
-                        </Link>
+                        Stichting Eternity Percussion publiceert jaarlijks haar financiële verantwoording in het kader
+                        van de ANBI-verplichtingen. Hieronder vindt u de meest recente jaarrekening, bestaande uit de
+                        balans en de staat van baten en lasten. <br />
+                        <br />
+                        <Link to="/jaarrekening-2024.pdf">Download hier de jaarrekening</Link>
                     </p>
 
                     <h3 className="as-h4">
                         <u>Beloningsbeleid</u>
                     </h3>
                     <p>
-                        <b>Bestuur:</b> alleen onkostenvergoeding; reis- en
-                        parkeerkosten. Geen vakantiegeld.
-                        <br />
-                        <b>Volgens CAO Nederlandse Podia:</b> vrijwilligers,
-                        geen beloningsbeleid
+                        De bestuursleden van Stichting Eternity Percussion ontvangen geen beloning voor hun
+                        werkzaamheden. Zij kunnen uitsluitend aanspraak maken op een vergoeding van daadwerkelijk
+                        gemaakte onkosten, zoals reis- en parkeerkosten, conform de statuten en de geldende
+                        ANBI-richtlijnen.
+                    </p>
+                    <p>
+                        De artistiek directeur, zakelijk directeur, medewerkers en ingehuurde professionals ontvangen,
+                        indien van toepassing, een passende vergoeding die aansluit bij de aard en omvang van hun
+                        werkzaamheden en de financiële mogelijkheden van de organisatie. Vrijwilligers ontvangen geen
+                        salaris, maar kunnen een onkostenvergoeding ontvangen conform de geldende wettelijke regels.
                     </p>
 
                     <h3 className="as-h4">
                         <u>Activiteiten</u>
                     </h3>
                     <ul>
-                        <li>Uitwisselingsprogramma’s</li>
-                        <li>Theaterproducties</li>
-                        <li>Openbare optredens</li>
-                        <li>Drumworkshops</li>
+                        <li>Muziek- en podiumproducties</li>
+                        <li>Talentontwikkeling</li>
+                        <li>Cultuureducatie</li>
+                        <li>Internationale samenwerking</li>
+                        <li>Festivals, workshops en communityprojecten</li>
                     </ul>
-
-                    <h3 className="as-h4">
-                        <u>Financiële verantwoording</u>
-                    </h3>
-
-                    <p>
-                        Op te vragen via:{" "}
-                        <i>Your Accountants & Adviseurs B.V.</i>
-                    </p>
                 </div>
             </section>
         </>

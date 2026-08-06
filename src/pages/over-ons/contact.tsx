@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSiteMetadata } from "../../hooks/use-site-metadata";
 
 import Breadcrumbs from "../../components/layout/breadcrumbs";
-import Hero from "../../components/layout/heroslider";
 
 import GoogleMaps from "../../components/ui/maps";
 
@@ -34,11 +33,7 @@ const Contact: React.FC<PageProps> = () => {
         youtubeUrl,
     } = useSiteMetadata();
 
-    const breadcrumbs = [
-        { label: "Home", link: "/" },
-        { label: "Over Ons", link: "/over-ons/" },
-        { label: "Contact" },
-    ];
+    const breadcrumbs = [{ label: "Home", link: "/" }, { label: "Over Ons", link: "/over-ons/" }, { label: "Contact" }];
 
     return (
         <>
@@ -52,12 +47,10 @@ const Contact: React.FC<PageProps> = () => {
                         <h2>{companyName}</h2>
                         <ul>
                             <li>
-                                <span>Adres</span>{" "}
-                                <span>{visitingAddress}</span>
+                                <span>Adres</span> <span>{visitingAddress}</span>
                             </li>
                             <li>
-                                <span>Postcode</span>{" "}
-                                <span>{visitingPostalCode}</span>
+                                <span>Postcode</span> <span>{visitingPostalCode}</span>
                             </li>
                             <li>
                                 <span>Plaats</span> <span>{city}</span>
@@ -65,11 +58,7 @@ const Contact: React.FC<PageProps> = () => {
                             <li>
                                 <span>Telefoon (SEDA)</span>{" "}
                                 <span>
-                                    <a
-                                        href={`tel:+${phoneRawSeda}`}
-                                        rel="noopener noreferrer"
-                                        target="_blank"
-                                    >
+                                    <a href={`tel:+${phoneRawSeda}`} rel="noopener noreferrer" target="_blank">
                                         020 773 38 88
                                     </a>
                                 </span>
@@ -77,11 +66,7 @@ const Contact: React.FC<PageProps> = () => {
                             <li>
                                 <span>Telefoon (BPT)</span>{" "}
                                 <span>
-                                    <a
-                                        href={`tel:+${phoneRawBpt}`}
-                                        rel="noopener noreferrer"
-                                        target="_blank"
-                                    >
+                                    <a href={`tel:+${phoneRawBpt}`} rel="noopener noreferrer" target="_blank">
                                         020 311 39 33
                                     </a>
                                 </span>
@@ -89,11 +74,7 @@ const Contact: React.FC<PageProps> = () => {
                             <li>
                                 <span>Mobiel</span>{" "}
                                 <span>
-                                    <a
-                                        href={`tel:+${mobileRaw}`}
-                                        rel="noopener noreferrer"
-                                        target="_blank"
-                                    >
+                                    <a href={`tel:+${mobileRaw}`} rel="noopener noreferrer" target="_blank">
                                         06 242 55 391
                                     </a>
                                 </span>
@@ -101,11 +82,7 @@ const Contact: React.FC<PageProps> = () => {
                             <li>
                                 <span>E-mailadres</span>{" "}
                                 <span>
-                                    <a
-                                        href={`mailto:${email}`}
-                                        rel="noopener noreferrer"
-                                        target="_blank"
-                                    >
+                                    <a href={`mailto:${email}`} rel="noopener noreferrer" target="_blank">
                                         {email}
                                     </a>
                                 </span>
@@ -123,29 +100,15 @@ const Contact: React.FC<PageProps> = () => {
                         <h3 className="as-h5">Social Media:</h3>
                         <ul>
                             <li>
-                                <a
-                                    href={facebookUrl}
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                    aria-label="Facebook"
-                                >
+                                <a href={facebookUrl} rel="noopener noreferrer" target="_blank" aria-label="Facebook">
                                     <span>Facebook</span>
-                                    <FontAwesomeIcon
-                                        icon={["fab", "facebook"]}
-                                    />
+                                    <FontAwesomeIcon icon={["fab", "facebook"]} />
                                 </a>
                             </li>
                             <li>
-                                <a
-                                    href={instagramUrl}
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                    aria-label="Instagram"
-                                >
+                                <a href={instagramUrl} rel="noopener noreferrer" target="_blank" aria-label="Instagram">
                                     <span>Instagram</span>
-                                    <FontAwesomeIcon
-                                        icon={["fab", "instagram"]}
-                                    />
+                                    <FontAwesomeIcon icon={["fab", "instagram"]} />
                                 </a>
                             </li>
                             {/* <li>
@@ -155,16 +118,9 @@ const Contact: React.FC<PageProps> = () => {
 								</a>
 							</li> */}
                             <li>
-                                <a
-                                    href={youtubeUrl}
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                    aria-label="Youtube"
-                                >
+                                <a href={youtubeUrl} rel="noopener noreferrer" target="_blank" aria-label="Youtube">
                                     <span>Youtube</span>
-                                    <FontAwesomeIcon
-                                        icon={["fab", "youtube"]}
-                                    />
+                                    <FontAwesomeIcon icon={["fab", "youtube"]} />
                                 </a>
                             </li>
                         </ul>
@@ -176,8 +132,7 @@ const Contact: React.FC<PageProps> = () => {
                                 target="_blank"
                                 aria-label="WhatsApp"
                             >
-                                <span>Whatsapp</span>{" "}
-                                <FontAwesomeIcon icon={["fab", "whatsapp"]} />
+                                <span>Whatsapp</span> <FontAwesomeIcon icon={["fab", "whatsapp"]} />
                             </a>
                         </p>
                     </div>

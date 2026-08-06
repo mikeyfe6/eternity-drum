@@ -25,52 +25,25 @@ const Breadcrumbs: React.FC<BreadcrumbProps> = ({ crumbs }) => {
                     <li
                         key={index}
                         className={`${styles.breadcrumbsItem} ${
-                            index === crumbs.length - 2
-                                ? styles.breadcrumbsItemMobile
-                                : ""
+                            index === crumbs.length - 2 ? styles.breadcrumbsItemMobile : ""
                         }`}
                     >
-                        {index === 0 ? (
+                        {index === 0 ?
                             <>
-                                <FontAwesomeIcon
-                                    icon={"angle-left"}
-                                    className={
-                                        styles.breadcrumbsSeperatorMobile
-                                    }
-                                />
+                                <FontAwesomeIcon icon={"angle-left"} className={styles.breadcrumbsSeperatorMobile} />
                                 <Link to="/">
-                                    <FontAwesomeIcon
-                                        icon={"house-chimney"}
-                                        className={styles.breadcrumbsHomeIcon}
-                                    />
-                                    <span className={styles.breadcrumbsHome}>
-                                        Home
-                                    </span>
+                                    <FontAwesomeIcon icon={"house-chimney"} className={styles.breadcrumbsHomeIcon} />
+                                    <span className={styles.breadcrumbsHome}>Home</span>
                                 </Link>
-                                <FontAwesomeIcon
-                                    icon={"angle-right"}
-                                    className={styles.breadcrumbsSeperator}
-                                />
+                                <FontAwesomeIcon icon={"angle-right"} className={styles.breadcrumbsSeperator} />
                             </>
-                        ) : crumb.link ? (
+                        : crumb.link ?
                             <>
-                                <FontAwesomeIcon
-                                    icon={"angle-left"}
-                                    className={
-                                        styles.breadcrumbsSeperatorMobile
-                                    }
-                                />
+                                <FontAwesomeIcon icon={"angle-left"} className={styles.breadcrumbsSeperatorMobile} />
                                 <Link to={crumb.link}>{crumb.label}</Link>
-                                <FontAwesomeIcon
-                                    icon={"angle-right"}
-                                    className={styles.breadcrumbsSeperator}
-                                />
+                                <FontAwesomeIcon icon={"angle-right"} className={styles.breadcrumbsSeperator} />
                             </>
-                        ) : (
-                            <span className={styles.breadcrumbsPage}>
-                                {crumb.label}
-                            </span>
-                        )}
+                        :   <span className={styles.breadcrumbsPage}>{crumb.label}</span>}
                     </li>
                 ))}
             </ul>

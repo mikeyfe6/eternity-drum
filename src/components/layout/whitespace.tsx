@@ -1,5 +1,5 @@
-import React from 'react';
+import React from "react";
 
-const WhiteSpace = () => <div className='space-divider' />;
+const WhiteSpace = () => <div className="space-divider" />;
 
 export default WhiteSpace;
