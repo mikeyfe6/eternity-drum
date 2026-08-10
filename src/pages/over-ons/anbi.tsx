@@ -35,8 +35,9 @@ const Anbi: React.FC<PageProps> = () => {
                     </p>
 
                     <p>
-                        Code en de Code Diversiteit & Inclusie. De organisatie investeert in professioneel bestuur,
-                        transparantie en een duurzame culturele bedrijfsvoering.
+                        Eternity Percussion handelt volgens de Governance Code Cultuur, de Fair Practice Code en de Code
+                        Diversiteit & Inclusie. De organisatie investeert in professioneel bestuur, transparantie en een
+                        duurzame culturele bedrijfsvoering.
                     </p>
 
                     <h3 className="as-h4">
