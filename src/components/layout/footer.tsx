@@ -52,7 +52,7 @@ const Footer = () => {
                 script.async = true;
                 script.defer = true;
                 script.crossOrigin = "anonymous";
-                script.src = "https://connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v22.0";
+                script.src = "https://connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v25.0";
                 document.body.appendChild(script);
             }
         };
@@ -291,6 +291,7 @@ const Footer = () => {
                                 data-adapt-container-width="true"
                                 data-hide-cover="false"
                                 data-show-facepile="true"
+                                data-lazy="true"
                             >
                                 <blockquote
                                     cite="https://www.facebook.com/EternityDrum"

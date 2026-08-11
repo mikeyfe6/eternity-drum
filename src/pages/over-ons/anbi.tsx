@@ -129,7 +129,9 @@ const Anbi: React.FC<PageProps> = () => {
                         van de ANBI-verplichtingen. Hieronder vindt u de meest recente jaarrekening, bestaande uit de
                         balans en de staat van baten en lasten. <br />
                         <br />
-                        <Link to="/jaarrekening-2024.pdf">Download hier de jaarrekening</Link>
+                        <a href="/jaarrekening-2024.pdf" rel="noopener noreferrer" target="_blank">
+                            Download hier de jaarrekening
+                        </a>
                     </p>
 
                     <h3 className="as-h4">
