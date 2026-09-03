@@ -90,8 +90,8 @@ const Vacancy = ({
             <section data-main-section>
                 <div data-main-content className="page-content image-right">
                     <div>
-                        <h3>betreft vacature:</h3>
-                        <h4>{fullJobTitle}</h4>
+                        <h2>betreft vacature:</h2>
+                        <h3>{fullJobTitle}</h3>
                         {renderRichText(organisationDetails, renderOptions)}
 
                         {renderRichText(jobDescription, renderOptions)}
@@ -105,8 +105,6 @@ const Vacancy = ({
                         {renderRichText(details, renderOptions)}
 
                         {renderRichText(apply, renderOptions)}
-
-                        <br />
 
                         {renderRichText(department, renderOptions)}
                     </div>
