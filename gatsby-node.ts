@@ -4,7 +4,7 @@ import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3';
 
-import path from 'path';
+import path from 'node:path';
 
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
 
@@ -53,7 +53,10 @@ interface Vacancy {
     id: string;
     slug: string;
     jobTitle: string;
-    department: string;
+    fullJobTitle: string;
+    department: {
+        raw: string;
+    };
     jobImage: {
         gatsbyImageData: IGatsbyImageData;
         title: string;
@@ -71,19 +74,15 @@ interface Vacancy {
     responsibilities: {
         raw: string;
     };
-    availability: {
+    benefits: {
+        raw: string;
+    };
+    details: {
         raw: string;
     };
     apply: {
         raw: string;
     };
-    location: {
-        lat: number;
-        lon: number;
-    }
-    applicationDeadline: string;
-    contactEmail: string;
-    contactPhone: string;
 }
 
 interface QueryResult {
@@ -259,22 +258,24 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             id: ID!
             slug: String
             jobTitle: String
+            fullJobTitle: String
             jobImage: ContentfulAsset @link(by: "id", from: "jobImage___NODE")
-            department: String
+            department: ContentfulVacancyDepartment
             jobDescription: ContentfulVacancyJobDescription
             organisationDetails: ContentfulVacancyOrganisationDetails
             requirements: ContentfulVacancyRequirements
             responsibilities: ContentfulVacancyResponsibilities
-            availability: ContentfulVacancyAvailability
+            benefits: ContentfulVacancyBenefits
+            details: ContentfulVacancyDetails
             apply: ContentfulVacancyApply
-            location: ContentfulVacancyLocation
-            applicationDeadline: Date @dateformat
-            contactEmail: String
-            contactPhone: String
             updatedAt: Date @dateformat
         }
 
         type ContentfulVacancyJobDescription @infer {
+            raw: String
+        }
+
+        type ContentfulVacancyDepartment @infer {
             raw: String
         }
 
@@ -290,7 +291,11 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             raw: String
         }
 
-        type ContentfulVacancyAvailability @infer {
+        type ContentfulVacancyBenefits @infer {
+            raw: String
+        }
+
+        type ContentfulVacancyDetails @infer {
             raw: String
         }
 
@@ -298,10 +303,6 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
             raw: String
         }
 
-        type ContentfulVacancyLocation @infer {
-            lat: Float
-            lon: Float
-        }
     `;
 
     createTypes(typeDefs);
@@ -391,39 +392,36 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
                 id
                 slug
                 jobTitle
+                fullJobTitle
                 jobImage {
                     gatsbyImageData
                     title
                     description
                 }
-                department
+                department {
+                    raw
+                }
                 jobDescription {
                     raw
                 }
                 organisationDetails {
                   raw
                 }
-                department
-                
                 requirements {
                     raw
                 }
                 responsibilities {
                     raw
                 }
-                availability {
+                benefits {
+                    raw
+                }
+                details {
                     raw
                 }
                 apply {
                     raw
                 }
-                location {
-                    lat
-                    lon
-                }
-                applicationDeadline
-                contactEmail
-                contactPhone
               }
             }
         }
@@ -442,18 +440,16 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
             context: {
                 slug: node.slug,
                 jobTitle: node.jobTitle,
+                fullJobTitle: node.fullJobTitle,
                 jobImage: node.jobImage,
                 department: node.department,
                 jobDescription: node.jobDescription,
                 organisationDetails: node.organisationDetails,
                 responsibilities: node.responsibilities,
                 requirements: node.requirements,
-                availability: node.availability,
+                benefits: node.benefits,
+                details: node.details,
                 apply: node.apply,
-                location: node.location,
-                applicationDeadline: node.applicationDeadline,
-                contactEmail: node.contactEmail,
-                contactPhone: node.contactPhone,
             },
         });
     });

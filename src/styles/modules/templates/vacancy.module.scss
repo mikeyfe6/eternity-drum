@@ -1,6 +1,10 @@
 @use "../../customs" as *;
 
 .vacancies {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(24);
+
     @include container(1500);
 
     li {
@@ -10,12 +14,13 @@
             gap: rem-calc(16);
             outline: 2px solid $primary-color;
             width: 100%;
-            padding: rem-calc(20 32);
+            padding: rem-calc(16);
 
             @include fluid-typing(17, 18);
 
             @include mobile {
                 width: fit-content;
+                padding: rem-calc(20 32);
             }
 
             span {

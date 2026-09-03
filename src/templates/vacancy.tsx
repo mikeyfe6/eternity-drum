@@ -12,7 +12,10 @@ import { Seo } from "../components/seo";
 interface VacancyProps {
     pageContext: {
         jobTitle: string;
-        department: string;
+        fullJobTitle: string;
+        department: {
+            raw: string;
+        };
         jobImage: {
             gatsbyImageData: IGatsbyImageData;
             title: string;
@@ -30,37 +33,31 @@ interface VacancyProps {
         responsibilities: {
             raw: string;
         };
-        availability: {
+        benefits: {
+            raw: string;
+        };
+        details: {
             raw: string;
         };
         apply: {
             raw: string;
         };
-        location: {
-            lat: number;
-            lon: number;
-        };
-        applicationDeadline: string;
-        contactEmail: string;
-        contactPhone: string;
     };
 }
 
 const Vacancy = ({
     pageContext: {
         jobTitle,
+        fullJobTitle,
         jobImage,
         department,
         jobDescription,
         organisationDetails,
         requirements,
         responsibilities,
-        availability,
+        benefits,
+        details,
         apply,
-        location,
-        applicationDeadline,
-        contactEmail,
-        contactPhone,
     },
 }: VacancyProps) => {
     const breadcrumbs = [
@@ -69,6 +66,18 @@ const Vacancy = ({
         { label: "Vacatures", link: "/over-ons/vacatures/" },
         { label: jobTitle },
     ];
+
+    const renderOptions = {
+        renderText: (text: string) =>
+            text.split("\n").reduce((children: React.ReactNode[], textSegment, index) => {
+                if (index > 0) {
+                    children.push(<br key={`line-break-${children.length}`} />);
+                }
+
+                children.push(textSegment);
+                return children;
+            }, []),
+    };
 
     const image = jobImage?.gatsbyImageData ? getImage(jobImage.gatsbyImageData) : null;
 
@@ -82,21 +91,24 @@ const Vacancy = ({
                 <div data-main-content className="page-content image-right">
                     <div>
                         <h3>betreft vacature:</h3>
-                        {renderRichText(jobDescription)}
+                        <h4>{fullJobTitle}</h4>
+                        {renderRichText(organisationDetails, renderOptions)}
 
-                        {renderRichText(organisationDetails)}
+                        {renderRichText(jobDescription, renderOptions)}
 
-                        {renderRichText(requirements)}
+                        {renderRichText(responsibilities, renderOptions)}
 
-                        {renderRichText(responsibilities)}
+                        {renderRichText(requirements, renderOptions)}
 
-                        {renderRichText(availability)}
+                        {renderRichText(benefits, renderOptions)}
 
-                        {renderRichText(apply)}
+                        {renderRichText(details, renderOptions)}
+
+                        {renderRichText(apply, renderOptions)}
 
                         <br />
 
-                        <p>{department}</p>
+                        {renderRichText(department, renderOptions)}
                     </div>
                     <div>
                         <div>

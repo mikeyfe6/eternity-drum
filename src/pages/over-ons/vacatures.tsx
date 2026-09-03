@@ -14,23 +14,6 @@ interface Vacancy {
     id: string;
     slug: string;
     jobTitle: string;
-    department: string;
-    jobImage: {
-        url: string;
-        title: string;
-        description: string;
-    };
-    jobDescription: {
-        raw: string;
-    };
-    organisationDetails: {
-        raw: string;
-    };
-    location: {
-        lat: number;
-        lon: number;
-    };
-    applicationDeadline: string;
 }
 
 const Vacatures: React.FC<PageProps> = () => {
