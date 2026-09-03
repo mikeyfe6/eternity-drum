@@ -11,12 +11,13 @@
         a {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: rem-calc(16);
             outline: 2px solid $primary-color;
             width: 100%;
             padding: rem-calc(16);
 
-            @include fluid-typing(17, 18);
+            @include fluid-typing(16, 18);
 
             @include mobile {
                 width: fit-content;
