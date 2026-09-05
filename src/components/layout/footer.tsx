@@ -186,12 +186,12 @@ const Footer = () => {
                         <span className="as-h4">Vacatures</span>
                         <ul>
                             <li>
-                                <Link to="/vacatures/docent-percussie-en-talentontwikkeling/">
+                                <Link to="/over-ons/vacatures/docent-percussie-en-talentontwikkeling/">
                                     Docent Percussie & Talentontwikkeling
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/vacatures/projectleider-jeugd-en-talentontwikkeling/">
+                                <Link to="/over-ons/vacatures/projectleider-jeugd-en-talentontwikkeling/">
                                     Projectleider Jeugd & Talentontwikkeling
                                 </Link>
                             </li>
