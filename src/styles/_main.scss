@@ -21,12 +21,12 @@
 
     h3 {
         margin-top: rem-calc(32);
-        margin-bottom: rem-calc(16);
+        margin-bottom: rem-calc(12);
     }
 
     h4,
     h5 {
-        margin-bottom: rem-calc(16);
+        margin-bottom: rem-calc(12);
 
         &:not(:first-child) {
             margin-top: rem-calc(28);
@@ -45,7 +45,7 @@
         @include fluid-typing(16, 18);
 
         &:not(:last-child) {
-            margin-bottom: rem-calc(16);
+            margin-bottom: rem-calc(12);
         }
 
         i {
@@ -55,11 +55,11 @@
 
     ul {
         &:not(:last-child) {
-            margin-bottom: rem-calc(16);
+            margin-bottom: rem-calc(12);
         }
 
         &:not(:first-of-type) {
-            margin-top: rem-calc(16);
+            margin-top: rem-calc(12);
         }
 
         &:not(.contact &, .singlepost .sidebar ul &) {

@@ -82,6 +82,10 @@
                         > div {
                             flex: 1;
                         }
+
+                        h3:first-of-type {
+                            margin-top: unset;
+                        }
                     }
 
                     &-right {
@@ -93,6 +97,10 @@
                         @include tablet {
                             flex-direction: row;
                             align-items: center;
+                        }
+
+                        h3:first-of-type {
+                            margin-top: unset;
                         }
 
                         > div {
@@ -157,6 +165,10 @@
 
                         @include tablet {
                             flex-direction: row;
+                        }
+
+                        h3:first-of-type {
+                            margin-top: unset;
                         }
 
                         > div:nth-child(1) {
