@@ -7,56 +7,52 @@
 @use "variables" as *;
 
 %form-style {
-	background: linear-gradient(
-		45deg,
-		$primary-color,
-		color.scale($primary-color, $lightness: 5%)
-	);
-	color: $white-color;
-	border-radius: $border-radius-md;
-	padding: rem-calc(24 20);
+    background: linear-gradient(45deg, $primary-color, color.scale($primary-color, $lightness: 5%));
+    color: $white-color;
+    border-radius: $border-radius-lg;
+    padding: rem-calc(24 20);
 
-	@include box-shadow;
+    @include box-shadow;
 
-	@include mobile {
-		padding: rem-calc(36 32);
-	}
+    @include mobile {
+        padding: rem-calc(36 32);
+    }
 }
 
 %form-submit {
-	display: flex;
-	flex-direction: column;
-	margin: rem-calc(32 0 16);
+    display: flex;
+    flex-direction: column;
+    margin: rem-calc(32 0 16);
 
-	> div {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
+    > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
 
-		> span {
-			font-size: rem-calc(14);
-			text-underline-offset: 4px;
-			text-decoration-thickness: 2px;
-			padding-left: rem-calc(4);
-		}
-	}
+        > span {
+            font-size: rem-calc(14);
+            text-underline-offset: 4px;
+            text-decoration-thickness: 2px;
+            padding-left: rem-calc(4);
+        }
+    }
 }
 
 %form-page {
-	> :nth-child(1),
-	> :nth-child(2) {
-		max-width: rem-calc(600);
-	}
+    > :nth-child(1),
+    > :nth-child(2) {
+        max-width: rem-calc(600);
+    }
 
-	> :nth-child(1) {
-		@include laptop {
-			max-width: rem-calc(600);
-		}
-	}
+    > :nth-child(1) {
+        @include laptop {
+            max-width: rem-calc(600);
+        }
+    }
 
-	> :nth-child(2) {
-		@include laptop {
-			max-width: rem-calc(650);
-		}
-	}
+    > :nth-child(2) {
+        @include laptop {
+            max-width: rem-calc(650);
+        }
+    }
 }

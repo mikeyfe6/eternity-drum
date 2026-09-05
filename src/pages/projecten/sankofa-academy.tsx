@@ -35,7 +35,7 @@ const SankofaAcademy: React.FC<PageProps> = () => {
         <>
             <section className="page-intro">
                 <Breadcrumbs crumbs={breadcrumbs} />
-                <h1 className="page-title">Projecten</h1>
+                <h1 className="page-title">Sankofa Academy</h1>
             </section>
             <section data-main-section>
                 <div className={styles.workshopBgImage} />

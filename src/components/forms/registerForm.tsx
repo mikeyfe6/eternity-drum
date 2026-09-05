@@ -286,7 +286,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
     return (
         <div className={styles.registerWrapper} data-main-form>
-            <h2>Online inschrijfformulier</h2>
+            <h2 data-main-title>Online inschrijfformulier</h2>
             <span>Vul hieronder jouw gegevens in en wij nemen zo spoedig mogelijk contact met je op.</span>
 
             <small>

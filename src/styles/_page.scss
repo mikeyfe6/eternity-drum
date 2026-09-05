@@ -15,7 +15,7 @@
             gap: rem-calc(16);
         }
 
-        @include phablet {
+        @include mobile {
             flex-direction: row;
             margin-top: rem-calc(24);
         }

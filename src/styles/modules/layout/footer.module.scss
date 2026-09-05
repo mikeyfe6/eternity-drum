@@ -5,12 +5,8 @@
 .footer {
     $footer: &;
 
-    border-top: 1px solid $lightgrey-color;
-    background: linear-gradient(
-        145deg,
-        $secondary-color,
-        color.scale($secondary-color, $lightness: 25%)
-    );
+    border-top: 2px solid $secondary-color;
+    background: linear-gradient(145deg, rgba($secondary-color, 0.75), rgba($secondary-color, 0.5));
 
     @include box-shadow;
 
@@ -87,10 +83,7 @@
                             @include smooth-trans(color);
 
                             &:hover {
-                                color: color.adjust(
-                                    $tertiary-color,
-                                    $lightness: -10%
-                                );
+                                color: color.adjust($tertiary-color, $lightness: -10%);
                             }
                         }
 
@@ -203,11 +196,7 @@
     }
 
     &-bottom {
-        background: linear-gradient(
-            45deg,
-            $primary-color,
-            color.scale($primary-color, $lightness: 5%)
-        );
+        background: linear-gradient(45deg, $primary-color, color.scale($primary-color, $lightness: 5%));
         color: $white-color;
         padding: rem-calc(12 0);
         display: flex;

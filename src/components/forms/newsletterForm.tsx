@@ -31,9 +31,7 @@ const NewsletterForm: React.FC = () => {
     };
 
     const handleInputChange = (
-        event: React.ChangeEvent<
-            HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-        >
+        event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
     ) => {
         const { name, value } = event.target;
 
@@ -51,14 +49,8 @@ const NewsletterForm: React.FC = () => {
             [name]: value,
         });
 
-        event.target.classList.toggle(
-            "error",
-            updatedFieldErrors[name].length > 0
-        );
-        event.target.classList.toggle(
-            "approved",
-            updatedFieldErrors[name].length === 0
-        );
+        event.target.classList.toggle("error", updatedFieldErrors[name].length > 0);
+        event.target.classList.toggle("approved", updatedFieldErrors[name].length === 0);
     };
 
     const handleInputBlur = () => {
@@ -67,28 +59,18 @@ const NewsletterForm: React.FC = () => {
 
     const encode = (data: { [key: string]: string | null | undefined }) => {
         return Object.keys(data)
-            .map(
-                (key) =>
-                    encodeURIComponent(key) +
-                    "=" +
-                    encodeURIComponent(data[key] ?? "")
-            )
+            .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key] ?? ""))
             .join("&");
     };
 
-    const handleSubmit = async (
-        event: React.FormEvent<HTMLFormElement>,
-        myForm: HTMLFormElement | null
-    ) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>, myForm: HTMLFormElement | null) => {
         event.preventDefault();
 
         if (myForm !== null) {
             myForm.reset();
         }
 
-        const allRequiredFieldsFilled = requiredFields.every(
-            (field) => formData[field as keyof NewsletterFormData]
-        );
+        const allRequiredFieldsFilled = requiredFields.every((field) => formData[field as keyof NewsletterFormData]);
 
         if (!allRequiredFieldsFilled) {
             alert("Vul aub alle verplichte velden in!");
@@ -99,9 +81,7 @@ const NewsletterForm: React.FC = () => {
 
         setFieldErrors(validationErrors);
 
-        const errorMessages = Object.values(validationErrors).flatMap(
-            (error) => error
-        );
+        const errorMessages = Object.values(validationErrors).flatMap((error) => error);
 
         if (errorMessages.length > 0) {
             return;
@@ -111,11 +91,7 @@ const NewsletterForm: React.FC = () => {
 
         try {
             const formDataParams = new URLSearchParams();
-            const formKeys: Array<keyof NewsletterFormData> = [
-                "firstName",
-                "lastName",
-                "email",
-            ];
+            const formKeys: Array<keyof NewsletterFormData> = ["firstName", "lastName", "email"];
 
             formKeys.forEach((key) => {
                 formDataParams.append(key, formData[key]);
@@ -131,7 +107,7 @@ const NewsletterForm: React.FC = () => {
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded",
                     },
-                }
+                },
             );
 
             navigate("/success/");
@@ -152,9 +128,7 @@ const NewsletterForm: React.FC = () => {
     };
 
     const isFormValid = () => {
-        const allFieldsFilled = requiredFields.every(
-            (field) => formData[field as keyof NewsletterFormData]
-        );
+        const allFieldsFilled = requiredFields.every((field) => formData[field as keyof NewsletterFormData]);
         const areErrorsValid = Object.values(fieldErrors).flat().length <= 0;
 
         return allFieldsFilled && areErrorsValid;
@@ -163,9 +137,7 @@ const NewsletterForm: React.FC = () => {
     return (
         <div className={styles.newsletter} data-main-form>
             <form
-                onSubmit={(event) =>
-                    handleSubmit(event, document.querySelector("form"))
-                }
+                onSubmit={(event) => handleSubmit(event, document.querySelector("form"))}
                 name="newsletter-form"
                 method="post"
                 data-netlify="true"
@@ -176,7 +148,7 @@ const NewsletterForm: React.FC = () => {
                 <input type="hidden" name="bot-field" />
                 <input type="hidden" name="form-name" value="newsletter-form" />
                 <fieldset>
-                    <legend>Schrijf je in voor onze nieuwsbrief</legend>
+                    <legend data-main-title>Schrijf je in voor onze nieuwsbrief</legend>
                     <small>
                         (Velden aangegeven met een <span>*</span> zijn verplicht)
                     </small>
@@ -184,12 +156,7 @@ const NewsletterForm: React.FC = () => {
                         <div className="form-group first-name">
                             <label
                                 htmlFor="firstName"
-                                className={
-                                    focusedInput === "firstName" ||
-                                    formData.firstName
-                                        ? "visited"
-                                        : ""
-                                }
+                                className={focusedInput === "firstName" || formData.firstName ? "visited" : ""}
                             >
                                 Voornaam <span>*</span>
                             </label>
@@ -204,18 +171,15 @@ const NewsletterForm: React.FC = () => {
                                 onBlur={handleInputBlur}
                                 onFocus={() => handleInputFocus("firstName")}
                                 className={
-                                    fieldErrors.firstName &&
-                                    fieldErrors.firstName.length > 0
-                                        ? "error"
-                                        : (formData.firstName &&
-                                              fieldErrors.firstName &&
-                                              fieldErrors.firstName.length ===
-                                                  0) ||
-                                          (fieldErrors.firstName ===
-                                              undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.firstName && fieldErrors.firstName.length > 0 ? "error"
+                                    : (
+                                        (formData.firstName &&
+                                            fieldErrors.firstName &&
+                                            fieldErrors.firstName.length === 0) ||
+                                        (fieldErrors.firstName === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
@@ -223,12 +187,7 @@ const NewsletterForm: React.FC = () => {
                         <div className="form-group last-name">
                             <label
                                 htmlFor="lastName"
-                                className={
-                                    focusedInput === "lastName" ||
-                                    formData.lastName
-                                        ? "visited"
-                                        : ""
-                                }
+                                className={focusedInput === "lastName" || formData.lastName ? "visited" : ""}
                             >
                                 Achternaam <span>*</span>
                             </label>
@@ -243,17 +202,15 @@ const NewsletterForm: React.FC = () => {
                                 onBlur={handleInputBlur}
                                 onFocus={() => handleInputFocus("lastName")}
                                 className={
-                                    fieldErrors.lastName &&
-                                    fieldErrors.lastName.length > 0
-                                        ? "error"
-                                        : (formData.lastName &&
-                                              fieldErrors.lastName &&
-                                              fieldErrors.lastName.length ===
-                                                  0) ||
-                                          (fieldErrors.lastName === undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.lastName && fieldErrors.lastName.length > 0 ? "error"
+                                    : (
+                                        (formData.lastName &&
+                                            fieldErrors.lastName &&
+                                            fieldErrors.lastName.length === 0) ||
+                                        (fieldErrors.lastName === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
@@ -263,11 +220,7 @@ const NewsletterForm: React.FC = () => {
                         <div className="form-group email">
                             <label
                                 htmlFor="email"
-                                className={
-                                    focusedInput === "email" || formData.email
-                                        ? "visited"
-                                        : ""
-                                }
+                                className={focusedInput === "email" || formData.email ? "visited" : ""}
                             >
                                 E-mailadres <span>*</span>
                             </label>
@@ -282,16 +235,13 @@ const NewsletterForm: React.FC = () => {
                                 onBlur={handleInputBlur}
                                 onFocus={() => handleInputFocus("email")}
                                 className={
-                                    fieldErrors.email &&
-                                    fieldErrors.email.length > 0
-                                        ? "error"
-                                        : (formData.email &&
-                                              fieldErrors.email &&
-                                              fieldErrors.email.length === 0) ||
-                                          (fieldErrors.email === undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.email && fieldErrors.email.length > 0 ? "error"
+                                    : (
+                                        (formData.email && fieldErrors.email && fieldErrors.email.length === 0) ||
+                                        (fieldErrors.email === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
@@ -300,25 +250,13 @@ const NewsletterForm: React.FC = () => {
 
                 <div className="form-submit">
                     <div>
-                        {isFormValid() && (
-                            <span className="form-submit-approved">
-                                Formulier is juist ingevuld!
-                            </span>
-                        )}
+                        {isFormValid() && <span className="form-submit-approved">Formulier is juist ingevuld!</span>}
 
                         {Object.values(fieldErrors).flat().length > 0 && (
-                            <span className="form-submit-error">
-                                Actie vereist!
-                            </span>
+                            <span className="form-submit-error">Actie vereist!</span>
                         )}
 
-                        <button
-                            type="submit"
-                            disabled={
-                                Object.values(fieldErrors).flat().length > 0 ||
-                                !isFormValid()
-                            }
-                        >
+                        <button type="submit" disabled={Object.values(fieldErrors).flat().length > 0 || !isFormValid()}>
                             Schrijf in
                         </button>
                     </div>
