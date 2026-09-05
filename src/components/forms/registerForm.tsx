@@ -20,7 +20,7 @@ type FieldErrors = {
 
 export const handleClick = (
     inputRef: React.RefObject<HTMLInputElement | null>,
-    event: React.MouseEvent<HTMLAnchorElement>
+    event: React.MouseEvent<HTMLAnchorElement>,
 ) => {
     event.preventDefault();
     if (inputRef.current) {
@@ -82,20 +82,11 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
     ];
 
     if (!isOlderThan18) {
-        requiredFields.push(
-            "firstNameParent",
-            "lastNameParent",
-            "emailParent",
-            "phoneParent"
-        );
+        requiredFields.push("firstNameParent", "lastNameParent", "emailParent", "phoneParent");
     }
 
     const handleInputFocus = (name: string) => {
-        if (
-            name === "dayOfBirth" ||
-            name === "monthOfBirth" ||
-            name === "yearOfBirth"
-        ) {
+        if (name === "dayOfBirth" || name === "monthOfBirth" || name === "yearOfBirth") {
             setFocusedInput("dateOfBirth");
         } else {
             setFocusedInput(name);
@@ -117,9 +108,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
     };
 
     const handleInputChange = (
-        event: React.ChangeEvent<
-            HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-        >
+        event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
     ) => {
         const { name, value } = event.target;
 
@@ -130,7 +119,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                     ...formData,
                     [name]: value,
                 },
-                isOlderThan18
+                isOlderThan18,
             )[name] || [];
 
         setFieldErrors(updatedFieldErrors);
@@ -140,14 +129,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
             [name]: value,
         });
 
-        event.target.classList.toggle(
-            "error",
-            updatedFieldErrors[name].length > 0
-        );
-        event.target.classList.toggle(
-            "approved",
-            updatedFieldErrors[name].length === 0
-        );
+        event.target.classList.toggle("error", updatedFieldErrors[name].length > 0);
+        event.target.classList.toggle("approved", updatedFieldErrors[name].length === 0);
     };
 
     const handleInputBlur = () => {
@@ -156,28 +139,18 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
     const encode = (data: { [key: string]: string | null | undefined }) => {
         return Object.keys(data)
-            .map(
-                (key) =>
-                    encodeURIComponent(key) +
-                    "=" +
-                    encodeURIComponent(data[key] ?? "")
-            )
+            .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key] ?? ""))
             .join("&");
     };
 
-    const handleSubmit = async (
-        event: React.FormEvent<HTMLFormElement>,
-        myForm: HTMLFormElement | null
-    ) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>, myForm: HTMLFormElement | null) => {
         event.preventDefault();
 
         if (myForm !== null) {
             myForm.reset();
         }
 
-        const allRequiredFieldsFilled = requiredFields.every(
-            (field) => formData[field as keyof RegisterFormData]
-        );
+        const allRequiredFieldsFilled = requiredFields.every((field) => formData[field as keyof RegisterFormData]);
 
         if (!allRequiredFieldsFilled) {
             alert("Vul aub alle verplichte velden in!");
@@ -188,9 +161,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
         setFieldErrors(validationErrors);
 
-        const errorMessages = Object.values(validationErrors).flatMap(
-            (error) => error
-        );
+        const errorMessages = Object.values(validationErrors).flatMap((error) => error);
 
         if (errorMessages.length > 0) {
             return;
@@ -220,12 +191,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
             ];
 
             if (!isOlderThan18) {
-                formKeys.push(
-                    "firstNameParent",
-                    "lastNameParent",
-                    "emailParent",
-                    "phoneParent"
-                );
+                formKeys.push("firstNameParent", "lastNameParent", "emailParent", "phoneParent");
             }
 
             formKeys.forEach((key) => {
@@ -242,7 +208,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded",
                     },
-                }
+                },
             );
 
             navigate("/success");
@@ -280,11 +246,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
     };
 
     useEffect(() => {
-        if (
-            formData.dayOfBirth &&
-            formData.monthOfBirth &&
-            formData.yearOfBirth
-        ) {
+        if (formData.dayOfBirth && formData.monthOfBirth && formData.yearOfBirth) {
             const dobYear = parseInt(formData.yearOfBirth, 10);
             const dobMonth = parseInt(formData.monthOfBirth, 10) - 1;
             const dobDay = parseInt(formData.dayOfBirth, 10);
@@ -294,10 +256,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
             let age = today.getFullYear() - dob.getFullYear();
 
-            if (
-                today.getMonth() < dobMonth ||
-                (today.getMonth() === dobMonth && today.getDate() < dobDay)
-            ) {
+            if (today.getMonth() < dobMonth || (today.getMonth() === dobMonth && today.getDate() < dobDay)) {
                 age--;
             }
 
@@ -309,9 +268,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
     useEffect(() => {
         if (formData.discover === "Overig") {
-            const inputElement = document.getElementById(
-                "other"
-            ) as HTMLInputElement;
+            const inputElement = document.getElementById("other") as HTMLInputElement;
             if (inputElement && inputElement.value.trim() !== "") {
                 inputElement.classList.add("approved");
             }
@@ -319,9 +276,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
     }, [formData]);
 
     const isFormValid = () => {
-        const allFieldsFilled = requiredFields.every(
-            (field) => formData[field as keyof RegisterFormData]
-        );
+        const allFieldsFilled = requiredFields.every((field) => formData[field as keyof RegisterFormData]);
         const areErrorsValid = Object.values(fieldErrors).flat().length <= 0;
 
         return allFieldsFilled && areErrorsValid;
@@ -332,19 +287,14 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
     return (
         <div className={styles.registerWrapper} data-main-form>
             <h2>Online inschrijfformulier</h2>
-            <span>
-                Vul hieronder jouw gegevens in en wij nemen zo spoedig mogelijk
-                contact met je op.
-            </span>
+            <span>Vul hieronder jouw gegevens in en wij nemen zo spoedig mogelijk contact met je op.</span>
 
             <small>
                 (Velden aangegeven met een <span>*</span> zijn verplicht)
             </small>
 
             <form
-                onSubmit={(event) =>
-                    handleSubmit(event, document.querySelector("form"))
-                }
+                onSubmit={(event) => handleSubmit(event, document.querySelector("form"))}
                 name="register-form"
                 method="post"
                 data-netlify="true"
@@ -361,12 +311,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                         <div className="form-group first-name">
                             <label
                                 htmlFor="firstName"
-                                className={
-                                    focusedInput === "firstName" ||
-                                    formData.firstName
-                                        ? "visited"
-                                        : ""
-                                }
+                                className={focusedInput === "firstName" || formData.firstName ? "visited" : ""}
                             >
                                 Voornaam <span>*</span>
                             </label>
@@ -381,18 +326,15 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                 onBlur={handleInputBlur}
                                 onFocus={() => handleInputFocus("firstName")}
                                 className={
-                                    fieldErrors.firstName &&
-                                    fieldErrors.firstName.length > 0
-                                        ? "error"
-                                        : (formData.firstName &&
-                                              fieldErrors.firstName &&
-                                              fieldErrors.firstName.length ===
-                                                  0) ||
-                                          (fieldErrors.firstName ===
-                                              undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.firstName && fieldErrors.firstName.length > 0 ? "error"
+                                    : (
+                                        (formData.firstName &&
+                                            fieldErrors.firstName &&
+                                            fieldErrors.firstName.length === 0) ||
+                                        (fieldErrors.firstName === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
@@ -400,12 +342,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                         <div className="form-group last-name">
                             <label
                                 htmlFor="lastName"
-                                className={
-                                    focusedInput === "lastName" ||
-                                    formData.lastName
-                                        ? "visited"
-                                        : ""
-                                }
+                                className={focusedInput === "lastName" || formData.lastName ? "visited" : ""}
                             >
                                 Achternaam <span>*</span>
                             </label>
@@ -419,17 +356,15 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                 onBlur={handleInputBlur}
                                 onFocus={() => handleInputFocus("lastName")}
                                 className={
-                                    fieldErrors.lastName &&
-                                    fieldErrors.lastName.length > 0
-                                        ? "error"
-                                        : (formData.lastName &&
-                                              fieldErrors.lastName &&
-                                              fieldErrors.lastName.length ===
-                                                  0) ||
-                                          (fieldErrors.lastName === undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.lastName && fieldErrors.lastName.length > 0 ? "error"
+                                    : (
+                                        (formData.lastName &&
+                                            fieldErrors.lastName &&
+                                            fieldErrors.lastName.length === 0) ||
+                                        (fieldErrors.lastName === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
@@ -439,12 +374,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                         <div className="form-group street-name">
                             <label
                                 htmlFor="streetName"
-                                className={
-                                    focusedInput === "streetName" ||
-                                    formData.streetName
-                                        ? "visited"
-                                        : ""
-                                }
+                                className={focusedInput === "streetName" || formData.streetName ? "visited" : ""}
                             >
                                 Straatnaam <span>*</span>
                             </label>
@@ -459,18 +389,15 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                 onBlur={handleInputBlur}
                                 onFocus={() => handleInputFocus("streetName")}
                                 className={
-                                    fieldErrors.streetName &&
-                                    fieldErrors.streetName.length > 0
-                                        ? "error"
-                                        : (formData.streetName &&
-                                              fieldErrors.streetName &&
-                                              fieldErrors.streetName.length ===
-                                                  0) ||
-                                          (fieldErrors.streetName ===
-                                              undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.streetName && fieldErrors.streetName.length > 0 ? "error"
+                                    : (
+                                        (formData.streetName &&
+                                            fieldErrors.streetName &&
+                                            fieldErrors.streetName.length === 0) ||
+                                        (fieldErrors.streetName === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
@@ -478,12 +405,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                         <div className="form-group house-number">
                             <label
                                 htmlFor="houseNumber"
-                                className={
-                                    focusedInput === "houseNumber" ||
-                                    formData.houseNumber
-                                        ? "visited"
-                                        : ""
-                                }
+                                className={focusedInput === "houseNumber" || formData.houseNumber ? "visited" : ""}
                             >
                                 Huisnr. <span>*</span>
                             </label>
@@ -497,30 +419,22 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                 onBlur={handleInputBlur}
                                 onFocus={() => handleInputFocus("houseNumber")}
                                 className={
-                                    fieldErrors.houseNumber &&
-                                    fieldErrors.houseNumber.length > 0
-                                        ? "error"
-                                        : (formData.houseNumber &&
-                                              fieldErrors.houseNumber &&
-                                              fieldErrors.houseNumber.length ===
-                                                  0) ||
-                                          (fieldErrors.houseNumber ===
-                                              undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.houseNumber && fieldErrors.houseNumber.length > 0 ? "error"
+                                    : (
+                                        (formData.houseNumber &&
+                                            fieldErrors.houseNumber &&
+                                            fieldErrors.houseNumber.length === 0) ||
+                                        (fieldErrors.houseNumber === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
                         <div className="form-group zip-code">
                             <label
                                 htmlFor="zipCode"
-                                className={
-                                    focusedInput === "zipCode" ||
-                                    formData.zipCode
-                                        ? "visited"
-                                        : ""
-                                }
+                                className={focusedInput === "zipCode" || formData.zipCode ? "visited" : ""}
                             >
                                 Postcode <span>*</span>
                             </label>
@@ -534,17 +448,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                 onBlur={handleInputBlur}
                                 onFocus={() => handleInputFocus("zipCode")}
                                 className={
-                                    fieldErrors.zipCode &&
-                                    fieldErrors.zipCode.length > 0
-                                        ? "error"
-                                        : (formData.zipCode &&
-                                              fieldErrors.zipCode &&
-                                              fieldErrors.zipCode.length ===
-                                                  0) ||
-                                          (fieldErrors.zipCode === undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.zipCode && fieldErrors.zipCode.length > 0 ? "error"
+                                    : (
+                                        (formData.zipCode && fieldErrors.zipCode && fieldErrors.zipCode.length === 0) ||
+                                        (fieldErrors.zipCode === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
@@ -552,14 +462,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
                     <div className="form-column collapse-two">
                         <div className="form-group city">
-                            <label
-                                htmlFor="city"
-                                className={
-                                    focusedInput === "city" || formData.city
-                                        ? "visited"
-                                        : ""
-                                }
-                            >
+                            <label htmlFor="city" className={focusedInput === "city" || formData.city ? "visited" : ""}>
                                 Woonplaats <span>*</span>
                             </label>
                             <input
@@ -572,16 +475,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                 onBlur={handleInputBlur}
                                 onFocus={() => handleInputFocus("city")}
                                 className={
-                                    fieldErrors.city &&
-                                    fieldErrors.city.length > 0
-                                        ? "error"
-                                        : (formData.city &&
-                                              fieldErrors.city &&
-                                              fieldErrors.city.length === 0) ||
-                                          (fieldErrors.city === undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.city && fieldErrors.city.length > 0 ? "error"
+                                    : (
+                                        (formData.city && fieldErrors.city && fieldErrors.city.length === 0) ||
+                                        (fieldErrors.city === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
@@ -589,12 +489,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                         <div className="form-group province">
                             <label
                                 htmlFor="province"
-                                className={
-                                    focusedInput === "province" ||
-                                    formData.province
-                                        ? "visited"
-                                        : ""
-                                }
+                                className={focusedInput === "province" || formData.province ? "visited" : ""}
                             >
                                 Provincie <span>*</span>
                             </label>
@@ -608,17 +503,15 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                 onBlur={handleInputBlur}
                                 onFocus={() => handleInputFocus("province")}
                                 className={
-                                    fieldErrors.province &&
-                                    fieldErrors.province.length > 0
-                                        ? "error"
-                                        : (formData.province &&
-                                              fieldErrors.province &&
-                                              fieldErrors.province.length ===
-                                                  0) ||
-                                          (fieldErrors.province === undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.province && fieldErrors.province.length > 0 ? "error"
+                                    : (
+                                        (formData.province &&
+                                            fieldErrors.province &&
+                                            fieldErrors.province.length === 0) ||
+                                        (fieldErrors.province === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
@@ -628,11 +521,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                         <div className="form-group email">
                             <label
                                 htmlFor="email"
-                                className={
-                                    focusedInput === "email" || formData.email
-                                        ? "visited"
-                                        : ""
-                                }
+                                className={focusedInput === "email" || formData.email ? "visited" : ""}
                             >
                                 E-mailadres
                             </label>
@@ -647,16 +536,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                 onBlur={handleInputBlur}
                                 onFocus={() => handleInputFocus("email")}
                                 className={
-                                    fieldErrors.email &&
-                                    fieldErrors.email.length > 0
-                                        ? "error"
-                                        : (formData.email &&
-                                              fieldErrors.email &&
-                                              fieldErrors.email.length === 0) ||
-                                          (fieldErrors.email === undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.email && fieldErrors.email.length > 0 ? "error"
+                                    : (
+                                        (formData.email && fieldErrors.email && fieldErrors.email.length === 0) ||
+                                        (fieldErrors.email === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
@@ -665,12 +551,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                             <div className="form-select">
                                 <label
                                     htmlFor="gender"
-                                    className={
-                                        focusedInput === "gender" ||
-                                        formData.gender
-                                            ? "visited"
-                                            : ""
-                                    }
+                                    className={focusedInput === "gender" || formData.gender ? "visited" : ""}
                                 >
                                     Geslacht
                                 </label>
@@ -698,11 +579,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                         <div className="form-group phone">
                             <label
                                 htmlFor="phone"
-                                className={
-                                    focusedInput === "phone" || formData.phone
-                                        ? "visited"
-                                        : ""
-                                }
+                                className={focusedInput === "phone" || formData.phone ? "visited" : ""}
                             >
                                 Telefoonnummer
                             </label>
@@ -717,16 +594,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                 onBlur={handleInputBlur}
                                 onFocus={() => handleInputFocus("phone")}
                                 className={
-                                    fieldErrors.phone &&
-                                    fieldErrors.phone.length > 0
-                                        ? "error"
-                                        : (formData.phone &&
-                                              fieldErrors.phone &&
-                                              fieldErrors.phone.length === 0) ||
-                                          (fieldErrors.phone === undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.phone && fieldErrors.phone.length > 0 ? "error"
+                                    : (
+                                        (formData.phone && fieldErrors.phone && fieldErrors.phone.length === 0) ||
+                                        (fieldErrors.phone === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
@@ -734,12 +608,14 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                         <div className="form-group date-of-birth">
                             <label
                                 className={
-                                    focusedInput === "dateOfBirth" ||
-                                    formData.dayOfBirth ||
-                                    formData.monthOfBirth ||
-                                    formData.yearOfBirth
-                                        ? "visited"
-                                        : ""
+                                    (
+                                        focusedInput === "dateOfBirth" ||
+                                        formData.dayOfBirth ||
+                                        formData.monthOfBirth ||
+                                        formData.yearOfBirth
+                                    ) ?
+                                        "visited"
+                                    :   ""
                                 }
                             >
                                 Geboortedatum <span>*</span>
@@ -752,28 +628,19 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                     id="day-of-birth"
                                     name="dayOfBirth"
                                     value={formData.dayOfBirth}
-                                    onChange={(event) =>
-                                        handleDateChange(
-                                            "dayOfBirth",
-                                            event.target.value
-                                        )
-                                    }
+                                    onChange={(event) => handleDateChange("dayOfBirth", event.target.value)}
                                     onBlur={handleInputBlur}
-                                    onFocus={() =>
-                                        handleInputFocus("dayOfBirth")
-                                    }
+                                    onFocus={() => handleInputFocus("dayOfBirth")}
                                     className={`
 										${formData.dayOfBirth ? "visited" : ""}
 										${fieldErrors.dayOfBirth && fieldErrors.dayOfBirth.length > 0 ? "error" : ""}
 										${
-                                            (formData.dayOfBirth &&
-                                                fieldErrors.dayOfBirth
-                                                    ?.length === 0) ||
-                                            (fieldErrors.dayOfBirth ===
-                                                undefined &&
-                                                isFormSubmitted)
-                                                ? "approved"
-                                                : ""
+                                            (
+                                                (formData.dayOfBirth && fieldErrors.dayOfBirth?.length === 0) ||
+                                                (fieldErrors.dayOfBirth === undefined && isFormSubmitted)
+                                            ) ?
+                                                "approved"
+                                            :   ""
                                         }
 									  `.trim()}
                                 >
@@ -793,33 +660,19 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                     id="month-of-birth"
                                     name="monthOfBirth"
                                     value={formData.monthOfBirth}
-                                    onChange={(event) =>
-                                        handleDateChange(
-                                            "monthOfBirth",
-                                            event.target.value
-                                        )
-                                    }
+                                    onChange={(event) => handleDateChange("monthOfBirth", event.target.value)}
                                     onBlur={handleInputBlur}
-                                    onFocus={() =>
-                                        handleInputFocus("monthOfBirth")
-                                    }
+                                    onFocus={() => handleInputFocus("monthOfBirth")}
                                     className={`
 										${formData.monthOfBirth ? "visited" : ""}
+										${fieldErrors.monthOfBirth && fieldErrors.monthOfBirth.length > 0 ? "error" : ""}
 										${
-                                            fieldErrors.monthOfBirth &&
-                                            fieldErrors.monthOfBirth.length > 0
-                                                ? "error"
-                                                : ""
-                                        }
-										${
-                                            (formData.monthOfBirth &&
-                                                fieldErrors.monthOfBirth
-                                                    ?.length === 0) ||
-                                            (fieldErrors.monthOfBirth ===
-                                                undefined &&
-                                                isFormSubmitted)
-                                                ? "approved"
-                                                : ""
+                                            (
+                                                (formData.monthOfBirth && fieldErrors.monthOfBirth?.length === 0) ||
+                                                (fieldErrors.monthOfBirth === undefined && isFormSubmitted)
+                                            ) ?
+                                                "approved"
+                                            :   ""
                                         }
 									  `.trim()}
                                 >
@@ -852,28 +705,19 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                     id="year-of-birth"
                                     name="yearOfBirth"
                                     value={formData.yearOfBirth}
-                                    onChange={(event) =>
-                                        handleDateChange(
-                                            "yearOfBirth",
-                                            event.target.value
-                                        )
-                                    }
+                                    onChange={(event) => handleDateChange("yearOfBirth", event.target.value)}
                                     onBlur={handleInputBlur}
-                                    onFocus={() =>
-                                        handleInputFocus("yearOfBirth")
-                                    }
+                                    onFocus={() => handleInputFocus("yearOfBirth")}
                                     className={`
 										${formData.yearOfBirth ? "visited" : ""}
 										${fieldErrors.yearOfBirth && fieldErrors.yearOfBirth.length > 0 ? "error" : ""}
 										${
-                                            (formData.yearOfBirth &&
-                                                fieldErrors.yearOfBirth
-                                                    ?.length === 0) ||
-                                            (fieldErrors.yearOfBirth ===
-                                                undefined &&
-                                                isFormSubmitted)
-                                                ? "approved"
-                                                : ""
+                                            (
+                                                (formData.yearOfBirth && fieldErrors.yearOfBirth?.length === 0) ||
+                                                (fieldErrors.yearOfBirth === undefined && isFormSubmitted)
+                                            ) ?
+                                                "approved"
+                                            :   ""
                                         }
 									  `.trim()}
                                 >
@@ -881,10 +725,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         Jaar *
                                     </option>
                                     {Array.from({ length: 100 }, (_, i) => (
-                                        <option
-                                            key={i}
-                                            value={new Date().getFullYear() - i}
-                                        >
+                                        <option key={i} value={new Date().getFullYear() - i}>
                                             {new Date().getFullYear() - i}
                                         </option>
                                     ))}
@@ -896,22 +737,14 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                     <div
                         className="form-column"
                         style={{
-                            marginBottom:
-                                formData.discover === "Overig"
-                                    ? "1em"
-                                    : "revert-layer",
+                            marginBottom: formData.discover === "Overig" ? "1em" : "revert-layer",
                         }}
                     >
                         <div className="form-group discover">
                             <div className="form-select">
                                 <label
                                     htmlFor="discover"
-                                    className={
-                                        focusedInput === "discover" ||
-                                        formData.discover
-                                            ? "visited"
-                                            : ""
-                                    }
+                                    className={focusedInput === "discover" || formData.discover ? "visited" : ""}
                                 >
                                     Hoe ben je bij ons terecht gekomen?
                                 </label>
@@ -927,27 +760,21 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                         Hoe ben je bij ons terecht gekomen?
                                     </option>
                                     <option value="Via Social Media (Facebook, Instagram, Etc)">
-                                        Via Social Media (Facebook, Instagram,
-                                        Etc)
+                                        Via Social Media (Facebook, Instagram, Etc)
                                     </option>
                                     <option value="Via Google, Bing of een andere zoekmachine">
-                                        Via Google, Bing of een andere
-                                        zoekmachine
+                                        Via Google, Bing of een andere zoekmachine
                                     </option>
                                     <option value="Via een vriend(in), kennis, collega of familielid">
-                                        Via een vriend(in), kennis, collega of
-                                        familielid
+                                        Via een vriend(in), kennis, collega of familielid
                                     </option>
                                     <option value="Via eerdere workshops (bijv. de Eternity Summerschool)">
-                                        Via eerdere workshops (bijv. de Eternity
-                                        Summerschool)
+                                        Via eerdere workshops (bijv. de Eternity Summerschool)
                                     </option>
                                     <option value="U heeft ons eerder zien/horen spelen">
                                         Ik heb jullie eerder zien/horen spelen
                                     </option>
-                                    <option value="Overig">
-                                        Op een andere manier, namelijk:
-                                    </option>
+                                    <option value="Overig">Op een andere manier, namelijk:</option>
                                 </select>
                                 <div className="arrow" />
                             </div>
@@ -957,10 +784,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                     <div
                         className="form-column"
                         style={{
-                            display:
-                                formData.discover === "Overig"
-                                    ? "block"
-                                    : " none",
+                            display: formData.discover === "Overig" ? "block" : " none",
                         }}
                     >
                         <div className="form-group other">
@@ -982,12 +806,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                         <div className="form-group comments">
                             <label
                                 htmlFor="comments"
-                                className={
-                                    focusedInput === "comments" ||
-                                    formData.comments
-                                        ? "visited"
-                                        : ""
-                                }
+                                className={focusedInput === "comments" || formData.comments ? "visited" : ""}
                             >
                                 Heb je nog opmerkingen?
                             </label>
@@ -1004,16 +823,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                     </div>
                 </fieldset>
 
-                {!isOlderThan18 && (
-                    <span>
-                        Jonger dan 18? Vul hieronder de gegevens van jouw
-                        ouders/voogd in.
-                    </span>
-                )}
+                {!isOlderThan18 && <span>Jonger dan 18 jaar? Vul hieronder de gegevens van jouw ouders/voogd in.</span>}
 
-                <fieldset
-                    style={{ display: isOlderThan18 ? "none" : " block" }}
-                >
+                <fieldset style={{ display: isOlderThan18 ? "none" : " block" }}>
                     <legend>Gegevens ouders/voogd:</legend>
 
                     <div className="form-column">
@@ -1021,10 +833,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                             <label
                                 htmlFor="firstNameParent"
                                 className={
-                                    focusedInput === "firstNameParent" ||
-                                    formData.firstNameParent
-                                        ? "visited"
-                                        : ""
+                                    focusedInput === "firstNameParent" || formData.firstNameParent ? "visited" : ""
                                 }
                             >
                                 Voornaam (ouders/voogd) <span>*</span>
@@ -1037,22 +846,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                 value={formData.firstNameParent}
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}
-                                onFocus={() =>
-                                    handleInputFocus("firstNameParent")
-                                }
+                                onFocus={() => handleInputFocus("firstNameParent")}
                                 className={
-                                    fieldErrors.firstNameParent &&
-                                    fieldErrors.firstNameParent.length > 0
-                                        ? "error"
-                                        : (formData.firstNameParent &&
-                                              fieldErrors.firstNameParent &&
-                                              fieldErrors.firstNameParent
-                                                  .length === 0) ||
-                                          (fieldErrors.firstNameParent ===
-                                              undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.firstNameParent && fieldErrors.firstNameParent.length > 0 ? "error"
+                                    : (
+                                        (formData.firstNameParent &&
+                                            fieldErrors.firstNameParent &&
+                                            fieldErrors.firstNameParent.length === 0) ||
+                                        (fieldErrors.firstNameParent === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
@@ -1061,10 +865,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                             <label
                                 htmlFor="lastNameParent"
                                 className={
-                                    focusedInput === "lastNameParent" ||
-                                    formData.lastNameParent
-                                        ? "visited"
-                                        : ""
+                                    focusedInput === "lastNameParent" || formData.lastNameParent ? "visited" : ""
                                 }
                             >
                                 Achternaam (ouders/voogd) <span>*</span>
@@ -1077,22 +878,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                 value={formData.lastNameParent}
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}
-                                onFocus={() =>
-                                    handleInputFocus("lastNameParent")
-                                }
+                                onFocus={() => handleInputFocus("lastNameParent")}
                                 className={
-                                    fieldErrors.lastNameParent &&
-                                    fieldErrors.lastNameParent.length > 0
-                                        ? "error"
-                                        : (formData.lastNameParent &&
-                                              fieldErrors.lastNameParent &&
-                                              fieldErrors.lastNameParent
-                                                  .length === 0) ||
-                                          (fieldErrors.lastNameParent ===
-                                              undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.lastNameParent && fieldErrors.lastNameParent.length > 0 ? "error"
+                                    : (
+                                        (formData.lastNameParent &&
+                                            fieldErrors.lastNameParent &&
+                                            fieldErrors.lastNameParent.length === 0) ||
+                                        (fieldErrors.lastNameParent === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
@@ -1102,12 +898,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                         <div className="form-group email-parent">
                             <label
                                 htmlFor="emailParent"
-                                className={
-                                    focusedInput === "emailParent" ||
-                                    formData.emailParent
-                                        ? "visited"
-                                        : ""
-                                }
+                                className={focusedInput === "emailParent" || formData.emailParent ? "visited" : ""}
                             >
                                 E-mailadres (ouders/voogd) <span>*</span>
                             </label>
@@ -1121,18 +912,15 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                 onBlur={handleInputBlur}
                                 onFocus={() => handleInputFocus("emailParent")}
                                 className={
-                                    fieldErrors.emailParent &&
-                                    fieldErrors.emailParent.length > 0
-                                        ? "error"
-                                        : (formData.emailParent &&
-                                              fieldErrors.emailParent &&
-                                              fieldErrors.emailParent.length ===
-                                                  0) ||
-                                          (fieldErrors.emailParent ===
-                                              undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.emailParent && fieldErrors.emailParent.length > 0 ? "error"
+                                    : (
+                                        (formData.emailParent &&
+                                            fieldErrors.emailParent &&
+                                            fieldErrors.emailParent.length === 0) ||
+                                        (fieldErrors.emailParent === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
@@ -1140,12 +928,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                         <div className="form-group phone-parent">
                             <label
                                 htmlFor="phoneParent"
-                                className={
-                                    focusedInput === "phoneParent" ||
-                                    formData.phoneParent
-                                        ? "visited"
-                                        : ""
-                                }
+                                className={focusedInput === "phoneParent" || formData.phoneParent ? "visited" : ""}
                             >
                                 Telefoonnummer (ouders/voogd) <span>*</span>
                             </label>
@@ -1159,18 +942,15 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                                 onBlur={handleInputBlur}
                                 onFocus={() => handleInputFocus("phoneParent")}
                                 className={
-                                    fieldErrors.phoneParent &&
-                                    fieldErrors.phoneParent.length > 0
-                                        ? "error"
-                                        : (formData.phoneParent &&
-                                              fieldErrors.phoneParent &&
-                                              fieldErrors.phoneParent.length ===
-                                                  0) ||
-                                          (fieldErrors.phoneParent ===
-                                              undefined &&
-                                              isFormSubmitted === true)
-                                        ? "approved"
-                                        : ""
+                                    fieldErrors.phoneParent && fieldErrors.phoneParent.length > 0 ? "error"
+                                    : (
+                                        (formData.phoneParent &&
+                                            fieldErrors.phoneParent &&
+                                            fieldErrors.phoneParent.length === 0) ||
+                                        (fieldErrors.phoneParent === undefined && isFormSubmitted === true)
+                                    ) ?
+                                        "approved"
+                                    :   ""
                                 }
                             />
                         </div>
@@ -1179,25 +959,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
                 <div className="form-submit">
                     <div>
-                        {isFormValid() && (
-                            <span className="form-submit-approved">
-                                Formulier is juist ingevuld!
-                            </span>
-                        )}
+                        {isFormValid() && <span className="form-submit-approved">Formulier is juist ingevuld!</span>}
 
                         {Object.values(fieldErrors).flat().length > 0 && (
-                            <span className="form-submit-error">
-                                Actie vereist!
-                            </span>
+                            <span className="form-submit-error">Actie vereist!</span>
                         )}
 
-                        <button
-                            type="submit"
-                            disabled={
-                                Object.values(fieldErrors).flat().length > 0 ||
-                                !isFormValid()
-                            }
-                        >
+                        <button type="submit" disabled={Object.values(fieldErrors).flat().length > 0 || !isFormValid()}>
                             Schrijf in
                         </button>
                     </div>
@@ -1220,25 +988,21 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
                 </p>
                 <ul>
                     <li>
-                        Eternity Percussion kan niet aansprakelijk worden
-                        gesteld voor enig lichamelijk letsel, schade of
-                        vermissing van eigendom tijdens de lessen en/of
-                        repetities
+                        Eternity Percussion kan niet aansprakelijk worden gesteld voor enig lichamelijk letsel, schade
+                        of vermissing van eigendom tijdens de lessen en/of repetities
                     </li>
-                    {pathname.includes("drumworkshops") ? (
+                    {pathname.includes("drumworkshops") ?
                         <>
                             <li>
-                                Het lesgeld dient aan het begin van elke maand
-                                op de rekening van Eternity Percussion worden
-                                over gemaakt
+                                Het lesgeld dient aan het begin van elke maand op de rekening van Eternity Percussion
+                                worden over gemaakt
                             </li>
                             <li>
-                                De opzegtermijn bedraagt minimaal een maand en
-                                dient via email info@eternitydrum.com te worden
-                                doorgegeven
+                                De opzegtermijn bedraagt minimaal een maand en dient via email info@eternitydrum.com te
+                                worden doorgegeven
                             </li>
                         </>
-                    ) : null}
+                    :   null}
                 </ul>
                 <p>
                     <strong>Let op !</strong>
@@ -1249,9 +1013,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ inputRef }) => {
 
                 <p>
                     <u>
-                        Door invulling en het versturen van dit formulier, stem
-                        je automatisch in met de voorwaarden en huisregels van
-                        Eternity Percussion
+                        Door invulling en het versturen van dit formulier, stem je automatisch in met de voorwaarden en
+                        huisregels van Eternity Percussion
                     </u>
                 </p>
             </div>

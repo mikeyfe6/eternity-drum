@@ -95,11 +95,9 @@
     }
 }
 
-[data-main-form] {
-    h2 {
-        margin-bottom: rem-calc(24);
-        text-decoration: underline;
-        text-decoration-color: $tertiary-color;
-        text-underline-offset: 4px;
-    }
+h2[data-main-title] {
+    margin-bottom: rem-calc(24);
+    text-decoration: underline;
+    text-decoration-color: $tertiary-color;
+    text-underline-offset: 4px;
 }

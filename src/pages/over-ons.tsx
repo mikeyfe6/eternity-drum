@@ -7,6 +7,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import Breadcrumbs from "../components/layout/breadcrumbs";
 
 import { Seo } from "../components/seo";
+import { Link } from "@reach/router";
 
 const OverOns: React.FC<PageProps> = () => {
     const breadcrumbs = [{ label: "Home", link: "/" }, { label: "Over Ons" }];
@@ -20,60 +21,65 @@ const OverOns: React.FC<PageProps> = () => {
             <section data-main-section>
                 <div data-main-content className="page-content image-right">
                     <div>
+                        <h2>Over Eternity Percussion</h2>
                         <p>
-                            <b>Eternity</b> wilt als culturele instelling een bijdrage leveren aan talentontwikkeling,
-                            cultuurparticipatie en visieverbreding van jongeren. Door inzet van jongeren in de eigen
-                            organisatie op vitale posities, biedt Eternity jongeren de gelegenheid om cultureel te
-                            ondernemen en participeren binnen de Nederlandse samenleving. Hét middel om dit te bereiken
-                            is muziekeducatie. De organisatie biedt muzikaal vormende programma's aan waarin jongeren
-                            kennismaken met de Caribische drumstijl, hun talenten ontwikkelen en zich als artiest
-                            bekwamen.
+                            Eternity Percussion is een professioneel producerende culturele organisatie in Amsterdam
+                            Zuidoost. Vanuit onze Afro-Caribische roots verbinden we artistieke kwaliteit,
+                            talentontwikkeling, cultureel erfgoed en maatschappelijke impact.
                         </p>
                         <p>
-                            <b>Doelstellingen:</b>
+                            Al bijna 25 jaar creëert Eternity ruimte voor muziek, makers en talent. Wat begon vanuit de
+                            Afro-Caribische drumbandcultuur heeft zich ontwikkeld tot een brede culturele organisatie
+                            die professionele podiumproducties realiseert, talent ontwikkelt, festivals en evenementen
+                            organiseert, cultuureducatie verzorgt en samenwerkt met culturele partners in Nederland en
+                            daarbuiten.
+                        </p>
+
+                        <h3>Onze missie</h3>
+                        <p>
+                            Eternity wil Afro-Caribische muziek, percussie en cultureel erfgoed zichtbaar, toegankelijk
+                            en toekomstbestendig maken. We creëren mogelijkheden voor nieuwe generaties om hun
+                            artistieke talent te ontdekken en te ontwikkelen en brengen makers, musici, publiek en
+                            gemeenschappen met elkaar in verbinding.
                         </p>
                         <p>
-                            Eternity is een culturele instelling die zich bezighoudt met activiteiten, projecten en
-                            evenementen op het gebied van muzikale vorming en performance.
+                            Artistieke ontwikkeling en persoonlijke groei gaan daarbij hand in hand. Muziek is voor ons
+                            niet alleen een kunstvorm, maar ook een krachtig middel voor ontmoeting, identiteit,
+                            samenwerking en verbinding.
                         </p>
+
+                        <h3>Wat we doen</h3>
                         <p>
-                            <b>De organisatie heeft als doel:</b>
-                        </p>
-                        <ul>
-                            <li>
-                                Het <u>bieden van een platform</u> voor drummers die bezig zijn met Caribische
-                                muziekstijlen.{" "}
-                            </li>
-                            <li>
-                                Het <u>ontwikkelen van trajecten</u> ter bevordering van muzikale vaardigheden.{" "}
-                            </li>
-                            <li>
-                                {" "}
-                                Het <u>programmeren van drumshows</u> bij (semi) professionele podia.
-                            </li>
-                            <li>
-                                {" "}
-                                <u>Bevorderen van samenwerking</u> tussen zelforganisaties en gevestigde instellingen
-                                voor de nodige doorstroming van getalenteerde jongeren.
-                            </li>
-                        </ul>
-                        <p>
-                            <b>Doelgroepen:</b>
+                            Eternity ontwikkelt, produceert en presenteert activiteiten en programma's op het gebied
+                            van:
                         </p>
                         <ul>
-                            <li>
-                                Kinderen, jongeren en jongvolwassenen die affiniteit hebben met Caribische
-                                muziekstijlen.
-                            </li>
+                            <li>professionele muziek- en podiumproducties;</li>
+                            <li>talentontwikkeling en begeleiding van makers;</li>
+                            <li>Southeast Drum Academy (SEDA);</li>
+                            <li>cultuureducatie en muziekonderwijs;</li>
+                            <li>Bijlmer Drum Festival en culturele evenementen;</li>
+                            <li>Afro-Caribisch cultureel erfgoed;</li>
+                            <li>internationale samenwerking en coproducties;</li>
+                            <li>community- en participatieprojecten;</li>
                         </ul>
+
+                        <h3>Southeast Drum Academy</h3>
                         <p>
-                            <b>Daarnaast richt Eternity zich op de volgende afgeleide doelgroepen:</b>
+                            Vanuit <Link to="/seda/">Southeast Drum Academy (SEDA)</Link> in Amsterdam Zuidoost bouwen
+                            we samen met andere drumbandgroepen, makers en partners aan een duurzame plek voor
+                            repetitie, talentontwikkeling, kennisoverdracht en artistieke ontwikkeling. SEDA heeft de
+                            ambitie zich verder te ontwikkelen tot een landelijk expertisecentrum voor Afro-Caribische
+                            percussie en immaterieel cultureel erfgoed.
                         </p>
-                        <ul>
-                            <li>Afnemers van optredens (particulieren, bedrijven, festivals, podia en instellingen)</li>
-                            <li> Bezoekers, muziekliefhebbers</li>
-                            <li>Professionals uit de muzieksector (musici, programmeurs, managers, boekers, etc.)</li>
-                        </ul>
+
+                        <h3>Van Zuidoost naar internationaal</h3>
+                        <p>
+                            Amsterdam Zuidoost vormt onze thuisbasis, maar onze blik reikt verder. Eternity werkt samen
+                            met makers en culturele organisaties in Nederland en internationaal. Door artistieke
+                            uitwisseling, coproducties en internationale presentaties creëren we nieuwe verbindingen
+                            tussen Afro-Caribische cultuur, hedendaagse podiumkunst en verschillende gemeenschappen.
+                        </p>
                     </div>
                     <div>
                         <StaticImage src="../images/over-ons.jpg" alt={`Over ons`} width={600} />

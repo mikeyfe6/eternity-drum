@@ -30,15 +30,16 @@ const Index: React.FC<PageProps> = () => {
 
             <section className={styles.homepage} data-main-section>
                 <p>
-                    Eternity wilt als culturele instelling een bijdrage leveren aan talentontwikkeling,
-                    cultuurparticipatie en visieverbreding van jongeren. Door inzet van jongeren in de eigen organisatie
-                    op vitale posities, biedt Eternity jongeren de gelegenheid om cultureel te ondernemen en
-                    participeren binnen de Nederlandse samenleving.
+                    Eternity Percussion is een professioneel producerende culturele organisatie in Amsterdam Zuidoost.
+                    Vanuit onze Afro-Caribische roots ontwikkelen, produceren en presenteren we muziek- en
+                    podiumkunstprojecten waarin artistieke kwaliteit, talentontwikkeling, cultureel erfgoed en
+                    maatschappelijke impact samenkomen.
                 </p>
                 <p>
-                    Hét middel om dit te bereiken is muziekeducatie. De organisatie biedt muzikaal vormende programma’s
-                    aan waarin jongeren kennismaken met de Caribische drumstijl, hun talenten ontwikkelen en zich als
-                    artiest bekwamen.
+                    Vanuit Southeast Drum Academy (SEDA) creëren we ruimte voor makers, musici en jong talent om zich
+                    artistiek te ontwikkelen. We realiseren professionele producties, talentprogramma’s, festivals,
+                    cultuureducatie en internationale samenwerkingen en brengen Afro-Caribische muziek- en
+                    percussietradities naar podia in Nederland en daarbuiten.
                 </p>
             </section>
 

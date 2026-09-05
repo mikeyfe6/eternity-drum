@@ -26,7 +26,7 @@ const Projecten: React.FC<PageProps> = () => {
             </section>
             <section data-main-section>
                 <div data-main-content className="page-content projects">
-                    <h2>Nieuwe (uitwisselings)projecten !</h2>
+                    <h2 data-main-title>Nieuwe (uitwisselings)projecten</h2>
 
                     <div>
                         <h3>Building Strong Communities</h3>
