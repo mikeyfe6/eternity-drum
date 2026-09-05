@@ -13,40 +13,48 @@
     .collapsible {
         position: relative;
         display: flex;
-        justify-content: space-evenly;
+        flex-direction: column;
         gap: rem-calc(16);
-        border-radius: rem-calc(8 8 0 0);
+        border-radius: rem-calc(8);
+        outline: 2px solid $primary-color;
         padding: rem-calc(16);
-        flex-wrap: wrap;
-        max-width: rem-calc(950);
+        max-width: rem-calc(1400);
         margin: 0 auto;
-        background: linear-gradient(
-            45deg,
-            $primary-color,
-            color.scale($primary-color, $lightness: 25%)
-        );
+        background: linear-gradient(45deg, $primary-color, color.scale($primary-color, $lightness: 25%));
+
+        @include laptop {
+            display: grid;
+            grid-template-columns: minmax(rem-calc(450), 1.5fr) 3fr;
+            align-items: start;
+        }
+
+        &-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: rem-calc(16);
+
+            @include laptop {
+                min-width: 0;
+            }
+        }
 
         &-container {
-            display: flex;
-            flex-direction: column;
             max-width: 100%;
+            flex: auto;
+        }
+
+        &-content {
+            min-width: 0;
         }
 
         &-item {
             max-height: 0;
             overflow: hidden;
-            position: absolute;
-            border: 2px solid $primary-color;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            border-radius: rem-calc(0 0 8 8);
+            position: static;
+            border-radius: $border-radius-md;
             color: $primary-color;
-            background: linear-gradient(
-                45deg,
-                $smoke-color,
-                color.scale($smoke-color, $lightness: 100%)
-            );
+            background: linear-gradient(45deg, $smoke-color, color.scale($smoke-color, $lightness: 100%));
+            border: 2px solid $white-color;
 
             > div {
                 > span {
@@ -68,12 +76,7 @@
                     margin-top: rem-calc(32);
                     margin-left: auto;
 
-                    @include button(
-                        $primary-color,
-                        $white-color,
-                        $primary-color,
-                        $secondary-color
-                    );
+                    @include button($primary-color, $white-color, $primary-color, $secondary-color);
                 }
 
                 > img {
@@ -87,6 +90,7 @@
             }
 
             &.open {
+                display: block;
                 max-height: fit-content;
 
                 &:has(iframe) {
@@ -99,7 +103,7 @@
                     padding: rem-calc(16);
 
                     @include mobile {
-                        padding: rem-calc(24);
+                        padding: rem-calc(20);
                     }
                 }
 
@@ -107,7 +111,7 @@
                     padding: rem-calc(16);
 
                     @include mobile {
-                        padding: rem-calc(24);
+                        padding: rem-calc(20);
                     }
                 }
             }
@@ -122,22 +126,20 @@
                 overflow: hidden;
                 display: flex;
                 align-items: center;
-                justify-content: center;
                 gap: rem-calc(16);
                 outline: 2px solid $primary-color;
                 white-space: nowrap;
                 max-width: 100%;
                 height: 100%;
+                width: 100%;
 
                 @include mobile {
-                    white-space: normal;
                     max-width: unset;
                 }
 
                 > span {
                     background-color: $secondary-color;
-                    border-right: 2px
-                        color.scale($primary-color, $lightness: 25%) solid;
+                    border-right: 2px color.scale($primary-color, $lightness: 25%) solid;
                     padding: rem-calc(6 16);
                     font-weight: 600;
                     height: 100%;
@@ -158,8 +160,7 @@
                     @include mobile {
                         display: inline;
                         overflow: visible;
-                        white-space: normal;
-                        text-overflow: clip;
+                        text-overflow: ellipsis;
                     }
                 }
 
@@ -167,8 +168,7 @@
                     outline-color: color.scale($link-color, $lightness: 10%);
 
                     > span {
-                        border-right: 2px
-                            color.scale($link-color, $lightness: 10%) solid;
+                        border-right: 2px color.scale($link-color, $lightness: 10%) solid;
                     }
                 }
 
@@ -176,8 +176,7 @@
                     outline-color: $link-color;
 
                     > span {
-                        border-right: 2px
-                            color.scale($link-color, $lightness: 25%) solid;
+                        border-right: 2px color.scale($link-color, $lightness: 25%) solid;
                     }
                 }
 

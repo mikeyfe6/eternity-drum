@@ -149,7 +149,7 @@ const fetchS3Files = async (bucketName: string, prefix: string, fileTypes: strin
 const isDev = process.env.NODE_ENV !== 'production';
 const skipS3Images = isDev && process.env.GATSBY_SKIP_S3_IMAGES === 'true';
 const devImageLimit = isDev && process.env.GATSBY_DEV_IMAGE_LIMIT
-    ? Number.parseInt(process.env.GATSBY_DEV_IMAGE_LIMIT, 10)
+    ? Number.parseInt(process.env.GATSBY_DEV_IMAGE_LIMIT, 3)
     : undefined;
 
 export const sourceNodes: GatsbyNode['sourceNodes'] = async ({ actions, createNodeId, createContentDigest, getCache }) => {

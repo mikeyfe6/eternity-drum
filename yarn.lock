@@ -3893,15 +3893,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-datepicker@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "@types/react-datepicker@npm:7.0.0"
-  dependencies:
-    react-datepicker: "npm:*"
-  checksum: 10c0/8b9efb8841ed9bfb06e3157a2a4c5ed18fd7d6175cf760fb4fece99c0a53a55a5f27ea6484b62f548f2543cae349456c0f912d36243fe34251a25043ba4a1296
-  languageName: node
-  linkType: hard
-
 "@types/react-dom@npm:^19.2.7":
   version: 19.2.7
   resolution: "@types/react-dom@npm:19.2.7"
@@ -8402,7 +8393,6 @@ __metadata:
     "@mdx-js/react": "npm:^3.1.1"
     "@types/node": "npm:^26.4.1"
     "@types/react": "npm:^19.2.18"
-    "@types/react-datepicker": "npm:^7.0.0"
     "@types/react-dom": "npm:^19.2.7"
     "@typescript-eslint/eslint-plugin": "npm:^8.69.0"
     "@typescript-eslint/parser": "npm:^8.69.0"
@@ -15198,7 +15188,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-datepicker@npm:*, react-datepicker@npm:^9.1.0":
+"react-datepicker@npm:^9.1.0":
   version: 9.1.0
   resolution: "react-datepicker@npm:9.1.0"
   dependencies:

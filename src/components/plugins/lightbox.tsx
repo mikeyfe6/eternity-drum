@@ -7,9 +7,11 @@ import * as styles from "../../styles/modules/components/lightbox.module.scss";
 const LightBox = ({
     image,
     alt,
+    lazy = true,
 }: {
     image: IGatsbyImageData | undefined;
     alt: string;
+    lazy?: boolean;
 }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -44,20 +46,14 @@ const LightBox = ({
         <>
             {imageData && (
                 <div onClick={openModal} style={{ cursor: "pointer" }}>
-                    <GatsbyImage image={imageData} alt={alt} />
+                    <GatsbyImage image={imageData} alt={alt} loading={lazy ? "lazy" : "eager"} />
                 </div>
             )}
 
             {isModalOpen && imageData && (
-                <div
-                    className={`${styles.modal} lightbox-modal`}
-                    data-main-modal
-                >
+                <div className={`${styles.modal} lightbox-modal`} data-main-modal>
                     <div className={styles.modalContent}>
-                        <button
-                            className={styles.modalClose}
-                            onClick={closeModal}
-                        >
+                        <button className={styles.modalClose} onClick={closeModal}>
                             &times;
                         </button>
                         {imageData && (
@@ -67,6 +63,7 @@ const LightBox = ({
                                     alt={alt}
                                     className={styles.modalImage}
                                     objectFit="contain"
+                                    loading={lazy ? "lazy" : "eager"}
                                 />
                             </div>
                         )}
