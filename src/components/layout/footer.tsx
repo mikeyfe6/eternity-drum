@@ -182,6 +182,20 @@ const Footer = () => {
                         <ul>
                             <li>Binnenkort meer..</li>
                         </ul>
+
+                        <span className="as-h4">Vacatures</span>
+                        <ul>
+                            <li>
+                                <Link to="/vacatures/docent-percussie-en-talentontwikkeling/">
+                                    Docent Percussie & Talentontwikkeling
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/vacatures/projectleider-jeugd-en-talentontwikkeling/">
+                                    Projectleider Jeugd & Talentontwikkeling
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
 
                     <div className={styles.footerRowOne}>
