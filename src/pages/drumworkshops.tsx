@@ -159,6 +159,6 @@ export const Head: HeadFC = () => (
     <Seo
         title="Drumworkshops"
         pathname="/drumworkshops/"
-        description="Ontdek onze drumworkshops in Amsterdam Zuidoost voor kinderen en jongeren. Leer diverse ritmes en noten spelen, met optredens op lokale evenementen."
+        description="Ontdek onze drumworkshops in Amsterdam Zuidoost voor kinderen en jongeren. Leer diverse ritmes en noten spelen, met optredens op lokale, nationale én internationale evenementen."
     />
 );

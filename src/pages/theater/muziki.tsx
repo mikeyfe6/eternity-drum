@@ -66,4 +66,10 @@ const Muziki: React.FC<PageProps> = () => {
 
 export default Muziki;
 
-export const Head: HeadFC = () => <Seo title="Muziki" pathname="/theater/muziki/" />;
+export const Head: HeadFC = () => (
+    <Seo
+        title="Muziki"
+        pathname="/theater/muziki/"
+        description="In de muziekvoorstelling ‘Muziki’ laten de muzikanten van Eternity Percussion de evolutie zien van traditionele Afrikaanse percussie tot aan de hedendaagse Afro-Caribische marchingdrum."
+    />
+);

@@ -57,4 +57,10 @@ const Umuntu: React.FC<PageProps> = () => {
 
 export default Umuntu;
 
-export const Head: HeadFC = () => <Seo title="Umuntu" pathname="/theater/umuntu/" />;
+export const Head: HeadFC = () => (
+    <Seo
+        title="Umuntu"
+        pathname="/theater/umuntu/"
+        description="Umuntu is een muzikale theatervoorstelling over de impact van hedendaagse muzikale iconen op de ontwikkeling van een groep jongemannen op weg naar hun man zijn."
+    />
+);

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import type { HeadFC, PageProps } from "gatsby";
+import { HeadFC, PageProps, Link } from "gatsby";
 
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 
@@ -36,10 +36,10 @@ const Index: React.FC<PageProps> = () => {
                     maatschappelijke impact samenkomen.
                 </p>
                 <p>
-                    Vanuit Southeast Drum Academy (SEDA) creëren we ruimte voor makers, musici en jong talent om zich
-                    artistiek te ontwikkelen. We realiseren professionele producties, talentprogramma’s, festivals,
-                    cultuureducatie en internationale samenwerkingen en brengen Afro-Caribische muziek- en
-                    percussietradities naar podia in Nederland en daarbuiten.
+                    Vanuit <Link to="/seda/">Southeast Drum Academy (SEDA)</Link> creëren we ruimte voor makers, musici
+                    en jong talent om zich artistiek te ontwikkelen. We realiseren professionele producties,
+                    talentprogramma’s, festivals, cultuureducatie en internationale samenwerkingen en brengen
+                    Afro-Caribische muziek- en percussietradities naar podia in Nederland en daarbuiten.
                 </p>
             </section>
 

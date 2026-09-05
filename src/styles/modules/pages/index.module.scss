@@ -15,6 +15,10 @@
             margin-bottom: rem-calc(32);
             font-weight: 600;
         }
+
+        > a {
+            @include link;
+        }
     }
 
     @include phablet {

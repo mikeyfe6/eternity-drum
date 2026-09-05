@@ -29,4 +29,10 @@ const Nieuws: React.FC<PageProps> = () => {
 
 export default Nieuws;
 
-export const Head: HeadFC = () => <Seo title="Nieuws" pathname="/nieuws/" />;
+export const Head: HeadFC = () => (
+    <Seo
+        title="Nieuws"
+        pathname="/nieuws/"
+        description="Blijf op de hoogte van het laatste nieuws en updates van Eternity Percussion."
+    />
+);

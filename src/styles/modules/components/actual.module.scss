@@ -31,10 +31,11 @@
         &-controls {
             display: flex;
             flex-wrap: wrap;
-            gap: rem-calc(16);
+            gap: rem-calc(12);
 
             @include laptop {
                 min-width: 0;
+                gap: rem-calc(16);
             }
         }
 
