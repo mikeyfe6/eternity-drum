@@ -144,10 +144,18 @@ const fetchS3Files = async (bucketName: string, prefix: string, fileTypes: strin
     }
 };
 
+// Dev-only speedups: skip S3 image fetching entirely (GATSBY_SKIP_S3_IMAGES=true)
+// or cap how many images per gallery are downloaded/processed (GATSBY_DEV_IMAGE_LIMIT).
+const isDev = process.env.NODE_ENV !== 'production';
+const skipS3Images = isDev && process.env.GATSBY_SKIP_S3_IMAGES === 'true';
+const devImageLimit = isDev && process.env.GATSBY_DEV_IMAGE_LIMIT
+    ? Number.parseInt(process.env.GATSBY_DEV_IMAGE_LIMIT, 10)
+    : undefined;
+
 export const sourceNodes: GatsbyNode['sourceNodes'] = async ({ actions, createNodeId, createContentDigest, getCache }) => {
     const { createNode } = actions;
     const bucketName = process.env.GATSBY_AWS_EP_BUCKET_NAME ?? '';
-    const imagePrefixes = [
+    const imagePrefixes = skipS3Images ? [] : [
         'photos/swazoomlive-080723/',
         'photos/swazoomlive-031222/',
         'photos/bijlmeronstage-181222/',
@@ -163,7 +171,8 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({ actions, createNo
 
     for (const prefix of imagePrefixes) {
         const folderName = path.basename(prefix);
-        const files = await fetchS3Files(bucketName, prefix, imageFileTypes);
+        const allFiles = await fetchS3Files(bucketName, prefix, imageFileTypes);
+        const files = devImageLimit ? allFiles.slice(0, devImageLimit) : allFiles;
 
         for (const file of files) {
             const nodeId = createNodeId(`s3-image-file-${folderName}-${file.title}`);

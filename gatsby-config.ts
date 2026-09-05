@@ -101,7 +101,7 @@ const config: GatsbyConfig = {
 			resolve: `gatsby-plugin-sharp`,
 			options: {
 				defaults: {
-					placeholder: `blurred`,
+					placeholder: process.env.NODE_ENV === 'production' ? `blurred` : `none`,
 				},
 			},
 		},
