@@ -32,16 +32,23 @@ const Theater: React.FC<PageProps> = () => {
                     </p>
                     <p>
                         Met eigen producties als <Link to="/theater/umuntu/">Umuntu</Link>,{" "}
-                        <Link to="/theater/muziki/">Muziki</Link> en <Link to="/theater/kwasi-yaw/">Kwasi & Yaw</Link>{" "}
-                        heeft Eternity de afgelopen jaren een herkenbare artistieke praktijk binnen de podiumkunsten
-                        ontwikkeld.
+                        <Link to="/theater/muziki/">Muziki</Link> en{" "}
+                        <Link to="/theater/kwasi-en-yaw/">Kwasi & Yaw</Link> heeft Eternity de afgelopen jaren een
+                        herkenbare artistieke praktijk binnen de podiumkunsten ontwikkeld.
                     </p>
                     <h3>Coproducties & artistieke samenwerking</h3>
                     <p>
                         Eternity werkt daarnaast samen met andere makers en culturele organisaties aan professionele
-                        podiumproducties. Zo realiseerden Black Harmony, Untold en Eternity Percussion gezamenlijk het
-                        theaterconcert Nyan Faro (2025), waarin Afro-Surinaamse Winti-cultuur, muziek, dans en
-                        spiritualiteit samenkomen.
+                        podiumproducties. Zo realiseerden{" "}
+                        <a href="https://blackharmony.nl" target="_blank" rel="noopener noreferrer">
+                            Black Harmony
+                        </a>
+                        ,{" "}
+                        <a href="https://untold.nl" target="_blank" rel="noopener noreferrer">
+                            Untold
+                        </a>{" "}
+                        en Eternity Percussion gezamenlijk het theaterconcert Nyan Faro (2025), waarin Afro-Surinaamse
+                        Winti-cultuur, muziek, dans en spiritualiteit samenkomen.
                     </p>
                     <p>
                         Ook dragen musici van Eternity bij aan producties van samenwerkingspartners. Zo zijn muzikanten
