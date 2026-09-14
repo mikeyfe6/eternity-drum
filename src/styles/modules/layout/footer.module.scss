@@ -16,7 +16,7 @@
         @include container;
 
         @include mobile {
-            padding: rem-calc(64 24 0);
+            padding: rem-calc(64 32 0);
         }
 
         #{$footer}-top {

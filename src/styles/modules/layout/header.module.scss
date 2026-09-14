@@ -11,11 +11,7 @@
     &-banner {
         width: 100%;
         display: inline-block;
-        background: linear-gradient(
-            45deg,
-            $primary-color,
-            color.scale($primary-color, $lightness: 5%)
-        );
+        background: linear-gradient(45deg, $primary-color, color.scale($primary-color, $lightness: 5%));
 
         @include box-shadow("boxed");
 
@@ -227,10 +223,7 @@
                         right: 0;
                         top: 50%;
                         transform: translateY(-50%);
-                        background-color: color.adjust(
-                            $dark-grey,
-                            $alpha: -0.75
-                        );
+                        background-color: color.adjust($dark-grey, $alpha: -0.75);
                     }
 
                     &::before {
@@ -241,10 +234,7 @@
                         left: 0;
                         top: 50%;
                         transform: translateY(-50%);
-                        background-color: color.adjust(
-                            $dark-grey,
-                            $alpha: -0.75
-                        );
+                        background-color: color.adjust($dark-grey, $alpha: -0.75);
                     }
                 }
 
@@ -273,18 +263,28 @@
                         z-index: 2;
                         left: 50%;
                         transform: translateX(-50%);
-                        padding-top: rem-calc(39);
+                        padding-top: rem-calc(37);
                         background-color: $white-color;
                         min-width: 100%;
                         white-space: nowrap;
-                        border-right: 8px solid $white-color;
-                        border-bottom: 8px solid $white-color;
-                        border-left: 8px solid $white-color;
+                        // border-right: 8px solid $white-color;
+                        // border-bottom: 8px solid $white-color;
+                        // border-left: 8px solid $white-color;
                         border-bottom-left-radius: $border-radius-sm;
                         border-bottom-right-radius: $border-radius-sm;
                         overflow: hidden;
 
                         > li {
+                            border-right: rgba($dark-grey, 0.1) solid 1px;
+                            border-left: rgba($dark-grey, 0.1) solid 1px;
+                            overflow: hidden;
+
+                            &:last-child {
+                                border-bottom: rgba($dark-grey, 0.1) solid 1px;
+                                border-bottom-left-radius: $border-radius-sm;
+                                border-bottom-right-radius: $border-radius-sm;
+                            }
+
                             > a {
                                 font-size: rem-calc(20);
                                 font-family: $bebas-neue;

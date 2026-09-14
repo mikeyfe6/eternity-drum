@@ -329,8 +329,7 @@ const Footer = () => {
                         © 2002 – {new Date().getFullYear()} · <strong>{companyName}</strong> | {"</>"} by{" "}
                         <b>
                             <a href="https://menefex.nl" rel="noopener noreferrer" target="_blank">
-                                Menefex
-                                <img src={menefexLogo} alt="Menefex Logo" />
+                                Menefex <img src={menefexLogo} alt="Menefex Logo" />
                             </a>
                         </b>
                     </p>
