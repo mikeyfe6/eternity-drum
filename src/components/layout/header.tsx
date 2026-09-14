@@ -30,26 +30,18 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-            const headerBanner = document.querySelector(
-                `.${styles.headerBanner}`
-            );
-            const headerMenu = document.querySelector(
-                `.${styles.headerMenu}`
-            ) as HTMLElement;
-            const mainContent = document.querySelector(
-                ".eternity-wrapper"
-            ) as HTMLElement;
+            const headerBanner = document.querySelector(`.${styles.headerBanner}`);
+            const headerMenu = document.querySelector(`.${styles.headerMenu}`) as HTMLElement;
+            const mainContent = document.querySelector(".eternity-wrapper") as HTMLElement;
 
             setScrollY(currentScrollY);
 
             if (headerBanner) {
-                const headerBannerHeight = (headerBanner as HTMLElement)
-                    .offsetHeight;
+                const headerBannerHeight = (headerBanner as HTMLElement).offsetHeight;
 
                 if (currentScrollY > headerBannerHeight) {
                     if (mainContent) {
-                        mainContent.style.marginTop =
-                            window.innerWidth > 640 ? "125px" : "90px";
+                        mainContent.style.marginTop = window.innerWidth > 640 ? "125px" : "90px";
                     }
 
                     setIsHeaderFixed(true);
@@ -79,9 +71,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
         };
     }, []);
 
-    const menuSwitchClass = isHeaderFixed
-        ? `${styles.headerMenu} ${styles.fixedMenu}`
-        : styles.headerMenu;
+    const menuSwitchClass = isHeaderFixed ? `${styles.headerMenu} ${styles.fixedMenu}` : styles.headerMenu;
 
     return (
         <header className={styles.header}>
@@ -90,22 +80,12 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
                     <p>{slogan}</p>
                     <ul>
                         <li>
-                            <a
-                                href={facebookUrl}
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                aria-label="Facebook"
-                            >
+                            <a href={facebookUrl} rel="noopener noreferrer" target="_blank" aria-label="Facebook">
                                 <FontAwesomeIcon icon={["fab", "facebook"]} />
                             </a>
                         </li>
                         <li>
-                            <a
-                                href={instagramUrl}
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                aria-label="Instagram"
-                            >
+                            <a href={instagramUrl} rel="noopener noreferrer" target="_blank" aria-label="Instagram">
                                 <FontAwesomeIcon icon={["fab", "instagram"]} />
                             </a>
                         </li>
@@ -115,12 +95,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
 							</a>
 						</li> */}
                         <li>
-                            <a
-                                href={youtubeUrl}
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                aria-label="Youtube"
-                            >
+                            <a href={youtubeUrl} rel="noopener noreferrer" target="_blank" aria-label="Youtube">
                                 <FontAwesomeIcon icon={["fab", "youtube"]} />
                             </a>
                         </li>
@@ -173,10 +148,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
                         </Link>
                     </li>
                     <li>
-                        <Link
-                            to="/boeken/"
-                            activeClassName={styles.activeMenuItem}
-                        >
+                        <Link to="/boeken/" activeClassName={styles.activeMenuItem}>
                             Boeken
                         </Link>
                     </li>
@@ -191,28 +163,19 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
                         </Link>
                         <ul className={styles.children}>
                             <li>
-                                <Link
-                                    to="/drumworkshops/summerschool-2020/"
-                                    activeClassName={styles.activeMenuItem}
-                                >
+                                <Link to="/drumworkshops/summerschool-2020/" activeClassName={styles.activeMenuItem}>
                                     Eternity Summerschool 2020
                                 </Link>
                             </li>
                             <li>
-                                <Link
-                                    to="/drumworkshops/summerschool-2021/"
-                                    activeClassName={styles.activeMenuItem}
-                                >
+                                <Link to="/drumworkshops/summerschool-2021/" activeClassName={styles.activeMenuItem}>
                                     Eternity Summerschool 2021
                                 </Link>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <Link
-                            to="/cultuureducatie/"
-                            activeClassName={styles.activeMenuItem}
-                        >
+                        <Link to="/cultuureducatie/" activeClassName={styles.activeMenuItem}>
                             Cultuureducatie
                         </Link>
                     </li>
@@ -227,26 +190,17 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
                         </Link>
                         <ul className={styles.children}>
                             <li>
-                                <Link
-                                    to="/theater/kwasi-en-yaw/"
-                                    activeClassName={styles.activeMenuItem}
-                                >
+                                <Link to="/theater/kwasi-en-yaw/" activeClassName={styles.activeMenuItem}>
                                     Kwasi & Yaw
                                 </Link>
                             </li>
                             <li>
-                                <Link
-                                    to="/theater/muziki/"
-                                    activeClassName={styles.activeMenuItem}
-                                >
+                                <Link to="/theater/muziki/" activeClassName={styles.activeMenuItem}>
                                     Muziki
                                 </Link>
                             </li>
                             <li>
-                                <Link
-                                    to="/theater/umuntu/"
-                                    activeClassName={styles.activeMenuItem}
-                                >
+                                <Link to="/theater/umuntu/" activeClassName={styles.activeMenuItem}>
                                     Umuntu
                                 </Link>
                             </li>
@@ -263,10 +217,7 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
                         </Link>
                     </li>
                     <li>
-                        <Link
-                            to="/nieuws/"
-                            activeClassName={styles.activeMenuItem}
-                        >
+                        <Link to="/nieuws/" activeClassName={styles.activeMenuItem}>
                             Nieuws
                         </Link>
                     </li>
@@ -281,53 +232,34 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
                         </Link>
                         <ul className={styles.children}>
                             <li>
-                                <Link
-                                    to="/projecten/sankofa-academy/"
-                                    activeClassName={styles.activeMenuItem}
-                                >
+                                <Link to="/projecten/sankofa-academy/" activeClassName={styles.activeMenuItem}>
                                     Sankofa Academy
                                 </Link>
                             </li>
                             <li>
-                                <Link
-                                    to="/projecten/sankofa-school/"
-                                    activeClassName={styles.activeMenuItem}
-                                >
+                                <Link to="/projecten/sankofa-school/" activeClassName={styles.activeMenuItem}>
                                     Sankofa School
                                 </Link>
                             </li>
                             <li>
-                                <Link
-                                    to="/projecten/bijlmer-drum-festival/"
-                                    activeClassName={styles.activeMenuItem}
-                                >
+                                <Link to="/projecten/bijlmer-drum-festival/" activeClassName={styles.activeMenuItem}>
                                     Bijlmer Drum Festival
                                 </Link>
                             </li>
                             <li>
-                                <Link
-                                    to="/projecten/van-hobby-naar-succes/"
-                                    activeClassName={styles.activeMenuItem}
-                                >
+                                <Link to="/projecten/van-hobby-naar-succes/" activeClassName={styles.activeMenuItem}>
                                     Van Hobby Naar Succes
                                 </Link>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <Link
-                            to="/media/"
-                            activeClassName={styles.activeMenuItem}
-                        >
+                        <Link to="/media/" activeClassName={styles.activeMenuItem}>
                             Media
                         </Link>
                     </li>
                     <li>
-                        <Link
-                            to="/seda/"
-                            className={styles.special}
-                            activeClassName={styles.activeMenuItem}
-                        >
+                        <Link to="/seda/" className={styles.special} activeClassName={styles.activeMenuItem}>
                             Seda
                         </Link>
                     </li>
@@ -342,26 +274,22 @@ const Header: React.FC<HeaderProps> = ({ openMobileMenu }) => {
                         </Link>
                         <ul className={styles.children}>
                             <li>
-                                <Link
-                                    to="/over-ons/contact/"
-                                    activeClassName={styles.activeMenuItem}
-                                >
+                                <Link to="/over-ons/contact/" activeClassName={styles.activeMenuItem}>
                                     Contact
                                 </Link>
                             </li>
                             <li>
-                                <Link
-                                    to="/over-ons/vacatures/"
-                                    activeClassName={styles.activeMenuItem}
-                                >
+                                <Link to="/over-ons/vacatures/" activeClassName={styles.activeMenuItem}>
                                     Vacatures
                                 </Link>
                             </li>
                             <li>
-                                <Link
-                                    to="/over-ons/anbi/"
-                                    activeClassName={styles.activeMenuItem}
-                                >
+                                <Link to="/over-ons/slavernijverleden/" activeClassName={styles.activeMenuItem}>
+                                    Slavernijverleden
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/over-ons/anbi/" activeClassName={styles.activeMenuItem}>
                                     ANBI
                                 </Link>
                             </li>

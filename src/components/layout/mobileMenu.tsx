@@ -17,9 +17,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
     const [isSubMenu3Open, setIsSubMenu3Open] = useState(false);
     const [isSubMenu4Open, setIsSubMenu4Open] = useState(false);
 
-    const mobileMenuClass = isOpen
-        ? `${styles.mobileMenu} ${styles.open}`
-        : `${styles.mobileMenu} ${styles.close}`;
+    const mobileMenuClass = isOpen ? `${styles.mobileMenu} ${styles.open}` : `${styles.mobileMenu} ${styles.close}`;
 
     const handleMenuItemClick = () => {
         closeMenu();
@@ -49,20 +47,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
             </div>
             <ul>
                 <li>
-                    <Link
-                        to="/"
-                        activeClassName={styles.activeMenuItem}
-                        onClick={handleMenuItemClick}
-                    >
+                    <Link to="/" activeClassName={styles.activeMenuItem} onClick={handleMenuItemClick}>
                         Home
                     </Link>
                 </li>
                 <li>
-                    <Link
-                        to="/boeken/"
-                        activeClassName={styles.activeMenuItem}
-                        onClick={handleMenuItemClick}
-                    >
+                    <Link to="/boeken/" activeClassName={styles.activeMenuItem} onClick={handleMenuItemClick}>
                         Boeken
                     </Link>
                 </li>
@@ -78,14 +68,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
                     <button
                         onClick={toggleSubMenu1}
                         style={{
-                            backgroundColor: isSubMenu1Open
-                                ? "#f6ce0e"
-                                : "#fff",
+                            backgroundColor: isSubMenu1Open ? "#f6ce0e" : "#fff",
                         }}
                     >
-                        <FontAwesomeIcon
-                            icon={`caret-${isSubMenu1Open ? "up" : "down"}`}
-                        />
+                        <FontAwesomeIcon icon={`caret-${isSubMenu1Open ? "up" : "down"}`} />
                     </button>
                     {isSubMenu1Open && (
                         <ul>
@@ -111,11 +97,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
                     )}
                 </li>
                 <li>
-                    <Link
-                        to="/cultuureducatie/"
-                        activeClassName={styles.activeMenuItem}
-                        onClick={handleMenuItemClick}
-                    >
+                    <Link to="/cultuureducatie/" activeClassName={styles.activeMenuItem} onClick={handleMenuItemClick}>
                         Cultuureducatie
                     </Link>
                 </li>
@@ -131,14 +113,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
                     <button
                         onClick={toggleSubMenu2}
                         style={{
-                            backgroundColor: isSubMenu2Open
-                                ? "#f6ce0e"
-                                : "#fff",
+                            backgroundColor: isSubMenu2Open ? "#f6ce0e" : "#fff",
                         }}
                     >
-                        <FontAwesomeIcon
-                            icon={`caret-${isSubMenu2Open ? "up" : "down"}`}
-                        />
+                        <FontAwesomeIcon icon={`caret-${isSubMenu2Open ? "up" : "down"}`} />
                     </button>
                     {isSubMenu2Open && (
                         <ul>
@@ -194,14 +172,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
                     <button
                         onClick={toggleSubMenu3}
                         style={{
-                            backgroundColor: isSubMenu3Open
-                                ? "#f6ce0e"
-                                : "#fff",
+                            backgroundColor: isSubMenu3Open ? "#f6ce0e" : "#fff",
                         }}
                     >
-                        <FontAwesomeIcon
-                            icon={`caret-${isSubMenu3Open ? "up" : "down"}`}
-                        />
+                        <FontAwesomeIcon icon={`caret-${isSubMenu3Open ? "up" : "down"}`} />
                     </button>
                     {isSubMenu3Open && (
                         <ul>
@@ -245,11 +219,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
                     )}
                 </li>
                 <li>
-                    <Link
-                        to="/media/"
-                        activeClassName={styles.activeMenuItem}
-                        onClick={handleMenuItemClick}
-                    >
+                    <Link to="/media/" activeClassName={styles.activeMenuItem} onClick={handleMenuItemClick}>
                         Media
                     </Link>
                 </li>
@@ -275,14 +245,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
                     <button
                         onClick={toggleSubMenu4}
                         style={{
-                            backgroundColor: isSubMenu4Open
-                                ? "#f6ce0e"
-                                : "#fff",
+                            backgroundColor: isSubMenu4Open ? "#f6ce0e" : "#fff",
                         }}
                     >
-                        <FontAwesomeIcon
-                            icon={`caret-${isSubMenu4Open ? "up" : "down"}`}
-                        />
+                        <FontAwesomeIcon icon={`caret-${isSubMenu4Open ? "up" : "down"}`} />
                     </button>
                     {isSubMenu4Open && (
                         <ul>
@@ -302,6 +268,15 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, closeMenu }) => {
                                     onClick={handleMenuItemClick}
                                 >
                                     Vacatures
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/over-ons/slavernijverleden/"
+                                    activeClassName={styles.activeMenuItem}
+                                    onClick={handleMenuItemClick}
+                                >
+                                    Slavernijverleden
                                 </Link>
                             </li>
                             <li>

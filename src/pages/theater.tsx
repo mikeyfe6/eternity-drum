@@ -67,4 +67,10 @@ const Theater: React.FC<PageProps> = () => {
 
 export default Theater;
 
-export const Head: HeadFC = () => <Seo title="Theater" pathname="/theater/" />;
+export const Head: HeadFC = () => (
+    <Seo
+        title="Theater"
+        pathname="/theater/"
+        description="Eternity creëert theater en podiumkunst waarin percussie, muziek, dans en verhalen samenkomen en Afro-Caribische identiteit, erfgoed en inspiratie levend worden gebracht."
+    />
+);
