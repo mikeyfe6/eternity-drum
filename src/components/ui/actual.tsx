@@ -19,6 +19,10 @@ const Actualiteiten: React.FC = () => {
 
     const buttons = [
         <>
+            <span>Artikel</span>
+            <p>Onderscheiding Orlando Ceder</p>
+        </>,
+        <>
             <span>Vacature</span>
             <p>Docent Percussie & Talentontwikkeling</p>
         </>,
@@ -61,6 +65,7 @@ const Actualiteiten: React.FC = () => {
     ];
 
     const buttonKeys = [
+        "onderscheiding-orlando-ceder",
         "docent-percussie-talentontwikkeling",
         "projectleider-jeugd-talentontwikkeling",
         "notting-hill-carnival",
@@ -80,6 +85,24 @@ const Actualiteiten: React.FC = () => {
             case 0:
                 return (
                     <div>
+                        <h3>Onderscheiding Orlando Ceder</h3>
+                        <p>
+                            Artistiek directeur Orlando Ceder ontvangt Koninklijke onderscheiding voor zijn jarenlange
+                            inzet voor muziek, talentontwikkeling en Afro-Surinaams cultureel erfgoed.
+                        </p>
+                        <span>- Bron: Jan van Zanen</span>
+                        <a
+                            href="https://janvanzanen.denhaag.nl/koninklijke-onderscheiding-voor-orlando-ceder/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            Lees het artikel
+                        </a>
+                    </div>
+                );
+            case 1:
+                return (
+                    <div>
                         <h3>Vacature: Docent Percussie & Talentontwikkeling</h3>
                         <p>
                             Maak muziek die jonge mensen in beweging brengt. Geef percussielessen, bouw mee aan talent
@@ -88,7 +111,7 @@ const Actualiteiten: React.FC = () => {
                         <Link to="/over-ons/vacatures/docent-percussie-en-talentontwikkeling/">Zie vacature</Link>
                     </div>
                 );
-            case 1:
+            case 2:
                 return (
                     <div>
                         <h3>Vacature: Projectleider Jeugd & Talentontwikkeling</h3>
@@ -99,7 +122,7 @@ const Actualiteiten: React.FC = () => {
                         <Link to="/over-ons/vacatures/projectleider-jeugd-en-talentontwikkeling/">Zie vacature</Link>
                     </div>
                 );
-            case 2:
+            case 3:
                 return (
                     <div>
                         <img
@@ -129,9 +152,9 @@ const Actualiteiten: React.FC = () => {
                         </a>
                     </div>
                 );
-            case 3:
-                return <YouTubePlayer videoId="5lMEV6HLFQQ" />;
             case 4:
+                return <YouTubePlayer videoId="5lMEV6HLFQQ" />;
+            case 5:
                 return (
                     <div>
                         <p>
@@ -146,7 +169,7 @@ const Actualiteiten: React.FC = () => {
                         <Link to="/projecten/sankofa-academy/">Leer meer</Link>
                     </div>
                 );
-            case 5:
+            case 6:
                 return (
                     <div>
                         <p>
@@ -156,7 +179,7 @@ const Actualiteiten: React.FC = () => {
                         <Link to="/drumworkshops/summerschool-2021/">Leer meer</Link>
                     </div>
                 );
-            case 6:
+            case 7:
                 return (
                     <div>
                         <p>"Building Strong Communities: op zoek naar het verleden."</p>
@@ -170,7 +193,7 @@ const Actualiteiten: React.FC = () => {
                         </a>
                     </div>
                 );
-            case 7:
+            case 8:
                 return (
                     <div>
                         <p>"Drum Academy: eindelijk kunnen drumbands weer decibellen maken."</p>
@@ -184,14 +207,14 @@ const Actualiteiten: React.FC = () => {
                         </a>
                     </div>
                 );
-            case 8:
+            case 9:
                 return (
                     <div>
                         <p>Percussionband Eternity, Untold Empowerment & Black Harmony geven gratis workshops!</p>
                         <Link to="/drumworkshops/summerschool-2020/">Lees meer</Link>
                     </div>
                 );
-            case 9:
+            case 10:
                 return (
                     <div className={styles.collapsibleImages}>
                         {rotpF && <LightBox image={rotpF} alt="Rite Of The Passage Artikel (voorkant)" />}

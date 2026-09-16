@@ -127,5 +127,5 @@ interface SeoContext {
 
 export const Head: React.FC<HeadProps> = ({ pageContext }) => {
     const pageTitle = (pageContext as SeoContext)?.jobTitle || "";
-    return <Seo title={pageTitle} />;
+    return <Seo title={`Vacature: ${pageTitle}`} />;
 };
